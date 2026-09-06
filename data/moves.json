@@ -79,4 +79,28 @@
     "accuracy": 100,
     "pp": 20
   }
+  "gust": {
+    "name": "Gust",
+    "type": "Flying",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 35
+  },
+  "sand_attack": {
+    "name": "Sand Attack",
+    "type": "Ground",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 15
+  },
+  "quick_attack": {
+    "name": "Quick Attack",
+    "type": "Normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 30
+  }
 }
