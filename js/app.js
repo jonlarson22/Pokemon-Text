@@ -214,6 +214,12 @@ class GameEngine {
       }
     }
 
+    // Bind battle bag button
+    const battleBagBtn = document.getElementById('btn-battle-bag');
+    if (battleBagBtn) {
+      battleBagBtn.onclick = () => this.openBag();
+    }
+
     this.setMenuState('battle');
   }
 
@@ -228,11 +234,6 @@ class GameEngine {
     }
   }
 
-const bagBtn = document.getElementById('btn-bag');
-    if (bagBtn) {
-      bagBtn.onclick = () => this.openBag();
-    }
-  
   // --- EVENT LISTENERS ---
   bindListeners() {
     document.getElementById('btn-encounter')?.addEventListener('click', () => {
@@ -288,6 +289,34 @@ const bagBtn = document.getElementById('btn-bag');
     });
   }
 
+  // --- BAG / ITEM LOGIC ---
+  openBag() {
+    const potions = this.gameState.inventory["Potion"] || 0;
+    
+    if (potions <= 0) {
+      this.printToLog("Your bag is empty!");
+      return;
+    }
+
+    const lead = this.gameState.party[0];
+    if (lead.hp >= lead.maxHp) {
+      this.printToLog(`${lead.species} is already at full health!`);
+      return;
+    }
+
+    // Use a Potion!
+    this.gameState.inventory["Potion"]--;
+    const healAmount = 20;
+    lead.hp = Math.min(lead.maxHp, lead.hp + healAmount);
+    
+    this.printToLog(`Used a Potion! Restored ${lead.species}'s health.`);
+    this.updatePartyUI();
+
+    if (this.gameState.activeBattle && !this.gameState.activeBattle.isOver) {
+      this.printToLog("The wild Pokémon attacks while your guard is down!");
+    }
+  }
+
   // --- SAVE SYSTEM ---
   handleSaveLoad() {
     const choice = window.confirm("Click OK to Export your save string.\nClick Cancel to Import a save string.");
@@ -337,36 +366,7 @@ const bagBtn = document.getElementById('btn-bag');
       this.printToLog("Error: Failed to load save. The string might be corrupted.");
     }
   }
-} // <--- End of GameEngine Class
-
-openBag() {
-    const potions = this.gameState.inventory["Potion"] || 0;
-    
-    if (potions <= 0) {
-      this.printToLog("Your bag is empty!");
-      return;
-    }
-
-    const lead = this.gameState.party[0];
-    if (lead.hp >= lead.maxHp) {
-      this.printToLog(`${lead.species} is already at full health!`);
-      return;
-    }
-
-    // Use a Potion!
-    this.gameState.inventory["Potion"]--;
-    const healAmount = 20;
-    lead.hp = Math.min(lead.maxHp, lead.hp + healAmount);
-    
-    this.printToLog(`Used a Potion! Restored ${lead.species}'s health.`);
-    this.updatePartyUI();
-
-    // If we used it during a battle, using an item consumes your turn! Enemy attacks back:
-    if (this.gameState.activeBattle && !this.gameState.activeBattle.isOver) {
-      this.printTolog("The wild Pokémon attacks while your guard is down!");
-      // Simulate enemy turn continuation if needed, or let the battle engine handle turn flow
-    }
-  }
+}
 
 // Instantiate and initialize
 const game = new GameEngine();
