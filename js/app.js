@@ -61,6 +61,7 @@ class GameEngine {
     
     return {
       species: baseData.name,
+      types: baseData.types,
       level: level,
       hp: hp,
       maxHp: hp,
