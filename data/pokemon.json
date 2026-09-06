@@ -1,5 +1,6 @@
 {
   "bulbasaur": {
+    "pokedexNumber": 1,
     "id": "bulbasaur",
     "name": "Bulbasaur",
     "types": ["Grass", "Poison"],
@@ -14,6 +15,7 @@
     "moves": ["tackle", "growl", "vine_whip", "leech_seed"]
   },
   "charmander": {
+    "pokedexNumber": 4,
     "id": "charmander",
     "name": "Charmander",
     "types": ["Fire"],
@@ -28,6 +30,7 @@
     "moves": ["scratch", "growl", "ember", "smokescreen"]
   },
   "squirtle": {
+    "pokedexNumber": 7,
     "id": "squirtle",
     "name": "Squirtle",
     "types": ["Water"],
@@ -42,6 +45,7 @@
     "moves": ["tackle", "tail_whip", "bubble", "water_gun"]
   },
   "pidgey": {
+    "pokedexNumber": 16,
     "id": "pidgey",
     "name": "Pidgey",
     "types": ["Normal", "Flying"],
@@ -56,6 +60,7 @@
     "moves": ["tackle", "sand_attack", "gust"]
   },
   "rattata": {
+    "pokedexNumber": 19,
     "id": "rattata",
     "name": "Rattata",
     "types": ["Normal"],
