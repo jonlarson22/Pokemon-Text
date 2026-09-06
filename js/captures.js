@@ -83,7 +83,7 @@ export class CaptureSystem {
     }
 
     // End battle and return to route
-    battle.isOver = true;
+    this.app.gameState.activeBattle.isOver = true;
     setTimeout(() => {
       this.app.updatePartyUI();
       this.app.setMenuState('route');
