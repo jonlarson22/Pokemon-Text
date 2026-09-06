@@ -5,7 +5,8 @@ import { CaptureSystem } from './captures.js';
 class GameEngine {
   constructor() {
     this.gameState = {
-      currentRoute: "route1",
+      currentRoute: "pallet_town",
+      hasStarter: false,
       flags: {},
       defeatedTrainers: {},
       party: [],
@@ -44,46 +45,22 @@ class GameEngine {
     this.db.typeChart = await typesRes.json();
     this.db.items = await itemsRes.json();
     this.db.shops = await shopsRes.json();
-    
-    this.checkGameStart(); // This handles rendering and logic automatically
-
     this.bindListeners();
+    this.checkGameStart();
   }
 
-  checkGameStart() {
-    // Check if they already have a Pokémon
+checkGameStart() {
     if (!this.gameState.hasStarter || this.gameState.party.length === 0) {
-      this.printToLog("Welcome to the world of Pokémon! Please choose your first partner.");
+      this.printToLog("Welcome to the world of Pokémon!");
+      this.printToLog("Please choose your first partner.");
       this.setMenuState('starter');
     } else {
+      this.renderRouteScreen();
+      this.updatePartyUI();
       this.setMenuState('route');
     }
   }
 
-  pickStarter(speciesId) {
-    const speciesData = this.db.pokemon[speciesId];
-    
-    // Generate a fresh Level 5 Pokémon
-    const starter = {
-      species: speciesData.name,
-      id: speciesData.id,
-      level: 5,
-      hp: speciesData.baseStats.hp, // Simplified for now; normally calculated with IVs/EVs
-      maxHp: speciesData.baseStats.hp,
-      types: speciesData.types,
-      moves: [...speciesData.moves].slice(0, 4), // Give them up to 4 starting moves
-      exp: 0,
-      maxExp: 500
-    };
-
-    this.gameState.party.push(starter);
-    this.gameState.hasStarter = true;
-    
-    this.printToLog(`You chose ${starter.species}! A fantastic choice.`);
-    this.updatePartyUI();
-    this.setMenuState('route');
-  }
-  
   generatePokemonInstance(speciesId, level) {
     const safeId = speciesId.toLowerCase(); 
     const baseData = this.db.pokemon[safeId];
@@ -93,23 +70,55 @@ class GameEngine {
       return null;
     }
 
-    const hp = Math.floor((2 * baseData.baseStats.hp * level) / 100) + level + 10;
+    // Generate random IVs (0-31 for each stat)
+    const ivs = {
+      hp: Math.floor(Math.random() * 32),
+      attack: Math.floor(Math.random() * 32),
+      defense: Math.floor(Math.random() * 32),
+      spAtk: Math.floor(Math.random() * 32),
+      spDef: Math.floor(Math.random() * 32),
+      speed: Math.floor(Math.random() * 32)
+    };
+
+    // Standard Pokémon stat formula
+    const calcStat = (base, iv, lvl, isHP) => {
+      if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;
+      return Math.floor(((2 * base + iv) * lvl) / 100) + 5;
+    };
+
+    const hp = calcStat(baseData.baseStats.hp, ivs.hp, level, true);
     
     return {
       species: baseData.name,
+      id: safeId,
       types: baseData.types,
       level: level,
       hp: hp,
       maxHp: hp,
-      speed: Math.floor((2 * baseData.baseStats.speed * level) / 100) + 5,
+      ivs: ivs, // Saving these in case you ever want an "IV Checker" NPC!
+      speed: calcStat(baseData.baseStats.speed, ivs.speed, level, false),
       stats: {
-        attack: Math.floor((2 * baseData.baseStats.attack * level) / 100) + 5,
-        defense: Math.floor((2 * baseData.baseStats.defense * level) / 100) + 5,
-        spAtk: Math.floor((2 * baseData.baseStats.spAtk * level) / 100) + 5,
-        spDef: Math.floor((2 * baseData.baseStats.spDef * level) / 100) + 5,
+        attack: calcStat(baseData.baseStats.attack, ivs.attack, level, false),
+        defense: calcStat(baseData.baseStats.defense, ivs.defense, level, false),
+        spAtk: calcStat(baseData.baseStats.spAtk, ivs.spAtk, level, false),
+        spDef: calcStat(baseData.baseStats.spDef, ivs.spDef, level, false),
       },
-      moves: baseData.moves.map(moveId => this.db.moves[moveId]).filter(Boolean)
+      moves: baseData.moves.slice(0, 4).map(moveId => this.db.moves[moveId]).filter(Boolean),
+      exp: 0,
+      maxExp: level * 100
     };
+  }
+
+  pickStarter(speciesId) {
+    // Generate starter using the real math and IVs!
+    const starter = this.generatePokemonInstance(speciesId, 5);
+    
+    this.gameState.party.push(starter);
+    this.gameState.hasStarter = true;
+    
+    this.printToLog(`You chose ${starter.species}! A fantastic choice.`);
+    this.saveGameLocal(); // Auto-save!
+    this.checkGameStart(); // Re-runs the start check to load the route
   }
 
   updateMoneyUI() {
@@ -376,6 +385,10 @@ class GameEngine {
       }
     });
 
+    document.getElementById('btn-pokemon')?.addEventListener('click', () => {
+      this.openPokemonMenu();
+    });
+    
     document.getElementById('btn-fight')?.addEventListener('click', () => {
       const route = this.db.routes[this.gameState.currentRoute];
       
@@ -425,7 +438,7 @@ class GameEngine {
     });
 
     document.getElementById('btn-save')?.addEventListener('click', () => {
-      this.handleSaveLoad();
+      this.();
     });
 
     document.getElementById('btn-bag')?.addEventListener('click', () => {
@@ -480,11 +493,45 @@ class GameEngine {
   }
 
   handleSaveLoad() {
-    const choice = window.confirm("Click OK to Export your save string.\nClick Cancel to Import a save string.");
-    if (choice) {
-      this.exportSave();
-    } else {
-      this.importSave();
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center;"><strong>Save / Load Manager</strong></p>';
+    controls.innerHTML = '';
+
+    this.buildMenuControls(controls, [
+      { text: "Save Game (Local)", action: () => this.saveGameLocal() },
+      { text: "Load Game (Local)", action: () => this.loadGameLocal() },
+      { text: "Export Save (String)", action: () => this.exportSave() },
+      { text: "Import Save (String)", action: () => this.importSave() },
+      { text: "Close", action: () => this.setMenuState('system') }
+    ]);
+  }
+
+  saveGameLocal() {
+    try {
+      localStorage.setItem('pkmnSaveData', JSON.stringify(this.gameState));
+      this.printToLog("Game saved locally!");
+    } catch (e) {
+      this.printToLog("Error saving game to local storage.");
+    }
+  }
+
+  loadGameLocal() {
+    try {
+      const saveString = localStorage.getItem('pkmnSaveData');
+      if (saveString) {
+        this.gameState = JSON.parse(saveString);
+        this.renderRouteScreen();
+        this.updatePartyUI();
+        this.updateMoneyUI();
+        this.setMenuState('route');
+        this.printToLog("Game loaded from local storage!");
+      } else {
+        this.printToLog("No local save found.");
+      }
+    } catch (e) {
+      this.printToLog("Error loading local save data.");
     }
   }
 
@@ -606,6 +653,33 @@ class GameEngine {
     });
   }
 
+  openPokemonMenu() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    this.gameState.party.forEach((mon) => {
+      const pbox = document.createElement('div');
+      pbox.style.border = "1px solid #ccc";
+      pbox.style.padding = "8px";
+      pbox.style.marginBottom = "8px";
+      
+      pbox.innerHTML = `
+        <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
+        HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
+        Atk: ${mon.stats.attack} | Def: ${mon.stats.defense} | SpA: ${mon.stats.spAtk} | SpD: ${mon.stats.spDef} | Spd: ${mon.speed}<br>
+        Moves: ${mon.moves.map(m => m.name).join(', ')}
+      `;
+      content.appendChild(pbox);
+    });
+
+    this.buildMenuControls(controls, [
+      { text: "Close", action: () => this.setMenuState('system') }
+    ]);
+  }
+  
   buildMenuControls(container, buttons) {
     buttons.forEach(b => {
       const btn = document.createElement('button');
