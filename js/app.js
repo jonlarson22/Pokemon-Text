@@ -9,7 +9,7 @@ class GameEngine {
       defeatedTrainers: {},
       party: [],
       money: 3000,
-      inventory: { "Potion": 1 },
+      inventory: { "potion": 1 },
       pokedex: { seen: {}, caught: {} },
       activeBattle: null
     };
@@ -84,6 +84,13 @@ class GameEngine {
   }
 
   // --- DOM & UI UTILITIES ---
+  updateMoneyUI() {
+    const moneyEl = document.getElementById('money-count');
+    if (moneyEl) {
+      moneyEl.textContent = `Money: ¥${this.gameState.money}`;
+    }
+  }
+  
   printToLog(message) {
     const display = document.getElementById('display-area');
     if (!display) return;
@@ -115,19 +122,16 @@ class GameEngine {
     if (centerBtn) {
       centerBtn.style.display = route.hasCenter ? "block" : "none";
       centerBtn.onclick = () => {
-        this.gameState.party.forEach(p => p.hp = p.maxHp);
-        this.updatePartyUI();
-        this.printToLog(`Welcome to the Pokémon Center! Your party was fully healed.`);
+        this.openCenter();
       };
     }
 
     if (shopBtn) {
       shopBtn.style.display = route.hasShop ? "block" : "none";
       shopBtn.onclick = () => {
-        this.printToLog("The Poké Mart stock is currently being unpacked!");
+        this.openShop();
       };
     }
-  }
 
   // --- UI MENU CONTROLS ---
   setMenuState(menuName) {
@@ -135,6 +139,7 @@ class GameEngine {
     document.getElementById('system-menu').style.display = 'none';
     document.getElementById('travel-menu').style.display = 'none';
     document.getElementById('battle-actions').style.display = 'none';
+    document.getElementById('dynamic-menu').style.display = 'none';
 
     if (menuName === 'route') {
       document.getElementById('route-actions').style.display = 'grid';
@@ -145,6 +150,8 @@ class GameEngine {
       this.populateTravelMenu();
     } else if (menuName === 'battle') {
       document.getElementById('battle-actions').style.display = 'grid';
+    } else if (menuName === 'dynamic') {
+      document.getElementById('dynamic-menu').style.display = 'flex';
     }
   }
 
@@ -493,6 +500,183 @@ startTrainerBattle(enemyMon, trainer) {
     }
   }
 }
+
+// --- POKEMON CENTER LOGIC ---
+  openCenter() {
+    this.setMenuState('dynamic');
+    this.printToLog("Welcome to the Pokémon Center!");
+    this.renderCenterMenu();
+  }
+
+  renderCenterMenu() {
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    // Populate Controls
+    this.buildMenuControls(controls, [
+      { text: "Heal Party", action: () => {
+          this.gameState.party.forEach(p => p.hp = p.maxHp);
+          this.updatePartyUI();
+          this.printToLog("Your Pokémon are fully healed!");
+      }},
+      { text: "PC: Deposit", action: () => this.renderPCDeposit() },
+      { text: "PC: Withdraw", action: () => this.renderPCWithdraw() },
+      { text: "Exit", action: () => { this.printToLog("We hope to see you again!"); this.setMenuState('route'); } }
+    ]);
+  }
+
+  renderPCDeposit() {
+    const content = document.getElementById('dynamic-content');
+    content.innerHTML = '';
+    this.printToLog("Select a Pokémon to deposit.");
+
+    this.gameState.party.forEach((mon, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Deposit ${mon.species} (Lv. ${mon.level})`;
+      btn.onclick = () => {
+        if (this.gameState.party.length <= 1) {
+          this.printToLog("You can't deposit your last Pokémon!");
+          return;
+        }
+        const deposited = this.gameState.party.splice(index, 1)[0];
+        this.gameState.pc.pokemon.push(deposited);
+        this.updatePartyUI();
+        this.printToLog(`Deposited ${deposited.species} in the PC.`);
+        this.renderPCDeposit(); // Refresh list
+      };
+      content.appendChild(btn);
+    });
+  }
+
+  renderPCWithdraw() {
+    const content = document.getElementById('dynamic-content');
+    content.innerHTML = '';
+    
+    if (this.gameState.pc.pokemon.length === 0) {
+      this.printToLog("Your PC Box is empty.");
+      return;
+    }
+
+    this.printToLog("Select a Pokémon to withdraw.");
+
+    this.gameState.pc.pokemon.forEach((mon, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Withdraw ${mon.species} (Lv. ${mon.level})`;
+      btn.onclick = () => {
+        if (this.gameState.party.length >= 6) {
+          this.printToLog("Your party is full!");
+          return;
+        }
+        const withdrawn = this.gameState.pc.pokemon.splice(index, 1)[0];
+        this.gameState.party.push(withdrawn);
+        this.updatePartyUI();
+        this.printToLog(`Withdrew ${withdrawn.species} from the PC.`);
+        this.renderPCWithdraw(); // Refresh list
+      };
+      content.appendChild(btn);
+    });
+  }
+
+  // Helper for generating the bottom control buttons in the dynamic menu
+  buildMenuControls(container, buttons) {
+    buttons.forEach(b => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.style.flex = "1";
+      btn.textContent = b.text;
+      btn.onclick = b.action;
+      container.appendChild(btn);
+    });
+  }
+
+// --- SHOP LOGIC ---
+  openShop() {
+    this.setMenuState('dynamic');
+    this.renderBuyMenu();
+  }
+
+  renderBuyMenu() {
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    const shopData = this.db.shops[this.gameState.currentRoute];
+
+    if (!shopData) {
+      this.printToLog("This shop is currently closed.");
+      setTimeout(() => this.setMenuState('route'), 1500);
+      return;
+    }
+
+    this.printToLog("Welcome to the Poké Mart! What would you like to buy?");
+
+    // Populate Buy List
+    shopData.forEach(itemInfo => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `${itemInfo.item} - ¥${itemInfo.price}`;
+      btn.onclick = () => {
+        if (this.gameState.money >= itemInfo.price) {
+          this.gameState.money -= itemInfo.price;
+          this.gameState.inventory[itemInfo.item] = (this.gameState.inventory[itemInfo.item] || 0) + 1;
+          this.updateMoneyUI();
+          this.printToLog(`You bought a ${itemInfo.item}!`);
+        } else {
+          this.printToLog(`You don't have enough money for a ${itemInfo.item}.`);
+        }
+      };
+      content.appendChild(btn);
+    });
+
+    // Populate Controls
+    this.buildMenuControls(controls, [
+      { text: "Buy", action: () => this.renderBuyMenu() },
+      { text: "Sell", action: () => this.renderSellMenu() },
+      { text: "Exit", action: () => { this.printToLog("Come again!"); this.setMenuState('route'); } }
+    ]);
+  }
+
+  renderSellMenu() {
+    const content = document.getElementById('dynamic-content');
+    content.innerHTML = '';
+    this.printToLog("What would you like to sell?");
+
+    const inventoryEntries = Object.entries(this.gameState.inventory).filter(([_, count]) => count > 0);
+
+    if (inventoryEntries.length === 0) {
+      const p = document.createElement('p');
+      p.textContent = "Your bag is empty.";
+      p.style.textAlign = "center";
+      content.appendChild(p);
+      return;
+    }
+
+    inventoryEntries.forEach(([item, count]) => {
+      // Find base price by scanning all shops to calculate the 50% sell value
+      let basePrice = 100; // Fallback
+      const globalShopSearch = Object.values(this.db.shops).flat().find(s => s.item === item);
+      if (globalShopSearch) basePrice = globalShopSearch.price;
+      
+      const sellPrice = Math.floor(basePrice / 2);
+
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Sell ${item} (x${count}) - ¥${sellPrice}`;
+      btn.onclick = () => {
+        this.gameState.inventory[item]--;
+        this.gameState.money += sellPrice;
+        this.updateMoneyUI();
+        this.printToLog(`You sold a ${item} for ¥${sellPrice}!`);
+        this.renderSellMenu(); // Refresh the list
+      };
+      content.appendChild(btn);
+    });
+  }
 
 // Instantiate and initialize
 const game = new GameEngine();
