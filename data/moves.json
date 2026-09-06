@@ -1,0 +1,23 @@
+{
+  "scratch": {
+    "name": "Scratch",
+    "type": "Normal",
+    "category": "physical",
+    "power": 40,
+    "accuracy": 100
+  },
+  "ember": {
+    "name": "Ember",
+    "type": "Fire",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100
+  },
+  "growl": {
+    "name": "Growl",
+    "type": "Normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100
+  }
+}
