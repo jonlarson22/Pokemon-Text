@@ -51,7 +51,7 @@ export class CaptureSystem {
   }
 
   successCapture(enemy, speciesData) {
-    this.app.printTolog(`Gotcha! ${enemy.name} was caught!`);
+    this.app.printToLog(`Gotcha! ${enemy.name} was caught!`);
 
     // Record in Pokedex
     this.app.gameState.pokedex.caught[enemy.id] = true;
