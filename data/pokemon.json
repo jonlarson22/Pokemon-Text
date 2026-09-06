@@ -1,16 +1,44 @@
 {
-  "charmander": {
-    "species": "Charmander",
-    "level": 5,
-    "hp": 19,
-    "maxHp": 19,
-    "stats": {
-      "attack": 11,
-      "defense": 10,
-      "spAtk": 12,
-      "spDef": 10,
-      "speed": 13
+  "bulbasaur": {
+    "id": "bulbasaur",
+    "name": "Bulbasaur",
+    "types": ["Grass", "Poison"],
+    "baseStats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "spAtk": 65,
+      "spDef": 65,
+      "speed": 45
     },
-    "moves": ["scratch", "ember"]
+    "moves": ["tackle", "growl", "vine_whip", "leech_seed"]
+  },
+  "charmander": {
+    "id": "charmander",
+    "name": "Charmander",
+    "types": ["Fire"],
+    "baseStats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "spAtk": 60,
+      "spDef": 50,
+      "speed": 65
+    },
+    "moves": ["scratch", "growl", "ember", "smokescreen"]
+  },
+  "squirtle": {
+    "id": "squirtle",
+    "name": "Squirtle",
+    "types": ["Water"],
+    "baseStats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "spAtk": 50,
+      "spDef": 64,
+      "speed": 43
+    },
+    "moves": ["tackle", "tail_whip", "bubble", "water_gun"]
   }
 }
