@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Text</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="game-container">
+    <header id="status-bar">
+      <div id="location-name">Route 1</div>
+      <div id="badge-count">Badges: 0/8</div>
+    </header>
+
+    <main id="display-area">
+      <p class="log-entry">Welcome to the Kanto region!</p>
+      <p class="log-entry">You are on Route 1, a peaceful path connecting Pallet Town and Viridian City.</p>
+    </main>
+
+    <section id="party-bar">
+      <span class="party-label">Party:</span>
+      <span id="party-list">Charmander (Lv. 5)</span>
+    </section>
+
+    <nav id="action-menu">
+      <button id="btn-encounter" class="btn">Encounter</button>
+      <button id="btn-fight" class="btn">Fight</button>
+      <button id="btn-explore" class="btn">Explore</button>
+      <button id="btn-travel" class="btn">Travel</button>
+      <button id="btn-menu" class="btn secondary">Menu</button>
+    </nav>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
