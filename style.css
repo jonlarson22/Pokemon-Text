@@ -16,7 +16,6 @@ body {
   padding: 16px;
 }
 
-/* Main Container Frame */
 #game-container {
   background-color: #f8f9fa;
   border: 4px solid #333;
@@ -40,12 +39,12 @@ body {
   font-size: 0.95rem;
 }
 
-/* Narrative Log Output Box */
+/* Narrative Log Output Box - taller to show more history */
 #display-area {
   background-color: #ffffff;
   border: 2px solid #333;
   border-radius: 4px;
-  height: 200px;
+  height: 220px;
   overflow-y: auto;
   padding: 12px;
   display: flex;
@@ -74,6 +73,11 @@ body {
 
 /* Action Button Grid */
 #action-menu {
+  display: block;
+}
+
+/* General sub-menus grid setup */
+#route-actions, #system-menu, #battle-actions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
@@ -83,8 +87,10 @@ body {
   background-color: #e2e8f0;
   border: 2px solid #333;
   border-radius: 4px;
-  padding: 10px;
+  padding: 10px 4px;
   font-weight: bold;
+  font-size: 0.85rem;
+  text-align: center;
   cursor: pointer;
   transition: background-color 0.15s ease, transform 0.05s ease;
 }
