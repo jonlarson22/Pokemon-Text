@@ -25,14 +25,23 @@
     </section>
 
     <nav id="action-menu">
-      <button id="btn-encounter" class="btn">Encounter</button>
-      <button id="btn-fight" class="btn">Fight</button>
-      <button id="btn-explore" class="btn">Explore</button>
-      <button id="btn-travel" class="btn">Travel</button>
-      <button id="btn-menu" class="btn secondary">Menu</button>
+      <!-- Route Menu -->
+      <div id="route-actions">
+        <button id="btn-encounter" class="btn">Encounter</button>
+        <button id="btn-fight" class="btn">Fight</button>
+        <button id="btn-explore" class="btn">Explore</button>
+        <button id="btn-travel" class="btn">Travel</button>
+      </div>
+
+      <div id="battle-actions" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+        <button id="btn-move-0" class="btn">-</button>
+        <button id="btn-move-1" class="btn">-</button>
+        <button id="btn-move-2" class="btn">-</button>
+        <button id="btn-run" class="btn secondary">Run</button>
+      </div>
     </nav>
   </div>
 
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
