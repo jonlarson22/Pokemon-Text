@@ -11,6 +11,7 @@ class GameEngine {
       party: [],
       money: 3000,
       inventory: { "potion": 1 },
+      pc: { pokemon: [], items: {} },
       pokedex: { seen: {}, caught: {} },
       activeBattle: null
     };
