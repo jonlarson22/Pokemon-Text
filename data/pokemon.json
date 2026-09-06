@@ -12,7 +12,8 @@
       "spDef": 65,
       "speed": 45
     },
-    "moves": ["tackle", "growl", "vine_whip", "leech_seed"]
+    "moves": ["tackle", "growl", "vine_whip", "leech_seed"],
+    "catchRate": 45
   },
   "charmander": {
     "pokedexNumber": 4,
@@ -57,7 +58,8 @@
       "spDef": 35,
       "speed": 56
     },
-    "moves": ["tackle", "sand_attack", "gust"]
+    "moves": ["tackle", "sand_attack", "gust"],
+    "catchRate": 255
   },
   "rattata": {
     "pokedexNumber": 19,
