@@ -27,8 +27,7 @@ class GameEngine {
   }
 
   async init() {
-    // 1. Fetch all JSON files concurrently
-      const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes] = await Promise.all([
+    const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes] = await Promise.all([
       fetch('./data/routes.json'),
       fetch('./data/pokemon.json'),
       fetch('./data/moves.json'),
@@ -46,19 +45,15 @@ class GameEngine {
     this.db.items = await itemsRes.json();
     this.db.shops = await shopsRes.json();
     
-    // 2. Generate the Player's Starter (Level 5 Charmander)
     this.gameState.party.push(this.generatePokemonInstance("charmander", 5));
 
-    // 3. Initial UI Render
     this.renderRouteScreen();
     this.updatePartyUI();
     this.printToLog("Welcome to the Kanto region!");
 
-    // 4. Attach DOM Event Listeners
     this.bindListeners();
   }
 
-  // --- STAT GENERATOR (Gen 4 Logic) ---
   generatePokemonInstance(speciesId, level) {
     const safeId = speciesId.toLowerCase(); 
     const baseData = this.db.pokemon[safeId];
@@ -87,7 +82,6 @@ class GameEngine {
     };
   }
 
-  // --- DOM & UI UTILITIES ---
   updateMoneyUI() {
     const moneyEl = document.getElementById('money-count');
     if (moneyEl) {
@@ -114,12 +108,11 @@ class GameEngine {
     }
   }
 
-    renderRouteScreen() {
+  renderRouteScreen() {
     const route = this.db.routes[this.gameState.currentRoute];
     const locationEl = document.getElementById('location-name');
     if (locationEl && route) locationEl.textContent = route.name;
 
-    // Toggle City-specific buttons (Center / Shop) if defined in route data
     const centerBtn = document.getElementById('btn-pokemon-center');
     const shopBtn = document.getElementById('btn-shop');
 
@@ -136,8 +129,8 @@ class GameEngine {
         this.openShop();
       };
     }
+  } // <--- Added closing brace here
 
-  // --- UI MENU CONTROLS ---
   setMenuState(menuName) {
     document.getElementById('route-actions').style.display = 'none';
     document.getElementById('system-menu').style.display = 'none';
@@ -187,7 +180,6 @@ class GameEngine {
     });
   }
 
-  // --- ROUTE & ENCOUNTER LOGIC ---
   getWeightedRandom(items) {
     const totalWeight = items.reduce((sum, item) => sum + item.weight, 0);
     let random = Math.random() * totalWeight;
@@ -223,7 +215,6 @@ class GameEngine {
     }
   }
 
-  // --- BATTLE LOGIC ---
   startBattle(wildPokemonInfo) {
     const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
@@ -256,7 +247,6 @@ class GameEngine {
       }
     }
 
-    // Bind battle bag button
     const battleBagBtn = document.getElementById('btn-battle-bag');
     if (battleBagBtn) {
       battleBagBtn.onclick = () => this.openBag();
@@ -265,7 +255,7 @@ class GameEngine {
     this.setMenuState('battle');
   }
 
-startTrainerBattle(enemyMon, trainer) {
+  startTrainerBattle(enemyMon, trainer) {
     const speciesKey = enemyMon.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
 
@@ -321,7 +311,6 @@ startTrainerBattle(enemyMon, trainer) {
         if (moneyEl) moneyEl.textContent = `Money: ¥${this.gameState.money}`;
       }
       
-      // Clear active trainer data
       this.gameState.activeTrainer = null;
 
       setTimeout(() => {
@@ -330,8 +319,7 @@ startTrainerBattle(enemyMon, trainer) {
       }, 2000);
     }
   }
-  
-  // --- EVENT LISTENERS ---
+
   bindListeners() {
     document.getElementById('btn-encounter')?.addEventListener('click', () => {
       const result = this.triggerEncounter();
@@ -356,7 +344,6 @@ startTrainerBattle(enemyMon, trainer) {
         return;
       }
 
-      // Find the first trainer ID in the array that hasn't been defeated yet
       const undefeatedTrainerId = route.trainers.find(id => !this.gameState.defeatedTrainers[id]);
 
       if (!undefeatedTrainerId) {
@@ -364,7 +351,6 @@ startTrainerBattle(enemyMon, trainer) {
         return;
       }
 
-      // Look up the trainer data from our newly loaded database
       const trainer = this.db.trainers[undefeatedTrainerId];
       if (!trainer) {
         this.printToLog("Error: Trainer data not found!");
@@ -374,11 +360,9 @@ startTrainerBattle(enemyMon, trainer) {
       this.printToLog(`${trainer.name} wants to battle!`);
       this.printToLog(`"${trainer.dialogueBefore}"`);
 
-      // Generate the trainer's first Pokémon
       const enemyMonData = trainer.party[0];
       const enemyMon = this.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
 
-      // Mark as defeated so you don't fight them endlessly
       this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
 
       this.startTrainerBattle(enemyMon, trainer);
@@ -418,7 +402,6 @@ startTrainerBattle(enemyMon, trainer) {
     });
   }
 
-  // --- BAG / ITEM LOGIC ---
   openBag() {
     const inventoryEntries = Object.entries(this.gameState.inventory);
     
@@ -434,7 +417,6 @@ startTrainerBattle(enemyMon, trainer) {
       }
     });
 
-    // For a quick interactive choice if you have Potions:
     const potions = this.gameState.inventory["Potion"] || 0;
     const lead = this.gameState.party[0];
 
@@ -454,7 +436,6 @@ startTrainerBattle(enemyMon, trainer) {
     }
   }
 
-  // --- SAVE SYSTEM ---
   handleSaveLoad() {
     const choice = window.confirm("Click OK to Export your save string.\nClick Cancel to Import a save string.");
     if (choice) {
@@ -504,7 +485,6 @@ startTrainerBattle(enemyMon, trainer) {
     }
   }
 
-// --- POKEMON CENTER LOGIC ---
   openCenter() {
     this.setMenuState('dynamic');
     this.printToLog("Welcome to the Pokémon Center!");
@@ -517,7 +497,6 @@ startTrainerBattle(enemyMon, trainer) {
     content.innerHTML = '';
     controls.innerHTML = '';
 
-    // Populate Controls
     this.buildMenuControls(controls, [
       { text: "Heal Party", action: () => {
           this.gameState.party.forEach(p => p.hp = p.maxHp);
@@ -548,7 +527,7 @@ startTrainerBattle(enemyMon, trainer) {
         this.gameState.pc.pokemon.push(deposited);
         this.updatePartyUI();
         this.printToLog(`Deposited ${deposited.species} in the PC.`);
-        this.renderPCDeposit(); // Refresh list
+        this.renderPCDeposit();
       };
       content.appendChild(btn);
     });
@@ -578,13 +557,12 @@ startTrainerBattle(enemyMon, trainer) {
         this.gameState.party.push(withdrawn);
         this.updatePartyUI();
         this.printToLog(`Withdrew ${withdrawn.species} from the PC.`);
-        this.renderPCWithdraw(); // Refresh list
+        this.renderPCWithdraw();
       };
       content.appendChild(btn);
     });
   }
 
-  // Helper for generating the bottom control buttons in the dynamic menu
   buildMenuControls(container, buttons) {
     buttons.forEach(b => {
       const btn = document.createElement('button');
@@ -596,13 +574,12 @@ startTrainerBattle(enemyMon, trainer) {
     });
   }
 
-// --- SHOP LOGIC ---
   openShop() {
     this.setMenuState('dynamic');
     this.renderBuyMenu();
   }
 
-    renderBuyMenu() {
+  renderBuyMenu() {
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = '';
@@ -618,7 +595,6 @@ startTrainerBattle(enemyMon, trainer) {
 
     this.printToLog("Welcome to the Poké Mart! What would you like to buy?");
 
-    shopItemKeys.defaultValue = [];
     shopItemKeys.forEach(itemKey => {
       const itemData = this.db.items[itemKey];
       if (!itemData) return;
@@ -679,9 +655,9 @@ startTrainerBattle(enemyMon, trainer) {
       };
       content.appendChild(btn);
     });
-  }
-}
+  } // <--- Added closing brace for renderSellMenu()
 
-// Instantiate and initialize
+} // <--- Added closing brace for GameEngine class
+
 const game = new GameEngine();
 game.init();
