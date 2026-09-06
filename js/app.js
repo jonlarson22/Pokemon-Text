@@ -45,7 +45,6 @@ class GameEngine {
 
   // --- STAT GENERATOR (Gen 4 Logic) ---
   generatePokemonInstance(speciesId, level) {
-    // Ensure we are matching the lowercase keys in pokemon.json
     const safeId = speciesId.toLowerCase(); 
     const baseData = this.db.pokemon[safeId];
     
@@ -57,7 +56,7 @@ class GameEngine {
     const hp = Math.floor((2 * baseData.baseStats.hp * level) / 100) + level + 10;
     
     return {
-      species: baseData.name, // Using 'species' to match your battle logic
+      species: baseData.name,
       level: level,
       hp: hp,
       maxHp: hp,
@@ -98,22 +97,20 @@ class GameEngine {
     if (locationEl && route) locationEl.textContent = route.name;
   }
 
-// --- UI MENU CONTROLS ---
+  // --- UI MENU CONTROLS ---
   setMenuState(menuName) {
-    // Hide all menus first
     document.getElementById('route-actions').style.display = 'none';
     document.getElementById('system-menu').style.display = 'none';
     document.getElementById('travel-menu').style.display = 'none';
     document.getElementById('battle-actions').style.display = 'none';
 
-    // Show the requested menu
     if (menuName === 'route') {
       document.getElementById('route-actions').style.display = 'grid';
     } else if (menuName === 'system') {
       document.getElementById('system-menu').style.display = 'grid';
     } else if (menuName === 'travel') {
       document.getElementById('travel-menu').style.display = 'flex';
-      this.populateTravelMenu(); // Generate the buttons for destinations
+      this.populateTravelMenu();
     } else if (menuName === 'battle') {
       document.getElementById('battle-actions').style.display = 'grid';
     }
@@ -121,19 +118,16 @@ class GameEngine {
 
   populateTravelMenu() {
     const container = document.getElementById('travel-destinations');
-    container.innerHTML = ''; // Clear old buttons
+    container.innerHTML = '';
 
     const currentRouteData = this.db.routes[this.gameState.currentRoute];
     if (!currentRouteData || !currentRouteData.connections) return;
 
-    // Create a button for each connected route
     currentRouteData.connections.forEach(destinationId => {
       const destData = this.db.routes[destinationId];
       if (!destData) return;
 
-      // Optional: Check if a flag (like an HM) is required to travel here
       if (destData.req_flag && !this.gameState.flags[destData.req_flag]) {
-         // Could render a disabled button, or skip rendering entirely
          return; 
       }
 
@@ -144,7 +138,7 @@ class GameEngine {
         this.gameState.currentRoute = destinationId;
         this.renderRouteScreen();
         this.printToLog(`You traveled to ${destData.name}.`);
-        this.setMenuState('route'); // Go back to main route menu
+        this.setMenuState('route');
       };
       container.appendChild(btn);
     });
@@ -188,7 +182,6 @@ class GameEngine {
 
   // --- BATTLE LOGIC ---
   startBattle(wildPokemonInfo) {
-    // Convert the basic {species, level} into a full combatant
     const enemyMon = this.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
     
     if (!enemyMon) {
@@ -198,13 +191,11 @@ class GameEngine {
 
     this.printToLog(`A wild ${enemyMon.species} (Lv. ${enemyMon.level}) appeared!`);
     
-    // Initialize the battle engine
     this.gameState.activeBattle = new BattleEngine(this.gameState.party[0], enemyMon, (msg) => {
       this.printToLog(msg);
       this.updatePartyUI();
     });
 
-    // Populate Battle Buttons based on Player's moves
     const leadMoves = this.gameState.party[0].moves;
     for (let i = 0; i < 4; i++) {
       const btn = document.getElementById(`btn-move-${i}`);
@@ -217,7 +208,7 @@ class GameEngine {
       }
     }
 
-    this.setMenuState(true);
+    this.setMenuState('battle');
   }
 
   handleTurn(playerMove) {
@@ -226,14 +217,13 @@ class GameEngine {
     if (this.gameState.activeBattle.isOver) {
       setTimeout(() => {
         this.printToLog("Returning to the route...");
-        this.setMenuState(false);
+        this.setMenuState('route');
       }, 2000);
     }
   }
 
-// --- EVENT LISTENERS ---
+  // --- EVENT LISTENERS ---
   bindListeners() {
-    // 1. Route Menu Buttons
     document.getElementById('btn-encounter')?.addEventListener('click', () => {
       const result = this.triggerEncounter();
       if (typeof result === 'string') this.printToLog(result);
@@ -253,7 +243,6 @@ class GameEngine {
       this.printToLog("No active trainer battle nearby right now.");
     });
 
-    // 2. Swapping Menus
     document.getElementById('btn-travel')?.addEventListener('click', () => {
       this.setMenuState('travel');
     });
@@ -270,7 +259,6 @@ class GameEngine {
       this.setMenuState('route');
     });
 
-    // 3. System Menu Buttons
     document.getElementById('btn-save')?.addEventListener('click', () => {
       this.handleSaveLoad();
     });
@@ -283,15 +271,13 @@ class GameEngine {
       this.printToLog("Pokédex feature coming soon!");
     });
 
-    // 4. Battle Buttons
     document.getElementById('btn-run')?.addEventListener('click', () => {
       this.printToLog("Got away safely!");
-      this.setMenuState('route'); // Notice we pass the string 'route' now
+      this.setMenuState('route');
     });
   }
-}
 
-// --- SAVE SYSTEM ---
+  // --- SAVE SYSTEM ---
   handleSaveLoad() {
     const choice = window.confirm("Click OK to Export your save string.\nClick Cancel to Import a save string.");
     if (choice) {
@@ -304,12 +290,11 @@ class GameEngine {
   exportSave() {
     try {
       const saveData = JSON.stringify(this.gameState);
-      const encodedSave = btoa(saveData); // Encode to base64
+      const encodedSave = btoa(saveData);
       
       this.printToLog("SAVE SUCCESSFUL. Copy this string and save it somewhere safe:");
       this.printToLog(encodedSave);
       
-      // Attempt to copy directly to the user's clipboard
       navigator.clipboard.writeText(encodedSave).then(() => {
         this.printToLog("(Save string copied to your clipboard!)");
       }).catch(err => {
@@ -321,14 +306,13 @@ class GameEngine {
   }
 
   importSave() {
-    const saveString = window.prompt("Paste your base64 save string here:");
-    if (!saveString) return; // User cancelled
+    const saveString = window.prompt("Paste your save string here:");
+    if (!saveString) return;
 
     try {
-      const decodedSave = atob(saveString); // Decode from base64
+      const decodedSave = atob(saveString);
       const parsedState = JSON.parse(decodedSave);
 
-      // Basic validation to make sure it's actually our game data
       if (parsedState && parsedState.party && parsedState.currentRoute) {
         this.gameState = parsedState;
         this.renderRouteScreen();
@@ -342,6 +326,7 @@ class GameEngine {
       this.printToLog("Error: Failed to load save. The string might be corrupted.");
     }
   }
+} // <--- End of GameEngine Class
 
 // Instantiate and initialize
 const game = new GameEngine();
