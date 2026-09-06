@@ -40,33 +40,33 @@
       "speed": 43
     },
     "moves": ["tackle", "tail_whip", "bubble", "water_gun"]
+  },
+  "pidgey": {
+    "id": "pidgey",
+    "name": "Pidgey",
+    "types": ["Normal", "Flying"],
+    "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 40,
+      "spAtk": 35,
+      "spDef": 35,
+      "speed": 56
+    },
+    "moves": ["tackle", "sand_attack", "gust"]
+  },
+  "rattata": {
+    "id": "rattata",
+    "name": "Rattata",
+    "types": ["Normal"],
+    "baseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "spAtk": 25,
+      "spDef": 35,
+      "speed": 72
+    },
+    "moves": ["tackle", "tail_whip", "quick_attack"]
   }
-    "pidgey": {
-        "id": "pidgey",
-        "name": "Pidgey",
-        "types": ["Normal", "Flying"],
-        "baseStats": {
-          "hp": 40,
-          "attack": 45,
-          "defense": 40,
-          "spAtk": 35,
-          "spDef": 35,
-          "speed": 56
-        },
-        "moves": ["tackle", "sand_attack", "gust"]
-      },
-      "rattata": {
-        "id": "rattata",
-        "name": "Rattata",
-        "types": ["Normal"],
-        "baseStats": {
-          "hp": 30,
-          "attack": 56,
-          "defense": 35,
-          "spAtk": 25,
-          "spDef": 35,
-          "speed": 72
-        },
-        "moves": ["tackle", "tail_whip", "quick_attack"]
-      }
 }
