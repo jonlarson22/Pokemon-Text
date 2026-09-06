@@ -201,7 +201,9 @@ class GameEngine {
     this.gameState.activeBattle = new BattleEngine(this.gameState.party[0], enemyMon, (msg) => {
       this.printToLog(msg);
       this.updatePartyUI();
-    });
+      },
+      this.db.typeChart
+    );
 
     const leadMoves = this.gameState.party[0].moves;
     for (let i = 0; i < 4; i++) {
