@@ -9,10 +9,12 @@
 <body>
 
   <div id="game-container">
-    <header id="status-bar">
-      <div id="location-name">Route 1</div>
-      <div id="money-count">Money: ¥3000</div>
-      <div id="badge-count">Badges: 0/8</div>
+    <header id="status-bar" style="display: flex; flex-direction: column; gap: 4px; padding-bottom: 8px; border-bottom: 2px solid #ccc;">
+      <div id="location-name" style="font-weight: bold; font-size: 1.2em; text-align: center;">Pallet Town</div>
+      <div style="display: flex; justify-content: space-between; font-size: 0.9em; color: #555;">
+        <span id="money-count">Money: ¥3000</span>
+        <span id="badge-count">Badges: 0/8</span>
+      </div>
     </header>
 
     <main id="display-area">
@@ -40,13 +42,13 @@
       <!-- State 2: System Menu (Hidden) -->
       <div id="system-menu" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 8px;">
         <button id="btn-bag" class="btn">Bag</button>
-        <button id="btn-pokedex" class="btn">Pokédex</button>
+        <button id="btn-pokemon" class="btn">Pokémon</button>
         <button id="btn-save" class="btn">Save / Load</button>
         <button id="btn-back-menu" class="btn secondary">Back</button>
       </div>
 
       <!-- State 3: Travel Menu (Hidden) -->
-      <div id="travel-menu" style="display: none; display: flex; flex-direction: column; gap: 8px;">
+      <div id="travel-menu" style="display: none; flex-direction: column; gap: 8px;">
         <!-- Javascript will inject available destinations here dynamically -->
         <div id="travel-destinations"></div>
         <button id="btn-back-travel" class="btn secondary">Cancel</button>
