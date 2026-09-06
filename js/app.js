@@ -599,15 +599,15 @@ startTrainerBattle(enemyMon, trainer) {
     this.renderBuyMenu();
   }
 
-  renderBuyMenu() {
+    renderBuyMenu() {
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = '';
     controls.innerHTML = '';
 
-    const shopData = this.db.shops[this.gameState.currentRoute];
+    const shopItemKeys = this.db.shops[this.gameState.currentRoute];
 
-    if (!shopData) {
+    if (!shopItemKeys) {
       this.printToLog("This shop is currently closed.");
       setTimeout(() => this.setMenuState('route'), 1500);
       return;
@@ -615,25 +615,27 @@ startTrainerBattle(enemyMon, trainer) {
 
     this.printToLog("Welcome to the Poké Mart! What would you like to buy?");
 
-    // Populate Buy List
-    shopData.forEach(itemInfo => {
+    shopItemKeys.defaultValue = [];
+    shopItemKeys.forEach(itemKey => {
+      const itemData = this.db.items[itemKey];
+      if (!itemData) return;
+
       const btn = document.createElement('button');
       btn.className = 'btn';
-      btn.textContent = `${itemInfo.item} - ¥${itemInfo.price}`;
+      btn.textContent = `${itemData.name} - ¥${itemData.price}`;
       btn.onclick = () => {
-        if (this.gameState.money >= itemInfo.price) {
-          this.gameState.money -= itemInfo.price;
-          this.gameState.inventory[itemInfo.item] = (this.gameState.inventory[itemInfo.item] || 0) + 1;
+        if (this.gameState.money >= itemData.price) {
+          this.gameState.money -= itemData.price;
+          this.gameState.inventory[itemKey] = (this.gameState.inventory[itemKey] || 0) + 1;
           this.updateMoneyUI();
-          this.printToLog(`You bought a ${itemInfo.item}!`);
+          this.printToLog(`You bought a ${itemData.name}!`);
         } else {
-          this.printToLog(`You don't have enough money for a ${itemInfo.item}.`);
+          this.printToLog(`You don't have enough money for a ${itemData.name}.`);
         }
       };
       content.appendChild(btn);
     });
 
-    // Populate Controls
     this.buildMenuControls(controls, [
       { text: "Buy", action: () => this.renderBuyMenu() },
       { text: "Sell", action: () => this.renderSellMenu() },
@@ -656,27 +658,24 @@ startTrainerBattle(enemyMon, trainer) {
       return;
     }
 
-    inventoryEntries.forEach(([item, count]) => {
-      // Find base price by scanning all shops to calculate the 50% sell value
-      let basePrice = 100; // Fallback
-      const globalShopSearch = Object.values(this.db.shops).flat().find(s => s.item === item);
-      if (globalShopSearch) basePrice = globalShopSearch.price;
-      
+    inventoryEntries.forEach(([itemKey, count]) => {
+      const itemData = this.db.items[itemKey];
+      const basePrice = itemData ? itemData.price : 100;
       const sellPrice = Math.floor(basePrice / 2);
 
       const btn = document.createElement('button');
       btn.className = 'btn';
-      btn.textContent = `Sell ${item} (x${count}) - ¥${sellPrice}`;
+      btn.textContent = `Sell ${itemData ? itemData.name : itemKey} (x${count}) - ¥${sellPrice}`;
       btn.onclick = () => {
-        this.gameState.inventory[item]--;
+        this.gameState.inventory[itemKey]--;
+        if (this.gameState.inventory[itemKey] <= 0) delete this.gameState.inventory[itemKey];
         this.gameState.money += sellPrice;
         this.updateMoneyUI();
-        this.printToLog(`You sold a ${item} for ¥${sellPrice}!`);
-        this.renderSellMenu(); // Refresh the list
+        this.printToLog(`You sold a ${itemData ? itemData.name : itemKey} for ¥${sellPrice}!`);
+        this.renderSellMenu();
       };
       content.appendChild(btn);
     });
-  }
 
 // Instantiate and initialize
 const game = new GameEngine();
