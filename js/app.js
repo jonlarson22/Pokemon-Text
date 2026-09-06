@@ -8,6 +8,7 @@ class GameEngine {
       flags: {},
       defeatedTrainers: {},
       party: [],
+      money: 3000,
       inventory: { "Potion": 1 },
       pokedex: { seen: {}, caught: {} },
       activeBattle: null
