@@ -8,17 +8,34 @@ export class BattleEngine {
     this.isOver = false;
   }
 
-  // Simplified Gen 1 Damage Calculation
-  calculateDamage(attacker, defender, move) {
-    const level = attacker.level;
-    const power = move.power || 40;
-    const attack = attacker.attack || 10;
-    const defense = defender.defense || 10;
-    
-    // Formula: (((2 * Level / 5 + 2) * Power * (Atk / Def)) / 50) + 2
-    const baseDamage = Math.floor((((2 * level / 5 + 2) * power * (attack / defense)) / 50) + 2);
-    return Math.max(1, baseDamage);
+  // Gen 4 Damage Logic
+calculateDamage(attacker, defender, move) {
+  // Status moves deal zero direct damage
+  if (move.category === "status" || move.power === 0) {
+    return 0;
   }
+
+  // 1. Select stats based on Physical/Special split
+  let attackStat, defenseStat;
+
+  if (move.category === "physical") {
+    attackStat = attacker.stats.attack;
+    defenseStat = defender.stats.defense;
+  } else if (move.category === "special") {
+    attackStat = attacker.stats.spAtk;
+    defenseStat = defender.stats.spDef;
+  }
+
+  // 2. Base Gen 4 Formula
+  const level = attacker.level;
+  const power = move.power;
+  
+  const baseDamage = Math.floor(
+    (((2 * level / 5 + 2) * power * (attackStat / defenseStat)) / 50) + 2
+  );
+
+  return Math.max(1, baseDamage);
+}
 
   executeTurn(playerMove) {
     if (this.isOver) return;
