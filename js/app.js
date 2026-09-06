@@ -292,6 +292,7 @@ startTrainerBattle(enemyMon, trainer) {
       battleBagBtn.onclick = () => this.openBag();
     }
 
+    this.gameState.activeTrainer = trainer;    
     this.setMenuState('battle');
   }
 
@@ -299,13 +300,26 @@ startTrainerBattle(enemyMon, trainer) {
     this.gameState.activeBattle.executeTurn(playerMove);
     
     if (this.gameState.activeBattle.isOver) {
+
+      if (this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
+        const payout = this.gameState.activeTrainer.payout || 500;
+        this.gameState.money += payout;
+        this.printToLog(`You defeated ${this.gameState.activeTrainer.name} and got ¥${payout}!`);
+        
+        const moneyEl = document.getElementById('money-count');
+        if (moneyEl) moneyEl.textContent = `Money: ¥${this.gameState.money}`;
+      }
+      
+      // Clear active trainer data
+      this.gameState.activeTrainer = null;
+
       setTimeout(() => {
         this.printToLog("Returning to the route...");
         this.setMenuState('route');
       }, 2000);
     }
   }
-
+  
   // --- EVENT LISTENERS ---
   bindListeners() {
     document.getElementById('btn-encounter')?.addEventListener('click', () => {
