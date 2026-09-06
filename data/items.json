@@ -1,0 +1,16 @@
+{
+  "potion": {
+    "name": "Potion",
+    "category": "healing",
+    "effect": { "type": "heal", "value": 20 },
+    "price": 300,
+    "description": "A spray-type medicine for treating wounds. Restores 20 HP."
+  },
+  "pokeball": {
+    "name": "Poké Ball",
+    "category": "catch",
+    "catchRate": 1.0,
+    "price": 200,
+    "description": "A tool for catching wild Pokémon."
+  }
+}
