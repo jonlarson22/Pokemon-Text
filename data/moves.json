@@ -23,14 +23,6 @@
     "accuracy": 100,
     "pp": 25
   },
-  "ember": {
-    "name": "Ember",
-    "type": "Fire",
-    "category": "special",
-    "power": 40,
-    "accuracy": 100,
-    "pp": 25
-  },
   "bubble": {
     "name": "Bubble",
     "type": "Water",
@@ -46,14 +38,6 @@
     "power": 40,
     "accuracy": 100,
     "pp": 25
-  },
-  "growl": {
-    "name": "Growl",
-    "type": "Normal",
-    "category": "status",
-    "power": 0,
-    "accuracy": 100,
-    "pp": 40
   },
   "tail_whip": {
     "name": "Tail Whip",
@@ -102,5 +86,43 @@
     "power": 40,
     "accuracy": 100,
     "pp": 30
+  },
+  "sleep_powder": {
+    "name": "Sleep Powder",
+    "type": "Grass",
+    "category": "status",
+    "power": 0,
+    "accuracy": 75,
+    "effect": {
+      "type": "status",
+      "condition": "SLP",
+      "target": "enemy"
+    }
+  },
+  "growl": {
+    "name": "Growl",
+    "type": "Normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "effect": {
+      "type": "stat",
+      "stat": "attack",
+      "stages": -1,
+      "target": "enemy"
+    }
+  },
+  "ember": {
+    "name": "Ember",
+    "type": "Fire",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "secondaryEffect": {
+      "chance": 10,
+      "type": "status",
+      "condition": "BRN",
+      "target": "enemy"
+    }
   }
 }
