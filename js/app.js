@@ -295,29 +295,37 @@ class GameEngine {
 
   // --- BAG / ITEM LOGIC ---
   openBag() {
-    const potions = this.gameState.inventory["Potion"] || 0;
+    const inventoryEntries = Object.entries(this.gameState.inventory);
     
-    if (potions <= 0) {
+    if (inventoryEntries.length === 0 || inventoryEntries.every(([_, count]) => count <= 0)) {
       this.printToLog("Your bag is empty!");
       return;
     }
 
+    this.printToLog("--- Bag Contents ---");
+    inventoryEntries.forEach(([item, count]) => {
+      if (count > 0) {
+        this.printToLog(`${item}: x${count}`);
+      }
+    });
+
+    // For a quick interactive choice if you have Potions:
+    const potions = this.gameState.inventory["Potion"] || 0;
     const lead = this.gameState.party[0];
-    if (lead.hp >= lead.maxHp) {
-      this.printToLog(`${lead.species} is already at full health!`);
-      return;
-    }
 
-    // Use a Potion!
-    this.gameState.inventory["Potion"]--;
-    const healAmount = 20;
-    lead.hp = Math.min(lead.maxHp, lead.hp + healAmount);
-    
-    this.printToLog(`Used a Potion! Restored ${lead.species}'s health.`);
-    this.updatePartyUI();
+    if (potions > 0 && lead.hp < lead.maxHp) {
+      const usePotion = window.confirm(`You have ${potions} Potion(s). Would you like to use one on ${lead.species}?`);
+      if (usePotion) {
+        this.gameState.inventory["Potion"]--;
+        const healAmount = 20;
+        lead.hp = Math.min(lead.maxHp, lead.hp + healAmount);
+        this.printToLog(`Used a Potion! Restored ${lead.species}'s health.`);
+        this.updatePartyUI();
 
-    if (this.gameState.activeBattle && !this.gameState.activeBattle.isOver) {
-      this.printToLog("The wild Pokémon attacks while your guard is down!");
+        if (this.gameState.activeBattle && !this.gameState.activeBattle.isOver) {
+          this.printToLog("The wild Pokémon attacks while your guard is down!");
+        }
+      }
     }
   }
 
