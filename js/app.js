@@ -125,6 +125,19 @@ class GameEngine {
   }
 }
 
+function setupButtons() {
+  // Find the HTML button by its ID and tell it what function to run on click
+  const encounterBtn = document.getElementById('btn-encounter');
+  
+  encounterBtn.addEventListener('click', () => {
+    const wildPokemon = game.triggerEncounter();
+    printToLog(`A wild ${wildPokemon.species} appeared!`);
+  });
+}
+
+// Run setup once the webpage finishes loading
+window.addEventListener('DOMContentLoaded', setupButtons);
+
 // Instantiate and initialize
 const game = new GameEngine();
 game.init();
