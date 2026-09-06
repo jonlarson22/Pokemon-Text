@@ -503,7 +503,6 @@ startTrainerBattle(enemyMon, trainer) {
       this.printToLog("Error: Failed to load save. The string might be corrupted.");
     }
   }
-}
 
 // --- POKEMON CENTER LOGIC ---
   openCenter() {
@@ -680,6 +679,8 @@ startTrainerBattle(enemyMon, trainer) {
       };
       content.appendChild(btn);
     });
+  }
+}
 
 // Instantiate and initialize
 const game = new GameEngine();
