@@ -71,6 +71,21 @@
           <!-- JavaScript will generate control buttons (Buy/Sell/Back) here -->
         </div>
       </div>
+
+      <!-- State 6: Starter Selection (Hidden) -->
+      <div id="starter-menu" style="display: none; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+        <button id="btn-starter-bulbasaur" class="btn" data-id="bulbasaur">Bulbasaur</button>
+        <button id="btn-starter-charmander" class="btn" data-id="charmander">Charmander</button>
+        <button id="btn-starter-squirtle" class="btn" data-id="squirtle">Squirtle</button>
+      </div>
+
+      <!-- State 7: Party Target Selection (Hidden) -->
+      <div id="party-select-menu" style="display: none; flex-direction: column; gap: 8px;">
+        <div id="party-select-list" style="display: grid; grid-template-columns: 1fr; gap: 4px;">
+          <!-- JavaScript will inject party members as buttons here -->
+        </div>
+        <button id="btn-cancel-target" class="btn secondary">Cancel</button>
+      </div>
     </nav>
   </div>
 
