@@ -6,6 +6,7 @@ class GameEngine {
     this.gameState = {
       currentRoute: "route1",
       flags: {},
+      defeatedTrainers: {},
       party: [],
       inventory: { "Potion": 1 },
       pokedex: {
