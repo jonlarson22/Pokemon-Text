@@ -24,17 +24,23 @@ class GameEngine {
 
   async init() {
     // 1. Fetch all JSON files concurrently
-    const [routesRes, pokemonRes, movesRes, trainersRes] = await Promise.all([
+      const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes] = await Promise.all([
       fetch('./data/routes.json'),
       fetch('./data/pokemon.json'),
       fetch('./data/moves.json'),
-      fetch('./data/trainers.json')
+      fetch('./data/trainers.json'),
+      fetch('./data/type_chart.json'),
+      fetch('./data/items.json'),
+      fetch('./data/shops.json')
     ]);
 
     this.db.routes = await routesRes.json();
     this.db.pokemon = await pokemonRes.json();
     this.db.moves = await movesRes.json();
     this.db.trainers = await trainersRes.json();
+    this.db.typeChart = await typesRes.json();
+    this.db.items = await itemsRes.json();
+    this.db.shops = await shopsRes.json();
 
     // 2. Generate the Player's Starter (Level 5 Charmander)
     this.gameState.party.push(this.generatePokemonInstance("charmander", 5));
