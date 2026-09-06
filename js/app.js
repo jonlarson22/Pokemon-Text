@@ -1,5 +1,6 @@
 // js/app.js - Complete Route, Encounter, and Battle Manager
 import { BattleEngine } from './battle.js';
+import { CaptureSystem } from './captures.js';
 
 class GameEngine {
   constructor() {
@@ -13,6 +14,8 @@ class GameEngine {
       pokedex: { seen: {}, caught: {} },
       activeBattle: null
     };
+
+    this.captureSystem = new CaptureSystem(this);
     
     this.db = {
       routes: {},
@@ -41,7 +44,7 @@ class GameEngine {
     this.db.typeChart = await typesRes.json();
     this.db.items = await itemsRes.json();
     this.db.shops = await shopsRes.json();
-
+    
     // 2. Generate the Player's Starter (Level 5 Charmander)
     this.gameState.party.push(this.generatePokemonInstance("charmander", 5));
 
