@@ -1,14 +1,4 @@
 {
-  "viridian_city": [
-    { "item": "potion", "price": 300 },
-    { "item": "antidote", "price": 100 },
-    { "item": "paralyze_heal", "price": 200 },
-    { "item": "pokeball", "price": 200 }
-  ],
-  "pewter_city": [
-    { "item": "potion", "price": 300 },
-    { "item": "pokeball", "price": 200 },
-    { "item": "escape_rope", "price": 550 },
-    { "item": "repel", "price": 350 }
-  ]
+  "viridian_city": ["potion", "antidote", "paralyze_heal", "pokeball"],
+  "pewter_city": ["potion", "pokeball", "escape_rope", "repel"]
 }
