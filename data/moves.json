@@ -1,23 +1,82 @@
 {
+  "tackle": {
+    "name": "Tackle",
+    "type": "Normal",
+    "category": "physical",
+    "power": 35,
+    "accuracy": 95,
+    "pp": 35
+  },
   "scratch": {
     "name": "Scratch",
     "type": "Normal",
     "category": "physical",
     "power": 40,
-    "accuracy": 100
+    "accuracy": 100,
+    "pp": 35
+  },
+  "vine_whip": {
+    "name": "Vine Whip",
+    "type": "Grass",
+    "category": "physical",
+    "power": 45,
+    "accuracy": 100,
+    "pp": 25
   },
   "ember": {
     "name": "Ember",
     "type": "Fire",
     "category": "special",
     "power": 40,
-    "accuracy": 100
+    "accuracy": 100,
+    "pp": 25
+  },
+  "bubble": {
+    "name": "Bubble",
+    "type": "Water",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 30
+  },
+  "water_gun": {
+    "name": "Water Gun",
+    "type": "Water",
+    "category": "special",
+    "power": 40,
+    "accuracy": 100,
+    "pp": 25
   },
   "growl": {
     "name": "Growl",
     "type": "Normal",
     "category": "status",
     "power": 0,
-    "accuracy": 100
+    "accuracy": 100,
+    "pp": 40
+  },
+  "tail_whip": {
+    "name": "Tail Whip",
+    "type": "Normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 30
+  },
+  "leech_seed": {
+    "name": "Leech Seed",
+    "type": "Grass",
+    "category": "status",
+    "power": 0,
+    "accuracy": 90,
+    "pp": 10
+  },
+  "smokescreen": {
+    "name": "Smokescreen",
+    "type": "Normal",
+    "category": "status",
+    "power": 0,
+    "accuracy": 100,
+    "pp": 20
   }
 }
