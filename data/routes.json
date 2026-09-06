@@ -1,4 +1,15 @@
 {
+  "pallet_town": {
+    "name": "Pallet Town",
+    "description": "Shades of your journey await!",
+    "connections": ["route1"],
+    "req_flag": null,
+    "encounters": [],
+    "trainers": [],
+    "explore_table": [
+      { "type": "nothing", "weight": 100 }
+    ]
+  },
   "route1": {
     "name": "Route 1",
     "description": "A quiet path connecting Pallet Town and Viridian City.",
@@ -14,5 +25,25 @@
       { "type": "encounter", "weight": 35 },
       { "type": "item", "item": "Potion", "weight": 15 }
     ]
+  },
+  "viridian_city": {
+    "name": "Viridian City",
+    "description": "The perpetually green paradise.",
+    "connections": ["route1", "route2", "route22"],
+    "req_flag": null,
+    "encounters": [],
+    "trainers": [],
+    "explore_table": []
+  },
+  "route22": {
+    "name": "Route 22",
+    "description": "A winding path leading toward the Pokémon League reception gate.",
+    "connections": ["viridian_city"],
+    "req_flag": "has_pokeball", 
+    "encounters": [
+      { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 50 }
+    ],
+    "trainers": [],
+    "explore_table": []
   }
 }
