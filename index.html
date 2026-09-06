@@ -61,6 +61,16 @@
         <button id="btn-battle-bag"" class="btn btn-full">Bag</button>
         <button id="btn-run" class="btn btn-full">Run</button>
       </div>
+
+      <!-- State 5: Dynamic List Menus (Shop & PC) -->
+      <div id="dynamic-menu" style="display: none; flex-direction: column; gap: 8px;">
+        <div id="dynamic-content" style="display: grid; grid-template-columns: 1fr; gap: 4px; max-height: 160px; overflow-y: auto;">
+          <!-- JavaScript will generate list items here -->
+        </div>
+        <div id="dynamic-controls" style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <!-- JavaScript will generate control buttons (Buy/Sell/Back) here -->
+        </div>
+      </div>
     </nav>
   </div>
 
