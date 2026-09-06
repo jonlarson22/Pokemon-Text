@@ -1,0 +1,18 @@
+{
+  "route1": {
+    "name": "Route 1",
+    "description": "A quiet path connecting Pallet Town and Viridian City.",
+    "connections": ["pallet_town", "viridian_city"],
+    "req_flag": null,
+    "encounters": [
+      { "species": "Pidgey", "min_level": 2, "max_level": 5, "weight": 55 },
+      { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 45 }
+    ],
+    "trainers": [],
+    "explore_table": [
+      { "type": "nothing", "weight": 50 },
+      { "type": "encounter", "weight": 35 },
+      { "type": "item", "item": "Potion", "weight": 15 }
+    ]
+  }
+}
