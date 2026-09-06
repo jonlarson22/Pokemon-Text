@@ -1,0 +1,16 @@
+{
+  "charmander": {
+    "species": "Charmander",
+    "level": 5,
+    "hp": 19,
+    "maxHp": 19,
+    "stats": {
+      "attack": 11,
+      "defense": 10,
+      "spAtk": 12,
+      "spDef": 10,
+      "speed": 13
+    },
+    "moves": ["scratch", "ember"]
+  }
+}
