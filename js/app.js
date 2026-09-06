@@ -6,12 +6,15 @@ class GameEngine {
     this.gameState = {
       currentRoute: "route1",
       flags: {},
-      party: [], // This will be populated in init()
+      party: [],
       inventory: { "Potion": 1 },
+      pokedex: {
+        seen: {},
+        caught: {}
+      },
       activeBattle: null
     };
     
-    // Storing all our JSON data here
     this.db = {
       routes: {},
       pokemon: {},
@@ -183,6 +186,9 @@ class GameEngine {
   // --- BATTLE LOGIC ---
   startBattle(wildPokemonInfo) {
     const enemyMon = this.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
+    const speciesKey = caughtPokemon.species.toLowerCase();
+    this.gameState.pokedex.seen[speciesKey] = true;
+    this.gameState.pokedex.caught[speciesKey] = true;
     
     if (!enemyMon) {
       this.printToLog("Error generating wild Pokémon stats!");
