@@ -45,11 +45,7 @@ class GameEngine {
     this.db.items = await itemsRes.json();
     this.db.shops = await shopsRes.json();
     
-    this.gameState.party.push(this.generatePokemonInstance("charmander", 5));
-
-    this.renderRouteScreen();
-    this.updatePartyUI();
-    this.printToLog("Welcome to the Kanto region!");
+    this.checkGameStart(); // This handles rendering and logic automatically
 
     this.bindListeners();
   }
@@ -166,6 +162,8 @@ class GameEngine {
   } // <--- Added closing brace here
 
   setMenuState(menuName) {
+    document.getElementById('starter-menu').style.display = 'none';
+    document.getElementById('party-select-menu').style.display = 'none';
     document.getElementById('route-actions').style.display = 'none';
     document.getElementById('system-menu').style.display = 'none';
     document.getElementById('travel-menu').style.display = 'none';
@@ -183,6 +181,10 @@ class GameEngine {
       document.getElementById('battle-actions').style.display = 'grid';
     } else if (menuName === 'dynamic') {
       document.getElementById('dynamic-menu').style.display = 'flex';
+    } else if (menuName === 'starter') {
+      document.getElementById('starter-menu').style.display = 'grid';
+    } else if (menuName === 'party-select') {
+      document.getElementById('party-select-menu').style.display = 'flex';
     }
   }
 
@@ -355,6 +357,10 @@ class GameEngine {
   }
 
   bindListeners() {
+    document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.pickStarter('bulbasaur'));
+    document.getElementById('btn-starter-charmander')?.addEventListener('click', () => this.pickStarter('charmander'));
+    document.getElementById('btn-starter-squirtle')?.addEventListener('click', () => this.pickStarter('squirtle'));
+    
     document.getElementById('btn-encounter')?.addEventListener('click', () => {
       const result = this.triggerEncounter();
       if (typeof result === 'string') this.printToLog(result);
@@ -444,30 +450,33 @@ class GameEngine {
       return;
     }
 
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
     this.printToLog("--- Bag Contents ---");
-    inventoryEntries.forEach(([item, count]) => {
+
+    inventoryEntries.forEach(([itemKey, count]) => {
       if (count > 0) {
-        this.printToLog(`${item}: x${count}`);
+        const itemData = this.db.items[itemKey];
+        if (!itemData) return;
+
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.textContent = `Use ${itemData.name} (x${count})`;
+        btn.onclick = () => this.handleItemClick(itemKey);
+        content.appendChild(btn);
       }
     });
 
-    const potions = this.gameState.inventory["Potion"] || 0;
-    const lead = this.gameState.party[0];
-
-    if (potions > 0 && lead.hp < lead.maxHp) {
-      const usePotion = window.confirm(`You have ${potions} Potion(s). Would you like to use one on ${lead.species}?`);
-      if (usePotion) {
-        this.gameState.inventory["Potion"]--;
-        const healAmount = 20;
-        lead.hp = Math.min(lead.maxHp, lead.hp + healAmount);
-        this.printToLog(`Used a Potion! Restored ${lead.species}'s health.`);
-        this.updatePartyUI();
-
-        if (this.gameState.activeBattle && !this.gameState.activeBattle.isOver) {
-          this.printToLog("The wild Pokémon attacks while your guard is down!");
-        }
-      }
-    }
+    this.buildMenuControls(controls, [
+      { text: "Close Bag", action: () => {
+          if (this.gameState.activeBattle) this.setMenuState('battle');
+          else this.setMenuState('system');
+      }}
+    ]);
   }
 
   handleSaveLoad() {
@@ -692,26 +701,53 @@ class GameEngine {
   } // <--- Added closing brace for renderSellMenu()
 
     handleItemClick(itemKey) {
-    const item = this.db.items[itemKey]; // Assumes you have an items database
+    const item = this.db.items[itemKey]; 
     
-    if (item.category === "pokeball") {
+    if (item.category === "catch") { // Changed from "pokeball"
       if (this.gameState.activeBattle) {
-        // We are in battle, throw the ball!
         this.captureSystem.attemptCatch(itemKey);
       } else {
         this.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
       }
     } 
-    else if (item.category === "medicine") {
-      // Open the party screen to pick who gets healed
+    else if (item.category === "healing") { // Changed from "medicine"
       this.openPartyTargetScreen(itemKey, item);
+    }
+  }
+
+  applyItemToPokemon(itemKey, itemData, partyIndex) {
+    const target = this.gameState.party[partyIndex];
+
+    if (itemData.effect.type === "heal") { // Changed to match nested JSON structure
+      if (target.hp >= target.maxHp) {
+        this.printToLog("It won't have any effect.");
+        return; 
+      }
+      
+      target.hp = Math.min(target.maxHp, target.hp + itemData.effect.value); // Changed from healAmount
+      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
+    }
+
+    // Consume item
+    this.gameState.inventory[itemKey]--;
+    if (this.gameState.inventory[itemKey] <= 0) delete this.gameState.inventory[itemKey];
+    this.updatePartyUI();
+
+    if (this.gameState.activeBattle) {
+      this.setMenuState('battle');
+      // Enemy turn after using an item
+      const enemyMove = this.gameState.activeBattle.getRandomEnemyMove();
+      this.gameState.activeBattle.processAction(this.gameState.activeBattle.enemyMon, this.gameState.party[0], enemyMove, false);
+      this.gameState.activeBattle.checkWinLoss();
+    } else {
+      this.setMenuState('system'); 
     }
   }
 
   openPartyTargetScreen(itemKey, itemData) {
     this.setMenuState('party-select');
     const container = document.getElementById('party-select-list');
-    container.innerHTML = ''; // Clear old buttons
+    container.innerHTML = '';
 
     this.gameState.party.forEach((mon, index) => {
       const btn = document.createElement('button');
@@ -722,40 +758,7 @@ class GameEngine {
       container.appendChild(btn);
     });
   }
-
-  applyItemToPokemon(itemKey, itemData, partyIndex) {
-    const target = this.gameState.party[partyIndex];
-
-    if (itemData.effect === "heal") {
-      if (target.hp >= target.maxHp) {
-        this.printToLog("It won't have any effect.");
-        return; // Don't consume the item
-      }
-      
-      // Heal and cap at maxHp
-      target.hp = Math.min(target.maxHp, target.hp + itemData.healAmount);
-      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
-    }
-
-    // Consume item
-    this.gameState.inventory[itemKey]--;
-    if (this.gameState.inventory[itemKey] <= 0) delete this.gameState.inventory[itemKey];
-
-    this.updatePartyUI();
-
-    // Return to the correct screen
-    if (this.gameState.activeBattle) {
-      // In battle, using an item uses your turn. The enemy attacks!
-      this.setMenuState('battle');
-      const enemyMove = this.battleEngine.getRandomEnemyMove();
-      this.battleEngine.processAction(this.gameState.activeBattle.enemyMon, this.gameState.party[0], enemyMove, false);
-      this.battleEngine.checkWinLoss();
-    } else {
-      this.setMenuState('system-menu'); // Or wherever your bag was opened from
-    }
-  }
-  
-} // <--- Added closing brace for GameEngine class
+}
 
 const game = new GameEngine();
 game.init();
