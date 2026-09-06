@@ -54,6 +54,40 @@ class GameEngine {
     this.bindListeners();
   }
 
+  checkGameStart() {
+    // Check if they already have a Pokémon
+    if (!this.gameState.hasStarter || this.gameState.party.length === 0) {
+      this.printToLog("Welcome to the world of Pokémon! Please choose your first partner.");
+      this.setMenuState('starter');
+    } else {
+      this.setMenuState('route');
+    }
+  }
+
+  pickStarter(speciesId) {
+    const speciesData = this.db.pokemon[speciesId];
+    
+    // Generate a fresh Level 5 Pokémon
+    const starter = {
+      species: speciesData.name,
+      id: speciesData.id,
+      level: 5,
+      hp: speciesData.baseStats.hp, // Simplified for now; normally calculated with IVs/EVs
+      maxHp: speciesData.baseStats.hp,
+      types: speciesData.types,
+      moves: [...speciesData.moves].slice(0, 4), // Give them up to 4 starting moves
+      exp: 0,
+      maxExp: 500
+    };
+
+    this.gameState.party.push(starter);
+    this.gameState.hasStarter = true;
+    
+    this.printToLog(`You chose ${starter.species}! A fantastic choice.`);
+    this.updatePartyUI();
+    this.setMenuState('route');
+  }
+  
   generatePokemonInstance(speciesId, level) {
     const safeId = speciesId.toLowerCase(); 
     const baseData = this.db.pokemon[safeId];
@@ -657,6 +691,70 @@ class GameEngine {
     });
   } // <--- Added closing brace for renderSellMenu()
 
+    handleItemClick(itemKey) {
+    const item = this.db.items[itemKey]; // Assumes you have an items database
+    
+    if (item.category === "pokeball") {
+      if (this.gameState.activeBattle) {
+        // We are in battle, throw the ball!
+        this.captureSystem.attemptCatch(itemKey);
+      } else {
+        this.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
+      }
+    } 
+    else if (item.category === "medicine") {
+      // Open the party screen to pick who gets healed
+      this.openPartyTargetScreen(itemKey, item);
+    }
+  }
+
+  openPartyTargetScreen(itemKey, itemData) {
+    this.setMenuState('party-select');
+    const container = document.getElementById('party-select-list');
+    container.innerHTML = ''; // Clear old buttons
+
+    this.gameState.party.forEach((mon, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = `${mon.species} (HP: ${mon.hp}/${mon.maxHp})`;
+      
+      btn.onclick = () => this.applyItemToPokemon(itemKey, itemData, index);
+      container.appendChild(btn);
+    });
+  }
+
+  applyItemToPokemon(itemKey, itemData, partyIndex) {
+    const target = this.gameState.party[partyIndex];
+
+    if (itemData.effect === "heal") {
+      if (target.hp >= target.maxHp) {
+        this.printToLog("It won't have any effect.");
+        return; // Don't consume the item
+      }
+      
+      // Heal and cap at maxHp
+      target.hp = Math.min(target.maxHp, target.hp + itemData.healAmount);
+      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
+    }
+
+    // Consume item
+    this.gameState.inventory[itemKey]--;
+    if (this.gameState.inventory[itemKey] <= 0) delete this.gameState.inventory[itemKey];
+
+    this.updatePartyUI();
+
+    // Return to the correct screen
+    if (this.gameState.activeBattle) {
+      // In battle, using an item uses your turn. The enemy attacks!
+      this.setMenuState('battle');
+      const enemyMove = this.battleEngine.getRandomEnemyMove();
+      this.battleEngine.processAction(this.gameState.activeBattle.enemyMon, this.gameState.party[0], enemyMove, false);
+      this.battleEngine.checkWinLoss();
+    } else {
+      this.setMenuState('system-menu'); // Or wherever your bag was opened from
+    }
+  }
+  
 } // <--- Added closing brace for GameEngine class
 
 const game = new GameEngine();
