@@ -26,7 +26,7 @@ export class CaptureSystem {
     const ballModifier = ballItem.catchRate || 1.0;
 
     // HP factor: lower health increases catch probability
-    const hpFactor((3 * maxHp - 2 * currentHp) / (3 * maxHp));
+    const hpFactor = ((3 * maxHp - 2 * currentHp) / (3 * maxHp));
     const catchValue = hpFactor * baseCatchRate * ballModifier;
 
     // Shake checks simulation (simplified 3-shake system)
