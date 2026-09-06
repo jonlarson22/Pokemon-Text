@@ -185,10 +185,10 @@ class GameEngine {
 
   // --- BATTLE LOGIC ---
   startBattle(wildPokemonInfo) {
-    const enemyMon = this.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
-    const speciesKey = caughtPokemon.species.toLowerCase();
+    const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
-    this.gameState.pokedex.caught[speciesKey] = true;
+
+    const enemyMon = this.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
     
     if (!enemyMon) {
       this.printToLog("Error generating wild Pokémon stats!");
