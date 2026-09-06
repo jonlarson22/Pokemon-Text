@@ -31,6 +31,8 @@
     "description": "The perpetually green paradise.",
     "connections": ["route1", "route2", "route22"],
     "req_flag": null,
+    "hasCenter": true,
+    "hasShop": true,
     "encounters": [],
     "trainers": [],
     "explore_table": []
