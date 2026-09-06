@@ -19,7 +19,7 @@
       { "species": "Pidgey", "min_level": 2, "max_level": 5, "weight": 55 },
       { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 45 }
     ],
-    "trainers": [],
+    "trainers": ["youngster_joey"],
     "explore_table": [
       { "type": "nothing", "weight": 50 },
       { "type": "encounter", "weight": 35 },
