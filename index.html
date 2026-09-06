@@ -25,18 +25,37 @@
     </section>
 
     <nav id="action-menu">
-      <!-- Route Menu -->
-      <div id="route-actions">
+      <!-- State 1: Route Actions -->
+      <div id="route-actions" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
         <button id="btn-encounter" class="btn">Encounter</button>
         <button id="btn-fight" class="btn">Fight</button>
         <button id="btn-explore" class="btn">Explore</button>
         <button id="btn-travel" class="btn">Travel</button>
+        <button id="btn-menu" class="btn secondary" style="grid-column: span 2;">Menu</button>
       </div>
 
+      <!-- State 2: System Menu (Hidden) -->
+      <div id="system-menu" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+        <button id="btn-bag" class="btn">Bag</button>
+        <button id="btn-pokedex" class="btn">Pokédex</button>
+        <button id="btn-save" class="btn">Save / Load</button>
+        <button id="btn-back-menu" class="btn secondary">Back</button>
+      </div>
+
+      <!-- State 3: Travel Menu (Hidden) -->
+      <div id="travel-menu" style="display: none; display: flex; flex-direction: column; gap: 8px;">
+        <!-- Javascript will inject available destinations here dynamically -->
+        <div id="travel-destinations"></div>
+        <button id="btn-back-travel" class="btn secondary">Cancel</button>
+      </div>
+
+      <!-- State 4: Battle Actions (Hidden) -->
       <div id="battle-actions" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 8px;">
         <button id="btn-move-0" class="btn">-</button>
         <button id="btn-move-1" class="btn">-</button>
         <button id="btn-move-2" class="btn">-</button>
+        <button id="btn-move-3" class="btn">-</button>
+        <button id="btn-battle-bag" class="btn secondary">Bag</button>
         <button id="btn-run" class="btn secondary">Run</button>
       </div>
     </nav>
