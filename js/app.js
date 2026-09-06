@@ -96,10 +96,30 @@ class GameEngine {
     }
   }
 
-  renderRouteScreen() {
+    renderRouteScreen() {
     const route = this.db.routes[this.gameState.currentRoute];
     const locationEl = document.getElementById('location-name');
     if (locationEl && route) locationEl.textContent = route.name;
+
+    // Toggle City-specific buttons (Center / Shop) if defined in route data
+    const centerBtn = document.getElementById('btn-pokemon-center');
+    const shopBtn = document.getElementById('btn-shop');
+
+    if (centerBtn) {
+      centerBtn.style.display = route.hasCenter ? "block" : "none";
+      centerBtn.onclick = () => {
+        this.gameState.party.forEach(p => p.hp = p.maxHp);
+        this.updatePartyUI();
+        this.printToLog(`Welcome to the Pokémon Center! Your party was fully healed.`);
+      };
+    }
+
+    if (shopBtn) {
+      shopBtn.style.display = route.hasShop ? "block" : "none";
+      shopBtn.onclick = () => {
+        this.printToLog("The Poké Mart stock is currently being unpacked!");
+      };
+    }
   }
 
   // --- UI MENU CONTROLS ---
