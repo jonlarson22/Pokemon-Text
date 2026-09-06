@@ -1,0 +1,12 @@
+{
+  "youngster_joey": {
+    "name": "Youngster Joey",
+    "title": "Youngster",
+    "dialogueBefore": "My Rattata is among the top percentage of Rattata!",
+    "dialogueAfter": "Aww, my Rattata...",
+    "rewardMoney": 120,
+    "party": [
+      { "species": "Rattata", "level": 4 }
+    ]
+  }
+}
