@@ -9,31 +9,31 @@ class GameEngine {
       defeatedTrainers: {},
       party: [],
       inventory: { "Potion": 1 },
-      pokedex: {
-        seen: {},
-        caught: {}
-      },
+      pokedex: { seen: {}, caught: {} },
       activeBattle: null
     };
     
     this.db = {
       routes: {},
       pokemon: {},
-      moves: {}
+      moves: {},
+      trainers: {}
     };
   }
 
   async init() {
     // 1. Fetch all JSON files concurrently
-    const [routesRes, pokemonRes, movesRes] = await Promise.all([
+    const [routesRes, pokemonRes, movesRes, trainersRes] = await Promise.all([
       fetch('./data/routes.json'),
       fetch('./data/pokemon.json'),
-      fetch('./data/moves.json')
+      fetch('./data/moves.json'),
+      fetch('./data/trainers.json')
     ]);
 
     this.db.routes = await routesRes.json();
     this.db.pokemon = await pokemonRes.json();
     this.db.moves = await movesRes.json();
+    this.db.trainers = await trainersRes.json();
 
     // 2. Generate the Player's Starter (Level 5 Charmander)
     this.gameState.party.push(this.generatePokemonInstance("charmander", 5));
@@ -247,6 +247,47 @@ class GameEngine {
     this.setMenuState('battle');
   }
 
+startTrainerBattle(enemyMon, trainer) {
+    const speciesKey = enemyMon.species.toLowerCase();
+    this.gameState.pokedex.seen[speciesKey] = true;
+
+    if (!enemyMon) {
+      this.printToLog("Error generating trainer's Pokémon!");
+      return;
+    }
+
+    this.printToLog(`${trainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
+    
+    this.gameState.activeBattle = new BattleEngine(
+      this.gameState.party[0], 
+      enemyMon, 
+      (msg) => {
+        this.printToLog(msg);
+        this.updatePartyUI();
+      },
+      this.db.typeChart
+    );
+
+    const leadMoves = this.gameState.party[0].moves;
+    for (let i = 0; i < 4; i++) {
+      const btn = document.getElementById(`btn-move-${i}`);
+      if (btn && leadMoves[i]) {
+        btn.textContent = leadMoves[i].name;
+        btn.onclick = () => this.handleTurn(leadMoves[i]);
+        btn.style.display = "block";
+      } else if (btn) {
+        btn.style.display = "none";
+      }
+    }
+
+    const battleBagBtn = document.getElementById('btn-battle-bag');
+    if (battleBagBtn) {
+      battleBagBtn.onclick = () => this.openBag();
+    }
+
+    this.setMenuState('battle');
+  }
+
   handleTurn(playerMove) {
     this.gameState.activeBattle.executeTurn(playerMove);
     
@@ -276,7 +317,39 @@ class GameEngine {
     });
 
     document.getElementById('btn-fight')?.addEventListener('click', () => {
-      this.printToLog("No active trainer battle nearby right now.");
+      const route = this.db.routes[this.gameState.currentRoute];
+      
+      if (!route.trainers || route.trainers.length === 0) {
+        this.printToLog("No active trainer battle nearby right now.");
+        return;
+      }
+
+      // Find the first trainer ID in the array that hasn't been defeated yet
+      const undefeatedTrainerId = route.trainers.find(id => !this.gameState.defeatedTrainers[id]);
+
+      if (!undefeatedTrainerId) {
+        this.printToLog("You have already defeated all trainers on this route!");
+        return;
+      }
+
+      // Look up the trainer data from our newly loaded database
+      const trainer = this.db.trainers[undefeatedTrainerId];
+      if (!trainer) {
+        this.printToLog("Error: Trainer data not found!");
+        return;
+      }
+
+      this.printToLog(`${trainer.name} wants to battle!`);
+      this.printToLog(`"${trainer.dialogueBefore}"`);
+
+      // Generate the trainer's first Pokémon
+      const enemyMonData = trainer.party[0];
+      const enemyMon = this.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
+
+      // Mark as defeated so you don't fight them endlessly
+      this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
+
+      this.startTrainerBattle(enemyMon, trainer);
     });
 
     document.getElementById('btn-travel')?.addEventListener('click', () => {
