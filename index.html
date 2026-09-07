@@ -75,10 +75,22 @@
       </div>
 
       <!-- State 6: Starter Selection (Hidden) -->
-      <div id="starter-menu" style="display: none; grid-template-columns: repeat(3, 1fr); gap: 8px;">
-        <button id="btn-starter-bulbasaur" class="btn" data-id="bulbasaur">Bulbasaur</button>
-        <button id="btn-starter-charmander" class="btn" data-id="charmander">Charmander</button>
-        <button id="btn-starter-squirtle" class="btn" data-id="squirtle">Squirtle</button>
+      <div id="starter-menu" style="display: none; flex-direction: column; gap: 12px; text-align: center;">
+        <div style="font-weight: bold; font-size: 1.1em;">Choose your Starter:</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+          <button id="btn-starter-bulbasaur" class="btn" data-id="bulbasaur">Bulbasaur</button>
+          <button id="btn-starter-charmander" class="btn" data-id="charmander">Charmander</button>
+          <button id="btn-starter-squirtle" class="btn" data-id="squirtle">Squirtle</button>
+        </div>
+        
+        <hr style="width: 100%; border: 1px solid #ccc; margin: 4px 0;">
+        
+        <div style="font-weight: bold; font-size: 1.1em;">Or continue your journey:</div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+          <button id="btn-load-game" class="btn secondary">Load Local</button>
+          <button id="btn-import-save" class="btn secondary">Import Save</button>
+          <input type="file" id="input-import-file" style="display: none;" accept=".json">
+        </div>
       </div>
 
       <!-- State 7: Party Target Selection (Hidden) -->
