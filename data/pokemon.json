@@ -22,8 +22,7 @@
     ],
     "tmMoves": ["mega_drain", "toxic", "solar_beam", "rest"],
     "catchRate": 45
-  }
-},
+  },
   "charmander": {
     "pokedexNumber": 4,
     "id": "charmander",
