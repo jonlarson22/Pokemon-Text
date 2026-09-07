@@ -47,14 +47,25 @@
     "accuracy": 100,
     "pp": 30
   },
-  "leech_seed": {
-    "name": "Leech Seed",
-    "type": "Grass",
-    "category": "status",
-    "power": 0,
-    "accuracy": 90,
-    "pp": 10
-  },
+ "giga_drain": {
+  "name": "Giga Drain",
+  "type": "Grass",
+  "category": "special",
+  "power": 75,
+  "accuracy": 100,
+  "drain": 0.5
+},
+"leech_seed": {
+  "name": "Leech Seed",
+  "type": "Grass",
+  "category": "status",
+  "power": 0,
+  "accuracy": 90,
+  "effect": {
+    "type": "leech_seed",
+    "target": "enemy"
+  }
+},
   "smokescreen": {
     "name": "Smokescreen",
     "type": "Normal",
