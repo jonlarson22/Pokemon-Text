@@ -1,4 +1,3 @@
-// js/app.js - Complete Route, Encounter, and Battle Manager
 import { BattleEngine } from './battle.js';
 import { CaptureSystem } from './captures.js';
 import { GrowthEngine } from './growth.js';
@@ -20,6 +19,7 @@ class GameEngine {
       lastHealedLocation: null
     };
 
+    this.partySwapIndex = null;
     this.captureSystem = new CaptureSystem(this);
     this.growth = new GrowthEngine(this);
     
@@ -121,7 +121,6 @@ class GameEngine {
     this.gameState.party.push(starter);
     this.gameState.hasStarter = true;
     
-    // Register starter in Pokédex
     this.gameState.pokedex.seen[safeId] = true;
     this.gameState.pokedex.caught[safeId] = true;
     this.updatePokedexTrackerUI();
@@ -132,9 +131,7 @@ class GameEngine {
 
   updateMoneyUI() {
     const moneyEl = document.getElementById('money-count');
-    if (moneyEl) {
-      moneyEl.textContent = `Money: ¥${this.gameState.money}`;
-    }
+    if (moneyEl) moneyEl.textContent = `Money: ¥${this.gameState.money}`;
   }
 
   updatePokedexTrackerUI() {
@@ -142,9 +139,7 @@ class GameEngine {
     const totalPokemon = Object.keys(this.db.pokemon).length || 151;
     const caughtCount = Object.keys(this.gameState.pokedex.caught).filter(k => this.gameState.pokedex.caught[k]).length;
 
-    if (pokedexEl) {
-      pokedexEl.textContent = `Pokedex: ${caughtCount}/${totalPokemon}`;
-    }
+    if (pokedexEl) pokedexEl.textContent = `Pokedex: ${caughtCount}/${totalPokemon}`;
   }
   
   printToLog(message) {
@@ -176,16 +171,12 @@ class GameEngine {
 
     if (centerBtn) {
       centerBtn.style.display = route.hasCenter ? "block" : "none";
-      centerBtn.onclick = () => {
-        this.openCenter();
-      };
+      centerBtn.onclick = () => this.openCenter();
     }
 
     if (shopBtn) {
       shopBtn.style.display = route.hasShop ? "block" : "none";
-      shopBtn.onclick = () => {
-        this.openShop();
-      };
+      shopBtn.onclick = () => this.openShop();
     }
   }
 
@@ -198,22 +189,16 @@ class GameEngine {
     document.getElementById('battle-actions').style.display = 'none';
     document.getElementById('dynamic-menu').style.display = 'none';
 
-    if (menuName === 'route') {
-      document.getElementById('route-actions').style.display = 'grid';
-    } else if (menuName === 'system') {
-      document.getElementById('system-menu').style.display = 'grid';
-    } else if (menuName === 'travel') {
+    if (menuName === 'route') document.getElementById('route-actions').style.display = 'grid';
+    else if (menuName === 'system') document.getElementById('system-menu').style.display = 'grid';
+    else if (menuName === 'travel') {
       document.getElementById('travel-menu').style.display = 'flex';
       this.populateTravelMenu();
-    } else if (menuName === 'battle') {
-      document.getElementById('battle-actions').style.display = 'grid';
-    } else if (menuName === 'dynamic') {
-      document.getElementById('dynamic-menu').style.display = 'flex';
-    } else if (menuName === 'starter') {
-      document.getElementById('starter-menu').style.display = 'grid';
-    } else if (menuName === 'party-select') {
-      document.getElementById('party-select-menu').style.display = 'flex';
-    }
+    } 
+    else if (menuName === 'battle') document.getElementById('battle-actions').style.display = 'grid';
+    else if (menuName === 'dynamic') document.getElementById('dynamic-menu').style.display = 'flex';
+    else if (menuName === 'starter') document.getElementById('starter-menu').style.display = 'flex';
+    else if (menuName === 'party-select') document.getElementById('party-select-menu').style.display = 'flex';
   }
 
   populateTravelMenu() {
@@ -226,10 +211,7 @@ class GameEngine {
     currentRouteData.connections.forEach(destinationId => {
       const destData = this.db.routes[destinationId];
       if (!destData) return;
-
-      if (destData.req_flag && !this.gameState.flags[destData.req_flag]) {
-         return; 
-      }
+      if (destData.req_flag && !this.gameState.flags[destData.req_flag]) return; 
 
       const btn = document.createElement('button');
       btn.className = 'btn';
@@ -279,13 +261,12 @@ class GameEngine {
     }
   }
 
-startBattle(wildPokemonInfo) {
+  startBattle(wildPokemonInfo) {
     const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.updatePokedexTrackerUI();
 
     const enemyMon = this.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
-    
     if (!enemyMon) {
       this.printToLog("Error generating wild Pokémon stats!");
       return;
@@ -293,7 +274,6 @@ startBattle(wildPokemonInfo) {
 
     this.printToLog(`A wild ${enemyMon.species} (Lv. ${enemyMon.level}) appeared!`);
     
-    // Updated BattleEngine instantiation with the EXP callback
     this.gameState.activeBattle = new BattleEngine(
       this.gameState.party[0], 
       enemyMon, 
@@ -320,9 +300,7 @@ startBattle(wildPokemonInfo) {
     }
 
     const battleBagBtn = document.getElementById('btn-battle-bag');
-    if (battleBagBtn) {
-      battleBagBtn.onclick = () => this.openBag();
-    }
+    if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
 
     this.setMenuState('battle');
   }
@@ -339,7 +317,6 @@ startBattle(wildPokemonInfo) {
 
     this.printToLog(`${trainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
     
-    // Updated BattleEngine instantiation with the EXP callback
     this.gameState.activeBattle = new BattleEngine(
       this.gameState.party[0], 
       enemyMon, 
@@ -366,9 +343,7 @@ startBattle(wildPokemonInfo) {
     }
 
     const battleBagBtn = document.getElementById('btn-battle-bag');
-    if (battleBagBtn) {
-      battleBagBtn.onclick = () => this.openBag();
-    }
+    if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
 
     this.gameState.activeTrainer = trainer;    
     this.setMenuState('battle');
@@ -376,10 +351,7 @@ startBattle(wildPokemonInfo) {
 
   handleTurn(playerMove) {
     this.gameState.activeBattle.executeTurn(playerMove);
-    
-    if (this.gameState.activeBattle.isOver) {
-      this.handleBattleEnd();
-    }
+    if (this.gameState.activeBattle.isOver) this.handleBattleEnd();
   }
 
   handleBattleEnd() {
@@ -443,24 +415,18 @@ startBattle(wildPokemonInfo) {
       }
     });
 
-    // Pokémon Party View Bindings
     document.getElementById('btn-pokemon')?.addEventListener('click', () => this.openPokemonMenu());
     document.getElementById('btn-party')?.addEventListener('click', () => this.openPokemonMenu());
-
-    document.getElementById('btn-pokedex')?.addEventListener('click', () => {
-      this.openPokedex();
-    });
+    document.getElementById('btn-pokedex')?.addEventListener('click', () => this.openPokedex());
     
     document.getElementById('btn-fight')?.addEventListener('click', () => {
       const route = this.db.routes[this.gameState.currentRoute];
-      
       if (!route.trainers || route.trainers.length === 0) {
         this.printToLog("No active trainer battle nearby right now.");
         return;
       }
 
       const undefeatedTrainerId = route.trainers.find(id => !this.gameState.defeatedTrainers[id]);
-
       if (!undefeatedTrainerId) {
         this.printToLog("You have already defeated all trainers on this route!");
         return;
@@ -479,38 +445,26 @@ startBattle(wildPokemonInfo) {
       const enemyMon = this.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
 
       this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
-
       this.startTrainerBattle(enemyMon, trainer);
     });
 
-    document.getElementById('btn-travel')?.addEventListener('click', () => {
-      this.setMenuState('travel');
-    });
-
-    document.getElementById('btn-menu')?.addEventListener('click', () => {
-      this.setMenuState('system');
-    });
-
-    document.getElementById('btn-back-menu')?.addEventListener('click', () => {
-      this.setMenuState('route');
-    });
-
-    document.getElementById('btn-back-travel')?.addEventListener('click', () => {
-      this.setMenuState('route');
-    });
-
-    document.getElementById('btn-save')?.addEventListener('click', () => {
-      this.handleSaveLoad(); 
-    });
-
-    document.getElementById('btn-bag')?.addEventListener('click', () => {
-      this.openBag();
-    });
-
+    document.getElementById('btn-travel')?.addEventListener('click', () => this.setMenuState('travel'));
+    document.getElementById('btn-menu')?.addEventListener('click', () => this.setMenuState('system'));
+    document.getElementById('btn-back-menu')?.addEventListener('click', () => this.setMenuState('route'));
+    document.getElementById('btn-back-travel')?.addEventListener('click', () => this.setMenuState('route'));
+    document.getElementById('btn-save')?.addEventListener('click', () => this.handleSaveLoad());
+    document.getElementById('btn-bag')?.addEventListener('click', () => this.openBag());
+    
     document.getElementById('btn-run')?.addEventListener('click', () => {
       this.printToLog("Got away safely!");
       this.setMenuState('route');
     });
+
+    document.getElementById('btn-load-game')?.addEventListener('click', () => this.loadGameLocal());
+    document.getElementById('btn-import-save')?.addEventListener('click', () => {
+      document.getElementById('input-import-file').click();
+    });
+    document.getElementById('input-import-file')?.addEventListener('change', (e) => this.handleFileUpload(e));
   }
 
   openBag() {
@@ -558,10 +512,10 @@ startBattle(wildPokemonInfo) {
     controls.innerHTML = '';
 
     this.buildMenuControls(controls, [
-      { text: "Save Game (Local)", action: () => this.saveGameLocal() },
-      { text: "Load Game (Local)", action: () => this.loadGameLocal() },
-      { text: "Export Save (String)", action: () => this.exportSave() },
-      { text: "Import Save (String)", action: () => this.importSave() },
+      { text: "Save (Local)", action: () => this.saveGameLocal() },
+      { text: "Load (Local)", action: () => this.loadGameLocal() },
+      { text: "Export File", action: () => this.exportSave() },
+      { text: "Import File", action: () => document.getElementById('input-import-file').click() },
       { text: "Close", action: () => this.setMenuState('system') }
     ]);
   }
@@ -596,44 +550,43 @@ startBattle(wildPokemonInfo) {
 
   exportSave() {
     try {
-      const saveData = JSON.stringify(this.gameState);
-      const encodedSave = btoa(saveData);
-      
-      this.printToLog("SAVE SUCCESSFUL. Copy this string and save it somewhere safe:");
-      this.printToLog(encodedSave);
-      
-      navigator.clipboard.writeText(encodedSave).then(() => {
-        this.printToLog("(Save string copied to your clipboard!)");
-      }).catch(err => {
-        console.log("Clipboard API failed, user must copy manually.", err);
-      });
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.gameState));
+      const downloadAnchorNode = document.createElement('a');
+      downloadAnchorNode.setAttribute("href", dataStr);
+      downloadAnchorNode.setAttribute("download", "pokemon_save.json");
+      document.body.appendChild(downloadAnchorNode);
+      downloadAnchorNode.click();
+      downloadAnchorNode.remove();
+      this.printToLog("Game downloaded as pokemon_save.json!");
     } catch (error) {
       this.printToLog("Error exporting save data.");
     }
   }
 
-  importSave() {
-    const saveString = window.prompt("Paste your save string here:");
-    if (!saveString) return;
-
-    try {
-      const decodedSave = atob(saveString);
-      const parsedState = JSON.parse(decodedSave);
-
-      if (parsedState && parsedState.party && parsedState.currentRoute) {
-        this.gameState = parsedState;
-        this.renderRouteScreen();
-        this.updatePartyUI();
-        this.updateMoneyUI();
-        this.updatePokedexTrackerUI();
-        this.setMenuState('route');
-        this.printToLog("Game loaded successfully!");
-      } else {
-        this.printToLog("Error: Invalid save string format.");
+  handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const parsedState = JSON.parse(e.target.result);
+        if (parsedState && parsedState.party && parsedState.currentRoute) {
+          this.gameState = parsedState;
+          this.renderRouteScreen();
+          this.updatePartyUI();
+          this.updateMoneyUI();
+          this.updatePokedexTrackerUI();
+          this.setMenuState('route');
+          this.printToLog("Game loaded successfully from file!");
+        } else {
+          this.printToLog("Error: Invalid save file format.");
+        }
+      } catch (error) {
+        this.printToLog("Error: Failed to parse save file.");
       }
-    } catch (error) {
-      this.printToLog("Error: Failed to load save. The string might be corrupted.");
-    }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
   }
 
   openCenter() {
@@ -725,11 +678,12 @@ startBattle(wildPokemonInfo) {
     if (this.gameState.party.length === 0) {
       content.innerHTML = '<p style="text-align:center;">You have no Pokémon in your party.</p>';
     } else {
-      this.gameState.party.forEach((mon) => {
+      this.gameState.party.forEach((mon, index) => {
         const pbox = document.createElement('div');
-        pbox.style.border = "1px solid #ccc";
+        pbox.style.border = this.partySwapIndex === index ? "2px solid red" : "1px solid #ccc";
         pbox.style.padding = "8px";
         pbox.style.marginBottom = "8px";
+        pbox.style.cursor = "pointer";
         
         pbox.innerHTML = `
           <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
@@ -737,12 +691,36 @@ startBattle(wildPokemonInfo) {
           Atk: ${mon.stats.attack} | Def: ${mon.stats.defense} | SpA: ${mon.stats.spAtk} | SpD: ${mon.stats.spDef} | Spd: ${mon.speed}<br>
           Moves: ${mon.moves.map(m => m.name).join(', ')}
         `;
+        
+        pbox.onclick = () => {
+          if (this.partySwapIndex !== null) {
+            if (this.partySwapIndex !== index) {
+              const temp = this.gameState.party[this.partySwapIndex];
+              this.gameState.party[this.partySwapIndex] = this.gameState.party[index];
+              this.gameState.party[index] = temp;
+              this.printToLog(`Swapped ${this.gameState.party[index].species} and ${this.gameState.party[this.partySwapIndex].species}.`);
+            }
+            this.partySwapIndex = null;
+            this.updatePartyUI();
+            this.openPokemonMenu();
+          } else {
+            this.partySwapIndex = index;
+            this.openPokemonMenu();
+          }
+        };
         content.appendChild(pbox);
       });
     }
 
     this.buildMenuControls(controls, [
-      { text: "Close", action: () => this.setMenuState('system') }
+      { text: this.partySwapIndex !== null ? "Cancel Swap" : "Close", action: () => {
+          if (this.partySwapIndex !== null) {
+            this.partySwapIndex = null;
+            this.openPokemonMenu();
+          } else {
+            this.setMenuState('system');
+          }
+      }}
     ]);
   }
   
