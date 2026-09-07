@@ -1,9 +1,10 @@
 // js/battle.js
 export class BattleEngine {
-  constructor(playerMon, enemyMon, onLog, typeChart = null) {
+  constructor(playerMon, enemyMon, onLog, onVictory, typeChart = null) {
     this.playerMon = playerMon;
     this.enemyMon = enemyMon;
     this.onLog = onLog;
+    this.onVictory = onVictory; 
     this.typeChart = typeChart; 
     this.isOver = false;
 
@@ -99,7 +100,7 @@ export class BattleEngine {
     return true;
   }
 
-applyEndOfTurnEffects(mon, opponent) {
+  applyEndOfTurnEffects(mon, opponent) {
     if (mon.hp <= 0) return;
 
     if (mon.status === 'PSN' || mon.status === 'BRN') {
@@ -278,6 +279,7 @@ applyEndOfTurnEffects(mon, opponent) {
     if (this.enemyMon.hp <= 0) {
       this.onLog(`Wild ${this.enemyMon.species} fainted! You win!`);
       this.isOver = true;
+      if (this.onVictory) this.onVictory(this.enemyMon); // This triggers the EXP gain!
       return true;
     }
     if (this.playerMon.hp <= 0) {
