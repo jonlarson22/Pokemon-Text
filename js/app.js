@@ -378,7 +378,7 @@ class GameEngine {
     if (isWiped) {
       this.printToLog("You have no more usable Pokémon! You blacked out! You scurried back to the nearest Pokemon Center to heal your Pokemon.");
       this.gameState.money = Math.floor(this.gameState.money / 2);
-      this.gameState.currentRoute = this.gameState.lastHealedLocation || "viridian_city";
+      this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
       
       this.gameState.party.forEach(p => p.hp = p.maxHp);
       this.updateMoneyUI();
