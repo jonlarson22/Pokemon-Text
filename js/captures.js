@@ -11,7 +11,7 @@ export class CaptureSystem {
     const enemy = battle.enemyMon;
     const speciesData = this.app.db.pokemon[enemy.id] || {};
 
-    // Consume the ball from inventory
+    // Consume ball from inventory
     this.app.gameState.inventory[ballKey]--;
     if (this.app.gameState.inventory[ballKey] <= 0) {
       delete this.app.gameState.inventory[ballKey];
@@ -19,45 +19,52 @@ export class CaptureSystem {
 
     this.app.printToLog(`You threw a ${ballItem.name}!`);
 
-    // Classic-inspired catch formula calculation
+    // 1. Status Multiplier
+    let statusBonus = 1.0;
+    if (['SLP', 'FRZ'].includes(enemy.status)) statusBonus = 2.0;
+    else if (['PSN', 'BRN', 'PAR'].includes(enemy.status)) statusBonus = 1.5;
+
+    // 2. Catch Probability Calculation
     const maxHp = enemy.maxHp;
     const currentHp = enemy.hp;
-    const baseCatchRate = speciesData.catchRate || 45;
+    const baseCatchRate = speciesData.catchRate || enemy.catchRate || 45;
     const ballModifier = ballItem.catchRate || 1.0;
 
-    // HP factor: lower health increases catch probability
-    const hpFactor = ((3 * maxHp - 2 * currentHp) / (3 * maxHp));
-    const catchValue = hpFactor * baseCatchRate * ballModifier;
+    const hpFactor = (3 * maxHp - 2 * currentHp) / (3 * maxHp);
+    let catchProbability = (baseCatchRate * hpFactor * ballModifier * statusBonus) / 255;
+    catchProbability = Math.min(1.0, Math.max(0.01, catchProbability));
 
-    // Shake checks simulation (simplified 3-shake system)
-    setTimeout(() => {
-      this.app.printToLog("The ball shook...");
-      
-      setTimeout(() => {
-        // Random check scaled against a 255 max threshold
-        const roll = Math.random() * 255;
-        
-        if (roll <= catchValue) {
-          this.successCapture(enemy, speciesData);
-        } else {
-          this.app.printToLog(`Oh no! ${enemy.name} broke free!`);
-          // Return control back to battle turn structure or enemy counterattack
-          setTimeout(() => {
-            this.app.setMenuState('battle');
-          }, 1500);
-        }
-      }, 1000);
-    }, 1000);
+    // 3. Shake Checks (4 sequential rolls based on probability)
+    let shakes = 0;
+    const checkShake = () => {
+      if (shakes < 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
+        shakes++;
+        this.app.printToLog("The ball shook...");
+        setTimeout(checkShake, 500);
+      } else if (shakes === 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
+        this.successCapture(enemy, speciesData);
+      } else {
+        this.app.printToLog(`Oh no! ${enemy.species} broke free!`);
+        setTimeout(() => {
+          this.app.setMenuState('battle');
+        }, 500);
+      }
+    };
+
+    setTimeout(checkShake, 500);
   }
 
   successCapture(enemy, speciesData) {
-    this.app.printToLog(`Gotcha! ${enemy.name} was caught!`);
+    this.app.printToLog(`Gotcha! ${enemy.species} was caught!`);
 
     // Record in Pokedex
+    if (!this.app.gameState.pokedex) {
+      this.app.gameState.pokedex = { caught: {}, seen: {} };
+    }
     this.app.gameState.pokedex.caught[enemy.id] = true;
     this.app.gameState.pokedex.seen[enemy.id] = true;
 
-    // Build standard party-ready Pokémon object
+    // Build party-ready Pokémon object
     const caughtPokemon = {
       species: enemy.species,
       id: enemy.id,
@@ -67,7 +74,8 @@ export class CaptureSystem {
       attack: enemy.attack,
       defense: enemy.defense,
       speed: enemy.speed,
-      types: speciesData.types || ["Normal"],
+      stats: enemy.stats || { attack: enemy.attack, defense: enemy.defense, spAtk: enemy.attack, spDef: enemy.defense, speed: enemy.speed },
+      types: enemy.types || speciesData.types || ["Normal"],
       moves: [...enemy.moves],
       exp: 0,
       maxExp: enemy.level * 100
@@ -76,17 +84,22 @@ export class CaptureSystem {
     // Route to Party or PC Box
     if (this.app.gameState.party.length < 6) {
       this.app.gameState.party.push(caughtPokemon);
-      this.app.printToLog(`${enemy.name} was added to your party.`);
+      this.app.printToLog(`${enemy.species} was added to your party.`);
     } else {
+      if (!this.app.gameState.pc) this.app.gameState.pc = { pokemon: [] };
       this.app.gameState.pc.pokemon.push(caughtPokemon);
-      this.app.printToLog(`Your party is full! ${enemy.name} was sent to the PC Box.`);
+      this.app.printToLog(`Your party is full! ${enemy.species} was sent to the PC Box.`);
     }
 
-    // End battle and return to route
-    this.app.gameState.activeBattle.isOver = true;
+    // Terminate battle state cleanly
+    if (this.app.gameState.activeBattle) {
+      this.app.gameState.activeBattle.isOver = true;
+      this.app.gameState.activeBattle = null;
+    }
+
     setTimeout(() => {
       this.app.updatePartyUI();
       this.app.setMenuState('route');
-    }, 2000);
+    }, 500);
   }
 }
