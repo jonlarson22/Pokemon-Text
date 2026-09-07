@@ -1,6 +1,7 @@
 // js/app.js - Complete Route, Encounter, and Battle Manager
 import { BattleEngine } from './battle.js';
 import { CaptureSystem } from './captures.js';
+import { GrowthEngine } from './growth.js';
 
 class GameEngine {
   constructor() {
@@ -20,6 +21,7 @@ class GameEngine {
     };
 
     this.captureSystem = new CaptureSystem(this);
+    this.growth = new GrowthEngine(this);
     
     this.db = {
       routes: {},
