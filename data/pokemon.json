@@ -12,9 +12,18 @@
       "spDef": 65,
       "speed": 45
     },
-    "moves": ["tackle", "growl", "vine_whip", "leech_seed"],
+    "baseExp": 64,
+    "moves": ["tackle", "growl"],
+    "learnset": [
+      { "level": 1, "move": "tackle" },
+      { "level": 1, "move": "growl" },
+      { "level": 7, "move": "leech_seed" },
+      { "level": 13, "move": "vine_whip" }
+    ],
+    "tmMoves": ["mega_drain", "toxic", "solar_beam", "rest"],
     "catchRate": 45
-  },
+  }
+},
   "charmander": {
     "pokedexNumber": 4,
     "id": "charmander",
