@@ -376,7 +376,7 @@ class GameEngine {
   checkBlackout() {
     const isWiped = this.gameState.party.every(p => p.hp <= 0);
     if (isWiped) {
-      this.printToLog("You have no more usable Pokémon! You blacked out! You scurried back to the nearest Pokemon Center to heal your Pokemon.");
+      this.printToLog("You have no more usable Pokémon! You whited out! You hurried away to protect your Pokemon from further harm.");
       this.gameState.money = Math.floor(this.gameState.money / 2);
       this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
       
