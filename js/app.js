@@ -369,25 +369,24 @@ checkGameStart() {
     }
   }
 
-  checkBlackout() {
-    const isWiped = this.gameState.party.every(p => p.hp <= 0);
-    if (isWiped) {
-      this.printToLog("You have no more usable Pokémon! You blacked out!");
-      this.gameState.money = Math.floor(this.gameState.money / 2);
-      this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
-      
-      // Auto-heal on blackout
-      this.gameState.party.forEach(p => p.hp = p.maxHp);
-      this.updateMoneyUI();
-      
-      setTimeout(() => {
-        this.renderRouteScreen();
-        this.setMenuState('route');
-      }, 2000);
-      return true;
-    }
-    return false;
+checkBlackout() {
+  const isWiped = this.gameState.party.every(p => p.hp <= 0);
+  if (isWiped) {
+    this.printToLog("You have no more usable Pokémon! You blacked out! You scurried back to the nearest Pokemon Center to heal your Pokemon.");
+    this.gameState.money = Math.floor(this.gameState.money / 2);
+    this.gameState.currentRoute = this.gameState.lastHealedLocation || "viridian_city";
+    
+    this.gameState.party.forEach(p => p.hp = p.maxHp);
+    this.updateMoneyUI();
+    
+    setTimeout(() => {
+      this.renderRouteScreen();
+      this.setMenuState('route');
+    }, 500);
+    return true;
   }
+  return false;
+}
 
   bindListeners() {
     document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.pickStarter('bulbasaur'));
