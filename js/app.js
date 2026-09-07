@@ -347,6 +347,24 @@ checkGameStart() {
     
     if (this.gameState.activeBattle.isOver) {
 
+      checkBlackout() {
+    const isWiped = this.gameState.party.every(p => p.hp <= 0);
+    if (isWiped) {
+      this.printToLog("You have no more usable Pokémon! You blacked out!");
+      this.gameState.money = Math.floor(this.gameState.money / 2);
+      this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
+      this.gameState.party.forEach(p => p.hp = p.maxHp);
+      this.updateMoneyUI();
+      
+      setTimeout(() => {
+        this.renderRouteScreen();
+        this.setMenuState('route');
+      }, 2000);
+      return true;
+    }
+    return false;
+  }  
+
       if (this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
         const payout = this.gameState.activeTrainer.payout || 500;
         this.gameState.money += payout;
@@ -818,6 +836,25 @@ checkGameStart() {
     }
   }
 
+  openPokedex() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    Object.keys(this.gameState.pokedex.seen).forEach(speciesId => {
+      const p = document.createElement('p');
+      const isCaught = this.gameState.pokedex.caught[speciesId];
+      p.textContent = `${isCaught ? '🔴' : '⚪'} ${speciesId.toUpperCase()}`;
+      content.appendChild(p);
+    });
+
+    this.buildMenuControls(controls, [
+      { text: "Close", action: () => this.setMenuState('system') }
+    ]);
+  }
+  
   openPartyTargetScreen(itemKey, itemData) {
     this.setMenuState('party-select');
     const container = document.getElementById('party-select-list');
