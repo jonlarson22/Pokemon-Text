@@ -99,28 +99,32 @@ export class BattleEngine {
     return true;
   }
 
-  applyEndOfTurnEffects(mon, opponent) {
+applyEndOfTurnEffects(mon, opponent) {
     if (mon.hp <= 0) return;
 
     if (mon.status === 'PSN' || mon.status === 'BRN') {
       const damage = Math.max(1, Math.floor(mon.maxHp / 8));
-      mon.hp = Math.max(0, mon.hp - damage);
+      const actualDamage = Math.min(mon.hp, damage);
+      mon.hp -= actualDamage;
       const statusName = mon.status === 'PSN' ? 'poison' : 'burn';
-      this.onLog(`${mon.species} is hurt by its ${statusName}! (${mon.hp}/${mon.maxHp} HP)`);
+      this.onLog(`${mon.species} is hurt by its ${statusName}! (-${actualDamage} HP, ${mon.hp}/${mon.maxHp} HP)`);
     }
 
     if (mon.seeded && mon.hp > 0) {
       const drainAmount = Math.max(1, Math.floor(mon.maxHp / 8));
-      mon.hp = Math.max(0, mon.hp - drainAmount);
-      this.onLog(`${mon.species}'s health is sapped by Leech Seed!`);
+      const actualDrain = Math.min(mon.hp, drainAmount);
+      mon.hp -= actualDrain;
+      this.onLog(`${mon.species}'s health was sapped by Leech Seed! (-${actualDrain} HP, ${mon.hp}/${mon.maxHp} HP)`);
 
       if (opponent && opponent.hp > 0) {
-        opponent.hp = Math.min(opponent.maxHp, opponent.hp + drainAmount);
-        this.onLog(`${opponent.species} absorbed health! (${opponent.hp}/${opponent.maxHp} HP)`);
+        const oldHp = opponent.hp;
+        opponent.hp = Math.min(opponent.maxHp, opponent.hp + actualDrain);
+        const actualHeal = opponent.hp - oldHp;
+        this.onLog(`${opponent.species} absorbed ${actualHeal} HP! (${opponent.hp}/${opponent.maxHp} HP)`);
       }
     }
   }
-
+  
   applyStatus(target, status) {
     if (target.status) return;
     target.status = status;
