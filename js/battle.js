@@ -7,34 +7,26 @@ export class BattleEngine {
     this.typeChart = typeChart; 
     this.isOver = false;
 
-    // Initialize volatile battle states for this fight
     this.setupBattleStats(this.playerMon);
     this.setupBattleStats(this.enemyMon);
   }
 
-setupBattleStats(mon) {
+  setupBattleStats(mon) {
     mon.statStages = { attack: 0, defense: 0, spAtk: 0, spDef: 0, speed: 0, accuracy: 0, evasion: 0 };
     if (!mon.status) mon.status = null; 
     if (!mon.sleepTurns) mon.sleepTurns = 0;
+    mon.seeded = false;
   }
 
-  // Helper to calculate effective stats with stage multipliers (-6 to +6)
   getModifiedStat(mon, statName) {
     const stage = mon.statStages[statName] || 0;
-    // Standard multiplier formula: (2+stage)/2 for buffs, 2/(2-stage) for debuffs
     const multiplier = stage >= 0 ? (2 + stage) / 2 : 2 / (2 - Math.abs(stage));
     
-    let val = (statName === 'speed') ? mon.speed : mon.stats[statName];
+    let val = (statName === 'speed') ? mon.speed : (mon.stats ? mon.stats[statName] : mon[statName]);
     let modified = Math.floor(val * multiplier);
 
-    // Paralysis cuts Speed by 50%
-    if (statName === 'speed' && mon.status === 'PAR') {
-      modified = Math.floor(modified * 0.5);
-    }
-    // Burn cuts physical Attack by 50%
-    if (statName === 'attack' && mon.status === 'BRN') {
-      modified = Math.floor(modified * 0.5);
-    }
+    if (statName === 'speed' && mon.status === 'PAR') modified = Math.floor(modified * 0.5);
+    if (statName === 'attack' && mon.status === 'BRN') modified = Math.floor(modified * 0.5);
     
     return modified;
   }
@@ -42,7 +34,6 @@ setupBattleStats(mon) {
   executeTurn(playerMove) {
     if (this.isOver) return;
 
-    // 1. Determine turn order based on modified Speed stat
     const playerSpd = this.getModifiedStat(this.playerMon, 'speed');
     const enemySpd = this.getModifiedStat(this.enemyMon, 'speed');
     const playerFirst = playerSpd >= enemySpd;
@@ -55,22 +46,19 @@ setupBattleStats(mon) {
     const secondDefender = playerFirst ? this.playerMon : this.enemyMon;
     const secondMove = playerFirst ? this.getRandomEnemyMove() : playerMove;
 
-    // Execute First Move
     if (this.canMove(firstAttacker)) {
       this.processAction(firstAttacker, firstDefender, firstMove, playerFirst);
     }
     if (this.checkWinLoss()) return;
 
-    // Execute Second Move
     if (this.canMove(secondAttacker)) {
       this.processAction(secondAttacker, secondDefender, secondMove, !playerFirst);
     }
     if (this.checkWinLoss()) return;
 
-    // End of Turn Effects (Poison, Burn)
-    this.applyEndOfTurnEffects(firstAttacker);
+    this.applyEndOfTurnEffects(firstAttacker, firstDefender);
     if (this.checkWinLoss()) return;
-    this.applyEndOfTurnEffects(secondAttacker);
+    this.applyEndOfTurnEffects(secondAttacker, firstAttacker);
     this.checkWinLoss();
   }
 
@@ -94,7 +82,7 @@ setupBattleStats(mon) {
       return false;
     }
     if (mon.status === 'FRZ') {
-      if (Math.random() < 0.20) { // 20% chance to thaw each turn
+      if (Math.random() < 0.20) {
         mon.status = null;
         this.onLog(`${mon.species} thawed out!`);
         return true;
@@ -103,7 +91,7 @@ setupBattleStats(mon) {
       return false;
     }
     if (mon.status === 'PAR') {
-      if (Math.random() < 0.25) { // 25% chance to lose turn
+      if (Math.random() < 0.25) {
         this.onLog(`${mon.species} is paralyzed! It can't move!`);
         return false;
       }
@@ -111,23 +99,35 @@ setupBattleStats(mon) {
     return true;
   }
 
-  applyEndOfTurnEffects(mon) {
+  applyEndOfTurnEffects(mon, opponent) {
     if (mon.hp <= 0) return;
+
     if (mon.status === 'PSN' || mon.status === 'BRN') {
-      const damage = Math.max(1, Math.floor(mon.maxHp / 8)); // 1/8th max HP damage
+      const damage = Math.max(1, Math.floor(mon.maxHp / 8));
       mon.hp = Math.max(0, mon.hp - damage);
       const statusName = mon.status === 'PSN' ? 'poison' : 'burn';
       this.onLog(`${mon.species} is hurt by its ${statusName}! (${mon.hp}/${mon.maxHp} HP)`);
     }
+
+    if (mon.seeded && mon.hp > 0) {
+      const drainAmount = Math.max(1, Math.floor(mon.maxHp / 8));
+      mon.hp = Math.max(0, mon.hp - drainAmount);
+      this.onLog(`${mon.species}'s health is sapped by Leech Seed!`);
+
+      if (opponent && opponent.hp > 0) {
+        opponent.hp = Math.min(opponent.maxHp, opponent.hp + drainAmount);
+        this.onLog(`${opponent.species} absorbed health! (${opponent.hp}/${opponent.maxHp} HP)`);
+      }
+    }
   }
 
   applyStatus(target, status) {
-    if (target.status) return; // Can't stack status conditions
+    if (target.status) return;
     target.status = status;
     
     switch(status) {
       case 'SLP':
-        target.sleepTurns = Math.floor(Math.random() * 3) + 2; // Random 2 to 4 turns
+        target.sleepTurns = Math.floor(Math.random() * 3) + 2;
         this.onLog(`${target.species} fell asleep!`);
         break;
       case 'PSN':
@@ -169,35 +169,35 @@ setupBattleStats(mon) {
 
     this.onLog(`${attacker.species} used ${move.name}!`);
 
-    // 2. Accuracy Check
+    // Accuracy Check
     if (move.accuracy) {
       const accStage = attacker.statStages.accuracy || 0;
       const evaStage = defender.statStages.evasion || 0;
-      
-      // Net stage difference, clamped between -6 and +6
       const netStage = Math.max(-6, Math.min(6, accStage - evaStage));
-      
-      // Special 3-based fraction for accuracy/evasion
       const multiplier = netStage >= 0 ? (3 + netStage) / 3 : 3 / (3 + Math.abs(netStage));
       const finalAccuracy = move.accuracy * multiplier;
 
-      const roll = Math.random() * 100;
-      if (roll > finalAccuracy) {
+      if (Math.random() * 100 > finalAccuracy) {
         this.onLog(`${attacker.species}'s attack missed!`);
         return;
       }
     }
 
-    // Handle Status Moves / Buffs / Debuffs
+    // Non-Damaging Status Moves / Leech Seed
     if (move.category === "status" || move.power === 0) {
       if (move.effect) {
-        // Example: { "type": "status", "condition": "SLP", "target": "enemy" }
-        if (move.effect.type === "status") {
+        if (move.effect.type === "leech_seed") {
+          const target = move.effect.target === "self" ? attacker : defender;
+          if (target.seeded) {
+            this.onLog(`${target.species} is already seeded!`);
+          } else {
+            target.seeded = true;
+            this.onLog(`${target.species} was seeded!`);
+          }
+        } else if (move.effect.type === "status") {
           const target = move.effect.target === "self" ? attacker : defender;
           this.applyStatus(target, move.effect.condition);
-        }
-        // Example: { "type": "stat", "stat": "defense", "stages": -1, "target": "enemy" }
-        else if (move.effect.type === "stat") {
+        } else if (move.effect.type === "stat") {
           const target = move.effect.target === "self" ? attacker : defender;
           this.applyStatChange(target, move.effect.stat, move.effect.stages);
         }
@@ -207,25 +207,17 @@ setupBattleStats(mon) {
       return;
     }
 
-    // 3. Critical Hit Check
-    const critChance = 0.0625;
-    const isCrit = Math.random() < critChance;
-
-    // 4. Damage Calculation using MODIFIED stats
+    // Damage Calculation
+    const isCrit = Math.random() < 0.0625;
     const levelFactor = (2 * attacker.level / 5) + 2;
-    
     const atkStat = move.category === "special" ? this.getModifiedStat(attacker, 'spAtk') : this.getModifiedStat(attacker, 'attack');
     const defStat = move.category === "special" ? this.getModifiedStat(defender, 'spDef') : this.getModifiedStat(defender, 'defense');
 
     let baseDamage = ((levelFactor * move.power * (atkStat / defStat)) / 50) + 2;
 
-// 5. Modifiers
-    let stabMultiplier = 1.0;
-    if (attacker.types && attacker.types.includes(move.type)) {
-      stabMultiplier = 1.5;
-    }
-
+    let stabMultiplier = (attacker.types && attacker.types.includes(move.type)) ? 1.5 : 1.0;
     let typeMultiplier = 1.0;
+
     if (this.typeChart && defender.types) {
       const moveTypeLower = move.type.toLowerCase();
       defender.types.forEach(defType => {
@@ -236,7 +228,6 @@ setupBattleStats(mon) {
       });
     }
 
-    // NEW: Stop immediately if there is an immunity!
     if (typeMultiplier === 0) {
       this.onLog(`It had no effect on ${defender.species}!`);
       return; 
@@ -248,26 +239,33 @@ setupBattleStats(mon) {
     let finalDamage = Math.floor(baseDamage * stabMultiplier * typeMultiplier * critMultiplier * randomFactor);
     finalDamage = Math.max(1, finalDamage); 
 
-    // Apply damage
     defender.hp = Math.max(0, defender.hp - finalDamage);
 
-    // Logging
     if (isCrit) this.onLog(`A critical hit!`);
-    
     if (typeMultiplier > 1.0) this.onLog(`It's super effective!`);
     else if (typeMultiplier < 1.0) this.onLog(`It's not very effective...`);
 
     this.onLog(`${defender.species} took ${finalDamage} damage! (${defender.hp}/${defender.maxHp} HP)`);
 
-    // Handle secondary effects (e.g., Ember has a 10% chance to burn)
+    // Draining Attack Moves (Giga Drain, Mega Drain, Absorb, Leech Life)
+    if (move.drain || move.effect?.type === "drain") {
+      const drainRatio = move.drain || 0.5;
+      const recovered = Math.min(attacker.maxHp - attacker.hp, Math.max(1, Math.floor(finalDamage * drainRatio)));
+      if (recovered > 0) {
+        attacker.hp += recovered;
+        this.onLog(`${attacker.species} drained health and recovered ${recovered} HP!`);
+      }
+    }
+
+    // Secondary Effects
     if (move.secondaryEffect && move.secondaryEffect.chance) {
       if (Math.random() * 100 <= move.secondaryEffect.chance) {
-         const target = move.secondaryEffect.target === "self" ? attacker : defender;
-         if (move.secondaryEffect.type === "status") {
-           this.applyStatus(target, move.secondaryEffect.condition);
-         } else if (move.secondaryEffect.type === "stat") {
-           this.applyStatChange(target, move.secondaryEffect.stat, move.secondaryEffect.stages);
-         }
+        const target = move.secondaryEffect.target === "self" ? attacker : defender;
+        if (move.secondaryEffect.type === "status") {
+          this.applyStatus(target, move.secondaryEffect.condition);
+        } else if (move.secondaryEffect.type === "stat") {
+          this.applyStatChange(target, move.secondaryEffect.stat, move.secondaryEffect.stages);
+        }
       }
     }
   }
