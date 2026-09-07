@@ -48,6 +48,7 @@ class GameEngine {
     this.db.items = await itemsRes.json();
     this.db.shops = await shopsRes.json();
     this.bindListeners();
+    this.updatePokedexTrackerUI();
     this.checkGameStart();
   }
 
@@ -60,6 +61,7 @@ class GameEngine {
     } else {
       this.renderRouteScreen();
       this.updatePartyUI();
+      this.updatePokedexTrackerUI();
       this.setMenuState('route');
     }
   }
@@ -73,7 +75,6 @@ class GameEngine {
       return null;
     }
 
-    // Generate random IVs (0-31 for each stat)
     const ivs = {
       hp: Math.floor(Math.random() * 32),
       attack: Math.floor(Math.random() * 32),
@@ -83,7 +84,6 @@ class GameEngine {
       speed: Math.floor(Math.random() * 32)
     };
 
-    // Standard Pokémon stat formula
     const calcStat = (base, iv, lvl, isHP) => {
       if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;
       return Math.floor(((2 * base + iv) * lvl) / 100) + 5;
@@ -98,7 +98,7 @@ class GameEngine {
       level: level,
       hp: hp,
       maxHp: hp,
-      ivs: ivs, // Saving these in case you ever want an "IV Checker" NPC!
+      ivs: ivs,
       speed: calcStat(baseData.baseStats.speed, ivs.speed, level, false),
       stats: {
         attack: calcStat(baseData.baseStats.attack, ivs.attack, level, false),
@@ -113,21 +113,35 @@ class GameEngine {
   }
 
   pickStarter(speciesId) {
-    // Generate starter using the real math and IVs!
-    const starter = this.generatePokemonInstance(speciesId, 5);
+    const safeId = speciesId.toLowerCase();
+    const starter = this.generatePokemonInstance(safeId, 5);
     
     this.gameState.party.push(starter);
     this.gameState.hasStarter = true;
     
+    // Register starter in Pokédex
+    this.gameState.pokedex.seen[safeId] = true;
+    this.gameState.pokedex.caught[safeId] = true;
+    this.updatePokedexTrackerUI();
+
     this.printToLog(`You chose ${starter.species}! A fantastic choice.`);
-    this.saveGameLocal(); // Auto-save!
-    this.checkGameStart(); // Re-runs the start check to load the route
+    this.checkGameStart();
   }
 
   updateMoneyUI() {
     const moneyEl = document.getElementById('money-count');
     if (moneyEl) {
       moneyEl.textContent = `Money: ¥${this.gameState.money}`;
+    }
+  }
+
+  updatePokedexTrackerUI() {
+    const pokedexEl = document.getElementById('pokedex-count') || document.getElementById('pokedex-tracker');
+    const totalPokemon = Object.keys(this.db.pokemon).length || 151;
+    const caughtCount = Object.keys(this.gameState.pokedex.caught).filter(k => this.gameState.pokedex.caught[k]).length;
+
+    if (pokedexEl) {
+      pokedexEl.textContent = `Pokedex: ${caughtCount}/${totalPokemon}`;
     }
   }
   
@@ -266,6 +280,7 @@ class GameEngine {
   startBattle(wildPokemonInfo) {
     const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
+    this.updatePokedexTrackerUI();
 
     const enemyMon = this.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
     
@@ -306,6 +321,7 @@ class GameEngine {
   startTrainerBattle(enemyMon, trainer) {
     const speciesKey = enemyMon.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
+    this.updatePokedexTrackerUI();
 
     if (!enemyMon) {
       this.printToLog("Error generating trainer's Pokémon!");
@@ -354,10 +370,8 @@ class GameEngine {
   }
 
   handleBattleEnd() {
-    // Stop executing win logic if the player's roster is wiped
     if (this.checkBlackout()) return; 
 
-    // Process Trainer Payouts
     if (this.gameState.activeBattle && this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
       const payout = this.gameState.activeTrainer.payout || 500;
       this.gameState.money += payout;
@@ -365,7 +379,6 @@ class GameEngine {
       this.updateMoneyUI();
     }
     
-    // Clear active battle states
     this.gameState.activeTrainer = null;
     this.gameState.activeBattle = null;
 
@@ -385,7 +398,6 @@ class GameEngine {
       this.gameState.party.forEach(p => p.hp = p.maxHp);
       this.updateMoneyUI();
 
-      // Clear battle states so you don't stay locked in battle
       this.gameState.activeTrainer = null;
       this.gameState.activeBattle = null;
       
@@ -417,6 +429,10 @@ class GameEngine {
         this.startBattle(result);
       }
     });
+
+    // Pokémon Party View Bindings
+    document.getElementById('btn-pokemon')?.addEventListener('click', () => this.openPokemonMenu());
+    document.getElementById('btn-party')?.addEventListener('click', () => this.openPokemonMenu());
 
     document.getElementById('btn-pokedex')?.addEventListener('click', () => {
       this.openPokedex();
@@ -554,6 +570,7 @@ class GameEngine {
         this.renderRouteScreen();
         this.updatePartyUI();
         this.updateMoneyUI();
+        this.updatePokedexTrackerUI();
         this.setMenuState('route');
         this.printToLog("Game loaded from local storage!");
       } else {
@@ -594,6 +611,8 @@ class GameEngine {
         this.gameState = parsedState;
         this.renderRouteScreen();
         this.updatePartyUI();
+        this.updateMoneyUI();
+        this.updatePokedexTrackerUI();
         this.setMenuState('route');
         this.printToLog("Game loaded successfully!");
       } else {
@@ -619,7 +638,6 @@ class GameEngine {
     this.buildMenuControls(controls, [
       { text: "Heal Party", action: () => {
           this.gameState.party.forEach(p => p.hp = p.maxHp);
-          // Set the respawn location for blackout mechanics
           this.gameState.lastHealedLocation = this.gameState.currentRoute; 
           this.updatePartyUI();
           this.printToLog("Your Pokémon are fully healed!");
@@ -691,20 +709,24 @@ class GameEngine {
     content.innerHTML = '';
     controls.innerHTML = '';
 
-    this.gameState.party.forEach((mon) => {
-      const pbox = document.createElement('div');
-      pbox.style.border = "1px solid #ccc";
-      pbox.style.padding = "8px";
-      pbox.style.marginBottom = "8px";
-      
-      pbox.innerHTML = `
-        <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
-        HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
-        Atk: ${mon.stats.attack} | Def: ${mon.stats.defense} | SpA: ${mon.stats.spAtk} | SpD: ${mon.stats.spDef} | Spd: ${mon.speed}<br>
-        Moves: ${mon.moves.map(m => m.name).join(', ')}
-      `;
-      content.appendChild(pbox);
-    });
+    if (this.gameState.party.length === 0) {
+      content.innerHTML = '<p style="text-align:center;">You have no Pokémon in your party.</p>';
+    } else {
+      this.gameState.party.forEach((mon) => {
+        const pbox = document.createElement('div');
+        pbox.style.border = "1px solid #ccc";
+        pbox.style.padding = "8px";
+        pbox.style.marginBottom = "8px";
+        
+        pbox.innerHTML = `
+          <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
+          HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
+          Atk: ${mon.stats.attack} | Def: ${mon.stats.defense} | SpA: ${mon.stats.spAtk} | SpD: ${mon.stats.spDef} | Spd: ${mon.speed}<br>
+          Moves: ${mon.moves.map(m => m.name).join(', ')}
+        `;
+        content.appendChild(pbox);
+      });
+    }
 
     this.buildMenuControls(controls, [
       { text: "Close", action: () => this.setMenuState('system') }
@@ -833,19 +855,16 @@ class GameEngine {
       this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
     }
 
-    // Consume item
     this.gameState.inventory[itemKey]--;
     if (this.gameState.inventory[itemKey] <= 0) delete this.gameState.inventory[itemKey];
     this.updatePartyUI();
 
     if (this.gameState.activeBattle) {
       this.setMenuState('battle');
-      // Enemy turn after using an item
       const enemyMove = this.gameState.activeBattle.getRandomEnemyMove();
       this.gameState.activeBattle.processAction(this.gameState.activeBattle.enemyMon, this.gameState.party[0], enemyMove, false);
       this.gameState.activeBattle.checkWinLoss();
 
-      // Check if the battle ended due to the enemy's attack
       if (this.gameState.activeBattle.isOver) {
         this.handleBattleEnd();
       }
@@ -861,12 +880,33 @@ class GameEngine {
     content.innerHTML = '';
     controls.innerHTML = '';
 
-    Object.keys(this.gameState.pokedex.seen).forEach(speciesId => {
+    const seenKeys = Object.keys(this.gameState.pokedex.seen);
+
+    if (seenKeys.length === 0) {
       const p = document.createElement('p');
-      const isCaught = this.gameState.pokedex.caught[speciesId];
-      p.textContent = `${isCaught ? '🔴' : '⚪'} ${speciesId.toUpperCase()}`;
+      p.textContent = "No Pokémon seen yet!";
+      p.style.textAlign = "center";
       content.appendChild(p);
-    });
+    } else {
+      const entries = seenKeys.map(key => {
+        const pokemonData = this.db.pokemon[key];
+        return {
+          id: key,
+          pokedexNumber: pokemonData ? pokemonData.pokedexNumber : 999,
+          name: pokemonData ? pokemonData.name : key.toUpperCase()
+        };
+      });
+
+      entries.sort((a, b) => a.pokedexNumber - b.pokedexNumber);
+
+      entries.forEach(entry => {
+        const p = document.createElement('p');
+        const isCaught = this.gameState.pokedex.caught[entry.id];
+        const numStr = String(entry.pokedexNumber).padStart(3, '0');
+        p.textContent = `#${numStr} ${isCaught ? '🔴' : '⚪'} ${entry.name}`;
+        content.appendChild(p);
+      });
+    }
 
     this.buildMenuControls(controls, [
       { text: "Close", action: () => this.setMenuState('system') }
