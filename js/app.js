@@ -279,7 +279,7 @@ class GameEngine {
     }
   }
 
-  startBattle(wildPokemonInfo) {
+startBattle(wildPokemonInfo) {
     const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.updatePokedexTrackerUI();
@@ -293,9 +293,16 @@ class GameEngine {
 
     this.printToLog(`A wild ${enemyMon.species} (Lv. ${enemyMon.level}) appeared!`);
     
-    this.gameState.activeBattle = new BattleEngine(this.gameState.party[0], enemyMon, (msg) => {
-      this.printToLog(msg);
-      this.updatePartyUI();
+    // Updated BattleEngine instantiation with the EXP callback
+    this.gameState.activeBattle = new BattleEngine(
+      this.gameState.party[0], 
+      enemyMon, 
+      (msg) => {
+        this.printToLog(msg);
+        this.updatePartyUI();
+      },
+      (defeatedEnemy) => {
+        this.growth.awardExp(this.gameState.party[0], defeatedEnemy);
       },
       this.db.typeChart
     );
@@ -332,12 +339,16 @@ class GameEngine {
 
     this.printToLog(`${trainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
     
+    // Updated BattleEngine instantiation with the EXP callback
     this.gameState.activeBattle = new BattleEngine(
       this.gameState.party[0], 
       enemyMon, 
       (msg) => {
         this.printToLog(msg);
         this.updatePartyUI();
+      },
+      (defeatedEnemy) => {
+        this.growth.awardExp(this.gameState.party[0], defeatedEnemy);
       },
       this.db.typeChart
     );
