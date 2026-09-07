@@ -12,9 +12,9 @@ export class BattleEngine {
     this.setupBattleStats(this.enemyMon);
   }
 
-  setupBattleStats(mon) {
-    mon.statStages = { attack: 0, defense: 0, spAtk: 0, spDef: 0, speed: 0 };
-    if (!mon.status) mon.status = null; // "BRN", "PSN", "SLP", "PAR", "FRZ"
+setupBattleStats(mon) {
+    mon.statStages = { attack: 0, defense: 0, spAtk: 0, spDef: 0, speed: 0, accuracy: 0, evasion: 0 };
+    if (!mon.status) mon.status = null; 
     if (!mon.sleepTurns) mon.sleepTurns = 0;
   }
 
@@ -170,10 +170,20 @@ export class BattleEngine {
     this.onLog(`${attacker.species} used ${move.name}!`);
 
     // 2. Accuracy Check
-    if (move.accuracy && move.accuracy < 100) {
+    if (move.accuracy) {
+      const accStage = attacker.statStages.accuracy || 0;
+      const evaStage = defender.statStages.evasion || 0;
+      
+      // Net stage difference, clamped between -6 and +6
+      const netStage = Math.max(-6, Math.min(6, accStage - evaStage));
+      
+      // Special 3-based fraction for accuracy/evasion
+      const multiplier = netStage >= 0 ? (3 + netStage) / 3 : 3 / (3 + Math.abs(netStage));
+      const finalAccuracy = move.accuracy * multiplier;
+
       const roll = Math.random() * 100;
-      if (roll > move.accuracy) {
-        this.onLog(`But it missed!`);
+      if (roll > finalAccuracy) {
+        this.onLog(`${attacker.species}'s attack missed!`);
         return;
       }
     }
@@ -209,7 +219,7 @@ export class BattleEngine {
 
     let baseDamage = ((levelFactor * move.power * (atkStat / defStat)) / 50) + 2;
 
-    // 5. Modifiers
+// 5. Modifiers
     let stabMultiplier = 1.0;
     if (attacker.types && attacker.types.includes(move.type)) {
       stabMultiplier = 1.5;
@@ -226,6 +236,12 @@ export class BattleEngine {
       });
     }
 
+    // NEW: Stop immediately if there is an immunity!
+    if (typeMultiplier === 0) {
+      this.onLog(`It had no effect on ${defender.species}!`);
+      return; 
+    }
+
     const critMultiplier = isCrit ? 1.5 : 1.0;
     const randomFactor = (Math.floor(Math.random() * 16) + 85) / 100;
 
@@ -236,16 +252,10 @@ export class BattleEngine {
     defender.hp = Math.max(0, defender.hp - finalDamage);
 
     // Logging
-    if (typeMultiplier === 0) {
-      this.onLog(`It had no effect on ${defender.species}!`);
-      defender.hp += finalDamage; 
-      return;
-    }
-    
     if (isCrit) this.onLog(`A critical hit!`);
     
     if (typeMultiplier > 1.0) this.onLog(`It's super effective!`);
-    else if (typeMultiplier > 0 && typeMultiplier < 1.0) this.onLog(`It's not very effective...`);
+    else if (typeMultiplier < 1.0) this.onLog(`It's not very effective...`);
 
     this.onLog(`${defender.species} took ${finalDamage} damage! (${defender.hp}/${defender.maxHp} HP)`);
 
