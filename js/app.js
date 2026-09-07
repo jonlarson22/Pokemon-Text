@@ -438,7 +438,7 @@ checkGameStart() {
     });
 
     document.getElementById('btn-save')?.addEventListener('click', () => {
-      this.();
+      this.handleSaveLoad(); 
     });
 
     document.getElementById('btn-bag')?.addEventListener('click', () => {
