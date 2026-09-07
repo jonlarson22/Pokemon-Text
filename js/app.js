@@ -52,7 +52,8 @@ class GameEngine {
 checkGameStart() {
     if (!this.gameState.hasStarter || this.gameState.party.length === 0) {
       this.printToLog("Welcome to the world of Pokémon!");
-      this.printToLog("Please choose your first partner.");
+      this.printToLog("You're in Pallet Town, in the Kanto region, where shades of your journey await!");
+      this.printToLog("Choose a starter Pokémon to be your first companion. Good luck!");
       this.setMenuState('starter');
     } else {
       this.renderRouteScreen();
