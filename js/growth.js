@@ -1,0 +1,118 @@
+// js/growth.js
+export class GrowthEngine {
+  constructor(game) {
+    this.game = game; // Reference to main GameEngine for UI, logs, and DB
+  }
+
+  awardExp(winner, defeatedMon) {
+    const baseData = this.game.db.pokemon[defeatedMon.id];
+    const baseExp = baseData ? baseData.baseExp : 50; 
+    
+    // Gen 1 EXP Formula
+    const expGained = Math.floor((baseExp * defeatedMon.level) / 7);
+    
+    this.game.printToLog(`${winner.species} gained ${expGained} EXP!`);
+    winner.exp += expGained;
+
+    this.checkLevelUp(winner);
+  }
+
+  checkLevelUp(mon) {
+    // Simple fast growth curve for now: Level^3 = Max EXP
+    let leveledUp = false;
+    
+    while (mon.exp >= mon.maxExp) {
+      mon.level++;
+      mon.maxExp = Math.pow(mon.level + 1, 3); // EXP needed for NEXT level
+      leveledUp = true;
+      
+      this.recalculateStats(mon);
+      this.game.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
+      
+      this.checkLearnset(mon);
+    }
+
+    if (leveledUp) {
+      this.game.updatePartyUI();
+    }
+  }
+
+  recalculateStats(mon) {
+    const baseData = this.game.db.pokemon[mon.id];
+    const oldMaxHp = mon.maxHp;
+
+    const calcStat = (base, iv, lvl, isHP) => {
+      if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;
+      return Math.floor(((2 * base + iv) * lvl) / 100) + 5;
+    };
+
+    mon.maxHp = calcStat(baseData.baseStats.hp, mon.ivs.hp, mon.level, true);
+    // Heal the Pokémon by the amount their max HP increased
+    mon.hp += (mon.maxHp - oldMaxHp); 
+
+    mon.speed = calcStat(baseData.baseStats.speed, mon.ivs.speed, mon.level, false);
+    mon.stats.attack = calcStat(baseData.baseStats.attack, mon.ivs.attack, mon.level, false);
+    mon.stats.defense = calcStat(baseData.baseStats.defense, mon.ivs.defense, mon.level, false);
+    mon.stats.spAtk = calcStat(baseData.baseStats.spAtk, mon.ivs.spAtk, mon.level, false);
+    mon.stats.spDef = calcStat(baseData.baseStats.spDef, mon.ivs.spDef, mon.level, false);
+  }
+
+  checkLearnset(mon) {
+    const baseData = this.game.db.pokemon[mon.id];
+    if (!baseData || !baseData.learnset) return;
+
+    const newMoves = baseData.learnset.filter(entry => entry.level === mon.level);
+    
+    newMoves.forEach(moveEntry => {
+      const moveData = this.game.db.moves[moveEntry.move];
+      if (!moveData) return;
+
+      const alreadyKnows = mon.moves.some(m => m.name === moveData.name);
+      if (alreadyKnows) return;
+
+      if (mon.moves.length < 4) {
+        mon.moves.push(moveData);
+        this.game.printToLog(`${mon.species} learned ${moveData.name}!`);
+      } else {
+        // Trigger move replacement UI
+        this.promptMoveReplacement(mon, moveData);
+      }
+    });
+  }
+
+  promptMoveReplacement(mon, newMove) {
+    this.game.printToLog(`${mon.species} is trying to learn ${newMove.name}...`);
+    this.game.printToLog(`But ${mon.species} can only know 4 moves!`);
+    
+    this.game.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center;">Select a move to forget:</p>';
+    controls.innerHTML = '';
+
+    // Create buttons for current moves
+    mon.moves.forEach((currentMove, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Forget ${currentMove.name}`;
+      btn.onclick = () => {
+        const oldMoveName = currentMove.name;
+        mon.moves[index] = newMove;
+        this.game.printToLog(`1, 2, and... Poof! ${mon.species} forgot ${oldMoveName} and learned ${newMove.name}!`);
+        this.game.setMenuState('route'); // Return to overworld
+      };
+      content.appendChild(btn);
+    });
+
+    // Option to give up learning the new move
+    this.game.buildMenuControls(controls, [
+      { 
+        text: "Keep Old Moves", 
+        action: () => {
+          this.game.printToLog(`${mon.species} gave up on learning ${newMove.name}.`);
+          this.game.setMenuState('route');
+        } 
+      }
+    ]);
+  }
+}
