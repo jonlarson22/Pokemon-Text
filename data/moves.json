@@ -71,14 +71,22 @@
     "accuracy": 100,
     "pp": 35
   },
-  "sand_attack": {
-    "name": "Sand Attack",
-    "type": "Ground",
-    "category": "status",
-    "power": 0,
-    "accuracy": 100,
-    "pp": 15
-  },
+  {
+  "name": "Sand Attack",
+  "type": "Ground",
+  "category": "Status",
+  "power": 0,
+  "accuracy": 100,
+  "pp": 15,
+  "effects": [
+    {
+      "type": "stat_stage",
+      "stat": "accuracy",
+      "target": "opponent",
+      "amount": -1
+    }
+  ]
+},
   "quick_attack": {
     "name": "Quick Attack",
     "type": "Normal",
