@@ -408,8 +408,8 @@ checkGameStart() {
       }
     });
 
-    document.getElementById('btn-pokemon')?.addEventListener('click', () => {
-      this.openPokemonMenu();
+document.getElementById('btn-pokedex')?.addEventListener('click', () => {
+      this.openPokedex();
     });
     
     document.getElementById('btn-fight')?.addEventListener('click', () => {
