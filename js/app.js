@@ -14,7 +14,9 @@ class GameEngine {
       inventory: { "potion": 1 },
       pc: { pokemon: [], items: {} },
       pokedex: { seen: {}, caught: {} },
-      activeBattle: null
+      activeBattle: null,
+      activeTrainer: null,
+      lastHealedLocation: null
     };
 
     this.captureSystem = new CaptureSystem(this);
@@ -49,7 +51,7 @@ class GameEngine {
     this.checkGameStart();
   }
 
-checkGameStart() {
+  checkGameStart() {
     if (!this.gameState.hasStarter || this.gameState.party.length === 0) {
       this.printToLog("Welcome to the world of Pokémon!");
       this.printToLog("You're in Pallet Town, in the Kanto region, where shades of your journey await!");
@@ -169,7 +171,7 @@ checkGameStart() {
         this.openShop();
       };
     }
-  } // <--- Added closing brace here
+  }
 
   setMenuState(menuName) {
     document.getElementById('starter-menu').style.display = 'none';
@@ -343,50 +345,58 @@ checkGameStart() {
     this.setMenuState('battle');
   }
 
- handleTurn(playerMove) {
+  handleTurn(playerMove) {
     this.gameState.activeBattle.executeTurn(playerMove);
     
     if (this.gameState.activeBattle.isOver) {
-      
-      // Stop executing win logic if the player's roster is wiped
-      if (this.checkBlackout()) return; 
-
-      if (this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
-        const payout = this.gameState.activeTrainer.payout || 500;
-        this.gameState.money += payout;
-        this.printToLog(`You defeated ${this.gameState.activeTrainer.name} and got ¥${payout}!`);
-        
-        const moneyEl = document.getElementById('money-count');
-        if (moneyEl) moneyEl.textContent = `Money: ¥${this.gameState.money}`;
-      }
-      
-      this.gameState.activeTrainer = null;
-
-      setTimeout(() => {
-        this.printToLog("Returning to the route...");
-        this.setMenuState('route');
-      }, 2000);
+      this.handleBattleEnd();
     }
   }
 
-checkBlackout() {
-  const isWiped = this.gameState.party.every(p => p.hp <= 0);
-  if (isWiped) {
-    this.printToLog("You have no more usable Pokémon! You blacked out! You scurried back to the nearest Pokemon Center to heal your Pokemon.");
-    this.gameState.money = Math.floor(this.gameState.money / 2);
-    this.gameState.currentRoute = this.gameState.lastHealedLocation || "viridian_city";
+  handleBattleEnd() {
+    // Stop executing win logic if the player's roster is wiped
+    if (this.checkBlackout()) return; 
+
+    // Process Trainer Payouts
+    if (this.gameState.activeBattle && this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
+      const payout = this.gameState.activeTrainer.payout || 500;
+      this.gameState.money += payout;
+      this.printToLog(`You defeated ${this.gameState.activeTrainer.name} and got ¥${payout}!`);
+      this.updateMoneyUI();
+    }
     
-    this.gameState.party.forEach(p => p.hp = p.maxHp);
-    this.updateMoneyUI();
-    
+    // Clear active battle states
+    this.gameState.activeTrainer = null;
+    this.gameState.activeBattle = null;
+
     setTimeout(() => {
-      this.renderRouteScreen();
+      this.printToLog("Returning to the route...");
       this.setMenuState('route');
-    }, 500);
-    return true;
+    }, 2000);
   }
-  return false;
-}
+
+  checkBlackout() {
+    const isWiped = this.gameState.party.every(p => p.hp <= 0);
+    if (isWiped) {
+      this.printToLog("You have no more usable Pokémon! You blacked out! You scurried back to the nearest Pokemon Center to heal your Pokemon.");
+      this.gameState.money = Math.floor(this.gameState.money / 2);
+      this.gameState.currentRoute = this.gameState.lastHealedLocation || "viridian_city";
+      
+      this.gameState.party.forEach(p => p.hp = p.maxHp);
+      this.updateMoneyUI();
+
+      // Clear battle states so you don't stay locked in battle
+      this.gameState.activeTrainer = null;
+      this.gameState.activeBattle = null;
+      
+      setTimeout(() => {
+        this.renderRouteScreen();
+        this.setMenuState('route');
+      }, 500);
+      return true;
+    }
+    return false;
+  }
 
   bindListeners() {
     document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.pickStarter('bulbasaur'));
@@ -408,7 +418,7 @@ checkBlackout() {
       }
     });
 
-document.getElementById('btn-pokedex')?.addEventListener('click', () => {
+    document.getElementById('btn-pokedex')?.addEventListener('click', () => {
       this.openPokedex();
     });
     
@@ -466,10 +476,6 @@ document.getElementById('btn-pokedex')?.addEventListener('click', () => {
 
     document.getElementById('btn-bag')?.addEventListener('click', () => {
       this.openBag();
-    });
-
-    document.getElementById('btn-pokedex')?.addEventListener('click', () => {
-      this.printToLog("Pokédex feature coming soon!");
     });
 
     document.getElementById('btn-run')?.addEventListener('click', () => {
@@ -613,6 +619,8 @@ document.getElementById('btn-pokedex')?.addEventListener('click', () => {
     this.buildMenuControls(controls, [
       { text: "Heal Party", action: () => {
           this.gameState.party.forEach(p => p.hp = p.maxHp);
+          // Set the respawn location for blackout mechanics
+          this.gameState.lastHealedLocation = this.gameState.currentRoute; 
           this.updatePartyUI();
           this.printToLog("Your Pokémon are fully healed!");
       }},
@@ -795,19 +803,19 @@ document.getElementById('btn-pokedex')?.addEventListener('click', () => {
       };
       content.appendChild(btn);
     });
-  } // <--- Added closing brace for renderSellMenu()
+  } 
 
-    handleItemClick(itemKey) {
+  handleItemClick(itemKey) {
     const item = this.db.items[itemKey]; 
     
-    if (item.category === "catch") { // Changed from "pokeball"
+    if (item.category === "catch") { 
       if (this.gameState.activeBattle) {
         this.captureSystem.attemptCatch(itemKey);
       } else {
         this.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
       }
     } 
-    else if (item.category === "healing") { // Changed from "medicine"
+    else if (item.category === "healing") { 
       this.openPartyTargetScreen(itemKey, item);
     }
   }
@@ -815,13 +823,13 @@ document.getElementById('btn-pokedex')?.addEventListener('click', () => {
   applyItemToPokemon(itemKey, itemData, partyIndex) {
     const target = this.gameState.party[partyIndex];
 
-    if (itemData.effect.type === "heal") { // Changed to match nested JSON structure
+    if (itemData.effect.type === "heal") { 
       if (target.hp >= target.maxHp) {
         this.printToLog("It won't have any effect.");
         return; 
       }
       
-      target.hp = Math.min(target.maxHp, target.hp + itemData.effect.value); // Changed from healAmount
+      target.hp = Math.min(target.maxHp, target.hp + itemData.effect.value); 
       this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
     }
 
@@ -836,6 +844,11 @@ document.getElementById('btn-pokedex')?.addEventListener('click', () => {
       const enemyMove = this.gameState.activeBattle.getRandomEnemyMove();
       this.gameState.activeBattle.processAction(this.gameState.activeBattle.enemyMon, this.gameState.party[0], enemyMove, false);
       this.gameState.activeBattle.checkWinLoss();
+
+      // Check if the battle ended due to the enemy's attack
+      if (this.gameState.activeBattle.isOver) {
+        this.handleBattleEnd();
+      }
     } else {
       this.setMenuState('system'); 
     }
