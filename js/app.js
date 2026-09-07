@@ -342,28 +342,13 @@ checkGameStart() {
     this.setMenuState('battle');
   }
 
-  handleTurn(playerMove) {
+ handleTurn(playerMove) {
     this.gameState.activeBattle.executeTurn(playerMove);
     
     if (this.gameState.activeBattle.isOver) {
-
-      checkBlackout() {
-    const isWiped = this.gameState.party.every(p => p.hp <= 0);
-    if (isWiped) {
-      this.printToLog("You have no more usable Pokémon! You blacked out!");
-      this.gameState.money = Math.floor(this.gameState.money / 2);
-      this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
-      this.gameState.party.forEach(p => p.hp = p.maxHp);
-      this.updateMoneyUI();
       
-      setTimeout(() => {
-        this.renderRouteScreen();
-        this.setMenuState('route');
-      }, 2000);
-      return true;
-    }
-    return false;
-  }  
+      // Stop executing win logic if the player's roster is wiped
+      if (this.checkBlackout()) return; 
 
       if (this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
         const payout = this.gameState.activeTrainer.payout || 500;
@@ -381,6 +366,26 @@ checkGameStart() {
         this.setMenuState('route');
       }, 2000);
     }
+  }
+
+  checkBlackout() {
+    const isWiped = this.gameState.party.every(p => p.hp <= 0);
+    if (isWiped) {
+      this.printToLog("You have no more usable Pokémon! You blacked out!");
+      this.gameState.money = Math.floor(this.gameState.money / 2);
+      this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
+      
+      // Auto-heal on blackout
+      this.gameState.party.forEach(p => p.hp = p.maxHp);
+      this.updateMoneyUI();
+      
+      setTimeout(() => {
+        this.renderRouteScreen();
+        this.setMenuState('route');
+      }, 2000);
+      return true;
+    }
+    return false;
   }
 
   bindListeners() {
