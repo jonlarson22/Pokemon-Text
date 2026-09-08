@@ -4,6 +4,11 @@
     "id": "bulbasaur",
     "name": "Bulbasaur",
     "growthRate": "medium_slow",
+    "evolution": {
+    "target": "ivysaur",
+    "method": "level",
+    "level": 16
+  },
     "types": ["Grass", "Poison"],
     "baseStats": {
       "hp": 45,
@@ -741,6 +746,11 @@
     "id": "pikachu",
     "name": "Pikachu",
     "growthRate": "medium_fast",
+    "evolution": {
+    "target": "raichu",
+    "method": "item",
+    "item": "thunder_stone"
+  },
     "types": ["Electric"],
     "baseStats": {
       "hp": 35,
