@@ -1036,7 +1036,7 @@
     "id": "clefairy",
     "name": "Clefairy",
     "growthRate": "fast",
-    "types": ["Normal"],
+    "types": ["Fairy"],
     "baseStats": {
       "hp": 70,
       "attack": 45,
@@ -1067,7 +1067,7 @@
     "id": "clefable",
     "name": "Clefable",
     "growthRate": "fast",
-    "types": ["Normal"],
+    "types": ["Fairy"],
     "baseStats": {
       "hp": 95,
       "attack": 70,
@@ -1149,7 +1149,7 @@
     "id": "jigglypuff",
     "name": "Jigglypuff",
     "growthRate": "fast",
-    "types": ["Normal"],
+    "types": ["Normal", "Fairy"],
     "baseStats": {
       "hp": 115,
       "attack": 45,
@@ -1180,7 +1180,7 @@
     "id": "wigglytuff",
     "name": "Wigglytuff",
     "growthRate": "fast",
-    "types": ["Normal"],
+    "types": ["Normal", "Fairy"],
     "baseStats": {
       "hp": 140,
       "attack": 70,
@@ -3721,7 +3721,7 @@
     "id": "mr_mime",
     "name": "Mr. Mime",
     "growthRate": "medium_fast",
-    "types": ["Psychic"],
+    "types": ["Psychic", "Fairy"],
     "baseStats": {
       "hp": 40,
       "attack": 45,
