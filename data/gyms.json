@@ -12,16 +12,3 @@
     "completed": false
   }
 }
-
-challengeGymLeader(gymId) {
-  const gym = this.db.gyms[gymId];
-  const minionsDefeated = gym.gym_trainers.every(tId => this.gameState.flags[`defeated_${tId}`]);
-
-  if (!minionsDefeated) {
-    this.ui.printToLog("You must defeat the Gym trainers before challenging the Gym Leader!");
-    return;
-  }
-
-  const leaderData = this.db.trainers[gym.gym_leader];
-  this.startTrainerBattle(leaderData.party[0], leaderData, "boulder_badge");
-}
