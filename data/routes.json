@@ -29,7 +29,7 @@
   "viridian_city": {
     "name": "Viridian City",
     "description": "The perpetually green paradise.",
-    "connections": ["route1", "route2", "route22"],
+    "connections": ["route1", "route2_south", "route22"],
     "req_flag": null,
     "hasCenter": true,
     "hasShop": true,
@@ -48,10 +48,10 @@
     "trainers": [],
     "explore_table": []
   },
-  "route2": {
-    "name": "Route 2",
+  "route2_south": {
+    "name": "Route 2 - South",
     "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
-    "connections": ["viridian_city", "viridian_forest", "pewter_city"],
+    "connections": ["viridian_city", "viridian_forest"],
     "req_flag": null,
     "encounters": [
       { "species": "Caterpie", "min_level": 3, "max_level": 5, "weight": 40 },
@@ -67,7 +67,7 @@
   "viridian_forest": {
     "name": "Viridian Forest",
     "description": "A deep, natural maze filled with towering trees and bug Pokémon.",
-    "connections": ["route2"],
+    "connections": ["route2_south", "route2_north],
     "req_flag": null,
     "encounters": [
       { "species": "Caterpie", "min_level": 3, "max_level": 6, "weight": 35 },
@@ -83,10 +83,26 @@
       { "type": "item", "item": "Antidote", "weight": 10 }
     ]
   },
+  "route2_north": {
+    "name": "Route 2 - North",
+    "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
+    "connections": ["viridian_forest", "pewter_city"],
+    "req_flag": null,
+    "encounters": [
+      { "species": "Caterpie", "min_level": 3, "max_level": 5, "weight": 40 },
+      { "species": "Weedle", "min_level": 3, "max_level": 5, "weight": 40 },
+      { "species": "Pidgey", "min_level": 3, "max_level": 5, "weight": 20 }
+    ],
+    "trainers": [],
+    "explore_table": [
+      { "type": "nothing", "weight": 60 },
+      { "type": "encounter", "weight": 40 }
+    ]
+  },
   "pewter_city": {
     "name": "Pewter City",
     "description": "A stone gray town where history and gray stones sleep.",
-    "connections": ["route2", "route3"],
+    "connections": ["route2_north", "route3"],
     "req_flag": null,
     "hasCenter": true,
     "hasShop": true,
