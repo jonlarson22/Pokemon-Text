@@ -5,7 +5,6 @@ export class GrowthEngine {
   }
 
   awardExp(participants, defeatedMon) {
-    // Standardize input as array
     const participantList = Array.isArray(participants) ? participants : [participants];
     const livingParticipants = participantList.filter(mon => mon.hp > 0);
     
@@ -14,12 +13,11 @@ export class GrowthEngine {
     const baseData = this.game.db.pokemon[defeatedMon.id];
     const baseExp = baseData ? baseData.baseExp : 50; 
     
-    // Gen 1 EXP formula split across participating Pokémon
     const totalExpGained = Math.floor((baseExp * defeatedMon.level) / 7);
     const expPerMon = Math.max(1, Math.floor(totalExpGained / livingParticipants.length));
 
     livingParticipants.forEach(mon => {
-      this.game.printToLog(`${mon.species} gained ${expPerMon} EXP!`);
+      this.game.ui.printToLog(`${mon.species} gained ${expPerMon} EXP!`);
       mon.exp += expPerMon;
       this.checkLevelUp(mon);
     });
@@ -34,18 +32,19 @@ export class GrowthEngine {
       leveledUp = true;
       
       this.recalculateStats(mon);
-      this.game.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
-      
+      this.game.ui.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
       this.checkLearnset(mon);
     }
 
     if (leveledUp) {
-      this.game.updatePartyUI();
+      this.game.ui.updatePartyUI();
     }
   }
 
   recalculateStats(mon) {
     const baseData = this.game.db.pokemon[mon.id];
+    if (!baseData) return;
+    
     const oldMaxHp = mon.maxHp;
 
     const calcStat = (base, iv, lvl, isHP) => {
@@ -78,7 +77,7 @@ export class GrowthEngine {
 
       if (mon.moves.length < 4) {
         mon.moves.push(moveData);
-        this.game.printToLog(`${mon.species} learned ${moveData.name}!`);
+        this.game.ui.printToLog(`${mon.species} learned ${moveData.name}!`);
       } else {
         this.promptMoveReplacement(mon, moveData);
       }
@@ -86,10 +85,10 @@ export class GrowthEngine {
   }
 
   promptMoveReplacement(mon, newMove) {
-    this.game.printToLog(`${mon.species} is trying to learn ${newMove.name}...`);
-    this.game.printToLog(`But ${mon.species} can only know 4 moves!`);
+    this.game.ui.printToLog(`${mon.species} is trying to learn ${newMove.name}...`);
+    this.game.ui.printToLog(`But ${mon.species} can only know 4 moves!`);
     
-    this.game.setMenuState('dynamic');
+    this.game.ui.setMenuState('dynamic');
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = '<p style="text-align:center;">Select a move to forget:</p>';
@@ -102,18 +101,18 @@ export class GrowthEngine {
       btn.onclick = () => {
         const oldMoveName = currentMove.name;
         mon.moves[index] = newMove;
-        this.game.printToLog(`1, 2, and... Poof! ${mon.species} forgot ${oldMoveName} and learned ${newMove.name}!`);
-        this.game.setMenuState('route');
+        this.game.ui.printToLog(`1, 2, and... Poof! ${mon.species} forgot ${oldMoveName} and learned ${newMove.name}!`);
+        this.game.ui.setMenuState('route');
       };
       content.appendChild(btn);
     });
 
-    this.game.buildMenuControls(controls, [
+    this.game.ui.buildMenuControls(controls, [
       { 
         text: "Keep Old Moves", 
         action: () => {
-          this.game.printToLog(`${mon.species} gave up on learning ${newMove.name}.`);
-          this.game.setMenuState('route');
+          this.game.ui.printToLog(`${mon.species} gave up on learning ${newMove.name}.`);
+          this.game.ui.setMenuState('route');
         } 
       }
     ]);
