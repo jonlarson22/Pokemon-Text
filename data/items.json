@@ -6,11 +6,893 @@
     "price": 300,
     "description": "A spray-type medicine for treating wounds. Restores 20 HP."
   },
+  "super_potion": {
+    "name": "Super Potion",
+    "category": "healing",
+    "effect": { "type": "heal", "value": 50 },
+    "price": 700,
+    "description": "A spray-type medicine for treating wounds. Restores 50 HP."
+  },
+  "hyper_potion": {
+    "name": "Hyper Potion",
+    "category": "healing",
+    "effect": { "type": "heal", "value": 200 },
+    "price": 1200,
+    "description": "A spray-type medicine for treating wounds. Restores 200 HP."
+  },
+  "max_potion": {
+    "name": "Max Potion",
+    "category": "healing",
+    "effect": { "type": "heal", "value": "max" },
+    "price": 2500,
+    "description": "A spray-type medicine for treating wounds. Fully restores a Pokémon's HP."
+  },
+  "full_restore": {
+    "name": "Full Restore",
+    "category": "healing",
+    "effect": { "type": "heal_and_cure", "value": "max" },
+    "price": 3000,
+    "description": "Fully restores HP and heals any status conditions of a Pokémon."
+  },
+  "revive": {
+    "name": "Revive",
+    "category": "revival",
+    "effect": { "type": "revive", "value": "half_max" },
+    "price": 1500,
+    "description": "Revives a fainted Pokémon, restoring half of its maximum HP."
+  },
+  "max_revive": {
+    "name": "Max Revive",
+    "category": "revival",
+    "effect": { "type": "revive", "value": "max" },
+    "price": 0,
+    "description": "Revives a fainted Pokémon, fully restoring its maximum HP."
+  },
   "pokeball": {
     "name": "Poké Ball",
     "category": "catch",
     "catchRate": 1.0,
     "price": 200,
     "description": "A tool for catching wild Pokémon."
+  },
+  "great_ball": {
+    "name": "Great Ball",
+    "category": "catch",
+    "catchRate": 1.5,
+    "price": 600,
+    "description": "A good, high-performance Ball that provides a higher catch rate than a standard Poké Ball."
+  },
+  "ultra_ball": {
+    "name": "Ultra Ball",
+    "category": "catch",
+    "catchRate": 2.0,
+    "price": 1200,
+    "description": "A better, high-performance Ball that provides an even higher catch rate than a Great Ball."
+  },
+  "master_ball": {
+    "name": "Master Ball",
+    "category": "catch",
+    "catchRate": 255.0,
+    "price": 0,
+    "description": "The best Ball with the ultimate performance. It will catch any wild Pokémon without fail."
+  },
+  "antidote": {
+    "name": "Antidote",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "poison" },
+    "price": 100,
+    "description": "A medicine that heals a poisoned Pokémon."
+  },
+  "burn_heal": {
+    "name": "Burn Heal",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "burn" },
+    "price": 250,
+    "description": "A medicine that heals a Pokémon suffering from a burn."
+  },
+  "ice_heal": {
+    "name": "Ice Heal",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "freeze" },
+    "price": 250,
+    "description": "A medicine that defrosts a frozen Pokémon."
+  },
+  "awakening": {
+    "name": "Awakening",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "sleep" },
+    "price": 250,
+    "description": "A medicine that wakes up a sleeping Pokémon."
+  },
+  "paralyz_heal": {
+    "name": "Paralyz Heal",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "paralysis" },
+    "price": 200,
+    "description": "A medicine that heals a paralyzed Pokémon."
+  },
+  "full_heal": {
+    "name": "Full Heal",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "all" },
+    "price": 600,
+    "description": "A medicine that heals all status conditions of a Pokémon."
+  },
+  "escape_rope": {
+    "name": "Escape Rope",
+    "category": "utility",
+    "effect": { "type": "escape_cave" },
+    "price": 550,
+    "description": "A long, durable rope. Use it to escape instantly from a cave or dungeon."
+  },
+  "repel": {
+    "name": "Repel",
+    "category": "utility",
+    "effect": { "type": "repel_wild", "steps": 100 },
+    "price": 350,
+    "description": "Repels weak wild Pokémon for 100 steps."
+  },
+  "super_repel": {
+    "name": "Super Repel",
+    "category": "utility",
+    "effect": { "type": "repel_wild", "steps": 200 },
+    "price": 500,
+    "description": "Repels weak wild Pokémon for 200 steps."
+  },
+  "max_repel": {
+    "name": "Max Repel",
+    "category": "utility",
+    "effect": { "type": "repel_wild", "steps": 250 },
+    "price": 700,
+    "description": "Repels weak wild Pokémon for 250 steps."
+  },
+  "fire_stone": {
+    "name": "Fire Stone",
+    "category": "evolution",
+    "effect": { "type": "evolve", "target": ["growlithe", "vulpix", "eevee"] },
+    "price": 2100,
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It is colored orange."
+  },
+  "water_stone": {
+    "name": "Water Stone",
+    "category": "evolution",
+    "effect": { "type": "evolve", "target": ["poliwhirl", "shellder", "staryu", "eevee"] },
+    "price": 2100,
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It is a clear light blue."
+  },
+  "thunder_stone": {
+    "name": "Thunder Stone",
+    "category": "evolution",
+    "effect": { "type": "evolve", "target": ["pikachu", "eevee"] },
+    "price": 2100,
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It is thunderbolt-yellow."
+  },
+  "leaf_stone": {
+    "name": "Leaf Stone",
+    "category": "evolution",
+    "effect": { "type": "evolve", "target": ["gloom", "weepinbell", "exeggcute"] },
+    "price": 2100,
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It has a leaf pattern."
+  },
+  "moon_stone": {
+    "name": "Moon Stone",
+    "category": "evolution",
+    "effect": { "type": "evolve", "target": ["nidorina", "nidorino", "clefairy", "jigglypuff"] },
+    "price": 0,
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It is as black as night."
+  },
+  "town_map": {
+    "name": "Town Map",
+    "category": "key",
+    "effect": { "type": "view_map" },
+    "price": 0,
+    "description": "A very convenient map that can be viewed anytime. It even shows your present location."
+  },
+  "bicycle": {
+    "name": "Bicycle",
+    "category": "key",
+    "effect": { "type": "speed_boost", "multiplier": 2.0 },
+    "price": 0,
+    "description": "A folding bike that allows faster movement than the Running Shoes."
+  },
+  "coin_case": {
+    "name": "Coin Case",
+    "category": "key",
+    "effect": { "type": "store_coins", "max": 9999 },
+    "price": 0,
+    "description": "A case for holding Coins obtained at the Game Corner. It holds up to 9,999 coins."
+  },
+  "itemfinder": {
+    "name": "Itemfinder",
+    "category": "key",
+    "effect": { "type": "detect_hidden_items" },
+    "price": 0,
+    "description": "A device used for finding items. If there is a hidden item nearby, it emits a signal."
+  },
+  "old_rod": {
+    "name": "Old Rod",
+    "category": "key",
+    "effect": { "type": "fish", "tier": 1 },
+    "price": 0,
+    "description": "An old and beat-up fishing rod. Use it by any body of water to fish for wild Pokémon."
+  },
+  "good_rod": {
+    "name": "Good Rod",
+    "category": "key",
+    "effect": { "type": "fish", "tier": 2 },
+    "price": 0,
+    "description": "A decent fishing rod. Use it by any body of water to fish up wild Pokémon."
+  },
+  "super_rod": {
+    "name": "Super Rod",
+    "category": "key",
+    "effect": { "type": "fish", "tier": 3 },
+    "price": 0,
+    "description": "An awesome, high-tech fishing rod. Use it by any body of water to fish up all kinds of Pokémon."
+  },
+  "tm01": {
+    "name": "TM01 (Focus Punch)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "focus_punch" },
+    "price": 0,
+    "description": "An attack that is executed last. The user flinches if hit beforehand."
+  },
+  "tm02": {
+    "name": "TM02 (Dragon Claw)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "dragon_claw" },
+    "price": 0,
+    "description": "Sharp, huge claws hook and slash the foe quickly and with great power."
+  },
+  "tm03": {
+    "name": "TM03 (Water Pulse)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "water_pulse" },
+    "price": 0,
+    "description": "An attack with a pulsing blast of water. It may also confuse the foe."
+  },
+  "tm04": {
+    "name": "TM04 (Calm Mind)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "calm_mind" },
+    "price": 0,
+    "description": "The user focuses its mind to raise the Sp. Atk and Sp. Def stats."
+  },
+  "tm05": {
+    "name": "TM05 (Roar)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "roar" },
+    "price": 1000,
+    "description": "The foe is made to switch out with an ally. In the wild, the battle ends."
+  },
+  "tm06": {
+    "name": "TM06 (Toxic)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "toxic" },
+    "price": 0,
+    "description": "A move that badly poisons the foe. Its poison damage worsens every turn."
+  },
+  "tm07": {
+    "name": "TM07 (Hail)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "hail" },
+    "price": 0,
+    "description": "A hailstorm lasting five turns damages all Pokémon except the Ice-type."
+  },
+  "tm08": {
+    "name": "TM08 (Bulk Up)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "bulk_up" },
+    "price": 0,
+    "description": "The user bulks up its body to boost both its Attack and Defense stats."
+  },
+  "tm09": {
+    "name": "TM09 (Bullet Seed)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "bullet_seed" },
+    "price": 0,
+    "description": "The user shoots seeds at the foe. Two to five seeds are shot at once."
+  },
+  "tm10": {
+    "name": "TM10 (Hidden Power)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "hidden_power" },
+    "price": 0,
+    "description": "An attack that varies in type and intensity depending on the user."
+  },
+  "tm11": {
+    "name": "TM11 (Sunny Day)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "sunny_day" },
+    "price": 0,
+    "description": "The sun blazes for five turns, powering up Fire-type moves."
+  },
+  "tm12": {
+    "name": "TM12 (Taunt)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "taunt" },
+    "price": 0,
+    "description": "The foe is taunted into a rage that allows it to use only attack moves."
+  },
+  "tm13": {
+    "name": "TM13 (Ice Beam)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "ice_beam" },
+    "price": 0,
+    "description": "The foe is struck with an icy beam. It may freeze the foe solid."
+  },
+  "tm14": {
+    "name": "TM14 (Blizzard)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "blizzard" },
+    "price": 0,
+    "description": "The foe is blasted with a blizzard. It may freeze the foe solid."
+  },
+  "tm15": {
+    "name": "TM15 (Hyper Beam)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "hyper_beam" },
+    "price": 7500,
+    "description": "A severely damaging attack that makes the user rest on the next turn."
+  },
+  "tm16": {
+    "name": "TM16 (Light Screen)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "light_screen" },
+    "price": 0,
+    "description": "A wall of light cuts damage from Sp. Atk attacks for five turns."
+  },
+  "tm17": {
+    "name": "TM17 (Protect)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "protect" },
+    "price": 0,
+    "description": "Enables the user to evade all attacks. It may fail if used in succession."
+  },
+  "tm18": {
+    "name": "TM18 (Rain Dance)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "rain_dance" },
+    "price": 0,
+    "description": "A heavy rain falls for five turns, powering up Water-type moves."
+  },
+  "tm19": {
+    "name": "TM19 (Giga Drain)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "giga_drain" },
+    "price": 0,
+    "description": "A harsh attack that absorbs half the damage it inflicted to restore HP."
+  },
+  "tm20": {
+    "name": "TM20 (Safeguard)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "safeguard" },
+    "price": 0,
+    "description": "It protects the user's party from all status problems for five turns."
+  },
+  "tm21": {
+    "name": "TM21 (Frustration)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "frustration" },
+    "price": 0,
+    "description": "A full-power attack that grows harsher the less the user likes its trainer."
+  },
+  "tm22": {
+    "name": "TM22 (SolarBeam)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "solarbeam" },
+    "price": 0,
+    "description": "A 2-turn move that absorbs light to attack on the second turn."
+  },
+  "tm23": {
+    "name": "TM23 (Iron Tail)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "iron_tail" },
+    "price": 0,
+    "description": "The foe is slammed with a steel-hard tail. It may lower Defense."
+  },
+  "tm24": {
+    "name": "TM24 (Thunderbolt)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "thunderbolt" },
+    "price": 0,
+    "description": "A strong electrical blast is loosed at the foe. It may cause paralysis."
+  },
+  "tm25": {
+    "name": "TM25 (Thunder)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "thunder" },
+    "price": 0,
+    "description": "A brutal lightning attack that may paralyze the foe. It hits straight in rain."
+  },
+  "tm26": {
+    "name": "TM26 (Earthquake)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "earthquake" },
+    "price": 0,
+    "description": "An earthquake that strikes all Pokémon in battle excluding the user."
+  },
+  "tm27": {
+    "name": "TM27 (Return)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "return" },
+    "price": 0,
+    "description": "An attack that builds power the more the user loves its trainer."
+  },
+  "tm28": {
+    "name": "TM28 (Dig)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "dig" },
+    "price": 2000,
+    "description": "The user burrows on the first turn and strikes on the second."
+  },
+  "tm29": {
+    "name": "TM29 (Psychic)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "psychic" },
+    "price": 0,
+    "description": "A strong telekinetic attack. It may lower the foe's Sp. Def stat."
+  },
+  "tm30": {
+    "name": "TM30 (Shadow Ball)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "shadow_ball" },
+    "price": 0,
+    "description": "The user hurls a black blob that may lower the foe's Sp. Def stat."
+  },
+  "tm31": {
+    "name": "TM31 (Brick Break)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "brick_break" },
+    "price": 3000,
+    "description": "Destroys barriers like Light Screen and Reflect and causes damage."
+  },
+  "tm32": {
+    "name": "TM32 (Double Team)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "double_team" },
+    "price": 0,
+    "description": "Moves create illusory copies to raise the user's evasiveness."
+  },
+  "tm33": {
+    "name": "TM33 (Reflect)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "reflect" },
+    "price": 1000,
+    "description": "A wall of light cuts damage from physical attacks for five turns."
+  },
+  "tm34": {
+    "name": "TM34 (Shock Wave)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "shock_wave" },
+    "price": 0,
+    "description": "The user strikes the target with a quick, unevadable electric shock."
+  },
+  "tm35": {
+    "name": "TM35 (Flamethrower)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "flamethrower" },
+    "price": 0,
+    "description": "The foe is scorched with an intense blast of fire. It may cause a burn."
+  },
+  "tm36": {
+    "name": "TM36 (Sludge Bomb)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "sludge_bomb" },
+    "price": 0,
+    "description": "Unsanitary sludge is hurled at the target. It may poison the foe."
+  },
+  "tm37": {
+    "name": "TM37 (Sandstorm)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "sandstorm" },
+    "price": 0,
+    "description": "A 5-turn sandstorm buffets the battlefield, damaging non-rock/ground/steel types."
+  },
+  "tm38": {
+    "name": "TM38 (Fire Blast)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "fire_blast" },
+    "price": 0,
+    "description": "The foe is incinerated with an intense flame. It may cause a burn."
+  },
+  "tm39": {
+    "name": "TM39 (Rock Tomb)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "rock_tomb" },
+    "price": 0,
+    "description": "Boulders are hurled at the foe. It lowers the target's Speed stat."
+  },
+  "tm40": {
+    "name": "TM40 (Aerial Ace)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "aerial_ace" },
+    "price": 0,
+    "description": "An extremely fast attack that is completely unevadable."
+  },
+  "tm41": {
+    "name": "TM41 (Torment)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "torment" },
+    "price": 0,
+    "description": "Torments the foe and stops it from using the same move twice in a row."
+  },
+  "tm42": {
+    "name": "TM42 (Facade)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "facade" },
+    "price": 0,
+    "description": "Boosts Attack power if the user is burned, paralyzed, or poisoned."
+  },
+  "tm43": {
+    "name": "TM43 (Secret Power)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "secret_power" },
+    "price": 3000,
+    "description": "An attack that has varying secondary effects depending on the environment."
+  },
+  "tm44": {
+    "name": "TM44 (Rest)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "rest" },
+    "price": 0,
+    "description": "The user sleeps for 2 turns to fully restore HP and cure status conditions."
+  },
+  "tm45": {
+    "name": "TM45 (Attract)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "attract" },
+    "price": 3000,
+    "description": "Makes it tough for the opposite gender foe to attack the user."
+  },
+  "tm46": {
+    "name": "TM46 (Thief)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "thief" },
+    "price": 0,
+    "description": "An attack that lets the user steal the foe's held item while attacking."
+  },
+  "tm47": {
+    "name": "TM47 (Steel Wing)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "steel_wing" },
+    "price": 0,
+    "description": "The target is struck with rigid wings. It may raise the user's Defense."
+  },
+  "tm48": {
+    "name": "TM48 (Skill Swap)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "skill_swap" },
+    "price": 0,
+    "description": "The user employs psychic power to trade special abilities with the target."
+  },
+  "tm49": {
+    "name": "TM49 (Snatch)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "snatch" },
+    "price": 0,
+    "description": "Steals the effects of the foe's healing or status moves on that turn."
+  },
+  "tm50": {
+    "name": "TM50 (Overheat)",
+    "category": "tm",
+    "effect": { "type": "teach_move", "move": "overheat" },
+    "price": 0,
+    "description": "A full-power blast that severely lowers the user's Special Attack afterward."
+  },
+  "hm01": {
+    "name": "HM01 (Cut)",
+    "category": "hm",
+    "effect": { "type": "field_move", "action": "cut_trees" },
+    "price": 0,
+    "description": "Allows the user to cut down small trees outside of battle. Deals Normal-type damage."
+  },
+  "hm02": {
+    "name": "HM02 (Fly)",
+    "category": "hm",
+    "effect": { "type": "field_move", "action": "fly_to_town" },
+    "price": 0,
+    "description": "The user flies up on the second turn and drops down to attack. Allows instant travel between visited towns."
+  },
+  "hm03": {
+    "name": "HM03 (Surf)",
+    "category": "hm",
+    "effect": { "type": "field_move", "action": "cross_water" },
+    "price": 0,
+    "description": "The user plows across water to hit the foe. Allows the trainer to surf across water bodies."
+  },
+  "hm04": {
+    "name": "HM04 (Strength)",
+    "category": "hm",
+    "effect": { "type": "field_move", "action": "push_boulders" },
+    "price": 0,
+    "description": "The target is hammered with a physical blow. Allows the user to push heavy boulders out of the way."
+  },
+  "hm05": {
+    "name": "HM05 (Flash)",
+    "category": "hm",
+    "effect": { "type": "field_move", "action": "illuminate_caves" },
+    "price": 0,
+    "description": "A powerful flash of light blinds the target, reducing accuracy. Illuminates pitch-dark caves."
+  },
+  "hm06": {
+    "name": "HM06 (Rock Smash)",
+    "category": "hm",
+    "effect": { "type": "field_move", "action": "smash_rocks" },
+    "price": 0,
+    "description": "The foe is hit with an impact that can lower Defense. Smashes cracked rocks blocking paths."
+  },
+  "hm07": {
+    "name": "HM07 (Waterfall)",
+    "category": "hm",
+    "effect": { "type": "field_move", "action": "climb_waterfalls" },
+    "price": 0,
+    "description": "The user charges at the target at a high speed. Powerful enough to charge up waterfalls."
+  },
+  "burn_heal": {
+    "name": "Burn Heal",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "burn" },
+    "price": 250,
+    "description": "A medicine that heals a Pokémon suffering from a burn."
+  },
+  "ice_heal": {
+    "name": "Ice Heal",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "freeze" },
+    "price": 250,
+    "description": "A medicine that defrosts a frozen Pokémon."
+  },
+  "awakening": {
+    "name": "Awakening",
+    "category": "status",
+    "effect": { "type": "cure_status", "status": "sleep" },
+    "price": 250,
+    "description": "A medicine that wakes up a sleeping Pokémon."
+  },
+  "max_potion": {
+    "name": "Max Potion",
+    "category": "healing",
+    "effect": { "type": "heal", "value": "max" },
+    "price": 2500,
+    "description": "A spray-type medicine for treating wounds. Fully restores a Pokémon's HP."
+  },
+  "full_restore": {
+    "name": "Full Restore",
+    "category": "healing",
+    "effect": { "type": "heal_and_cure", "value": "max" },
+    "price": 3000,
+    "description": "Fully restores HP and heals any status conditions of a Pokémon."
+  },
+  "ultra_ball": {
+    "name": "Ultra Ball",
+    "category": "catch",
+    "catchRate": 2.0,
+    "price": 1200,
+    "description": "A better, high-performance Ball that provides an even higher catch rate than a Great Ball."
+  },
+  "super_repel": {
+    "name": "Super Repel",
+    "category": "utility",
+    "effect": { "type": "repel_wild", "steps": 200 },
+    "price": 500,
+    "description": "Repels weak wild Pokémon for 200 steps."
+  },
+  "max_repel": {
+    "name": "Max Repel",
+    "category": "utility",
+    "effect": { "type": "repel_wild", "steps": 250 },
+    "price": 700,
+    "description": "Repels weak wild Pokémon for 250 steps."
+  },
+  "poke_doll": {
+    "name": "Poké Doll",
+    "category": "battle",
+    "effect": { "type": "escape_wild_battle" },
+    "price": 1000,
+    "description": "An attractive doll. Use it to distract a-and flee from any wild Pokémon."
+  },
+  "x_accuracy": {
+    "name": "X Accuracy",
+    "category": "battle",
+    "effect": { "type": "stat_boost", "stat": "accuracy", "stages": 1 },
+    "price": 950,
+    "description": "Temporarily heightens the accuracy of attacks during a battle."
+  },
+  "guard_spec": {
+    "name": "Guard Spec.",
+    "category": "battle",
+    "effect": { "type": "prevent_stat_reduction" },
+    "price": 700,
+    "description": "Prevents the Pokémon's stats from being reduced during a battle."
+  },
+  "dire_hit": {
+    "name": "Dire Hit",
+    "category": "battle",
+    "effect": { "type": "boost_critical_ratio" },
+    "price": 650,
+    "description": "Raises the critical-hit ratio of a Pokémon during a battle."
+  },
+  "x_attack": {
+    "name": "X Attack",
+    "category": "battle",
+    "effect": { "type": "stat_boost", "stat": "attack", "stages": 1 },
+    "price": 500,
+    "description": "Temporarily raises the Attack stat of a Pokémon during a battle."
+  },
+  "x_defend": {
+    "name": "X Defend",
+    "category": "battle",
+    "effect": { "type": "stat_boost", "stat": "defense", "stages": 1 },
+    "price": 550,
+    "description": "Temporarily raises the Defense stat of a Pokémon during a battle."
+  },
+  "x_speed": {
+    "name": "X Speed",
+    "category": "battle",
+    "effect": { "type": "stat_boost", "stat": "speed", "stages": 1 },
+    "price": 350,
+    "description": "Temporarily raises the Speed stat of a Pokémon during a battle."
+  },
+  "x_special": {
+    "name": "X Special",
+    "category": "battle",
+    "effect": { "type": "stat_boost", "stat": "special_attack", "stages": 1 },
+    "price": 350,
+    "description": "Temporarily raises the Special stat of a Pokémon during a battle."
+  },
+  "hp_up": {
+    "name": "HP Up",
+    "category": "vitamin",
+    "effect": { "type": "ev_boost", "stat": "hp" },
+    "price": 9800,
+    "description": "A nutritious drink for Pokémon. It raises the base HP of a single Pokémon."
+  },
+  "protein": {
+    "name": "Protein",
+    "category": "vitamin",
+    "effect": { "type": "ev_boost", "stat": "attack" },
+    "price": 9800,
+    "description": "A nutritious drink for Pokémon. It raises the base Attack stat of a single Pokémon."
+  },
+  "iron": {
+    "name": "Iron",
+    "category": "vitamin",
+    "effect": { "type": "ev_boost", "stat": "defense" },
+    "price": 9800,
+    "description": "A nutritious drink for Pokémon. It raises the base Defense stat of a single Pokémon."
+  },
+  "carbos": {
+    "name": "Carbos",
+    "category": "vitamin",
+    "effect": { "type": "ev_boost", "stat": "speed" },
+    "price": 9800,
+    "description": "A nutritious drink for Pokémon. It raises the base Speed stat of a single Pokémon."
+  },
+  "calcium": {
+    "name": "Calcium",
+    "category": "vitamin",
+    "effect": { "type": "ev_boost", "stat": "special_attack" },
+    "price": 9800,
+    "description": "A nutritious drink for Pokémon. It raises base Special stats of a single Pokémon."
+  },
+  "fresh_water": {
+    "name": "Fresh Water",
+    "category": "healing",
+    "effect": { "type": "heal", "value": 50 },
+    "price": 200,
+    "description": "Water with a high mineral content. It restores the HP of one Pokémon by 50 points."
+  },
+  "soda_pop": {
+    "name": "Soda Pop",
+    "category": "healing",
+    "effect": { "type": "heal", "value": 60 },
+    "price": 300,
+    "description": "A fizzy soda drink. It restores the HP of one Pokémon by 60 points."
+  },
+  "lemonade": {
+    "name": "Lemonade",
+    "category": "healing",
+    "effect": { "type": "heal", "value": 80 },
+    "price": 350,
+    "description": "A very sweet drink. It restores the HP of one Pokémon by 80 points."
+  },
+  "ether": {
+    "name": "Ether",
+    "category": "medicine",
+    "effect": { "type": "restore_pp", "value": 10, "target": "single_move" },
+    "price": 0,
+    "description": "Restores the PP of a selected move by 10 points for a single Pokémon."
+  },
+  "max_ether": {
+    "name": "Max Ether",
+    "category": "medicine",
+    "effect": { "type": "restore_pp", "value": "max", "target": "single_move" },
+    "price": 0,
+    "description": "Fully restores the PP of a selected move for a single Pokémon."
+  },
+  "elixir": {
+    "name": "Elixir",
+    "category": "medicine",
+    "effect": { "type": "restore_pp", "value": 10, "target": "all_moves" },
+    "price": 0,
+    "description": "Restores the PP of all moves by 10 points for a single Pokémon."
+  },
+  "max_elixir": {
+    "name": "Max Elixir",
+    "category": "medicine",
+    "effect": { "type": "restore_pp", "value": "max", "target": "all_moves" },
+    "price": 0,
+    "description": "Fully restores the PP of all moves for a single Pokémon."
+  },
+  "pp_up": {
+    "name": "PP Up",
+    "category": "vitamin",
+    "effect": { "type": "max_pp_boost" },
+    "price": 9800,
+    "description": "A nutritious item that raises the maximum PP of a selected move for a Pokémon."
+  },
+  "helix_fossil": {
+    "name": "Helix Fossil",
+    "category": "fossil",
+    "effect": { "type": "revive_fossil", "pokemon": "omanyte" },
+    "price": 0,
+    "description": "A piece of an ancient marine Pokémon's seashell. It is fossilized and somewhat urn-shaped."
+  },
+  "dome_fossil": {
+    "name": "Dome Fossil",
+    "category": "fossil",
+    "effect": { "type": "revive_fossil", "pokemon": "kabuto" },
+    "price": 0,
+    "description": "A piece of an ancient marine Pokémon's shell. It is fossilized and tapers to a point."
+  },
+  "old_amber": {
+    "name": "Old Amber",
+    "category": "fossil",
+    "effect": { "type": "revive_fossil", "pokemon": "aerodactyl" },
+    "price": 0,
+    "description": "A piece of amber that contains the genetic material of an ancient aerial Pokémon."
+  },
+  "poke_flute": {
+    "name": "Poké Flute",
+    "category": "key",
+    "effect": { "type": "awaken_sleeping_pokemon" },
+    "price": 0,
+    "description": "A flute that is said to instantly awaken any Pokémon. It has a lovely tone."
+  },
+  "silph_scope": {
+    "name": "Silph Scope",
+    "category": "key",
+    "effect": { "type": "reveal_ghosts" },
+    "price": 0,
+    "description": "A scope that makes unseeable Pokémon visible. It is made by Silph Co."
+  },
+  "gold_teeth": {
+    "name": "Gold Teeth",
+    "category": "key",
+    "effect": { "type": "trade_for_hm04" },
+    "price": 0,
+    "description": "A set of false teeth lost by the Safari Zone's Warden. It makes his smile sparkle."
+  },
+  "secret_key": {
+    "name": "Secret Key",
+    "category": "key",
+    "effect": { "type": "unlock_door", "target": "cinnabar_gym" },
+    "price": 0,
+    "description": "The key to Cinnabar Island Gym's front door. It is colored red and decorated."
+  },
+  "card_key": {
+    "name": "Card Key",
+    "category": "key",
+    "effect": { "type": "unlock_door", "target": "silph_co" },
+    "price": 0,
+    "description": "A card-type key that unlocks doors in Silph Co.'s head office in Saffron City."
+  },
+  "lift_key": {
+    "name": "Lift Key",
+    "category": "key",
+    "effect": { "type": "unlock_door", "target": "rocket_elevator" },
+    "price": 0,
+    "description": "A key that operates the elevator in Team Rocket's hideout. It bears the Team Rocket logo."
   }
 }
