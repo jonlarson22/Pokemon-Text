@@ -45,12 +45,12 @@ export class UIManager {
 
     if (centerBtn) {
       centerBtn.style.display = route.hasCenter ? "block" : "none";
-      centerBtn.onclick = () => this.game.openCenter();
+      centerBtn.onclick = () => this.game.facilities.openCenter();
     }
 
     if (shopBtn) {
       shopBtn.style.display = route.hasShop ? "block" : "none";
-      shopBtn.onclick = () => this.game.openShop();
+      shopBtn.onclick = () => this.game.facilities.openShop();
     }
   }
 
