@@ -65,7 +65,7 @@ class GameEngine {
   }
 
   checkGameStart() {
-    if (!this.gameState.hasStarter || this.gameState.party.length === 0) {
+     if (!this.gameState.hasStarter && this.gameState.party.length === 0) {
       this.ui.printToLog("Welcome to the world of Pokémon!");
       this.ui.printToLog("You're in Pallet Town, in the Kanto region, where shades of your journey await!");
       this.ui.printToLog("Choose a starter Pokémon to be your first companion. Good luck!");
@@ -348,7 +348,12 @@ class GameEngine {
     document.getElementById('btn-bag')?.addEventListener('click', () => this.openBag());
     
     document.getElementById('btn-run')?.addEventListener('click', () => {
+      if (this.gameState.activeTrainer) {
+        this.ui.printToLog("You can't run from a trainer battle!");
+        return;
+      }
       this.ui.printToLog("Got away safely!");
+      this.gameState.activeBattle = null;
       this.ui.setMenuState('route');
     });
 
