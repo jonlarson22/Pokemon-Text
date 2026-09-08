@@ -91,7 +91,7 @@
     "hasCenter": true,
     "hasShop": true,
     "encounters": [],
-    "trainers": ["gym_leader_brock"],
+    "trainers": [],
     "explore_table": []
   },
   "route3": {
