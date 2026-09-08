@@ -554,7 +554,7 @@ handleTurn(playerMove) {
         const p = document.createElement('p');
         const isCaught = this.gameState.pokedex.caught[entry.id];
         const numStr = String(entry.pokedexNumber).padStart(3, '0');
-        p.textContent = `#${numStr} ${isCaught ? '🔴' : '⚪'} ${entry.name}`;
+        p.textContent = `#${numStr} ${isCaught ? '🔴' : '⚫'} ${entry.name}`;
         content.appendChild(p);
       });
     }
