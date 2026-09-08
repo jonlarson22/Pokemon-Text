@@ -1,4 +1,19 @@
 {
-  "viridian_city": ["potion", "antidote", "paralyze_heal", "pokeball"],
-  "pewter_city": ["potion", "pokeball", "escape_rope", "repel"]
+  "viridian_city": ["pokeball", "antidote", "paralyz_heal", "burn_heal"],
+  "pewter_city": ["pokeball", "potion", "escape_rope", "antidote", "burn_heal", "awakening", "paralyz_heal"],
+  "cerulean_city": ["pokeball", "potion", "repel", "antidote", "burn_heal", "awakening", "paralyz_heal"],
+  "vermilion_city": ["pokeball", "super_potion", "ice_heal", "awakening", "paralyz_heal", "repel"],
+  "lavender_town": ["great_ball", "super_potion", "revive", "escape_rope", "super_repel", "antidote", "burn_heal", "ice_heal", "paralyz_heal"],
+  "celadon_department_store": [
+    "great_ball", "super_potion", "revive", "super_repel", "antidote", "burn_heal", "ice_heal", "awakening", "paralyz_heal",
+    "tm13", "tm48", "tm49", "tm01", "tm05", "tm09", "tm17", "tm27", "tm30", "tm21", "tm12",
+    "poke_doll", "fire_stone", "thunder_stone", "water_stone", "leaf_stone",
+    "x_accuracy", "guard_spec", "dire_hit", "x_attack", "x_defend", "x_speed", "x_special",
+    "hp_up", "protein", "iron", "carbos", "calcium",
+    "fresh_water", "soda_pop", "lemonade"
+  ],
+  "saffron_city": ["great_ball", "hyper_potion", "max_repel", "escape_rope", "full_heal", "revive"],
+  "fuchsia_city": ["ultra_ball", "great_ball", "super_potion", "revive", "full_heal", "super_repel"],
+  "cinnabar_island": ["ultra_ball", "great_ball", "hyper_potion", "max_repel", "escape_rope", "full_heal", "revive"],
+  "indigo_plateau": ["ultra_ball", "great_ball", "hyper_potion", "max_potion", "full_restore", "max_repel", "escape_rope", "full_heal", "revive"]
 }
