@@ -195,7 +195,7 @@ startBattle(wildPokemonInfo) {
     this.ui.setMenuState('battle');
   }
 
-  startTrainerBattle(enemyMon, trainer) {
+  startTrainerBattle(enemyMon, trainer, winFlag = null) {
     const speciesKey = enemyMon.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.ui.updatePokedexTrackerUI();
@@ -228,13 +228,12 @@ startBattle(wildPokemonInfo) {
       this.gameState.party
     );
 
-    const leadMoves = this.gameState.party[0].moves;
     this.refreshBattleMoveButtons();
-    
     const battleBagBtn = document.getElementById('btn-battle-bag');
     if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
 
     this.gameState.activeTrainer = trainer;    
+    this.gameState.activeWinFlag = winFlag; // Store the flag in the game state temporarily
     this.ui.setMenuState('battle');
   }
 
@@ -258,11 +257,19 @@ handleTurn(playerMove) {
       const payout = this.gameState.activeTrainer.payout || 500;
       this.gameState.money += payout;
       this.ui.printToLog(`You defeated ${this.gameState.activeTrainer.name} and got ¥${payout}!`);
+      
+      // Give the player the badge/flag if one was passed into the battle
+      if (this.gameState.activeWinFlag) {
+        this.setFlag(this.gameState.activeWinFlag, true);
+        this.ui.printToLog(`You obtained the ${this.gameState.activeWinFlag.replace('_', ' ')}!`);
+      }
+
       this.ui.updateMoneyUI();
     }
     
     this.gameState.activeTrainer = null;
     this.gameState.activeBattle = null;
+    this.gameState.activeWinFlag = null; // Clear the temporary flag
 
     setTimeout(() => {
       this.ui.printToLog("Returning to the route...");
