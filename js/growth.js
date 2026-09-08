@@ -23,23 +23,81 @@ export class GrowthEngine {
     });
   }
 
-  checkLevelUp(mon) {
-    let leveledUp = false;
-    
-    while (mon.exp >= mon.maxExp) {
-      mon.level++;
-      mon.maxExp = Math.pow(mon.level + 1, 3);
-      leveledUp = true;
-      
-      this.recalculateStats(mon);
-      this.game.ui.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
-      this.checkLearnset(mon);
-    }
+checkLevelUp(mon) {
+  const baseData = this.game.db.pokemon[mon.id];
+  let leveledUp = false;
 
-    if (leveledUp) {
-      this.game.ui.updatePartyUI();
-    }
+  while (mon.exp >= mon.maxExp) {
+    mon.level++;
+    mon.maxExp = this.getRequiredExp(baseData.growthRate || 'medium_fast', mon.level + 1);
+    leveledUp = true;
+
+    this.recalculateStats(mon);
+    this.game.ui.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
+    this.checkLearnset(mon);
   }
+
+  if (leveledUp) {
+    this.game.ui.updatePartyUI();
+    this.checkEvolution(mon, 'level');
+  }
+}
+
+checkEvolution(mon, method, itemUsed = null) {
+  const baseData = this.game.db.pokemon[mon.id];
+  if (!baseData || !baseData.evolution) return;
+
+  const evo = baseData.evolution;
+  let canEvolve = false;
+
+  if (method === 'level' && evo.method === 'level' && mon.level >= evo.level) {
+    canEvolve = true;
+  } else if (method === 'item' && evo.method === 'item' && itemUsed === evo.item) {
+    canEvolve = true;
+  }
+
+  if (canEvolve) {
+    this.promptEvolution(mon, evo.target);
+  }
+}
+
+promptEvolution(mon, targetSpeciesId) {
+  const targetData = this.game.db.pokemon[targetSpeciesId];
+  if (!targetData) return;
+
+  this.game.ui.printToLog(`What? ${mon.species} is evolving!`);
+  this.game.ui.setMenuState('dynamic');
+
+  const content = document.getElementById('dynamic-content');
+  const controls = document.getElementById('dynamic-controls');
+  content.innerHTML = `<p style="text-align:center;">${mon.species} is evolving into ${targetData.name}!</p>`;
+  controls.innerHTML = '';
+
+  this.game.ui.buildMenuControls(controls, [
+    {
+      text: "Let it Evolve!",
+      action: () => {
+        const oldName = mon.species;
+        mon.id = targetData.id;
+        mon.species = targetData.name;
+        mon.types = targetData.types;
+        
+        this.recalculateStats(mon);
+        this.game.ui.printToLog(`Congratulations! Your ${oldName} evolved into ${mon.species}!`);
+        this.checkLearnset(mon);
+        this.game.ui.updatePartyUI();
+        this.game.ui.setMenuState('route');
+      }
+    },
+    {
+      text: "Cancel (Press B)",
+      action: () => {
+        this.game.ui.printToLog(`Huh? ${mon.species} stopped evolving!`);
+        this.game.ui.setMenuState('route');
+      }
+    }
+  ]);
+}
 
   recalculateStats(mon) {
     const baseData = this.game.db.pokemon[mon.id];
