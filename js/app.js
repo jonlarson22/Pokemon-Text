@@ -579,6 +579,37 @@ handleTurn(playerMove) {
       }
     }
   }
+
+  travelTo(targetRouteId) {
+  const currentRoute = this.db.routes[this.gameState.currentRoute];
+  const targetRoute = this.db.routes[targetRouteId];
+
+  // 1. Check exit/entry gate restrictions
+  if (currentRoute.gate_requirements?.[targetRouteId]) {
+    const gate = currentRoute.gate_requirements[targetRouteId];
+    const satisfiesReqs = gate.required_flags.every(flag => this.gameState.flags[flag]);
+    
+    if (!satisfiesReqs) {
+      this.ui.printToLog(gate.blocked_message);
+      return false;
+    }
+  }
+
+  // 2. Perform location change
+  this.gameState.currentRoute = targetRouteId;
+  this.ui.printToLog(`Arrived at ${targetRoute.name}.`);
+
+  // 3. Trigger forced battles on arrival if flag is false
+  if (targetRoute.forced_battle && !this.gameState.flags[targetRoute.forced_battle.flag]) {
+    const trainer = this.db.trainers[targetRoute.forced_battle.trainer_id];
+    this.ui.printToLog(`${trainer.name} steps out to challenge you!`);
+    this.startTrainerBattle(trainer.party[0], trainer, targetRoute.forced_battle.flag);
+    return true;
+  }
+
+  this.ui.setMenuState('route');
+  return true;
+}
   
   openPartyTargetScreen(itemKey, itemData) {
     this.ui.setMenuState('party-select');
