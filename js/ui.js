@@ -28,12 +28,23 @@ export class UIManager {
     display.scrollTop = display.scrollHeight; 
   }
 
-  updatePartyUI() {
-    const lead = this.game.gameState.party[0];
+updatePartyUI() {
     const partyDisplay = document.getElementById('party-list');
-    if (partyDisplay && lead) {
-      partyDisplay.textContent = `${lead.species} (Lv. ${lead.level}) - HP: ${lead.hp}/${lead.maxHp}`;
+    if (!partyDisplay) return;
+
+    if (this.game.gameState.party.length === 0) {
+      partyDisplay.textContent = "Party: Empty";
+      return;
     }
+
+    // Maps through every Pokemon in the party to create a string
+    const partyStatus = this.game.gameState.party.map(mon => {
+      // Optional: Add a little skull emoji or indicator if they are fainted
+      const statusIcon = mon.hp <= 0 ? '💀' : ''; 
+      return `${statusIcon}${mon.species} (Lv.${mon.level}) ${mon.hp}/${mon.maxHp}`;
+    }).join('  |  '); // Separates party members with a pipe
+
+    partyDisplay.textContent = `Party: ${partyStatus}`;
   }
 
   renderRouteScreen() {
