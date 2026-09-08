@@ -355,7 +355,8 @@ class GameEngine {
       document.getElementById('input-import-file').click();
     });
         document.getElementById('input-import-file')?.addEventListener('change', (e) => this.storage.handleImport(e));
-
+  }
+    
   openBag() {
     const inventoryEntries = Object.entries(this.gameState.inventory);
     
