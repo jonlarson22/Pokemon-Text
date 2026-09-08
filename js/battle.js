@@ -1,6 +1,6 @@
 // js/battle.js
 export class BattleEngine {
-  constructor(playerMon, enemyMon, onLog, onVictory, onBlackout, onForceSwitch, typeChart = null) {
+  constructor(playerMon, enemyMon, onLog, onVictory, onBlackout, onForceSwitch, typeChart = null, party) {
     this.playerMon = playerMon;
     this.enemyMon = enemyMon;
     this.onLog = onLog;
