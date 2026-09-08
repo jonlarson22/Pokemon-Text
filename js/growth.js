@@ -23,81 +23,109 @@ export class GrowthEngine {
     });
   }
 
-checkLevelUp(mon) {
-  const baseData = this.game.db.pokemon[mon.id];
-  let leveledUp = false;
+  checkLevelUp(mon) {
+    const baseData = this.game.db.pokemon[mon.id];
+    let leveledUp = false;
 
-  while (mon.exp >= mon.maxExp) {
-    mon.level++;
-    mon.maxExp = this.getRequiredExp(baseData.growthRate || 'medium_fast', mon.level + 1);
-    leveledUp = true;
+    while (mon.exp >= mon.maxExp) {
+      mon.level++;
+      mon.maxExp = this.getRequiredExp(baseData.growthRate || 'medium_fast', mon.level + 1);
+      leveledUp = true;
 
-    this.recalculateStats(mon);
-    this.game.ui.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
-    this.checkLearnset(mon);
-  }
-
-  if (leveledUp) {
-    this.game.ui.updatePartyUI();
-    this.checkEvolution(mon, 'level');
-  }
-}
-
-checkEvolution(mon, method, itemUsed = null) {
-  const baseData = this.game.db.pokemon[mon.id];
-  if (!baseData || !baseData.evolution) return;
-
-  const evo = baseData.evolution;
-  let canEvolve = false;
-
-  if (method === 'level' && evo.method === 'level' && mon.level >= evo.level) {
-    canEvolve = true;
-  } else if (method === 'item' && evo.method === 'item' && itemUsed === evo.item) {
-    canEvolve = true;
-  }
-
-  if (canEvolve) {
-    this.promptEvolution(mon, evo.target);
-  }
-}
-
-promptEvolution(mon, targetSpeciesId) {
-  const targetData = this.game.db.pokemon[targetSpeciesId];
-  if (!targetData) return;
-
-  this.game.ui.printToLog(`What? ${mon.species} is evolving!`);
-  this.game.ui.setMenuState('dynamic');
-
-  const content = document.getElementById('dynamic-content');
-  const controls = document.getElementById('dynamic-controls');
-  content.innerHTML = `<p style="text-align:center;">${mon.species} is evolving into ${targetData.name}!</p>`;
-  controls.innerHTML = '';
-
-  this.game.ui.buildMenuControls(controls, [
-    {
-      text: "Let it Evolve!",
-      action: () => {
-        const oldName = mon.species;
-        mon.id = targetData.id;
-        mon.species = targetData.name;
-        mon.types = targetData.types;
-        
-        this.recalculateStats(mon);
-        this.game.ui.printToLog(`Congratulations! Your ${oldName} evolved into ${mon.species}!`);
-        this.checkLearnset(mon);
-        this.game.ui.updatePartyUI();
-        this.game.ui.setMenuState('route');
-      }
-    },
-    {
-      text: "Cancel (Press B)",
-      action: () => {
-        this.game.ui.printToLog(`Huh? ${mon.species} stopped evolving!`);
-        this.game.ui.setMenuState('route');
-      }
+      this.recalculateStats(mon);
+      this.game.ui.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
+      this.checkLearnset(mon);
     }
-  ]);
-}
+
+    if (leveledUp) {
+      this.game.ui.updatePartyUI();
+      this.checkEvolution(mon, 'level');
+    }
+  }
+
+  getRequiredExp(growthRate, level) {
+    const n = level;
+    if (n <= 1) return 0;
+    
+    switch (growthRate) {
+      case 'fast':
+        return Math.floor((4 * Math.pow(n, 3)) / 5);
+      case 'medium_slow':
+        return Math.floor((1.2 * Math.pow(n, 3)) - (15 * Math.pow(n, 2)) + (100 * n) - 140);
+      case 'slow':
+        return Math.floor((5 * Math.pow(n, 3)) / 4);
+      case 'medium_fast':
+      default:
+        return Math.pow(n, 3);
+    }
+  }
+
+  checkEvolution(mon, method, itemUsed = null) {
+    const baseData = this.game.db.pokemon[mon.id];
+    if (!baseData || !baseData.evolution) return;
+
+    const evo = baseData.evolution;
+    let canEvolve = false;
+
+    if (method === 'level' && evo.method === 'level' && mon.level >= evo.level) {
+      canEvolve = true;
+    } else if (method === 'item' && evo.method === 'item' && itemUsed === evo.item) {
+      canEvolve = true;
+    }
+
+    if (canEvolve) {
+      this.promptEvolution(mon, evo.target);
+    }
+  }
+
+  promptEvolution(mon, targetSpeciesId) {
+    const targetData = this.game.db.pokemon[targetSpeciesId];
+    if (!targetData) return;
+
+    this.game.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    
+    content.innerHTML = `<p style="text-align:center; font-size: 1.2rem;">What? <strong>${mon.species}</strong> is evolving!</p>`;
+    controls.innerHTML = '';
+
+    this.game.ui.buildMenuControls(controls, [
+      {
+        text: "Let it Evolve!",
+        action: () => {
+          const oldName = mon.species;
+          
+          // Transform the Pokémon
+          mon.id = targetData.id;
+          mon.species = targetData.name;
+          mon.types = targetData.types;
+          
+          this.recalculateStats(mon);
+          
+          // Register in Pokédex if it exists
+          if (this.game.gameState.pokedex) {
+            this.game.gameState.pokedex.seen[targetData.id] = true;
+            this.game.gameState.pokedex.caught[targetData.id] = true;
+            if (this.game.ui.updatePokedexTrackerUI) {
+               this.game.ui.updatePokedexTrackerUI();
+            }
+          }
+
+          this.game.ui.printToLog(`Congratulations! Your ${oldName} evolved into ${mon.species}!`);
+          this.checkLearnset(mon);
+          this.game.ui.updatePartyUI();
+          this.game.ui.setMenuState('route');
+        }
+      },
+      {
+        text: "Cancel",
+        action: () => {
+          this.game.ui.printToLog(`Huh? ${mon.species} stopped evolving!`);
+          this.game.ui.setMenuState('route');
+        }
+      }
+    ]);
+  }
 
   recalculateStats(mon) {
     const baseData = this.game.db.pokemon[mon.id];
@@ -119,22 +147,6 @@ promptEvolution(mon, targetSpeciesId) {
     mon.stats.spAtk = calcStat(baseData.baseStats.spAtk, mon.ivs.spAtk, mon.level, false);
     mon.stats.spDef = calcStat(baseData.baseStats.spDef, mon.ivs.spDef, mon.level, false);
   }
-
-    getRequiredExp(growthRate, level) {
-      const n = level;
-      switch (growthRate) {
-        case 'fast':
-          return Math.floor((4 * Math.pow(n, 3)) / 5);
-        case 'medium_fast':
-          return Math.pow(n, 3);
-        case 'medium_slow':
-          return Math.floor(1.2 * Math.pow(n, 3) - 15 * Math.pow(n, 2) + 100 * n - 140);
-        case 'slow':
-          return Math.floor((5 * Math.pow(n, 3)) / 4);
-        default:
-          return Math.pow(n, 3);
-      }
-    }
   
   checkLearnset(mon) {
     const baseData = this.game.db.pokemon[mon.id];
