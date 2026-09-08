@@ -4641,5 +4641,5 @@
     ],
     "tmMoves": ["mega_punch", "mega_kick", "roar", "toxic", "hail", "hidden_power", "sunny_day", "taunt", "ice_beam", "blizzard", "hyper_beam", "light_screen", "protect", "rain_dance", "giga_drain", "frustration", "solar_beam", "iron_tail", "thunderbolt", "thunder", "earthquake", "return", "dig", "psychic", "shadow_ball", "brick_break", "double_team", "reflect", "shock_wave", "flamethrower", "fire_blast", "rock_tomb", "aerial_ace", "torment", "facade", "secret_power", "rest", "psych_up", "skill_swap", "snatch", "cut", "fly", "surf", "strength", "flash", "rock_smash", "waterfall", "dive"],
     "catchRate": 45
-  },
+  }
 }
