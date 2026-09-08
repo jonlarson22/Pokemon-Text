@@ -10,9 +10,10 @@ export class UIManager {
 
   updatePokedexTrackerUI() {
     const pokedexEl = document.getElementById('pokedex-count') || document.getElementById('pokedex-tracker');
-    const totalPokemon = Object.keys(this.game.db.pokemon).length || 151;
+    const pokemonDb = this.game.db.pokemon || {}; 
+    const totalPokemon = Object.keys(pokemonDb).length || 151;
     const caughtCount = Object.keys(this.game.gameState.pokedex.caught).length;
-
+  
     if (pokedexEl) pokedexEl.textContent = `Pokedex: ${caughtCount}/${totalPokemon}`;
   }
 
