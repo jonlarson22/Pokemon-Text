@@ -1,29 +1,36 @@
 // js/growth.js
 export class GrowthEngine {
   constructor(game) {
-    this.game = game; // Reference to main GameEngine for UI, logs, and DB
+    this.game = game;
   }
 
-  awardExp(winner, defeatedMon) {
+  awardExp(participants, defeatedMon) {
+    // Standardize input as array
+    const participantList = Array.isArray(participants) ? participants : [participants];
+    const livingParticipants = participantList.filter(mon => mon.hp > 0);
+    
+    if (livingParticipants.length === 0) return;
+
     const baseData = this.game.db.pokemon[defeatedMon.id];
     const baseExp = baseData ? baseData.baseExp : 50; 
     
-    // Gen 1 EXP Formula
-    const expGained = Math.floor((baseExp * defeatedMon.level) / 7);
-    
-    this.game.printToLog(`${winner.species} gained ${expGained} EXP!`);
-    winner.exp += expGained;
+    // Gen 1 EXP formula split across participating Pokémon
+    const totalExpGained = Math.floor((baseExp * defeatedMon.level) / 7);
+    const expPerMon = Math.max(1, Math.floor(totalExpGained / livingParticipants.length));
 
-    this.checkLevelUp(winner);
+    livingParticipants.forEach(mon => {
+      this.game.printToLog(`${mon.species} gained ${expPerMon} EXP!`);
+      mon.exp += expPerMon;
+      this.checkLevelUp(mon);
+    });
   }
 
   checkLevelUp(mon) {
-    // Simple fast growth curve for now: Level^3 = Max EXP
     let leveledUp = false;
     
     while (mon.exp >= mon.maxExp) {
       mon.level++;
-      mon.maxExp = Math.pow(mon.level + 1, 3); // EXP needed for NEXT level
+      mon.maxExp = Math.pow(mon.level + 1, 3);
       leveledUp = true;
       
       this.recalculateStats(mon);
@@ -47,7 +54,6 @@ export class GrowthEngine {
     };
 
     mon.maxHp = calcStat(baseData.baseStats.hp, mon.ivs.hp, mon.level, true);
-    // Heal the Pokémon by the amount their max HP increased
     mon.hp += (mon.maxHp - oldMaxHp); 
 
     mon.speed = calcStat(baseData.baseStats.speed, mon.ivs.speed, mon.level, false);
@@ -74,7 +80,6 @@ export class GrowthEngine {
         mon.moves.push(moveData);
         this.game.printToLog(`${mon.species} learned ${moveData.name}!`);
       } else {
-        // Trigger move replacement UI
         this.promptMoveReplacement(mon, moveData);
       }
     });
@@ -90,7 +95,6 @@ export class GrowthEngine {
     content.innerHTML = '<p style="text-align:center;">Select a move to forget:</p>';
     controls.innerHTML = '';
 
-    // Create buttons for current moves
     mon.moves.forEach((currentMove, index) => {
       const btn = document.createElement('button');
       btn.className = 'btn';
@@ -99,12 +103,11 @@ export class GrowthEngine {
         const oldMoveName = currentMove.name;
         mon.moves[index] = newMove;
         this.game.printToLog(`1, 2, and... Poof! ${mon.species} forgot ${oldMoveName} and learned ${newMove.name}!`);
-        this.game.setMenuState('route'); // Return to overworld
+        this.game.setMenuState('route');
       };
       content.appendChild(btn);
     });
 
-    // Option to give up learning the new move
     this.game.buildMenuControls(controls, [
       { 
         text: "Keep Old Moves", 
