@@ -174,22 +174,13 @@ class GameEngine {
         this.ui.updatePartyUI();
       },
       (defeatedEnemy) => {
-        this.growth.awardExp(this.gameState.party[0], defeatedEnemy);
+        this.handleEnemyDefeated(defeatedEnemy);
       },
       this.db.typeChart
     );
 
     const leadMoves = this.gameState.party[0].moves;
-    for (let i = 0; i < 4; i++) {
-      const btn = document.getElementById(`btn-move-${i}`);
-      if (btn && leadMoves[i]) {
-        btn.textContent = leadMoves[i].name;
-        btn.onclick = () => this.handleTurn(leadMoves[i]);
-        btn.style.display = "block";
-      } else if (btn) {
-        btn.style.display = "none";
-      }
-    }
+    this.refreshBattleMoveButtons();
 
     const battleBagBtn = document.getElementById('btn-battle-bag');
     if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
@@ -217,23 +208,14 @@ class GameEngine {
         this.ui.updatePartyUI();
       },
       (defeatedEnemy) => {
-        this.growth.awardExp(this.gameState.party[0], defeatedEnemy);
+        this.handleEnemyDefeated(defeatedEnemy);
       },
       this.db.typeChart
     );
 
     const leadMoves = this.gameState.party[0].moves;
-    for (let i = 0; i < 4; i++) {
-      const btn = document.getElementById(`btn-move-${i}`);
-      if (btn && leadMoves[i]) {
-        btn.textContent = leadMoves[i].name;
-        btn.onclick = () => this.handleTurn(leadMoves[i]);
-        btn.style.display = "block";
-      } else if (btn) {
-        btn.style.display = "none";
-      }
-    }
-
+    this.refreshBattleMoveButtons();
+    
     const battleBagBtn = document.getElementById('btn-battle-bag');
     if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
 
@@ -557,6 +539,54 @@ class GameEngine {
     this.ui.buildMenuControls(controls, [
       { text: "Close", action: () => this.ui.setMenuState('system') }
     ]);
+  }
+
+  handleEnemyDefeated(defeatedEnemy) {
+    const activeMon = this.gameState.party[0];
+    const growthResult = this.growth.awardExp(activeMon, defeatedEnemy);
+    
+    if (growthResult && growthResult.leveledUp) {
+      this.ui.printToLog(`${activeMon.species} grew to Lv. ${growthResult.newLevel}!`);
+      this.ui.updatePartyUI();
+
+      if (growthResult.newMoves && growthResult.newMoves.length > 0) {
+        this.handleMoveLearning(activeMon, growthResult.newMoves);
+      }
+    }
+  }
+
+handleMoveLearning(pokemon, newMoves) {
+    newMoves.forEach(moveId => {
+      const moveData = this.db.moves[moveId];
+      if (!moveData) return;
+
+      if (pokemon.moves.length < 4) {
+        pokemon.moves.push(moveData);
+        this.ui.printToLog(`${pokemon.species} learned ${moveData.name}!`);
+      } else {
+        // TODO: Build UI to prompt the player to forget an old move
+        this.ui.printToLog(`${pokemon.species} wants to learn ${moveData.name}, but already knows 4 moves!`);
+        // For now, we'll just skip learning it until the UI is built
+      }
+    });
+    this.refreshBattleMoveButtons();
+    this.ui.updatePartyUI();
+  }
+
+  refreshBattleMoveButtons() {
+    const activeMon = this.gameState.party[0];
+    const leadMoves = activeMon.moves;
+    
+    for (let i = 0; i < 4; i++) {
+      const btn = document.getElementById(`btn-move-${i}`);
+      if (btn && leadMoves[i]) {
+        btn.textContent = leadMoves[i].name;
+        btn.onclick = () => this.handleTurn(leadMoves[i]);
+        btn.style.display = "block";
+      } else if (btn) {
+        btn.style.display = "none";
+      }
+    }
   }
   
   openPartyTargetScreen(itemKey, itemData) {
