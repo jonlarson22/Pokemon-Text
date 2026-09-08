@@ -62,6 +62,22 @@ export class GrowthEngine {
     mon.stats.spDef = calcStat(baseData.baseStats.spDef, mon.ivs.spDef, mon.level, false);
   }
 
+    getRequiredExp(growthRate, level) {
+      const n = level;
+      switch (growthRate) {
+        case 'fast':
+          return Math.floor((4 * Math.pow(n, 3)) / 5);
+        case 'medium_fast':
+          return Math.pow(n, 3);
+        case 'medium_slow':
+          return Math.floor(1.2 * Math.pow(n, 3) - 15 * Math.pow(n, 2) + 100 * n - 140);
+        case 'slow':
+          return Math.floor((5 * Math.pow(n, 3)) / 4);
+        default:
+          return Math.pow(n, 3);
+      }
+    }
+  
   checkLearnset(mon) {
     const baseData = this.game.db.pokemon[mon.id];
     if (!baseData || !baseData.learnset) return;
