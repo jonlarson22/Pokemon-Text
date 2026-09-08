@@ -2,6 +2,7 @@ import { BattleEngine } from './battle.js';
 import { CaptureSystem } from './captures.js';
 import { GrowthEngine } from './growth.js';
 import { UIManager } from './ui.js';
+import { StorageManager } from './storage.js';
 
 class GameEngine {
   constructor() {
@@ -24,6 +25,7 @@ class GameEngine {
     this.captureSystem = new CaptureSystem(this);
     this.growth = new GrowthEngine(this);
     this.ui = new UIManager(this);
+    this.storage = new StorageManager(this);
     
     this.db = {
       routes: {},
@@ -392,12 +394,11 @@ class GameEngine {
       this.ui.setMenuState('route');
     });
 
-    document.getElementById('btn-load-game')?.addEventListener('click', () => this.loadGameLocal());
-    document.getElementById('btn-import-save')?.addEventListener('click', () => {
+    document.getElementById('btn-load-game')?.addEventListener('click', () => this.storage.loadLocal());
+        document.getElementById('btn-import-save')?.addEventListener('click', () => {
       document.getElementById('input-import-file').click();
     });
-    document.getElementById('input-import-file')?.addEventListener('change', (e) => this.handleFileUpload(e));
-  }
+        document.getElementById('input-import-file')?.addEventListener('change', (e) => this.storage.handleImport(e));
 
   openBag() {
     const inventoryEntries = Object.entries(this.gameState.inventory);
@@ -444,81 +445,12 @@ class GameEngine {
     controls.innerHTML = '';
 
     this.ui.buildMenuControls(controls, [
-      { text: "Save (Local)", action: () => this.saveGameLocal() },
-      { text: "Load (Local)", action: () => this.loadGameLocal() },
-      { text: "Export File", action: () => this.exportSave() },
+      { text: "Save (Local)", action: () => this.storage.saveLocal() },
+      { text: "Load (Local)", action: () => this.storage.loadLocal() },
+      { text: "Export File", action: () => this.storage.exportSave() },
       { text: "Import File", action: () => document.getElementById('input-import-file').click() },
       { text: "Close", action: () => this.ui.setMenuState('system') }
     ]);
-  }
-
-  saveGameLocal() {
-    try {
-      localStorage.setItem('pkmnSaveData', JSON.stringify(this.gameState));
-      this.ui.printToLog("Game saved locally!");
-    } catch (e) {
-      this.ui.printToLog("Error saving game to local storage.");
-    }
-  }
-
-  loadGameLocal() {
-    try {
-      const saveString = localStorage.getItem('pkmnSaveData');
-      if (saveString) {
-        this.gameState = JSON.parse(saveString);
-        this.ui.renderRouteScreen();
-        this.ui.updatePartyUI();
-        this.ui.updateMoneyUI();
-        this.ui.updatePokedexTrackerUI();
-        this.ui.setMenuState('route');
-        this.ui.printToLog("Game loaded from local storage!");
-      } else {
-        this.ui.printToLog("No local save found.");
-      }
-    } catch (e) {
-      this.ui.printToLog("Error loading local save data.");
-    }
-  }
-
-  exportSave() {
-    try {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.gameState));
-      const downloadAnchorNode = document.createElement('a');
-      downloadAnchorNode.setAttribute("href", dataStr);
-      downloadAnchorNode.setAttribute("download", "pokemon_save.json");
-      document.body.appendChild(downloadAnchorNode);
-      downloadAnchorNode.click();
-      downloadAnchorNode.remove();
-      this.ui.printToLog("Game downloaded as pokemon_save.json!");
-    } catch (error) {
-      this.ui.printToLog("Error exporting save data.");
-    }
-  }
-
-  handleFileUpload(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      try {
-        const parsedState = JSON.parse(e.target.result);
-        if (parsedState && parsedState.party && parsedState.currentRoute) {
-          this.gameState = parsedState;
-          this.ui.renderRouteScreen();
-          this.ui.updatePartyUI();
-          this.ui.updateMoneyUI();
-          this.ui.updatePokedexTrackerUI();
-          this.ui.setMenuState('route');
-          this.ui.printToLog("Game loaded successfully from file!");
-        } else {
-          this.ui.printToLog("Error: Invalid save file format.");
-        }
-      } catch (error) {
-        this.ui.printToLog("Error: Failed to parse save file.");
-      }
-    };
-    reader.readAsText(file);
-    event.target.value = '';
   }
 
   openCenter() {
