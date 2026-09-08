@@ -153,7 +153,7 @@ class GameEngine {
     }
   }
 
-  startBattle(wildPokemonInfo) {
+startBattle(wildPokemonInfo) {
     const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.ui.updatePokedexTrackerUI();
@@ -176,10 +176,12 @@ class GameEngine {
       (defeatedEnemy) => {
         this.handleEnemyDefeated(defeatedEnemy);
       },
+      () => {
+        this.checkBlackout();
+      },
       this.db.typeChart
     );
 
-    const leadMoves = this.gameState.party[0].moves;
     this.refreshBattleMoveButtons();
 
     const battleBagBtn = document.getElementById('btn-battle-bag');
@@ -223,9 +225,12 @@ class GameEngine {
     this.ui.setMenuState('battle');
   }
 
-  handleTurn(playerMove) {
+handleTurn(playerMove) {
+    if (!this.gameState.activeBattle) return;
     this.gameState.activeBattle.executeTurn(playerMove);
-    if (this.gameState.activeBattle.isOver) this.handleBattleEnd();
+    if (this.gameState.activeBattle && this.gameState.activeBattle.isOver) {
+      this.handleBattleEnd();
+    }
   }
 
   handleBattleEnd() {
@@ -543,34 +548,7 @@ class GameEngine {
 
   handleEnemyDefeated(defeatedEnemy) {
     const activeMon = this.gameState.party[0];
-    const growthResult = this.growth.awardExp(activeMon, defeatedEnemy);
-    
-    if (growthResult && growthResult.leveledUp) {
-      this.ui.printToLog(`${activeMon.species} grew to Lv. ${growthResult.newLevel}!`);
-      this.ui.updatePartyUI();
-
-      if (growthResult.newMoves && growthResult.newMoves.length > 0) {
-        this.handleMoveLearning(activeMon, growthResult.newMoves);
-      }
-    }
-  }
-
-handleMoveLearning(pokemon, newMoves) {
-    newMoves.forEach(moveId => {
-      const moveData = this.db.moves[moveId];
-      if (!moveData) return;
-
-      if (pokemon.moves.length < 4) {
-        pokemon.moves.push(moveData);
-        this.ui.printToLog(`${pokemon.species} learned ${moveData.name}!`);
-      } else {
-        // TODO: Build UI to prompt the player to forget an old move
-        this.ui.printToLog(`${pokemon.species} wants to learn ${moveData.name}, but already knows 4 moves!`);
-        // For now, we'll just skip learning it until the UI is built
-      }
-    });
-    this.refreshBattleMoveButtons();
-    this.ui.updatePartyUI();
+    this.growth.awardExp(activeMon, defeatedEnemy);
   }
 
   refreshBattleMoveButtons() {
