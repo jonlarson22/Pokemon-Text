@@ -47,5 +47,67 @@
     ],
     "trainers": [],
     "explore_table": []
+  },
+  "route2": {
+    "name": "Route 2",
+    "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
+    "connections": ["viridian_city", "viridian_forest", "pewter_city"],
+    "req_flag": null,
+    "encounters": [
+      { "species": "Caterpie", "min_level": 3, "max_level": 5, "weight": 40 },
+      { "species": "Weedle", "min_level": 3, "max_level": 5, "weight": 40 },
+      { "species": "Pidgey", "min_level": 3, "max_level": 5, "weight": 20 }
+    ],
+    "trainers": [],
+    "explore_table": [
+      { "type": "nothing", "weight": 60 },
+      { "type": "encounter", "weight": 40 }
+    ]
+  },
+  "viridian_forest": {
+    "name": "Viridian Forest",
+    "description": "A deep, natural maze filled with towering trees and bug Pokémon.",
+    "connections": ["route2"],
+    "req_flag": null,
+    "encounters": [
+      { "species": "Caterpie", "min_level": 3, "max_level": 6, "weight": 35 },
+      { "species": "Metapod", "min_level": 4, "max_level": 6, "weight": 15 },
+      { "species": "Weedle", "min_level": 3, "max_level": 6, "weight": 35 },
+      { "species": "Kakuna", "min_level": 4, "max_level": 6, "weight": 10 },
+      { "species": "Pikachu", "min_level": 3, "max_level": 5, "weight": 5 }
+    ],
+    "trainers": ["bug_catcher_rick", "bug_catcher_doug"],
+    "explore_table": [
+      { "type": "nothing", "weight": 40 },
+      { "type": "encounter", "weight": 50 },
+      { "type": "item", "item": "Antidote", "weight": 10 }
+    ]
+  },
+  "pewter_city": {
+    "name": "Pewter City",
+    "description": "A stone gray town where history and gray stones sleep.",
+    "connections": ["route2", "route3"],
+    "req_flag": null,
+    "hasCenter": true,
+    "hasShop": true,
+    "encounters": [],
+    "trainers": ["gym_leader_brock"],
+    "explore_table": []
+  },
+  "route3": {
+    "name": "Route 3",
+    "description": "A rocky, uneven path leading up toward Mt. Moon.",
+    "connections": ["pewter_city", "mt_moon_square"],
+    "req_flag": null,
+    "encounters": [
+      { "species": "Pidgey", "min_level": 6, "max_level": 8, "weight": 40 },
+      { "species": "Spearow", "min_level": 6, "max_level": 8, "weight": 40 },
+      { "species": "Jigglypuff", "min_level": 3, "max_level": 7, "weight": 20 }
+    ],
+    "trainers": ["bug_catcher_don", "lass_janice"],
+    "explore_table": [
+      { "type": "nothing", "weight": 55 },
+      { "type": "encounter", "weight": 45 }
+    ]
   }
 }
