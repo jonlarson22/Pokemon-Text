@@ -3,6 +3,7 @@ import { CaptureSystem } from './captures.js';
 import { GrowthEngine } from './growth.js';
 import { UIManager } from './ui.js';
 import { StorageManager } from './storage.js';
+import { PokemonFactory } from './pokemon_factory.js';
 
 class GameEngine {
   constructor() {
@@ -26,6 +27,7 @@ class GameEngine {
     this.growth = new GrowthEngine(this);
     this.ui = new UIManager(this);
     this.storage = new StorageManager(this);
+    this.factory = new PokemonFactory(this);
     
     this.db = {
       routes: {},
@@ -74,55 +76,9 @@ class GameEngine {
     }
   }
 
-  generatePokemonInstance(speciesId, level) {
-    const safeId = speciesId.toLowerCase(); 
-    const baseData = this.db.pokemon[safeId];
-    
-    if (!baseData) {
-      console.error(`Missing data for species: ${speciesId}`);
-      return null;
-    }
-
-    const ivs = {
-      hp: Math.floor(Math.random() * 32),
-      attack: Math.floor(Math.random() * 32),
-      defense: Math.floor(Math.random() * 32),
-      spAtk: Math.floor(Math.random() * 32),
-      spDef: Math.floor(Math.random() * 32),
-      speed: Math.floor(Math.random() * 32)
-    };
-
-    const calcStat = (base, iv, lvl, isHP) => {
-      if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;
-      return Math.floor(((2 * base + iv) * lvl) / 100) + 5;
-    };
-
-    const hp = calcStat(baseData.baseStats.hp, ivs.hp, level, true);
-    
-    return {
-      species: baseData.name,
-      id: safeId,
-      types: baseData.types,
-      level: level,
-      hp: hp,
-      maxHp: hp,
-      ivs: ivs,
-      speed: calcStat(baseData.baseStats.speed, ivs.speed, level, false),
-      stats: {
-        attack: calcStat(baseData.baseStats.attack, ivs.attack, level, false),
-        defense: calcStat(baseData.baseStats.defense, ivs.defense, level, false),
-        spAtk: calcStat(baseData.baseStats.spAtk, ivs.spAtk, level, false),
-        spDef: calcStat(baseData.baseStats.spDef, ivs.spDef, level, false),
-      },
-      moves: baseData.moves.slice(0, 4).map(moveId => this.db.moves[moveId]).filter(Boolean),
-      exp: 0,
-      maxExp: level * 100
-    };
-  }
-
   pickStarter(speciesId) {
     const safeId = speciesId.toLowerCase();
-    const starter = this.generatePokemonInstance(safeId, 5);
+    const starter = this.factory.generatePokemonInstance(safeId, 5);
     
     this.gameState.party.push(starter);
     this.gameState.hasStarter = true;
@@ -200,7 +156,7 @@ class GameEngine {
     this.gameState.pokedex.seen[speciesKey] = true;
     this.ui.updatePokedexTrackerUI();
 
-    const enemyMon = this.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
+    const enemyMon = this.factory.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
     if (!enemyMon) {
       this.ui.printToLog("Error generating wild Pokémon stats!");
       return;
@@ -376,7 +332,7 @@ class GameEngine {
       this.ui.printToLog(`"${trainer.dialogueBefore}"`);
 
       const enemyMonData = trainer.party[0];
-      const enemyMon = this.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
+      const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
 
       this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
       this.startTrainerBattle(enemyMon, trainer);
