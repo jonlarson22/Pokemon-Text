@@ -7,7 +7,8 @@ export class BattleEngine {
     this.onVictory = onVictory; 
     this.onBlackout = onBlackout;
     this.onForceSwitch = onForceSwitch;
-    this.typeChart = typeChart; 
+    this.typeChart = typeChart;
+    this.party = party;
     this.isOver = false;
 
     // Track all player Pokémon that entered battle for EXP sharing
@@ -310,7 +311,7 @@ export class BattleEngine {
     }
   }
 
-  checkWinLoss(party = []) {
+checkWinLoss() { // Remove the parameter
     if (this.enemyMon.hp <= 0) {
       this.onLog(`Wild ${this.enemyMon.species} fainted! You win!`);
       this.isOver = true;
@@ -321,7 +322,9 @@ export class BattleEngine {
     if (this.playerMon.hp <= 0) {
       this.onLog(`${this.playerMon.species} fainted!`);
 
-      const hasHealthyMon = party.some(mon => mon.hp > 0);
+      // Use this.party instead
+      const hasHealthyMon = this.party.some(mon => mon.hp > 0);
+      
       if (hasHealthyMon) {
         this.onLog(`Choose another Pokémon!`);
         if (this.onForceSwitch) this.onForceSwitch();
