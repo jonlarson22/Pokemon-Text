@@ -3,6 +3,10 @@
     "name": "Pallet Town",
     "description": "Shades of your journey await!",
     "connections": ["route1"],
+    "forced_battle": {
+      "flag": "defeated_rival_pallet",
+      "trainer_id": "rival_pallet_1"
+    },
     "req_flag": null,
     "encounters": [],
     "trainers": [],
@@ -68,6 +72,12 @@
     "name": "Viridian Forest",
     "description": "A deep, natural maze filled with towering trees and bug Pokémon.",
     "connections": ["route2_south", "route2_north],
+    "gate_requirements": {
+      "route2_north": {
+        "required_flags": ["defeated_bug_catcher_rick", "defeated_bug_catcher_doug"],
+        "blocked_message": "You must defeat the trainers blocking the path ahead first!"
+      }
+    },
     "req_flag": null,
     "encounters": [
       { "species": "Caterpie", "min_level": 3, "max_level": 6, "weight": 35 },
@@ -103,6 +113,12 @@
     "name": "Pewter City",
     "description": "A stone gray town where history and gray stones sleep.",
     "connections": ["route2_north", "route3"],
+    "gate_requirements": {
+      "route3": {
+        "required_flags": ["boulder_badge"],
+        "blocked_message": "You must defeat Gym Leader Brock and earn the Boulder Badge before leaving Pewter City!"
+      }
+    },
     "req_flag": null,
     "hasCenter": true,
     "hasShop": true,
