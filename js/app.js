@@ -4,6 +4,7 @@ import { GrowthEngine } from './growth.js';
 import { UIManager } from './ui.js';
 import { StorageManager } from './storage.js';
 import { PokemonFactory } from './pokemon_factory.js';
+import { FacilityManager } from './facilities.js';
 
 class GameEngine {
   constructor() {
@@ -28,6 +29,7 @@ class GameEngine {
     this.ui = new UIManager(this);
     this.storage = new StorageManager(this);
     this.factory = new PokemonFactory(this);
+    this.facilities = new FacilityManager(this);
     
     this.db = {
       routes: {},
@@ -410,85 +412,6 @@ class GameEngine {
     ]);
   }
 
-  openCenter() {
-    this.ui.setMenuState('dynamic');
-    this.ui.printToLog("Welcome to the Pokémon Center!");
-    this.renderCenterMenu();
-  }
-
-  renderCenterMenu() {
-    const content = document.getElementById('dynamic-content');
-    const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = '';
-    controls.innerHTML = '';
-
-    this.ui.buildMenuControls(controls, [
-      { text: "Heal Party", action: () => {
-          this.gameState.party.forEach(p => p.hp = p.maxHp);
-          this.gameState.lastHealedLocation = this.gameState.currentRoute; 
-          this.ui.updatePartyUI();
-          this.ui.printToLog("Your Pokémon are fully healed!");
-      }},
-      { text: "PC: Deposit", action: () => this.renderPCDeposit() },
-      { text: "PC: Withdraw", action: () => this.renderPCWithdraw() },
-      { text: "Exit", action: () => { this.ui.printToLog("We hope to see you again!"); this.ui.setMenuState('route'); } }
-    ]);
-  }
-
-  renderPCDeposit() {
-    const content = document.getElementById('dynamic-content');
-    content.innerHTML = '';
-    this.ui.printToLog("Select a Pokémon to deposit.");
-
-    this.gameState.party.forEach((mon, index) => {
-      const btn = document.createElement('button');
-      btn.className = 'btn';
-      btn.textContent = `Deposit ${mon.species} (Lv. ${mon.level})`;
-      btn.onclick = () => {
-        if (this.gameState.party.length <= 1) {
-          this.ui.printToLog("You can't deposit your last Pokémon!");
-          return;
-        }
-        const deposited = this.gameState.party.splice(index, 1)[0];
-        this.gameState.pc.pokemon.push(deposited);
-        this.ui.updatePartyUI();
-        this.ui.printToLog(`Deposited ${deposited.species} in the PC.`);
-        this.renderPCDeposit();
-      };
-      content.appendChild(btn);
-    });
-  }
-
-  renderPCWithdraw() {
-    const content = document.getElementById('dynamic-content');
-    content.innerHTML = '';
-    
-    if (this.gameState.pc.pokemon.length === 0) {
-      this.ui.printToLog("Your PC Box is empty.");
-      return;
-    }
-
-    this.ui.printToLog("Select a Pokémon to withdraw.");
-
-    this.gameState.pc.pokemon.forEach((mon, index) => {
-      const btn = document.createElement('button');
-      btn.className = 'btn';
-      btn.textContent = `Withdraw ${mon.species} (Lv. ${mon.level})`;
-      btn.onclick = () => {
-        if (this.gameState.party.length >= 6) {
-          this.ui.printToLog("Your party is full!");
-          return;
-        }
-        const withdrawn = this.gameState.pc.pokemon.splice(index, 1)[0];
-        this.gameState.party.push(withdrawn);
-        this.ui.updatePartyUI();
-        this.ui.printToLog(`Withdrew ${withdrawn.species} from the PC.`);
-        this.renderPCWithdraw();
-      };
-      content.appendChild(btn);
-    });
-  }
-
   openPokemonMenu() {
     this.ui.setMenuState('dynamic');
     const content = document.getElementById('dynamic-content');
@@ -545,89 +468,6 @@ class GameEngine {
     ]);
   }
   
-  openShop() {
-    this.ui.setMenuState('dynamic');
-    this.renderBuyMenu();
-  }
-
-  renderBuyMenu() {
-    const content = document.getElementById('dynamic-content');
-    const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = '';
-    controls.innerHTML = '';
-
-    const shopItemKeys = this.db.shops[this.gameState.currentRoute];
-
-    if (!shopItemKeys) {
-      this.ui.printToLog("This shop is currently closed.");
-      setTimeout(() => this.ui.setMenuState('route'), 1500);
-      return;
-    }
-
-    this.ui.printToLog("Welcome to the Poké Mart! What would you like to buy?");
-
-    shopItemKeys.forEach(itemKey => {
-      const itemData = this.db.items[itemKey];
-      if (!itemData) return;
-
-      const btn = document.createElement('button');
-      btn.className = 'btn';
-      btn.textContent = `${itemData.name} - ¥${itemData.price}`;
-      btn.onclick = () => {
-        if (this.gameState.money >= itemData.price) {
-          this.gameState.money -= itemData.price;
-          this.gameState.inventory[itemKey] = (this.gameState.inventory[itemKey] || 0) + 1;
-          this.ui.updateMoneyUI();
-          this.ui.printToLog(`You bought a ${itemData.name}!`);
-        } else {
-          this.ui.printToLog(`You don't have enough money for a ${itemData.name}.`);
-        }
-      };
-      content.appendChild(btn);
-    });
-
-    this.ui.buildMenuControls(controls, [
-      { text: "Buy", action: () => this.renderBuyMenu() },
-      { text: "Sell", action: () => this.renderSellMenu() },
-      { text: "Exit", action: () => { this.ui.printToLog("Come again!"); this.ui.setMenuState('route'); } }
-    ]);
-  }
-
-  renderSellMenu() {
-    const content = document.getElementById('dynamic-content');
-    content.innerHTML = '';
-    this.ui.printToLog("What would you like to sell?");
-
-    const inventoryEntries = Object.entries(this.gameState.inventory).filter(([_, count]) => count > 0);
-
-    if (inventoryEntries.length === 0) {
-      const p = document.createElement('p');
-      p.textContent = "Your bag is empty.";
-      p.style.textAlign = "center";
-      content.appendChild(p);
-      return;
-    }
-
-    inventoryEntries.forEach(([itemKey, count]) => {
-      const itemData = this.db.items[itemKey];
-      const basePrice = itemData ? itemData.price : 100;
-      const sellPrice = Math.floor(basePrice / 2);
-
-      const btn = document.createElement('button');
-      btn.className = 'btn';
-      btn.textContent = `Sell ${itemData ? itemData.name : itemKey} (x${count}) - ¥${sellPrice}`;
-      btn.onclick = () => {
-        this.gameState.inventory[itemKey]--;
-        if (this.gameState.inventory[itemKey] <= 0) delete this.gameState.inventory[itemKey];
-        this.gameState.money += sellPrice;
-        this.ui.updateMoneyUI();
-        this.ui.printToLog(`You sold a ${itemData ? itemData.name : itemKey} for ¥${sellPrice}!`);
-        this.renderSellMenu();
-      };
-      content.appendChild(btn);
-    });
-  } 
-
   handleItemClick(itemKey) {
     const item = this.db.items[itemKey]; 
     
