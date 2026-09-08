@@ -3,6 +3,7 @@
     "pokedexNumber": 1,
     "id": "bulbasaur",
     "name": "Bulbasaur",
+    "growthRate": "medium_slow",
     "types": ["Grass", "Poison"],
     "baseStats": {
       "hp": 45,
