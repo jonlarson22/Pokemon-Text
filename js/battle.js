@@ -1,12 +1,17 @@
 // js/battle.js
 export class BattleEngine {
-  constructor(playerMon, enemyMon, onLog, onVictory, typeChart = null) {
+  constructor(playerMon, enemyMon, onLog, onVictory, onBlackout, onForceSwitch, typeChart = null) {
     this.playerMon = playerMon;
     this.enemyMon = enemyMon;
     this.onLog = onLog;
     this.onVictory = onVictory; 
+    this.onBlackout = onBlackout;
+    this.onForceSwitch = onForceSwitch;
     this.typeChart = typeChart; 
     this.isOver = false;
+
+    // Track all player Pokémon that entered battle for EXP sharing
+    this.participants = new Set([this.playerMon]);
 
     this.setupBattleStats(this.playerMon);
     this.setupBattleStats(this.enemyMon);
@@ -30,6 +35,41 @@ export class BattleEngine {
     if (statName === 'attack' && mon.status === 'BRN') modified = Math.floor(modified * 0.5);
     
     return modified;
+  }
+
+  /**
+   * Manual Mid-Battle Switch (Consumes Player Turn)
+   */
+  switchPokemon(newMon) {
+    if (this.isOver || newMon.hp <= 0 || newMon === this.playerMon) return false;
+
+    this.onLog(`Retrieved ${this.playerMon.species}! Go! ${newMon.species}!`);
+    this.playerMon = newMon;
+    this.setupBattleStats(this.playerMon);
+    this.participants.add(this.playerMon);
+
+    // Enemy gets a turn because switching takes an action
+    if (this.canMove(this.enemyMon)) {
+      const enemyMove = this.getRandomEnemyMove();
+      this.processAction(this.enemyMon, this.playerMon, enemyMove, false);
+    }
+
+    this.applyEndOfTurnEffects(this.playerMon, this.enemyMon);
+    this.checkWinLoss();
+    return true;
+  }
+
+  /**
+   * Forced Switch after Faint (Does NOT trigger enemy attack)
+   */
+  forceSwitchPokemon(newMon) {
+    if (newMon.hp <= 0) return false;
+
+    this.playerMon = newMon;
+    this.setupBattleStats(this.playerMon);
+    this.participants.add(this.playerMon);
+    this.onLog(`Go! ${this.playerMon.species}!`);
+    return true;
   }
 
   executeTurn(playerMove) {
@@ -174,7 +214,6 @@ export class BattleEngine {
 
     this.onLog(`${attacker.species} used ${move.name}!`);
 
-    // Accuracy Check
     if (move.accuracy) {
       const accStage = attacker.statStages.accuracy || 0;
       const evaStage = defender.statStages.evasion || 0;
@@ -188,7 +227,6 @@ export class BattleEngine {
       }
     }
 
-    // Non-Damaging Status Moves / Leech Seed
     if (move.category === "status" || move.power === 0) {
       if (move.effect) {
         if (move.effect.type === "leech_seed") {
@@ -212,7 +250,6 @@ export class BattleEngine {
       return;
     }
 
-    // Damage Calculation
     const isCrit = Math.random() < 0.0625;
     const levelFactor = (2 * attacker.level / 5) + 2;
     const atkStat = move.category === "special" ? this.getModifiedStat(attacker, 'spAtk') : this.getModifiedStat(attacker, 'attack');
@@ -252,7 +289,6 @@ export class BattleEngine {
 
     this.onLog(`${defender.species} took ${finalDamage} damage! (${defender.hp}/${defender.maxHp} HP)`);
 
-    // Draining Attack Moves (Giga Drain, Mega Drain, Absorb, Leech Life)
     if (move.drain || move.effect?.type === "drain") {
       const drainRatio = move.drain || 0.5;
       const recovered = Math.min(attacker.maxHp - attacker.hp, Math.max(1, Math.floor(finalDamage * drainRatio)));
@@ -262,7 +298,6 @@ export class BattleEngine {
       }
     }
 
-    // Secondary Effects
     if (move.secondaryEffect && move.secondaryEffect.chance) {
       if (Math.random() * 100 <= move.secondaryEffect.chance) {
         const target = move.secondaryEffect.target === "self" ? attacker : defender;
@@ -275,16 +310,26 @@ export class BattleEngine {
     }
   }
 
-  checkWinLoss() {
+  checkWinLoss(party = []) {
     if (this.enemyMon.hp <= 0) {
       this.onLog(`Wild ${this.enemyMon.species} fainted! You win!`);
       this.isOver = true;
-      if (this.onVictory) this.onVictory(this.enemyMon); // This triggers the EXP gain!
+      if (this.onVictory) this.onVictory(Array.from(this.participants), this.enemyMon); 
       return true;
     }
+
     if (this.playerMon.hp <= 0) {
-      this.onLog(`${this.playerMon.species} fainted! You have no more usable Pokémon...`);
-      this.isOver = true;
+      this.onLog(`${this.playerMon.species} fainted!`);
+
+      const hasHealthyMon = party.some(mon => mon.hp > 0);
+      if (hasHealthyMon) {
+        this.onLog(`Choose another Pokémon!`);
+        if (this.onForceSwitch) this.onForceSwitch();
+      } else {
+        this.onLog(`You have no more usable Pokémon... You blacked out!`);
+        this.isOver = true;
+        if (this.onBlackout) this.onBlackout();
+      }
       return true;
     }
     return false;
