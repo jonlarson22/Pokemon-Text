@@ -32,14 +32,15 @@ class GameEngine {
   }
 
   async init() {
-    const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes] = await Promise.all([
+    const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes, gymsRes] = await Promise.all([
       fetch('./data/routes.json'),
       fetch('./data/pokemon.json'),
       fetch('./data/moves.json'),
       fetch('./data/trainers.json'),
       fetch('./data/type_chart.json'),
       fetch('./data/items.json'),
-      fetch('./data/shops.json')
+      fetch('./data/shops.json'),
+      fetch('./data/gyms.json')
     ]);
 
     this.db.routes = await routesRes.json();
@@ -49,6 +50,7 @@ class GameEngine {
     this.db.typeChart = await typesRes.json();
     this.db.items = await itemsRes.json();
     this.db.shops = await shopsRes.json();
+    this.db.gyms = await gymsRes.json();
     this.bindListeners();
     this.updatePokedexTrackerUI();
     this.checkGameStart();
