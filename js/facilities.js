@@ -5,33 +5,33 @@ export class FacilityManager {
     this.engine = engine;
   }
 
-  challengeGymLeader(gymId) {
-    const gym = this.game.db.gyms[gymId];
+challengeGymLeader(gymId) {
+    const gym = this.engine.db.gyms[gymId];
     if (!gym) return;
 
     // Check if required gym trainers are defeated
     const minionsDefeated = gym.gym_trainers.every(tId => 
-      this.game.gameState.defeatedTrainers[tId] || this.game.gameState.flags[`defeated_${tId}`]
+      this.engine.gameState.defeatedTrainers[tId] || this.engine.gameState.flags[`defeated_${tId}`]
     );
 
     if (!minionsDefeated) {
-      this.game.ui.printToLog("You must defeat the Gym trainers before challenging the Gym Leader!");
+      this.engine.ui.printToLog("You must defeat the Gym trainers before challenging the Gym Leader!");
       return;
     }
 
-    const leaderData = this.game.db.trainers[gym.gym_leader];
+    const leaderData = this.engine.db.trainers[gym.gym_leader];
     if (!leaderData) {
-      this.game.ui.printToLog("Error: Gym Leader data not found!");
+      this.engine.ui.printToLog("Error: Gym Leader data not found!");
       return;
     }
 
     // Pass the badge reward flag when starting the trainer battle
-    this.game.startTrainerBattle(
-      this.game.factory.generatePokemonInstance(leaderData.party[0].species, leaderData.party[0].level), 
-      leaderData
+    this.engine.startTrainerBattle(
+      this.engine.factory.generatePokemonInstance(leaderData.party[0].species, leaderData.party[0].level), 
+      leaderData,
+      gym.badge_reward // <--- Pass the badge flag here
     );
   }
-}
 
   // --- POKÉ MART LOGIC ---
   openShop() {
