@@ -5,6 +5,34 @@ export class FacilityManager {
     this.engine = engine;
   }
 
+  challengeGymLeader(gymId) {
+    const gym = this.game.db.gyms[gymId];
+    if (!gym) return;
+
+    // Check if required gym trainers are defeated
+    const minionsDefeated = gym.gym_trainers.every(tId => 
+      this.game.gameState.defeatedTrainers[tId] || this.game.gameState.flags[`defeated_${tId}`]
+    );
+
+    if (!minionsDefeated) {
+      this.game.ui.printToLog("You must defeat the Gym trainers before challenging the Gym Leader!");
+      return;
+    }
+
+    const leaderData = this.game.db.trainers[gym.gym_leader];
+    if (!leaderData) {
+      this.game.ui.printToLog("Error: Gym Leader data not found!");
+      return;
+    }
+
+    // Pass the badge reward flag when starting the trainer battle
+    this.game.startTrainerBattle(
+      this.game.factory.generatePokemonInstance(leaderData.party[0].species, leaderData.party[0].level), 
+      leaderData
+    );
+  }
+}
+
   // --- POKÉ MART LOGIC ---
   openShop() {
     this.engine.ui.setMenuState('dynamic');
