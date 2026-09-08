@@ -8,5 +8,72 @@
     "party": [
       { "species": "Rattata", "level": 4 }
     ]
+  },
+  "bug_catcher_rick": {
+    "name": "Rick",
+    "title": "Bug Catcher",
+    "dialogueBefore": "Hey! My bug Pokémon are tough. Care to see?",
+    "dialogueAfter": "Aww, they just weren't strong enough!",
+    "rewardMoney": 160,
+    "party": [
+      { "species": "Weedle", "level": 6 },
+      { "species": "Caterpie", "level": 6 }
+    ]
+  },
+  "bug_catcher_doug": {
+    "name": "Doug",
+    "title": "Bug Catcher",
+    "dialogueBefore": "You can't escape if you come into the forest!",
+    "dialogueAfter": "You got me! Good strategy!",
+    "rewardMoney": 180,
+    "party": [
+      { "species": "Weedle", "level": 7 },
+      { "species": "Kakuna", "level": 7 }
+    ]
+  },
+  "bug_catcher_don": {
+    "name": "Don",
+    "title": "Bug Catcher",
+    "dialogueBefore": "Hey! Catching bugs is what life is all about!",
+    "dialogueAfter": "My bugs... they need more training!",
+    "rewardMoney": 200,
+    "party": [
+      { "species": "Caterpie", "level": 10 },
+      { "species": "Metapod", "level": 10 },
+      { "species": "Caterpie", "level": 10 }
+    ]
+  },
+  "lass_janice": {
+    "name": "Janice",
+    "title": "Lass",
+    "dialogueBefore": "Excuse me! Don't be so impatient, let's battle!",
+    "dialogueAfter": "Oh well! I'll just have to train harder.",
+    "rewardMoney": 240,
+    "party": [
+      { "species": "Pidgey", "level": 9 },
+      { "species": "Nidoran♀", "level": 9 }
+    ]
+  },
+  "pewter_gym_camper_liam": {
+    "name": "Camper Liam",
+    "title": "Camper",
+    "dialogueBefore": "Stop right there! You're gonna have to get past me to challenge Brock!",
+    "dialogueAfter": "Darn! You're tougher than you look.",
+    "rewardMoney": 240,
+    "party": [
+      { "species": "Diglett", "level": 10 },
+      { "species": "Sandshrew", "level": 11 }
+    ]
+  },
+  "leader_brock": {
+    "name": "Brock",
+    "title": "Gym Leader",
+    "dialogueBefore": "I'm Brock! Pewter's Gym Leader! My rock-hard willpower is absolute!",
+    "dialogueAfter": "It's an amazing feeling... You're stronger than I expected.",
+    "rewardMoney": 1400,
+    "party": [
+      { "species": "Geodude", "level": 12 },
+      { "species": "Onix", "level": 14 }
+    ]
   }
 }
