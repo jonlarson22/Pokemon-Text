@@ -173,13 +173,18 @@ startBattle(wildPokemonInfo) {
         this.ui.printToLog(msg);
         this.ui.updatePartyUI();
       },
-      (defeatedEnemy) => {
-        this.handleEnemyDefeated(defeatedEnemy);
+      (participants, defeatedEnemy) => { // Captures the EXP array
+        this.handleEnemyDefeated(participants, defeatedEnemy);
       },
       () => {
         this.checkBlackout();
       },
-      this.db.typeChart
+      () => { // Forced Switch Callback (when lead faints but party is alive)
+        this.ui.printToLog("Choose a Pokémon to send out!");
+        this.openPokemonMenu();
+      },
+      this.db.typeChart,
+      this.gameState.party // Passes the party to fix the blackout bug!
     );
 
     this.refreshBattleMoveButtons();
@@ -209,10 +214,18 @@ startBattle(wildPokemonInfo) {
         this.ui.printToLog(msg);
         this.ui.updatePartyUI();
       },
-      (defeatedEnemy) => {
-        this.handleEnemyDefeated(defeatedEnemy);
+      (participants, defeatedEnemy) => { 
+        this.handleEnemyDefeated(participants, defeatedEnemy);
       },
-      this.db.typeChart
+      () => {
+        this.checkBlackout();
+      },
+      () => { 
+        this.ui.printToLog("Choose a Pokémon to send out!");
+        this.openPokemonMenu();
+      },
+      this.db.typeChart,
+      this.gameState.party
     );
 
     const leadMoves = this.gameState.party[0].moves;
@@ -223,6 +236,11 @@ startBattle(wildPokemonInfo) {
 
     this.gameState.activeTrainer = trainer;    
     this.ui.setMenuState('battle');
+  }
+
+  // Update this to accept the participants array
+  handleEnemyDefeated(participants, defeatedEnemy) {
+    this.growth.awardExp(participants, defeatedEnemy);
   }
 
 handleTurn(playerMove) {
@@ -544,11 +562,6 @@ handleTurn(playerMove) {
     this.ui.buildMenuControls(controls, [
       { text: "Close", action: () => this.ui.setMenuState('system') }
     ]);
-  }
-
-  handleEnemyDefeated(defeatedEnemy) {
-    const activeMon = this.gameState.party[0];
-    this.growth.awardExp(activeMon, defeatedEnemy);
   }
 
   refreshBattleMoveButtons() {
