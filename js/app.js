@@ -292,6 +292,14 @@ handleTurn(playerMove) {
     return false;
   }
 
+  setFlag(flagName, value = true) {
+  this.gameState.flags[flagName] = value;
+}
+
+  hasFlag(flagName) {
+  return !!this.gameState.flags[flagName];
+}
+  
   bindListeners() {
     document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.pickStarter('bulbasaur'));
     document.getElementById('btn-starter-charmander')?.addEventListener('click', () => this.pickStarter('charmander'));
