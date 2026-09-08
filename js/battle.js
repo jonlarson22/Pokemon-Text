@@ -326,7 +326,7 @@ export class BattleEngine {
         this.onLog(`Choose another Pokémon!`);
         if (this.onForceSwitch) this.onForceSwitch();
       } else {
-        this.onLog(`You have no more usable Pokémon... You blacked out!`);
+        this.onLog(`You have no more usable Pokémon... You whited out!`);
         this.isOver = true;
         if (this.onBlackout) this.onBlackout();
       }
