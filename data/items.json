@@ -629,63 +629,7 @@
     "price": 0,
     "description": "The user charges at the target at a high speed. Powerful enough to charge up waterfalls."
   },
-  "burn_heal": {
-    "name": "Burn Heal",
-    "category": "status",
-    "effect": { "type": "cure_status", "status": "burn" },
-    "price": 250,
-    "description": "A medicine that heals a Pokémon suffering from a burn."
-  },
-  "ice_heal": {
-    "name": "Ice Heal",
-    "category": "status",
-    "effect": { "type": "cure_status", "status": "freeze" },
-    "price": 250,
-    "description": "A medicine that defrosts a frozen Pokémon."
-  },
-  "awakening": {
-    "name": "Awakening",
-    "category": "status",
-    "effect": { "type": "cure_status", "status": "sleep" },
-    "price": 250,
-    "description": "A medicine that wakes up a sleeping Pokémon."
-  },
-  "max_potion": {
-    "name": "Max Potion",
-    "category": "healing",
-    "effect": { "type": "heal", "value": "max" },
-    "price": 2500,
-    "description": "A spray-type medicine for treating wounds. Fully restores a Pokémon's HP."
-  },
-  "full_restore": {
-    "name": "Full Restore",
-    "category": "healing",
-    "effect": { "type": "heal_and_cure", "value": "max" },
-    "price": 3000,
-    "description": "Fully restores HP and heals any status conditions of a Pokémon."
-  },
-  "ultra_ball": {
-    "name": "Ultra Ball",
-    "category": "catch",
-    "catchRate": 2.0,
-    "price": 1200,
-    "description": "A better, high-performance Ball that provides an even higher catch rate than a Great Ball."
-  },
-  "super_repel": {
-    "name": "Super Repel",
-    "category": "utility",
-    "effect": { "type": "repel_wild", "steps": 200 },
-    "price": 500,
-    "description": "Repels weak wild Pokémon for 200 steps."
-  },
-  "max_repel": {
-    "name": "Max Repel",
-    "category": "utility",
-    "effect": { "type": "repel_wild", "steps": 250 },
-    "price": 700,
-    "description": "Repels weak wild Pokémon for 250 steps."
-  },
-  "poke_doll": {
+ "poke_doll": {
     "name": "Poké Doll",
     "category": "battle",
     "effect": { "type": "escape_wild_battle" },
