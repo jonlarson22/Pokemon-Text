@@ -123,6 +123,15 @@ class GameEngine {
         };
         mon.species = stage2Map[this.gameState.rivalStarter];
       }
+
+      if (mon.species === "RIVAL_STARTER_STAGE_3") {
+        const stage3Map = {
+          'bulbasaur': 'venusaur',
+          'charmander': 'charizard',
+          'squirtle': 'blastoise'
+        };
+        mon.species = stage3Map[this.gameState.rivalStarter];
+      }
     });
 
     return trainer;
@@ -287,6 +296,9 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
 
   handleTurn(playerMove) {
     if (!this.gameState.activeBattle) return;
+    if (playerMove.pp !== undefined && playerMove.pp > 0) {
+      playerMove.pp--;
+    }
     this.gameState.activeBattle.executeTurn(playerMove);
     if (this.gameState.activeBattle && this.gameState.activeBattle.isOver) {
       this.handleBattleEnd();
@@ -334,26 +346,35 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
   }
 
   checkBlackout() {
-    const isWiped = this.gameState.party.every(p => p.hp <= 0);
-    if (isWiped) {
-      this.ui.printToLog("You hurried away to protect your Pokemon from further harm.");
-      this.gameState.money = Math.floor(this.gameState.money / 2);
-      this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
-      
-      this.gameState.party.forEach(p => p.hp = p.maxHp);
-      this.ui.updateMoneyUI();
-
-      this.gameState.activeTrainer = null;
-      this.gameState.activeBattle = null;
-      
-      setTimeout(() => {
-        this.ui.renderRouteScreen();
-        this.ui.setMenuState('route');
-      }, 500);
-      return true;
+      const isWiped = this.gameState.party.every(p => p.hp <= 0);
+      if (isWiped) {
+        this.ui.printToLog("You hurried away to protect your Pokemon from further harm.");
+        this.gameState.money = Math.floor(this.gameState.money / 2);
+        this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
+        
+        this.gameState.party.forEach(p => {
+          p.hp = p.maxHp; // Heal HP
+          if (p.moves) {
+            p.moves.forEach(m => {
+              if (m.maxPp !== undefined) m.pp = m.maxPp;
+            });
+          }
+        });
+        
+        this.ui.updateMoneyUI();
+        this.ui.updatePartyUI();
+  
+        this.gameState.activeTrainer = null;
+        this.gameState.activeBattle = null;
+        
+        setTimeout(() => {
+          this.ui.renderRouteScreen();
+          this.ui.setMenuState('route');
+        }, 500);
+        return true;
+      }
+      return false;
     }
-    return false;
-  }
 
   setFlag(flagName, value = true) {
     this.gameState.flags[flagName] = value;
@@ -636,21 +657,36 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     ]);
   }
 
-  refreshBattleMoveButtons() {
-    const activeMon = this.gameState.party[0];
-    const leadMoves = activeMon.moves;
+    refreshBattleMoveButtons() {
+        const activeMon = this.gameState.party[0];
+        const leadMoves = activeMon.moves;
+        
+        for (let i = 0; i < 4; i++) {
+          const btn = document.getElementById(`btn-move-${i}`);
+          const move = leadMoves[i];
     
-    for (let i = 0; i < 4; i++) {
-      const btn = document.getElementById(`btn-move-${i}`);
-      if (btn && leadMoves[i]) {
-        btn.textContent = leadMoves[i].name;
-        btn.onclick = () => this.handleTurn(leadMoves[i]);
-        btn.style.display = "block";
-      } else if (btn) {
-        btn.style.display = "none";
+          if (btn && move) {
+            if (move.maxPp !== undefined) {
+              btn.textContent = `${move.name} (${move.pp}/${move.maxPp})`;
+            } else {
+              btn.textContent = move.name;
+            }
+    
+            if (move.pp !== undefined && move.pp <= 0) {
+              btn.disabled = true;
+              btn.style.opacity = "0.5";
+              btn.onclick = null;
+            } else {
+              btn.disabled = false;
+              btn.style.opacity = "1";
+              btn.onclick = () => this.handleTurn(move);
+            }
+            btn.style.display = "block";
+          } else if (btn) {
+            btn.style.display = "none";
+          }
+        }
       }
-    }
-  }
 
   travelTo(targetRouteId) {
     const currentRoute = this.db.routes[this.gameState.currentRoute];
