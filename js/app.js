@@ -20,7 +20,9 @@ class GameEngine {
       pokedex: { seen: {}, caught: {} },
       activeBattle: null,
       activeTrainer: null,
-      lastHealedLocation: null
+      lastHealedLocation: null,
+      activeTrainerPartyIndex: 0, // NEW: Tracks current trainer's pokemon
+      pendingEnemyMonData: null   // NEW: Stores next enemy pokemon during switch prompt
     };
 
     this.partySwapIndex = null;
@@ -153,7 +155,7 @@ class GameEngine {
     }
   }
 
-startBattle(wildPokemonInfo) {
+  startBattle(wildPokemonInfo) {
     const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.ui.updatePokedexTrackerUI();
@@ -173,18 +175,18 @@ startBattle(wildPokemonInfo) {
         this.ui.printToLog(msg);
         this.ui.updatePartyUI();
       },
-      (participants, defeatedEnemy) => { // Captures the EXP array
+      (participants, defeatedEnemy) => { 
         this.handleEnemyDefeated(participants, defeatedEnemy);
       },
       () => {
         this.checkBlackout();
       },
-      () => { // Forced Switch Callback (when lead faints but party is alive)
+      () => { 
         this.ui.printToLog("Choose a Pokémon to send out!");
         this.openPokemonMenu();
       },
       this.db.typeChart,
-      this.gameState.party // Passes the party to fix the blackout bug!
+      this.gameState.party
     );
 
     this.refreshBattleMoveButtons();
@@ -233,16 +235,15 @@ startBattle(wildPokemonInfo) {
     if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
 
     this.gameState.activeTrainer = trainer;    
-    this.gameState.activeWinFlag = winFlag; // Store the flag in the game state temporarily
+    this.gameState.activeWinFlag = winFlag;
     this.ui.setMenuState('battle');
   }
 
-  // Update this to accept the participants array
   handleEnemyDefeated(participants, defeatedEnemy) {
     this.growth.awardExp(participants, defeatedEnemy);
   }
 
-handleTurn(playerMove) {
+  handleTurn(playerMove) {
     if (!this.gameState.activeBattle) return;
     this.gameState.activeBattle.executeTurn(playerMove);
     if (this.gameState.activeBattle && this.gameState.activeBattle.isOver) {
@@ -250,15 +251,26 @@ handleTurn(playerMove) {
     }
   }
 
+  // UPDATED: Now checks trainer party length to handle multi-battles
   handleBattleEnd() {
     if (this.checkBlackout()) return; 
 
     if (this.gameState.activeBattle && this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
-      const payout = this.gameState.activeTrainer.payout || 500;
+      this.gameState.activeTrainerPartyIndex++;
+      const trainer = this.gameState.activeTrainer;
+
+      // Check if the trainer has more Pokémon left!
+      if (this.gameState.activeTrainerPartyIndex < trainer.party.length) {
+        const nextMonData = trainer.party[this.gameState.activeTrainerPartyIndex];
+        this.promptTrainerSwitch(nextMonData, trainer);
+        return; // Halt the end-battle logic here to wait for player
+      }
+
+      // If no more pokemon, standard trainer defeat logic
+      const payout = trainer.payout || 500;
       this.gameState.money += payout;
-      this.ui.printToLog(`You defeated ${this.gameState.activeTrainer.name} and got ¥${payout}!`);
+      this.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
       
-      // Give the player the badge/flag if one was passed into the battle
       if (this.gameState.activeWinFlag) {
         this.setFlag(this.gameState.activeWinFlag, true);
         this.ui.printToLog(`You obtained the ${this.gameState.activeWinFlag.replace('_', ' ')}!`);
@@ -267,9 +279,11 @@ handleTurn(playerMove) {
       this.ui.updateMoneyUI();
     }
     
+    // Clear out battle state
     this.gameState.activeTrainer = null;
     this.gameState.activeBattle = null;
-    this.gameState.activeWinFlag = null; // Clear the temporary flag
+    this.gameState.activeWinFlag = null; 
+    this.gameState.activeTrainerPartyIndex = 0; 
 
     setTimeout(() => {
       this.ui.printToLog("Returning to the route...");
@@ -300,12 +314,12 @@ handleTurn(playerMove) {
   }
 
   setFlag(flagName, value = true) {
-  this.gameState.flags[flagName] = value;
-}
+    this.gameState.flags[flagName] = value;
+  }
 
   hasFlag(flagName) {
-  return !!this.gameState.flags[flagName];
-}
+    return !!this.gameState.flags[flagName];
+  }
   
   bindListeners() {
     document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.pickStarter('bulbasaur'));
@@ -357,6 +371,7 @@ handleTurn(playerMove) {
       const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
 
       this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
+      this.gameState.activeTrainerPartyIndex = 0; // NEW: reset index to 0 at the start of a battle!
       this.startTrainerBattle(enemyMon, trainer);
     });
 
@@ -378,10 +393,10 @@ handleTurn(playerMove) {
     });
 
     document.getElementById('btn-load-game')?.addEventListener('click', () => this.storage.loadLocal());
-        document.getElementById('btn-import-save')?.addEventListener('click', () => {
+    document.getElementById('btn-import-save')?.addEventListener('click', () => {
       document.getElementById('input-import-file').click();
     });
-        document.getElementById('input-import-file')?.addEventListener('change', (e) => this.storage.handleImport(e));
+    document.getElementById('input-import-file')?.addEventListener('change', (e) => this.storage.handleImport(e));
   }
     
   openBag() {
@@ -596,35 +611,33 @@ handleTurn(playerMove) {
   }
 
   travelTo(targetRouteId) {
-  const currentRoute = this.db.routes[this.gameState.currentRoute];
-  const targetRoute = this.db.routes[targetRouteId];
+    const currentRoute = this.db.routes[this.gameState.currentRoute];
+    const targetRoute = this.db.routes[targetRouteId];
 
-  // 1. Check exit/entry gate restrictions
-  if (currentRoute.gate_requirements?.[targetRouteId]) {
-    const gate = currentRoute.gate_requirements[targetRouteId];
-    const satisfiesReqs = gate.required_flags.every(flag => this.gameState.flags[flag]);
-    
-    if (!satisfiesReqs) {
-      this.ui.printToLog(gate.blocked_message);
-      return false;
+    if (currentRoute.gate_requirements?.[targetRouteId]) {
+      const gate = currentRoute.gate_requirements[targetRouteId];
+      const satisfiesReqs = gate.required_flags.every(flag => this.gameState.flags[flag]);
+      
+      if (!satisfiesReqs) {
+        this.ui.printToLog(gate.blocked_message);
+        return false;
+      }
     }
-  }
 
-  // 2. Perform location change
-  this.gameState.currentRoute = targetRouteId;
-  this.ui.printToLog(`Arrived at ${targetRoute.name}.`);
+    this.gameState.currentRoute = targetRouteId;
+    this.ui.printToLog(`Arrived at ${targetRoute.name}.`);
 
-  // 3. Trigger forced battles on arrival if flag is false
-  if (targetRoute.forced_battle && !this.gameState.flags[targetRoute.forced_battle.flag]) {
-    const trainer = this.db.trainers[targetRoute.forced_battle.trainer_id];
-    this.ui.printToLog(`${trainer.name} steps out to challenge you!`);
-    this.startTrainerBattle(trainer.party[0], trainer, targetRoute.forced_battle.flag);
+    if (targetRoute.forced_battle && !this.gameState.flags[targetRoute.forced_battle.flag]) {
+      const trainer = this.db.trainers[targetRoute.forced_battle.trainer_id];
+      this.ui.printToLog(`${trainer.name} steps out to challenge you!`);
+      this.gameState.activeTrainerPartyIndex = 0; // NEW: Reset index on forced travel battle too!
+      this.startTrainerBattle(trainer.party[0], trainer, targetRoute.forced_battle.flag);
+      return true;
+    }
+
+    this.ui.setMenuState('route');
     return true;
   }
-
-  this.ui.setMenuState('route');
-  return true;
-}
   
   openPartyTargetScreen(itemKey, itemData) {
     this.ui.setMenuState('party-select');
@@ -639,6 +652,110 @@ handleTurn(playerMove) {
       btn.onclick = () => this.applyItemToPokemon(itemKey, itemData, index);
       container.appendChild(btn);
     });
+  }
+
+  // ==========================================
+  // NEW: TRAINER MULTI-POKEMON & SWITCH LOGIC
+  // ==========================================
+
+  promptTrainerSwitch(nextMonData, trainer) {
+    this.ui.printToLog(`${trainer.name} is about to send out ${nextMonData.species}.`);
+    this.ui.printToLog(`Will you switch your Pokémon?`);
+
+    this.gameState.pendingEnemyMonData = nextMonData; // Save it for after they answer
+
+    // Repurpose the dynamic menu for the Yes/No dialogue!
+    this.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    
+    content.innerHTML = '<p style="text-align:center; font-weight:bold;">Change Pokémon?</p>';
+    controls.innerHTML = '';
+
+    this.ui.buildMenuControls(controls, [
+      { text: "Yes", action: () => this.openTrainerSwitchMenu() },
+      { text: "No", action: () => this.sendNextTrainerPokemon() }
+    ]);
+  }
+
+  openTrainerSwitchMenu() {
+    this.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    this.gameState.party.forEach((mon, index) => {
+      const pbox = document.createElement('div');
+      pbox.style.border = "1px solid #ccc";
+      pbox.style.padding = "8px";
+      pbox.style.marginBottom = "8px";
+      pbox.style.cursor = mon.hp > 0 ? "pointer" : "not-allowed";
+      pbox.style.opacity = mon.hp > 0 ? "1" : "0.5";
+
+      pbox.innerHTML = `
+        <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
+        HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
+        Moves: ${mon.moves.map(m => m.name).join(', ')}
+      `;
+
+      pbox.onclick = () => {
+        if (mon.hp > 0) {
+          if (index !== 0) { // Swap them to the front if they aren't already
+            const temp = this.gameState.party[0];
+            this.gameState.party[0] = this.gameState.party[index];
+            this.gameState.party[index] = temp;
+            this.ui.printToLog(`You sent out ${this.gameState.party[0].species}!`);
+          }
+          this.sendNextTrainerPokemon();
+        }
+      };
+      content.appendChild(pbox);
+    });
+
+    this.ui.buildMenuControls(controls, [
+      { text: "Cancel (Keep Current)", action: () => this.sendNextTrainerPokemon() }
+    ]);
+  }
+
+  sendNextTrainerPokemon() {
+    const nextMonData = this.gameState.pendingEnemyMonData;
+    this.gameState.pendingEnemyMonData = null; // Clear the memory
+
+    const enemyMon = this.factory.generatePokemonInstance(nextMonData.species, nextMonData.level);
+    if (!enemyMon) return;
+
+    // Update the Pokedex just like startTrainerBattle does
+    const speciesKey = enemyMon.species.toLowerCase();
+    this.gameState.pokedex.seen[speciesKey] = true;
+    this.ui.updatePokedexTrackerUI();
+
+    this.ui.printToLog(`${this.gameState.activeTrainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
+
+    // Spin up a fresh BattleEngine sequence for the next match up
+    this.gameState.activeBattle = new BattleEngine(
+      this.gameState.party[0], 
+      enemyMon, 
+      (msg) => {
+        this.ui.printToLog(msg);
+        this.ui.updatePartyUI();
+      },
+      (participants, defeatedEnemy) => { 
+        this.handleEnemyDefeated(participants, defeatedEnemy);
+      },
+      () => {
+        this.checkBlackout();
+      },
+      () => { 
+        this.ui.printToLog("Choose a Pokémon to send out!");
+        this.openPokemonMenu();
+      },
+      this.db.typeChart,
+      this.gameState.party
+    );
+
+    this.refreshBattleMoveButtons();
+    this.ui.setMenuState('battle');
   }
 }
 
