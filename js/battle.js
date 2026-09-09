@@ -213,24 +213,29 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
   }
 
     tryUseEnemyItem() {
-    if (this.enemyItems.length === 0) return false;
-  
-    const hpRatio = this.enemyMon.hp / this.enemyMon.maxHp;
-    if (hpRatio <= 0.25) {
-      const itemIndex = this.enemyItems.findIndex(i => i.healAmount);
-      if (itemIndex !== -1) {
-        const item = this.enemyItems.splice(itemIndex, 1)[0];
-        const oldHp = this.enemyMon.hp;
-        this.enemyMon.hp = Math.min(this.enemyMon.maxHp, this.enemyMon.hp + item.healAmount);
-        const healed = this.enemyMon.hp - oldHp;
-        
-        this.onLog(`${this.trainerName} used a ${item.name} on ${this.enemyMon.species}!`);
-        this.onLog(`${this.enemyMon.species} recovered ${healed} HP! (${this.enemyMon.hp}/${this.enemyMon.maxHp} HP)`);
-        return true; // Item was used, consuming the enemy turn
+      if (!this.enemyItems || this.enemyItems.length === 0) return false;
+    
+      const hpRatio = this.enemyMon.hp / this.enemyMon.maxHp;
+    
+      // AI condition: Heal when at or below 25% HP
+      if (hpRatio <= 0.25) {
+        const itemIndex = this.enemyItems.findIndex(i => i.effect?.type === "heal");
+    
+        if (itemIndex !== -1) {
+          const item = this.enemyItems.splice(itemIndex, 1)[0];
+          const healAmount = item.effect.value;
+    
+          const oldHp = this.enemyMon.hp;
+          this.enemyMon.hp = Math.min(this.enemyMon.maxHp, this.enemyMon.hp + healAmount);
+          const actualHeal = this.enemyMon.hp - oldHp;
+    
+          this.onLog(`${this.trainerName} used a ${item.name} on ${this.enemyMon.species}!`);
+          this.onLog(`${this.enemyMon.species} recovered ${actualHeal} HP! (${this.enemyMon.hp}/${this.enemyMon.maxHp} HP)`);
+          return true; // Item was used, consuming the turn
+        }
       }
+      return false;
     }
-    return false;
-  }
   
   processAction(attacker, defender, move, isPlayer) {
     if (attacker.hp <= 0) return;
