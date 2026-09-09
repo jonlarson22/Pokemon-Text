@@ -135,8 +135,15 @@ challengeGymLeader(gymId) {
     controls.innerHTML = '';
 
     this.engine.ui.buildMenuControls(controls, [
-      { text: "Heal Party", action: () => {
-          this.engine.gameState.party.forEach(p => p.hp = p.maxHp);
+        { text: "Heal Party", action: () => {
+          this.engine.gameState.party.forEach(p => {
+            p.hp = p.maxHp;
+            if (p.moves) {
+              p.moves.forEach(m => {
+                if (m.maxPp !== undefined) m.pp = m.maxPp;
+              });
+            }
+          });
           this.engine.gameState.lastHealedLocation = this.engine.gameState.currentRoute; 
           this.engine.ui.updatePartyUI();
           this.engine.ui.printToLog("Your Pokémon are fully healed!");
