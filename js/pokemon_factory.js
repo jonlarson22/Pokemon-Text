@@ -24,13 +24,27 @@ export class PokemonFactory {
       speed: Math.floor(Math.random() * 32)
     };
 
-    // Standard Pokémon stat calculation formula
     const calcStat = (base, iv, lvl, isHP) => {
       if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;
       return Math.floor(((2 * base + iv) * lvl) / 100) + 5;
     };
 
     const hp = calcStat(baseData.baseStats.hp, ivs.hp, level, true);
+
+    // NEW: Calculate correct EXP using formulas from the growth chart
+    const growth = baseData.growthRate || 'medium_fast';
+    const getExp = (lvl) => {
+      if (lvl <= 1) return 0;
+      switch (growth) {
+        case 'fast': return Math.floor((4 * Math.pow(lvl, 3)) / 5);
+        case 'medium_slow': return Math.floor((1.2 * Math.pow(lvl, 3)) - (15 * Math.pow(lvl, 2)) + (100 * lvl) - 140);
+        case 'slow': return Math.floor((5 * Math.pow(lvl, 3)) / 4);
+        case 'medium_fast': default: return Math.pow(lvl, 3);
+      }
+    };
+
+    const startExp = getExp(level);
+    const nextExp = getExp(level + 1);
     
     return {
       species: baseData.name,
@@ -47,10 +61,21 @@ export class PokemonFactory {
         spAtk: calcStat(baseData.baseStats.spAtk, ivs.spAtk, level, false),
         spDef: calcStat(baseData.baseStats.spDef, ivs.spDef, level, false),
       },
-      // Map move strings to actual move objects from the database
-      moves: baseData.moves.slice(0, 4).map(moveId => this.engine.db.moves[moveId]).filter(Boolean),
-      exp: 0,
-      maxExp: level * 100
+      
+      // NEW: Clone the move object to avoid mutating the main database and inject PP
+      moves: baseData.moves.slice(0, 4).map(moveId => {
+        const moveDef = this.engine.db.moves[moveId];
+        if (!moveDef) return null;
+        return {
+          ...moveDef,
+          maxPp: moveDef.pp,
+          pp: moveDef.pp
+        };
+      }).filter(Boolean),
+      
+      // NEW: Apply accurate EXP values
+      exp: startExp,
+      maxExp: nextExp
     };
   }
 }
