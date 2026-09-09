@@ -75,9 +75,26 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
     return true;
   }
 
-  executeTurn(playerMove) {
+executeTurn(playerMove) {
     if (this.isOver) return;
 
+    // AI Item Check (Items have +1 priority)
+    const enemyUsedItem = this.tryUseEnemyItem();
+
+    if (enemyUsedItem) {
+      // If the enemy used an item, they skip their attack this turn. 
+      // The player proceeds with their move.
+      if (this.canMove(this.playerMon)) {
+        this.processAction(this.playerMon, this.enemyMon, playerMove, true);
+      }
+      if (this.checkWinLoss()) return;
+
+      this.applyEndOfTurnEffects(this.playerMon, this.enemyMon);
+      this.checkWinLoss();
+      return; // End the turn sequence here
+    }
+
+    // Normal Turn Execution (No item was used)
     const playerSpd = this.getModifiedStat(this.playerMon, 'speed');
     const enemySpd = this.getModifiedStat(this.enemyMon, 'speed');
     const playerFirst = playerSpd >= enemySpd;
@@ -102,6 +119,7 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
 
     this.applyEndOfTurnEffects(firstAttacker, firstDefender);
     if (this.checkWinLoss()) return;
+    
     this.applyEndOfTurnEffects(secondAttacker, firstAttacker);
     this.checkWinLoss();
   }
