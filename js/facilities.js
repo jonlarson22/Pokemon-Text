@@ -9,7 +9,6 @@ challengeGymLeader(gymId) {
     const gym = this.engine.db.gyms[gymId];
     if (!gym) return;
 
-    // Check if required gym trainers are defeated
     const minionsDefeated = gym.gym_trainers.every(tId => 
       this.engine.gameState.defeatedTrainers[tId] || this.engine.gameState.flags[`defeated_${tId}`]
     );
@@ -25,11 +24,16 @@ challengeGymLeader(gymId) {
       return;
     }
 
-    // Pass the badge reward flag when starting the trainer battle
+    // NEW: Map the entire party array into generated Pokémon instances
+    const enemyParty = leaderData.party.map(monData => 
+      this.engine.factory.generatePokemonInstance(monData.species, monData.level)
+    );
+
+    // Pass the full array instead of just the first Pokémon
     this.engine.startTrainerBattle(
-      this.engine.factory.generatePokemonInstance(leaderData.party[0].species, leaderData.party[0].level), 
+      enemyParty, 
       leaderData,
-      gym.badge_reward // <--- Pass the badge flag here
+      gym.badge_reward 
     );
   }
 
