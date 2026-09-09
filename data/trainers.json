@@ -66,17 +66,15 @@
     ]
   },
     "leader_brock": {
-    "name": "Brock",
-    "title": "Gym Leader",
-    "dialogueBefore": "I'm Brock! Pewter's Gym Leader! My rock-hard willpower is absolute!",
-    "dialogueAfter": "It's an amazing feeling... You're stronger than I expected.",
-    "rewardMoney": 1400,
-    "items": [
-      { "id": "potion", "name": "Potion", "healAmount": 20 }
-    ],
-    "party": [
-      { "species": "Geodude", "level": 12 },
-      { "species": "Onix", "level": 14 }
-    ]
-  }
+      "name": "Brock",
+      "title": "Gym Leader",
+      "dialogueBefore": "I'm Brock! Pewter's Gym Leader! My rock-hard willpower is absolute!",
+      "dialogueAfter": "It's an amazing feeling... You're stronger than I expected.",
+      "rewardMoney": 1400,
+      "items": ["potion"],
+      "party": [
+        { "species": "Geodude", "level": 12 },
+        { "species": "Onix", "level": 14 }
+      ]
+    }
 }
