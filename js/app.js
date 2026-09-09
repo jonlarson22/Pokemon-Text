@@ -197,7 +197,7 @@ class GameEngine {
     this.ui.setMenuState('battle');
   }
 
-  startTrainerBattle(enemyMon, trainer, winFlag = null) {
+startTrainerBattle(enemyMon, trainer, winFlag = null) {
     const speciesKey = enemyMon.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.ui.updatePokedexTrackerUI();
@@ -209,6 +209,13 @@ class GameEngine {
 
     this.ui.printToLog(`${trainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
     
+    const enemyItems = (trainer.items || [])
+      .map(itemId => {
+        const itemObj = this.db.items[itemId];
+        return itemObj ? { ...itemObj } : null;
+      })
+      .filter(item => item !== null);
+
     this.gameState.activeBattle = new BattleEngine(
       this.gameState.party[0], 
       enemyMon, 
@@ -227,7 +234,9 @@ class GameEngine {
         this.openPokemonMenu();
       },
       this.db.typeChart,
-      this.gameState.party
+      this.gameState.party,
+      trainer.name, 
+      enemyItems  
     );
 
     this.refreshBattleMoveButtons();
