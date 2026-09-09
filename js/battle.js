@@ -1,8 +1,10 @@
 // js/battle.js
 export class BattleEngine {
-  constructor(playerMon, enemyMon, onLog, onVictory, onBlackout, onForceSwitch, typeChart = null, party) {
+  constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, typeChart = null, party, trainerName = "Wild") {
     this.playerMon = playerMon;
-    this.enemyMon = enemyMon;
+    this.enemyParty = Array.isArray(enemyParty) ? enemyParty : [enemyParty];
+    this.enemyMon = this.enemyParty[0];
+    this.trainerName = trainerName;
     this.onLog = onLog;
     this.onVictory = onVictory; 
     this.onBlackout = onBlackout;
@@ -11,7 +13,6 @@ export class BattleEngine {
     this.party = party;
     this.isOver = false;
 
-    // Track all player Pokémon that entered battle for EXP sharing
     this.participants = new Set([this.playerMon]);
 
     this.setupBattleStats(this.playerMon);
