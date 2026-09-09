@@ -1,6 +1,6 @@
 // js/battle.js
 export class BattleEngine {
-  constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, typeChart = null, party, trainerName = "Wild") {
+constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, typeChart = null, party, trainerName = "Wild", enemyItems = []) {
     this.playerMon = playerMon;
     this.enemyParty = Array.isArray(enemyParty) ? enemyParty : [enemyParty];
     this.enemyMon = this.enemyParty[0];
@@ -12,6 +12,7 @@ export class BattleEngine {
     this.typeChart = typeChart;
     this.party = party;
     this.isOver = false;
+    this.enemyItems = [...enemyItems];
 
     this.participants = new Set([this.playerMon]);
 
@@ -211,6 +212,26 @@ export class BattleEngine {
     else if (stages <= -2) this.onLog(`${target.species}'s ${stat} harshly fell!`);
   }
 
+    tryUseEnemyItem() {
+    if (this.enemyItems.length === 0) return false;
+  
+    const hpRatio = this.enemyMon.hp / this.enemyMon.maxHp;
+    if (hpRatio <= 0.25) {
+      const itemIndex = this.enemyItems.findIndex(i => i.healAmount);
+      if (itemIndex !== -1) {
+        const item = this.enemyItems.splice(itemIndex, 1)[0];
+        const oldHp = this.enemyMon.hp;
+        this.enemyMon.hp = Math.min(this.enemyMon.maxHp, this.enemyMon.hp + item.healAmount);
+        const healed = this.enemyMon.hp - oldHp;
+        
+        this.onLog(`${this.trainerName} used a ${item.name} on ${this.enemyMon.species}!`);
+        this.onLog(`${this.enemyMon.species} recovered ${healed} HP! (${this.enemyMon.hp}/${this.enemyMon.maxHp} HP)`);
+        return true; // Item was used, consuming the enemy turn
+      }
+    }
+    return false;
+  }
+  
   processAction(attacker, defender, move, isPlayer) {
     if (attacker.hp <= 0) return;
 
