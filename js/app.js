@@ -11,6 +11,7 @@ class GameEngine {
     this.gameState = {
       currentRoute: "pallet_town",
       hasStarter: false,
+      rivalStarter: null,
       flags: {},
       defeatedTrainers: {},
       party: [],
@@ -82,6 +83,14 @@ class GameEngine {
 
   pickStarter(speciesId) {
     const safeId = speciesId.toLowerCase();
+
+    const advantageMap = {
+      'bulbasaur': 'charmander',
+      'charmander': 'squirtle',
+      'squirtle': 'bulbasaur'
+    };
+    this.gameState.rivalStarter = advantageMap[safeId];
+    
     const starter = this.factory.generatePokemonInstance(safeId, 5);
     
     this.gameState.party.push(starter);
@@ -95,6 +104,30 @@ class GameEngine {
     this.checkGameStart();
   }
 
+  getDynamicTrainer(trainerId) {
+    const trainerTemplate = this.db.trainers[trainerId];
+    if (!trainerTemplate) return null;
+
+    const trainer = JSON.parse(JSON.stringify(trainerTemplate));
+
+    trainer.party.forEach(mon => {
+      if (mon.species === "RIVAL_STARTER") {
+        mon.species = this.gameState.rivalStarter;
+      }
+
+      if (mon.species === "RIVAL_STARTER_STAGE_2") {
+        const stage2Map = {
+          'bulbasaur': 'ivysaur',
+          'charmander': 'charmeleon',
+          'squirtle': 'wartortle'
+        };
+        mon.species = stage2Map[this.gameState.rivalStarter];
+      }
+    });
+
+    return trainer;
+  }
+  
   populateTravelMenu() {
     const container = document.getElementById('travel-destinations');
     container.innerHTML = '';
@@ -367,7 +400,7 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
         return;
       }
 
-      const trainer = this.db.trainers[undefeatedTrainerId];
+      const trainer = this.getDynamicTrainer(undefeatedTrainerId);
       if (!trainer) {
         this.ui.printToLog("Error: Trainer data not found!");
         return;
@@ -637,7 +670,7 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     this.ui.printToLog(`Arrived at ${targetRoute.name}.`);
 
     if (targetRoute.forced_battle && !this.gameState.flags[targetRoute.forced_battle.flag]) {
-      const trainer = this.db.trainers[targetRoute.forced_battle.trainer_id];
+      const trainer = this.getDynamicTrainer(targetRoute.forced_battle.trainer_id);
       this.ui.printToLog(`${trainer.name} steps out to challenge you!`);
       this.gameState.activeTrainerPartyIndex = 0; // NEW: Reset index on forced travel battle too!
       this.startTrainerBattle(trainer.party[0], trainer, targetRoute.forced_battle.flag);
