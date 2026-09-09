@@ -17,7 +17,7 @@ export class CaptureSystem {
       delete this.app.gameState.inventory[ballKey];
     }
 
-    this.app.printToLog(`You threw a ${ballItem.name}!`);
+    this.app.ui.printToLog(`You threw a ${ballItem.name}!`);
 
     // 1. Status Multiplier
     let statusBonus = 1.0;
@@ -39,14 +39,14 @@ export class CaptureSystem {
     const checkShake = () => {
       if (shakes < 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
         shakes++;
-        this.app.printToLog("The ball shook...");
+        this.app.ui.printToLog("The ball shook...");
         setTimeout(checkShake, 500);
       } else if (shakes === 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
         this.successCapture(enemy, speciesData);
       } else {
-        this.app.printToLog(`Oh no! ${enemy.species} broke free!`);
+        this.app.ui.printToLog(`Oh no! ${enemy.species} broke free!`);
         setTimeout(() => {
-          this.app.setMenuState('battle');
+          this.app.ui.setMenuState('battle');
         }, 500);
       }
     };
@@ -55,7 +55,7 @@ export class CaptureSystem {
   }
 
   successCapture(enemy, speciesData) {
-    this.app.printToLog(`Gotcha! ${enemy.species} was caught!`);
+    this.app.ui.printToLog(`Gotcha! ${enemy.species} was caught!`);
 
     // Record in Pokedex
     if (!this.app.gameState.pokedex) {
@@ -84,11 +84,11 @@ export class CaptureSystem {
     // Route to Party or PC Box
     if (this.app.gameState.party.length < 6) {
       this.app.gameState.party.push(caughtPokemon);
-      this.app.printToLog(`${enemy.species} was added to your party.`);
+      this.app.ui.printToLog(`${enemy.species} was added to your party.`);
     } else {
       if (!this.app.gameState.pc) this.app.gameState.pc = { pokemon: [] };
       this.app.gameState.pc.pokemon.push(caughtPokemon);
-      this.app.printToLog(`Your party is full! ${enemy.species} was sent to the PC Box.`);
+      this.app.ui.printToLog(`Your party is full! ${enemy.species} was sent to the PC Box.`);
     }
 
     // Terminate battle state cleanly
@@ -98,8 +98,8 @@ export class CaptureSystem {
     }
 
     setTimeout(() => {
-      this.app.updatePartyUI();
-      this.app.setMenuState('route');
+      this.app.ui.updatePartyUI();
+      this.app.ui.setMenuState('route');
     }, 500);
   }
 }
