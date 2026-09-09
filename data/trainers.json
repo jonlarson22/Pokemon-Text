@@ -9,6 +9,16 @@
       { "species": "Rattata", "level": 4 }
     ]
   },
+  "rival_pallet_1": {
+    "name": "Rival",
+    "title": "Pokémon Trainer",
+    "dialogueBefore": "Wait! Let's check out our Pokémon! I'll take you on!",
+    "dialogueAfter": "WHAT? Unbelievable! I picked the wrong Pokémon!",
+    "rewardMoney": 175,
+    "party": [
+      { "species": "RIVAL_STARTER", "level": 5 }
+    ]
+  },
   "bug_catcher_rick": {
     "name": "Rick",
     "title": "Bug Catcher",
