@@ -71,7 +71,7 @@
   "viridian_forest": {
     "name": "Viridian Forest",
     "description": "A deep, natural maze filled with towering trees and bug Pokémon.",
-    "connections": ["route2_south", "route2_north],
+    "connections": ["route2_south", "route2_north"],
     "gate_requirements": {
       "route2_north": {
         "required_flags": ["defeated_bug_catcher_rick", "defeated_bug_catcher_doug"],
