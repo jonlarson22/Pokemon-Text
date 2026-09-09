@@ -312,18 +312,32 @@ export class BattleEngine {
     }
   }
 
-checkWinLoss() { // Remove the parameter
+  checkWinLoss() {
     if (this.enemyMon.hp <= 0) {
-      this.onLog(`Wild ${this.enemyMon.species} fainted! You win!`);
+      const prefix = this.trainerName === "Wild" ? "Wild" : `${this.trainerName}'s`;
+      this.onLog(`${prefix} ${this.enemyMon.species} fainted!`);
+
+      // 1. Check if the enemy has more usable Pokémon
+      const nextEnemy = this.enemyParty.find(mon => mon.hp > 0);
+      
+      if (nextEnemy) {
+        // Send out the next Pokémon
+        this.enemyMon = nextEnemy;
+        this.setupBattleStats(this.enemyMon);
+        this.onLog(`${this.trainerName} sent out ${this.enemyMon.species}!`);
+        return true; // The battle continues
+      }
+
+      // 2. If no enemies are left, trigger the victory
+      this.onLog(`You defeated ${this.trainerName}!`);
       this.isOver = true;
       if (this.onVictory) this.onVictory(Array.from(this.participants), this.enemyMon); 
       return true;
     }
 
+    // Player fainting logic remains identical...
     if (this.playerMon.hp <= 0) {
       this.onLog(`${this.playerMon.species} fainted!`);
-
-      // Use this.party instead
       const hasHealthyMon = this.party.some(mon => mon.hp > 0);
       
       if (hasHealthyMon) {
