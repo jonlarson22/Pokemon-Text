@@ -10,6 +10,7 @@
     "req_flag": null,
     "encounters": [],
     "trainers": [],
+    "npcs": ["oak_pallet"],
     "explore_table": [
       { "type": "nothing", "weight": 100 }
     ]
