@@ -43,7 +43,7 @@ class GameEngine {
   }
 
   async init() {
-    const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes, gymsRes] = await Promise.all([
+    const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes, gymsRes, npcsRes] = await Promise.all([
       fetch('./data/routes.json'),
       fetch('./data/pokemon.json'),
       fetch('./data/moves.json'),
