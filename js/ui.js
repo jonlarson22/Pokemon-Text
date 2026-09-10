@@ -84,65 +84,77 @@ renderRouteScreen() {
     }
   }
 
-  // NEW METHOD: Builds the dynamic menu for talking to NPCs
-  buildInteractMenu(npcIds) {
-    this.setMenuState('dynamic');
-    const container = document.getElementById('dynamic-menu');
-    container.innerHTML = ''; 
-
-    const buttons = npcIds.map(npcId => {
-      const npcData = this.game.db.npcs[npcId];
-      return {
-        text: `Talk to ${npcData ? npcData.name : npcId}`,
-        action: () => {
-          this.game.interactWithNPC(npcId); // Requires the interact logic in app.js
-          this.setMenuState('route'); // Return to route menu after interacting
-        }
-      };
-    });
-
-    buttons.push({ text: "Cancel", action: () => this.setMenuState('route') });
-    this.buildMenuControls(container, buttons);
-  }
-
-  // NEW METHOD: Builds the dynamic travel list based on visited towns
-  handleFlyAction() {
-    // 1. Check if they have the Fly ability
-    if (!this.game.hasFlag('can_fly')) {
-       this.printToLog("You don't have the HM Fly yet!");
-       return;
+  // UPDATED METHOD: Builds the dynamic menu for talking to NPCs
+    buildInteractMenu(npcIds) {
+      this.setMenuState('dynamic');
+      const content = document.getElementById('dynamic-content');
+      const controls = document.getElementById('dynamic-controls');
+      
+      // Clear previous menus and set a header
+      content.innerHTML = '<p style="text-align:center; font-weight:bold; margin-bottom:8px;">Who would you like to talk to?</p>';
+      controls.innerHTML = ''; 
+  
+      npcIds.forEach(npcId => {
+        const npcData = this.game.db.npcs[npcId];
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.textContent = `Talk to ${npcData ? npcData.name : npcId}`;
+        btn.onclick = () => {
+          this.game.interactWithNPC(npcId); // Fires the logic in app.js
+          this.setMenuState('route');       // Returns to route menu
+        };
+        content.appendChild(btn);
+      });
+  
+      // Put the Cancel button in the controls area at the bottom
+      this.buildMenuControls(controls, [
+        { text: "Cancel", action: () => this.setMenuState('route') }
+      ]);
     }
-
-    // 2. Fetch visited towns
-    const towns = this.game.gameState.visitedTowns || [];
-    if (towns.length <= 1) { // 1 means they've only been to Pallet Town
-       this.printToLog("You haven't visited any other towns to fly to!");
-       return;
-    }
-
-    this.setMenuState('dynamic');
-    const container = document.getElementById('dynamic-menu');
-    container.innerHTML = '';
-
-    // 3. Build a button for each town
-    const buttons = towns.map(townId => {
-      const townData = this.game.db.routes[townId];
-      return {
-        text: `Fly to ${townData.name}`,
-        action: () => {
+  
+    // UPDATED METHOD: Builds the dynamic travel list based on visited towns
+    handleFlyAction() {
+      // Note: Make sure 'can_fly' matches the flag you actually set in your DB/Game!
+      if (!this.game.hasFlag('can_fly')) {
+         this.printToLog("You don't have the HM Fly yet!");
+         return;
+      }
+  
+      const towns = this.game.gameState.visitedTowns || [];
+      if (towns.length <= 1) { 
+         this.printToLog("You haven't visited any other towns to fly to!");
+         return;
+      }
+  
+      this.setMenuState('dynamic');
+      const content = document.getElementById('dynamic-content');
+      const controls = document.getElementById('dynamic-controls');
+      
+      content.innerHTML = '<p style="text-align:center; font-weight:bold; margin-bottom:8px;">Where would you like to fly?</p>';
+      controls.innerHTML = '';
+  
+      towns.forEach(townId => {
+        const townData = this.game.db.routes[townId];
+        if (!townData) return;
+  
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.textContent = `Fly to ${townData.name}`;
+        btn.onclick = () => {
           this.printToLog(`You flew on your Pokémon to ${townData.name}!`);
           
-          // Manually update location to bypass gate_requirements
+          // Update location and re-render
           this.game.gameState.currentRoute = townId;
           this.renderRouteScreen(); 
           this.setMenuState('route');
-        }
-      };
-    });
-
-    buttons.push({ text: "Cancel", action: () => this.setMenuState('route') });
-    this.buildMenuControls(container, buttons);
-  }
+        };
+        content.appendChild(btn);
+      });
+  
+      this.buildMenuControls(controls, [
+        { text: "Cancel", action: () => this.setMenuState('route') }
+      ]);
+    }
 
   setMenuState(menuName) {
     document.getElementById('starter-menu').style.display = 'none';
