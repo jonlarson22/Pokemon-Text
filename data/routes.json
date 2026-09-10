@@ -3,7 +3,7 @@
     "name": "Pallet Town",
     "description": "Shades of your journey await!",
     "isTown": true,
-    "connections": ["route1"],
+    "connections": ["route1", "route21"],
     "forced_battle": {
       "flag": "defeated_rival_pallet",
       "trainer_id": "rival_pallet_1"
@@ -41,7 +41,8 @@
   "viridian_city": {
     "name": "Viridian City",
     "description": "The perpetually green paradise.",
-    "connections": ["route1", "route2_south", "route22"],
+    "isTown": true,
+    "connections": ["route1", "route2_south", "route22", "viridian_city_gym"],
     "req_flag": null,
     "hasCenter": true,
     "hasShop": true,
@@ -52,7 +53,7 @@
   "route22": {
     "name": "Route 22",
     "description": "A winding path leading toward the Pokémon League reception gate.",
-    "connections": ["viridian_city"],
+    "connections": ["viridian_city", "route23"],
     "req_flag": null, 
     "encounters": [
       { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 50 }
@@ -104,7 +105,7 @@
   "route2_north": {
     "name": "Route 2 - North",
     "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
-    "connections": ["viridian_forest", "pewter_city"],
+    "connections": ["viridian_forest", "pewter_city", "diglett_cave"],
     "req_flag": null,
     "encounters": [
       { "species": "Caterpie", "min_level": 3, "max_level": 5, "weight": 40 },
@@ -120,7 +121,8 @@
   "pewter_city": {
     "name": "Pewter City",
     "description": "A stone gray town where history and gray stones sleep.",
-    "connections": ["route2_north", "route3"],
+    "isTown": true,
+    "connections": ["route2_north", "route3", "pewter_city_gym", "pewter_museum_of_science"],
     "gate_requirements": {
       "route3": {
         "required_flags": ["boulder_badge"],
@@ -137,7 +139,7 @@
   "route3": {
     "name": "Route 3",
     "description": "A rocky, uneven path leading up toward Mt. Moon.",
-    "connections": ["pewter_city", "mt_moon_square"],
+    "connections": ["pewter_city", "mt_moon"],
     "req_flag": null,
     "encounters": [
       { "species": "Pidgey", "min_level": 6, "max_level": 8, "weight": 40 },
