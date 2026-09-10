@@ -53,7 +53,7 @@
     "name": "Route 22",
     "description": "A winding path leading toward the Pokémon League reception gate.",
     "connections": ["viridian_city"],
-    "req_flag": "has_pokeball", 
+    "req_flag": null, 
     "encounters": [
       { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 50 }
     ],
