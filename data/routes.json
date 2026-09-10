@@ -12,7 +12,8 @@
       "route1": {
         "required_flags": ["defeated_rival_pallet"],
         "blocked_message": "You must defeat your rival blocking the path ahead first!"
-      },
+      }
+    },
     "req_flag": null,
     "encounters": [],
     "trainers": [],
