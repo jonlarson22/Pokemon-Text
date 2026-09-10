@@ -494,6 +494,24 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
       this.startTrainerBattle(enemyMon, trainer);
     });
 
+    document.getElementById('btn-interact')?.addEventListener('click', () => {
+      const route = this.db.routes[this.gameState.currentRoute];
+      
+      // If no NPCs exist on the route, print a default message
+      if (!route || !route.npcs || route.npcs.length === 0) {
+        this.ui.printToLog("There is no one here to talk to.");
+        return;
+      }
+
+      // If exactly 1 NPC, talk to them directly. 
+      if (route.npcs.length === 1) {
+        this.interactWithNPC(route.npcs[0]);
+      } else {
+        // If > 1 NPC, open the selection menu (requires the helper method from yesterday)
+        this.openNpcSelectionMenu(route.npcs);
+      }
+    });
+
     document.getElementById('btn-travel')?.addEventListener('click', () => this.ui.setMenuState('travel'));
     document.getElementById('btn-menu')?.addEventListener('click', () => this.ui.setMenuState('system'));
     document.getElementById('btn-back-menu')?.addEventListener('click', () => this.ui.setMenuState('route'));
@@ -755,9 +773,12 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
       this.ui.printToLog(`"${trainer.dialogueBefore || 'Let us battle!'}"`);
       
       this.gameState.activeTrainerPartyIndex = 0; 
-      // Passes the flag so handleBattleEnd awards it on a win
-      this.startTrainerBattle(trainer.party[0], trainer, currentRoute.forced_battle.flag);
-      return false; // Stops travel
+
+      const enemyMonData = trainer.party[0];
+      const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
+
+      this.startTrainerBattle(enemyMon, trainer, currentRoute.forced_battle.flag);
+      return false;
     }
 
     // 2. GATE REQUIREMENTS CHECK: The bouncer
@@ -867,14 +888,12 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     const enemyMon = this.factory.generatePokemonInstance(nextMonData.species, nextMonData.level);
     if (!enemyMon) return;
 
-    // Update the Pokedex just like startTrainerBattle does
     const speciesKey = enemyMon.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.ui.updatePokedexTrackerUI();
 
     this.ui.printToLog(`${this.gameState.activeTrainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
 
-    // Spin up a fresh BattleEngine sequence for the next match up
     this.gameState.activeBattle = new BattleEngine(
       this.gameState.party[0], 
       enemyMon, 
@@ -893,7 +912,8 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
         this.openPokemonMenu();
       },
       this.db.typeChart,
-      this.gameState.party
+      this.gameState.party,
+      this.gameState.activeTrainer.name
     );
 
     this.refreshBattleMoveButtons();
