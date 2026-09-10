@@ -2,11 +2,17 @@
   "pallet_town": {
     "name": "Pallet Town",
     "description": "Shades of your journey await!",
+    "isTown": true,
     "connections": ["route1"],
     "forced_battle": {
       "flag": "defeated_rival_pallet",
       "trainer_id": "rival_pallet_1"
     },
+    "gate_requirements": {
+      "route1": {
+        "required_flags": ["defeated_rival_pallet"],
+        "blocked_message": "You must defeat your rival blocking the path ahead first!"
+      },
     "req_flag": null,
     "encounters": [],
     "trainers": [],
