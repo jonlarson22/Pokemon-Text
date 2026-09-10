@@ -51,7 +51,8 @@ class GameEngine {
       fetch('./data/type_chart.json'),
       fetch('./data/items.json'),
       fetch('./data/shops.json'),
-      fetch('./data/gyms.json')
+      fetch('./data/gyms.json'),
+      fetch('./data/npcs.json')
     ]);
 
     this.db.routes = await routesRes.json();
@@ -62,6 +63,7 @@ class GameEngine {
     this.db.items = await itemsRes.json();
     this.db.shops = await shopsRes.json();
     this.db.gyms = await gymsRes.json();
+    this.db.npcs = await npcsRes.json();
     this.bindListeners();
     this.ui.updatePokedexTrackerUI();
     this.checkGameStart();
@@ -81,6 +83,48 @@ class GameEngine {
     }
   }
 
+  interactWithNPC(npcId) {
+    const npc = this.db.npcs[npcId];
+    if (!npc) return;
+
+    // Check if the player already completed this NPC's event
+    const alreadyCompleted = npc.gives_flag ? this.hasFlag(npc.gives_flag) : false;
+
+    if (alreadyCompleted && npc.dialogue_post_flag) {
+      // Post-event dialogue
+      this.ui.printToLog(`${npc.name}: "${npc.dialogue_post_flag}"`);
+    } else {
+      // Check if the NPC requires the player to have a specific item first
+      if (npc.req_item && (!this.gameState.inventory[npc.req_item] || this.gameState.inventory[npc.req_item] <= 0)) {
+         this.ui.printToLog(`${npc.name} seems to want a ${this.db.items[npc.req_item].name}, but you don't have one.`);
+         return;
+      }
+
+      // Default dialogue
+      this.ui.printToLog(`${npc.name}: "${npc.dialogue_default}"`);
+
+      // Consume required item if applicable
+      if (npc.req_item) {
+        this.gameState.inventory[npc.req_item]--;
+      }
+
+      // Award items
+      if (npc.gives_item) {
+        const qty = npc.item_qty || 1;
+        this.gameState.inventory[npc.gives_item] = (this.gameState.inventory[npc.gives_item] || 0) + qty;
+        const itemName = this.db.items[npc.gives_item]?.name || npc.gives_item;
+        this.ui.printToLog(`You received ${qty}x ${itemName}!`);
+      }
+
+      // Award flag
+      if (npc.gives_flag) {
+        this.setFlag(npc.gives_flag, true);
+        // Automatically check map gates/destinations in case this opens a new route
+        this.populateTravelMenu(); 
+      }
+    }
+  }
+  
   pickStarter(speciesId) {
     const safeId = speciesId.toLowerCase();
 
