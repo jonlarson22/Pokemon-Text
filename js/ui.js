@@ -47,13 +47,15 @@ updatePartyUI() {
     partyDisplay.textContent = `Party: ${partyStatus}`;
   }
 
-  renderRouteScreen() {
+renderRouteScreen() {
     const route = this.game.db.routes[this.game.gameState.currentRoute];
     const locationEl = document.getElementById('location-name');
     if (locationEl && route) locationEl.textContent = route.name;
 
     const centerBtn = document.getElementById('btn-pokemon-center');
     const shopBtn = document.getElementById('btn-shop');
+    const interactBtn = document.getElementById('btn-interact'); // NEW
+    const flyBtn = document.getElementById('btn-fly');           // NEW
 
     if (centerBtn) {
       centerBtn.style.display = route.hasCenter ? "block" : "none";
@@ -64,6 +66,82 @@ updatePartyUI() {
       shopBtn.style.display = route.hasShop ? "block" : "none";
       shopBtn.onclick = () => this.game.facilities.openShop();
     }
+
+    // NEW: Show interact button only if NPCs exist on this route
+    if (interactBtn) {
+      if (route.npcs && route.npcs.length > 0) {
+        interactBtn.style.display = "block";
+        interactBtn.onclick = () => this.buildInteractMenu(route.npcs);
+      } else {
+        interactBtn.style.display = "none";
+      }
+    }
+
+    // NEW: Always show fly button, but logic handles if they can use it
+    if (flyBtn) {
+      flyBtn.style.display = "block";
+      flyBtn.onclick = () => this.handleFlyAction();
+    }
+  }
+
+  // NEW METHOD: Builds the dynamic menu for talking to NPCs
+  buildInteractMenu(npcIds) {
+    this.setMenuState('dynamic');
+    const container = document.getElementById('dynamic-menu');
+    container.innerHTML = ''; 
+
+    const buttons = npcIds.map(npcId => {
+      const npcData = this.game.db.npcs[npcId];
+      return {
+        text: `Talk to ${npcData ? npcData.name : npcId}`,
+        action: () => {
+          this.game.interactWithNPC(npcId); // Requires the interact logic in app.js
+          this.setMenuState('route'); // Return to route menu after interacting
+        }
+      };
+    });
+
+    buttons.push({ text: "Cancel", action: () => this.setMenuState('route') });
+    this.buildMenuControls(container, buttons);
+  }
+
+  // NEW METHOD: Builds the dynamic travel list based on visited towns
+  handleFlyAction() {
+    // 1. Check if they have the Fly ability
+    if (!this.game.hasFlag('can_fly')) {
+       this.printToLog("You don't have the HM Fly yet!");
+       return;
+    }
+
+    // 2. Fetch visited towns
+    const towns = this.game.gameState.visitedTowns || [];
+    if (towns.length <= 1) { // 1 means they've only been to Pallet Town
+       this.printToLog("You haven't visited any other towns to fly to!");
+       return;
+    }
+
+    this.setMenuState('dynamic');
+    const container = document.getElementById('dynamic-menu');
+    container.innerHTML = '';
+
+    // 3. Build a button for each town
+    const buttons = towns.map(townId => {
+      const townData = this.game.db.routes[townId];
+      return {
+        text: `Fly to ${townData.name}`,
+        action: () => {
+          this.printToLog(`You flew on your Pokémon to ${townData.name}!`);
+          
+          // Manually update location to bypass gate_requirements
+          this.game.gameState.currentRoute = townId;
+          this.renderRouteScreen(); 
+          this.setMenuState('route');
+        }
+      };
+    });
+
+    buttons.push({ text: "Cancel", action: () => this.setMenuState('route') });
+    this.buildMenuControls(container, buttons);
   }
 
   setMenuState(menuName) {
