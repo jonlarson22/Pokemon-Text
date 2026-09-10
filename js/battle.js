@@ -29,7 +29,7 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
 
   getModifiedStat(mon, statName) {
     const stage = mon.statStages[statName] || 0;
-    const multiplier = stage >= 0 ? (2 + stage) / 2 : 2 / (2 - Math.abs(stage));
+    const multiplier = stage >= 0 ? (2 + stage) / 2 : 2 / (2 + Math.abs(stage));
     
     let val = (statName === 'speed') ? mon.speed : (mon.stats ? mon.stats[statName] : mon[statName]);
     let modified = Math.floor(val * multiplier);
