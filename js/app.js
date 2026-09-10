@@ -22,8 +22,10 @@ class GameEngine {
       activeBattle: null,
       activeTrainer: null,
       lastHealedLocation: null,
-      activeTrainerPartyIndex: 0, // NEW: Tracks current trainer's pokemon
-      pendingEnemyMonData: null   // NEW: Stores next enemy pokemon during switch prompt
+      activeTrainerPartyIndex: 0,
+      pendingEnemyMonData: null,
+      visitedTowns: ["pallet_town"],
+      currentRoute: "pallet_town"
     };
 
     this.partySwapIndex = null;
@@ -179,6 +181,15 @@ class GameEngine {
     });
 
     return trainer;
+  }
+
+  trackVisitedTown(routeId) {
+    const routeData = this.db.routes[routeId];
+    if (routeData && routeData.isTown) {
+      if (!this.gameState.visitedTowns.includes(routeId)) {
+        this.gameState.visitedTowns.push(routeId);
+      }
+    }
   }
   
   populateTravelMenu() {
