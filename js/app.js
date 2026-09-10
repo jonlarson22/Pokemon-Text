@@ -202,17 +202,18 @@ class GameEngine {
     currentRouteData.connections.forEach(destinationId => {
       const destData = this.db.routes[destinationId];
       if (!destData) return;
+      
+      // Hides route completely if req_flag is missing (e.g., Fly HM locations)
       if (destData.req_flag && !this.gameState.flags[destData.req_flag]) return; 
 
       const btn = document.createElement('button');
       btn.className = 'btn';
       btn.textContent = `Go to ${destData.name}`;
+      
       btn.onclick = () => {
-        this.gameState.currentRoute = destinationId;
-        this.ui.renderRouteScreen();
-        this.ui.printToLog(`You traveled to ${destData.name}.`);
-        this.ui.setMenuState('route');
+        this.travelTo(destinationId);
       };
+      
       container.appendChild(btn);
     });
   }
@@ -747,27 +748,35 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     const currentRoute = this.db.routes[this.gameState.currentRoute];
     const targetRoute = this.db.routes[targetRouteId];
 
-    if (currentRoute.gate_requirements?.[targetRouteId]) {
+    // 1. FORCED BATTLE CHECK: Ambush before leaving the current route
+    if (currentRoute.forced_battle && !this.hasFlag(currentRoute.forced_battle.flag)) {
+      const trainer = this.getDynamicTrainer(currentRoute.forced_battle.trainer_id);
+      this.ui.printToLog(`Wait! ${trainer.name} steps out to challenge you!`);
+      this.ui.printToLog(`"${trainer.dialogueBefore || 'Let us battle!'}"`);
+      
+      this.gameState.activeTrainerPartyIndex = 0; 
+      // Passes the flag so handleBattleEnd awards it on a win
+      this.startTrainerBattle(trainer.party[0], trainer, currentRoute.forced_battle.flag);
+      return false; // Stops travel
+    }
+
+    // 2. GATE REQUIREMENTS CHECK: The bouncer
+    if (currentRoute.gate_requirements && currentRoute.gate_requirements[targetRouteId]) {
       const gate = currentRoute.gate_requirements[targetRouteId];
-      const satisfiesReqs = gate.required_flags.every(flag => this.gameState.flags[flag]);
+      const satisfiesReqs = gate.required_flags.every(flag => this.hasFlag(flag));
       
       if (!satisfiesReqs) {
         this.ui.printToLog(gate.blocked_message);
-        return false;
+        return false; // Stops travel
       }
     }
 
+    // 3. SUCCESSFUL TRAVEL
     this.gameState.currentRoute = targetRouteId;
+    this.trackVisitedTown(targetRouteId); 
+    
     this.ui.printToLog(`Arrived at ${targetRoute.name}.`);
-
-    if (targetRoute.forced_battle && !this.gameState.flags[targetRoute.forced_battle.flag]) {
-      const trainer = this.getDynamicTrainer(targetRoute.forced_battle.trainer_id);
-      this.ui.printToLog(`${trainer.name} steps out to challenge you!`);
-      this.gameState.activeTrainerPartyIndex = 0; // NEW: Reset index on forced travel battle too!
-      this.startTrainerBattle(trainer.party[0], trainer, targetRoute.forced_battle.flag);
-      return true;
-    }
-
+    this.ui.renderRouteScreen();
     this.ui.setMenuState('route');
     return true;
   }
