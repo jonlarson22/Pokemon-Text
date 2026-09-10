@@ -98,7 +98,9 @@ class GameEngine {
     } else {
       // Check if the NPC requires the player to have a specific item first
       if (npc.req_item && (!this.gameState.inventory[npc.req_item] || this.gameState.inventory[npc.req_item] <= 0)) {
-         this.ui.printToLog(`${npc.name} seems to want a ${this.db.items[npc.req_item].name}, but you don't have one.`);
+         // ADDED OPTIONAL CHAINING HERE
+         const reqItemName = this.db.items[npc.req_item]?.name || npc.req_item;
+         this.ui.printToLog(`${npc.name} seems to want a ${reqItemName}, but you don't have one.`);
          return;
       }
 
