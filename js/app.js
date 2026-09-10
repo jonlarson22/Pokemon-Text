@@ -5,6 +5,7 @@ import { UIManager } from './ui.js';
 import { StorageManager } from './storage.js';
 import { PokemonFactory } from './pokemon_factory.js';
 import { FacilityManager } from './facilities.js';
+import { InteractionManager } from './interactions.js';
 
 class GameEngine {
   constructor() {
@@ -35,12 +36,18 @@ class GameEngine {
     this.storage = new StorageManager(this);
     this.factory = new PokemonFactory(this);
     this.facilities = new FacilityManager(this);
+    this.interactions = new InteractionManager(this);
     
     this.db = {
       routes: {},
       pokemon: {},
       moves: {},
-      trainers: {}
+      trainers: {},
+      typeChart: {},
+      items: {},
+      shops: {},
+      gyms: {},
+      npcs: {}
     };
   }
 
@@ -66,6 +73,7 @@ class GameEngine {
     this.db.shops = await shopsRes.json();
     this.db.gyms = await gymsRes.json();
     this.db.npcs = await npcsRes.json();
+    
     this.bindListeners();
     this.ui.updatePokedexTrackerUI();
     this.checkGameStart();
@@ -84,61 +92,16 @@ class GameEngine {
       this.ui.setMenuState('route');
     }
   }
-
-  interactWithNPC(npcId) {
-    const npc = this.db.npcs[npcId];
-    if (!npc) return;
-
-    // Check if the player already completed this NPC's event
-    const alreadyCompleted = npc.gives_flag ? this.hasFlag(npc.gives_flag) : false;
-
-    if (alreadyCompleted && npc.dialogue_post_flag) {
-      // Post-event dialogue
-      this.ui.printToLog(`${npc.name}: "${npc.dialogue_post_flag}"`);
-    } else {
-      // Check if the NPC requires the player to have a specific item first
-      if (npc.req_item && (!this.gameState.inventory[npc.req_item] || this.gameState.inventory[npc.req_item] <= 0)) {
-         // ADDED OPTIONAL CHAINING HERE
-         const reqItemName = this.db.items[npc.req_item]?.name || npc.req_item;
-         this.ui.printToLog(`${npc.name} seems to want a ${reqItemName}, but you don't have one.`);
-         return;
-      }
-
-      // Default dialogue
-      this.ui.printToLog(`${npc.name}: "${npc.dialogue_default}"`);
-
-      // Consume required item if applicable
-      if (npc.req_item) {
-        this.gameState.inventory[npc.req_item]--;
-      }
-
-      // Award items
-      if (npc.gives_item) {
-        const qty = npc.item_qty || 1;
-        this.gameState.inventory[npc.gives_item] = (this.gameState.inventory[npc.gives_item] || 0) + qty;
-        const itemName = this.db.items[npc.gives_item]?.name || npc.gives_item;
-        this.ui.printToLog(`You received ${qty}x ${itemName}!`);
-      }
-
-      // Award flag
-      if (npc.gives_flag) {
-        this.setFlag(npc.gives_flag, true);
-        // Automatically check map gates/destinations in case this opens a new route
-        this.populateTravelMenu(); 
-      }
-    }
-  }
   
   pickStarter(speciesId) {
     const safeId = speciesId.toLowerCase();
-
     const advantageMap = {
       'bulbasaur': 'charmander',
       'charmander': 'squirtle',
       'squirtle': 'bulbasaur'
     };
-    this.gameState.rivalStarter = advantageMap[safeId];
     
+    this.gameState.rivalStarter = advantageMap[safeId];
     const starter = this.factory.generatePokemonInstance(safeId, 5);
     
     this.gameState.party.push(starter);
@@ -162,22 +125,12 @@ class GameEngine {
       if (mon.species === "RIVAL_STARTER") {
         mon.species = this.gameState.rivalStarter;
       }
-
       if (mon.species === "RIVAL_STARTER_STAGE_2") {
-        const stage2Map = {
-          'bulbasaur': 'ivysaur',
-          'charmander': 'charmeleon',
-          'squirtle': 'wartortle'
-        };
+        const stage2Map = { 'bulbasaur': 'ivysaur', 'charmander': 'charmeleon', 'squirtle': 'wartortle' };
         mon.species = stage2Map[this.gameState.rivalStarter];
       }
-
       if (mon.species === "RIVAL_STARTER_STAGE_3") {
-        const stage3Map = {
-          'bulbasaur': 'venusaur',
-          'charmander': 'charizard',
-          'squirtle': 'blastoise'
-        };
+        const stage3Map = { 'bulbasaur': 'venusaur', 'charmander': 'charizard', 'squirtle': 'blastoise' };
         mon.species = stage3Map[this.gameState.rivalStarter];
       }
     });
@@ -187,10 +140,8 @@ class GameEngine {
 
   trackVisitedTown(routeId) {
     const routeData = this.db.routes[routeId];
-    if (routeData && routeData.isTown) {
-      if (!this.gameState.visitedTowns.includes(routeId)) {
-        this.gameState.visitedTowns.push(routeId);
-      }
+    if (routeData && routeData.isTown && !this.gameState.visitedTowns.includes(routeId)) {
+      this.gameState.visitedTowns.push(routeId);
     }
   }
   
@@ -204,18 +155,12 @@ class GameEngine {
     currentRouteData.connections.forEach(destinationId => {
       const destData = this.db.routes[destinationId];
       if (!destData) return;
-      
-      // Hides route completely if req_flag is missing (e.g., Fly HM locations)
       if (destData.req_flag && !this.gameState.flags[destData.req_flag]) return; 
 
       const btn = document.createElement('button');
       btn.className = 'btn';
       btn.textContent = `Go to ${destData.name}`;
-      
-      btn.onclick = () => {
-        this.travelTo(destinationId);
-      };
-      
+      btn.onclick = () => this.travelTo(destinationId);
       container.appendChild(btn);
     });
   }
@@ -223,20 +168,62 @@ class GameEngine {
   getWeightedRandom(items) {
     const totalWeight = items.reduce((sum, item) => sum + item.weight, 0);
     let random = Math.random() * totalWeight;
-    
     for (const item of items) {
       if (random < item.weight) return item;
       random -= item.weight;
     }
   }
 
-  triggerEncounter() {
+  openEncounterMenu() {
     const route = this.db.routes[this.gameState.currentRoute];
-    if (!route || !route.encounters.length) return "No wild Pokémon nearby.";
+    if (!route.encounters || Object.keys(route.encounters).length === 0) {
+      this.ui.printToLog("There are no wild Pokémon here.");
+      return;
+    }
 
-    const selected = this.getWeightedRandom(route.encounters);
+    this.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center;">Where do you want to search?</p>';
+    controls.innerHTML = '';
+
+    const buttons = [];
+
+    if (route.encounters.grass && route.encounters.grass.length > 0) {
+      buttons.push({
+        text: "Search Tall Grass",
+        action: () => this.executeEncounter(route.encounters.grass)
+      });
+    }
+
+    if (route.encounters.water && route.encounters.water.length > 0) {
+      buttons.push({
+        text: "Fish / Surf",
+        action: () => {
+          if (this.gameState.inventory['fishing_rod'] || this.hasFlag('badge_5')) {
+            this.executeEncounter(route.encounters.water);
+          } else {
+            this.ui.printToLog("You need a Fishing Rod or Surf to look here!");
+            this.ui.setMenuState('route');
+          }
+        }
+      });
+    }
+
+    buttons.push({ text: "Cancel", action: () => this.ui.setMenuState('route') });
+    this.ui.buildMenuControls(controls, buttons);
+  }
+
+  executeEncounter(encounterList) {
+    const result = this.triggerEncounter(encounterList);
+    if (typeof result === 'string') this.ui.printToLog(result);
+    else this.startBattle(result);
+  }
+
+  triggerEncounter(encounterList) {
+    if (!encounterList || !encounterList.length) return "No wild Pokémon nearby.";
+    const selected = this.getWeightedRandom(encounterList);
     const level = Math.floor(Math.random() * (selected.max_level - selected.min_level + 1)) + selected.min_level;
-
     return { species: selected.species, level: level };
   }
 
@@ -248,7 +235,8 @@ class GameEngine {
       case "nothing":
         return "You searched the area but found nothing of interest.";
       case "encounter":
-        return this.triggerEncounter();
+        const zone = route.encounters.grass || [];
+        return this.triggerEncounter(zone);
       case "item":
         this.gameState.inventory[outcome.item] = (this.gameState.inventory[outcome.item] || 0) + 1;
         return `You found a ${outcome.item}!`;
@@ -275,12 +263,8 @@ class GameEngine {
         this.ui.printToLog(msg);
         this.ui.updatePartyUI();
       },
-      (participants, defeatedEnemy) => { 
-        this.handleEnemyDefeated(participants, defeatedEnemy);
-      },
-      () => {
-        this.checkBlackout();
-      },
+      (participants, defeatedEnemy) => this.handleEnemyDefeated(participants, defeatedEnemy),
+      () => this.checkBlackout(),
       () => { 
         this.ui.printToLog("Choose a Pokémon to send out!");
         this.openPokemonMenu();
@@ -297,15 +281,10 @@ class GameEngine {
     this.ui.setMenuState('battle');
   }
 
-startTrainerBattle(enemyMon, trainer, winFlag = null) {
+  startTrainerBattle(enemyMon, trainer, winFlag = null) {
     const speciesKey = enemyMon.species.toLowerCase();
     this.gameState.pokedex.seen[speciesKey] = true;
     this.ui.updatePokedexTrackerUI();
-
-    if (!enemyMon) {
-      this.ui.printToLog("Error generating trainer's Pokémon!");
-      return;
-    }
 
     this.ui.printToLog(`${trainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
     
@@ -323,12 +302,8 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
         this.ui.printToLog(msg);
         this.ui.updatePartyUI();
       },
-      (participants, defeatedEnemy) => { 
-        this.handleEnemyDefeated(participants, defeatedEnemy);
-      },
-      () => {
-        this.checkBlackout();
-      },
+      (participants, defeatedEnemy) => this.handleEnemyDefeated(participants, defeatedEnemy),
+      () => this.checkBlackout(),
       () => { 
         this.ui.printToLog("Choose a Pokémon to send out!");
         this.openPokemonMenu();
@@ -363,7 +338,6 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     }
   }
 
-  // UPDATED: Now checks trainer party length to handle multi-battles
   handleBattleEnd() {
     if (this.checkBlackout()) return; 
 
@@ -371,14 +345,12 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
       this.gameState.activeTrainerPartyIndex++;
       const trainer = this.gameState.activeTrainer;
 
-      // Check if the trainer has more Pokémon left!
       if (this.gameState.activeTrainerPartyIndex < trainer.party.length) {
         const nextMonData = trainer.party[this.gameState.activeTrainerPartyIndex];
         this.promptTrainerSwitch(nextMonData, trainer);
-        return; // Halt the end-battle logic here to wait for player
+        return; 
       }
 
-      // If no more pokemon, standard trainer defeat logic
       const payout = trainer.payout || 500;
       this.gameState.money += payout;
       this.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
@@ -388,10 +360,14 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
         this.ui.printToLog(`You obtained the ${this.gameState.activeWinFlag.replace('_', ' ')}!`);
       }
 
+      // Automatically grant standardized rewards array parsed by interactions.js
+      if (trainer.rewards) {
+          this.interactions.grantRewards(trainer.rewards);
+      }
+
       this.ui.updateMoneyUI();
     }
     
-    // Clear out battle state
     this.gameState.activeTrainer = null;
     this.gameState.activeBattle = null;
     this.gameState.activeWinFlag = null; 
@@ -411,7 +387,7 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
         this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
         
         this.gameState.party.forEach(p => {
-          p.hp = p.maxHp; // Heal HP
+          p.hp = p.maxHp;
           if (p.moves) {
             p.moves.forEach(m => {
               if (m.maxPp !== undefined) m.pp = m.maxPp;
@@ -447,11 +423,7 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     document.getElementById('btn-starter-charmander')?.addEventListener('click', () => this.pickStarter('charmander'));
     document.getElementById('btn-starter-squirtle')?.addEventListener('click', () => this.pickStarter('squirtle'));
     
-    document.getElementById('btn-encounter')?.addEventListener('click', () => {
-      const result = this.triggerEncounter();
-      if (typeof result === 'string') this.ui.printToLog(result);
-      else this.startBattle(result);
-    });
+    document.getElementById('btn-encounter')?.addEventListener('click', () => this.openEncounterMenu());
 
     document.getElementById('btn-explore')?.addEventListener('click', () => {
       const result = this.triggerExplore();
@@ -491,26 +463,28 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
       const enemyMonData = trainer.party[0];
       const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
 
+      // Load custom boss movesets if they exist
+      if (enemyMonData.moves) {
+          enemyMon.moves = enemyMonData.moves.map(moveId => this.db.moves[moveId]).filter(m => m);
+      }
+
       this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
-      this.gameState.activeTrainerPartyIndex = 0; // NEW: reset index to 0 at the start of a battle!
+      this.gameState.activeTrainerPartyIndex = 0; 
       this.startTrainerBattle(enemyMon, trainer);
     });
 
     document.getElementById('btn-interact')?.addEventListener('click', () => {
       const route = this.db.routes[this.gameState.currentRoute];
       
-      // If no NPCs exist on the route, print a default message
       if (!route || !route.npcs || route.npcs.length === 0) {
         this.ui.printToLog("There is no one here to talk to.");
         return;
       }
 
-      // If exactly 1 NPC, talk to them directly. 
       if (route.npcs.length === 1) {
-        this.interactWithNPC(route.npcs[0]);
+        this.interactions.processNPC(route.npcs[0]);
       } else {
-        // If > 1 NPC, open the selection menu (requires the helper method from yesterday)
-        this.openNpcSelectionMenu(route.npcs);
+        this.ui.openNpcSelectionMenu(route.npcs);
       }
     });
 
@@ -733,42 +707,41 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     ]);
   }
 
-    refreshBattleMoveButtons() {
-        const activeMon = this.gameState.party[0];
-        const leadMoves = activeMon.moves;
-        
-        for (let i = 0; i < 4; i++) {
-          const btn = document.getElementById(`btn-move-${i}`);
-          const move = leadMoves[i];
+  refreshBattleMoveButtons() {
+    const activeMon = this.gameState.party[0];
+    const leadMoves = activeMon.moves;
     
-          if (btn && move) {
-            if (move.maxPp !== undefined) {
-              btn.textContent = `${move.name} (${move.pp}/${move.maxPp})`;
-            } else {
-              btn.textContent = move.name;
-            }
-    
-            if (move.pp !== undefined && move.pp <= 0) {
-              btn.disabled = true;
-              btn.style.opacity = "0.5";
-              btn.onclick = null;
-            } else {
-              btn.disabled = false;
-              btn.style.opacity = "1";
-              btn.onclick = () => this.handleTurn(move);
-            }
-            btn.style.display = "block";
-          } else if (btn) {
-            btn.style.display = "none";
-          }
+    for (let i = 0; i < 4; i++) {
+      const btn = document.getElementById(`btn-move-${i}`);
+      const move = leadMoves[i];
+
+      if (btn && move) {
+        if (move.maxPp !== undefined) {
+          btn.textContent = `${move.name} (${move.pp}/${move.maxPp})`;
+        } else {
+          btn.textContent = move.name;
         }
+
+        if (move.pp !== undefined && move.pp <= 0) {
+          btn.disabled = true;
+          btn.style.opacity = "0.5";
+          btn.onclick = null;
+        } else {
+          btn.disabled = false;
+          btn.style.opacity = "1";
+          btn.onclick = () => this.handleTurn(move);
+        }
+        btn.style.display = "block";
+      } else if (btn) {
+        btn.style.display = "none";
       }
+    }
+  }
 
   travelTo(targetRouteId) {
     const currentRoute = this.db.routes[this.gameState.currentRoute];
     const targetRoute = this.db.routes[targetRouteId];
 
-    // 1. FORCED BATTLE CHECK: Ambush before leaving the current route
     if (currentRoute.forced_battle && !this.hasFlag(currentRoute.forced_battle.flag)) {
       const trainer = this.getDynamicTrainer(currentRoute.forced_battle.trainer_id);
       this.ui.printToLog(`Wait! ${trainer.name} steps out to challenge you!`);
@@ -783,18 +756,16 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
       return false;
     }
 
-    // 2. GATE REQUIREMENTS CHECK: The bouncer
     if (currentRoute.gate_requirements && currentRoute.gate_requirements[targetRouteId]) {
       const gate = currentRoute.gate_requirements[targetRouteId];
       const satisfiesReqs = gate.required_flags.every(flag => this.hasFlag(flag));
       
       if (!satisfiesReqs) {
         this.ui.printToLog(gate.blocked_message);
-        return false; // Stops travel
+        return false; 
       }
     }
 
-    // 3. SUCCESSFUL TRAVEL
     this.gameState.currentRoute = targetRouteId;
     this.trackVisitedTown(targetRouteId); 
     
@@ -819,17 +790,12 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
     });
   }
 
-  // ==========================================
-  // NEW: TRAINER MULTI-POKEMON & SWITCH LOGIC
-  // ==========================================
-
   promptTrainerSwitch(nextMonData, trainer) {
     this.ui.printToLog(`${trainer.name} is about to send out ${nextMonData.species}.`);
     this.ui.printToLog(`Will you switch your Pokémon?`);
 
-    this.gameState.pendingEnemyMonData = nextMonData; // Save it for after they answer
+    this.gameState.pendingEnemyMonData = nextMonData;
 
-    // Repurpose the dynamic menu for the Yes/No dialogue!
     this.ui.setMenuState('dynamic');
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
@@ -866,7 +832,7 @@ startTrainerBattle(enemyMon, trainer, winFlag = null) {
 
       pbox.onclick = () => {
         if (mon.hp > 0) {
-          if (index !== 0) { // Swap them to the front if they aren't already
+          if (index !== 0) { 
             const temp = this.gameState.party[0];
             this.gameState.party[0] = this.gameState.party[index];
             this.gameState.party[index] = temp;
