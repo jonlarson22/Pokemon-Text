@@ -3,8 +3,7 @@
     "name": "Pewter City Gym",
     "location_id": "pewter_city",
     "type_theme": "rock",
-    "badge_reward": "boulder_badge",
-    "tm_reward": "tm34",
+    "rewards": ["boulder_badge", "tm34",]
     "gym_trainers": [
       "pewter_gym_camper_liam"
     ],
