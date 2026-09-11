@@ -147,5 +147,22 @@
     ],
     "dialogue_req_unmet": "You don't have enough money for the Safari Pass. Come back with ¥500!",
     "dialogue_post_flag": "Keep an eye on your step count and your Safari Balls!"
+  },
+  {
+  "victory_road_guard": {
+    "name": "League Guard",
+    "dialogue_default": "Only trainers who have proven themselves against all eight Gym Leaders can pass through to Victory Road.",
+    "requirements": [
+      {
+        "type": "flag_count",
+        "category": "gym_badges",
+        "qty": 8
+      }
+    ],
+    "rewards": [
+      { "type": "flag", "id": "victory_road_let_pass" }
+    ],
+    "dialogue_req_unmet": "You don't have all eight Gym Badges yet! You need the Earth Badge and all the others to prove your strength.",
+    "dialogue_post_flag": "Ah, you possess all eight Badges! Go right ahead, and good luck at the Pokémon League!"
   }
 }
