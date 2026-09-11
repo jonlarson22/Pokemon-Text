@@ -41,7 +41,7 @@
       "grass": [
         { "species": "Pidgey", "min_level": 2, "max_level": 5, "weight": 55 },
         { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 45 }],
-      "water":  [],
+      "water":  []
 },
     "trainers": [],
     "npcs": ["route_1_clerk"],
@@ -69,8 +69,7 @@
       "grass": [],
       "water": [
         { "species": "Poliwag", "min_level": 10, "max_level": 20, "weight": 50 },
-        { "species": "Tentacool", "min_level": 15, "max_level": 25, "weight": 50 },
-      ]
+        { "species": "Tentacool", "min_level": 15, "max_level": 25, "weight": 50 }]
     },
     "trainers": [],
     "npcs": [],
