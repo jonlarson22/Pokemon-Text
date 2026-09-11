@@ -54,8 +54,8 @@ renderRouteScreen() {
 
     const centerBtn = document.getElementById('btn-pokemon-center');
     const shopBtn = document.getElementById('btn-shop');
-    const interactBtn = document.getElementById('btn-interact'); // NEW
-    const flyBtn = document.getElementById('btn-fly');           // NEW
+    const interactBtn = document.getElementById('btn-interact');
+    const flyBtn = document.getElementById('btn-fly');
 
     if (centerBtn) {
       centerBtn.style.display = route.hasCenter ? "block" : "none";
@@ -67,30 +67,28 @@ renderRouteScreen() {
       shopBtn.onclick = () => this.game.facilities.openShop();
     }
 
-    // NEW: Show interact button only if NPCs exist on this route
     if (interactBtn) {
-      if (route.npcs && route.npcs.length > 0) {
-        interactBtn.style.display = "block";
-        interactBtn.onclick = () => this.buildInteractMenu(route.npcs);
-      } else {
-        interactBtn.style.display = "none";
-      }
+      interactBtn.style.display = "block";
+      interactBtn.onclick = () => {
+        if (route && route.npcs && route.npcs.length > 0) {
+          this.buildInteractMenu(route.npcs);
+        } else {
+          this.printToLog("There is no one to talk to right now.");
+        }
+      };
     }
 
-    // NEW: Always show fly button, but logic handles if they can use it
     if (flyBtn) {
       flyBtn.style.display = "block";
       flyBtn.onclick = () => this.handleFlyAction();
     }
   }
 
-  // UPDATED METHOD: Builds the dynamic menu for talking to NPCs
     buildInteractMenu(npcIds) {
       this.setMenuState('dynamic');
       const content = document.getElementById('dynamic-content');
       const controls = document.getElementById('dynamic-controls');
-      
-      // Clear previous menus and set a header
+
       content.innerHTML = '<p style="text-align:center; font-weight:bold; margin-bottom:8px;">Who would you like to talk to?</p>';
       controls.innerHTML = ''; 
   
