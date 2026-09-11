@@ -12,7 +12,7 @@
   },
   "route_1_clerk": {
     "name": "Shop Clerk",
-    "dialogue_default": "Hi there! I'm from the Viridian City Poké Mart!\n\I've got a free sample for trainers passing through. Here, take this!",
+    "dialogue_default": "Hi there! I'm from the Viridian City Poké Mart! I've got a free sample for trainers passing through. Here, take this!",
     "requirements": [],
     "rewards": [
       { "type": "item", "id": "potion", "quantity": 1 },
@@ -92,7 +92,6 @@
     "dialogue_req_unmet": "",
     "dialogue_post_flag": "Make sure you evolve Eevee with the right stone to suit your team!"
   },
-  {
   "route4_magikarp_salesman": {
     "name": "Magikarp Salesman",
     "dialogue_default": "Hello there! Have I got a deal for you! I'll let you have a magnificent Magikarp for just ¥500!",
@@ -159,7 +158,6 @@
     "dialogue_req_unmet": "You don't have enough money for the Safari Pass. Come back with ¥500!",
     "dialogue_post_flag": "Keep an eye on your step count and your Safari Balls!"
   },
-  {
   "victory_road_guard": {
     "name": "League Guard",
     "dialogue_default": "Only trainers who have proven themselves against all eight Gym Leaders can pass through to Victory Road.",
