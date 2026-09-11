@@ -490,7 +490,7 @@ export class BattleManager {
     }
   }
 
-  handleBattleEnd() {
+handleBattleEnd() {
     if (this.checkBlackout()) return; 
 
     if (this.game.gameState.activeBattle && this.game.gameState.activeBattle.enemyMon.hp <= 0 && this.game.gameState.activeTrainer) {
@@ -503,17 +503,23 @@ export class BattleManager {
         return; 
       }
 
-      const payout = trainer.payout || 500;
+      // 1. Print defeat dialogue if defined
+      if (trainer.dialogueAfter) {
+        this.game.ui.printToLog(`${trainer.name}: "${trainer.dialogueAfter}"`);
+      }
+
+      // 2. Read rewardMoney (with fallback to payout or default)
+      const payout = trainer.rewardMoney ?? trainer.payout ?? 500;
       this.game.gameState.money += payout;
       this.game.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
       
+      // 3. Set the victory flag silently without printing it to the log
       if (this.game.gameState.activeWinFlag) {
         this.game.setFlag(this.game.gameState.activeWinFlag, true);
-        this.game.ui.printToLog(`You obtained the ${this.game.gameState.activeWinFlag.replace('_', ' ')}!`);
       }
 
       if (trainer.rewards) {
-          this.game.interactions.grantRewards(trainer.rewards);
+        this.game.interactions.grantRewards(trainer.rewards);
       }
 
       this.game.ui.updateMoneyUI();
@@ -527,7 +533,7 @@ export class BattleManager {
     setTimeout(() => {
       this.game.ui.printToLog("Returning to the route...");
       this.game.ui.setMenuState('route');
-    }, 2000);
+    }, 500);
   }
 
   checkBlackout() {
