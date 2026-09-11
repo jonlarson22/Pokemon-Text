@@ -10,6 +10,17 @@
     "dialogue_req_unmet": "",
     "dialogue_post_flag": "How is your Pokédex coming along? Catch 'em all!"
   },
+  "route_1_clerk": {
+    "name": "Shop Clerk",
+    "dialogue_default": "Hi there! I'm from the Viridian City Poké Mart!\n\I've got a free sample for trainers passing through. Here, take this!",
+    "requirements": [],
+    "rewards": [
+      { "type": "item", "id": "potion", "quantity": 1 },
+      { "type": "flag", "id": "received_route_1_potion" }
+    ],
+    "dialogue_req_unmet": "",
+    "dialogue_post_flag": "Make sure to stock up on Poké Balls if you plan on catching wild Pokémon!"
+  },
   "guard_route8": {
     "name": "Thirsty Guard",
     "req_flag_to_appear": null,
