@@ -1,4 +1,4 @@
-import { BattleEngine } from './battle.js';
+import { BattleEngine, BattleManager } from './battle.js';
 import { CaptureSystem } from './captures.js';
 import { GrowthEngine } from './growth.js';
 import { UIManager } from './ui.js';
@@ -37,6 +37,7 @@ class GameEngine {
     this.factory = new PokemonFactory(this);
     this.facilities = new FacilityManager(this);
     this.interactions = new InteractionManager(this);
+    this.battleManager = new BattleManager(this);
     
     this.db = {
       routes: {},
@@ -80,7 +81,7 @@ class GameEngine {
   }
 
   checkGameStart() {
-     if (!this.gameState.hasStarter && this.gameState.party.length === 0) {
+    if (!this.gameState.hasStarter && this.gameState.party.length === 0) {
       this.ui.printToLog("Welcome to the world of Pokémon!");
       this.ui.printToLog("You're in Pallet Town, in the Kanto region, where shades of your journey await!");
       this.ui.printToLog("Choose a starter Pokémon to be your first companion. Good luck!");
@@ -91,51 +92,6 @@ class GameEngine {
       this.ui.updatePokedexTrackerUI();
       this.ui.setMenuState('route');
     }
-  }
-  
-  pickStarter(speciesId) {
-    const safeId = speciesId.toLowerCase();
-    const advantageMap = {
-      'bulbasaur': 'charmander',
-      'charmander': 'squirtle',
-      'squirtle': 'bulbasaur'
-    };
-    
-    this.gameState.rivalStarter = advantageMap[safeId];
-    const starter = this.factory.generatePokemonInstance(safeId, 5);
-    
-    this.gameState.party.push(starter);
-    this.gameState.hasStarter = true;
-    
-    this.gameState.pokedex.seen[safeId] = true;
-    this.gameState.pokedex.caught[safeId] = true;
-    this.ui.updatePokedexTrackerUI();
-
-    this.ui.printToLog(`You chose ${starter.species}! A fantastic choice.`);
-    this.checkGameStart();
-  }
-
-  getDynamicTrainer(trainerId) {
-    const trainerTemplate = this.db.trainers[trainerId];
-    if (!trainerTemplate) return null;
-
-    const trainer = JSON.parse(JSON.stringify(trainerTemplate));
-
-    trainer.party.forEach(mon => {
-      if (mon.species === "RIVAL_STARTER") {
-        mon.species = this.gameState.rivalStarter;
-      }
-      if (mon.species === "RIVAL_STARTER_STAGE_2") {
-        const stage2Map = { 'bulbasaur': 'ivysaur', 'charmander': 'charmeleon', 'squirtle': 'wartortle' };
-        mon.species = stage2Map[this.gameState.rivalStarter];
-      }
-      if (mon.species === "RIVAL_STARTER_STAGE_3") {
-        const stage3Map = { 'bulbasaur': 'venusaur', 'charmander': 'charizard', 'squirtle': 'blastoise' };
-        mon.species = stage3Map[this.gameState.rivalStarter];
-      }
-    });
-
-    return trainer;
   }
 
   trackVisitedTown(routeId) {
@@ -160,7 +116,7 @@ class GameEngine {
       const btn = document.createElement('button');
       btn.className = 'btn';
       btn.textContent = `Go to ${destData.name}`;
-      btn.onclick = () => this.travelTo(destinationId);
+      btn.onclick = () => this.ui.travelTo(destinationId);
       container.appendChild(btn);
     });
   }
@@ -217,7 +173,7 @@ class GameEngine {
   executeEncounter(encounterList) {
     const result = this.triggerEncounter(encounterList);
     if (typeof result === 'string') this.ui.printToLog(result);
-    else this.startBattle(result);
+    else this.battleManager.startBattle(result);
   }
 
   triggerEncounter(encounterList) {
@@ -243,173 +199,6 @@ class GameEngine {
     }
   }
 
-  startBattle(wildPokemonInfo) {
-    const speciesKey = wildPokemonInfo.species.toLowerCase();
-    this.gameState.pokedex.seen[speciesKey] = true;
-    this.ui.updatePokedexTrackerUI();
-
-    const enemyMon = this.factory.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
-    if (!enemyMon) {
-      this.ui.printToLog("Error generating wild Pokémon stats!");
-      return;
-    }
-
-    this.ui.printToLog(`A wild ${enemyMon.species} (Lv. ${enemyMon.level}) appeared!`);
-    
-    this.gameState.activeBattle = new BattleEngine(
-      this.gameState.party[0], 
-      enemyMon, 
-      (msg) => {
-        this.ui.printToLog(msg);
-        this.ui.updatePartyUI();
-      },
-      (participants, defeatedEnemy) => this.handleEnemyDefeated(participants, defeatedEnemy),
-      () => this.checkBlackout(),
-      () => { 
-        this.ui.printToLog("Choose a Pokémon to send out!");
-        this.openPokemonMenu();
-      },
-      this.db.typeChart,
-      this.gameState.party
-    );
-
-    this.refreshBattleMoveButtons();
-
-    const battleBagBtn = document.getElementById('btn-battle-bag');
-    if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
-
-    this.ui.setMenuState('battle');
-  }
-
-  startTrainerBattle(enemyMon, trainer, winFlag = null) {
-    const speciesKey = enemyMon.species.toLowerCase();
-    this.gameState.pokedex.seen[speciesKey] = true;
-    this.ui.updatePokedexTrackerUI();
-
-    this.ui.printToLog(`${trainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
-    
-    const enemyItems = (trainer.items || [])
-      .map(itemId => {
-        const itemObj = this.db.items[itemId];
-        return itemObj ? { ...itemObj } : null;
-      })
-      .filter(item => item !== null);
-
-    this.gameState.activeBattle = new BattleEngine(
-      this.gameState.party[0], 
-      enemyMon, 
-      (msg) => {
-        this.ui.printToLog(msg);
-        this.ui.updatePartyUI();
-      },
-      (participants, defeatedEnemy) => this.handleEnemyDefeated(participants, defeatedEnemy),
-      () => this.checkBlackout(),
-      () => { 
-        this.ui.printToLog("Choose a Pokémon to send out!");
-        this.openPokemonMenu();
-      },
-      this.db.typeChart,
-      this.gameState.party,
-      trainer.name, 
-      enemyItems  
-    );
-
-    this.refreshBattleMoveButtons();
-    const battleBagBtn = document.getElementById('btn-battle-bag');
-    if (battleBagBtn) battleBagBtn.onclick = () => this.openBag();
-
-    this.gameState.activeTrainer = trainer;    
-    this.gameState.activeWinFlag = winFlag;
-    this.ui.setMenuState('battle');
-  }
-
-  handleEnemyDefeated(participants, defeatedEnemy) {
-    this.growth.awardExp(participants, defeatedEnemy);
-  }
-
-  handleTurn(playerMove) {
-    if (!this.gameState.activeBattle) return;
-    if (playerMove.pp !== undefined && playerMove.pp > 0) {
-      playerMove.pp--;
-    }
-    this.gameState.activeBattle.executeTurn(playerMove);
-    if (this.gameState.activeBattle && this.gameState.activeBattle.isOver) {
-      this.handleBattleEnd();
-    }
-  }
-
-  handleBattleEnd() {
-    if (this.checkBlackout()) return; 
-
-    if (this.gameState.activeBattle && this.gameState.activeBattle.enemyMon.hp <= 0 && this.gameState.activeTrainer) {
-      this.gameState.activeTrainerPartyIndex++;
-      const trainer = this.gameState.activeTrainer;
-
-      if (this.gameState.activeTrainerPartyIndex < trainer.party.length) {
-        const nextMonData = trainer.party[this.gameState.activeTrainerPartyIndex];
-        this.promptTrainerSwitch(nextMonData, trainer);
-        return; 
-      }
-
-      const payout = trainer.payout || 500;
-      this.gameState.money += payout;
-      this.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
-      
-      if (this.gameState.activeWinFlag) {
-        this.setFlag(this.gameState.activeWinFlag, true);
-        this.ui.printToLog(`You obtained the ${this.gameState.activeWinFlag.replace('_', ' ')}!`);
-      }
-
-      // Automatically grant standardized rewards array parsed by interactions.js
-      if (trainer.rewards) {
-          this.interactions.grantRewards(trainer.rewards);
-      }
-
-      this.ui.updateMoneyUI();
-    }
-    
-    this.gameState.activeTrainer = null;
-    this.gameState.activeBattle = null;
-    this.gameState.activeWinFlag = null; 
-    this.gameState.activeTrainerPartyIndex = 0; 
-
-    setTimeout(() => {
-      this.ui.printToLog("Returning to the route...");
-      this.ui.setMenuState('route');
-    }, 2000);
-  }
-
-  checkBlackout() {
-      const isWiped = this.gameState.party.every(p => p.hp <= 0);
-      if (isWiped) {
-        this.ui.printToLog("You hurried away to protect your Pokemon from further harm.");
-        this.gameState.money = Math.floor(this.gameState.money / 2);
-        this.gameState.currentRoute = this.gameState.lastHealedLocation || "pallet_town";
-        
-        this.gameState.party.forEach(p => {
-          p.hp = p.maxHp;
-          if (p.moves) {
-            p.moves.forEach(m => {
-              if (m.maxPp !== undefined) m.pp = m.maxPp;
-            });
-          }
-        });
-        
-        this.ui.updateMoneyUI();
-        this.ui.updatePartyUI();
-  
-        this.gameState.activeTrainer = null;
-        this.gameState.activeBattle = null;
-        
-        setTimeout(() => {
-          this.ui.renderRouteScreen();
-          this.ui.setMenuState('route');
-        }, 500);
-        return true;
-      }
-      return false;
-    }
-
   setFlag(flagName, value = true) {
     this.gameState.flags[flagName] = value;
   }
@@ -419,9 +208,9 @@ class GameEngine {
   }
   
   bindListeners() {
-    document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.pickStarter('bulbasaur'));
-    document.getElementById('btn-starter-charmander')?.addEventListener('click', () => this.pickStarter('charmander'));
-    document.getElementById('btn-starter-squirtle')?.addEventListener('click', () => this.pickStarter('squirtle'));
+    document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.factory.pickStarter('bulbasaur'));
+    document.getElementById('btn-starter-charmander')?.addEventListener('click', () => this.factory.pickStarter('charmander'));
+    document.getElementById('btn-starter-squirtle')?.addEventListener('click', () => this.factory.pickStarter('squirtle'));
     
     document.getElementById('btn-encounter')?.addEventListener('click', () => this.openEncounterMenu());
 
@@ -430,13 +219,13 @@ class GameEngine {
       if (typeof result === 'string') this.ui.printToLog(result);
       else if (result && result.species) {
         this.ui.printToLog(`You were ambushed!`);
-        this.startBattle(result);
+        this.battleManager.startBattle(result);
       }
     });
 
-    document.getElementById('btn-pokemon')?.addEventListener('click', () => this.openPokemonMenu());
-    document.getElementById('btn-party')?.addEventListener('click', () => this.openPokemonMenu());
-    document.getElementById('btn-pokedex')?.addEventListener('click', () => this.openPokedex());
+    document.getElementById('btn-pokemon')?.addEventListener('click', () => this.ui.openPokemonMenu());
+    document.getElementById('btn-party')?.addEventListener('click', () => this.ui.openPokemonMenu());
+    document.getElementById('btn-pokedex')?.addEventListener('click', () => this.ui.openPokedex());
     
     document.getElementById('btn-fight')?.addEventListener('click', () => {
       const route = this.db.routes[this.gameState.currentRoute];
@@ -451,7 +240,7 @@ class GameEngine {
         return;
       }
 
-      const trainer = this.getDynamicTrainer(undefeatedTrainerId);
+      const trainer = this.factory.getDynamicTrainer(undefeatedTrainerId);
       if (!trainer) {
         this.ui.printToLog("Error: Trainer data not found!");
         return;
@@ -463,14 +252,13 @@ class GameEngine {
       const enemyMonData = trainer.party[0];
       const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
 
-      // Load custom boss movesets if they exist
       if (enemyMonData.moves) {
-          enemyMon.moves = enemyMonData.moves.map(moveId => this.db.moves[moveId]).filter(m => m);
+        enemyMon.moves = enemyMonData.moves.map(moveId => this.db.moves[moveId]).filter(m => m);
       }
 
       this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
       this.gameState.activeTrainerPartyIndex = 0; 
-      this.startTrainerBattle(enemyMon, trainer);
+      this.battleManager.startTrainerBattle(enemyMon, trainer);
     });
 
     document.getElementById('btn-interact')?.addEventListener('click', () => {
@@ -536,7 +324,7 @@ class GameEngine {
         const btn = document.createElement('button');
         btn.className = 'btn';
         btn.textContent = `Use ${itemData.name} (x${count})`;
-        btn.onclick = () => this.handleItemClick(itemKey);
+        btn.onclick = () => this.ui.handleItemClick(itemKey);
         content.appendChild(btn);
       }
     });
@@ -563,329 +351,6 @@ class GameEngine {
       { text: "Import File", action: () => document.getElementById('input-import-file').click() },
       { text: "Close", action: () => this.ui.setMenuState('system') }
     ]);
-  }
-
-  openPokemonMenu() {
-    this.ui.setMenuState('dynamic');
-    const content = document.getElementById('dynamic-content');
-    const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = '';
-    controls.innerHTML = '';
-
-    if (this.gameState.party.length === 0) {
-      content.innerHTML = '<p style="text-align:center;">You have no Pokémon in your party.</p>';
-    } else {
-      this.gameState.party.forEach((mon, index) => {
-        const pbox = document.createElement('div');
-        pbox.style.border = this.partySwapIndex === index ? "2px solid red" : "1px solid #ccc";
-        pbox.style.padding = "8px";
-        pbox.style.marginBottom = "8px";
-        pbox.style.cursor = "pointer";
-        
-        pbox.innerHTML = `
-          <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
-          HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
-          Atk: ${mon.stats.attack} | Def: ${mon.stats.defense} | SpA: ${mon.stats.spAtk} | SpD: ${mon.stats.spDef} | Spd: ${mon.speed}<br>
-          Moves: ${mon.moves.map(m => m.name).join(', ')}
-        `;
-        
-        pbox.onclick = () => {
-          if (this.partySwapIndex !== null) {
-            if (this.partySwapIndex !== index) {
-              const temp = this.gameState.party[this.partySwapIndex];
-              this.gameState.party[this.partySwapIndex] = this.gameState.party[index];
-              this.gameState.party[index] = temp;
-              this.ui.printToLog(`Swapped ${this.gameState.party[index].species} and ${this.gameState.party[this.partySwapIndex].species}.`);
-            }
-            this.partySwapIndex = null;
-            this.ui.updatePartyUI();
-            this.openPokemonMenu();
-          } else {
-            this.partySwapIndex = index;
-            this.openPokemonMenu();
-          }
-        };
-        content.appendChild(pbox);
-      });
-    }
-
-    this.ui.buildMenuControls(controls, [
-      { text: this.partySwapIndex !== null ? "Cancel Swap" : "Close", action: () => {
-          if (this.partySwapIndex !== null) {
-            this.partySwapIndex = null;
-            this.openPokemonMenu();
-          } else {
-            this.ui.setMenuState('system');
-          }
-      }}
-    ]);
-  }
-  
-  handleItemClick(itemKey) {
-    const item = this.db.items[itemKey]; 
-    
-    if (item.category === "catch") { 
-      if (this.gameState.activeBattle) {
-        this.captureSystem.attemptCatch(itemKey);
-      } else {
-        this.ui.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
-      }
-    } 
-    else if (item.category === "healing") { 
-      this.openPartyTargetScreen(itemKey, item);
-    }
-  }
-
-  applyItemToPokemon(itemKey, itemData, partyIndex) {
-    const target = this.gameState.party[partyIndex];
-
-    if (itemData.effect.type === "heal") { 
-      if (target.hp >= target.maxHp) {
-        this.ui.printToLog("It won't have any effect.");
-        return; 
-      }
-      
-      target.hp = Math.min(target.maxHp, target.hp + itemData.effect.value); 
-      this.ui.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
-    }
-
-    this.gameState.inventory[itemKey]--;
-    if (this.gameState.inventory[itemKey] <= 0) delete this.gameState.inventory[itemKey];
-    this.ui.updatePartyUI();
-
-    if (this.gameState.activeBattle) {
-      this.ui.setMenuState('battle');
-      const enemyMove = this.gameState.activeBattle.getRandomEnemyMove();
-      this.gameState.activeBattle.processAction(this.gameState.activeBattle.enemyMon, this.gameState.party[0], enemyMove, false);
-      this.gameState.activeBattle.checkWinLoss();
-
-      if (this.gameState.activeBattle.isOver) {
-        this.handleBattleEnd();
-      }
-    } else {
-      this.ui.setMenuState('system'); 
-    }
-  }
-
-  openPokedex() {
-    this.ui.setMenuState('dynamic');
-    const content = document.getElementById('dynamic-content');
-    const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = '';
-    controls.innerHTML = '';
-
-    const seenKeys = Object.keys(this.gameState.pokedex.seen);
-
-    if (seenKeys.length === 0) {
-      const p = document.createElement('p');
-      p.textContent = "No Pokémon seen yet!";
-      p.style.textAlign = "center";
-      content.appendChild(p);
-    } else {
-      const entries = seenKeys.map(key => {
-        const pokemonData = this.db.pokemon[key];
-        return {
-          id: key,
-          pokedexNumber: pokemonData ? pokemonData.pokedexNumber : 999,
-          name: pokemonData ? pokemonData.name : key.toUpperCase()
-        };
-      });
-
-      entries.sort((a, b) => a.pokedexNumber - b.pokedexNumber);
-
-      entries.forEach(entry => {
-        const p = document.createElement('p');
-        const isCaught = this.gameState.pokedex.caught[entry.id];
-        const numStr = String(entry.pokedexNumber).padStart(3, '0');
-        p.textContent = `#${numStr} ${isCaught ? '🔴' : '⚫'} ${entry.name}`;
-        content.appendChild(p);
-      });
-    }
-
-    this.ui.buildMenuControls(controls, [
-      { text: "Close", action: () => this.ui.setMenuState('system') }
-    ]);
-  }
-
-  refreshBattleMoveButtons() {
-    const activeMon = this.gameState.party[0];
-    const leadMoves = activeMon.moves;
-    
-    for (let i = 0; i < 4; i++) {
-      const btn = document.getElementById(`btn-move-${i}`);
-      const move = leadMoves[i];
-
-      if (btn && move) {
-        if (move.maxPp !== undefined) {
-          btn.textContent = `${move.name} (${move.pp}/${move.maxPp})`;
-        } else {
-          btn.textContent = move.name;
-        }
-
-        if (move.pp !== undefined && move.pp <= 0) {
-          btn.disabled = true;
-          btn.style.opacity = "0.5";
-          btn.onclick = null;
-        } else {
-          btn.disabled = false;
-          btn.style.opacity = "1";
-          btn.onclick = () => this.handleTurn(move);
-        }
-        btn.style.display = "block";
-      } else if (btn) {
-        btn.style.display = "none";
-      }
-    }
-  }
-
-  travelTo(targetRouteId) {
-    const currentRoute = this.db.routes[this.gameState.currentRoute];
-    const targetRoute = this.db.routes[targetRouteId];
-
-    if (currentRoute.forced_battle && !this.hasFlag(currentRoute.forced_battle.flag)) {
-      const trainer = this.getDynamicTrainer(currentRoute.forced_battle.trainer_id);
-      this.ui.printToLog(`Wait! ${trainer.name} steps out to challenge you!`);
-      this.ui.printToLog(`"${trainer.dialogueBefore || 'Let us battle!'}"`);
-      
-      this.gameState.activeTrainerPartyIndex = 0; 
-
-      const enemyMonData = trainer.party[0];
-      const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
-
-      this.startTrainerBattle(enemyMon, trainer, currentRoute.forced_battle.flag);
-      return false;
-    }
-
-    if (currentRoute.gate_requirements && currentRoute.gate_requirements[targetRouteId]) {
-      const gate = currentRoute.gate_requirements[targetRouteId];
-      const satisfiesReqs = gate.required_flags.every(flag => this.hasFlag(flag));
-      
-      if (!satisfiesReqs) {
-        this.ui.printToLog(gate.blocked_message);
-        return false; 
-      }
-    }
-
-    this.gameState.currentRoute = targetRouteId;
-    this.trackVisitedTown(targetRouteId); 
-    
-    this.ui.printToLog(`Arrived at ${targetRoute.name}.`);
-    this.ui.renderRouteScreen();
-    this.ui.setMenuState('route');
-    return true;
-  }
-  
-  openPartyTargetScreen(itemKey, itemData) {
-    this.ui.setMenuState('party-select');
-    const container = document.getElementById('party-select-list');
-    container.innerHTML = '';
-
-    this.gameState.party.forEach((mon, index) => {
-      const btn = document.createElement('button');
-      btn.className = 'btn';
-      btn.innerText = `${mon.species} (HP: ${mon.hp}/${mon.maxHp})`;
-      
-      btn.onclick = () => this.applyItemToPokemon(itemKey, itemData, index);
-      container.appendChild(btn);
-    });
-  }
-
-  promptTrainerSwitch(nextMonData, trainer) {
-    this.ui.printToLog(`${trainer.name} is about to send out ${nextMonData.species}.`);
-    this.ui.printToLog(`Will you switch your Pokémon?`);
-
-    this.gameState.pendingEnemyMonData = nextMonData;
-
-    this.ui.setMenuState('dynamic');
-    const content = document.getElementById('dynamic-content');
-    const controls = document.getElementById('dynamic-controls');
-    
-    content.innerHTML = '<p style="text-align:center; font-weight:bold;">Change Pokémon?</p>';
-    controls.innerHTML = '';
-
-    this.ui.buildMenuControls(controls, [
-      { text: "Yes", action: () => this.openTrainerSwitchMenu() },
-      { text: "No", action: () => this.sendNextTrainerPokemon() }
-    ]);
-  }
-
-  openTrainerSwitchMenu() {
-    this.ui.setMenuState('dynamic');
-    const content = document.getElementById('dynamic-content');
-    const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = '';
-    controls.innerHTML = '';
-
-    this.gameState.party.forEach((mon, index) => {
-      const pbox = document.createElement('div');
-      pbox.style.border = "1px solid #ccc";
-      pbox.style.padding = "8px";
-      pbox.style.marginBottom = "8px";
-      pbox.style.cursor = mon.hp > 0 ? "pointer" : "not-allowed";
-      pbox.style.opacity = mon.hp > 0 ? "1" : "0.5";
-
-      pbox.innerHTML = `
-        <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
-        HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
-        Moves: ${mon.moves.map(m => m.name).join(', ')}
-      `;
-
-      pbox.onclick = () => {
-        if (mon.hp > 0) {
-          if (index !== 0) { 
-            const temp = this.gameState.party[0];
-            this.gameState.party[0] = this.gameState.party[index];
-            this.gameState.party[index] = temp;
-            this.ui.printToLog(`You sent out ${this.gameState.party[0].species}!`);
-          }
-          this.sendNextTrainerPokemon();
-        }
-      };
-      content.appendChild(pbox);
-    });
-
-    this.ui.buildMenuControls(controls, [
-      { text: "Cancel (Keep Current)", action: () => this.sendNextTrainerPokemon() }
-    ]);
-  }
-
-  sendNextTrainerPokemon() {
-    const nextMonData = this.gameState.pendingEnemyMonData;
-    this.gameState.pendingEnemyMonData = null; // Clear the memory
-
-    const enemyMon = this.factory.generatePokemonInstance(nextMonData.species, nextMonData.level);
-    if (!enemyMon) return;
-
-    const speciesKey = enemyMon.species.toLowerCase();
-    this.gameState.pokedex.seen[speciesKey] = true;
-    this.ui.updatePokedexTrackerUI();
-
-    this.ui.printToLog(`${this.gameState.activeTrainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
-
-    this.gameState.activeBattle = new BattleEngine(
-      this.gameState.party[0], 
-      enemyMon, 
-      (msg) => {
-        this.ui.printToLog(msg);
-        this.ui.updatePartyUI();
-      },
-      (participants, defeatedEnemy) => { 
-        this.handleEnemyDefeated(participants, defeatedEnemy);
-      },
-      () => {
-        this.checkBlackout();
-      },
-      () => { 
-        this.ui.printToLog("Choose a Pokémon to send out!");
-        this.openPokemonMenu();
-      },
-      this.db.typeChart,
-      this.gameState.party,
-      this.gameState.activeTrainer.name
-    );
-
-    this.refreshBattleMoveButtons();
-    this.ui.setMenuState('battle');
   }
 }
 
