@@ -15,7 +15,16 @@
       }
     },
     "req_flag": null,
-    "encounters": [],
+    "encounters": {
+      "grass": [],
+      "water": [
+        { "species": "Magikarp", "min_level": 5, "max_level": 15, "weight": 60 },
+        { "species": "Goldeen", "min_level": 10, "max_level": 20, "weight": 15 },
+        { "species": "Poliwag", "min_level": 10, "max_level": 20, "weight": 15 },
+        { "species": "Tentacool", "min_level": 15, "max_level": 25, "weight": 5 },
+        { "species": "Poliwag", "min_level": 15, "max_level": 25, "weight": 5 }
+      ]
+    },
     "trainers": [],
     "npcs": ["oak_pallet"],
     "explore_table": [
