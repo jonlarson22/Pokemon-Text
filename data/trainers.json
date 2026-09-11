@@ -83,8 +83,8 @@
       "rewardMoney": 1400,
       "items": ["potion"],
       "party": [
-        { "species": "Geodude", "level": 12 },
-        { "species": "Onix", "level": 14 }
+        { "species": "Geodude", "level": 12, "moves": ["tackle", "defense_curl"]},
+        { "species": "Onix", "level": 14 "moves": ["tackle", "screech", "rock_tomb", "bind"]}
       ]
     }
 }
