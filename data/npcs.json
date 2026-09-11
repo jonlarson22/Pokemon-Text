@@ -71,7 +71,7 @@
     "dialogue_post_flag": "Isn't science amazing? Take good care of Aerodactyl."
   },
   "celadon_mansion_eevee": {
-    "name": "Ereeve Manager",
+    "name": "Eevee Manager",
     "dialogue_default": "I've been looking for someone to take this rare Pokémon off my hands. Would you like it?",
     "requirements": [],
     "rewards": [
@@ -80,5 +80,72 @@
     ],
     "dialogue_req_unmet": "",
     "dialogue_post_flag": "Make sure you evolve Eevee with the right stone to suit your team!"
+  },
+  {
+  "route4_magikarp_salesman": {
+    "name": "Magikarp Salesman",
+    "dialogue_default": "Hello there! Have I got a deal for you! I'll let you have a magnificent Magikarp for just ¥500!",
+    "requirements": [
+      { "type": "money", "amount": 500 }
+    ],
+    "rewards": [
+      { "type": "pokemon", "id": "magikarp", "level": 5 },
+      { "type": "money_deduction", "amount": 500 },
+      { "type": "flag", "id": "bought_route4_magikarp" }
+    ],
+    "dialogue_req_unmet": "You'll need ¥500 if you want to buy this incredible Pokémon!",
+    "dialogue_post_flag": "No refunds! That Magikarp is a fine specimen."
+  },
+  "ss_anne_captain": {
+    "name": "Captain",
+    "dialogue_default": "Urrp! I feel seasick... Oh, you want to learn how to cut trees? Take this HM01!",
+    "requirements": [],
+    "rewards": [
+      { "type": "item", "id": "hm01", "qty": 1 },
+      { "type": "flag", "id": "received_hm01" }
+    ],
+    "dialogue_req_unmet": "",
+    "dialogue_post_flag": "Urrp... Thank you for rubbing my back. You can use Cut outside of battle to clear small trees."
+  },
+  "cinnabar_lab_trade_seel": {
+    "name": "Super Nerd",
+    "dialogue_default": "I'm looking for a Ponyta. Want to trade it for my Seel?",
+    "requirements": [
+      { "type": "pokemon_species", "id": "ponyta" }
+    ],
+    "rewards": [
+      { "type": "pokemon", "id": "seel", "level": 35 },
+      { "type": "pokemon_removal", "species": "ponyta" },
+      { "type": "flag", "id": "traded_ponyta_for_seel" }
+    ],
+    "dialogue_req_unmet": "Hmm, that's not a Ponyta. Bring me one if you want to trade!",
+    "dialogue_post_flag": "Isn't my old Seel doing great?"
+  },
+  "pewter_museum_clerk": {
+    "name": "Museum Guide",
+    "dialogue_default": "Welcome to the Pewter Museum of Science! Admission is ¥50. Would you like to enter?",
+    "requirements": [
+      { "type": "money", "amount": 50 }
+    ],
+    "rewards": [
+      { "type": "money_deduction", "amount": 50 },
+      { "type": "flag", "id": "pewter_museum_entered" }
+    ],
+    "dialogue_req_unmet": "Oops, looks like you're short on cash. Admission is ¥50!",
+    "dialogue_post_flag": "Enjoy looking at the fossils and space exhibit!"
+  },
+  "safari_zone_gate_attendant": {
+    "name": "Safari Warden",
+    "dialogue_default": "Welcome to the Safari Zone! It's ¥500 for a pass, and you get 30 Safari Balls to catch all you want.",
+    "requirements": [
+      { "type": "money", "amount": 500 }
+    ],
+    "rewards": [
+      { "type": "item", "id": "safari_ball", "qty": 30 },
+      { "type": "money_deduction", "amount": 500 },
+      { "type": "flag", "id": "safari_game_active" }
+    ],
+    "dialogue_req_unmet": "You don't have enough money for the Safari Pass. Come back with ¥500!",
+    "dialogue_post_flag": "Keep an eye on your step count and your Safari Balls!"
   }
 }
