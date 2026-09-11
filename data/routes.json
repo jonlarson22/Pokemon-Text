@@ -44,7 +44,7 @@
       "water":  [],
 },
     "trainers": [],
-    "npcs": [route_1_clerk],
+    "npcs": ["route_1_clerk"],
     "explore_table": [
       { "type": "nothing", "weight": 40 },
       { "type": "encounter", "weight": 30 },
@@ -85,7 +85,7 @@
       { "species": "Weedle", "min_level": 3, "max_level": 5, "weight": 40 },
       { "species": "Pidgey", "min_level": 3, "max_level": 5, "weight": 20 }
     ],
-    "trainers": [],
+    "trainers": ["youngster_joey"],
     "explore_table": [
       { "type": "nothing", "weight": 60 },
       { "type": "encounter", "weight": 40 }
