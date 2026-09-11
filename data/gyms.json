@@ -3,11 +3,135 @@
     "name": "Pewter City Gym",
     "location_id": "pewter_city",
     "type_theme": "rock",
-    "rewards": ["boulder_badge", "tm34"]
+    "rewards": ["boulder_badge", "tm34"],
     "gym_trainers": [
       "pewter_gym_camper_liam"
     ],
     "gym_leader": "leader_brock",
+    "completed": false
+  },
+  "cerulean_city_gym": {
+    "name": "Cerulean City Gym",
+    "location_id": "cerulean_city",
+    "type_theme": "water",
+    "rewards": ["cascade_badge", "tm11"],
+    "gym_trainers": [
+      "cerulean_gym_swimmer_luis",
+      "cerulean_gym_picnicker_diana"
+    ],
+    "gym_leader": "leader_misty",
+    "completed": false
+  },
+  "vermilion_city_gym": {
+    "name": "Vermilion City Gym",
+    "location_id": "vermilion_city",
+    "type_theme": "electric",
+    "rewards": ["thunder_badge", "tm24"],
+    "gym_trainers": [
+      "vermilion_gym_gentleman_tucker",
+      "vermilion_gym_rocker_vincent",
+      "vermilion_gym_sailor_dwayne"
+    ],
+    "gym_leader": "leader_surge",
+    "completed": false
+  },
+  "celadon_city_gym": {
+    "name": "Celadon City Gym",
+    "location_id": "celadon_city",
+    "type_theme": "grass",
+    "rewards": ["rainbow_badge", "tm21"],
+    "gym_trainers": [
+      "celadon_gym_lass_kay",
+      "celadon_gym_beauty_bridget",
+      "celadon_gym_picnicker_tina",
+      "celadon_gym_lass_tamia",
+      "celadon_gym_beauty_lori",
+      "celadon_gym_cooltrainer_mary",
+      "celadon_gym_beauty_jessica"
+    ],
+    "gym_leader": "leader_erika",
+    "completed": false
+  },
+  "fuchsia_city_gym": {
+    "name": "Fuchsia City Gym",
+    "location_id": "fuchsia_city",
+    "type_theme": "poison",
+    "rewards": ["soul_badge", "tm06"],
+    "gym_trainers": [
+      "fuchsia_gym_tamer_phil",
+      "fuchsia_gym_tamer_edgar",
+      "fuchsia_gym_juggler_kirk",
+      "fuchsia_gym_juggler_ned",
+      "fuchsia_gym_juggler_kayden",
+      "fuchsia_gym_juggler_kirk"
+    ],
+    "gym_leader": "leader_koga",
+    "completed": false
+  },
+  "saffron_city_gym": {
+    "name": "Saffron City Gym",
+    "location_id": "saffron_city",
+    "type_theme": "psychic",
+    "rewards": ["marsh_badge", "tm46"],
+    "gym_trainers": [
+      "saffron_gym_psychic_johan",
+      "saffron_gym_chaneller_amanda",
+      "saffron_gym_psychic_tyron",
+      "saffron_gym_chaneller_stacy",
+      "saffron_gym_psychic_cameron",
+      "saffron_gym_chaneller_tasha",
+      "saffron_gym_psychic_preston"
+    ],
+    "gym_leader": "leader_sabrina",
+    "completed": false
+  },
+  "cinnabar_island_gym": {
+    "name": "Cinnabar Island Gym",
+    "location_id": "cinnabar_island",
+    "type_theme": "fire",
+    "rewards": ["volcano_badge", "tm38"],
+    "gym_trainers": [
+      "cinnabar_gym_super_nerd_erik",
+      "cinnabar_gym_burglar_ramon",
+      "cinnabar_gym_super_nerd_dusty",
+      "cinnabar_gym_burglar_arnie",
+      "cinnabar_gym_super_nerd_zack",
+      "cinnabar_gym_burglar_dusty",
+      "cinnabar_gym_super_nerd_bryan"
+    ],
+    "gym_leader": "leader_blaine",
+    "completed": false
+  },
+  "viridian_city_gym": {
+    "name": "Viridian City Gym",
+    "location_id": "viridian_city",
+    "type_theme": "ground",
+    "rewards": ["earth_badge", "tm27"],
+    "gym_trainers": [
+      "viridian_gym_blackbelt_atsu",
+      "viridian_gym_tamer_cole",
+      "viridian_gym_cooltrainer_sam",
+      "viridian_gym_blackbelt_koji",
+      "viridian_gym_tamer_jason",
+      "viridian_gym_blackbelt_daisuke",
+      "viridian_gym_cooltrainer_warren",
+      "viridian_gym_cooltrainer_ryan"
+    ],
+    "gym_leader": "leader_giovanni",
+    "completed": false
+  },
+  "fighting_dojo": {
+    "name": "Fighting Dojo",
+    "location_id": "saffron_city",
+    "type_theme": "fighting",
+    "rewards": ["hitmonlee_or_hitmonchan"],
+    "gym_trainers": [
+      "dojo_blackbelt_hitoshi",
+      "dojo_blackbelt_hideki",
+      "dojo_blackbelt_aaron",
+      "dojo_blackbelt_hitoshi"
+    ],
+    "gym_leader": "master_karate",
     "completed": false
   }
 }
