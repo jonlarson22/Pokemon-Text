@@ -497,6 +497,7 @@ handleBattleEnd() {
       this.game.gameState.activeTrainerPartyIndex++;
       const trainer = this.game.gameState.activeTrainer;
 
+      // Handle trainer sending next Pokemon
       if (this.game.gameState.activeTrainerPartyIndex < trainer.party.length) {
         const nextMonData = trainer.party[this.game.gameState.activeTrainerPartyIndex];
         this.promptTrainerSwitch(nextMonData, trainer);
@@ -508,23 +509,95 @@ handleBattleEnd() {
         this.game.ui.printToLog(`${trainer.name}: "${trainer.dialogueAfter}"`);
       }
 
-      // 2. Read rewardMoney (with fallback to payout or default)
+      // 2. Read reward money
       const payout = trainer.rewardMoney ?? trainer.payout ?? 500;
       this.game.gameState.money += payout;
       this.game.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
+      this.game.ui.updateMoneyUI();
       
-      // 3. Set the victory flag silently without printing it to the log
+      // 3. Set standard win flag silently
       if (this.game.gameState.activeWinFlag) {
         this.game.setFlag(this.game.gameState.activeWinFlag, true);
       }
 
-      if (trainer.rewards) {
-        this.game.interactions.grantRewards(trainer.rewards);
+      // 4. Process custom rewards (Badges, Items, Pokemon Choices)
+      if (trainer.rewards && trainer.rewards.length > 0) {
+        this.processBattleRewards(trainer.rewards);
+        return; // Halt here; processBattleRewards will call finishBattleCleanup() when done.
       }
-
-      this.game.ui.updateMoneyUI();
     }
     
+    // If no custom rewards required a pause, clean up and exit
+    this.finishBattleCleanup();
+  }
+
+  processBattleRewards(rewards) {
+    let requiresChoice = false;
+
+    rewards.forEach(reward => {
+      switch (reward.type) {
+        case "flag":
+          this.game.setFlag(reward.id, true);
+          break;
+        case "item":
+          // Assuming game.inventory.addItem exists, adjust to match your inventory system
+          if (this.game.inventory) {
+            this.game.inventory.addItem(reward.id, reward.quantity || 1);
+          }
+          const itemName = this.game.db.items && this.game.db.items[reward.id] ? this.game.db.items[reward.id].name : reward.id;
+          this.game.ui.printToLog(`Obtained ${reward.quantity || 1}x ${itemName}!`);
+          break;
+        case "pokemon_choice":
+          requiresChoice = true;
+          this.promptPokemonChoice(reward.choices);
+          break;
+      }
+    });
+
+    // If there was no UI interaction required, immediately finish cleanup
+    if (!requiresChoice) {
+      this.finishBattleCleanup();
+    }
+  }
+
+  promptPokemonChoice(choices) {
+    this.game.ui.printToLog(`Choose your reward Pokémon!`);
+    this.game.ui.setMenuState('dynamic');
+
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    
+    content.innerHTML = '<p style="text-align:center; font-weight:bold;">Take which Pokémon?</p>';
+    controls.innerHTML = '';
+
+    const buttons = choices.map(choice => ({
+      text: `${choice.species} (Lv. ${choice.level})`,
+      action: () => this.awardPokemonAndFinish(choice)
+    }));
+
+    this.game.ui.buildMenuControls(controls, buttons);
+  }
+
+  awardPokemonAndFinish(choiceData) {
+    const newMon = this.game.factory.generatePokemonInstance(choiceData.species, choiceData.level);
+    
+    if (newMon) {
+      if (this.game.gameState.party.length < 6) {
+        this.game.gameState.party.push(newMon);
+        this.game.ui.printToLog(`Added ${newMon.species} to your party!`);
+      } else {
+        // Fallback if you have a PC box system implemented
+        if (!this.game.gameState.pc) this.game.gameState.pc = [];
+        this.game.gameState.pc.push(newMon);
+        this.game.ui.printToLog(`Sent ${newMon.species} to the PC!`);
+      }
+      this.game.ui.updatePartyUI();
+    }
+
+    this.finishBattleCleanup();
+  }
+
+  finishBattleCleanup() {
     this.game.gameState.activeTrainer = null;
     this.game.gameState.activeBattle = null;
     this.game.gameState.activeWinFlag = null; 
