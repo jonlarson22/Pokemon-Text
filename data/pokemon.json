@@ -41,6 +41,11 @@
     "id": "ivysaur",
     "name": "Ivysaur",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "venusaur",
+      "method": "level",
+      "level": 32
+    },
     "types": ["Grass", "Poison"],
     "baseStats": {
       "hp": 60,
@@ -108,6 +113,11 @@
     "id": "charmander",
     "name": "Charmander",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "charmeleon",
+      "method": "level",
+      "level": 16
+    },
     "types": ["Fire"],
     "baseStats": {
       "hp": 39,
@@ -139,6 +149,11 @@
     "id": "charmeleon",
     "name": "Charmeleon",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "charizard",
+      "method": "level",
+      "level": 36
+    },
     "types": ["Fire"],
     "baseStats": {
       "hp": 58,
@@ -205,6 +220,11 @@
     "id": "squirtle",
     "name": "Squirtle",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "wartortle",
+      "method": "level",
+      "level": 16
+    },
     "types": ["Water"],
     "baseStats": {
       "hp": 44,
@@ -237,6 +257,11 @@
     "id": "wartortle",
     "name": "Wartortle",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "blastoise",
+      "method": "level",
+      "level": 36
+    },
     "types": ["Water"],
     "baseStats": {
       "hp": 59,
@@ -305,6 +330,11 @@
     "id": "caterpie",
     "name": "Caterpie",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "metapod",
+      "method": "level",
+      "level": 7
+    },
     "types": ["Bug"],
     "baseStats": {
       "hp": 45,
@@ -328,6 +358,11 @@
     "id": "metapod",
     "name": "Metapod",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "butterfree",
+      "method": "level",
+      "level": 10
+    },
     "types": ["Bug"],
     "baseStats": {
       "hp": 50,
@@ -386,6 +421,11 @@
     "id": "weedle",
     "name": "Weedle",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "kakuna",
+      "method": "level",
+      "level": 7
+    },
     "types": ["Bug", "Poison"],
     "baseStats": {
       "hp": 40,
@@ -409,6 +449,11 @@
     "id": "kakuna",
     "name": "Kakuna",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "beedrill",
+      "method": "level",
+      "level": 10
+    },
     "types": ["Bug", "Poison"],
     "baseStats": {
       "hp": 45,
@@ -464,6 +509,11 @@
     "id": "pidgey",
     "name": "Pidgey",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "pidgeotto",
+      "method": "level",
+      "level": 18
+    },
     "types": ["Normal", "Flying"],
     "baseStats": {
       "hp": 40,
@@ -495,6 +545,11 @@
     "id": "pidgeotto",
     "name": "Pidgeotto",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "pidgeot",
+      "method": "level",
+      "level": 36
+    },
     "types": ["Normal", "Flying"],
     "baseStats": {
       "hp": 63,
@@ -562,6 +617,11 @@
     "id": "rattata",
     "name": "Rattata",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "raticate",
+      "method": "level",
+      "level": 20
+    },
     "types": ["Normal"],
     "baseStats": {
       "hp": 30,
@@ -622,6 +682,11 @@
     "id": "spearow",
     "name": "Spearow",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "fearow",
+      "method": "level",
+      "level": 20
+    },
     "types": ["Normal", "Flying"],
     "baseStats": {
       "hp": 40,
@@ -641,7 +706,7 @@
       { "level": 19, "move": "pursuit" },
       { "level": 25, "move": "aerial_ace" },
       { "level": 31, "move": "mirror_move" },
-      { "level": 37, "move": "agilty" },
+      { "level": 37, "move": "agility" },
       { "level": 43, "move": "drill_peck" }
     ],
     "tmMoves": ["toxic", "hidden_power", "sunny_day", "protect", "frustration", "return", "double_team", "aerial_ace", "facade", "secret_power", "rest", "attract", "thief", "fly"],
@@ -684,6 +749,11 @@
     "id": "ekans",
     "name": "Ekans",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "arbok",
+      "method": "level",
+      "level": 22
+    },
     "types": ["Poison"],
     "baseStats": {
       "hp": 35,
@@ -747,10 +817,10 @@
     "name": "Pikachu",
     "growthRate": "medium_fast",
     "evolution": {
-    "target": "raichu",
-    "method": "item",
-    "item": "thunder_stone"
-  },
+      "target": "raichu",
+      "method": "item",
+      "item": "thunder_stone"
+    },
     "types": ["Electric"],
     "baseStats": {
       "hp": 35,
@@ -808,6 +878,11 @@
     "id": "sandshrew",
     "name": "Sandshrew",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "sandslash",
+      "method": "level",
+      "level": 22
+    },
     "types": ["Ground"],
     "baseStats": {
       "hp": 50,
@@ -870,6 +945,11 @@
     "id": "nidoran_f",
     "name": "Nidoran♀",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "nidorina",
+      "method": "level",
+      "level": 16
+    },
     "types": ["Poison"],
     "baseStats": {
       "hp": 55,
@@ -900,6 +980,11 @@
     "id": "nidorina",
     "name": "Nidorina",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "nidoqueen",
+      "method": "item",
+      "item": "moon_stone"
+    },
     "types": ["Poison"],
     "baseStats": {
       "hp": 70,
@@ -958,6 +1043,11 @@
     "id": "nidoran_m",
     "name": "Nidoran♂",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "nidorino",
+      "method": "level",
+      "level": 16
+    },
     "types": ["Poison"],
     "baseStats": {
       "hp": 46,
@@ -988,6 +1078,11 @@
     "id": "nidorino",
     "name": "Nidorino",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "nidoking",
+      "method": "item",
+      "item": "moon_stone"
+    },
     "types": ["Poison"],
     "baseStats": {
       "hp": 61,
@@ -1038,7 +1133,7 @@
       { "level": 1, "move": "poison_sting" },
       { "level": 23, "move": "thrash" }
     ],
-    "tmMoves": ["mega_punch", "mega_kick", "roar", "toxic", "hail", "hidden_power", "sunny_day", "ice_beam", "blizzard", "hyper_beam", "protect", "rain_dance", "frustration", "iron_tail", "earthquake", "return", "dig", "shadow_ball", "double_team", "shock_wave", "flamethrower", "fire_blast", "rock_tomb", "aerial_ace", "facade", "secret_power", "rest", "attract", "thief", "fire_punch", "surf", "strength", "rock_smash", "waterfall", "mega_kick", "flash"],
+    "tmMoves": ["mega_punch", "mega_kick", "roar", "toxic", "hail", "hidden_power", "sunny_day", "ice_beam", "blizzard", "hyper_beam", "protect", "rain_dance", "frustration", "iron_tail", "earthquake", "return", "dig", "shadow_ball", "double_team", "shock_wave", "flamethrower", "fire_blast", "rock_tomb", "aerial_ace", "facade", "secret_power", "rest", "attract", "thief", "fire_punch", "surf", "strength", "rock_smash", "waterfall", "flash"],
     "catchRate": 45
   },
   "clefairy": {
@@ -1046,6 +1141,11 @@
     "id": "clefairy",
     "name": "Clefairy",
     "growthRate": "fast",
+    "evolution": {
+      "target": "clefable",
+      "method": "item",
+      "item": "moon_stone"
+    },
     "types": ["Fairy"],
     "baseStats": {
       "hp": 70,
@@ -1102,6 +1202,11 @@
     "id": "vulpix",
     "name": "Vulpix",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "ninetales",
+      "method": "item",
+      "item": "fire_stone"
+    },
     "types": ["Fire"],
     "baseStats": {
       "hp": 38,
@@ -1159,6 +1264,11 @@
     "id": "jigglypuff",
     "name": "Jigglypuff",
     "growthRate": "fast",
+    "evolution": {
+      "target": "wigglytuff",
+      "method": "item",
+      "item": "moon_stone"
+    },
     "types": ["Normal", "Fairy"],
     "baseStats": {
       "hp": 115,
@@ -1215,6 +1325,11 @@
     "id": "zubat",
     "name": "Zubat",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "golbat",
+      "method": "level",
+      "level": 22
+    },
     "types": ["Poison", "Flying"],
     "baseStats": {
       "hp": 40,
@@ -1244,6 +1359,10 @@
     "id": "golbat",
     "name": "Golbat",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "crobat",
+      "method": "friendship"
+    },
     "types": ["Poison", "Flying"],
     "baseStats": {
       "hp": 75,
@@ -1276,6 +1395,11 @@
     "id": "oddish",
     "name": "Oddish",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "gloom",
+      "method": "level",
+      "level": 21
+    },
     "types": ["Grass", "Poison"],
     "baseStats": {
       "hp": 45,
@@ -1306,6 +1430,11 @@
     "id": "gloom",
     "name": "Gloom",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "vileplume",
+      "method": "item",
+      "item": "leaf_stone"
+    },
     "types": ["Grass", "Poison"],
     "baseStats": {
       "hp": 60,
@@ -1364,6 +1493,11 @@
     "id": "paras",
     "name": "Paras",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "parasect",
+      "method": "level",
+      "level": 24
+    },
     "types": ["Bug", "Grass"],
     "baseStats": {
       "hp": 35,
@@ -1427,6 +1561,11 @@
     "id": "venonat",
     "name": "Venonat",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "venomoth",
+      "method": "level",
+      "level": 31
+    },
     "types": ["Bug", "Poison"],
     "baseStats": {
       "hp": 60,
@@ -1492,6 +1631,11 @@
     "id": "diglett",
     "name": "Diglett",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "dugtrio",
+      "method": "level",
+      "level": 26
+    },
     "types": ["Ground"],
     "baseStats": {
       "hp": 10,
@@ -1552,6 +1696,11 @@
     "id": "meowth",
     "name": "Meowth",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "persian",
+      "method": "level",
+      "level": 28
+    },
     "types": ["Normal"],
     "baseStats": {
       "hp": 40,
@@ -1612,6 +1761,11 @@
     "id": "psyduck",
     "name": "Psyduck",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "golduck",
+      "method": "level",
+      "level": 33
+    },
     "types": ["Water"],
     "baseStats": {
       "hp": 50,
@@ -1675,6 +1829,11 @@
     "id": "mankey",
     "name": "Mankey",
     "growthRate": "medium_fast",
+    "evolution": {
+      "target": "primeape",
+      "method": "level",
+      "level": 28
+    },
     "types": ["Fighting"],
     "baseStats": {
       "hp": 40,
@@ -1739,11 +1898,15 @@
     "id": "growlithe",
     "name": "Growlithe",
     "growthRate": "slow",
+    "evolution": {
+      "target": "arcanine",
+      "method": "item",
+      "item": "fire_stone"
+    },
     "types": ["Fire"],
     "baseStats": {
       "hp": 55,
       "attack": 70,
-      "divider": 45,
       "defense": 45,
       "spAtk": 70,
       "spDef": 50,
@@ -1796,6 +1959,11 @@
     "id": "poliwag",
     "name": "Poliwag",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "poliwhirl",
+      "method": "level",
+      "level": 25
+    },
     "types": ["Water"],
     "baseStats": {
       "hp": 40,
@@ -1825,6 +1993,11 @@
     "id": "poliwhirl",
     "name": "Poliwhirl",
     "growthRate": "medium_slow",
+    "evolution": {
+      "target": "poliwrath",
+      "method": "item",
+      "item": "water_stone"
+    },
     "types": ["Water"],
     "baseStats": {
       "hp": 65,
