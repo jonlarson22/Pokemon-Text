@@ -2,17 +2,79 @@
   "oak_pallet": {
     "name": "Prof. Oak",
     "dialogue_default": "It's dangerous to go alone! Take these.",
-    "gives_flag": "has_pokedex",
-    "gives_item": "pokeball",
-    "item_qty": 5,
+    "requirements": [],
+    "rewards": [
+      { "type": "flag", "id": "has_pokedex" },
+      { "type": "item", "id": "pokeball", "qty": 5 }
+    ],
+    "dialogue_req_unmet": "",
     "dialogue_post_flag": "How is your Pokédex coming along? Catch 'em all!"
   },
   "guard_route8": {
     "name": "Thirsty Guard",
-    "req_flag_to_appear": null, 
+    "req_flag_to_appear": null,
     "dialogue_default": "I'm so thirsty... Oh, you have Tea? Thanks! You can pass now.",
-    "req_item": "fresh_water",
-    "gives_flag": "guard_let_pass",
+    "requirements": [
+      { "type": "item", "id": "fresh_water", "qty": 1 }
+    ],
+    "rewards": [
+      { "type": "flag", "id": "guard_let_pass" },
+      { "type": "item_consumption", "id": "fresh_water", "qty": 1 }
+    ],
+    "dialogue_req_unmet": "I'm so thirsty... But I can't accept just anything. Bring me a refreshing drink!",
     "dialogue_post_flag": "Thanks for the drink! The road to Saffron City is open."
+  },
+  "fossil_scientist_dome": {
+    "name": "Lab Scientist 1",
+    "dialogue_default": "Ah, the Dome Fossil! I can resurrect this into Kabuto using our machine.",
+    "requirements": [
+      { "type": "item", "id": "dome_fossil", "qty": 1 }
+    ],
+    "rewards": [
+      { "type": "pokemon", "id": "kabuto", "level": 30 },
+      { "type": "item_consumption", "id": "dome_fossil", "qty": 1 },
+      { "type": "flag", "id": "revived_dome_fossil" }
+    ],
+    "dialogue_req_unmet": "You don't have a Dome Fossil for me to work with.",
+    "dialogue_post_flag": "Isn't science amazing? Take good care of Kabuto."
+  },
+  "fossil_scientist_helix": {
+    "name": "Lab Scientist 2",
+    "dialogue_default": "Ah, the Helix Fossil! I can resurrect this into Omanyte using our machine.",
+    "requirements": [
+      { "type": "item", "id": "helix_fossil", "qty": 1 }
+    ],
+    "rewards": [
+      { "type": "pokemon", "id": "omanyte", "level": 30 },
+      { "type": "item_consumption", "id": "helix_fossil", "qty": 1 },
+      { "type": "flag", "id": "revived_helix_fossil" }
+    ],
+    "dialogue_req_unmet": "You don't have a Helix Fossil for me to work with.",
+    "dialogue_post_flag": "Isn't science amazing? Take good care of Omanyte."
+  },
+  "fossil_scientist_amber": {
+    "name": "Lab Scientist 3",
+    "dialogue_default": "Ah, Old Amber! I can resurrect this into Aerodactyl using our machine.",
+    "requirements": [
+      { "type": "item", "id": "old_amber", "qty": 1 }
+    ],
+    "rewards": [
+      { "type": "pokemon", "id": "aerodactyl", "level": 30 },
+      { "type": "item_consumption", "id": "old_amber", "qty": 1 },
+      { "type": "flag", "id": "revived_old_amber" }
+    ],
+    "dialogue_req_unmet": "You don't have any Old Amber for me to work with.",
+    "dialogue_post_flag": "Isn't science amazing? Take good care of Aerodactyl."
+  },
+  "celadon_mansion_eevee": {
+    "name": "Ereeve Manager",
+    "dialogue_default": "I've been looking for someone to take this rare Pokémon off my hands. Would you like it?",
+    "requirements": [],
+    "rewards": [
+      { "type": "pokemon", "id": "eevee", "level": 25 },
+      { "type": "flag", "id": "received_celadon_eevee" }
+    ],
+    "dialogue_req_unmet": "",
+    "dialogue_post_flag": "Make sure you evolve Eevee with the right stone to suit your team!"
   }
 }
