@@ -838,5 +838,12 @@
     "effect": { "type": "unlock_door", "target": "rocket_elevator" },
     "price": 0,
     "description": "A key that operates the elevator in Team Rocket's hideout. It bears the Team Rocket logo."
+  },
+    "linking_cord": {
+    "name": "Linking Cord",
+    "category": "evolution",
+    "effect": { "type": "evolve", "target": ["kadabra", "machoke", "graveler", "haunter"] },
+    "price": 1000,
+    "description": "A string exuding a mysterious energy that makes you feel a strange sense of connection. It's loved by certain Pokémon."
   }
 }
