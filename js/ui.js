@@ -187,4 +187,222 @@ renderRouteScreen() {
       container.appendChild(btn);
     });
   }
+
+  // MOVED FROM APP.JS
+  openPokemonMenu() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    if (this.game.gameState.party.length === 0) {
+      content.innerHTML = '<p style="text-align:center;">You have no Pokémon in your party.</p>';
+    } else {
+      this.game.gameState.party.forEach((mon, index) => {
+        const pbox = document.createElement('div');
+        pbox.style.border = this.game.partySwapIndex === index ? "2px solid red" : "1px solid #ccc";
+        pbox.style.padding = "8px";
+        pbox.style.marginBottom = "8px";
+        pbox.style.cursor = "pointer";
+        
+        pbox.innerHTML = `
+          <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
+          HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
+          Moves: ${mon.moves.map(m => m.name).join(', ')}
+        `;
+        
+        pbox.onclick = () => {
+          if (this.game.partySwapIndex !== null) {
+            if (this.game.partySwapIndex !== index) {
+              const temp = this.game.gameState.party[this.game.partySwapIndex];
+              this.game.gameState.party[this.game.partySwapIndex] = this.game.gameState.party[index];
+              this.game.gameState.party[index] = temp;
+              this.printToLog(`Swapped ${this.game.gameState.party[index].species} and ${this.game.gameState.party[this.game.partySwapIndex].species}.`);
+            }
+            this.game.partySwapIndex = null;
+            this.updatePartyUI();
+            this.openPokemonMenu();
+          } else {
+            this.game.partySwapIndex = index;
+            this.openPokemonMenu();
+          }
+        };
+        content.appendChild(pbox);
+      });
+    }
+
+    this.buildMenuControls(controls, [
+      { text: this.game.partySwapIndex !== null ? "Cancel Swap" : "Close", action: () => {
+          if (this.game.partySwapIndex !== null) {
+            this.game.partySwapIndex = null;
+            this.openPokemonMenu();
+          } else {
+            this.setMenuState('system');
+          }
+      }}
+    ]);
+  }
+
+  // MOVED FROM APP.JS
+  openPokedex() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    const seenKeys = Object.keys(this.game.gameState.pokedex.seen);
+
+    if (seenKeys.length === 0) {
+      content.innerHTML = '<p style="text-align:center;">No Pokémon seen yet!</p>';
+    } else {
+      const entries = seenKeys.map(key => {
+        const data = this.game.db.pokemon[key];
+        return {
+          id: key,
+          pokedexNumber: data ? data.pokedexNumber : 999,
+          name: data ? data.name : key.toUpperCase()
+        };
+      }).sort((a, b) => a.pokedexNumber - b.pokedexNumber);
+
+      entries.forEach(entry => {
+        const p = document.createElement('p');
+        const isCaught = this.game.gameState.pokedex.caught[entry.id];
+        const numStr = String(entry.pokedexNumber).padStart(3, '0');
+        p.textContent = `#${numStr} ${isCaught ? '🔴' : '⚫'} ${entry.name}`;
+        content.appendChild(p);
+      });
+    }
+
+    this.buildMenuControls(controls, [
+      { text: "Close", action: () => this.setMenuState('system') }
+    ]);
+  }
+
+  // MOVED FROM APP.JS
+  refreshBattleMoveButtons() {
+    const activeMon = this.game.gameState.party[0];
+    const leadMoves = activeMon.moves;
+    
+    for (let i = 0; i < 4; i++) {
+      const btn = document.getElementById(`btn-move-${i}`);
+      const move = leadMoves[i];
+
+      if (btn && move) {
+        btn.textContent = move.maxPp !== undefined ? `${move.name} (${move.pp}/${move.maxPp})` : move.name;
+
+        if (move.pp !== undefined && move.pp <= 0) {
+          btn.disabled = true;
+          btn.style.opacity = "0.5";
+          btn.onclick = null;
+        } else {
+          btn.disabled = false;
+          btn.style.opacity = "1";
+          btn.onclick = () => this.game.battleManager.handleTurn(move); // Calls BattleManager!
+        }
+        btn.style.display = "block";
+      } else if (btn) {
+        btn.style.display = "none";
+      }
+    }
+  }
+
+  // MOVED FROM APP.JS
+  handleItemClick(itemKey) {
+    const item = this.game.db.items[itemKey]; 
+    if (item.category === "catch") { 
+      if (this.game.gameState.activeBattle) {
+        this.game.captureSystem.attemptCatch(itemKey);
+      } else {
+        this.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
+      }
+    } else if (item.category === "healing") { 
+      this.openPartyTargetScreen(itemKey, item);
+    }
+  }
+
+  // MOVED FROM APP.JS
+  openPartyTargetScreen(itemKey, itemData) {
+    this.setMenuState('party-select');
+    const container = document.getElementById('party-select-list');
+    container.innerHTML = '';
+
+    this.game.gameState.party.forEach((mon, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = `${mon.species} (HP: ${mon.hp}/${mon.maxHp})`;
+      btn.onclick = () => this.applyItemToPokemon(itemKey, itemData, index);
+      container.appendChild(btn);
+    });
+  }
+
+  // MOVED FROM APP.JS
+  applyItemToPokemon(itemKey, itemData, partyIndex) {
+    const target = this.game.gameState.party[partyIndex];
+
+    if (itemData.effect.type === "heal") { 
+      if (target.hp >= target.maxHp) {
+        this.printToLog("It won't have any effect.");
+        return; 
+      }
+      target.hp = Math.min(target.maxHp, target.hp + itemData.effect.value); 
+      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
+    }
+
+    this.game.gameState.inventory[itemKey]--;
+    if (this.game.gameState.inventory[itemKey] <= 0) delete this.game.gameState.inventory[itemKey];
+    this.updatePartyUI();
+
+    if (this.game.gameState.activeBattle) {
+      this.setMenuState('battle');
+      const enemyMove = this.game.gameState.activeBattle.getRandomEnemyMove();
+      this.game.gameState.activeBattle.processAction(this.game.gameState.activeBattle.enemyMon, this.game.gameState.party[0], enemyMove, false);
+      this.game.gameState.activeBattle.checkWinLoss();
+
+      if (this.game.gameState.activeBattle.isOver) {
+        this.game.battleManager.handleBattleEnd();
+      }
+    } else {
+      this.setMenuState('system'); 
+    }
+  }
+
+  // MOVED FROM APP.JS
+  travelTo(targetRouteId) {
+    const currentRoute = this.game.db.routes[this.game.gameState.currentRoute];
+    const targetRoute = this.game.db.routes[targetRouteId];
+
+    if (currentRoute.forced_battle && !this.game.hasFlag(currentRoute.forced_battle.flag)) {
+      const trainer = this.game.factory.getDynamicTrainer(currentRoute.forced_battle.trainer_id);
+      this.printToLog(`Wait! ${trainer.name} steps out to challenge you!`);
+      this.printToLog(`"${trainer.dialogueBefore || 'Let us battle!'}"`);
+      
+      this.game.gameState.activeTrainerPartyIndex = 0; 
+
+      const enemyMonData = trainer.party[0];
+      const enemyMon = this.game.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
+
+      this.game.battleManager.startTrainerBattle(enemyMon, trainer, currentRoute.forced_battle.flag);
+      return false;
+    }
+
+    if (currentRoute.gate_requirements && currentRoute.gate_requirements[targetRouteId]) {
+      const gate = currentRoute.gate_requirements[targetRouteId];
+      const satisfiesReqs = gate.required_flags.every(flag => this.game.hasFlag(flag));
+      
+      if (!satisfiesReqs) {
+        this.printToLog(gate.blocked_message);
+        return false; 
+      }
+    }
+
+    this.game.gameState.currentRoute = targetRouteId;
+    this.game.trackVisitedTown(targetRouteId); // Leave trackVisitedTown in app.js as a core logic state-tracker
+    
+    this.printToLog(`Arrived at ${targetRoute.name}.`);
+    this.renderRouteScreen();
+    this.setMenuState('route');
+    return true;
+  }
 }
