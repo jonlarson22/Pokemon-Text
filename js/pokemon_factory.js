@@ -78,4 +78,50 @@ export class PokemonFactory {
       maxExp: nextExp
     };
   }
+
+  pickStarter(speciesId) {
+    const safeId = speciesId.toLowerCase();
+    const advantageMap = {
+      'bulbasaur': 'charmander',
+      'charmander': 'squirtle',
+      'squirtle': 'bulbasaur'
+    };
+    
+    this.engine.gameState.rivalStarter = advantageMap[safeId];
+    const starter = this.generatePokemonInstance(safeId, 5); // Uses its own method
+    
+    this.engine.gameState.party.push(starter);
+    this.engine.gameState.hasStarter = true;
+    
+    this.engine.gameState.pokedex.seen[safeId] = true;
+    this.engine.gameState.pokedex.caught[safeId] = true;
+    this.engine.ui.updatePokedexTrackerUI();
+
+    this.engine.ui.printToLog(`You chose ${starter.species}! A fantastic choice.`);
+    this.engine.checkGameStart(); // app.js still handles the overall boot flow
+  }
+
+  // MOVED FROM APP.JS
+  getDynamicTrainer(trainerId) {
+    const trainerTemplate = this.engine.db.trainers[trainerId];
+    if (!trainerTemplate) return null;
+
+    const trainer = JSON.parse(JSON.stringify(trainerTemplate));
+
+    trainer.party.forEach(mon => {
+      if (mon.species === "RIVAL_STARTER") {
+        mon.species = this.engine.gameState.rivalStarter;
+      }
+      if (mon.species === "RIVAL_STARTER_STAGE_2") {
+        const stage2Map = { 'bulbasaur': 'ivysaur', 'charmander': 'charmeleon', 'squirtle': 'wartortle' };
+        mon.species = stage2Map[this.engine.gameState.rivalStarter];
+      }
+      if (mon.species === "RIVAL_STARTER_STAGE_3") {
+        const stage3Map = { 'bulbasaur': 'venusaur', 'charmander': 'charizard', 'squirtle': 'blastoise' };
+        mon.species = stage3Map[this.engine.gameState.rivalStarter];
+      }
+    });
+
+    return trainer;  
+  }
 }
