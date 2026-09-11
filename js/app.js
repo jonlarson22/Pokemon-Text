@@ -261,21 +261,6 @@ class GameEngine {
       this.battleManager.startTrainerBattle(enemyMon, trainer);
     });
 
-    document.getElementById('btn-interact')?.addEventListener('click', () => {
-      const route = this.db.routes[this.gameState.currentRoute];
-      
-      if (!route || !route.npcs || route.npcs.length === 0) {
-        this.ui.printToLog("There is no one here to talk to.");
-        return;
-      }
-
-      if (route.npcs.length === 1) {
-        this.interactions.processNPC(route.npcs[0]);
-      } else {
-        this.ui.openNpcSelectionMenu(route.npcs);
-      }
-    });
-
     document.getElementById('btn-travel')?.addEventListener('click', () => this.ui.setMenuState('travel'));
     document.getElementById('btn-menu')?.addEventListener('click', () => this.ui.setMenuState('system'));
     document.getElementById('btn-back-menu')?.addEventListener('click', () => this.ui.setMenuState('route'));
