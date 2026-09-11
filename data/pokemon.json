@@ -2086,7 +2086,8 @@
     "growthRate": "medium_slow",
     "evolution": {
       "target": "alakazam",
-      "method": "trade"
+      "method": "item",
+      "item": "linking_cord"
     },
     "types": ["Psychic"],
     "baseStats": {
@@ -2192,7 +2193,8 @@
     "growthRate": "medium_slow",
     "evolution": {
       "target": "machamp",
-      "method": "trade"
+      "method": "item",
+      "item": "linking_cord"
     },
     "types": ["Fighting"],
     "baseStats": {
@@ -2470,7 +2472,8 @@
     "growthRate": "medium_slow",
     "evolution": {
       "target": "golem",
-      "method": "trade"
+      "method": "item",
+      "item": "linking_cord"
     },
     "types": ["Rock", "Ground"],
     "baseStats": {
@@ -3075,7 +3078,8 @@
     "growthRate": "medium_slow",
     "evolution": {
       "target": "gengar",
-      "method": "trade"
+      "method": "item",
+      "item": "linking_cord"
     },
     "types": ["Ghost", "Poison"],
     "baseStats": {
@@ -3142,11 +3146,6 @@
     "id": "onix",
     "name": "Onix",
     "growthRate": "medium_fast",
-    "evolution": {
-      "target": "steelix",
-      "method": "trade_item",
-      "item": "metal_coat"
-    },
     "types": ["Rock", "Ground"],
     "baseStats": {
       "hp": 35,
@@ -3727,11 +3726,6 @@
     "id": "rhydon",
     "name": "Rhydon",
     "growthRate": "slow",
-    "evolution": {
-      "target": "rhyperior",
-      "method": "trade",
-      "item": "protector"
-    },
     "types": ["Ground", "Rock"],
     "baseStats": {
       "hp": 105,
@@ -3902,11 +3896,6 @@
     "id": "seadra",
     "name": "Seadra",
     "growthRate": "medium_fast",
-    "evolution": {
-      "target": "kingdra",
-      "method": "trade",
-      "item": "dragon_scale"
-    },
     "types": ["Water"],
     "baseStats": {
       "hp": 55,
@@ -4103,11 +4092,6 @@
     "id": "scyther",
     "name": "Scyther",
     "growthRate": "medium_fast",
-    "evolution": {
-      "target": "scizor",
-      "method": "trade",
-      "item": "metal_coat"
-    },
     "types": ["Bug", "Flying"],
     "baseStats": {
       "hp": 70,
@@ -4177,11 +4161,6 @@
     "id": "electabuzz",
     "name": "Electabuzz",
     "growthRate": "medium_fast",
-    "evolution": {
-      "target": "electivire",
-      "method": "trade",
-      "item": "electirizer"
-    },
     "types": ["Electric"],
     "baseStats": {
       "hp": 65,
@@ -4214,11 +4193,6 @@
     "id": "magmar",
     "name": "Magmar",
     "growthRate": "medium_fast",
-    "evolution": {
-      "target": "magmortar",
-      "method": "trade",
-      "item": "magmarizer"
-    },
     "types": ["Fire"],
     "baseStats": {
       "hp": 65,
@@ -4570,11 +4544,6 @@
     "id": "porygon",
     "name": "Porygon",
     "growthRate": "medium_fast",
-    "evolution": {
-      "target": "porygon2",
-      "method": "trade",
-      "item": "up_grade"
-    },
     "types": ["Normal"],
     "baseStats": {
       "hp": 65,
