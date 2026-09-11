@@ -100,9 +100,9 @@ renderRouteScreen() {
         btn.className = 'btn';
         btn.textContent = `Talk to ${npcData ? npcData.name : npcId}`;
         btn.onclick = () => {
-          this.game.interactWithNPC(npcId); // Fires the logic in app.js
-          this.setMenuState('route');       // Returns to route menu
-        };
+        this.game.interactionManager.processNPC(npcId); // Adjust property name if it's named 'interactions' on gameEngine
+        this.setMenuState('route');
+      };
         content.appendChild(btn);
       });
   
