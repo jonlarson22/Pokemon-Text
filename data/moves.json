@@ -45,7 +45,8 @@
     "category": "status",
     "power": 0,
     "accuracy": 100,
-    "pp": 30
+    "pp": 30,
+    "effect": {"type": "stat", "stat": "defense", "stages": -1, "target": "enemy"}
   },
  "giga_drain": {
   "name": "Giga Drain",
@@ -53,7 +54,8 @@
   "category": "special",
   "power": 75,
   "accuracy": 100,
-  "drain": 0.5
+  "pp": 10,
+  "effects": {"type": "drain", "value": 0.5}
 },
 "leech_seed": {
   "name": "Leech Seed",
@@ -61,10 +63,8 @@
   "category": "status",
   "power": 0,
   "accuracy": 90,
-  "effect": {
-    "type": "leech_seed",
-    "target": "enemy"
-  }
+  "pp": 10,
+  "effect": {"type": "leech_seed","target": "enemy"}
 },
   "smokescreen": {
     "name": "Smokescreen",
@@ -72,7 +72,8 @@
     "category": "status",
     "power": 0,
     "accuracy": 100,
-    "pp": 20
+    "pp": 20,
+    "effect": {"type": "stat", "stat": "accuracy", "stages": -1, "target": "enemy"}
   },
   "gust": {
     "name": "Gust",
@@ -89,12 +90,7 @@
     "power": 0,
     "accuracy": 100,
     "pp": 15,
-    "effect": {
-      "type": "stat",
-      "stat": "accuracy",
-      "stages": -1,
-      "target": "enemy"
-    }
+    "effect": {"type": "stat", "stat": "accuracy", "stages": -1, "target": "enemy"}
   },
   "quick_attack": {
     "name": "Quick Attack",
@@ -110,11 +106,8 @@
     "category": "status",
     "power": 0,
     "accuracy": 75,
-    "effect": {
-      "type": "status",
-      "condition": "SLP",
-      "target": "enemy"
-    }
+    "pp": 15,    
+    "effect": {"type": "status", "condition": "SLP", "chance": 100, "target": "enemy"}
   },
   "growl": {
     "name": "Growl",
@@ -122,12 +115,8 @@
     "category": "status",
     "power": 0,
     "accuracy": 100,
-    "effect": {
-      "type": "stat",
-      "stat": "attack",
-      "stages": -1,
-      "target": "enemy"
-    }
+    "pp": 40,     
+    "effect": {"type": "stat", "stat": "attack", "stages": -1, "target": "enemy"}
   },
   "ember": {
     "name": "Ember",
@@ -135,11 +124,7 @@
     "category": "special",
     "power": 40,
     "accuracy": 100,
-    "secondaryEffect": {
-      "chance": 10,
-      "type": "status",
-      "condition": "BRN",
-      "target": "enemy"
-    }
+    "pp": 25,  
+    "effect": {"type": "status", "condition": "BRN", "chance": 10, "target": "enemy"}
   }
 }
