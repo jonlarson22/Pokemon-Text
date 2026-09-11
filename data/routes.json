@@ -34,17 +34,22 @@
   "route1": {
     "name": "Route 1",
     "description": "A quiet path connecting Pallet Town and Viridian City.",
+    "isTown": false,
     "connections": ["pallet_town", "viridian_city"],
     "req_flag": null,
-    "encounters": [
-      { "species": "Pidgey", "min_level": 2, "max_level": 5, "weight": 55 },
-      { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 45 }
-    ],
-    "trainers": ["youngster_joey"],
+    "encounters": {
+      "grass": [
+        { "species": "Pidgey", "min_level": 2, "max_level": 5, "weight": 55 },
+        { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 45 }],
+      "water":  [],
+},
+    "trainers": [],
+    "npcs": [route_1_clerk],
     "explore_table": [
-      { "type": "nothing", "weight": 50 },
-      { "type": "encounter", "weight": 35 },
-      { "type": "item", "item": "Potion", "weight": 15 }
+      { "type": "nothing", "weight": 40 },
+      { "type": "encounter", "weight": 30 },
+      { "type": "item", "item": "Potion", "weight": 15 },
+      { "type": "item", "item": "Pokeball", "weight": 15 }
     ]
   },
   "viridian_city": {
