@@ -13,15 +13,19 @@
   "guard_route8": {
     "name": "Thirsty Guard",
     "req_flag_to_appear": null,
-    "dialogue_default": "I'm so thirsty... Oh, you have Tea? Thanks! You can pass now.",
+    "dialogue_default": "I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
     "requirements": [
-      { "type": "item", "id": "fresh_water", "qty": 1 }
+      {
+        "type": "item_any_of",
+        "ids": ["fresh_water", "soda_pop", "lemonade"],
+        "qty": 1
+      }
     ],
     "rewards": [
       { "type": "flag", "id": "guard_let_pass" },
-      { "type": "item_consumption", "id": "fresh_water", "qty": 1 }
+      { "type": "item_consumption_any_of", "ids": ["fresh_water", "soda_pop", "lemonade"], "qty": 1 }
     ],
-    "dialogue_req_unmet": "I'm so thirsty... But I can't accept just anything. Bring me a refreshing drink!",
+    "dialogue_req_unmet": "I'm so thirsty... But I can't accept just anything. Bring me a refreshing drink from the Celadon Dept. Store rooftop!",
     "dialogue_post_flag": "Thanks for the drink! The road to Saffron City is open."
   },
   "fossil_scientist_dome": {
