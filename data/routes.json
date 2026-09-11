@@ -58,8 +58,16 @@
     "connections": ["route1", "route2_south", "route22", "viridian_city_gym"],
     "gate_requirements": {
       "viridian_city_gym": {
-        "required_flags": ["defeated_rival_pallet"],
-        "blocked_message": "The door is locked. Better check back later!"
+        "required_flags": [
+          "boulder_badge",
+          "cascade_badge",
+          "thunder_badge",
+          "rainbow_badge",
+          "soul_badge",
+          "marsh_badge",
+          "volcano_badge"
+        ],
+        "blocked_message": "The gym doors are locked tight. You need 7 Gym Badges to enter!"
       }
     },
     "req_flag": null,
@@ -69,13 +77,15 @@
       "grass": [],
       "water": [
         { "species": "Poliwag", "min_level": 10, "max_level": 20, "weight": 50 },
-        { "species": "Tentacool", "min_level": 15, "max_level": 25, "weight": 50 }]
+        { "species": "Tentacool", "min_level": 15, "max_level": 25, "weight": 50 }
+      ]
     },
     "trainers": [],
     "npcs": [],
     "explore_table": [
       { "type": "nothing", "weight": 60 },
-      { "type": "item", "item": "Potion", "weight": 40 }]
+      { "type": "item", "item": "Potion", "weight": 40 }
+    ]
   },
   "route22": {
     "name": "Route 22",
