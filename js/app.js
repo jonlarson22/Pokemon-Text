@@ -267,6 +267,14 @@ class GameEngine {
     document.getElementById('btn-back-travel')?.addEventListener('click', () => this.ui.setMenuState('route'));
     document.getElementById('btn-save')?.addEventListener('click', () => this.handleSaveLoad());
     document.getElementById('btn-bag')?.addEventListener('click', () => this.openBag());
+
+    document.getElementById('btn-cancel-target')?.addEventListener('click', () => {
+          if (this.gameState.activeBattle) {
+            this.ui.setMenuState('battle');
+          } else {
+            this.openBag();
+          }
+        });
     
     document.getElementById('btn-run')?.addEventListener('click', () => {
       if (this.gameState.activeTrainer) {
