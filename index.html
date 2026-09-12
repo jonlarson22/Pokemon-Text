@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokémon Text</title>
+  
+  <!-- PWA Manifest & Web App Settings -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e3350d">
+  <link rel="apple-touch-icon" href="favicon.ico">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -105,6 +111,18 @@
     </nav>
   </div>
 
+  <!-- Game Engine Modules -->
   <script type="module" src="js/app.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker registered:', reg.scope))
+          .catch(err => console.error('Service Worker registration failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>
