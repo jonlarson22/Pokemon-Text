@@ -190,14 +190,31 @@ class GameEngine {
     switch (outcome.type) {
       case "nothing":
         return "You searched the area but found nothing of interest.";
+      
       case "encounter":
         const zone = route.encounters.grass || [];
         return this.triggerEncounter(zone);
+      
       case "item":
-        this.gameState.inventory[outcome.item] = (this.gameState.inventory[outcome.item] || 0) + 1;
-        return `You found a ${outcome.item}!`;
+        // 1. Create a unique flag for this route to prevent infinite looting
+        const itemFlag = `found_item_${this.gameState.currentRoute}`;
+        if (this.hasFlag(itemFlag)) {
+          // If they already found this route's item, default to "nothing" instead
+          return "You searched the area but found nothing of interest.";
+        }
+        
+        // Mark the item as found
+        this.setFlag(itemFlag, true);
+
+        // 2. Force the item ID to lowercase to ensure it matches db.items exactly
+        const itemId = outcome.item.toLowerCase();
+        this.gameState.inventory[itemId] = (this.gameState.inventory[itemId] || 0) + 1;
+        
+        // Try to get the formatted name from the DB for the log message, fallback to the raw string
+        const itemName = this.db.items[itemId] ? this.db.items[itemId].name : outcome.item;
+        return `You found a ${itemName}!`;
+      }
     }
-  }
 
   setFlag(flagName, value = true) {
     this.gameState.flags[flagName] = value;
