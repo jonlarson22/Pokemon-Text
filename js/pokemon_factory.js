@@ -63,15 +63,33 @@ export class PokemonFactory {
       },
       
       // NEW: Clone the move object to avoid mutating the main database and inject PP
-      moves: baseData.moves.slice(0, 4).map(moveId => {
-        const moveDef = this.engine.db.moves[moveId];
-        if (!moveDef) return null;
-        return {
-          ...moveDef,
-          maxPp: moveDef.pp,
-          pp: moveDef.pp
-        };
-      }).filter(Boolean),
+      moves: (() => {
+        let selectedMoves = [];
+
+        // Check if the database has a level-based learnset array
+        if (baseData.learnset) {
+          const availableMoves = baseData.learnset
+            .filter(learnInfo => learnInfo.level <= level)
+            .map(learnInfo => learnInfo.move);
+          
+          selectedMoves = availableMoves.slice(-4); 
+        } 
+        // Fallback to grabbing the first 4 standard moves if learnset doesn't exist
+        else if (baseData.moves) {
+          selectedMoves = baseData.moves.slice(0, 4);
+        }
+
+        // Clone move object and inject PP tracking
+        return selectedMoves.map(moveId => {
+          const moveDef = this.engine.db.moves[moveId];
+          if (!moveDef) return null;
+          return {
+            ...moveDef,
+            maxPp: moveDef.pp,
+            pp: moveDef.pp
+          };
+        }).filter(Boolean);
+      })(),
       
       // NEW: Apply accurate EXP values
       exp: startExp,
