@@ -334,7 +334,13 @@ executeTurn(playerMove) {
     else if (typeMultiplier < 1.0) this.onLog(`It's not very effective...`);
 
     this.onLog(`${defender.species} took ${finalDamage} damage! (${defender.hp}/${defender.maxHp} HP)`);
-
+    
+    if (move.name === "Struggle") {
+      const recoil = Math.max(1, Math.floor(attacker.maxHp / 4));
+      attacker.hp = Math.max(0, attacker.hp - recoil);
+      this.onLog(`${attacker.species} is hit with recoil! (${attacker.hp}/${attacker.maxHp} HP)`);
+    }
+      
     if (move.drain || move.effect?.type === "drain") {
       const drainRatio = move.drain || 0.5;
       const recovered = Math.min(attacker.maxHp - attacker.hp, Math.max(1, Math.floor(finalDamage * drainRatio)));
@@ -373,8 +379,10 @@ executeTurn(playerMove) {
       }
 
       // 2. If no enemies are left, trigger the victory
-      this.onLog(`You defeated ${this.trainerName}!`);
-      this.isOver = true;
+        if (this.trainerName === "Wild") {
+        this.onLog(`You defeated the wild ${this.enemyMon.species}!`);
+      }
+      this.isOver = true; // We keep this true momentarily to halt the current turn
       if (this.onVictory) this.onVictory(Array.from(this.participants), this.enemyMon); 
       return true;
     }
@@ -480,9 +488,22 @@ export class BattleManager {
     this.game.ui.setMenuState('battle');
   }
 
-  handleTurn(playerMove) {
+    handleTurn(playerMove) {
     if (!this.game.gameState.activeBattle) return;
-    if (playerMove.pp !== undefined && playerMove.pp > 0) playerMove.pp--;
+
+    // Check if the player has no moves with PP left
+    const allOutOfPP = this.game.gameState.activeBattle.playerMon.moves.every(m => m.pp === 0);
+    
+    if (allOutOfPP) {
+      // Force struggle
+      playerMove = { name: "Struggle", type: "Normal", category: "physical", power: 50, accuracy: 100 };
+    } else if (playerMove.pp !== undefined && playerMove.pp <= 0) {
+      // Prevent the player from clicking a move with 0 PP
+      this.game.ui.printToLog(`${playerMove.name} has no PP left!`);
+      return; 
+    } else if (playerMove.pp !== undefined) {
+      playerMove.pp--;
+    }
     
     this.game.gameState.activeBattle.executeTurn(playerMove);
     if (this.game.gameState.activeBattle && this.game.gameState.activeBattle.isOver) {
@@ -626,6 +647,9 @@ handleBattleEnd() {
 
       this.game.gameState.activeTrainer = null;
       this.game.gameState.activeBattle = null;
+
+      this.game.gameState.activeWinFlag = null;
+      this.game.gameState.activeTrainerPartyIndex = 0;
       
       setTimeout(() => {
         this.game.ui.renderRouteScreen();
@@ -709,6 +733,7 @@ handleBattleEnd() {
     this.game.ui.printToLog(`${this.game.gameState.activeTrainer.name} sent out ${enemyMon.species}!`);
     
     this.game.gameState.activeBattle.enemyMon = enemyMon;
+    this.game.gameState.activeBattle.isOver = false;
     
     this.game.ui.refreshBattleMoveButtons();
     this.game.ui.setMenuState('battle');
