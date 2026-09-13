@@ -126,5 +126,23 @@
     "accuracy": 100,
     "pp": 25,  
     "effect": {"type": "status", "condition": "BRN", "chance": 10, "target": "enemy"}
+  },
+  "string_shot": {
+    "name": "String Shot",
+    "type": "Bug",
+    "category": "status",
+    "power": 0,
+    "accuracy": 95,
+    "pp": 40,
+    "effect": {"type": "stat", "stat": "speed", "stages": -1, "target": "enemy"}
+  },
+  "poison_sting": {
+    "name": "Poison Sting",
+    "type": "Poison",
+    "category": "physical",
+    "power": 15,
+    "accuracy": 100,
+    "pp": 35,
+    "effect": {"type": "status", "condition": "PSN", "chance": 30, "target": "enemy"}
   }
 }
