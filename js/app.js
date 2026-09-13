@@ -176,6 +176,35 @@ class GameEngine {
     else this.battleManager.startBattle(result);
   }
 
+  startTrainerEncounter(trainerId) {
+    const trainer = this.factory.getDynamicTrainer(trainerId);
+    if (!trainer) {
+      this.ui.printToLog("Error: Trainer data not found!");
+      return;
+    }
+
+    this.ui.printToLog(`${trainer.name} wants to battle!`);
+    this.ui.printToLog(`"${trainer.dialogueBefore}"`);
+
+    const enemyMonData = trainer.party[0];
+    const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
+
+    // Apply custom moves if the trainer config defines them, and ensure PP is injected
+    if (enemyMonData.moves && enemyMonData.moves.length > 0) {
+      enemyMon.moves = enemyMonData.moves.map(moveId => {
+        const moveDef = this.db.moves[moveId];
+        if (!moveDef) return null;
+        return { ...moveDef, maxPp: moveDef.pp, pp: moveDef.pp };
+      }).filter(Boolean);
+    }
+
+    this.gameState.activeTrainerId = trainerId; // Store this for victory logic!
+    this.gameState.activeTrainerPartyIndex = 0; 
+    
+    this.ui.setMenuState('battle'); // Transition out of dynamic menu
+    this.battleManager.startTrainerBattle(enemyMon, trainer);
+  }
+  
   triggerEncounter(encounterList) {
     if (!encounterList || !encounterList.length) return "No wild Pokémon nearby.";
     const selected = this.getWeightedRandom(encounterList);
@@ -244,38 +273,42 @@ class GameEngine {
     document.getElementById('btn-party')?.addEventListener('click', () => this.ui.openPokemonMenu());
     document.getElementById('btn-pokedex')?.addEventListener('click', () => this.ui.openPokedex());
     
-    document.getElementById('btn-fight')?.addEventListener('click', () => {
+document.getElementById('btn-fight')?.addEventListener('click', () => {
       const route = this.db.routes[this.gameState.currentRoute];
       if (!route.trainers || route.trainers.length === 0) {
-        this.ui.printToLog("No active trainer battle nearby right now.");
+        this.ui.printToLog("There are no trainers looking for a battle here.");
         return;
       }
 
-      const undefeatedTrainerId = route.trainers.find(id => !this.gameState.defeatedTrainers[id]);
-      if (!undefeatedTrainerId) {
-        this.ui.printToLog("You have already defeated all trainers on this route!");
-        return;
-      }
+      this.ui.setMenuState('dynamic');
+      const content = document.getElementById('dynamic-content');
+      const controls = document.getElementById('dynamic-controls');
+      content.innerHTML = '<p style="text-align:center;">Who do you want to challenge?</p>';
+      controls.innerHTML = '';
 
-      const trainer = this.factory.getDynamicTrainer(undefeatedTrainerId);
-      if (!trainer) {
-        this.ui.printToLog("Error: Trainer data not found!");
-        return;
-      }
+      const buttons = [];
 
-      this.ui.printToLog(`${trainer.name} wants to battle!`);
-      this.ui.printToLog(`"${trainer.dialogueBefore}"`);
+      route.trainers.forEach(trainerId => {
+        const trainerTemplate = this.db.trainers[trainerId];
+        if (!trainerTemplate) return;
 
-      const enemyMonData = trainer.party[0];
-      const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
+        const isDefeated = this.gameState.defeatedTrainers[trainerId];
+        const statusText = isDefeated ? "(Defeated)" : "";
 
-      if (enemyMonData.moves) {
-        enemyMon.moves = enemyMonData.moves.map(moveId => this.db.moves[moveId]).filter(m => m);
-      }
+        buttons.push({
+          text: `Battle ${trainerTemplate.name} ${statusText}`,
+          action: () => {
+            if (isDefeated) {
+              this.ui.printToLog(`${trainerTemplate.name} has already been defeated!`);
+              return;
+            }
+            this.startTrainerEncounter(trainerId); 
+          }
+        });
+      });
 
-      this.gameState.activeTrainerId = undefeatedTrainerId;
-      this.gameState.activeTrainerPartyIndex = 0; 
-      this.battleManager.startTrainerBattle(enemyMon, trainer);
+      buttons.push({ text: "Cancel", action: () => this.ui.setMenuState('route') });
+      this.ui.buildMenuControls(controls, buttons);
     });
 
     document.getElementById('btn-travel')?.addEventListener('click', () => this.ui.setMenuState('travel'));
