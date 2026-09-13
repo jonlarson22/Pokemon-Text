@@ -534,6 +534,7 @@ handleBattleEnd() {
       const payout = trainer.rewardMoney ?? trainer.payout ?? 500;
       this.game.gameState.money += payout;
       this.game.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
+      this.game.gameState.defeatedTrainers[this.game.gameState.activeTrainerId] = true;  
       this.game.ui.updateMoneyUI();
       
       // 3. Set standard win flag silently
