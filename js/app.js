@@ -177,7 +177,7 @@ class GameEngine {
   }
 
   startTrainerEncounter(trainerId) {
-    const trainer = this.factory.getDynamicTrainer(trainerId);
+    const trainer = this.db.trainers[trainerId];
     if (!trainer) {
       this.ui.printToLog("Error: Trainer data not found!");
       return;
@@ -186,23 +186,22 @@ class GameEngine {
     this.ui.printToLog(`${trainer.name} wants to battle!`);
     this.ui.printToLog(`"${trainer.dialogueBefore}"`);
 
-    const enemyMonData = trainer.party[0];
-    const enemyMon = this.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
+    // Generate the full party of Pokémon instances with custom moves/levels
+    const enemyParty = trainer.party.map(monData => {
+      const enemyMon = this.factory.generatePokemonInstance(monData.species, monData.level);
+      if (monData.moves && monData.moves.length > 0) {
+        enemyMon.moves = monData.moves.map(moveId => {
+          const moveDef = this.db.moves[moveId];
+          if (!moveDef) return null;
+          return { ...moveDef, maxPp: moveDef.pp, pp: moveDef.pp };
+        }).filter(Boolean);
+      }
+      return enemyMon;
+    });
 
-    // Apply custom moves if the trainer config defines them, and ensure PP is injected
-    if (enemyMonData.moves && enemyMonData.moves.length > 0) {
-      enemyMon.moves = enemyMonData.moves.map(moveId => {
-        const moveDef = this.db.moves[moveId];
-        if (!moveDef) return null;
-        return { ...moveDef, maxPp: moveDef.pp, pp: moveDef.pp };
-      }).filter(Boolean);
-    }
-
-    this.gameState.activeTrainerId = trainerId; // Store this for victory logic!
-    this.gameState.activeTrainerPartyIndex = 0; 
-    
-    this.ui.setMenuState('battle'); // Transition out of dynamic menu
-    this.battleManager.startTrainerBattle(enemyMon, trainer);
+    this.gameState.activeTrainerId = trainerId;
+    this.ui.setMenuState('battle'); 
+    this.battleManager.startTrainerBattle(enemyParty, trainer);
   }
   
   triggerEncounter(encounterList) {
