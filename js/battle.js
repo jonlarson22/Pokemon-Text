@@ -634,7 +634,7 @@ handleBattleEnd() {
     const isWiped = this.game.gameState.party.every(p => p.hp <= 0);
     if (isWiped) {
       this.game.ui.printToLog("You hurried away to protect your Pokemon from further harm.");
-      this.game.gameState.money = Math.floor(this.game.gameState.money / 2);
+      this.game.gameState.money = Math.min(Math.floor(this.game.gameState.money / 2), 5000);
       this.game.gameState.currentRoute = this.game.gameState.lastHealedLocation || "pallet_town";
       
       this.game.gameState.party.forEach(p => {
@@ -715,6 +715,28 @@ handleBattleEnd() {
     ]);
   }
 
+  getTrainerMonMoves(trainerMonData) {
+    if (trainerMonData.moves && trainerMonData.moves.length > 0) {
+      return trainerMonData.moves;
+    }
+
+    // 2. Look up the species in your database 
+    // (Note: Adjust 'this.game.pokemonData' to match your actual database variable)
+    const speciesInfo = this.game.pokemonData[trainerMonData.species]; 
+
+    if (!speciesInfo || !speciesInfo.learnset) {
+      return []; 
+    }
+
+    // 3. Filter the learnset for moves at or below the current level
+    const availableMoves = speciesInfo.learnset
+      .filter(learnInfo => learnInfo.level <= trainerMonData.level)
+      .map(learnInfo => learnInfo.move);
+
+    // 4. Return up to the 4 most recent moves
+    return availableMoves.slice(-4); 
+  }
+    
   sendNextTrainerPokemon() {
     const nextMonData = this.game.gameState.pendingEnemyMonData;
     this.game.gameState.pendingEnemyMonData = null; 
