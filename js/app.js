@@ -273,7 +273,7 @@ class GameEngine {
         enemyMon.moves = enemyMonData.moves.map(moveId => this.db.moves[moveId]).filter(m => m);
       }
 
-      this.gameState.defeatedTrainers[undefeatedTrainerId] = true; 
+      this.gameState.activeTrainerId = undefeatedTrainerId;
       this.gameState.activeTrainerPartyIndex = 0; 
       this.battleManager.startTrainerBattle(enemyMon, trainer);
     });
