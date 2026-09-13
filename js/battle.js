@@ -362,32 +362,28 @@ executeTurn(playerMove) {
     }
   }
 
-  checkWinLoss() {
+ checkWinLoss() {
     if (this.enemyMon.hp <= 0) {
       const prefix = this.trainerName === "Wild" ? "Wild" : `${this.trainerName}'s`;
       this.onLog(`${prefix} ${this.enemyMon.species} fainted!`);
 
-      // 1. Check if the enemy has more usable Pokémon
       const nextEnemy = this.enemyParty.find(mon => mon.hp > 0);
       
       if (nextEnemy) {
-        // Send out the next Pokémon
         this.enemyMon = nextEnemy;
         this.setupBattleStats(this.enemyMon);
         this.onLog(`${this.trainerName} sent out ${this.enemyMon.species}!`);
-        return true; // The battle continues
+        return true; 
       }
 
-      // 2. If no enemies are left, trigger the victory
-        if (this.trainerName === "Wild") {
+      if (this.trainerName === "Wild") {
         this.onLog(`You defeated the wild ${this.enemyMon.species}!`);
       }
-      this.isOver = true; // We keep this true momentarily to halt the current turn
+      this.isOver = true; 
       if (this.onVictory) this.onVictory(Array.from(this.participants), this.enemyMon); 
       return true;
     }
 
-    // Player fainting logic remains identical...
     if (this.playerMon.hp <= 0) {
       this.onLog(`${this.playerMon.species} fainted!`);
       const hasHealthyMon = this.party.some(mon => mon.hp > 0);
@@ -448,12 +444,16 @@ export class BattleManager {
     this.game.ui.setMenuState('battle');
   }
 
-  startTrainerBattle(enemyMon, trainer, winFlag = null) {
-    const speciesKey = enemyMon.species.toLowerCase();
-    this.game.gameState.pokedex.seen[speciesKey] = true;
+startTrainerBattle(enemyParty, trainer, winFlag = null) {
+    const activeEnemyParty = Array.isArray(enemyParty) ? enemyParty : [enemyParty];
+    
+    activeEnemyParty.forEach(mon => {
+      const speciesKey = mon.species.toLowerCase();
+      this.game.gameState.pokedex.seen[speciesKey] = true;
+    });
     this.game.ui.updatePokedexTrackerUI();
 
-    this.game.ui.printToLog(`${trainer.name} sent out ${enemyMon.species} (Lv. ${enemyMon.level})!`);
+    this.game.ui.printToLog(`${trainer.name} sent out ${activeEnemyParty[0].species} (Lv. ${activeEnemyParty[0].level})!`);
     
     const enemyItems = (trainer.items || []).map(itemId => {
       const itemObj = this.game.db.items[itemId];
@@ -462,7 +462,7 @@ export class BattleManager {
 
     this.game.gameState.activeBattle = new BattleEngine(
       this.game.gameState.party[0], 
-      enemyMon, 
+      activeEnemyParty, 
       (msg) => {
         this.game.ui.printToLog(msg);
         this.game.ui.updatePartyUI();
@@ -514,42 +514,29 @@ export class BattleManager {
 handleBattleEnd() {
     if (this.checkBlackout()) return; 
 
-    if (this.game.gameState.activeBattle && this.game.gameState.activeBattle.enemyMon.hp <= 0 && this.game.gameState.activeTrainer) {
-      this.game.gameState.activeTrainerPartyIndex++;
+    if (this.game.gameState.activeBattle && this.game.gameState.activeTrainer) {
       const trainer = this.game.gameState.activeTrainer;
 
-      // Handle trainer sending next Pokemon
-      if (this.game.gameState.activeTrainerPartyIndex < trainer.party.length) {
-        const nextMonData = trainer.party[this.game.gameState.activeTrainerPartyIndex];
-        this.promptTrainerSwitch(nextMonData, trainer);
-        return; 
-      }
-
-      // 1. Print defeat dialogue if defined
       if (trainer.dialogueAfter) {
         this.game.ui.printToLog(`${trainer.name}: "${trainer.dialogueAfter}"`);
       }
 
-      // 2. Read reward money
       const payout = trainer.rewardMoney ?? trainer.payout ?? 500;
       this.game.gameState.money += payout;
       this.game.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
       this.game.gameState.defeatedTrainers[this.game.gameState.activeTrainerId] = true;  
       this.game.ui.updateMoneyUI();
       
-      // 3. Set standard win flag silently
       if (this.game.gameState.activeWinFlag) {
         this.game.setFlag(this.game.gameState.activeWinFlag, true);
       }
 
-      // 4. Process custom rewards (Badges, Items, Pokemon Choices)
       if (trainer.rewards && trainer.rewards.length > 0) {
         this.processBattleRewards(trainer.rewards);
-        return; // Halt here; processBattleRewards will call finishBattleCleanup() when done.
+        return; 
       }
     }
     
-    // If no custom rewards required a pause, clean up and exit
     this.finishBattleCleanup();
   }
 
