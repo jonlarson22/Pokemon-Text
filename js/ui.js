@@ -278,7 +278,7 @@ renderRouteScreen() {
     ]);
   }
 
-  // MOVED FROM APP.JS
+// MOVED FROM APP.JS
   refreshBattleMoveButtons() {
     const activeMon = this.game.gameState.party[0];
     const leadMoves = activeMon.moves;
@@ -287,21 +287,32 @@ renderRouteScreen() {
       const btn = document.getElementById(`btn-move-${i}`);
       const move = leadMoves[i];
 
-      if (btn && move) {
-        btn.textContent = move.maxPp !== undefined ? `${move.name} (${move.pp}/${move.maxPp})` : move.name;
+      if (btn) {
+        if (move) {
+          // Fallback: If maxPp is undefined (like on Ember), use its base pp
+          const maxPp = move.maxPp !== undefined ? move.maxPp : move.pp;
+          
+          btn.textContent = maxPp !== undefined ? `${move.name} (${move.pp}/${maxPp})` : move.name;
 
-        if (move.pp !== undefined && move.pp <= 0) {
+          if (move.pp !== undefined && move.pp <= 0) {
+            btn.disabled = true;
+            btn.style.opacity = "0.5";
+            btn.onclick = null;
+          } else {
+            btn.disabled = false;
+            btn.style.opacity = "1";
+            btn.onclick = () => this.game.battleManager.handleTurn(move);
+          }
+        } else {
+          // Handle Empty Move Slots
+          btn.textContent = "(Empty Move)";
           btn.disabled = true;
           btn.style.opacity = "0.5";
           btn.onclick = null;
-        } else {
-          btn.disabled = false;
-          btn.style.opacity = "1";
-          btn.onclick = () => this.game.battleManager.handleTurn(move); // Calls BattleManager!
         }
+        
+        // Ensure the button is always visible
         btn.style.display = "block";
-      } else if (btn) {
-        btn.style.display = "none";
       }
     }
   }
