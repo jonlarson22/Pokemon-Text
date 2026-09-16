@@ -1,10 +1,10 @@
-const CACHE_NAME = 'Pokémon_Text-v0.1';
+const CACHE_NAME = 'Pokémon_Text-v0.2';
 
 // List every file your game needs to run offline
 const ASSETS_TO_CACHE = [
   './index.html',
   './style.css',
-  './favicon.ico',
+  './icon.png',
   './manifest.json',
   // JS Files
   './js/app.js',
