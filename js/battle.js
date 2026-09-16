@@ -524,7 +524,11 @@ handleBattleEnd() {
       const payout = trainer.rewardMoney ?? trainer.payout ?? 500;
       this.game.gameState.money += payout;
       this.game.ui.printToLog(`You defeated ${trainer.name} and got ¥${payout}!`);
+      
+      // Update the defeated status AND set the global flag for route gating
       this.game.gameState.defeatedTrainers[this.game.gameState.activeTrainerId] = true;  
+      this.game.setFlag(`defeated_${this.game.gameState.activeTrainerId}`, true);
+      
       this.game.ui.updateMoneyUI();
       
       if (this.game.gameState.activeWinFlag) {
