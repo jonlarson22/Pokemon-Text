@@ -273,6 +273,42 @@ executeTurn(playerMove) {
       }
     }
 
+    if (move.ohko) {
+      if (attacker.level < defender.level) {
+        this.onLog(`But it failed!`);
+        return;
+      }
+      defender.hp = 0;
+      this.onLog(`It's a one-hit KO!`);
+      return;
+    }
+
+    if (move.fixed) {
+      let fixedDamage = 0;
+      if (move.fixed.kind === "level") fixedDamage = attacker.level;
+      else if (move.fixed.kind === "value") fixedDamage = move.fixed.value;
+      else if (move.fixed.kind === "half") fixedDamage = Math.max(1, Math.floor(defender.hp / 2));
+      else if (move.fixed.kind === "level_random") fixedDamage = Math.floor(attacker.level * (Math.random() + 0.5));
+
+      let typeMultiplier = 1.0;
+      if (this.typeChart && defender.types) {
+        const moveTypeLower = move.type.toLowerCase();
+        defender.types.forEach(defType => {
+          const defTypeLower = defType.toLowerCase();
+          if (this.typeChart[moveTypeLower] && this.typeChart[moveTypeLower][defTypeLower] !== undefined) {
+            typeMultiplier *= this.typeChart[moveTypeLower][defTypeLower];
+          }
+        });
+      }
+      if (typeMultiplier === 0) {
+        this.onLog(`It had no effect on ${defender.species}!`);
+        return;
+      }
+      defender.hp = Math.max(0, defender.hp - fixedDamage);
+      this.onLog(`${defender.species} took ${fixedDamage} damage! (${defender.hp}/${defender.maxHp} HP)`);
+      return;
+    }
+
     if (move.category === "status" || move.power === 0) {
       if (move.effect) {
         if (move.effect.type === "leech_seed") {
