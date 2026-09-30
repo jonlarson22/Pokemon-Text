@@ -80,7 +80,7 @@ export class PokemonFactory {
         }
 
         // Clone move object and inject PP tracking
-        return selectedMoves.map(moveId => {
+        let resolved = selectedMoves.map(moveId => {
           const moveDef = this.engine.db.moves[moveId];
           if (!moveDef) return null;
           return {
@@ -89,6 +89,14 @@ export class PokemonFactory {
             pp: moveDef.pp
           };
         }).filter(Boolean);
+
+        // Safety net: never send a Pokemon into battle with zero moves.
+        // Falls back to Tackle until moves.json is fully built out.
+        if (resolved.length === 0 && this.engine.db.moves['tackle']) {
+          const t = this.engine.db.moves['tackle'];
+          resolved = [{ ...t, maxPp: t.pp, pp: t.pp }];
+        }
+        return resolved;
       })(),
       
       // NEW: Apply accurate EXP values
