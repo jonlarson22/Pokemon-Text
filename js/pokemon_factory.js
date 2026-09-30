@@ -1,1 +1,167 @@
-Ly8gcG9rZW1vbl9mYWN0b3J5LmpzCgpleHBvcnQgY2xhc3MgUG9rZW1vbkZhY3RvcnkgewogIGNvbnN0cnVjdG9yKGVuZ2luZSkgewogICAgdGhpcy5lbmdpbmUgPSBlbmdpbmU7CiAgfQoKICBnZW5lcmF0ZVBva2Vtb25JbnN0YW5jZShzcGVjaWVzSWQsIGxldmVsKSB7CiAgICBjb25zdCBzYWZlSWQgPSBzcGVjaWVzSWQudG9Mb3dlckNhc2UoKTsgCiAgICBjb25zdCBiYXNlRGF0YSA9IHRoaXMuZW5naW5lLmRiLnBva2Vtb25bc2FmZUlkXTsKICAgIAogICAgaWYgKCFiYXNlRGF0YSkgewogICAgICBjb25zb2xlLmVycm9yKGBNaXNzaW5nIGRhdGEgZm9yIHNwZWNpZXM6ICR7c3BlY2llc0lkfWApOwogICAgICByZXR1cm4gbnVsbDsKICAgIH0KCiAgICAvLyBHZW5lcmF0ZSBJbmRpdmlkdWFsIFZhbHVlcyAoSVZzKSBiZXR3ZWVuIDAgYW5kIDMxCiAgICBjb25zdCBpdnMgPSB7CiAgICAgIGhwOiBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAzMiksCiAgICAgIGF0dGFjazogTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogMzIpLAogICAgICBkZWZlbnNlOiBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAzMiksCiAgICAgIHNwQXRrOiBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAzMiksCiAgICAgIHNwRGVmOiBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAzMiksCiAgICAgIHNwZWVkOiBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAzMikKICAgIH07CgogICAgY29uc3QgY2FsY1N0YXQgPSAoYmFzZSwgaXYsIGx2bCwgaXNIUCkgPT4gewogICAgICBpZiAoaXNIUCkgcmV0dXJuIE1hdGguZmxvb3IoKCgyICogYmFzZSArIGl2KSAqIGx2bCkgLyAxMDApICsgbHZsICsgMTA7CiAgICAgIHJldHVybiBNYXRoLmZsb29yKCgoMiAqIGJhc2UgKyBpdikgKiBsdmwpIC8gMTAwKSArIDU7CiAgICB9OwoKICAgIGNvbnN0IGhwID0gY2FsY1N0YXQoYmFzZURhdGEuYmFzZVN0YXRzLmhwLCBpdnMuaHAsIGxldmVsLCB0cnVlKTsKCiAgICAvLyBORVc6IENhbGN1bGF0ZSBjb3JyZWN0IEVYUCB1c2luZyBmb3JtdWxhcyBmcm9tIHRoZSBncm93dGggY2hhcnQKICAgIGNvbnN0IGdyb3d0aCA9IGJhc2VEYXRhLmdyb3d0aFJhdGUgfHwgJ21lZGl1bV9mYXN0JzsKICAgIGNvbnN0IGdldEV4cCA9IChsdmwpID0+IHsKICAgICAgaWYgKGx2bCA8PSAxKSByZXR1cm4gMDsKICAgICAgc3dpdGNoIChncm93dGgpIHsKICAgICAgICBjYXNlICdmYXN0JzogcmV0dXJuIE1hdGguZmxvb3IoKDQgKiBNYXRoLnBvdyhsdmwsIDMpKSAvIDUpOwogICAgICAgIGNhc2UgJ21lZGl1bV9zbG93JzogcmV0dXJuIE1hdGguZmxvb3IoKDEuMiAqIE1hdGgucG93KGx2bCwgMykpIC0gKDE1ICogTWF0aC5wb3cobHZsLCAyKSkgKyAoMTAwICogbHZsKSAtIDE0MCk7CiAgICAgICAgY2FzZSAnc2xvdyc6IHJldHVybiBNYXRoLmZsb29yKCg1ICogTWF0aC5wb3cobHZsLCAzKSkgLyA0KTsKICAgICAgICBjYXNlICdtZWRpdW1fZmFzdCc6IGRlZmF1bHQ6IHJldHVybiBNYXRoLnBvdyhsdmwsIDMpOwogICAgICB9CiAgICB9OwoKICAgIGNvbnN0IHN0YXJ0RXhwID0gZ2V0RXhwKGxldmVsKTsKICAgIGNvbnN0IG5leHRFeHAgPSBnZXRFeHAobGV2ZWwgKyAxKTsKICAgIAogICAgcmV0dXJuIHsKICAgICAgc3BlY2llczogYmFzZURhdGEubmFtZSwKICAgICAgaWQ6IHNhZmVJZCwKICAgICAgdHlwZXM6IGJhc2VEYXRhLnR5cGVzLAogICAgICBsZXZlbDogbGV2ZWwsCiAgICAgIGhwOiBocCwKICAgICAgbWF4SHA6IGhwLAogICAgICBpdnM6IGl2cywKICAgICAgc3BlZWQ6IGNhbGNTdGF0KGJhc2VEYXRhLmJhc2VTdGF0cy5zcGVlZCwgaXZzLnNwZWVkLCBsZXZlbCwgZmFsc2UpLAogICAgICBzdGF0czogewogICAgICAgIGF0dGFjazogY2FsY1N0YXQoYmFzZURhdGEuYmFzZVN0YXRzLmF0dGFjaywgaXZzLmF0dGFjaywgbGV2ZWwsIGZhbHNlKSwKICAgICAgICBkZWZlbnNlOiBjYWxjU3RhdChiYXNlRGF0YS5iYXNlU3RhdHMuZGVmZW5zZSwgaXZzLmRlZmVuc2UsIGxldmVsLCBmYWxzZSksCiAgICAgICAgc3BBdGs6IGNhbGNTdGF0KGJhc2VEYXRhLmJhc2VTdGF0cy5zcEF0aywgaXZzLnNwQXRrLCBsZXZlbCwgZmFsc2UpLAogICAgICAgIHNwRGVmOiBjYWxjU3RhdChiYXNlRGF0YS5iYXNlU3RhdHMuc3BEZWYsIGl2cy5zcERlZiwgbGV2ZWwsIGZhbHNlKSwKICAgICAgfSwKICAgICAgCiAgICAgIC8vIE5FVzogQ2xvbmUgdGhlIG1vdmUgb2JqZWN0IHRvIGF2b2lkIG11dGF0aW5nIHRoZSBtYWluIGRhdGFiYXNlIGFuZCBpbmplY3QgUFAKICAgICAgbW92ZXM6ICgoKSA9PiB7CiAgICAgICAgbGV0IHNlbGVjdGVkTW92ZXMgPSBbXTsKCiAgICAgICAgLy8gQ2hlY2sgaWYgdGhlIGRhdGFiYXNlIGhhcyBhIGxldmVsLWJhc2VkIGxlYXJuc2V0IGFycmF5CiAgICAgICAgaWYgKGJhc2VEYXRhLmxlYXJuc2V0KSB7CiAgICAgICAgICBjb25zdCBhdmFpbGFibGVNb3ZlcyA9IGJhc2VEYXRhLmxlYXJuc2V0CiAgICAgICAgICAgIC5maWx0ZXIobGVhcm5JbmZvID0+IGxlYXJuSW5mby5sZXZlbCA8PSBsZXZlbCkKICAgICAgICAgICAgLm1hcChsZWFybkluZm8gPT4gbGVhcm5JbmZvLm1vdmUpOwogICAgICAgICAgCiAgICAgICAgICBzZWxlY3RlZE1vdmVzID0gYXZhaWxhYmxlTW92ZXMuc2xpY2UoLTQpOyAKICAgICAgICB9IAogICAgICAgIC8vIEZhbGxiYWNrIHRvIGdyYWJiaW5nIHRoZSBmaXJzdCA0IHN0YW5kYXJkIG1vdmVzIGlmIGxlYXJuc2V0IGRvZXNuJ3QgZXhpc3QKICAgICAgICBlbHNlIGlmIChiYXNlRGF0YS5tb3ZlcykgewogICAgICAgICAgc2VsZWN0ZWRNb3ZlcyA9IGJhc2VEYXRhLm1vdmVzLnNsaWNlKDAsIDQpOwogICAgICAgIH0KCiAgICAgICAgLy8gQ2xvbmUgbW92ZSBvYmplY3QgYW5kIGluamVjdCBQUCB0cmFja2luZwogICAgICAgIHJldHVybiBzZWxlY3RlZE1vdmVzLm1hcChtb3ZlSWQgPT4gewogICAgICAgICAgY29uc3QgbW92ZURlZiA9IHRoaXMuZW5naW5lLmRiLm1vdmVzW21vdmVJZF07CiAgICAgICAgICBpZiAoIW1vdmVEZWYpIHJldHVybiBudWxsOwogICAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgLi4ubW92ZURlZiwKICAgICAgICAgICAgbWF4UHA6IG1vdmVEZWYucHAsCiAgICAgICAgICAgIHBwOiBtb3ZlRGVmLnBwCiAgICAgICAgICB9OwogICAgICAgIH0pLmZpbHRlcihCb29sZWFuKTsKICAgICAgfSkoKSwKICAgICAgCiAgICAgIC8vIE5FVzogQXBwbHkgYWNjdXJhdGUgRVhQIHZhbHVlcwogICAgICBleHA6IHN0YXJ0RXhwLAogICAgICBtYXhFeHA6IG5leHRFeHAKICAgIH07CiAgfQoKICBwaWNrU3RhcnRlcihzcGVjaWVzSWQpIHsKICAgIGNvbnN0IHNhZmVJZCA9IHNwZWNpZXNJZC50b0xvd2VyQ2FzZSgpOwogICAgY29uc3QgYWR2YW50YWdlTWFwID0gewogICAgICAnYnVsYmFzYXVyJzogJ2NoYXJtYW5kZXInLAogICAgICAnY2hhcm1hbmRlcic6ICdzcXVpcnRsZScsCiAgICAgICdzcXVpcnRsZSc6ICdidWxiYXNhdXInCiAgICB9OwogICAgCiAgICB0aGlzLmVuZ2luZS5nYW1lU3RhdGUucml2YWxTdGFydGVyID0gYWR2YW50YWdlTWFwW3NhZmVJZF07CiAgICBjb25zdCBzdGFydGVyID0gdGhpcy5nZW5lcmF0ZVBva2Vtb25JbnN0YW5jZShzYWZlSWQsIDUpOyAvLyBVc2VzIGl0cyBvd24gbWV0aG9kCiAgICAKICAgIHRoaXMuZW5naW5lLmdhbWVTdGF0ZS5wYXJ0eS5wdXNoKHN0YXJ0ZXIpOwogICAgdGhpcy5lbmdpbmUuZ2FtZVN0YXRlLmhhc1N0YXJ0ZXIgPSB0cnVlOwogICAgCiAgICB0aGlzLmVuZ2luZS5nYW1lU3RhdGUucG9rZWRleC5zZWVuW3NhZmVJZF0gPSB0cnVlOwogICAgdGhpcy5lbmdpbmUuZ2FtZVN0YXRlLnBva2VkZXguY2F1Z2h0W3NhZmVJZF0gPSB0cnVlOwogICAgdGhpcy5lbmdpbmUudWkudXBkYXRlUG9rZWRleFRyYWNrZXJVSSgpOwoKICAgIHRoaXMuZW5naW5lLnVpLnByaW50VG9Mb2coYFlvdSBjaG9zZSAke3N0YXJ0ZXIuc3BlY2llc30hIEEgZmFudGFzdGljIGNob2ljZS5gKTsKICAgIHRoaXMuZW5naW5lLmNoZWNrR2FtZVN0YXJ0KCk7IC8vIGFwcC5qcyBzdGlsbCBoYW5kbGVzIHRoZSBvdmVyYWxsIGJvb3QgZmxvdwogIH0KCiAgLy8gTU9WRUQgRlJPTSBBUFAuSlMKICBnZXREeW5hbWljVHJhaW5lcih0cmFpbmVySWQpIHsKICAgIGNvbnN0IHRyYWluZXJUZW1wbGF0ZSA9IHRoaXMuZW5naW5lLmRiLnRyYWluZXJzW3RyYWluZXJJZF07CiAgICBpZiAoIXRyYWluZXJUZW1wbGF0ZSkgcmV0dXJuIG51bGw7CgogICAgY29uc3QgdHJhaW5lciA9IEpTT04ucGFyc2UoSlNPTi5zdHJpbmdpZnkodHJhaW5lclRlbXBsYXRlKSk7CgogICAgdHJhaW5lci5wYXJ0eS5mb3JFYWNoKG1vbiA9PiB7CiAgICAgIGlmIChtb24uc3BlY2llcyA9PT0gIlJJVkFMX1NUQVJURVIiKSB7CiAgICAgICAgbW9uLnNwZWNpZXMgPSB0aGlzLmVuZ2luZS5nYW1lU3RhdGUucml2YWxTdGFydGVyOwogICAgICB9CiAgICAgIGlmIChtb24uc3BlY2llcyA9PT0gIlJJVkFMX1NUQVJURVJfU1RBR0VfMiIpIHsKICAgICAgICBjb25zdCBzdGFnZTJNYXAgPSB7ICdidWxiYXNhdXInOiAnaXZ5c2F1cicsICdjaGFybWFuZGVyJzogJ2NoYXJtZWxlb24nLCAnc3F1aXJ0bGUnOiAnd2FydG9ydGxlJyB9OwogICAgICAgIG1vbi5zcGVjaWVzID0gc3RhZ2UyTWFwW3RoaXMuZW5naW5lLmdhbWVTdGF0ZS5yaXZhbFN0YXJ0ZXJdOwogICAgICB9CiAgICAgIGlmIChtb24uc3BlY2llcyA9PT0gIlJJVkFMX1NUQVJURVJfU1RBR0VfMyIpIHsKICAgICAgICBjb25zdCBzdGFnZTNNYXAgPSB7ICdidWxiYXNhdXInOiAndmVudXNhdXInLCAnY2hhcm1hbmRlcic6ICdjaGFyaXphcmQnLCAnc3F1aXJ0bGUnOiAnYmxhc3RvaXNlJyB9OwogICAgICAgIG1vbi5zcGVjaWVzID0gc3RhZ2UzTWFwW3RoaXMuZW5naW5lLmdhbWVTdGF0ZS5yaXZhbFN0YXJ0ZXJdOwogICAgICB9CiAgICB9KTsKCiAgICByZXR1cm4gdHJhaW5lcjsgIAogIH0KCiAgLy8gQnVpbGRzIGZ1bGwgYmF0dGxlLXJlYWR5IHBhcnR5IGluc3RhbmNlcyBmb3IgYSB0cmFpbmVyIHRlbXBsYXRlLAogIC8vIGFwcGx5aW5nIGN1c3RvbSBtb3Zlc2V0cyB3aGVuIHRoZSBtb3ZlcyBleGlzdCBpbiBtb3Zlcy5qc29uLgogIC8vIE1vdmVzIHRoYXQgZG9uJ3QgZXhpc3QgeWV0IGFyZSBza2lwcGVkIHNvIHRoZSBnZW5lcmF0ZWQKICAvLyBsZXZlbC11cCBtb3ZlcyBzdGF5IGludGFjdC4KICBnZW5lcmF0ZVRyYWluZXJQYXJ0eSh0cmFpbmVyKSB7CiAgICBjb25zdCBtb3ZlRGIgPSAodGhpcy5lbmdpbmUuZGIgJiYgdGhpcy5lbmdpbmUuZGIubW92ZXMpIHx8IHt9OwogICAgcmV0dXJuICh0cmFpbmVyLnBhcnR5IHx8IFtdKS5tYXAobW9uRGF0YSA9PiB7CiAgICAgIGNvbnN0IGVuZW15TW9uID0gdGhpcy5nZW5lcmF0ZVBva2Vtb25JbnN0YW5jZShtb25EYXRhLnNwZWNpZXMsIG1vbkRhdGEubGV2ZWwpOwogICAgICBpZiAobW9uRGF0YS5tb3ZlcyAmJiBtb25EYXRhLm1vdmVzLmxlbmd0aCA+IDApIHsKICAgICAgICBjb25zdCBjdXN0b21Nb3ZlcyA9IG1vbkRhdGEubW92ZXMubWFwKG1vdmVJZCA9PiB7CiAgICAgICAgICBjb25zdCBtb3ZlRGVmID0gbW92ZURiW21vdmVJZF07CiAgICAgICAgICBpZiAoIW1vdmVEZWYpIHJldHVybiBudWxsOwogICAgICAgICAgcmV0dXJuIHsgLi4ubW92ZURlZiwgbWF4UHA6IG1vdmVEZWYucHAsIHBwOiBtb3ZlRGVmLnBwIH07CiAgICAgICAgfSkuZmlsdGVyKEJvb2xlYW4pOwogICAgICAgIGlmIChjdXN0b21Nb3Zlcy5sZW5ndGggPiAwKSB7CiAgICAgICAgICBlbmVteU1vbi5tb3ZlcyA9IGN1c3RvbU1vdmVzOwogICAgICAgIH0KICAgICAgfQogICAgICByZXR1cm4gZW5lbXlNb247CiAgICB9KTsKICB9Cn0K
+// pokemon_factory.js
+
+export class PokemonFactory {
+  constructor(engine) {
+    this.engine = engine;
+  }
+
+  generatePokemonInstance(speciesId, level) {
+    const safeId = speciesId.toLowerCase(); 
+    const baseData = this.engine.db.pokemon[safeId];
+    
+    if (!baseData) {
+      console.error(`Missing data for species: ${speciesId}`);
+      return null;
+    }
+
+    // Generate Individual Values (IVs) between 0 and 31
+    const ivs = {
+      hp: Math.floor(Math.random() * 32),
+      attack: Math.floor(Math.random() * 32),
+      defense: Math.floor(Math.random() * 32),
+      spAtk: Math.floor(Math.random() * 32),
+      spDef: Math.floor(Math.random() * 32),
+      speed: Math.floor(Math.random() * 32)
+    };
+
+    const calcStat = (base, iv, lvl, isHP) => {
+      if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;
+      return Math.floor(((2 * base + iv) * lvl) / 100) + 5;
+    };
+
+    const hp = calcStat(baseData.baseStats.hp, ivs.hp, level, true);
+
+    // NEW: Calculate correct EXP using formulas from the growth chart
+    const growth = baseData.growthRate || 'medium_fast';
+    const getExp = (lvl) => {
+      if (lvl <= 1) return 0;
+      switch (growth) {
+        case 'fast': return Math.floor((4 * Math.pow(lvl, 3)) / 5);
+        case 'medium_slow': return Math.floor((1.2 * Math.pow(lvl, 3)) - (15 * Math.pow(lvl, 2)) + (100 * lvl) - 140);
+        case 'slow': return Math.floor((5 * Math.pow(lvl, 3)) / 4);
+        case 'medium_fast': default: return Math.pow(lvl, 3);
+      }
+    };
+
+    const startExp = getExp(level);
+    const nextExp = getExp(level + 1);
+    
+    return {
+      species: baseData.name,
+      id: safeId,
+      types: baseData.types,
+      level: level,
+      hp: hp,
+      maxHp: hp,
+      ivs: ivs,
+      speed: calcStat(baseData.baseStats.speed, ivs.speed, level, false),
+      stats: {
+        attack: calcStat(baseData.baseStats.attack, ivs.attack, level, false),
+        defense: calcStat(baseData.baseStats.defense, ivs.defense, level, false),
+        spAtk: calcStat(baseData.baseStats.spAtk, ivs.spAtk, level, false),
+        spDef: calcStat(baseData.baseStats.spDef, ivs.spDef, level, false),
+      },
+      
+      // NEW: Clone the move object to avoid mutating the main database and inject PP
+      moves: (() => {
+        let selectedMoves = [];
+
+        // Check if the database has a level-based learnset array
+        if (baseData.learnset) {
+          const availableMoves = baseData.learnset
+            .filter(learnInfo => learnInfo.level <= level)
+            .map(learnInfo => learnInfo.move);
+          
+          selectedMoves = availableMoves.slice(-4); 
+        } 
+        // Fallback to grabbing the first 4 standard moves if learnset doesn't exist
+        else if (baseData.moves) {
+          selectedMoves = baseData.moves.slice(0, 4);
+        }
+
+        // Clone move object and inject PP tracking
+        return selectedMoves.map(moveId => {
+          const moveDef = this.engine.db.moves[moveId];
+          if (!moveDef) return null;
+          return {
+            ...moveDef,
+            maxPp: moveDef.pp,
+            pp: moveDef.pp
+          };
+        }).filter(Boolean);
+      })(),
+      
+      // NEW: Apply accurate EXP values
+      exp: startExp,
+      maxExp: nextExp
+    };
+  }
+
+  pickStarter(speciesId) {
+    const safeId = speciesId.toLowerCase();
+    const advantageMap = {
+      'bulbasaur': 'charmander',
+      'charmander': 'squirtle',
+      'squirtle': 'bulbasaur'
+    };
+    
+    this.engine.gameState.rivalStarter = advantageMap[safeId];
+    const starter = this.generatePokemonInstance(safeId, 5); // Uses its own method
+    
+    this.engine.gameState.party.push(starter);
+    this.engine.gameState.hasStarter = true;
+    
+    this.engine.gameState.pokedex.seen[safeId] = true;
+    this.engine.gameState.pokedex.caught[safeId] = true;
+    this.engine.ui.updatePokedexTrackerUI();
+
+    this.engine.ui.printToLog(`You chose ${starter.species}! A fantastic choice.`);
+    this.engine.checkGameStart(); // app.js still handles the overall boot flow
+  }
+
+  // MOVED FROM APP.JS
+  getDynamicTrainer(trainerId) {
+    const trainerTemplate = this.engine.db.trainers[trainerId];
+    if (!trainerTemplate) return null;
+
+    const trainer = JSON.parse(JSON.stringify(trainerTemplate));
+
+    trainer.party.forEach(mon => {
+      if (mon.species === "RIVAL_STARTER") {
+        mon.species = this.engine.gameState.rivalStarter;
+      }
+      if (mon.species === "RIVAL_STARTER_STAGE_2") {
+        const stage2Map = { 'bulbasaur': 'ivysaur', 'charmander': 'charmeleon', 'squirtle': 'wartortle' };
+        mon.species = stage2Map[this.engine.gameState.rivalStarter];
+      }
+      if (mon.species === "RIVAL_STARTER_STAGE_3") {
+        const stage3Map = { 'bulbasaur': 'venusaur', 'charmander': 'charizard', 'squirtle': 'blastoise' };
+        mon.species = stage3Map[this.engine.gameState.rivalStarter];
+      }
+    });
+
+    return trainer;  
+  }
+
+  // Builds full battle-ready party instances for a trainer template,
+  // applying custom movesets when the moves exist in moves.json.
+  // Moves that don't exist yet are skipped so the generated
+  // level-up moves stay intact.
+  generateTrainerParty(trainer) {
+    const moveDb = (this.engine.db && this.engine.db.moves) || {};
+    return (trainer.party || []).map(monData => {
+      const enemyMon = this.generatePokemonInstance(monData.species, monData.level);
+      if (monData.moves && monData.moves.length > 0) {
+        const customMoves = monData.moves.map(moveId => {
+          const moveDef = moveDb[moveId];
+          if (!moveDef) return null;
+          return { ...moveDef, maxPp: moveDef.pp, pp: moveDef.pp };
+        }).filter(Boolean);
+        if (customMoves.length > 0) {
+          enemyMon.moves = customMoves;
+        }
+      }
+      return enemyMon;
+    });
+  }
+}

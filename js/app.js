@@ -1,1 +1,404 @@
-aW1wb3J0IHsgQmF0dGxlRW5naW5lLCBCYXR0bGVNYW5hZ2VyIH0gZnJvbSAnLi9iYXR0bGUuanMnOwppbXBvcnQgeyBDYXB0dXJlU3lzdGVtIH0gZnJvbSAnLi9jYXB0dXJlcy5qcyc7CmltcG9ydCB7IEdyb3d0aEVuZ2luZSB9IGZyb20gJy4vZ3Jvd3RoLmpzJzsKaW1wb3J0IHsgVUlNYW5hZ2VyIH0gZnJvbSAnLi91aS5qcyc7CmltcG9ydCB7IFN0b3JhZ2VNYW5hZ2VyIH0gZnJvbSAnLi9zdG9yYWdlLmpzJzsKaW1wb3J0IHsgUG9rZW1vbkZhY3RvcnkgfSBmcm9tICcuL3Bva2Vtb25fZmFjdG9yeS5qcyc7CmltcG9ydCB7IEZhY2lsaXR5TWFuYWdlciB9IGZyb20gJy4vZmFjaWxpdGllcy5qcyc7CmltcG9ydCB7IEludGVyYWN0aW9uTWFuYWdlciB9IGZyb20gJy4vaW50ZXJhY3Rpb25zLmpzJzsKCmNsYXNzIEdhbWVFbmdpbmUgewogIGNvbnN0cnVjdG9yKCkgewogICAgdGhpcy5nYW1lU3RhdGUgPSB7CiAgICAgIGN1cnJlbnRSb3V0ZTogInBhbGxldF90b3duIiwKICAgICAgaGFzU3RhcnRlcjogZmFsc2UsCiAgICAgIHJpdmFsU3RhcnRlcjogbnVsbCwKICAgICAgZmxhZ3M6IHt9LAogICAgICBkZWZlYXRlZFRyYWluZXJzOiB7fSwKICAgICAgcGFydHk6IFtdLAogICAgICBtb25leTogMzAwMCwKICAgICAgaW52ZW50b3J5OiB7ICJwb3Rpb24iOiAxIH0sCiAgICAgIHBjOiB7IHBva2Vtb246IFtdLCBpdGVtczoge30gfSwKICAgICAgcG9rZWRleDogeyBzZWVuOiB7fSwgY2F1Z2h0OiB7fSB9LAogICAgICBhY3RpdmVCYXR0bGU6IG51bGwsCiAgICAgIGFjdGl2ZVRyYWluZXI6IG51bGwsCiAgICAgIGxhc3RIZWFsZWRMb2NhdGlvbjogbnVsbCwKICAgICAgYWN0aXZlVHJhaW5lclBhcnR5SW5kZXg6IDAsCiAgICAgIHBlbmRpbmdFbmVteU1vbkRhdGE6IG51bGwsCiAgICAgIHZpc2l0ZWRUb3duczogWyJwYWxsZXRfdG93biJdLAogICAgICByZW1vdmVkTlBDczoge30sCiAgICAgIHNhdmVWZXJzaW9uOiAxCiAgICB9OwoKICAgIHRoaXMucGFydHlTd2FwSW5kZXggPSBudWxsOwogICAgdGhpcy5jYXB0dXJlU3lzdGVtID0gbmV3IENhcHR1cmVTeXN0ZW0odGhpcyk7CiAgICB0aGlzLmdyb3d0aCA9IG5ldyBHcm93dGhFbmdpbmUodGhpcyk7CiAgICB0aGlzLnVpID0gbmV3IFVJTWFuYWdlcih0aGlzKTsKICAgIHRoaXMuc3RvcmFnZSA9IG5ldyBTdG9yYWdlTWFuYWdlcih0aGlzKTsKICAgIHRoaXMuZmFjdG9yeSA9IG5ldyBQb2tlbW9uRmFjdG9yeSh0aGlzKTsKICAgIHRoaXMuZmFjaWxpdGllcyA9IG5ldyBGYWNpbGl0eU1hbmFnZXIodGhpcyk7CiAgICB0aGlzLmludGVyYWN0aW9ucyA9IG5ldyBJbnRlcmFjdGlvbk1hbmFnZXIodGhpcyk7CiAgICB0aGlzLmJhdHRsZU1hbmFnZXIgPSBuZXcgQmF0dGxlTWFuYWdlcih0aGlzKTsKICAgIAogICAgdGhpcy5kYiA9IHsKICAgICAgcm91dGVzOiB7fSwKICAgICAgcG9rZW1vbjoge30sCiAgICAgIG1vdmVzOiB7fSwKICAgICAgdHJhaW5lcnM6IHt9LAogICAgICB0eXBlQ2hhcnQ6IHt9LAogICAgICBpdGVtczoge30sCiAgICAgIHNob3BzOiB7fSwKICAgICAgZ3ltczoge30sCiAgICAgIG5wY3M6IHt9CiAgICB9OwogIH0KCiAgYXN5bmMgaW5pdCgpIHsKICAgIGNvbnN0IFtyb3V0ZXNSZXMsIHBva2Vtb25SZXMsIG1vdmVzUmVzLCB0cmFpbmVyc1JlcywgdHlwZXNSZXMsIGl0ZW1zUmVzLCBzaG9wc1JlcywgZ3ltc1JlcywgbnBjc1Jlc10gPSBhd2FpdCBQcm9taXNlLmFsbChbCiAgICAgIGZldGNoKCcuL2RhdGEvcm91dGVzLmpzb24nKSwKICAgICAgZmV0Y2goJy4vZGF0YS9wb2tlbW9uLmpzb24nKSwKICAgICAgZmV0Y2goJy4vZGF0YS9tb3Zlcy5qc29uJyksCiAgICAgIGZldGNoKCcuL2RhdGEvdHJhaW5lcnMuanNvbicpLAogICAgICBmZXRjaCgnLi9kYXRhL3R5cGVfY2hhcnQuanNvbicpLAogICAgICBmZXRjaCgnLi9kYXRhL2l0ZW1zLmpzb24nKSwKICAgICAgZmV0Y2goJy4vZGF0YS9zaG9wcy5qc29uJyksCiAgICAgIGZldGNoKCcuL2RhdGEvZ3ltcy5qc29uJyksCiAgICAgIGZldGNoKCcuL2RhdGEvbnBjcy5qc29uJykKICAgIF0pOwoKICAgIHRoaXMuZGIucm91dGVzID0gYXdhaXQgcm91dGVzUmVzLmpzb24oKTsKICAgIHRoaXMuZGIucG9rZW1vbiA9IGF3YWl0IHBva2Vtb25SZXMuanNvbigpOwogICAgdGhpcy5kYi5tb3ZlcyA9IGF3YWl0IG1vdmVzUmVzLmpzb24oKTsKICAgIHRoaXMuZGIudHJhaW5lcnMgPSBhd2FpdCB0cmFpbmVyc1Jlcy5qc29uKCk7CiAgICB0aGlzLmRiLnR5cGVDaGFydCA9IGF3YWl0IHR5cGVzUmVzLmpzb24oKTsKICAgIHRoaXMuZGIuaXRlbXMgPSBhd2FpdCBpdGVtc1Jlcy5qc29uKCk7CiAgICB0aGlzLmRiLnNob3BzID0gYXdhaXQgc2hvcHNSZXMuanNvbigpOwogICAgdGhpcy5kYi5neW1zID0gYXdhaXQgZ3ltc1Jlcy5qc29uKCk7CiAgICB0aGlzLmRiLm5wY3MgPSBhd2FpdCBucGNzUmVzLmpzb24oKTsKCiAgICAvLyBEZXYtb25seTogd2FybiBhYm91dCBjb25uZWN0aW9ucyBwb2ludGluZyBhdCBsb2NhdGlvbnMgdGhhdAogICAgLy8gYXJlbid0IGluIHJvdXRlcy5qc29uIHlldCAoZnV0dXJlIGNvbnRlbnQsIG5vdCBlcnJvcnMpLgogICAgT2JqZWN0LmVudHJpZXModGhpcy5kYi5yb3V0ZXMpLmZvckVhY2goKFtyb3V0ZUlkLCByb3V0ZV0pID0+IHsKICAgICAgKHJvdXRlLmNvbm5lY3Rpb25zIHx8IFtdKS5mb3JFYWNoKGNvbm5JZCA9PiB7CiAgICAgICAgaWYgKCF0aGlzLmRiLnJvdXRlc1tjb25uSWRdKSB7CiAgICAgICAgICBjb25zb2xlLndhcm4oYFtkZXZdIFJvdXRlICIke3JvdXRlSWR9IiBjb25uZWN0cyB0byAiJHtjb25uSWR9Iiwgd2hpY2ggaXMgbm90IGluIHJvdXRlcy5qc29uIHlldC5gKTsKICAgICAgICB9CiAgICAgIH0pOwogICAgfSk7CgogICAgdGhpcy5iaW5kTGlzdGVuZXJzKCk7CiAgICB0aGlzLnVpLnVwZGF0ZVBva2VkZXhUcmFja2VyVUkoKTsKICAgIHRoaXMuY2hlY2tHYW1lU3RhcnQoKTsKICB9CgogIGNoZWNrR2FtZVN0YXJ0KCkgewogICAgaWYgKCF0aGlzLmdhbWVTdGF0ZS5oYXNTdGFydGVyICYmIHRoaXMuZ2FtZVN0YXRlLnBhcnR5Lmxlbmd0aCA9PT0gMCkgewogICAgICB0aGlzLnVpLnByaW50VG9Mb2coIldlbGNvbWUgdG8gdGhlIHdvcmxkIG9mIFBva8OpbW9uISIpOwogICAgICB0aGlzLnVpLnByaW50VG9Mb2coIllvdSdyZSBpbiBQYWxsZXQgVG93biwgaW4gdGhlIEthbnRvIHJlZ2lvbiwgd2hlcmUgc2hhZGVzIG9mIHlvdXIgam91cm5leSBhd2FpdCEiKTsKICAgICAgdGhpcy51aS5wcmludFRvTG9nKCJDaG9vc2UgYSBzdGFydGVyIFBva8OpbW9uIHRvIGJlIHlvdXIgZmlyc3QgY29tcGFuaW9uLiBHb29kIGx1Y2shIik7CiAgICAgIHRoaXMudWkuc2V0TWVudVN0YXRlKCdzdGFydGVyJyk7CiAgICB9IGVsc2UgewogICAgICB0aGlzLnVpLnJlbmRlclJvdXRlU2NyZWVuKCk7CiAgICAgIHRoaXMudWkudXBkYXRlUGFydHlVSSgpOwogICAgICB0aGlzLnVpLnVwZGF0ZVBva2VkZXhUcmFja2VyVUkoKTsKICAgICAgdGhpcy51aS5zZXRNZW51U3RhdGUoJ3JvdXRlJyk7CiAgICB9CiAgfQoKICB0cmFja1Zpc2l0ZWRUb3duKHJvdXRlSWQpIHsKICAgIGNvbnN0IHJvdXRlRGF0YSA9IHRoaXMuZGIucm91dGVzW3JvdXRlSWRdOwogICAgaWYgKHJvdXRlRGF0YSAmJiByb3V0ZURhdGEuaXNUb3duICYmICF0aGlzLmdhbWVTdGF0ZS52aXNpdGVkVG93bnMuaW5jbHVkZXMocm91dGVJZCkpIHsKICAgICAgdGhpcy5nYW1lU3RhdGUudmlzaXRlZFRvd25zLnB1c2gocm91dGVJZCk7CiAgICB9CiAgfQogIAogIHBvcHVsYXRlVHJhdmVsTWVudSgpIHsKICAgIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0cmF2ZWwtZGVzdGluYXRpb25zJyk7CiAgICBjb250YWluZXIuaW5uZXJIVE1MID0gJyc7CgogICAgY29uc3QgY3VycmVudFJvdXRlRGF0YSA9IHRoaXMuZGIucm91dGVzW3RoaXMuZ2FtZVN0YXRlLmN1cnJlbnRSb3V0ZV07CiAgICBpZiAoIWN1cnJlbnRSb3V0ZURhdGEgfHwgIWN1cnJlbnRSb3V0ZURhdGEuY29ubmVjdGlvbnMpIHJldHVybjsKCiAgICBjdXJyZW50Um91dGVEYXRhLmNvbm5lY3Rpb25zLmZvckVhY2goZGVzdGluYXRpb25JZCA9PiB7CiAgICAgIGNvbnN0IGRlc3REYXRhID0gdGhpcy5kYi5yb3V0ZXNbZGVzdGluYXRpb25JZF07CiAgICAgIGlmICghZGVzdERhdGEpIHJldHVybjsKICAgICAgaWYgKGRlc3REYXRhLnJlcV9mbGFnICYmICF0aGlzLmdhbWVTdGF0ZS5mbGFnc1tkZXN0RGF0YS5yZXFfZmxhZ10pIHJldHVybjsgCgogICAgICBjb25zdCBidG4gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdidXR0b24nKTsKICAgICAgYnRuLmNsYXNzTmFtZSA9ICdidG4nOwogICAgICBidG4udGV4dENvbnRlbnQgPSBgR28gdG8gJHtkZXN0RGF0YS5uYW1lfWA7CiAgICAgIGJ0bi5vbmNsaWNrID0gKCkgPT4gdGhpcy51aS50cmF2ZWxUbyhkZXN0aW5hdGlvbklkKTsKICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKGJ0bik7CiAgICB9KTsKICB9CgogIGdldFdlaWdodGVkUmFuZG9tKGl0ZW1zKSB7CiAgICBpZiAoIWl0ZW1zIHx8IGl0ZW1zLmxlbmd0aCA9PT0gMCkgcmV0dXJuIHsgdHlwZTogIm5vdGhpbmciLCB3ZWlnaHQ6IDEgfTsKICAgIGNvbnN0IHRvdGFsV2VpZ2h0ID0gaXRlbXMucmVkdWNlKChzdW0sIGl0ZW0pID0+IHN1bSArIChpdGVtLndlaWdodCB8fCAwKSwgMCk7CiAgICBpZiAodG90YWxXZWlnaHQgPD0gMCkgcmV0dXJuIHsgdHlwZTogIm5vdGhpbmciLCB3ZWlnaHQ6IDEgfTsKICAgIGxldCByYW5kb20gPSBNYXRoLnJhbmRvbSgpICogdG90YWxXZWlnaHQ7CiAgICBmb3IgKGNvbnN0IGl0ZW0gb2YgaXRlbXMpIHsKICAgICAgaWYgKHJhbmRvbSA8IChpdGVtLndlaWdodCB8fCAwKSkgcmV0dXJuIGl0ZW07CiAgICAgIHJhbmRvbSAtPSAoaXRlbS53ZWlnaHQgfHwgMCk7CiAgICB9CiAgICByZXR1cm4geyB0eXBlOiAibm90aGluZyIsIHdlaWdodDogMSB9OwogIH0KCiAgb3BlbkVuY291bnRlck1lbnUoKSB7CiAgICBjb25zdCByb3V0ZSA9IHRoaXMuZGIucm91dGVzW3RoaXMuZ2FtZVN0YXRlLmN1cnJlbnRSb3V0ZV07CiAgICBpZiAoIXJvdXRlLmVuY291bnRlcnMgfHwgT2JqZWN0LmtleXMocm91dGUuZW5jb3VudGVycykubGVuZ3RoID09PSAwKSB7CiAgICAgIHRoaXMudWkucHJpbnRUb0xvZygiVGhlcmUgYXJlIG5vIHdpbGQgUG9rw6ltb24gaGVyZS4iKTsKICAgICAgcmV0dXJuOwogICAgfQoKICAgIHRoaXMudWkuc2V0TWVudVN0YXRlKCdkeW5hbWljJyk7CiAgICBjb25zdCBjb250ZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2R5bmFtaWMtY29udGVudCcpOwogICAgY29uc3QgY29udHJvbHMgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZHluYW1pYy1jb250cm9scycpOwogICAgY29udGVudC5pbm5lckhUTUwgPSAnPHAgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyOyI+V2hlcmUgZG8geW91IHdhbnQgdG8gc2VhcmNoPzwvcD4nOwogICAgY29udHJvbHMuaW5uZXJIVE1MID0gJyc7CgogICAgY29uc3QgYnV0dG9ucyA9IFtdOwoKICAgIGlmIChyb3V0ZS5lbmNvdW50ZXJzLmdyYXNzICYmIHJvdXRlLmVuY291bnRlcnMuZ3Jhc3MubGVuZ3RoID4gMCkgewogICAgICBidXR0b25zLnB1c2goewogICAgICAgIHRleHQ6ICJTZWFyY2ggVGFsbCBHcmFzcyIsCiAgICAgICAgYWN0aW9uOiAoKSA9PiB0aGlzLmV4ZWN1dGVFbmNvdW50ZXIocm91dGUuZW5jb3VudGVycy5ncmFzcykKICAgICAgfSk7CiAgICB9CgogICAgaWYgKHJvdXRlLmVuY291bnRlcnMud2F0ZXIgJiYgcm91dGUuZW5jb3VudGVycy53YXRlci5sZW5ndGggPiAwKSB7CiAgICAgIGJ1dHRvbnMucHVzaCh7CiAgICAgICAgdGV4dDogIkZpc2ggLyBTdXJmIiwKICAgICAgICBhY3Rpb246ICgpID0+IHsKICAgICAgICAgIGlmICh0aGlzLmdhbWVTdGF0ZS5pbnZlbnRvcnlbJ2Zpc2hpbmdfcm9kJ10gfHwgdGhpcy5oYXNGbGFnKCdiYWRnZV81JykpIHsKICAgICAgICAgICAgdGhpcy5leGVjdXRlRW5jb3VudGVyKHJvdXRlLmVuY291bnRlcnMud2F0ZXIpOwogICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgdGhpcy51aS5wcmludFRvTG9nKCJZb3UgbmVlZCBhIEZpc2hpbmcgUm9kIG9yIFN1cmYgdG8gbG9vayBoZXJlISIpOwogICAgICAgICAgICB0aGlzLnVpLnNldE1lbnVTdGF0ZSgncm91dGUnKTsKICAgICAgICAgIH0KICAgICAgICB9CiAgICAgIH0pOwogICAgfQoKICAgIGJ1dHRvbnMucHVzaCh7IHRleHQ6ICJDYW5jZWwiLCBhY3Rpb246ICgpID0+IHRoaXMudWkuc2V0TWVudVN0YXRlKCdyb3V0ZScpIH0pOwogICAgdGhpcy51aS5idWlsZE1lbnVDb250cm9scyhjb250cm9scywgYnV0dG9ucyk7CiAgfQoKICBleGVjdXRlRW5jb3VudGVyKGVuY291bnRlckxpc3QpIHsKICAgIGNvbnN0IHJlc3VsdCA9IHRoaXMudHJpZ2dlckVuY291bnRlcihlbmNvdW50ZXJMaXN0KTsKICAgIGlmICh0eXBlb2YgcmVzdWx0ID09PSAnc3RyaW5nJykgdGhpcy51aS5wcmludFRvTG9nKHJlc3VsdCk7CiAgICBlbHNlIHRoaXMuYmF0dGxlTWFuYWdlci5zdGFydEJhdHRsZShyZXN1bHQpOwogIH0KCiAgc3RhcnRUcmFpbmVyRW5jb3VudGVyKHRyYWluZXJJZCkgewogICAgY29uc3QgdHJhaW5lciA9IHRoaXMuZGIudHJhaW5lcnNbdHJhaW5lcklkXTsKICAgIGlmICghdHJhaW5lcikgewogICAgICB0aGlzLnVpLnByaW50VG9Mb2coIkVycm9yOiBUcmFpbmVyIGRhdGEgbm90IGZvdW5kISIpOwogICAgICByZXR1cm47CiAgICB9CgogICAgdGhpcy51aS5wcmludFRvTG9nKGAke3RyYWluZXIubmFtZX0gd2FudHMgdG8gYmF0dGxlIWApOwogICAgdGhpcy51aS5wcmludFRvTG9nKGAiJHt0cmFpbmVyLmRpYWxvZ3VlQmVmb3JlfSJgKTsKCiAgICAvLyBHZW5lcmF0ZSB0aGUgZnVsbCBwYXJ0eSBvZiBQb2vDqW1vbiBpbnN0YW5jZXMgd2l0aCBjdXN0b20gbW92ZXMvbGV2ZWxzCiAgICBjb25zdCBlbmVteVBhcnR5ID0gdGhpcy5mYWN0b3J5LmdlbmVyYXRlVHJhaW5lclBhcnR5KHRyYWluZXIpOwoKICAgIHRoaXMuZ2FtZVN0YXRlLmFjdGl2ZVRyYWluZXJJZCA9IHRyYWluZXJJZDsKICAgIHRoaXMudWkuc2V0TWVudVN0YXRlKCdiYXR0bGUnKTsgCiAgICB0aGlzLmJhdHRsZU1hbmFnZXIuc3RhcnRUcmFpbmVyQmF0dGxlKGVuZW15UGFydHksIHRyYWluZXIpOwogIH0KICAKICB0cmlnZ2VyRW5jb3VudGVyKGVuY291bnRlckxpc3QpIHsKICAgIGlmICghZW5jb3VudGVyTGlzdCB8fCAhZW5jb3VudGVyTGlzdC5sZW5ndGgpIHJldHVybiAiTm8gd2lsZCBQb2vDqW1vbiBuZWFyYnkuIjsKICAgIGNvbnN0IHNlbGVjdGVkID0gdGhpcy5nZXRXZWlnaHRlZFJhbmRvbShlbmNvdW50ZXJMaXN0KTsKICAgIGNvbnN0IGxldmVsID0gTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogKHNlbGVjdGVkLm1heF9sZXZlbCAtIHNlbGVjdGVkLm1pbl9sZXZlbCArIDEpKSArIHNlbGVjdGVkLm1pbl9sZXZlbDsKICAgIHJldHVybiB7IHNwZWNpZXM6IHNlbGVjdGVkLnNwZWNpZXMsIGxldmVsOiBsZXZlbCB9OwogIH0KCiAgdHJpZ2dlckV4cGxvcmUoKSB7CiAgICBjb25zdCByb3V0ZSA9IHRoaXMuZGIucm91dGVzW3RoaXMuZ2FtZVN0YXRlLmN1cnJlbnRSb3V0ZV07CiAgICBjb25zdCBvdXRjb21lID0gdGhpcy5nZXRXZWlnaHRlZFJhbmRvbShyb3V0ZS5leHBsb3JlX3RhYmxlKTsKCiAgICBzd2l0Y2ggKG91dGNvbWUudHlwZSkgewogICAgICBjYXNlICJub3RoaW5nIjoKICAgICAgICByZXR1cm4gIllvdSBzZWFyY2hlZCB0aGUgYXJlYSBidXQgZm91bmQgbm90aGluZyBvZiBpbnRlcmVzdC4iOwogICAgICAKICAgICAgY2FzZSAiZW5jb3VudGVyIjoKICAgICAgICBjb25zdCB6b25lID0gcm91dGUuZW5jb3VudGVycy5ncmFzcyB8fCBbXTsKICAgICAgICByZXR1cm4gdGhpcy50cmlnZ2VyRW5jb3VudGVyKHpvbmUpOwogICAgICAKICAgICAgY2FzZSAiaXRlbSI6CiAgICAgICAgLy8gMS4gQ3JlYXRlIGEgdW5pcXVlIGZsYWcgZm9yIHRoaXMgcm91dGUgdG8gcHJldmVudCBpbmZpbml0ZSBsb290aW5nCiAgICAgICAgY29uc3QgaXRlbUZsYWcgPSBgZm91bmRfaXRlbV8ke3RoaXMuZ2FtZVN0YXRlLmN1cnJlbnRSb3V0ZX1gOwogICAgICAgIGlmICh0aGlzLmhhc0ZsYWcoaXRlbUZsYWcpKSB7CiAgICAgICAgICAvLyBJZiB0aGV5IGFscmVhZHkgZm91bmQgdGhpcyByb3V0ZSdzIGl0ZW0sIGRlZmF1bHQgdG8gIm5vdGhpbmciIGluc3RlYWQKICAgICAgICAgIHJldHVybiAiWW91IHNlYXJjaGVkIHRoZSBhcmVhIGJ1dCBmb3VuZCBub3RoaW5nIG9mIGludGVyZXN0LiI7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIE1hcmsgdGhlIGl0ZW0gYXMgZm91bmQKICAgICAgICB0aGlzLnNldEZsYWcoaXRlbUZsYWcsIHRydWUpOwoKICAgICAgICAvLyAyLiBGb3JjZSB0aGUgaXRlbSBJRCB0byBsb3dlcmNhc2UgdG8gZW5zdXJlIGl0IG1hdGNoZXMgZGIuaXRlbXMgZXhhY3RseQogICAgICAgIGNvbnN0IGl0ZW1JZCA9IG91dGNvbWUuaXRlbS50b0xvd2VyQ2FzZSgpOwogICAgICAgIHRoaXMuZ2FtZVN0YXRlLmludmVudG9yeVtpdGVtSWRdID0gKHRoaXMuZ2FtZVN0YXRlLmludmVudG9yeVtpdGVtSWRdIHx8IDApICsgMTsKICAgICAgICAKICAgICAgICAvLyBUcnkgdG8gZ2V0IHRoZSBmb3JtYXR0ZWQgbmFtZSBmcm9tIHRoZSBEQiBmb3IgdGhlIGxvZyBtZXNzYWdlLCBmYWxsYmFjayB0byB0aGUgcmF3IHN0cmluZwogICAgICAgIGNvbnN0IGl0ZW1OYW1lID0gdGhpcy5kYi5pdGVtc1tpdGVtSWRdID8gdGhpcy5kYi5pdGVtc1tpdGVtSWRdLm5hbWUgOiBvdXRjb21lLml0ZW07CiAgICAgICAgcmV0dXJuIGBZb3UgZm91bmQgYSAke2l0ZW1OYW1lfSFgOwogICAgICB9CiAgICB9CgogIHNldEZsYWcoZmxhZ05hbWUsIHZhbHVlID0gdHJ1ZSkgewogICAgdGhpcy5nYW1lU3RhdGUuZmxhZ3NbZmxhZ05hbWVdID0gdmFsdWU7CiAgfQoKICBoYXNGbGFnKGZsYWdOYW1lKSB7CiAgICByZXR1cm4gISF0aGlzLmdhbWVTdGF0ZS5mbGFnc1tmbGFnTmFtZV07CiAgfQogIAogIGJpbmRMaXN0ZW5lcnMoKSB7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLXN0YXJ0ZXItYnVsYmFzYXVyJyk/LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gdGhpcy5mYWN0b3J5LnBpY2tTdGFydGVyKCdidWxiYXNhdXInKSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLXN0YXJ0ZXItY2hhcm1hbmRlcicpPy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHRoaXMuZmFjdG9yeS5waWNrU3RhcnRlcignY2hhcm1hbmRlcicpKTsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdidG4tc3RhcnRlci1zcXVpcnRsZScpPy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHRoaXMuZmFjdG9yeS5waWNrU3RhcnRlcignc3F1aXJ0bGUnKSk7CiAgICAKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdidG4tZW5jb3VudGVyJyk/LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gdGhpcy5vcGVuRW5jb3VudGVyTWVudSgpKTsKCiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLWV4cGxvcmUnKT8uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB7CiAgICAgIGNvbnN0IHJlc3VsdCA9IHRoaXMudHJpZ2dlckV4cGxvcmUoKTsKICAgICAgaWYgKHR5cGVvZiByZXN1bHQgPT09ICdzdHJpbmcnKSB0aGlzLnVpLnByaW50VG9Mb2cocmVzdWx0KTsKICAgICAgZWxzZSBpZiAocmVzdWx0ICYmIHJlc3VsdC5zcGVjaWVzKSB7CiAgICAgICAgdGhpcy51aS5wcmludFRvTG9nKGBZb3Ugd2VyZSBhbWJ1c2hlZCFgKTsKICAgICAgICB0aGlzLmJhdHRsZU1hbmFnZXIuc3RhcnRCYXR0bGUocmVzdWx0KTsKICAgICAgfQogICAgfSk7CgogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2J0bi1wb2tlbW9uJyk/LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gdGhpcy51aS5vcGVuUG9rZW1vbk1lbnUoKSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLXBhcnR5Jyk/LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gdGhpcy51aS5vcGVuUG9rZW1vbk1lbnUoKSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLXBva2VkZXgnKT8uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB0aGlzLnVpLm9wZW5Qb2tlZGV4KCkpOwogICAgCmRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdidG4tZmlnaHQnKT8uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB7CiAgICAgIGNvbnN0IHJvdXRlID0gdGhpcy5kYi5yb3V0ZXNbdGhpcy5nYW1lU3RhdGUuY3VycmVudFJvdXRlXTsKICAgICAgaWYgKCFyb3V0ZS50cmFpbmVycyB8fCByb3V0ZS50cmFpbmVycy5sZW5ndGggPT09IDApIHsKICAgICAgICB0aGlzLnVpLnByaW50VG9Mb2coIlRoZXJlIGFyZSBubyB0cmFpbmVycyBsb29raW5nIGZvciBhIGJhdHRsZSBoZXJlLiIpOwogICAgICAgIHJldHVybjsKICAgICAgfQoKICAgICAgdGhpcy51aS5zZXRNZW51U3RhdGUoJ2R5bmFtaWMnKTsKICAgICAgY29uc3QgY29udGVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkeW5hbWljLWNvbnRlbnQnKTsKICAgICAgY29uc3QgY29udHJvbHMgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZHluYW1pYy1jb250cm9scycpOwogICAgICBjb250ZW50LmlubmVySFRNTCA9ICc8cCBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXI7Ij5XaG8gZG8geW91IHdhbnQgdG8gY2hhbGxlbmdlPzwvcD4nOwogICAgICBjb250cm9scy5pbm5lckhUTUwgPSAnJzsKCiAgICAgIGNvbnN0IGJ1dHRvbnMgPSBbXTsKCiAgICAgIHJvdXRlLnRyYWluZXJzLmZvckVhY2godHJhaW5lcklkID0+IHsKICAgICAgICBjb25zdCB0cmFpbmVyVGVtcGxhdGUgPSB0aGlzLmRiLnRyYWluZXJzW3RyYWluZXJJZF07CiAgICAgICAgaWYgKCF0cmFpbmVyVGVtcGxhdGUpIHJldHVybjsKCiAgICAgICAgY29uc3QgaXNEZWZlYXRlZCA9IHRoaXMuZ2FtZVN0YXRlLmRlZmVhdGVkVHJhaW5lcnNbdHJhaW5lcklkXTsKICAgICAgICBjb25zdCBzdGF0dXNUZXh0ID0gaXNEZWZlYXRlZCA/ICIoRGVmZWF0ZWQpIiA6ICIiOwoKICAgICAgICBidXR0b25zLnB1c2goewogICAgICAgICAgdGV4dDogYEJhdHRsZSAke3RyYWluZXJUZW1wbGF0ZS5uYW1lfSAke3N0YXR1c1RleHR9YCwKICAgICAgICAgIGFjdGlvbjogKCkgPT4gewogICAgICAgICAgICBpZiAoaXNEZWZlYXRlZCkgewogICAgICAgICAgICAgIHRoaXMudWkucHJpbnRUb0xvZyhgJHt0cmFpbmVyVGVtcGxhdGUubmFtZX0gaGFzIGFscmVhZHkgYmVlbiBkZWZlYXRlZCFgKTsKICAgICAgICAgICAgICByZXR1cm47CiAgICAgICAgICAgIH0KICAgICAgICAgICAgdGhpcy5zdGFydFRyYWluZXJFbmNvdW50ZXIodHJhaW5lcklkKTsgCiAgICAgICAgICB9CiAgICAgICAgfSk7CiAgICAgIH0pOwoKICAgICAgYnV0dG9ucy5wdXNoKHsgdGV4dDogIkNhbmNlbCIsIGFjdGlvbjogKCkgPT4gdGhpcy51aS5zZXRNZW51U3RhdGUoJ3JvdXRlJykgfSk7CiAgICAgIHRoaXMudWkuYnVpbGRNZW51Q29udHJvbHMoY29udHJvbHMsIGJ1dHRvbnMpOwogICAgfSk7CgogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2J0bi10cmF2ZWwnKT8uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB0aGlzLnVpLnNldE1lbnVTdGF0ZSgndHJhdmVsJykpOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2J0bi1tZW51Jyk/LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gdGhpcy51aS5zZXRNZW51U3RhdGUoJ3N5c3RlbScpKTsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdidG4tYmFjay1tZW51Jyk/LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gdGhpcy51aS5zZXRNZW51U3RhdGUoJ3JvdXRlJykpOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2J0bi1iYWNrLXRyYXZlbCcpPy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHRoaXMudWkuc2V0TWVudVN0YXRlKCdyb3V0ZScpKTsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdidG4tc2F2ZScpPy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHRoaXMuaGFuZGxlU2F2ZUxvYWQoKSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLWJhZycpPy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHRoaXMub3BlbkJhZygpKTsKCiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLWNhbmNlbC10YXJnZXQnKT8uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB7CiAgICAgICAgICBpZiAodGhpcy5nYW1lU3RhdGUuYWN0aXZlQmF0dGxlKSB7CiAgICAgICAgICAgIHRoaXMudWkuc2V0TWVudVN0YXRlKCdiYXR0bGUnKTsKICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHRoaXMub3BlbkJhZygpOwogICAgICAgICAgfQogICAgICAgIH0pOwogICAgCiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLXJ1bicpPy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHsKICAgICAgaWYgKHRoaXMuZ2FtZVN0YXRlLmFjdGl2ZVRyYWluZXIpIHsKICAgICAgICB0aGlzLnVpLnByaW50VG9Mb2coIllvdSBjYW4ndCBydW4gZnJvbSBhIHRyYWluZXIgYmF0dGxlISIpOwogICAgICAgIHJldHVybjsKICAgICAgfQogICAgICB0aGlzLnVpLnByaW50VG9Mb2coIkdvdCBhd2F5IHNhZmVseSEiKTsKICAgICAgdGhpcy5nYW1lU3RhdGUuYWN0aXZlQmF0dGxlID0gbnVsbDsKICAgICAgdGhpcy51aS5zZXRNZW51U3RhdGUoJ3JvdXRlJyk7CiAgICB9KTsKCiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLWxvYWQtZ2FtZScpPy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHRoaXMuc3RvcmFnZS5sb2FkTG9jYWwoKSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYnRuLWltcG9ydC1zYXZlJyk/LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gewogICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnaW5wdXQtaW1wb3J0LWZpbGUnKS5jbGljaygpOwogICAgfSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnaW5wdXQtaW1wb3J0LWZpbGUnKT8uYWRkRXZlbnRMaXN0ZW5lcignY2hhbmdlJywgKGUpID0+IHRoaXMuc3RvcmFnZS5oYW5kbGVJbXBvcnQoZSkpOwogIH0KICAgIAogIG9wZW5CYWcoKSB7CiAgICBjb25zdCBpbnZlbnRvcnlFbnRyaWVzID0gT2JqZWN0LmVudHJpZXModGhpcy5nYW1lU3RhdGUuaW52ZW50b3J5KTsKICAgIAogICAgaWYgKGludmVudG9yeUVudHJpZXMubGVuZ3RoID09PSAwIHx8IGludmVudG9yeUVudHJpZXMuZXZlcnkoKFtfLCBjb3VudF0pID0+IGNvdW50IDw9IDApKSB7CiAgICAgIHRoaXMudWkucHJpbnRUb0xvZygiWW91ciBiYWcgaXMgZW1wdHkhIik7CiAgICAgIHJldHVybjsKICAgIH0KCiAgICB0aGlzLnVpLnNldE1lbnVTdGF0ZSgnZHluYW1pYycpOwogICAgY29uc3QgY29udGVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkeW5hbWljLWNvbnRlbnQnKTsKICAgIGNvbnN0IGNvbnRyb2xzID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2R5bmFtaWMtY29udHJvbHMnKTsKICAgIGNvbnRlbnQuaW5uZXJIVE1MID0gJyc7CiAgICBjb250cm9scy5pbm5lckhUTUwgPSAnJzsKCiAgICB0aGlzLnVpLnByaW50VG9Mb2coIi0tLSBCYWcgQ29udGVudHMgLS0tIik7CgogICAgaW52ZW50b3J5RW50cmllcy5mb3JFYWNoKChbaXRlbUtleSwgY291bnRdKSA9PiB7CiAgICAgIGlmIChjb3VudCA+IDApIHsKICAgICAgICBjb25zdCBpdGVtRGF0YSA9IHRoaXMuZGIuaXRlbXNbaXRlbUtleV07CiAgICAgICAgaWYgKCFpdGVtRGF0YSkgcmV0dXJuOwoKICAgICAgICBjb25zdCBidG4gPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdidXR0b24nKTsKICAgICAgICBidG4uY2xhc3NOYW1lID0gJ2J0bic7CiAgICAgICAgYnRuLnRleHRDb250ZW50ID0gYFVzZSAke2l0ZW1EYXRhLm5hbWV9ICh4JHtjb3VudH0pYDsKICAgICAgICBidG4ub25jbGljayA9ICgpID0+IHRoaXMudWkuaGFuZGxlSXRlbUNsaWNrKGl0ZW1LZXkpOwogICAgICAgIGNvbnRlbnQuYXBwZW5kQ2hpbGQoYnRuKTsKICAgICAgfQogICAgfSk7CgogICAgdGhpcy51aS5idWlsZE1lbnVDb250cm9scyhjb250cm9scywgWwogICAgICB7IHRleHQ6ICJDbG9zZSBCYWciLCBhY3Rpb246ICgpID0+IHsKICAgICAgICAgIGlmICh0aGlzLmdhbWVTdGF0ZS5hY3RpdmVCYXR0bGUpIHRoaXMudWkuc2V0TWVudVN0YXRlKCdiYXR0bGUnKTsKICAgICAgICAgIGVsc2UgdGhpcy51aS5zZXRNZW51U3RhdGUoJ3N5c3RlbScpOwogICAgICB9fQogICAgXSk7CiAgfQoKICBoYW5kbGVTYXZlTG9hZCgpIHsKICAgIHRoaXMudWkuc2V0TWVudVN0YXRlKCdkeW5hbWljJyk7CiAgICBjb25zdCBjb250ZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2R5bmFtaWMtY29udGVudCcpOwogICAgY29uc3QgY29udHJvbHMgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZHluYW1pYy1jb250cm9scycpOwogICAgY29udGVudC5pbm5lckhUTUwgPSAnPHAgc3R5bGU9InRleHQtYWxpZ246Y2VudGVyOyI+PHN0cm9uZz5TYXZlIC8gTG9hZCBNYW5hZ2VyPC9zdHJvbmc+PC9wPic7CiAgICBjb250cm9scy5pbm5lckhUTUwgPSAnJzsKCiAgICB0aGlzLnVpLmJ1aWxkTWVudUNvbnRyb2xzKGNvbnRyb2xzLCBbCiAgICAgIHsgdGV4dDogIlNhdmUgKExvY2FsKSIsIGFjdGlvbjogKCkgPT4gdGhpcy5zdG9yYWdlLnNhdmVMb2NhbCgpIH0sCiAgICAgIHsgdGV4dDogIkxvYWQgKExvY2FsKSIsIGFjdGlvbjogKCkgPT4gdGhpcy5zdG9yYWdlLmxvYWRMb2NhbCgpIH0sCiAgICAgIHsgdGV4dDogIkV4cG9ydCBGaWxlIiwgYWN0aW9uOiAoKSA9PiB0aGlzLnN0b3JhZ2UuZXhwb3J0U2F2ZSgpIH0sCiAgICAgIHsgdGV4dDogIkltcG9ydCBGaWxlIiwgYWN0aW9uOiAoKSA9PiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnaW5wdXQtaW1wb3J0LWZpbGUnKS5jbGljaygpIH0sCiAgICAgIHsgdGV4dDogIkNsb3NlIiwgYWN0aW9uOiAoKSA9PiB0aGlzLnVpLnNldE1lbnVTdGF0ZSgnc3lzdGVtJykgfQogICAgXSk7CiAgfQp9Cgpjb25zdCBnYW1lID0gbmV3IEdhbWVFbmdpbmUoKTsKZ2FtZS5pbml0KCk7Cg==
+import { BattleEngine, BattleManager } from './battle.js';
+import { CaptureSystem } from './captures.js';
+import { GrowthEngine } from './growth.js';
+import { UIManager } from './ui.js';
+import { StorageManager } from './storage.js';
+import { PokemonFactory } from './pokemon_factory.js';
+import { FacilityManager } from './facilities.js';
+import { InteractionManager } from './interactions.js';
+
+class GameEngine {
+  constructor() {
+    this.gameState = {
+      currentRoute: "pallet_town",
+      hasStarter: false,
+      rivalStarter: null,
+      flags: {},
+      defeatedTrainers: {},
+      party: [],
+      money: 3000,
+      inventory: { "potion": 1 },
+      pc: { pokemon: [], items: {} },
+      pokedex: { seen: {}, caught: {} },
+      activeBattle: null,
+      activeTrainer: null,
+      lastHealedLocation: null,
+      activeTrainerPartyIndex: 0,
+      pendingEnemyMonData: null,
+      visitedTowns: ["pallet_town"],
+      removedNPCs: {},
+      saveVersion: 1
+    };
+
+    this.partySwapIndex = null;
+    this.captureSystem = new CaptureSystem(this);
+    this.growth = new GrowthEngine(this);
+    this.ui = new UIManager(this);
+    this.storage = new StorageManager(this);
+    this.factory = new PokemonFactory(this);
+    this.facilities = new FacilityManager(this);
+    this.interactions = new InteractionManager(this);
+    this.battleManager = new BattleManager(this);
+    
+    this.db = {
+      routes: {},
+      pokemon: {},
+      moves: {},
+      trainers: {},
+      typeChart: {},
+      items: {},
+      shops: {},
+      gyms: {},
+      npcs: {}
+    };
+  }
+
+  async init() {
+    const [routesRes, pokemonRes, movesRes, trainersRes, typesRes, itemsRes, shopsRes, gymsRes, npcsRes] = await Promise.all([
+      fetch('./data/routes.json'),
+      fetch('./data/pokemon.json'),
+      fetch('./data/moves.json'),
+      fetch('./data/trainers.json'),
+      fetch('./data/type_chart.json'),
+      fetch('./data/items.json'),
+      fetch('./data/shops.json'),
+      fetch('./data/gyms.json'),
+      fetch('./data/npcs.json')
+    ]);
+
+    this.db.routes = await routesRes.json();
+    this.db.pokemon = await pokemonRes.json();
+    this.db.moves = await movesRes.json();
+    this.db.trainers = await trainersRes.json();
+    this.db.typeChart = await typesRes.json();
+    this.db.items = await itemsRes.json();
+    this.db.shops = await shopsRes.json();
+    this.db.gyms = await gymsRes.json();
+    this.db.npcs = await npcsRes.json();
+
+    // Dev-only: warn about connections pointing at locations that
+    // aren't in routes.json yet (future content, not errors).
+    Object.entries(this.db.routes).forEach(([routeId, route]) => {
+      (route.connections || []).forEach(connId => {
+        if (!this.db.routes[connId]) {
+          console.warn(`[dev] Route "${routeId}" connects to "${connId}", which is not in routes.json yet.`);
+        }
+      });
+    });
+
+    this.bindListeners();
+    this.ui.updatePokedexTrackerUI();
+    this.checkGameStart();
+  }
+
+  checkGameStart() {
+    if (!this.gameState.hasStarter && this.gameState.party.length === 0) {
+      this.ui.printToLog("Welcome to the world of Pokémon!");
+      this.ui.printToLog("You're in Pallet Town, in the Kanto region, where shades of your journey await!");
+      this.ui.printToLog("Choose a starter Pokémon to be your first companion. Good luck!");
+      this.ui.setMenuState('starter');
+    } else {
+      this.ui.renderRouteScreen();
+      this.ui.updatePartyUI();
+      this.ui.updatePokedexTrackerUI();
+      this.ui.setMenuState('route');
+    }
+  }
+
+  trackVisitedTown(routeId) {
+    const routeData = this.db.routes[routeId];
+    if (routeData && routeData.isTown && !this.gameState.visitedTowns.includes(routeId)) {
+      this.gameState.visitedTowns.push(routeId);
+    }
+  }
+  
+  populateTravelMenu() {
+    const container = document.getElementById('travel-destinations');
+    container.innerHTML = '';
+
+    const currentRouteData = this.db.routes[this.gameState.currentRoute];
+    if (!currentRouteData || !currentRouteData.connections) return;
+
+    currentRouteData.connections.forEach(destinationId => {
+      const destData = this.db.routes[destinationId];
+      if (!destData) return;
+      if (destData.req_flag && !this.gameState.flags[destData.req_flag]) return; 
+
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Go to ${destData.name}`;
+      btn.onclick = () => this.ui.travelTo(destinationId);
+      container.appendChild(btn);
+    });
+  }
+
+  getWeightedRandom(items) {
+    if (!items || items.length === 0) return { type: "nothing", weight: 1 };
+    const totalWeight = items.reduce((sum, item) => sum + (item.weight || 0), 0);
+    if (totalWeight <= 0) return { type: "nothing", weight: 1 };
+    let random = Math.random() * totalWeight;
+    for (const item of items) {
+      if (random < (item.weight || 0)) return item;
+      random -= (item.weight || 0);
+    }
+    return { type: "nothing", weight: 1 };
+  }
+
+  openEncounterMenu() {
+    const route = this.db.routes[this.gameState.currentRoute];
+    if (!route.encounters || Object.keys(route.encounters).length === 0) {
+      this.ui.printToLog("There are no wild Pokémon here.");
+      return;
+    }
+
+    this.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center;">Where do you want to search?</p>';
+    controls.innerHTML = '';
+
+    const buttons = [];
+
+    if (route.encounters.grass && route.encounters.grass.length > 0) {
+      buttons.push({
+        text: "Search Tall Grass",
+        action: () => this.executeEncounter(route.encounters.grass)
+      });
+    }
+
+    if (route.encounters.water && route.encounters.water.length > 0) {
+      buttons.push({
+        text: "Fish / Surf",
+        action: () => {
+          if (this.gameState.inventory['fishing_rod'] || this.hasFlag('badge_5')) {
+            this.executeEncounter(route.encounters.water);
+          } else {
+            this.ui.printToLog("You need a Fishing Rod or Surf to look here!");
+            this.ui.setMenuState('route');
+          }
+        }
+      });
+    }
+
+    buttons.push({ text: "Cancel", action: () => this.ui.setMenuState('route') });
+    this.ui.buildMenuControls(controls, buttons);
+  }
+
+  executeEncounter(encounterList) {
+    const result = this.triggerEncounter(encounterList);
+    if (typeof result === 'string') this.ui.printToLog(result);
+    else this.battleManager.startBattle(result);
+  }
+
+  startTrainerEncounter(trainerId) {
+    const trainer = this.db.trainers[trainerId];
+    if (!trainer) {
+      this.ui.printToLog("Error: Trainer data not found!");
+      return;
+    }
+
+    this.ui.printToLog(`${trainer.name} wants to battle!`);
+    this.ui.printToLog(`"${trainer.dialogueBefore}"`);
+
+    // Generate the full party of Pokémon instances with custom moves/levels
+    const enemyParty = this.factory.generateTrainerParty(trainer);
+
+    this.gameState.activeTrainerId = trainerId;
+    this.ui.setMenuState('battle'); 
+    this.battleManager.startTrainerBattle(enemyParty, trainer);
+  }
+  
+  triggerEncounter(encounterList) {
+    if (!encounterList || !encounterList.length) return "No wild Pokémon nearby.";
+    const selected = this.getWeightedRandom(encounterList);
+    const level = Math.floor(Math.random() * (selected.max_level - selected.min_level + 1)) + selected.min_level;
+    return { species: selected.species, level: level };
+  }
+
+  triggerExplore() {
+    const route = this.db.routes[this.gameState.currentRoute];
+    const outcome = this.getWeightedRandom(route.explore_table);
+
+    switch (outcome.type) {
+      case "nothing":
+        return "You searched the area but found nothing of interest.";
+      
+      case "encounter":
+        const zone = route.encounters.grass || [];
+        return this.triggerEncounter(zone);
+      
+      case "item":
+        // 1. Create a unique flag for this route to prevent infinite looting
+        const itemFlag = `found_item_${this.gameState.currentRoute}`;
+        if (this.hasFlag(itemFlag)) {
+          // If they already found this route's item, default to "nothing" instead
+          return "You searched the area but found nothing of interest.";
+        }
+        
+        // Mark the item as found
+        this.setFlag(itemFlag, true);
+
+        // 2. Force the item ID to lowercase to ensure it matches db.items exactly
+        const itemId = outcome.item.toLowerCase();
+        this.gameState.inventory[itemId] = (this.gameState.inventory[itemId] || 0) + 1;
+        
+        // Try to get the formatted name from the DB for the log message, fallback to the raw string
+        const itemName = this.db.items[itemId] ? this.db.items[itemId].name : outcome.item;
+        return `You found a ${itemName}!`;
+      }
+    }
+
+  setFlag(flagName, value = true) {
+    this.gameState.flags[flagName] = value;
+  }
+
+  hasFlag(flagName) {
+    return !!this.gameState.flags[flagName];
+  }
+  
+  bindListeners() {
+    document.getElementById('btn-starter-bulbasaur')?.addEventListener('click', () => this.factory.pickStarter('bulbasaur'));
+    document.getElementById('btn-starter-charmander')?.addEventListener('click', () => this.factory.pickStarter('charmander'));
+    document.getElementById('btn-starter-squirtle')?.addEventListener('click', () => this.factory.pickStarter('squirtle'));
+    
+    document.getElementById('btn-encounter')?.addEventListener('click', () => this.openEncounterMenu());
+
+    document.getElementById('btn-explore')?.addEventListener('click', () => {
+      const result = this.triggerExplore();
+      if (typeof result === 'string') this.ui.printToLog(result);
+      else if (result && result.species) {
+        this.ui.printToLog(`You were ambushed!`);
+        this.battleManager.startBattle(result);
+      }
+    });
+
+    document.getElementById('btn-pokemon')?.addEventListener('click', () => this.ui.openPokemonMenu());
+    document.getElementById('btn-party')?.addEventListener('click', () => this.ui.openPokemonMenu());
+    document.getElementById('btn-pokedex')?.addEventListener('click', () => this.ui.openPokedex());
+    
+document.getElementById('btn-fight')?.addEventListener('click', () => {
+      const route = this.db.routes[this.gameState.currentRoute];
+      if (!route.trainers || route.trainers.length === 0) {
+        this.ui.printToLog("There are no trainers looking for a battle here.");
+        return;
+      }
+
+      this.ui.setMenuState('dynamic');
+      const content = document.getElementById('dynamic-content');
+      const controls = document.getElementById('dynamic-controls');
+      content.innerHTML = '<p style="text-align:center;">Who do you want to challenge?</p>';
+      controls.innerHTML = '';
+
+      const buttons = [];
+
+      route.trainers.forEach(trainerId => {
+        const trainerTemplate = this.db.trainers[trainerId];
+        if (!trainerTemplate) return;
+
+        const isDefeated = this.gameState.defeatedTrainers[trainerId];
+        const statusText = isDefeated ? "(Defeated)" : "";
+
+        buttons.push({
+          text: `Battle ${trainerTemplate.name} ${statusText}`,
+          action: () => {
+            if (isDefeated) {
+              this.ui.printToLog(`${trainerTemplate.name} has already been defeated!`);
+              return;
+            }
+            this.startTrainerEncounter(trainerId); 
+          }
+        });
+      });
+
+      buttons.push({ text: "Cancel", action: () => this.ui.setMenuState('route') });
+      this.ui.buildMenuControls(controls, buttons);
+    });
+
+    document.getElementById('btn-travel')?.addEventListener('click', () => this.ui.setMenuState('travel'));
+    document.getElementById('btn-menu')?.addEventListener('click', () => this.ui.setMenuState('system'));
+    document.getElementById('btn-back-menu')?.addEventListener('click', () => this.ui.setMenuState('route'));
+    document.getElementById('btn-back-travel')?.addEventListener('click', () => this.ui.setMenuState('route'));
+    document.getElementById('btn-save')?.addEventListener('click', () => this.handleSaveLoad());
+    document.getElementById('btn-bag')?.addEventListener('click', () => this.openBag());
+
+    document.getElementById('btn-cancel-target')?.addEventListener('click', () => {
+          if (this.gameState.activeBattle) {
+            this.ui.setMenuState('battle');
+          } else {
+            this.openBag();
+          }
+        });
+    
+    document.getElementById('btn-run')?.addEventListener('click', () => {
+      if (this.gameState.activeTrainer) {
+        this.ui.printToLog("You can't run from a trainer battle!");
+        return;
+      }
+      this.ui.printToLog("Got away safely!");
+      this.gameState.activeBattle = null;
+      this.ui.setMenuState('route');
+    });
+
+    document.getElementById('btn-load-game')?.addEventListener('click', () => this.storage.loadLocal());
+    document.getElementById('btn-import-save')?.addEventListener('click', () => {
+      document.getElementById('input-import-file').click();
+    });
+    document.getElementById('input-import-file')?.addEventListener('change', (e) => this.storage.handleImport(e));
+  }
+    
+  openBag() {
+    const inventoryEntries = Object.entries(this.gameState.inventory);
+    
+    if (inventoryEntries.length === 0 || inventoryEntries.every(([_, count]) => count <= 0)) {
+      this.ui.printToLog("Your bag is empty!");
+      return;
+    }
+
+    this.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    this.ui.printToLog("--- Bag Contents ---");
+
+    inventoryEntries.forEach(([itemKey, count]) => {
+      if (count > 0) {
+        const itemData = this.db.items[itemKey];
+        if (!itemData) return;
+
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.textContent = `Use ${itemData.name} (x${count})`;
+        btn.onclick = () => this.ui.handleItemClick(itemKey);
+        content.appendChild(btn);
+      }
+    });
+
+    this.ui.buildMenuControls(controls, [
+      { text: "Close Bag", action: () => {
+          if (this.gameState.activeBattle) this.ui.setMenuState('battle');
+          else this.ui.setMenuState('system');
+      }}
+    ]);
+  }
+
+  handleSaveLoad() {
+    this.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center;"><strong>Save / Load Manager</strong></p>';
+    controls.innerHTML = '';
+
+    this.ui.buildMenuControls(controls, [
+      { text: "Save (Local)", action: () => this.storage.saveLocal() },
+      { text: "Load (Local)", action: () => this.storage.loadLocal() },
+      { text: "Export File", action: () => this.storage.exportSave() },
+      { text: "Import File", action: () => document.getElementById('input-import-file').click() },
+      { text: "Close", action: () => this.ui.setMenuState('system') }
+    ]);
+  }
+}
+
+const game = new GameEngine();
+game.init();
