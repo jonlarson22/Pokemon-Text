@@ -48,35 +48,7 @@
   "accuracy": null,
   "pp": 20
  },
- "agile": {
-  "name": "Agility",
-  "type": "Psychic",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 30,
-  "effect": {
-   "type": "stat",
-   "stat": "speed",
-   "stages": 2,
-   "target": "self"
-  }
- },
  "agility": {
-  "name": "Agility",
-  "type": "Psychic",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 30,
-  "effect": {
-   "type": "stat",
-   "stat": "speed",
-   "stages": 2,
-   "target": "self"
-  }
- },
- "agilty": {
   "name": "Agility",
   "type": "Psychic",
   "category": "status",
@@ -675,14 +647,6 @@
    "target": "self"
   }
  },
- "doubleslap": {
-  "name": "Double Slap",
-  "type": "Normal",
-  "category": "physical",
-  "power": 15,
-  "accuracy": 85,
-  "pp": 10
- },
  "dragon_breath": {
   "name": "Dragon Breath",
   "type": "Dragon",
@@ -1012,14 +976,6 @@
   "accuracy": 100,
   "pp": 20
  },
- "fore_sight": {
-  "name": "Foresight",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 40
- },
  "foresight": {
   "name": "Foresight",
   "type": "Normal",
@@ -1035,14 +991,6 @@
   "power": 0,
   "accuracy": 100,
   "pp": 20
- },
- "fur_swipes": {
-  "name": "Fury Swipes",
-  "type": "Normal",
-  "category": "physical",
-  "power": 18,
-  "accuracy": 80,
-  "pp": 15
  },
  "fury_attack": {
   "name": "Fury Attack",
@@ -1185,20 +1133,6 @@
    "target": "self"
   }
  },
- "hardening": {
-  "name": "Harden",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 30,
-  "effect": {
-   "type": "stat",
-   "stat": "defense",
-   "stages": 1,
-   "target": "self"
-  }
- },
  "haze": {
   "name": "Haze",
   "type": "Ice",
@@ -1229,14 +1163,6 @@
    "target": "enemy"
   }
  },
- "help_hand": {
-  "name": "Helping Hand",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 20
- },
  "helping_hand": {
   "name": "Helping Hand",
   "type": "Normal",
@@ -1244,14 +1170,6 @@
   "power": 0,
   "accuracy": null,
   "pp": 20
- },
- "hi_jump_kick": {
-  "name": "High Jump Kick",
-  "type": "Fighting",
-  "category": "physical",
-  "power": 130,
-  "accuracy": 90,
-  "pp": 10
  },
  "hidden_power": {
   "name": "Hidden Power",
@@ -1459,18 +1377,6 @@
    "target": "enemy"
   }
  },
- "leecha_seed": {
-  "name": "Leech Seed",
-  "type": "Grass",
-  "category": "status",
-  "power": 0,
-  "accuracy": 90,
-  "pp": 10,
-  "effect": {
-   "type": "leech_seed",
-   "target": "enemy"
-  }
- },
  "leer": {
   "name": "Leer",
   "type": "Normal",
@@ -1586,14 +1492,6 @@
    "type": "drain",
    "value": 0.5
   }
- },
- "mega_horn": {
-  "name": "Megahorn",
-  "type": "Bug",
-  "category": "physical",
-  "power": 120,
-  "accuracy": 85,
-  "pp": 10
  },
  "mega_kick": {
   "name": "Mega Kick",
@@ -1812,14 +1710,6 @@
   "power": 0,
   "accuracy": null,
   "pp": 5
- },
- "persian": {
-  "name": "Pay Day",
-  "type": "Normal",
-  "category": "physical",
-  "power": 40,
-  "accuracy": 100,
-  "pp": 20
  },
  "petal_dance": {
   "name": "Petal Dance",
@@ -2174,20 +2064,6 @@
   "accuracy": null,
   "pp": 10
  },
- "scarary_face": {
-  "name": "Scary Face",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": 100,
-  "pp": 10,
-  "effect": {
-   "type": "stat",
-   "stat": "speed",
-   "stages": -2,
-   "target": "enemy"
-  }
- },
  "scary_face": {
   "name": "Scary Face",
   "type": "Normal",
@@ -2251,14 +2127,6 @@
   "accuracy": 100,
   "pp": 5
  },
- "selfdestruct": {
-  "name": "Self Destruct",
-  "type": "Normal",
-  "category": "physical",
-  "power": 200,
-  "accuracy": 100,
-  "pp": 5
- },
  "shadow_ball": {
   "name": "Shadow Ball",
   "type": "Ghost",
@@ -2302,7 +2170,8 @@
   "category": "special",
   "power": 0,
   "accuracy": 30,
-  "pp": 5
+  "pp": 5,
+  "ohko": true
  },
  "shock_wave": {
   "name": "Shock Wave",
@@ -2475,20 +2344,6 @@
    "target": "enemy"
   }
  },
- "smoke_screen": {
-  "name": "Smokescreen",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": 100,
-  "pp": 20,
-  "effect": {
-   "type": "stat",
-   "stat": "accuracy",
-   "stages": -1,
-   "target": "enemy"
-  }
- },
  "smokescreen": {
   "name": "Smokescreen",
   "type": "Normal",
@@ -2533,14 +2388,6 @@
   }
  },
  "solar_beam": {
-  "name": "Solar Beam",
-  "type": "Grass",
-  "category": "special",
-  "power": 120,
-  "accuracy": 100,
-  "pp": 10
- },
- "solarbeam": {
   "name": "Solar Beam",
   "type": "Grass",
   "category": "special",
@@ -2706,14 +2553,6 @@
    "kind": "half"
   }
  },
- "super_sonic": {
-  "name": "Supersonic",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": 55,
-  "pp": 20
- },
  "supersonic": {
   "name": "Supersonic",
   "type": "Normal",
@@ -2810,14 +2649,6 @@
   }
  },
  "take_down": {
-  "name": "Take Down",
-  "type": "Normal",
-  "category": "physical",
-  "power": 90,
-  "accuracy": 85,
-  "pp": 20
- },
- "takedown": {
   "name": "Take Down",
   "type": "Normal",
   "category": "physical",
@@ -2927,20 +2758,6 @@
    "target": "enemy"
   }
  },
- "thundershock": {
-  "name": "Thunder Shock",
-  "type": "Electric",
-  "category": "special",
-  "power": 40,
-  "accuracy": 100,
-  "pp": 30,
-  "secondaryEffect": {
-   "type": "status",
-   "condition": "PAR",
-   "chance": 10,
-   "target": "enemy"
-  }
- },
  "tickle": {
   "name": "Tickle",
   "type": "Normal",
@@ -3023,14 +2840,6 @@
    "target": "enemy"
   }
  },
- "twist": {
-  "name": "Twister",
-  "type": "Dragon",
-  "category": "special",
-  "power": 40,
-  "accuracy": 100,
-  "pp": 20
- },
  "twister": {
   "name": "Twister",
   "type": "Dragon",
@@ -3055,14 +2864,6 @@
   "accuracy": 100,
   "pp": 30
  },
- "vicegrip": {
-  "name": "Vice Grip",
-  "type": "Normal",
-  "category": "physical",
-  "power": 55,
-  "accuracy": 100,
-  "pp": 30
- },
  "vine_whip": {
   "name": "Vine Whip",
   "type": "Grass",
@@ -3070,14 +2871,6 @@
   "power": 45,
   "accuracy": 100,
   "pp": 25
- },
- "vise_grip": {
-  "name": "Vice Grip",
-  "type": "Normal",
-  "category": "physical",
-  "power": 55,
-  "accuracy": 100,
-  "pp": 30
  },
  "vital_throw": {
   "name": "Vital Throw",
