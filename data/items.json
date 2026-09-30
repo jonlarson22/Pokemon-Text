@@ -343,7 +343,8 @@
    "move": "focus_punch"
   },
   "price": 0,
-  "description": "An attack that is executed last. The user flinches if hit beforehand."
+  "description": "An attack that is executed last. The user flinches if hit beforehand.",
+  "move": "focus_punch"
  },
  "tm02": {
   "name": "TM02 (Dragon Claw)",
@@ -353,7 +354,8 @@
    "move": "dragon_claw"
   },
   "price": 0,
-  "description": "Sharp, huge claws hook and slash the foe quickly and with great power."
+  "description": "Sharp, huge claws hook and slash the foe quickly and with great power.",
+  "move": "dragon_claw"
  },
  "tm03": {
   "name": "TM03 (Water Pulse)",
@@ -363,7 +365,8 @@
    "move": "water_pulse"
   },
   "price": 0,
-  "description": "An attack with a pulsing blast of water. It may also confuse the foe."
+  "description": "An attack with a pulsing blast of water. It may also confuse the foe.",
+  "move": "water_pulse"
  },
  "tm04": {
   "name": "TM04 (Calm Mind)",
@@ -373,7 +376,8 @@
    "move": "calm_mind"
   },
   "price": 0,
-  "description": "The user focuses its mind to raise the Sp. Atk and Sp. Def stats."
+  "description": "The user focuses its mind to raise the Sp. Atk and Sp. Def stats.",
+  "move": "calm_mind"
  },
  "tm05": {
   "name": "TM05 (Roar)",
@@ -383,7 +387,8 @@
    "move": "roar"
   },
   "price": 1000,
-  "description": "The foe is made to switch out with an ally. In the wild, the battle ends."
+  "description": "The foe is made to switch out with an ally. In the wild, the battle ends.",
+  "move": "roar"
  },
  "tm06": {
   "name": "TM06 (Toxic)",
@@ -393,7 +398,8 @@
    "move": "toxic"
   },
   "price": 0,
-  "description": "A move that badly poisons the foe. Its poison damage worsens every turn."
+  "description": "A move that badly poisons the foe. Its poison damage worsens every turn.",
+  "move": "toxic"
  },
  "tm07": {
   "name": "TM07 (Hail)",
@@ -403,7 +409,8 @@
    "move": "hail"
   },
   "price": 0,
-  "description": "A hailstorm lasting five turns damages all Pokémon except the Ice-type."
+  "description": "A hailstorm lasting five turns damages all Pokémon except the Ice-type.",
+  "move": "hail"
  },
  "tm08": {
   "name": "TM08 (Bulk Up)",
@@ -413,7 +420,8 @@
    "move": "bulk_up"
   },
   "price": 0,
-  "description": "The user bulks up its body to boost both its Attack and Defense stats."
+  "description": "The user bulks up its body to boost both its Attack and Defense stats.",
+  "move": "bulk_up"
  },
  "tm09": {
   "name": "TM09 (Bullet Seed)",
@@ -423,7 +431,8 @@
    "move": "bullet_seed"
   },
   "price": 0,
-  "description": "The user shoots seeds at the foe. Two to five seeds are shot at once."
+  "description": "The user shoots seeds at the foe. Two to five seeds are shot at once.",
+  "move": "bullet_seed"
  },
  "tm10": {
   "name": "TM10 (Hidden Power)",
@@ -433,7 +442,8 @@
    "move": "hidden_power"
   },
   "price": 0,
-  "description": "An attack that varies in type and intensity depending on the user."
+  "description": "An attack that varies in type and intensity depending on the user.",
+  "move": "hidden_power"
  },
  "tm11": {
   "name": "TM11 (Sunny Day)",
@@ -443,7 +453,8 @@
    "move": "sunny_day"
   },
   "price": 0,
-  "description": "The sun blazes for five turns, powering up Fire-type moves."
+  "description": "The sun blazes for five turns, powering up Fire-type moves.",
+  "move": "sunny_day"
  },
  "tm12": {
   "name": "TM12 (Taunt)",
@@ -453,7 +464,8 @@
    "move": "taunt"
   },
   "price": 0,
-  "description": "The foe is taunted into a rage that allows it to use only attack moves."
+  "description": "The foe is taunted into a rage that allows it to use only attack moves.",
+  "move": "taunt"
  },
  "tm13": {
   "name": "TM13 (Ice Beam)",
@@ -463,7 +475,8 @@
    "move": "ice_beam"
   },
   "price": 0,
-  "description": "The foe is struck with an icy beam. It may freeze the foe solid."
+  "description": "The foe is struck with an icy beam. It may freeze the foe solid.",
+  "move": "ice_beam"
  },
  "tm14": {
   "name": "TM14 (Blizzard)",
@@ -473,7 +486,8 @@
    "move": "blizzard"
   },
   "price": 0,
-  "description": "The foe is blasted with a blizzard. It may freeze the foe solid."
+  "description": "The foe is blasted with a blizzard. It may freeze the foe solid.",
+  "move": "blizzard"
  },
  "tm15": {
   "name": "TM15 (Hyper Beam)",
@@ -483,7 +497,8 @@
    "move": "hyper_beam"
   },
   "price": 7500,
-  "description": "A severely damaging attack that makes the user rest on the next turn."
+  "description": "A severely damaging attack that makes the user rest on the next turn.",
+  "move": "hyper_beam"
  },
  "tm16": {
   "name": "TM16 (Light Screen)",
@@ -493,7 +508,8 @@
    "move": "light_screen"
   },
   "price": 0,
-  "description": "A wall of light cuts damage from Sp. Atk attacks for five turns."
+  "description": "A wall of light cuts damage from Sp. Atk attacks for five turns.",
+  "move": "light_screen"
  },
  "tm17": {
   "name": "TM17 (Protect)",
@@ -503,7 +519,8 @@
    "move": "protect"
   },
   "price": 0,
-  "description": "Enables the user to evade all attacks. It may fail if used in succession."
+  "description": "Enables the user to evade all attacks. It may fail if used in succession.",
+  "move": "protect"
  },
  "tm18": {
   "name": "TM18 (Rain Dance)",
@@ -513,7 +530,8 @@
    "move": "rain_dance"
   },
   "price": 0,
-  "description": "A heavy rain falls for five turns, powering up Water-type moves."
+  "description": "A heavy rain falls for five turns, powering up Water-type moves.",
+  "move": "rain_dance"
  },
  "tm19": {
   "name": "TM19 (Giga Drain)",
@@ -523,7 +541,8 @@
    "move": "giga_drain"
   },
   "price": 0,
-  "description": "A harsh attack that absorbs half the damage it inflicted to restore HP."
+  "description": "A harsh attack that absorbs half the damage it inflicted to restore HP.",
+  "move": "giga_drain"
  },
  "tm20": {
   "name": "TM20 (Safeguard)",
@@ -533,7 +552,8 @@
    "move": "safeguard"
   },
   "price": 0,
-  "description": "It protects the user's party from all status problems for five turns."
+  "description": "It protects the user's party from all status problems for five turns.",
+  "move": "safeguard"
  },
  "tm21": {
   "name": "TM21 (Frustration)",
@@ -543,17 +563,19 @@
    "move": "frustration"
   },
   "price": 0,
-  "description": "A full-power attack that grows harsher the less the user likes its trainer."
+  "description": "A full-power attack that grows harsher the less the user likes its trainer.",
+  "move": "frustration"
  },
  "tm22": {
   "name": "TM22 (SolarBeam)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "solarbeam"
+   "move": "solar_beam"
   },
   "price": 0,
-  "description": "A 2-turn move that absorbs light to attack on the second turn."
+  "description": "A 2-turn move that absorbs light to attack on the second turn.",
+  "move": "solar_beam"
  },
  "tm23": {
   "name": "TM23 (Iron Tail)",
@@ -563,7 +585,8 @@
    "move": "iron_tail"
   },
   "price": 0,
-  "description": "The foe is slammed with a steel-hard tail. It may lower Defense."
+  "description": "The foe is slammed with a steel-hard tail. It may lower Defense.",
+  "move": "iron_tail"
  },
  "tm24": {
   "name": "TM24 (Thunderbolt)",
@@ -573,7 +596,8 @@
    "move": "thunderbolt"
   },
   "price": 0,
-  "description": "A strong electrical blast is loosed at the foe. It may cause paralysis."
+  "description": "A strong electrical blast is loosed at the foe. It may cause paralysis.",
+  "move": "thunderbolt"
  },
  "tm25": {
   "name": "TM25 (Thunder)",
@@ -583,7 +607,8 @@
    "move": "thunder"
   },
   "price": 0,
-  "description": "A brutal lightning attack that may paralyze the foe. It hits straight in rain."
+  "description": "A brutal lightning attack that may paralyze the foe. It hits straight in rain.",
+  "move": "thunder"
  },
  "tm26": {
   "name": "TM26 (Earthquake)",
@@ -593,7 +618,8 @@
    "move": "earthquake"
   },
   "price": 0,
-  "description": "An earthquake that strikes all Pokémon in battle excluding the user."
+  "description": "An earthquake that strikes all Pokémon in battle excluding the user.",
+  "move": "earthquake"
  },
  "tm27": {
   "name": "TM27 (Return)",
@@ -603,7 +629,8 @@
    "move": "return"
   },
   "price": 0,
-  "description": "An attack that builds power the more the user loves its trainer."
+  "description": "An attack that builds power the more the user loves its trainer.",
+  "move": "return"
  },
  "tm28": {
   "name": "TM28 (Dig)",
@@ -613,7 +640,8 @@
    "move": "dig"
   },
   "price": 2000,
-  "description": "The user burrows on the first turn and strikes on the second."
+  "description": "The user burrows on the first turn and strikes on the second.",
+  "move": "dig"
  },
  "tm29": {
   "name": "TM29 (Psychic)",
@@ -623,7 +651,8 @@
    "move": "psychic"
   },
   "price": 0,
-  "description": "A strong telekinetic attack. It may lower the foe's Sp. Def stat."
+  "description": "A strong telekinetic attack. It may lower the foe's Sp. Def stat.",
+  "move": "psychic"
  },
  "tm30": {
   "name": "TM30 (Shadow Ball)",
@@ -633,7 +662,8 @@
    "move": "shadow_ball"
   },
   "price": 0,
-  "description": "The user hurls a black blob that may lower the foe's Sp. Def stat."
+  "description": "The user hurls a black blob that may lower the foe's Sp. Def stat.",
+  "move": "shadow_ball"
  },
  "tm31": {
   "name": "TM31 (Brick Break)",
@@ -643,7 +673,8 @@
    "move": "brick_break"
   },
   "price": 3000,
-  "description": "Destroys barriers like Light Screen and Reflect and causes damage."
+  "description": "Destroys barriers like Light Screen and Reflect and causes damage.",
+  "move": "brick_break"
  },
  "tm32": {
   "name": "TM32 (Double Team)",
@@ -653,7 +684,8 @@
    "move": "double_team"
   },
   "price": 0,
-  "description": "Moves create illusory copies to raise the user's evasiveness."
+  "description": "Moves create illusory copies to raise the user's evasiveness.",
+  "move": "double_team"
  },
  "tm33": {
   "name": "TM33 (Reflect)",
@@ -663,7 +695,8 @@
    "move": "reflect"
   },
   "price": 1000,
-  "description": "A wall of light cuts damage from physical attacks for five turns."
+  "description": "A wall of light cuts damage from physical attacks for five turns.",
+  "move": "reflect"
  },
  "tm34": {
   "name": "TM34 (Shock Wave)",
@@ -673,7 +706,8 @@
    "move": "shock_wave"
   },
   "price": 0,
-  "description": "The user strikes the target with a quick, unevadable electric shock."
+  "description": "The user strikes the target with a quick, unevadable electric shock.",
+  "move": "shock_wave"
  },
  "tm35": {
   "name": "TM35 (Flamethrower)",
@@ -683,7 +717,8 @@
    "move": "flamethrower"
   },
   "price": 0,
-  "description": "The foe is scorched with an intense blast of fire. It may cause a burn."
+  "description": "The foe is scorched with an intense blast of fire. It may cause a burn.",
+  "move": "flamethrower"
  },
  "tm36": {
   "name": "TM36 (Sludge Bomb)",
@@ -693,7 +728,8 @@
    "move": "sludge_bomb"
   },
   "price": 0,
-  "description": "Unsanitary sludge is hurled at the target. It may poison the foe."
+  "description": "Unsanitary sludge is hurled at the target. It may poison the foe.",
+  "move": "sludge_bomb"
  },
  "tm37": {
   "name": "TM37 (Sandstorm)",
@@ -703,7 +739,8 @@
    "move": "sandstorm"
   },
   "price": 0,
-  "description": "A 5-turn sandstorm buffets the battlefield, damaging non-rock/ground/steel types."
+  "description": "A 5-turn sandstorm buffets the battlefield, damaging non-rock/ground/steel types.",
+  "move": "sandstorm"
  },
  "tm38": {
   "name": "TM38 (Fire Blast)",
@@ -713,7 +750,8 @@
    "move": "fire_blast"
   },
   "price": 0,
-  "description": "The foe is incinerated with an intense flame. It may cause a burn."
+  "description": "The foe is incinerated with an intense flame. It may cause a burn.",
+  "move": "fire_blast"
  },
  "tm39": {
   "name": "TM39 (Rock Tomb)",
@@ -723,7 +761,8 @@
    "move": "rock_tomb"
   },
   "price": 0,
-  "description": "Boulders are hurled at the foe. It lowers the target's Speed stat."
+  "description": "Boulders are hurled at the foe. It lowers the target's Speed stat.",
+  "move": "rock_tomb"
  },
  "tm40": {
   "name": "TM40 (Aerial Ace)",
@@ -733,7 +772,8 @@
    "move": "aerial_ace"
   },
   "price": 0,
-  "description": "An extremely fast attack that is completely unevadable."
+  "description": "An extremely fast attack that is completely unevadable.",
+  "move": "aerial_ace"
  },
  "tm41": {
   "name": "TM41 (Torment)",
@@ -743,7 +783,8 @@
    "move": "torment"
   },
   "price": 0,
-  "description": "Torments the foe and stops it from using the same move twice in a row."
+  "description": "Torments the foe and stops it from using the same move twice in a row.",
+  "move": "torment"
  },
  "tm42": {
   "name": "TM42 (Facade)",
@@ -753,7 +794,8 @@
    "move": "facade"
   },
   "price": 0,
-  "description": "Boosts Attack power if the user is burned, paralyzed, or poisoned."
+  "description": "Boosts Attack power if the user is burned, paralyzed, or poisoned.",
+  "move": "facade"
  },
  "tm43": {
   "name": "TM43 (Secret Power)",
@@ -763,7 +805,8 @@
    "move": "secret_power"
   },
   "price": 3000,
-  "description": "An attack that has varying secondary effects depending on the environment."
+  "description": "An attack that has varying secondary effects depending on the environment.",
+  "move": "secret_power"
  },
  "tm44": {
   "name": "TM44 (Rest)",
@@ -773,7 +816,8 @@
    "move": "rest"
   },
   "price": 0,
-  "description": "The user sleeps for 2 turns to fully restore HP and cure status conditions."
+  "description": "The user sleeps for 2 turns to fully restore HP and cure status conditions.",
+  "move": "rest"
  },
  "tm45": {
   "name": "TM45 (Attract)",
@@ -783,7 +827,8 @@
    "move": "attract"
   },
   "price": 3000,
-  "description": "Makes it tough for the opposite gender foe to attack the user."
+  "description": "Makes it tough for the opposite gender foe to attack the user.",
+  "move": "attract"
  },
  "tm46": {
   "name": "TM46 (Thief)",
@@ -793,7 +838,8 @@
    "move": "thief"
   },
   "price": 0,
-  "description": "An attack that lets the user steal the foe's held item while attacking."
+  "description": "An attack that lets the user steal the foe's held item while attacking.",
+  "move": "thief"
  },
  "tm47": {
   "name": "TM47 (Steel Wing)",
@@ -803,7 +849,8 @@
    "move": "steel_wing"
   },
   "price": 0,
-  "description": "The target is struck with rigid wings. It may raise the user's Defense."
+  "description": "The target is struck with rigid wings. It may raise the user's Defense.",
+  "move": "steel_wing"
  },
  "tm48": {
   "name": "TM48 (Skill Swap)",
@@ -813,7 +860,8 @@
    "move": "skill_swap"
   },
   "price": 0,
-  "description": "The user employs psychic power to trade special abilities with the target."
+  "description": "The user employs psychic power to trade special abilities with the target.",
+  "move": "skill_swap"
  },
  "tm49": {
   "name": "TM49 (Snatch)",
@@ -823,7 +871,8 @@
    "move": "snatch"
   },
   "price": 0,
-  "description": "Steals the effects of the foe's healing or status moves on that turn."
+  "description": "Steals the effects of the foe's healing or status moves on that turn.",
+  "move": "snatch"
  },
  "tm50": {
   "name": "TM50 (Overheat)",
@@ -833,7 +882,8 @@
    "move": "overheat"
   },
   "price": 0,
-  "description": "A full-power blast that severely lowers the user's Special Attack afterward."
+  "description": "A full-power blast that severely lowers the user's Special Attack afterward.",
+  "move": "overheat"
  },
  "hm01": {
   "name": "HM01 (Cut)",
@@ -843,7 +893,8 @@
    "action": "cut_trees"
   },
   "price": 0,
-  "description": "Allows the user to cut down small trees outside of battle. Deals Normal-type damage."
+  "description": "Allows the user to cut down small trees outside of battle. Deals Normal-type damage.",
+  "move": "cut"
  },
  "hm02": {
   "name": "HM02 (Fly)",
@@ -853,7 +904,8 @@
    "action": "fly_to_town"
   },
   "price": 0,
-  "description": "The user flies up on the second turn and drops down to attack. Allows instant travel between visited towns."
+  "description": "The user flies up on the second turn and drops down to attack. Allows instant travel between visited towns.",
+  "move": "fly"
  },
  "hm03": {
   "name": "HM03 (Surf)",
@@ -863,7 +915,8 @@
    "action": "cross_water"
   },
   "price": 0,
-  "description": "The user plows across water to hit the foe. Allows the trainer to surf across water bodies."
+  "description": "The user plows across water to hit the foe. Allows the trainer to surf across water bodies.",
+  "move": "surf"
  },
  "hm04": {
   "name": "HM04 (Strength)",
@@ -873,7 +926,8 @@
    "action": "push_boulders"
   },
   "price": 0,
-  "description": "The target is hammered with a physical blow. Allows the user to push heavy boulders out of the way."
+  "description": "The target is hammered with a physical blow. Allows the user to push heavy boulders out of the way.",
+  "move": "strength"
  },
  "hm05": {
   "name": "HM05 (Flash)",
@@ -883,7 +937,8 @@
    "action": "illuminate_caves"
   },
   "price": 0,
-  "description": "A powerful flash of light blinds the target, reducing accuracy. Illuminates pitch-dark caves."
+  "description": "A powerful flash of light blinds the target, reducing accuracy. Illuminates pitch-dark caves.",
+  "move": "flash"
  },
  "hm06": {
   "name": "HM06 (Rock Smash)",
@@ -893,7 +948,8 @@
    "action": "smash_rocks"
   },
   "price": 0,
-  "description": "The foe is hit with an impact that can lower Defense. Smashes cracked rocks blocking paths."
+  "description": "The foe is hit with an impact that can lower Defense. Smashes cracked rocks blocking paths.",
+  "move": "rock_smash"
  },
  "hm07": {
   "name": "HM07 (Waterfall)",
@@ -903,7 +959,8 @@
    "action": "climb_waterfalls"
   },
   "price": 0,
-  "description": "The user charges at the target at a high speed. Powerful enough to charge up waterfalls."
+  "description": "The user charges at the target at a high speed. Powerful enough to charge up waterfalls.",
+  "move": "waterfall"
  },
  "poke_doll": {
   "name": "Poké Doll",
