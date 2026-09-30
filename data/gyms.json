@@ -1,1 +1,223 @@
-ewogInBld3Rlcl9jaXR5X2d5bSI6IHsKICAibmFtZSI6ICJQZXd0ZXIgQ2l0eSBHeW0iLAogICJsb2NhdGlvbl9pZCI6ICJwZXd0ZXJfY2l0eSIsCiAgInR5cGVfdGhlbWUiOiAicm9jayIsCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogImJvdWxkZXJfYmFkZ2UiCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogIml0ZW0iLAogICAgImlkIjogInRtMzQiLAogICAgInF1YW50aXR5IjogMQogICB9CiAgXSwKICAiZ3ltX3RyYWluZXJzIjogWwogICAiY2FtcGVyX2xpYW0iCiAgXSwKICAiZ3ltX2xlYWRlciI6ICJicm9ja19neW0iLAogICJjb21wbGV0ZWQiOiBmYWxzZQogfSwKICJjZXJ1bGVhbl9jaXR5X2d5bSI6IHsKICAibmFtZSI6ICJDZXJ1bGVhbiBDaXR5IEd5bSIsCiAgImxvY2F0aW9uX2lkIjogImNlcnVsZWFuX2NpdHkiLAogICJ0eXBlX3RoZW1lIjogIndhdGVyIiwKICAicmV3YXJkcyI6IFsKICAgewogICAgInR5cGUiOiAiZmxhZyIsCiAgICAiaWQiOiAiY2FzY2FkZV9iYWRnZSIKICAgfSwKICAgewogICAgInR5cGUiOiAiaXRlbSIsCiAgICAiaWQiOiAidG0xMSIsCiAgICAicXVhbnRpdHkiOiAxCiAgIH0KICBdLAogICJneW1fdHJhaW5lcnMiOiBbCiAgICJzd2ltbWVyX21pcmEiLAogICAicGljbmlja2VyX2RpYW5hIgogIF0sCiAgImd5bV9sZWFkZXIiOiAibWlzdHlfZ3ltIiwKICAiY29tcGxldGVkIjogZmFsc2UKIH0sCiAidmVybWlsaW9uX2NpdHlfZ3ltIjogewogICJuYW1lIjogIlZlcm1pbGlvbiBDaXR5IEd5bSIsCiAgImxvY2F0aW9uX2lkIjogInZlcm1pbGlvbl9jaXR5IiwKICAidHlwZV90aGVtZSI6ICJlbGVjdHJpYyIsCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInRodW5kZXJfYmFkZ2UiCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogIml0ZW0iLAogICAgImlkIjogInRtMjQiLAogICAgInF1YW50aXR5IjogMQogICB9CiAgXSwKICAiZ3ltX3RyYWluZXJzIjogWwogICAiZ2VudGxlbWFuX3R1Y2tlciIsCiAgICJyb2NrZXJfYmlmZiIsCiAgICJzYWlsb3JfZHdheW5lIgogIF0sCiAgImd5bV9sZWFkZXIiOiAic3VyZ2VfZ3ltIiwKICAiY29tcGxldGVkIjogZmFsc2UKIH0sCiAiY2VsYWRvbl9jaXR5X2d5bSI6IHsKICAibmFtZSI6ICJDZWxhZG9uIENpdHkgR3ltIiwKICAibG9jYXRpb25faWQiOiAiY2VsYWRvbl9jaXR5IiwKICAidHlwZV90aGVtZSI6ICJncmFzcyIsCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInJhaW5ib3dfYmFkZ2UiCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogIml0ZW0iLAogICAgImlkIjogInRtMjEiLAogICAgInF1YW50aXR5IjogMQogICB9CiAgXSwKICAiZ3ltX3RyYWluZXJzIjogWwogICAibGFzc19rYXkiLAogICAiYmVhdXR5X2JyaWRnZXQiLAogICAicGljbmlja2VyX3RpbmEiLAogICAibGFzc190YW1pYSIsCiAgICJiZWF1dHlfbG9yaSIsCiAgICJjb29sdHJhaW5lcl9tYXJ5IiwKICAgImJlYXV0eV9qZXNzaWNhIgogIF0sCiAgImd5bV9sZWFkZXIiOiAiZXJpa2FfZ3ltIiwKICAiY29tcGxldGVkIjogZmFsc2UKIH0sCiAiZnVjaHNpYV9jaXR5X2d5bSI6IHsKICAibmFtZSI6ICJGdWNoc2lhIENpdHkgR3ltIiwKICAibG9jYXRpb25faWQiOiAiZnVjaHNpYV9jaXR5IiwKICAidHlwZV90aGVtZSI6ICJwb2lzb24iLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJmbGFnIiwKICAgICJpZCI6ICJzb3VsX2JhZGdlIgogICB9LAogICB7CiAgICAidHlwZSI6ICJpdGVtIiwKICAgICJpZCI6ICJ0bTA2IiwKICAgICJxdWFudGl0eSI6IDEKICAgfQogIF0sCiAgImd5bV90cmFpbmVycyI6IFsKICAgInRhbWVyX3BoaWwiLAogICAidGFtZXJfZWRnYXIiLAogICAianVnZ2xlcl9raXJrIiwKICAgImp1Z2dsZXJfbmVkIiwKICAgImp1Z2dsZXJfa2F5ZGVuIgogIF0sCiAgImd5bV9sZWFkZXIiOiAia29nYV9neW0iLAogICJjb21wbGV0ZWQiOiBmYWxzZQogfSwKICJzYWZmcm9uX2NpdHlfZ3ltIjogewogICJuYW1lIjogIlNhZmZyb24gQ2l0eSBHeW0iLAogICJsb2NhdGlvbl9pZCI6ICJzYWZmcm9uX2NpdHkiLAogICJ0eXBlX3RoZW1lIjogInBzeWNoaWMiLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJmbGFnIiwKICAgICJpZCI6ICJtYXJzaF9iYWRnZSIKICAgfSwKICAgewogICAgInR5cGUiOiAiaXRlbSIsCiAgICAiaWQiOiAidG00NiIsCiAgICAicXVhbnRpdHkiOiAxCiAgIH0KICBdLAogICJneW1fdHJhaW5lcnMiOiBbCiAgICJwc3ljaGljX2pvaGFuIiwKICAgImNoYW5lbGxlcl9hbWFuZGEiLAogICAicHN5Y2hpY190eXJvbiIsCiAgICJjaGFuZWxsZXJfc3RhY3kiLAogICAicHN5Y2hpY19jYW1lcm9uIiwKICAgImNoYW5lbGxlcl90YXNoYSIsCiAgICJwc3ljaGljX3ByZXN0b24iCiAgXSwKICAiZ3ltX2xlYWRlciI6ICJzYWJyaW5hX2d5bSIsCiAgImNvbXBsZXRlZCI6IGZhbHNlCiB9LAogImNpbm5hYmFyX2lzbGFuZF9neW0iOiB7CiAgIm5hbWUiOiAiQ2lubmFiYXIgSXNsYW5kIEd5bSIsCiAgImxvY2F0aW9uX2lkIjogImNpbm5hYmFyX2lzbGFuZCIsCiAgInR5cGVfdGhlbWUiOiAiZmlyZSIsCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInZvbGNhbm9fYmFkZ2UiCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogIml0ZW0iLAogICAgImlkIjogInRtMzgiLAogICAgInF1YW50aXR5IjogMQogICB9CiAgXSwKICAiZ3ltX3RyYWluZXJzIjogWwogICAic3VwZXJfbmVyZF9lcmlrIiwKICAgImJ1cmdsYXJfcmFtb24iLAogICAic3VwZXJfbmVyZF9kdXN0eSIsCiAgICJidXJnbGFyX2FybmllIiwKICAgInN1cGVyX25lcmRfemFjayIsCiAgICJidXJnbGFyX2R1c3R5IiwKICAgInN1cGVyX25lcmRfYnJ5YW4iCiAgXSwKICAiZ3ltX2xlYWRlciI6ICJibGFpbmVfZ3ltIiwKICAiY29tcGxldGVkIjogZmFsc2UKIH0sCiAidmlyaWRpYW5fY2l0eV9neW0iOiB7CiAgIm5hbWUiOiAiVmlyaWRpYW4gQ2l0eSBHeW0iLAogICJsb2NhdGlvbl9pZCI6ICJ2aXJpZGlhbl9jaXR5IiwKICAidHlwZV90aGVtZSI6ICJncm91bmQiLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJmbGFnIiwKICAgICJpZCI6ICJlYXJ0aF9iYWRnZSIKICAgfSwKICAgewogICAgInR5cGUiOiAiaXRlbSIsCiAgICAiaWQiOiAidG0yNyIsCiAgICAicXVhbnRpdHkiOiAxCiAgIH0KICBdLAogICJneW1fdHJhaW5lcnMiOiBbCiAgICJjb29sdHJhaW5lcl9zYW11ZWwiLAogICAiYmxhY2tiZWx0X2F0c3VzaGkiCiAgXSwKICAiZ3ltX2xlYWRlciI6ICJnaW92YW5uaV9neW0iLAogICJjb21wbGV0ZWQiOiBmYWxzZQogfSwKICJmaWdodGluZ19kb2pvIjogewogICJuYW1lIjogIkZpZ2h0aW5nIERvam8iLAogICJsb2NhdGlvbl9pZCI6ICJzYWZmcm9uX2NpdHkiLAogICJ0eXBlX3RoZW1lIjogImZpZ2h0aW5nIiwKICAicmV3YXJkcyI6IFsKICAgewogICAgInR5cGUiOiAicG9rZW1vbl9jaG9pY2UiLAogICAgImNob2ljZXMiOiBbCiAgICAgewogICAgICAic3BlY2llcyI6ICJIaXRtb25sZWUiLAogICAgICAibGV2ZWwiOiAzMAogICAgIH0sCiAgICAgewogICAgICAic3BlY2llcyI6ICJIaXRtb25jaGFuIiwKICAgICAgImxldmVsIjogMzAKICAgICB9CiAgICBdCiAgIH0KICBdLAogICJneW1fdHJhaW5lcnMiOiBbCiAgICJibGFja2JlbHRfaGl0b3NoaSIsCiAgICJibGFja2JlbHRfaGlkZWtpIiwKICAgImJsYWNrYmVsdF9hYXJvbiIKICBdLAogICJneW1fbGVhZGVyIjogIm1hc3Rlcl9rYXJhdGUiLAogICJjb21wbGV0ZWQiOiBmYWxzZQogfQp9
+{
+ "pewter_city_gym": {
+  "name": "Pewter City Gym",
+  "location_id": "pewter_city",
+  "type_theme": "rock",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "boulder_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm34",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "camper_liam"
+  ],
+  "gym_leader": "brock_gym",
+  "completed": false
+ },
+ "cerulean_city_gym": {
+  "name": "Cerulean City Gym",
+  "location_id": "cerulean_city",
+  "type_theme": "water",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "cascade_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm11",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "swimmer_mira",
+   "picnicker_diana"
+  ],
+  "gym_leader": "misty_gym",
+  "completed": false
+ },
+ "vermilion_city_gym": {
+  "name": "Vermilion City Gym",
+  "location_id": "vermilion_city",
+  "type_theme": "electric",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "thunder_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm24",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "gentleman_tucker",
+   "rocker_biff",
+   "sailor_dwayne"
+  ],
+  "gym_leader": "surge_gym",
+  "completed": false
+ },
+ "celadon_city_gym": {
+  "name": "Celadon City Gym",
+  "location_id": "celadon_city",
+  "type_theme": "grass",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "rainbow_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm21",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "lass_kay",
+   "beauty_bridget",
+   "picnicker_tina",
+   "lass_tamia",
+   "beauty_lori",
+   "cooltrainer_mary",
+   "beauty_jessica"
+  ],
+  "gym_leader": "erika_gym",
+  "completed": false
+ },
+ "fuchsia_city_gym": {
+  "name": "Fuchsia City Gym",
+  "location_id": "fuchsia_city",
+  "type_theme": "poison",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "soul_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm06",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "tamer_phil",
+   "tamer_edgar",
+   "juggler_kirk",
+   "juggler_ned",
+   "juggler_kayden"
+  ],
+  "gym_leader": "koga_gym",
+  "completed": false
+ },
+ "saffron_city_gym": {
+  "name": "Saffron City Gym",
+  "location_id": "saffron_city",
+  "type_theme": "psychic",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "marsh_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm46",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "psychic_johan",
+   "chaneller_amanda",
+   "psychic_tyron",
+   "chaneller_stacy",
+   "psychic_cameron",
+   "chaneller_tasha",
+   "psychic_preston"
+  ],
+  "gym_leader": "sabrina_gym",
+  "completed": false
+ },
+ "cinnabar_island_gym": {
+  "name": "Cinnabar Island Gym",
+  "location_id": "cinnabar_island",
+  "type_theme": "fire",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "volcano_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm38",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "super_nerd_erik",
+   "burglar_ramon",
+   "super_nerd_dusty",
+   "burglar_arnie",
+   "super_nerd_zack",
+   "burglar_dusty",
+   "super_nerd_bryan"
+  ],
+  "gym_leader": "blaine_gym",
+  "completed": false
+ },
+ "viridian_city_gym": {
+  "name": "Viridian City Gym",
+  "location_id": "viridian_city",
+  "type_theme": "ground",
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "earth_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm27",
+    "quantity": 1
+   }
+  ],
+  "gym_trainers": [
+   "cooltrainer_samuel",
+   "blackbelt_atsushi"
+  ],
+  "gym_leader": "giovanni_gym",
+  "completed": false
+ },
+ "fighting_dojo": {
+  "name": "Fighting Dojo",
+  "location_id": "saffron_city",
+  "type_theme": "fighting",
+  "rewards": [
+   {
+    "type": "pokemon_choice",
+    "choices": [
+     {
+      "species": "Hitmonlee",
+      "level": 30
+     },
+     {
+      "species": "Hitmonchan",
+      "level": 30
+     }
+    ]
+   }
+  ],
+  "gym_trainers": [
+   "blackbelt_hitoshi",
+   "blackbelt_hideki",
+   "blackbelt_aaron"
+  ],
+  "gym_leader": "master_karate",
+  "completed": false
+ }
+}

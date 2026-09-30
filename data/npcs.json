@@ -1,1 +1,338 @@
-ewogIm9ha19wYWxsZXQiOiB7CiAgIm5hbWUiOiAiUHJvZi4gT2FrIiwKICAiZGlhbG9ndWVfZGVmYXVsdCI6ICJJdCdzIGRhbmdlcm91cyB0byBnbyBhbG9uZSEgVGFrZSB0aGVzZS4iLAogICJyZXF1aXJlbWVudHMiOiBbXSwKICAicmV3YXJkcyI6IFsKICAgewogICAgInR5cGUiOiAiZmxhZyIsCiAgICAiaWQiOiAiaGFzX3Bva2VkZXgiCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogIml0ZW0iLAogICAgImlkIjogInBva2ViYWxsIiwKICAgICJxdHkiOiA1CiAgIH0KICBdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIkhvdyBpcyB5b3VyIFBva8OpZGV4IGNvbWluZyBhbG9uZz8gQ2F0Y2ggJ2VtIGFsbCEiLAogICJvbmNlX2ZsYWciOiAiaGFzX3Bva2VkZXgiLAogICJyZXFfZmxhZ190b19kaXNhcHBlYXIiOiAiaGFzX3Bva2VkZXgiCiB9LAogInJvdXRlXzFfY2xlcmsiOiB7CiAgIm5hbWUiOiAiU2hvcCBDbGVyayIsCiAgImRpYWxvZ3VlX2RlZmF1bHQiOiAiSGkgdGhlcmUhIEknbSBmcm9tIHRoZSBWaXJpZGlhbiBDaXR5IFBva8OpIE1hcnQhIEkndmUgZ290IGEgZnJlZSBzYW1wbGUgZm9yIHRyYWluZXJzIHBhc3NpbmcgdGhyb3VnaC4gSGVyZSwgdGFrZSB0aGlzISIsCiAgInJlcXVpcmVtZW50cyI6IFtdLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJpdGVtIiwKICAgICJpZCI6ICJwb3Rpb24iLAogICAgInF0eSI6IDEKICAgfSwKICAgewogICAgInR5cGUiOiAiZmxhZyIsCiAgICAiaWQiOiAicmVjZWl2ZWRfcm91dGVfMV9wb3Rpb24iCiAgIH0KICBdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIk1ha2Ugc3VyZSB0byBzdG9jayB1cCBvbiBQb2vDqSBCYWxscyBpZiB5b3UgcGxhbiBvbiBjYXRjaGluZyB3aWxkIFBva8OpbW9uISIsCiAgIm9uY2VfZmxhZyI6ICJyZWNlaXZlZF9yb3V0ZV8xX3BvdGlvbiIKIH0sCiAiZ3VhcmRfcm91dGU4IjogewogICJuYW1lIjogIlRoaXJzdHkgR3VhcmQiLAogICJyZXFfZmxhZ190b19hcHBlYXIiOiBudWxsLAogICJkaWFsb2d1ZV9kZWZhdWx0IjogIkknbSBzbyB0aGlyc3R5Li4uIE9oLCB5b3UgaGF2ZSBhIGRyaW5rPyBUaGFua3MhIFlvdSBjYW4gcGFzcyBub3cuIiwKICAicmVxdWlyZW1lbnRzIjogWwogICB7CiAgICAidHlwZSI6ICJpdGVtX2FueV9vZiIsCiAgICAiaWRzIjogWwogICAgICJmcmVzaF93YXRlciIsCiAgICAgInNvZGFfcG9wIiwKICAgICAibGVtb25hZGUiCiAgICBdLAogICAgInF0eSI6IDEKICAgfQogIF0sCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogImd1YXJkX2xldF9wYXNzIgogICB9LAogICB7CiAgICAidHlwZSI6ICJpdGVtX2NvbnN1bXB0aW9uX2FueV9vZiIsCiAgICAiaWRzIjogWwogICAgICJmcmVzaF93YXRlciIsCiAgICAgInNvZGFfcG9wIiwKICAgICAibGVtb25hZGUiCiAgICBdLAogICAgInF0eSI6IDEKICAgfQogIF0sCiAgImRpYWxvZ3VlX3JlcV91bm1ldCI6ICJJJ20gc28gdGhpcnN0eS4uLiBCdXQgSSBjYW4ndCBhY2NlcHQganVzdCBhbnl0aGluZy4gQnJpbmcgbWUgYSByZWZyZXNoaW5nIGRyaW5rIGZyb20gdGhlIENlbGFkb24gRGVwdC4gU3RvcmUgcm9vZnRvcCEiLAogICJkaWFsb2d1ZV9wb3N0X2ZsYWciOiAiVGhhbmtzIGZvciB0aGUgZHJpbmshIFRoZSByb2FkIHRvIFNhZmZyb24gQ2l0eSBpcyBvcGVuLiIsCiAgIm9uY2VfZmxhZyI6ICJndWFyZF9sZXRfcGFzcyIKIH0sCiAiZm9zc2lsX3NjaWVudGlzdF9kb21lIjogewogICJuYW1lIjogIkxhYiBTY2llbnRpc3QgMSIsCiAgImRpYWxvZ3VlX2RlZmF1bHQiOiAiQWgsIHRoZSBEb21lIEZvc3NpbCEgSSBjYW4gcmVzdXJyZWN0IHRoaXMgaW50byBLYWJ1dG8gdXNpbmcgb3VyIG1hY2hpbmUuIiwKICAicmVxdWlyZW1lbnRzIjogWwogICB7CiAgICAidHlwZSI6ICJpdGVtIiwKICAgICJpZCI6ICJkb21lX2Zvc3NpbCIsCiAgICAicXR5IjogMQogICB9CiAgXSwKICAicmV3YXJkcyI6IFsKICAgewogICAgInR5cGUiOiAicG9rZW1vbiIsCiAgICAiaWQiOiAia2FidXRvIiwKICAgICJsZXZlbCI6IDMwCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogIml0ZW1fY29uc3VtcHRpb24iLAogICAgImlkIjogImRvbWVfZm9zc2lsIiwKICAgICJxdHkiOiAxCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInJldml2ZWRfZG9tZV9mb3NzaWwiCiAgIH0KICBdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiWW91IGRvbid0IGhhdmUgYSBEb21lIEZvc3NpbCBmb3IgbWUgdG8gd29yayB3aXRoLiIsCiAgImRpYWxvZ3VlX3Bvc3RfZmxhZyI6ICJJc24ndCBzY2llbmNlIGFtYXppbmc/IFRha2UgZ29vZCBjYXJlIG9mIEthYnV0by4iLAogICJvbmNlX2ZsYWciOiAicmV2aXZlZF9kb21lX2Zvc3NpbCIKIH0sCiAiZm9zc2lsX3NjaWVudGlzdF9oZWxpeCI6IHsKICAibmFtZSI6ICJMYWIgU2NpZW50aXN0IDIiLAogICJkaWFsb2d1ZV9kZWZhdWx0IjogIkFoLCB0aGUgSGVsaXggRm9zc2lsISBJIGNhbiByZXN1cnJlY3QgdGhpcyBpbnRvIE9tYW55dGUgdXNpbmcgb3VyIG1hY2hpbmUuIiwKICAicmVxdWlyZW1lbnRzIjogWwogICB7CiAgICAidHlwZSI6ICJpdGVtIiwKICAgICJpZCI6ICJoZWxpeF9mb3NzaWwiLAogICAgInF0eSI6IDEKICAgfQogIF0sCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogInBva2Vtb24iLAogICAgImlkIjogIm9tYW55dGUiLAogICAgImxldmVsIjogMzAKICAgfSwKICAgewogICAgInR5cGUiOiAiaXRlbV9jb25zdW1wdGlvbiIsCiAgICAiaWQiOiAiaGVsaXhfZm9zc2lsIiwKICAgICJxdHkiOiAxCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInJldml2ZWRfaGVsaXhfZm9zc2lsIgogICB9CiAgXSwKICAiZGlhbG9ndWVfcmVxX3VubWV0IjogIllvdSBkb24ndCBoYXZlIGEgSGVsaXggRm9zc2lsIGZvciBtZSB0byB3b3JrIHdpdGguIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIklzbid0IHNjaWVuY2UgYW1hemluZz8gVGFrZSBnb29kIGNhcmUgb2YgT21hbnl0ZS4iLAogICJvbmNlX2ZsYWciOiAicmV2aXZlZF9oZWxpeF9mb3NzaWwiCiB9LAogImZvc3NpbF9zY2llbnRpc3RfYW1iZXIiOiB7CiAgIm5hbWUiOiAiTGFiIFNjaWVudGlzdCAzIiwKICAiZGlhbG9ndWVfZGVmYXVsdCI6ICJBaCwgT2xkIEFtYmVyISBJIGNhbiByZXN1cnJlY3QgdGhpcyBpbnRvIEFlcm9kYWN0eWwgdXNpbmcgb3VyIG1hY2hpbmUuIiwKICAicmVxdWlyZW1lbnRzIjogWwogICB7CiAgICAidHlwZSI6ICJpdGVtIiwKICAgICJpZCI6ICJvbGRfYW1iZXIiLAogICAgInF0eSI6IDEKICAgfQogIF0sCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogInBva2Vtb24iLAogICAgImlkIjogImFlcm9kYWN0eWwiLAogICAgImxldmVsIjogMzAKICAgfSwKICAgewogICAgInR5cGUiOiAiaXRlbV9jb25zdW1wdGlvbiIsCiAgICAiaWQiOiAib2xkX2FtYmVyIiwKICAgICJxdHkiOiAxCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInJldml2ZWRfb2xkX2FtYmVyIgogICB9CiAgXSwKICAiZGlhbG9ndWVfcmVxX3VubWV0IjogIllvdSBkb24ndCBoYXZlIGFueSBPbGQgQW1iZXIgZm9yIG1lIHRvIHdvcmsgd2l0aC4iLAogICJkaWFsb2d1ZV9wb3N0X2ZsYWciOiAiSXNuJ3Qgc2NpZW5jZSBhbWF6aW5nPyBUYWtlIGdvb2QgY2FyZSBvZiBBZXJvZGFjdHlsLiIsCiAgIm9uY2VfZmxhZyI6ICJyZXZpdmVkX29sZF9hbWJlciIKIH0sCiAiY2VsYWRvbl9tYW5zaW9uX2VldmVlIjogewogICJuYW1lIjogIkVldmVlIE1hbmFnZXIiLAogICJkaWFsb2d1ZV9kZWZhdWx0IjogIkkndmUgYmVlbiBsb29raW5nIGZvciBzb21lb25lIHRvIHRha2UgdGhpcyByYXJlIFBva8OpbW9uIG9mZiBteSBoYW5kcy4gV291bGQgeW91IGxpa2UgaXQ/IiwKICAicmVxdWlyZW1lbnRzIjogW10sCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogInBva2Vtb24iLAogICAgImlkIjogImVldmVlIiwKICAgICJsZXZlbCI6IDI1CiAgIH0sCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInJlY2VpdmVkX2NlbGFkb25fZWV2ZWUiCiAgIH0KICBdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIk1ha2Ugc3VyZSB5b3UgZXZvbHZlIEVldmVlIHdpdGggdGhlIHJpZ2h0IHN0b25lIHRvIHN1aXQgeW91ciB0ZWFtISIsCiAgIm9uY2VfZmxhZyI6ICJyZWNlaXZlZF9jZWxhZG9uX2VldmVlIgogfSwKICJyb3V0ZTRfbWFnaWthcnBfc2FsZXNtYW4iOiB7CiAgIm5hbWUiOiAiTWFnaWthcnAgU2FsZXNtYW4iLAogICJkaWFsb2d1ZV9kZWZhdWx0IjogIkhlbGxvIHRoZXJlISBIYXZlIEkgZ290IGEgZGVhbCBmb3IgeW91ISBJJ2xsIGxldCB5b3UgaGF2ZSBhIG1hZ25pZmljZW50IE1hZ2lrYXJwIGZvciBqdXN0IMKlNTAwISIsCiAgInJlcXVpcmVtZW50cyI6IFsKICAgewogICAgInR5cGUiOiAibW9uZXkiLAogICAgImFtb3VudCI6IDUwMAogICB9CiAgXSwKICAicmV3YXJkcyI6IFsKICAgewogICAgInR5cGUiOiAicG9rZW1vbiIsCiAgICAiaWQiOiAibWFnaWthcnAiLAogICAgImxldmVsIjogNQogICB9LAogICB7CiAgICAidHlwZSI6ICJtb25leV9kZWR1Y3Rpb24iLAogICAgImFtb3VudCI6IDUwMAogICB9LAogICB7CiAgICAidHlwZSI6ICJmbGFnIiwKICAgICJpZCI6ICJib3VnaHRfcm91dGU0X21hZ2lrYXJwIgogICB9CiAgXSwKICAiZGlhbG9ndWVfcmVxX3VubWV0IjogIllvdSdsbCBuZWVkIMKlNTAwIGlmIHlvdSB3YW50IHRvIGJ1eSB0aGlzIGluY3JlZGlibGUgUG9rw6ltb24hIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIk5vIHJlZnVuZHMhIFRoYXQgTWFnaWthcnAgaXMgYSBmaW5lIHNwZWNpbWVuLiIsCiAgIm9uY2VfZmxhZyI6ICJib3VnaHRfcm91dGU0X21hZ2lrYXJwIiwKICAicmVtb3ZlX2FmdGVyX2NsYWltIjogdHJ1ZQogfSwKICJzc19hbm5lX2NhcHRhaW4iOiB7CiAgIm5hbWUiOiAiQ2FwdGFpbiIsCiAgImRpYWxvZ3VlX2RlZmF1bHQiOiAiVXJycCEgSSBmZWVsIHNlYXNpY2suLi4gT2gsIHlvdSB3YW50IHRvIGxlYXJuIGhvdyB0byBjdXQgdHJlZXM/IFRha2UgdGhpcyBITTAxISIsCiAgInJlcXVpcmVtZW50cyI6IFtdLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJpdGVtIiwKICAgICJpZCI6ICJobTAxIiwKICAgICJxdHkiOiAxCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInJlY2VpdmVkX2htMDEiCiAgIH0KICBdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIlVycnAuLi4gVGhhbmsgeW91IGZvciBydWJiaW5nIG15IGJhY2suIFlvdSBjYW4gdXNlIEN1dCBvdXRzaWRlIG9mIGJhdHRsZSB0byBjbGVhciBzbWFsbCB0cmVlcy4iLAogICJvbmNlX2ZsYWciOiAicmVjZWl2ZWRfaG0wMSIKIH0sCiAiY2lubmFiYXJfbGFiX3RyYWRlX3NlZWwiOiB7CiAgIm5hbWUiOiAiU3VwZXIgTmVyZCIsCiAgImRpYWxvZ3VlX2RlZmF1bHQiOiAiSSdtIGxvb2tpbmcgZm9yIGEgUG9ueXRhLiBXYW50IHRvIHRyYWRlIGl0IGZvciBteSBTZWVsPyIsCiAgInJlcXVpcmVtZW50cyI6IFsKICAgewogICAgInR5cGUiOiAicG9rZW1vbl9zcGVjaWVzIiwKICAgICJpZCI6ICJwb255dGEiCiAgIH0KICBdLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJwb2tlbW9uIiwKICAgICJpZCI6ICJzZWVsIiwKICAgICJsZXZlbCI6IDM1CiAgIH0sCiAgIHsKICAgICJ0eXBlIjogInBva2Vtb25fcmVtb3ZhbCIsCiAgICAic3BlY2llcyI6ICJwb255dGEiCiAgIH0sCiAgIHsKICAgICJ0eXBlIjogImZsYWciLAogICAgImlkIjogInRyYWRlZF9wb255dGFfZm9yX3NlZWwiCiAgIH0KICBdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiSG1tLCB0aGF0J3Mgbm90IGEgUG9ueXRhLiBCcmluZyBtZSBvbmUgaWYgeW91IHdhbnQgdG8gdHJhZGUhIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIklzbid0IG15IG9sZCBTZWVsIGRvaW5nIGdyZWF0PyIsCiAgIm9uY2VfZmxhZyI6ICJ0cmFkZWRfcG9ueXRhX2Zvcl9zZWVsIgogfSwKICJwZXd0ZXJfbXVzZXVtX2NsZXJrIjogewogICJuYW1lIjogIk11c2V1bSBHdWlkZSIsCiAgImRpYWxvZ3VlX2RlZmF1bHQiOiAiV2VsY29tZSB0byB0aGUgUGV3dGVyIE11c2V1bSBvZiBTY2llbmNlISBBZG1pc3Npb24gaXMgwqU1MC4gV291bGQgeW91IGxpa2UgdG8gZW50ZXI/IiwKICAicmVxdWlyZW1lbnRzIjogWwogICB7CiAgICAidHlwZSI6ICJtb25leSIsCiAgICAiYW1vdW50IjogNTAKICAgfQogIF0sCiAgInJld2FyZHMiOiBbCiAgIHsKICAgICJ0eXBlIjogIm1vbmV5X2RlZHVjdGlvbiIsCiAgICAiYW1vdW50IjogNTAKICAgfSwKICAgewogICAgInR5cGUiOiAiZmxhZyIsCiAgICAiaWQiOiAicGV3dGVyX211c2V1bV9lbnRlcmVkIgogICB9CiAgXSwKICAiZGlhbG9ndWVfcmVxX3VubWV0IjogIk9vcHMsIGxvb2tzIGxpa2UgeW91J3JlIHNob3J0IG9uIGNhc2guIEFkbWlzc2lvbiBpcyDCpTUwISIsCiAgImRpYWxvZ3VlX3Bvc3RfZmxhZyI6ICJFbmpveSBsb29raW5nIGF0IHRoZSBmb3NzaWxzIGFuZCBzcGFjZSBleGhpYml0ISIsCiAgIm9uY2VfZmxhZyI6ICJwZXd0ZXJfbXVzZXVtX2VudGVyZWQiCiB9LAogInNhZmFyaV96b25lX2dhdGVfYXR0ZW5kYW50IjogewogICJuYW1lIjogIlNhZmFyaSBXYXJkZW4iLAogICJkaWFsb2d1ZV9kZWZhdWx0IjogIldlbGNvbWUgdG8gdGhlIFNhZmFyaSBab25lISBJdCdzIMKlNTAwIGZvciBhIHBhc3MsIGFuZCB5b3UgZ2V0IDMwIFNhZmFyaSBCYWxscyB0byBjYXRjaCBhbGwgeW91IHdhbnQuIiwKICAicmVxdWlyZW1lbnRzIjogWwogICB7CiAgICAidHlwZSI6ICJtb25leSIsCiAgICAiYW1vdW50IjogNTAwCiAgIH0KICBdLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJpdGVtIiwKICAgICJpZCI6ICJzYWZhcmlfYmFsbCIsCiAgICAicXR5IjogMzAKICAgfSwKICAgewogICAgInR5cGUiOiAibW9uZXlfZGVkdWN0aW9uIiwKICAgICJhbW91bnQiOiA1MDAKICAgfSwKICAgewogICAgInR5cGUiOiAiZmxhZyIsCiAgICAiaWQiOiAic2FmYXJpX2dhbWVfYWN0aXZlIgogICB9CiAgXSwKICAiZGlhbG9ndWVfcmVxX3VubWV0IjogIllvdSBkb24ndCBoYXZlIGVub3VnaCBtb25leSBmb3IgdGhlIFNhZmFyaSBQYXNzLiBDb21lIGJhY2sgd2l0aCDCpTUwMCEiLAogICJkaWFsb2d1ZV9wb3N0X2ZsYWciOiAiS2VlcCBhbiBleWUgb24geW91ciBzdGVwIGNvdW50IGFuZCB5b3VyIFNhZmFyaSBCYWxscyEiCiB9LAogInZpY3Rvcnlfcm9hZF9ndWFyZCI6IHsKICAibmFtZSI6ICJMZWFndWUgR3VhcmQiLAogICJkaWFsb2d1ZV9kZWZhdWx0IjogIk9ubHkgdHJhaW5lcnMgd2hvIGhhdmUgcHJvdmVuIHRoZW1zZWx2ZXMgYWdhaW5zdCBhbGwgZWlnaHQgR3ltIExlYWRlcnMgY2FuIHBhc3MgdGhyb3VnaCB0byBWaWN0b3J5IFJvYWQuIiwKICAicmVxdWlyZW1lbnRzIjogWwogICB7CiAgICAidHlwZSI6ICJmbGFnX2NvdW50IiwKICAgICJjYXRlZ29yeSI6ICJneW1fYmFkZ2VzIiwKICAgICJxdHkiOiA4CiAgIH0KICBdLAogICJyZXdhcmRzIjogWwogICB7CiAgICAidHlwZSI6ICJmbGFnIiwKICAgICJpZCI6ICJ2aWN0b3J5X3JvYWRfbGV0X3Bhc3MiCiAgIH0KICBdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiWW91IGRvbid0IGhhdmUgYWxsIGVpZ2h0IEd5bSBCYWRnZXMgeWV0ISBZb3UgbmVlZCB0aGUgRWFydGggQmFkZ2UgYW5kIGFsbCB0aGUgb3RoZXJzIHRvIHByb3ZlIHlvdXIgc3RyZW5ndGguIiwKICAiZGlhbG9ndWVfcG9zdF9mbGFnIjogIkFoLCB5b3UgcG9zc2VzcyBhbGwgZWlnaHQgQmFkZ2VzISBHbyByaWdodCBhaGVhZCwgYW5kIGdvb2QgbHVjayBhdCB0aGUgUG9rw6ltb24gTGVhZ3VlISIsCiAgIm9uY2VfZmxhZyI6ICJ2aWN0b3J5X3JvYWRfbGV0X3Bhc3MiCiB9LAogIm9ha19wYWxsZXRfZGV4IjogewogICJuYW1lIjogIlByb2YuIE9hayIsCiAgImRpYWxvZ3VlX2RlZmF1bHQiOiAiQWgsIGJhY2sgYWdhaW4hIEhvdyBpcyB5b3VyIFBva8OpZGV4IGNvbWluZyBhbG9uZz8gUmVtZW1iZXIsIHRoZSBnb2FsIGlzIHRvIGNhdGNoIGFsbCAxNTEgUG9rw6ltb24gc3BlY2llcyBpbiBLYW50byEgRXZlcnkgbmV3IHNwZWNpZXMgYnJpbmdzIHlvdSBjbG9zZXIgdG8gY29tcGxldGluZyBpdC4gS2VlcCBhdCBpdCEiLAogICJyZXF1aXJlbWVudHMiOiBbXSwKICAicmV3YXJkcyI6IFtdLAogICJkaWFsb2d1ZV9yZXFfdW5tZXQiOiAiIiwKICAicmVxX2ZsYWdfdG9fYXBwZWFyIjogImhhc19wb2tlZGV4IgogfQp9
+{
+ "oak_pallet": {
+  "name": "Prof. Oak",
+  "dialogue_default": "It's dangerous to go alone! Take these.",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "has_pokedex"
+   },
+   {
+    "type": "item",
+    "id": "pokeball",
+    "qty": 5
+   }
+  ],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": "How is your Pokédex coming along? Catch 'em all!",
+  "once_flag": "has_pokedex",
+  "req_flag_to_disappear": "has_pokedex"
+ },
+ "route_1_clerk": {
+  "name": "Shop Clerk",
+  "dialogue_default": "Hi there! I'm from the Viridian City Poké Mart! I've got a free sample for trainers passing through. Here, take this!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "potion",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "received_route_1_potion"
+   }
+  ],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": "Make sure to stock up on Poké Balls if you plan on catching wild Pokémon!",
+  "once_flag": "received_route_1_potion"
+ },
+ "guard_route8": {
+  "name": "Thirsty Guard",
+  "req_flag_to_appear": null,
+  "dialogue_default": "I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
+  "requirements": [
+   {
+    "type": "item_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "guard_let_pass"
+   },
+   {
+    "type": "item_consumption_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "dialogue_req_unmet": "I'm so thirsty... But I can't accept just anything. Bring me a refreshing drink from the Celadon Dept. Store rooftop!",
+  "dialogue_post_flag": "Thanks for the drink! The road to Saffron City is open.",
+  "once_flag": "guard_let_pass"
+ },
+ "fossil_scientist_dome": {
+  "name": "Lab Scientist 1",
+  "dialogue_default": "Ah, the Dome Fossil! I can resurrect this into Kabuto using our machine.",
+  "requirements": [
+   {
+    "type": "item",
+    "id": "dome_fossil",
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "kabuto",
+    "level": 30
+   },
+   {
+    "type": "item_consumption",
+    "id": "dome_fossil",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "revived_dome_fossil"
+   }
+  ],
+  "dialogue_req_unmet": "You don't have a Dome Fossil for me to work with.",
+  "dialogue_post_flag": "Isn't science amazing? Take good care of Kabuto.",
+  "once_flag": "revived_dome_fossil"
+ },
+ "fossil_scientist_helix": {
+  "name": "Lab Scientist 2",
+  "dialogue_default": "Ah, the Helix Fossil! I can resurrect this into Omanyte using our machine.",
+  "requirements": [
+   {
+    "type": "item",
+    "id": "helix_fossil",
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "omanyte",
+    "level": 30
+   },
+   {
+    "type": "item_consumption",
+    "id": "helix_fossil",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "revived_helix_fossil"
+   }
+  ],
+  "dialogue_req_unmet": "You don't have a Helix Fossil for me to work with.",
+  "dialogue_post_flag": "Isn't science amazing? Take good care of Omanyte.",
+  "once_flag": "revived_helix_fossil"
+ },
+ "fossil_scientist_amber": {
+  "name": "Lab Scientist 3",
+  "dialogue_default": "Ah, Old Amber! I can resurrect this into Aerodactyl using our machine.",
+  "requirements": [
+   {
+    "type": "item",
+    "id": "old_amber",
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "aerodactyl",
+    "level": 30
+   },
+   {
+    "type": "item_consumption",
+    "id": "old_amber",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "revived_old_amber"
+   }
+  ],
+  "dialogue_req_unmet": "You don't have any Old Amber for me to work with.",
+  "dialogue_post_flag": "Isn't science amazing? Take good care of Aerodactyl.",
+  "once_flag": "revived_old_amber"
+ },
+ "celadon_mansion_eevee": {
+  "name": "Eevee Manager",
+  "dialogue_default": "I've been looking for someone to take this rare Pokémon off my hands. Would you like it?",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "eevee",
+    "level": 25
+   },
+   {
+    "type": "flag",
+    "id": "received_celadon_eevee"
+   }
+  ],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": "Make sure you evolve Eevee with the right stone to suit your team!",
+  "once_flag": "received_celadon_eevee"
+ },
+ "route4_magikarp_salesman": {
+  "name": "Magikarp Salesman",
+  "dialogue_default": "Hello there! Have I got a deal for you! I'll let you have a magnificent Magikarp for just ¥500!",
+  "requirements": [
+   {
+    "type": "money",
+    "amount": 500
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "magikarp",
+    "level": 5
+   },
+   {
+    "type": "money_deduction",
+    "amount": 500
+   },
+   {
+    "type": "flag",
+    "id": "bought_route4_magikarp"
+   }
+  ],
+  "dialogue_req_unmet": "You'll need ¥500 if you want to buy this incredible Pokémon!",
+  "dialogue_post_flag": "No refunds! That Magikarp is a fine specimen.",
+  "once_flag": "bought_route4_magikarp",
+  "remove_after_claim": true
+ },
+ "ss_anne_captain": {
+  "name": "Captain",
+  "dialogue_default": "Urrp! I feel seasick... Oh, you want to learn how to cut trees? Take this HM01!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "hm01",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "received_hm01"
+   }
+  ],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": "Urrp... Thank you for rubbing my back. You can use Cut outside of battle to clear small trees.",
+  "once_flag": "received_hm01"
+ },
+ "cinnabar_lab_trade_seel": {
+  "name": "Super Nerd",
+  "dialogue_default": "I'm looking for a Ponyta. Want to trade it for my Seel?",
+  "requirements": [
+   {
+    "type": "pokemon_species",
+    "id": "ponyta"
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "seel",
+    "level": 35
+   },
+   {
+    "type": "pokemon_removal",
+    "species": "ponyta"
+   },
+   {
+    "type": "flag",
+    "id": "traded_ponyta_for_seel"
+   }
+  ],
+  "dialogue_req_unmet": "Hmm, that's not a Ponyta. Bring me one if you want to trade!",
+  "dialogue_post_flag": "Isn't my old Seel doing great?",
+  "once_flag": "traded_ponyta_for_seel"
+ },
+ "pewter_museum_clerk": {
+  "name": "Museum Guide",
+  "dialogue_default": "Welcome to the Pewter Museum of Science! Admission is ¥50. Would you like to enter?",
+  "requirements": [
+   {
+    "type": "money",
+    "amount": 50
+   }
+  ],
+  "rewards": [
+   {
+    "type": "money_deduction",
+    "amount": 50
+   },
+   {
+    "type": "flag",
+    "id": "pewter_museum_entered"
+   }
+  ],
+  "dialogue_req_unmet": "Oops, looks like you're short on cash. Admission is ¥50!",
+  "dialogue_post_flag": "Enjoy looking at the fossils and space exhibit!",
+  "once_flag": "pewter_museum_entered"
+ },
+ "safari_zone_gate_attendant": {
+  "name": "Safari Warden",
+  "dialogue_default": "Welcome to the Safari Zone! It's ¥500 for a pass, and you get 30 Safari Balls to catch all you want.",
+  "requirements": [
+   {
+    "type": "money",
+    "amount": 500
+   }
+  ],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "safari_ball",
+    "qty": 30
+   },
+   {
+    "type": "money_deduction",
+    "amount": 500
+   },
+   {
+    "type": "flag",
+    "id": "safari_game_active"
+   }
+  ],
+  "dialogue_req_unmet": "You don't have enough money for the Safari Pass. Come back with ¥500!",
+  "dialogue_post_flag": "Keep an eye on your step count and your Safari Balls!"
+ },
+ "victory_road_guard": {
+  "name": "League Guard",
+  "dialogue_default": "Only trainers who have proven themselves against all eight Gym Leaders can pass through to Victory Road.",
+  "requirements": [
+   {
+    "type": "flag_count",
+    "category": "gym_badges",
+    "qty": 8
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "victory_road_let_pass"
+   }
+  ],
+  "dialogue_req_unmet": "You don't have all eight Gym Badges yet! You need the Earth Badge and all the others to prove your strength.",
+  "dialogue_post_flag": "Ah, you possess all eight Badges! Go right ahead, and good luck at the Pokémon League!",
+  "once_flag": "victory_road_let_pass"
+ },
+ "oak_pallet_dex": {
+  "name": "Prof. Oak",
+  "dialogue_default": "Ah, back again! How is your Pokédex coming along? Remember, the goal is to catch all 151 Pokémon species in Kanto! Every new species brings you closer to completing it. Keep at it!",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "req_flag_to_appear": "has_pokedex"
+ }
+}
