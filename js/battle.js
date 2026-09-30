@@ -22,6 +22,7 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
 
   setupBattleStats(mon) {
     mon.statStages = { attack: 0, defense: 0, spAtk: 0, spDef: 0, speed: 0, accuracy: 0, evasion: 0 };
+    mon.lastHit = null;
     if (!mon.status) mon.status = null; 
     if (!mon.sleepTurns) mon.sleepTurns = 0;
     mon.seeded = false;
@@ -305,29 +306,57 @@ executeTurn(playerMove) {
         return;
       }
       defender.hp = Math.max(0, defender.hp - fixedDamage);
+      defender.lastHit = { damage: fixedDamage, category: move.category };
       this.onLog(`${defender.species} took ${fixedDamage} damage! (${defender.hp}/${defender.maxHp} HP)`);
       return;
     }
 
+    if (move.counter) {
+      const last = attacker.lastHit;
+      if (!last || last.category !== move.counter) {
+        this.onLog(`But it failed!`);
+        return;
+      }
+      const counterDamage = last.damage * 2;
+      defender.hp = Math.max(0, defender.hp - counterDamage);
+      this.onLog(`${defender.species} took ${counterDamage} damage! (${defender.hp}/${defender.maxHp} HP)`);
+      return;
+    }
+
     if (move.category === "status" || move.power === 0) {
-      if (move.effect) {
-        if (move.effect.type === "leech_seed") {
-          const target = move.effect.target === "self" ? attacker : defender;
+      const effects = move.effect ? (Array.isArray(move.effect) ? move.effect : [move.effect]) : [];
+      if (effects.length === 0) {
+        this.onLog(`It had no effect!`);
+        return;
+      }
+      for (const effect of effects) {
+        const target = effect.target === "self" ? attacker : defender;
+        if (effect.type === "leech_seed") {
           if (target.seeded) {
             this.onLog(`${target.species} is already seeded!`);
           } else {
             target.seeded = true;
             this.onLog(`${target.species} was seeded!`);
           }
-        } else if (move.effect.type === "status") {
-          const target = move.effect.target === "self" ? attacker : defender;
-          this.applyStatus(target, move.effect.condition);
-        } else if (move.effect.type === "stat") {
-          const target = move.effect.target === "self" ? attacker : defender;
-          this.applyStatChange(target, move.effect.stat, move.effect.stages);
+        } else if (effect.type === "status") {
+          this.applyStatus(target, effect.condition);
+        } else if (effect.type === "stat") {
+          this.applyStatChange(target, effect.stat, effect.stages);
+        } else if (effect.type === "heal") {
+          const amount = Math.min(target.maxHp - target.hp, Math.max(1, Math.floor(target.maxHp * effect.value)));
+          if (amount > 0) {
+            target.hp += amount;
+            this.onLog(`${target.species} recovered ${amount} HP!`);
+          } else {
+            this.onLog(`${target.species} is already at full health!`);
+          }
+        } else if (effect.type === "rest") {
+          target.status = null;
+          target.hp = target.maxHp;
+          target.sleepTurns = 2;
+          target.status = "SLP";
+          this.onLog(`${target.species} fell asleep and recovered all its HP!`);
         }
-      } else {
-        this.onLog(`It had no effect!`);
       }
       return;
     }
@@ -364,6 +393,7 @@ executeTurn(playerMove) {
     finalDamage = Math.max(1, finalDamage); 
 
     defender.hp = Math.max(0, defender.hp - finalDamage);
+    defender.lastHit = { damage: finalDamage, category: move.category };
 
     if (isCrit) this.onLog(`A critical hit!`);
     if (typeMultiplier > 1.0) this.onLog(`It's super effective!`);
@@ -386,13 +416,17 @@ executeTurn(playerMove) {
       }
     }
 
-    if (move.secondaryEffect && move.secondaryEffect.chance) {
-      if (Math.random() * 100 <= move.secondaryEffect.chance) {
-        const target = move.secondaryEffect.target === "self" ? attacker : defender;
-        if (move.secondaryEffect.type === "status") {
-          this.applyStatus(target, move.secondaryEffect.condition);
-        } else if (move.secondaryEffect.type === "stat") {
-          this.applyStatChange(target, move.secondaryEffect.stat, move.secondaryEffect.stages);
+    if (move.secondaryEffect) {
+      const secondaries = Array.isArray(move.secondaryEffect) ? move.secondaryEffect : [move.secondaryEffect];
+      for (const se of secondaries) {
+        const chance = se.chance || 100;
+        if (Math.random() * 100 <= chance) {
+          const target = se.target === "self" ? attacker : defender;
+          if (se.type === "status") {
+            this.applyStatus(target, se.condition);
+          } else if (se.type === "stat") {
+            this.applyStatChange(target, se.stat, se.stages);
+          }
         }
       }
     }
