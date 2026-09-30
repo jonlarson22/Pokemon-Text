@@ -135,7 +135,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "aqua_ring",
+   "target": "self"
+  }
  },
  "aromatherapy": {
   "name": "Aromatherapy",
@@ -143,7 +147,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "aromatherapy",
+   "target": "self"
+  }
  },
  "astonish": {
   "name": "Astonish",
@@ -159,7 +167,21 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "effect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": -1,
+    "target": "enemy"
+   },
+   {
+    "type": "stat",
+    "stat": "spAtk",
+    "stages": -1,
+    "target": "enemy"
+   }
+  ]
  },
  "aurora_beam": {
   "name": "Aurora Beam",
@@ -212,7 +234,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "belly_drum",
+   "target": "self"
+  }
  },
  "bind": {
   "name": "Bind",
@@ -220,7 +246,12 @@
   "category": "physical",
   "power": 15,
   "accuracy": 85,
-  "pp": 20
+  "pp": 20,
+  "secondaryEffect": {
+   "type": "trap",
+   "target": "enemy",
+   "chance": 100
+  }
  },
  "bite": {
   "name": "Bite",
@@ -406,7 +437,12 @@
   "category": "physical",
   "power": 35,
   "accuracy": 85,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "trap",
+   "target": "enemy",
+   "chance": 100
+  }
  },
  "comet_punch": {
   "name": "Comet Punch",
@@ -422,7 +458,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "confusion",
+   "target": "enemy"
+  }
  },
  "confusion": {
   "name": "Confusion",
@@ -430,7 +470,12 @@
   "category": "special",
   "power": 50,
   "accuracy": 100,
-  "pp": 25
+  "pp": 25,
+  "secondaryEffect": {
+   "type": "confusion",
+   "target": "enemy",
+   "chance": 10
+  }
  },
  "constrict": {
   "name": "Constrict",
@@ -531,7 +576,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "curse",
+   "target": "self"
+  }
  },
  "cut": {
   "name": "Cut",
@@ -561,7 +610,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "destiny_bond",
+   "target": "self"
+  }
  },
  "detect": {
   "name": "Detect",
@@ -569,7 +622,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "protect",
+   "target": "self"
+  }
  },
  "dig": {
   "name": "Dig",
@@ -585,7 +642,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "disable",
+   "target": "enemy"
+  }
  },
  "discharge": {
   "name": "Discharge",
@@ -607,7 +668,12 @@
   "category": "physical",
   "power": 70,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "secondaryEffect": {
+   "type": "confusion",
+   "target": "enemy",
+   "chance": 20
+  }
  },
  "double_edge": {
   "name": "Double Edge",
@@ -615,7 +681,12 @@
   "category": "physical",
   "power": 120,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "effect": {
+   "type": "recoil",
+   "value": 0.33,
+   "target": "self"
+  }
  },
  "double_kick": {
   "name": "Double Kick",
@@ -717,7 +788,12 @@
   "category": "physical",
   "power": 100,
   "accuracy": 50,
-  "pp": 5
+  "pp": 5,
+  "secondaryEffect": {
+   "type": "confusion",
+   "target": "enemy",
+   "chance": 100
+  }
  },
  "earthquake": {
   "name": "Earthquake",
@@ -755,7 +831,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "encore",
+   "target": "enemy"
+  }
  },
  "endeavor": {
   "name": "Endeavor",
@@ -763,7 +843,8 @@
   "category": "physical",
   "power": 0,
   "accuracy": 100,
-  "pp": 5
+  "pp": 5,
+  "powerScale": "endeavor"
  },
  "endure": {
   "name": "Endure",
@@ -771,7 +852,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "endure",
+   "target": "self"
+  }
  },
  "explosion": {
   "name": "Explosion",
@@ -883,7 +968,12 @@
   "category": "special",
   "power": 35,
   "accuracy": 85,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "trap",
+   "target": "enemy",
+   "chance": 100
+  }
  },
  "fissure": {
   "name": "Fissure",
@@ -900,7 +990,8 @@
   "category": "physical",
   "power": 0,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "powerScale": "flail"
  },
  "flame_wheel": {
   "name": "Flame Wheel",
@@ -936,7 +1027,12 @@
   "category": "physical",
   "power": 120,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "effect": {
+   "type": "recoil",
+   "value": 0.33,
+   "target": "self"
+  }
  },
  "flash": {
   "name": "Flash",
@@ -966,7 +1062,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 30
+  "pp": 30,
+  "effect": {
+   "type": "focus_energy",
+   "target": "self"
+  }
  },
  "focus_punch": {
   "name": "Focus Punch",
@@ -982,15 +1082,20 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 40
+  "pp": 40,
+  "effect": {
+   "type": "foresight",
+   "target": "enemy"
+  }
  },
  "frustration": {
   "name": "Frustration",
   "type": "Normal",
   "category": "physical",
-  "power": 0,
+  "power": 1,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "_note": "no friendship system: fixed at min-friendship power"
  },
  "fury_attack": {
   "name": "Fury Attack",
@@ -1092,7 +1197,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "grudge",
+   "target": "self"
+  }
  },
  "guillotine": {
   "name": "Guillotine",
@@ -1117,7 +1226,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "weather",
+   "weather": "hail",
+   "target": "self"
+  }
  },
  "harden": {
   "name": "Harden",
@@ -1139,7 +1253,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 30
+  "pp": 30,
+  "effect": {
+   "type": "haze",
+   "target": "self"
+  }
  },
  "headbutt": {
   "name": "Headbutt",
@@ -1276,7 +1394,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "imprison",
+   "target": "self"
+  }
  },
  "iron_tail": {
   "name": "Iron Tail",
@@ -1411,7 +1533,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 30
+  "pp": 30,
+  "effect": {
+   "type": "light_screen",
+   "target": "self"
+  }
  },
  "lock_on": {
   "name": "Lock On",
@@ -1419,7 +1545,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "lock_on",
+   "target": "self"
+  }
  },
  "lovely_kiss": {
   "name": "Lovely Kiss",
@@ -1441,7 +1571,8 @@
   "category": "physical",
   "power": 0,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "powerScale": "lowkick"
  },
  "mach_punch": {
   "name": "Mach Punch",
@@ -1457,7 +1588,8 @@
   "category": "physical",
   "power": 0,
   "accuracy": 100,
-  "pp": 30
+  "pp": 30,
+  "powerScale": "magnitude"
  },
  "mean_look": {
   "name": "Mean Look",
@@ -1465,7 +1597,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "trap",
+   "target": "enemy"
+  }
  },
  "meditate": {
   "name": "Meditate",
@@ -1552,7 +1688,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "metronome",
+   "target": "self"
+  }
  },
  "mimic": {
   "name": "Mimic",
@@ -1560,7 +1700,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "mimic",
+   "target": "self"
+  }
  },
  "mind_reader": {
   "name": "Mind Reader",
@@ -1568,7 +1712,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "lock_on",
+   "target": "self"
+  }
  },
  "minimize": {
   "name": "Minimize",
@@ -1599,7 +1747,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "mirror_move",
+   "target": "self"
+  }
  },
  "mist": {
   "name": "Mist",
@@ -1607,7 +1759,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 30
+  "pp": 30,
+  "effect": {
+   "type": "mist",
+   "target": "self"
+  }
  },
  "moonlight": {
   "name": "Moonlight",
@@ -1643,7 +1799,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 15
+  "pp": 15,
+  "effect": {
+   "type": "mud_sport",
+   "target": "self"
+  }
  },
  "night_shade": {
   "name": "Night Shade",
@@ -1662,7 +1822,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 40
+  "pp": 40,
+  "effect": {
+   "type": "foresight",
+   "target": "enemy"
+  }
  },
  "outrage": {
   "name": "Outrage",
@@ -1709,7 +1873,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "perish_song",
+   "target": "self"
+  }
  },
  "petal_dance": {
   "name": "Petal Dance",
@@ -1797,7 +1965,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "protect",
+   "target": "self"
+  }
  },
  "psybeam": {
   "name": "Psybeam",
@@ -1805,7 +1977,12 @@
   "category": "special",
   "power": 65,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "secondaryEffect": {
+   "type": "confusion",
+   "target": "enemy",
+   "chance": 10
+  }
  },
  "psych_up": {
   "name": "Psych Up",
@@ -1813,7 +1990,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "psych_up",
+   "target": "self"
+  }
  },
  "psychic": {
   "name": "Psychic",
@@ -1860,7 +2041,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "weather",
+   "weather": "rain",
+   "target": "self"
+  }
  },
  "rapid_spin": {
   "name": "Rapid Spin",
@@ -1904,7 +2090,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "reflect",
+   "target": "self"
+  }
  },
  "refresh": {
   "name": "Refresh",
@@ -1912,7 +2102,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "refresh",
+   "target": "self"
+  }
  },
  "rest": {
   "name": "Rest",
@@ -1930,9 +2124,10 @@
   "name": "Return",
   "type": "Normal",
   "category": "physical",
-  "power": 0,
+  "power": 102,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "_note": "no friendship system: fixed at max-friendship power"
  },
  "revenge": {
   "name": "Revenge",
@@ -1948,7 +2143,8 @@
   "category": "physical",
   "power": 0,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "powerScale": "flail"
  },
  "roar": {
   "name": "Roar",
@@ -1956,7 +2152,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "force_flee",
+   "target": "enemy"
+  }
  },
  "rock_blast": {
   "name": "Rock Blast",
@@ -2040,7 +2240,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 25
+  "pp": 25,
+  "effect": {
+   "type": "safeguard",
+   "target": "self"
+  }
  },
  "sand_attack": {
   "name": "Sand Attack",
@@ -2062,7 +2266,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "weather",
+   "weather": "sand",
+   "target": "self"
+  }
  },
  "scary_face": {
   "name": "Scary Face",
@@ -2187,7 +2396,12 @@
   "category": "special",
   "power": 75,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "confusion",
+   "target": "enemy",
+   "chance": 10
+  }
  },
  "silver_wind": {
   "name": "Silver Wind",
@@ -2435,7 +2649,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "spite",
+   "target": "enemy"
+  }
  },
  "splash": {
   "name": "Splash",
@@ -2524,7 +2742,12 @@
   "category": "physical",
   "power": 80,
   "accuracy": 80,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "recoil",
+   "value": 0.25,
+   "target": "self"
+  }
  },
  "substitute": {
   "name": "Substitute",
@@ -2540,7 +2763,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "weather",
+   "weather": "sun",
+   "target": "self"
+  }
  },
  "super_fang": {
   "name": "Super Fang",
@@ -2559,7 +2787,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 55,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "confusion",
+   "target": "enemy"
+  }
  },
  "surf": {
   "name": "Surf",
@@ -2575,7 +2807,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 75,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "confusion",
+   "target": "enemy"
+  }
  },
  "sweet_scent": {
   "name": "Sweet Scent",
@@ -2654,7 +2890,12 @@
   "category": "physical",
   "power": 90,
   "accuracy": 85,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "recoil",
+   "value": 0.25,
+   "target": "self"
+  }
  },
  "taunt": {
   "name": "Taunt",
@@ -2662,7 +2903,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "taunt",
+   "target": "enemy"
+  }
  },
  "teleport": {
   "name": "Teleport",
@@ -2670,7 +2915,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "force_flee",
+   "target": "enemy"
+  }
  },
  "thief": {
   "name": "Thief",
@@ -2786,7 +3035,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "effect": {
+   "type": "torment",
+   "target": "enemy"
+  }
  },
  "toxic": {
   "name": "Toxic",
@@ -2808,7 +3061,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "transform",
+   "target": "self"
+  }
  },
  "tri_attack": {
   "name": "Tri Attack",
@@ -2816,7 +3073,17 @@
   "category": "special",
   "power": 80,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "secondaryEffect": {
+   "type": "random_status",
+   "conditions": [
+    "BRN",
+    "FRZ",
+    "PAR"
+   ],
+   "chance": 20,
+   "target": "enemy"
+  }
  },
  "trick": {
   "name": "Trick",
@@ -2894,7 +3161,12 @@
   "category": "special",
   "power": 60,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "secondaryEffect": {
+   "type": "confusion",
+   "target": "enemy",
+   "chance": 20
+  }
  },
  "water_sport": {
   "name": "Water Sport",
@@ -2902,7 +3174,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 15
+  "pp": 15,
+  "effect": {
+   "type": "water_sport",
+   "target": "self"
+  }
  },
  "waterfall": {
   "name": "Waterfall",
@@ -2918,7 +3194,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "force_flee",
+   "target": "enemy"
+  }
  },
  "will_o_wisp": {
   "name": "Will O Wisp",
@@ -2962,7 +3242,12 @@
   "category": "physical",
   "power": 15,
   "accuracy": 90,
-  "pp": 20
+  "pp": 20,
+  "secondaryEffect": {
+   "type": "trap",
+   "target": "enemy",
+   "chance": 100
+  }
  },
  "x_scissor": {
   "name": "X Scissor",
@@ -2978,7 +3263,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "yawn",
+   "target": "enemy"
+  }
  },
  "zap_cannon": {
   "name": "Zap Cannon",
