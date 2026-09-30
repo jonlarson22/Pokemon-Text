@@ -119,13 +119,43 @@
   "power": 60,
   "accuracy": 100,
   "pp": 5,
-  "secondaryEffect": {
-   "type": "stat",
-   "stat": "attack",
-   "stages": 1,
-   "target": "enemy",
-   "chance": 10
-  }
+  "secondaryEffect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "defense",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "spAtk",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "spDef",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "speed",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   }
+  ]
  },
  "aqua_ring": {
   "name": "Aqua Ring",
@@ -339,12 +369,20 @@
   "power": 0,
   "accuracy": null,
   "pp": 20,
-  "effect": {
-   "type": "stat",
-   "stat": "attack",
-   "stages": 1,
-   "target": "self"
-  }
+  "effect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": 1,
+    "target": "self"
+   },
+   {
+    "type": "stat",
+    "stat": "defense",
+    "stages": 1,
+    "target": "self"
+   }
+  ]
  },
  "bullet_seed": {
   "name": "Bullet Seed",
@@ -361,12 +399,20 @@
   "power": 0,
   "accuracy": null,
   "pp": 20,
-  "effect": {
-   "type": "stat",
-   "stat": "spAtk",
-   "stages": 1,
-   "target": "self"
-  }
+  "effect": [
+   {
+    "type": "stat",
+    "stat": "spAtk",
+    "stages": 1,
+    "target": "self"
+   },
+   {
+    "type": "stat",
+    "stat": "spDef",
+    "stages": 1,
+    "target": "self"
+   }
+  ]
  },
  "charge": {
   "name": "Charge",
@@ -452,12 +498,20 @@
   "power": 0,
   "accuracy": null,
   "pp": 20,
-  "effect": {
-   "type": "stat",
-   "stat": "defense",
-   "stages": 1,
-   "target": "self"
-  }
+  "effect": [
+   {
+    "type": "stat",
+    "stat": "defense",
+    "stages": 1,
+    "target": "self"
+   },
+   {
+    "type": "stat",
+    "stat": "spDef",
+    "stages": 1,
+    "target": "self"
+   }
+  ]
  },
  "counter": {
   "name": "Counter",
@@ -465,7 +519,8 @@
   "category": "physical",
   "power": 0,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "counter": "physical"
  },
  "crabhammer": {
   "name": "Crabhammer",
@@ -657,12 +712,20 @@
   "power": 0,
   "accuracy": null,
   "pp": 20,
-  "effect": {
-   "type": "stat",
-   "stat": "attack",
-   "stages": 1,
-   "target": "self"
-  }
+  "effect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": 1,
+    "target": "self"
+   },
+   {
+    "type": "stat",
+    "stat": "speed",
+    "stages": 1,
+    "target": "self"
+   }
+  ]
  },
  "dragon_rage": {
   "name": "Dragon Rage",
@@ -1060,12 +1123,20 @@
   "power": 0,
   "accuracy": null,
   "pp": 20,
-  "effect": {
-   "type": "stat",
-   "stat": "attack",
-   "stages": 1,
-   "target": "self"
-  }
+  "effect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": 1,
+    "target": "self"
+   },
+   {
+    "type": "stat",
+    "stat": "spAtk",
+    "stages": 1,
+    "target": "self"
+   }
+  ]
  },
  "grudge": {
   "name": "Grudge",
@@ -1559,7 +1630,7 @@
    "type": "stat",
    "stat": "attack",
    "stages": 1,
-   "target": "enemy",
+   "target": "self",
    "chance": 10
   }
  },
@@ -1615,6 +1686,15 @@
    "target": "self"
   }
  },
+ "mirror_coat": {
+  "name": "Mirror Coat",
+  "type": "Psychic",
+  "category": "special",
+  "power": 0,
+  "accuracy": 100,
+  "pp": 20,
+  "counter": "special"
+ },
  "mirror_move": {
   "name": "Mirror Move",
   "type": "Flying",
@@ -1637,7 +1717,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "heal",
+   "value": 0.5,
+   "target": "self"
+  }
  },
  "mud_slap": {
   "name": "Mud Slap",
@@ -1898,7 +1983,7 @@
    "type": "stat",
    "stat": "speed",
    "stages": 1,
-   "target": "enemy",
+   "target": "self",
    "chance": 100
   }
  },
@@ -1916,7 +2001,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "heal",
+   "value": 0.5,
+   "target": "self"
+  }
  },
  "reflect": {
   "name": "Reflect",
@@ -1940,7 +2030,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "rest",
+   "target": "self"
+  }
  },
  "return": {
   "name": "Return",
@@ -2233,13 +2327,43 @@
   "power": 60,
   "accuracy": 100,
   "pp": 5,
-  "secondaryEffect": {
-   "type": "stat",
-   "stat": "attack",
-   "stages": 1,
-   "target": "enemy",
-   "chance": 10
-  }
+  "secondaryEffect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "defense",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "spAtk",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "spDef",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   },
+   {
+    "type": "stat",
+    "stat": "speed",
+    "stages": 1,
+    "target": "self",
+    "chance": 10
+   }
+  ]
  },
  "sing": {
   "name": "Sing",
@@ -2401,7 +2525,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "heal",
+   "value": 0.5,
+   "target": "self"
+  }
  },
  "solar_beam": {
   "name": "Solar Beam",
@@ -2494,7 +2623,7 @@
    "type": "stat",
    "stat": "defense",
    "stages": 1,
-   "target": "enemy",
+   "target": "self",
    "chance": 10
   }
  },
@@ -2651,7 +2780,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 5
+  "pp": 5,
+  "effect": {
+   "type": "heal",
+   "value": 0.5,
+   "target": "self"
+  }
  },
  "tackle": {
   "name": "Tackle",
@@ -2814,12 +2948,20 @@
   "power": 0,
   "accuracy": 100,
   "pp": 20,
-  "effect": {
-   "type": "stat",
-   "stat": "attack",
-   "stages": -1,
-   "target": "enemy"
-  }
+  "effect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": -1,
+    "target": "enemy"
+   },
+   {
+    "type": "stat",
+    "stat": "defense",
+    "stages": -1,
+    "target": "enemy"
+   }
+  ]
  },
  "torment": {
   "name": "Torment",
