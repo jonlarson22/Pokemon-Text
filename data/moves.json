@@ -243,7 +243,7 @@
  "bide": {
   "name": "Bide",
   "type": "Normal",
-  "category": "status",
+  "category": "physical",
   "power": 0,
   "accuracy": null,
   "pp": 10,
@@ -284,6 +284,18 @@
    "type": "status",
    "condition": "FRZ",
    "chance": 10,
+   "target": "enemy"
+  }
+ },
+ "block": {
+  "name": "Block",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 5,
+  "effect": {
+   "type": "trap",
    "target": "enemy"
   }
  },
@@ -429,6 +441,14 @@
    }
   ]
  },
+ "camouflage": {
+  "name": "Camouflage",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 20
+ },
  "charge": {
   "name": "Charge",
   "type": "Electric",
@@ -551,6 +571,14 @@
   "pp": 20,
   "counter": "physical",
   "priority": -5
+ },
+ "covet": {
+  "name": "Covet",
+  "type": "Normal",
+  "category": "physical",
+  "power": 60,
+  "accuracy": 100,
+  "pp": 25
  },
  "crabhammer": {
   "name": "Crabhammer",
@@ -917,6 +945,14 @@
   "accuracy": null,
   "pp": 20
  },
+ "fake_out": {
+  "name": "Fake Out",
+  "type": "Normal",
+  "category": "physical",
+  "power": 40,
+  "accuracy": 100,
+  "pp": 10
+ },
  "fake_tears": {
   "name": "Fake Tears",
   "type": "Dark",
@@ -1075,6 +1111,26 @@
    "target": "enemy"
   }
  },
+ "flatter": {
+  "name": "Flatter",
+  "type": "Dark",
+  "category": "status",
+  "power": 0,
+  "accuracy": 100,
+  "pp": 15,
+  "effect": [
+   {
+    "type": "confusion",
+    "target": "enemy"
+   },
+   {
+    "type": "stat",
+    "stat": "spAtk",
+    "stages": 1,
+    "target": "enemy"
+   }
+  ]
+ },
  "fly": {
   "name": "Fly",
   "type": "Flying",
@@ -1103,6 +1159,14 @@
   "accuracy": 100,
   "pp": 20,
   "priority": -3
+ },
+ "follow_me": {
+  "name": "Follow Me",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 20
  },
  "foresight": {
   "name": "Foresight",
@@ -1366,6 +1430,14 @@
   "accuracy": 90,
   "pp": 15
  },
+ "hyper_voice": {
+  "name": "Hyper Voice",
+  "type": "Normal",
+  "category": "special",
+  "power": 90,
+  "accuracy": 100,
+  "pp": 10
+ },
  "hypnosis": {
   "name": "Hypnosis",
   "type": "Psychic",
@@ -1408,6 +1480,29 @@
    "target": "enemy"
   }
  },
+ "icicle_spear": {
+  "name": "Icicle Spear",
+  "type": "Ice",
+  "category": "physical",
+  "power": 25,
+  "accuracy": 100,
+  "pp": 30
+ },
+ "icy_wind": {
+  "name": "Icy Wind",
+  "type": "Ice",
+  "category": "special",
+  "power": 55,
+  "accuracy": 95,
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "stat",
+   "stat": "speed",
+   "stages": -1,
+   "target": "enemy",
+   "chance": 100
+  }
+ },
  "imprison": {
   "name": "Imprison",
   "type": "Psychic",
@@ -1419,6 +1514,24 @@
    "type": "imprison",
    "target": "self"
   }
+ },
+ "ingrain": {
+  "name": "Ingrain",
+  "type": "Grass",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 20,
+  "effect": [
+   {
+    "type": "aqua_ring",
+    "target": "self"
+   },
+   {
+    "type": "trap",
+    "target": "self"
+   }
+  ]
  },
  "iron_tail": {
   "name": "Iron Tail",
@@ -1603,6 +1716,14 @@
   "pp": 30,
   "priority": 1
  },
+ "magical_leaf": {
+  "name": "Magical Leaf",
+  "type": "Grass",
+  "category": "special",
+  "power": 60,
+  "accuracy": null,
+  "pp": 20
+ },
  "magnitude": {
   "name": "Magnitude",
   "type": "Ground",
@@ -1674,6 +1795,14 @@
   "accuracy": 85,
   "pp": 10
  },
+ "memento": {
+  "name": "Memento",
+  "type": "Dark",
+  "category": "status",
+  "power": 0,
+  "accuracy": 100,
+  "pp": 10
+ },
  "metal_claw": {
   "name": "Metal Claw",
   "type": "Steel",
@@ -1701,6 +1830,21 @@
    "stat": "spDef",
    "stages": -2,
    "target": "enemy"
+  }
+ },
+ "meteor_mash": {
+  "name": "Meteor Mash",
+  "type": "Steel",
+  "category": "physical",
+  "power": 90,
+  "accuracy": 90,
+  "pp": 10,
+  "secondaryEffect": {
+   "type": "stat",
+   "stat": "attack",
+   "stages": 1,
+   "target": "self",
+   "chance": 20
   }
  },
  "metronome": {
@@ -1800,6 +1944,21 @@
    "target": "self"
   }
  },
+ "mud_shot": {
+  "name": "Mud Shot",
+  "type": "Ground",
+  "category": "special",
+  "power": 55,
+  "accuracy": 95,
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "stat",
+   "stat": "speed",
+   "stages": -1,
+   "target": "enemy",
+   "chance": 100
+  }
+ },
  "mud_slap": {
   "name": "Mud Slap",
   "type": "Ground",
@@ -1838,6 +1997,14 @@
    "kind": "level"
   }
  },
+ "nightmare": {
+  "name": "Nightmare",
+  "type": "Ghost",
+  "category": "status",
+  "power": 0,
+  "accuracy": 100,
+  "pp": 15
+ },
  "odor_sleuth": {
   "name": "Odor Sleuth",
   "type": "Normal",
@@ -1869,7 +2036,7 @@
    "type": "stat",
    "stat": "spAtk",
    "stages": -2,
-   "target": "enemy",
+   "target": "self",
    "chance": 100
   }
  },
@@ -1916,6 +2083,20 @@
   "power": 25,
   "accuracy": 95,
   "pp": 20
+ },
+ "poison_fang": {
+  "name": "Poison Fang",
+  "type": "Poison",
+  "category": "physical",
+  "power": 50,
+  "accuracy": 100,
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "status",
+   "condition": "PSN",
+   "chance": 50,
+   "target": "enemy"
+  }
  },
  "poison_gas": {
   "name": "Poison Gas",
@@ -2041,8 +2222,7 @@
   "power": 0,
   "accuracy": 100,
   "pp": 15,
-  "powerScale": "psywave",
-  "effect": null
+  "powerScale": "psywave"
  },
  "pursuit": {
   "name": "Pursuit",
@@ -2108,11 +2288,10 @@
  "razor_wind": {
   "name": "Razor Wind",
   "type": "Normal",
-  "category": "physical",
+  "category": "special",
   "power": 80,
   "accuracy": 100,
-  "pp": 10,
-  "effect": null
+  "pp": 10
  },
  "recover": {
   "name": "Recover",
@@ -2126,6 +2305,14 @@
    "value": 0.5,
    "target": "self"
   }
+ },
+ "recycle": {
+  "name": "Recycle",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 10
  },
  "reflect": {
   "name": "Reflect",
@@ -2231,8 +2418,7 @@
   "category": "physical",
   "power": 75,
   "accuracy": 90,
-  "pp": 10,
-  "effect": null
+  "pp": 10
  },
  "rock_smash": {
   "name": "Rock Smash",
@@ -2271,6 +2457,14 @@
    "target": "enemy",
    "chance": 100
   }
+ },
+ "role_play": {
+  "name": "Role Play",
+  "type": "Psychic",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 10
  },
  "rolling_kick": {
   "name": "Rolling Kick",
@@ -2312,6 +2506,19 @@
    "stat": "accuracy",
    "stages": -1,
    "target": "enemy"
+  }
+ },
+ "sand_tomb": {
+  "name": "Sand Tomb",
+  "type": "Ground",
+  "category": "physical",
+  "power": 35,
+  "accuracy": 85,
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "trap",
+   "target": "enemy",
+   "chance": 100
   }
  },
  "sandstorm": {
@@ -2532,6 +2739,14 @@
   "accuracy": 90,
   "pp": 5
  },
+ "sky_uppercut": {
+  "name": "Sky Uppercut",
+  "type": "Fighting",
+  "category": "physical",
+  "power": 85,
+  "accuracy": 90,
+  "pp": 15
+ },
  "slam": {
   "name": "Slam",
   "type": "Normal",
@@ -2561,6 +2776,14 @@
    "chance": 100,
    "target": "enemy"
   }
+ },
+ "sleep_talk": {
+  "name": "Sleep Talk",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 10
  },
  "sludge": {
   "name": "Sludge",
@@ -2652,19 +2875,6 @@
    "target": "self"
   }
  },
- "softboiled": {
-  "name": "Softboiled",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 10,
-  "effect": {
-   "type": "heal",
-   "value": 0.5,
-   "target": "self"
-  }
- },
  "solar_beam": {
   "name": "Solar Beam",
   "type": "Grass",
@@ -2706,6 +2916,22 @@
   "power": 20,
   "accuracy": 100,
   "pp": 15
+ },
+ "spikes": {
+  "name": "Spikes",
+  "type": "Ground",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 20
+ },
+ "spit_up": {
+  "name": "Spit Up",
+  "type": "Normal",
+  "category": "special",
+  "power": 0,
+  "accuracy": 100,
+  "pp": 10
  },
  "spite": {
   "name": "Spite",
@@ -2755,6 +2981,14 @@
    "target": "self",
    "chance": 10
   }
+ },
+ "stockpile": {
+  "name": "Stockpile",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 20
  },
  "stomp": {
   "name": "Stomp",
@@ -2845,6 +3079,30 @@
    "kind": "half"
   }
  },
+ "superpower": {
+  "name": "Superpower",
+  "type": "Fighting",
+  "category": "physical",
+  "power": 120,
+  "accuracy": 100,
+  "pp": 5,
+  "secondaryEffect": [
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": -1,
+    "target": "self",
+    "chance": 100
+   },
+   {
+    "type": "stat",
+    "stat": "defense",
+    "stages": -1,
+    "target": "self",
+    "chance": 100
+   }
+  ]
+ },
  "supersonic": {
   "name": "Supersonic",
   "type": "Normal",
@@ -2864,6 +3122,34 @@
   "power": 90,
   "accuracy": 100,
   "pp": 15
+ },
+ "swagger": {
+  "name": "Swagger",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": 85,
+  "pp": 15,
+  "effect": [
+   {
+    "type": "confusion",
+    "target": "enemy"
+   },
+   {
+    "type": "stat",
+    "stat": "attack",
+    "stages": 2,
+    "target": "enemy"
+   }
+  ]
+ },
+ "swallow": {
+  "name": "Swallow",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 10
  },
  "sweet_kiss": {
   "name": "Sweet Kiss",

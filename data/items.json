@@ -37,7 +37,7 @@
    "value": "max"
   },
   "price": 2500,
-  "description": "A spray-type medicine for treating wounds. Fully restores a Pokémon's HP."
+  "description": "A spray-type medicine for treating wounds. Fully restores a Pok\u00e9mon's HP."
  },
  "full_restore": {
   "name": "Full Restore",
@@ -47,7 +47,7 @@
    "value": "max"
   },
   "price": 3000,
-  "description": "Fully restores HP and heals any status conditions of a Pokémon."
+  "description": "Fully restores HP and heals any status conditions of a Pok\u00e9mon."
  },
  "revive": {
   "name": "Revive",
@@ -57,7 +57,7 @@
    "value": "half_max"
   },
   "price": 1500,
-  "description": "Revives a fainted Pokémon, restoring half of its maximum HP."
+  "description": "Revives a fainted Pok\u00e9mon, restoring half of its maximum HP."
  },
  "max_revive": {
   "name": "Max Revive",
@@ -67,21 +67,21 @@
    "value": "max"
   },
   "price": 0,
-  "description": "Revives a fainted Pokémon, fully restoring its maximum HP."
+  "description": "Revives a fainted Pok\u00e9mon, fully restoring its maximum HP."
  },
  "pokeball": {
-  "name": "Poké Ball",
+  "name": "Pok\u00e9 Ball",
   "category": "catch",
   "catchRate": 1.0,
   "price": 200,
-  "description": "A tool for catching wild Pokémon."
+  "description": "A tool for catching wild Pok\u00e9mon."
  },
  "great_ball": {
   "name": "Great Ball",
   "category": "catch",
   "catchRate": 1.5,
   "price": 600,
-  "description": "A good, high-performance Ball that provides a higher catch rate than a standard Poké Ball."
+  "description": "A good, high-performance Ball that provides a higher catch rate than a standard Pok\u00e9 Ball."
  },
  "ultra_ball": {
   "name": "Ultra Ball",
@@ -95,7 +95,7 @@
   "category": "catch",
   "catchRate": 255.0,
   "price": 0,
-  "description": "The best Ball with the ultimate performance. It will catch any wild Pokémon without fail."
+  "description": "The best Ball with the ultimate performance. It will catch any wild Pok\u00e9mon without fail."
  },
  "antidote": {
   "name": "Antidote",
@@ -105,7 +105,7 @@
    "status": "poison"
   },
   "price": 100,
-  "description": "A medicine that heals a poisoned Pokémon."
+  "description": "A medicine that heals a poisoned Pok\u00e9mon."
  },
  "burn_heal": {
   "name": "Burn Heal",
@@ -115,7 +115,7 @@
    "status": "burn"
   },
   "price": 250,
-  "description": "A medicine that heals a Pokémon suffering from a burn."
+  "description": "A medicine that heals a Pok\u00e9mon suffering from a burn."
  },
  "ice_heal": {
   "name": "Ice Heal",
@@ -125,7 +125,7 @@
    "status": "freeze"
   },
   "price": 250,
-  "description": "A medicine that defrosts a frozen Pokémon."
+  "description": "A medicine that defrosts a frozen Pok\u00e9mon."
  },
  "awakening": {
   "name": "Awakening",
@@ -135,7 +135,7 @@
    "status": "sleep"
   },
   "price": 250,
-  "description": "A medicine that wakes up a sleeping Pokémon."
+  "description": "A medicine that wakes up a sleeping Pok\u00e9mon."
  },
  "paralyz_heal": {
   "name": "Paralyz Heal",
@@ -145,7 +145,7 @@
    "status": "paralysis"
   },
   "price": 200,
-  "description": "A medicine that heals a paralyzed Pokémon."
+  "description": "A medicine that heals a paralyzed Pok\u00e9mon."
  },
  "full_heal": {
   "name": "Full Heal",
@@ -155,7 +155,7 @@
    "status": "all"
   },
   "price": 600,
-  "description": "A medicine that heals all status conditions of a Pokémon."
+  "description": "A medicine that heals all status conditions of a Pok\u00e9mon."
  },
  "escape_rope": {
   "name": "Escape Rope",
@@ -174,7 +174,7 @@
    "steps": 100
   },
   "price": 350,
-  "description": "Repels weak wild Pokémon for 100 steps."
+  "description": "Repels weak wild Pok\u00e9mon for 100 steps."
  },
  "super_repel": {
   "name": "Super Repel",
@@ -184,7 +184,7 @@
    "steps": 200
   },
   "price": 500,
-  "description": "Repels weak wild Pokémon for 200 steps."
+  "description": "Repels weak wild Pok\u00e9mon for 200 steps."
  },
  "max_repel": {
   "name": "Max Repel",
@@ -194,7 +194,7 @@
    "steps": 250
   },
   "price": 700,
-  "description": "Repels weak wild Pokémon for 250 steps."
+  "description": "Repels weak wild Pok\u00e9mon for 250 steps."
  },
  "fire_stone": {
   "name": "Fire Stone",
@@ -208,7 +208,7 @@
    ]
   },
   "price": 2100,
-  "description": "A peculiar stone that makes certain species of Pokémon evolve. It is colored orange."
+  "description": "A peculiar stone that makes certain species of Pok\u00e9mon evolve. It is colored orange."
  },
  "water_stone": {
   "name": "Water Stone",
@@ -223,7 +223,7 @@
    ]
   },
   "price": 2100,
-  "description": "A peculiar stone that makes certain species of Pokémon evolve. It is a clear light blue."
+  "description": "A peculiar stone that makes certain species of Pok\u00e9mon evolve. It is a clear light blue."
  },
  "thunder_stone": {
   "name": "Thunder Stone",
@@ -236,7 +236,7 @@
    ]
   },
   "price": 2100,
-  "description": "A peculiar stone that makes certain species of Pokémon evolve. It is thunderbolt-yellow."
+  "description": "A peculiar stone that makes certain species of Pok\u00e9mon evolve. It is thunderbolt-yellow."
  },
  "leaf_stone": {
   "name": "Leaf Stone",
@@ -250,7 +250,7 @@
    ]
   },
   "price": 2100,
-  "description": "A peculiar stone that makes certain species of Pokémon evolve. It has a leaf pattern."
+  "description": "A peculiar stone that makes certain species of Pok\u00e9mon evolve. It has a leaf pattern."
  },
  "moon_stone": {
   "name": "Moon Stone",
@@ -265,7 +265,7 @@
    ]
   },
   "price": 0,
-  "description": "A peculiar stone that makes certain species of Pokémon evolve. It is as black as night."
+  "description": "A peculiar stone that makes certain species of Pok\u00e9mon evolve. It is as black as night."
  },
  "town_map": {
   "name": "Town Map",
@@ -313,7 +313,7 @@
    "tier": 1
   },
   "price": 0,
-  "description": "An old and beat-up fishing rod. Use it by any body of water to fish for wild Pokémon."
+  "description": "An old and beat-up fishing rod. Use it by any body of water to fish for wild Pok\u00e9mon."
  },
  "good_rod": {
   "name": "Good Rod",
@@ -323,7 +323,7 @@
    "tier": 2
   },
   "price": 0,
-  "description": "A decent fishing rod. Use it by any body of water to fish up wild Pokémon."
+  "description": "A decent fishing rod. Use it by any body of water to fish up wild Pok\u00e9mon."
  },
  "super_rod": {
   "name": "Super Rod",
@@ -333,7 +333,7 @@
    "tier": 3
   },
   "price": 0,
-  "description": "An awesome, high-tech fishing rod. Use it by any body of water to fish up all kinds of Pokémon."
+  "description": "An awesome, high-tech fishing rod. Use it by any body of water to fish up all kinds of Pok\u00e9mon."
  },
  "tm01": {
   "name": "TM01 (Mega Punch)",
@@ -618,7 +618,7 @@
    "move": "earthquake"
   },
   "price": 0,
-  "description": "An earthquake that strikes all Pokémon in battle excluding the user.",
+  "description": "An earthquake that strikes all Pok\u00e9mon in battle excluding the user.",
   "move": "earthquake"
  },
  "tm27": {
@@ -776,15 +776,15 @@
   "move": "skull_bash"
  },
  "tm41": {
-  "name": "TM41 (Softboiled)",
+  "name": "TM41 (Soft-Boiled)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "softboiled"
+   "move": "soft_boiled"
   },
   "price": 0,
   "description": "Restores the user's HP by up to half of its maximum.",
-  "move": "softboiled"
+  "move": "soft_boiled"
  },
  "tm42": {
   "name": "TM42 (Dream Eater)",
@@ -948,7 +948,7 @@
    "move": "hail"
   },
   "price": 0,
-  "description": "A hailstorm lasting five turns damages all Pokémon except the Ice-type.",
+  "description": "A hailstorm lasting five turns damages all Pok\u00e9mon except the Ice-type.",
   "move": "hail"
  },
  "tm57": {
@@ -1344,13 +1344,13 @@
   "move": "waterfall"
  },
  "poke_doll": {
-  "name": "Poké Doll",
+  "name": "Pok\u00e9 Doll",
   "category": "battle",
   "effect": {
    "type": "escape_wild_battle"
   },
   "price": 1000,
-  "description": "An attractive doll. Use it to distract a-and flee from any wild Pokémon."
+  "description": "An attractive doll. Use it to distract a-and flee from any wild Pok\u00e9mon."
  },
  "x_accuracy": {
   "name": "X Accuracy",
@@ -1370,7 +1370,7 @@
    "type": "prevent_stat_reduction"
   },
   "price": 700,
-  "description": "Prevents the Pokémon's stats from being reduced during a battle."
+  "description": "Prevents the Pok\u00e9mon's stats from being reduced during a battle."
  },
  "dire_hit": {
   "name": "Dire Hit",
@@ -1379,7 +1379,7 @@
    "type": "boost_critical_ratio"
   },
   "price": 650,
-  "description": "Raises the critical-hit ratio of a Pokémon during a battle."
+  "description": "Raises the critical-hit ratio of a Pok\u00e9mon during a battle."
  },
  "x_attack": {
   "name": "X Attack",
@@ -1390,7 +1390,7 @@
    "stages": 1
   },
   "price": 500,
-  "description": "Temporarily raises the Attack stat of a Pokémon during a battle."
+  "description": "Temporarily raises the Attack stat of a Pok\u00e9mon during a battle."
  },
  "x_defend": {
   "name": "X Defend",
@@ -1401,7 +1401,7 @@
    "stages": 1
   },
   "price": 550,
-  "description": "Temporarily raises the Defense stat of a Pokémon during a battle."
+  "description": "Temporarily raises the Defense stat of a Pok\u00e9mon during a battle."
  },
  "x_speed": {
   "name": "X Speed",
@@ -1412,7 +1412,7 @@
    "stages": 1
   },
   "price": 350,
-  "description": "Temporarily raises the Speed stat of a Pokémon during a battle."
+  "description": "Temporarily raises the Speed stat of a Pok\u00e9mon during a battle."
  },
  "x_special": {
   "name": "X Special",
@@ -1423,7 +1423,7 @@
    "stages": 1
   },
   "price": 350,
-  "description": "Temporarily raises the Special stat of a Pokémon during a battle."
+  "description": "Temporarily raises the Special stat of a Pok\u00e9mon during a battle."
  },
  "hp_up": {
   "name": "HP Up",
@@ -1433,7 +1433,7 @@
    "stat": "hp"
   },
   "price": 9800,
-  "description": "A nutritious drink for Pokémon. It raises the base HP of a single Pokémon."
+  "description": "A nutritious drink for Pok\u00e9mon. It raises the base HP of a single Pok\u00e9mon."
  },
  "protein": {
   "name": "Protein",
@@ -1443,7 +1443,7 @@
    "stat": "attack"
   },
   "price": 9800,
-  "description": "A nutritious drink for Pokémon. It raises the base Attack stat of a single Pokémon."
+  "description": "A nutritious drink for Pok\u00e9mon. It raises the base Attack stat of a single Pok\u00e9mon."
  },
  "iron": {
   "name": "Iron",
@@ -1453,7 +1453,7 @@
    "stat": "defense"
   },
   "price": 9800,
-  "description": "A nutritious drink for Pokémon. It raises the base Defense stat of a single Pokémon."
+  "description": "A nutritious drink for Pok\u00e9mon. It raises the base Defense stat of a single Pok\u00e9mon."
  },
  "carbos": {
   "name": "Carbos",
@@ -1463,7 +1463,7 @@
    "stat": "speed"
   },
   "price": 9800,
-  "description": "A nutritious drink for Pokémon. It raises the base Speed stat of a single Pokémon."
+  "description": "A nutritious drink for Pok\u00e9mon. It raises the base Speed stat of a single Pok\u00e9mon."
  },
  "calcium": {
   "name": "Calcium",
@@ -1473,7 +1473,7 @@
    "stat": "special_attack"
   },
   "price": 9800,
-  "description": "A nutritious drink for Pokémon. It raises base Special stats of a single Pokémon."
+  "description": "A nutritious drink for Pok\u00e9mon. It raises base Special stats of a single Pok\u00e9mon."
  },
  "fresh_water": {
   "name": "Fresh Water",
@@ -1483,7 +1483,7 @@
    "value": 50
   },
   "price": 200,
-  "description": "Water with a high mineral content. It restores the HP of one Pokémon by 50 points."
+  "description": "Water with a high mineral content. It restores the HP of one Pok\u00e9mon by 50 points."
  },
  "soda_pop": {
   "name": "Soda Pop",
@@ -1493,7 +1493,7 @@
    "value": 60
   },
   "price": 300,
-  "description": "A fizzy soda drink. It restores the HP of one Pokémon by 60 points."
+  "description": "A fizzy soda drink. It restores the HP of one Pok\u00e9mon by 60 points."
  },
  "lemonade": {
   "name": "Lemonade",
@@ -1503,7 +1503,7 @@
    "value": 80
   },
   "price": 350,
-  "description": "A very sweet drink. It restores the HP of one Pokémon by 80 points."
+  "description": "A very sweet drink. It restores the HP of one Pok\u00e9mon by 80 points."
  },
  "ether": {
   "name": "Ether",
@@ -1514,7 +1514,7 @@
    "target": "single_move"
   },
   "price": 0,
-  "description": "Restores the PP of a selected move by 10 points for a single Pokémon."
+  "description": "Restores the PP of a selected move by 10 points for a single Pok\u00e9mon."
  },
  "max_ether": {
   "name": "Max Ether",
@@ -1525,7 +1525,7 @@
    "target": "single_move"
   },
   "price": 0,
-  "description": "Fully restores the PP of a selected move for a single Pokémon."
+  "description": "Fully restores the PP of a selected move for a single Pok\u00e9mon."
  },
  "elixir": {
   "name": "Elixir",
@@ -1536,7 +1536,7 @@
    "target": "all_moves"
   },
   "price": 0,
-  "description": "Restores the PP of all moves by 10 points for a single Pokémon."
+  "description": "Restores the PP of all moves by 10 points for a single Pok\u00e9mon."
  },
  "max_elixir": {
   "name": "Max Elixir",
@@ -1547,7 +1547,7 @@
    "target": "all_moves"
   },
   "price": 0,
-  "description": "Fully restores the PP of all moves for a single Pokémon."
+  "description": "Fully restores the PP of all moves for a single Pok\u00e9mon."
  },
  "pp_up": {
   "name": "PP Up",
@@ -1556,7 +1556,7 @@
    "type": "max_pp_boost"
   },
   "price": 9800,
-  "description": "A nutritious item that raises the maximum PP of a selected move for a Pokémon."
+  "description": "A nutritious item that raises the maximum PP of a selected move for a Pok\u00e9mon."
  },
  "helix_fossil": {
   "name": "Helix Fossil",
@@ -1566,7 +1566,7 @@
    "pokemon": "omanyte"
   },
   "price": 0,
-  "description": "A piece of an ancient marine Pokémon's seashell. It is fossilized and somewhat urn-shaped."
+  "description": "A piece of an ancient marine Pok\u00e9mon's seashell. It is fossilized and somewhat urn-shaped."
  },
  "dome_fossil": {
   "name": "Dome Fossil",
@@ -1576,7 +1576,7 @@
    "pokemon": "kabuto"
   },
   "price": 0,
-  "description": "A piece of an ancient marine Pokémon's shell. It is fossilized and tapers to a point."
+  "description": "A piece of an ancient marine Pok\u00e9mon's shell. It is fossilized and tapers to a point."
  },
  "old_amber": {
   "name": "Old Amber",
@@ -1586,16 +1586,16 @@
    "pokemon": "aerodactyl"
   },
   "price": 0,
-  "description": "A piece of amber that contains the genetic material of an ancient aerial Pokémon."
+  "description": "A piece of amber that contains the genetic material of an ancient aerial Pok\u00e9mon."
  },
  "poke_flute": {
-  "name": "Poké Flute",
+  "name": "Pok\u00e9 Flute",
   "category": "key",
   "effect": {
    "type": "awaken_sleeping_pokemon"
   },
   "price": 0,
-  "description": "A flute that is said to instantly awaken any Pokémon. It has a lovely tone."
+  "description": "A flute that is said to instantly awaken any Pok\u00e9mon. It has a lovely tone."
  },
  "silph_scope": {
   "name": "Silph Scope",
@@ -1604,7 +1604,7 @@
    "type": "reveal_ghosts"
   },
   "price": 0,
-  "description": "A scope that makes unseeable Pokémon visible. It is made by Silph Co."
+  "description": "A scope that makes unseeable Pok\u00e9mon visible. It is made by Silph Co."
  },
  "gold_teeth": {
   "name": "Gold Teeth",
@@ -1658,13 +1658,13 @@
    ]
   },
   "price": 1000,
-  "description": "A string exuding a mysterious energy that makes you feel a strange sense of connection. It's loved by certain Pokémon."
+  "description": "A string exuding a mysterious energy that makes you feel a strange sense of connection. It's loved by certain Pok\u00e9mon."
  },
  "fishing_rod": {
   "name": "Fishing Rod",
   "category": "key",
   "price": 0,
-  "description": "A rod for fishing up water-dwelling Pokémon."
+  "description": "A rod for fishing up water-dwelling Pok\u00e9mon."
  },
  "safari_ball": {
   "name": "Safari Ball",
@@ -1680,7 +1680,7 @@
    "type": "level_up"
   },
   "price": 4800,
-  "description": "A candy that raises the level of a Pokémon by one."
+  "description": "A candy that raises the level of a Pok\u00e9mon by one."
  },
  "nugget": {
   "name": "Nugget",
