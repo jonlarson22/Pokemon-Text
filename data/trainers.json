@@ -1743,5 +1743,302 @@
     "level": 14
    }
   ]
+ },
+ "ss_anne_gentleman_thomas": {
+  "name": "Thomas",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] A cruise is the perfect place to show off my prized Growlithes!",
+  "dialogueAfter": "[DRAFT] Magnificent... you have quite the eye for battle.",
+  "rewardMoney": 1260,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 18
+   },
+   {
+    "species": "growlithe",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_gentleman_arthur": {
+  "name": "Arthur",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] My Nidoran pair are raised on the finest imported feed!",
+  "dialogueAfter": "[DRAFT] Hmph. Perhaps I should switch to domestic feed.",
+  "rewardMoney": 1330,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 19
+   },
+   {
+    "species": "nidoran_f",
+    "level": 19
+   }
+  ]
+ },
+ "ss_anne_lass_1f": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] Isn't the sea breeze just wonderful? My Pokémon think so too!",
+  "dialogueAfter": "[DRAFT] The breeze wasn't on my side today...",
+  "rewardMoney": 270,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 18
+   },
+   {
+    "species": "nidoran_f",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_youngster_1f": {
+  "name": "Youngster",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] I'm gonna be the toughest sailor on this ship! Starting with you!",
+  "dialogueAfter": "[DRAFT] ...Maybe I'll stick to swabbing decks.",
+  "rewardMoney": 315,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 21
+   }
+  ]
+ },
+ "ss_anne_sailor_trevor": {
+  "name": "Trevor",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] All hands on deck! That means you too, challenger!",
+  "dialogueAfter": "[DRAFT] Batten down the hatches... I've been outmaneuvered.",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "machop",
+    "level": 17
+   },
+   {
+    "species": "tentacool",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_edmond": {
+  "name": "Edmond",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] I've wrestled storm waves bigger than you! Let's battle!",
+  "dialogueAfter": "[DRAFT] Shiver me timbers... what a thrashing.",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "machop",
+    "level": 18
+   },
+   {
+    "species": "shellder",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_fisherman_barny": {
+  "name": "Barny",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] I fish Pokémon straight off the side of this ship! Care to test my catch?",
+  "dialogueAfter": "[DRAFT] Threw back a winner there... you fight like a riptide.",
+  "rewardMoney": 595,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 17
+   },
+   {
+    "species": "staryu",
+    "level": 17
+   },
+   {
+    "species": "shellder",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_phillip": {
+  "name": "Phillip",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] My Machop hauls cargo all day. It'll haul you off this deck too!",
+  "dialogueAfter": "[DRAFT] Cargo... dropped.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "machop",
+    "level": 20
+   }
+  ]
+ },
+ "ss_anne_sailor_huey": {
+  "name": "Huey",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] These waters are lousy with Tentacool. Want a demonstration?",
+  "dialogueAfter": "[DRAFT] Lousy with strong trainers too, apparently.",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 18
+   },
+   {
+    "species": "staryu",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_sailor_dylan": {
+  "name": "Dylan",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] Horsea, Horsea, Horsea! Three times the seahorse, three times the trouble!",
+  "dialogueAfter": "[DRAFT] Outnumbered and still outmatched...",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 17
+   },
+   {
+    "species": "horsea",
+    "level": 17
+   },
+   {
+    "species": "horsea",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_duncan": {
+  "name": "Duncan",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] I swabbed these decks with champions before breakfast. You're next!",
+  "dialogueAfter": "[DRAFT] Swabbed... right off the deck myself.",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 17
+   },
+   {
+    "species": "shellder",
+    "level": 17
+   },
+   {
+    "species": "tentacool",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_leonard": {
+  "name": "Leonard",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] My Shellder's shell has never been cracked. Try your luck!",
+  "dialogueAfter": "[DRAFT] Cracked... on the first try, even.",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "shellder",
+    "level": 21
+   }
+  ]
+ },
+ "ss_anne_fisherman_dale": {
+  "name": "Dale",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] Goldeen, Tentacool, Goldeen! The sea provides, kid!",
+  "dialogueAfter": "[DRAFT] The sea provides... winners, and it ain't me.",
+  "rewardMoney": 595,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 17
+   },
+   {
+    "species": "tentacool",
+    "level": 17
+   },
+   {
+    "species": "goldeen",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_gentleman_brooks": {
+  "name": "Brooks",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] Behold! My Pikachu, raised on the finest voyage across the seven seas!",
+  "dialogueAfter": "[DRAFT] Zapped... by a landlubber, no less.",
+  "rewardMoney": 1610,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 23
+   }
+  ]
+ },
+ "ss_anne_lass_dawn": {
+  "name": "Dawn",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] My Rattata and Pikachu are the cutest duo on this ship! Fight us!",
+  "dialogueAfter": "[DRAFT] Cute doesn't win battles, huh...",
+  "rewardMoney": 270,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 18
+   },
+   {
+    "species": "pikachu",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_gentleman_lamar": {
+  "name": "Lamar",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] A gentleman never refuses a battle. My Growlithe and Ponyta insist!",
+  "dialogueAfter": "[DRAFT] Outclassed. Most ungentlemanly of me.",
+  "rewardMoney": 1190,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 17
+   },
+   {
+    "species": "ponyta",
+    "level": 17
+   }
+  ]
+ },
+ "rival_ss_anne": {
+  "name": "Rival",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Yo! I heard about the party on this ship and came to crash it! Let's see how much stronger I've gotten!",
+  "dialogueAfter": "[DRAFT] Hmph! You just lucked out! I'm heading to the captain's cabin... don't follow me!",
+  "rewardMoney": 1330,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 19
+   },
+   {
+    "species": "raticate",
+    "level": 16
+   },
+   {
+    "species": "kadabra",
+    "level": 18
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_2",
+    "level": 20
+   }
+  ]
  }
 }

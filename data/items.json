@@ -1693,5 +1693,11 @@
   "category": "key",
   "price": 0,
   "description": "A folding bicycle that lets you move around much faster."
+ },
+ "stardust": {
+  "name": "Stardust",
+  "category": "treasure",
+  "price": 1000,
+  "description": "A pretty red sand. Sell it for a decent price."
  }
 }

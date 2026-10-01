@@ -197,6 +197,10 @@
    {
     "type": "flag",
     "id": "obtain_hm_01"
+   },
+   {
+    "type": "flag",
+    "id": "ss_anne_departed"
    }
   ],
   "dialogue_req_unmet": "",

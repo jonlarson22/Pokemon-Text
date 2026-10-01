@@ -647,6 +647,13 @@ renderRouteScreen() {
 
     if (currentRoute.gate_requirements && currentRoute.gate_requirements[targetRouteId]) {
       const gate = currentRoute.gate_requirements[targetRouteId];
+      // blocked_flags: travel is refused while ANY of these flags is set
+      // (e.g. the S.S. Anne after it departs). Checked before required_flags
+      // so a departed ship reports itself as gone rather than ticket-locked.
+      if (gate.blocked_flags && gate.blocked_flags.some(flag => this.game.hasFlag(flag))) {
+        this.printToLog(gate.departed_message || gate.blocked_message);
+        return false;
+      }
       const satisfiesReqs = gate.required_flags.every(flag => this.game.hasFlag(flag));
       
       if (!satisfiesReqs) {

@@ -1618,9 +1618,20 @@
    "route6",
    "vermilion_city_gym",
    "pokemon_fan_club",
-   "ss_anne"
+   "ss_anne",
+   "vermilion_dock"
   ],
   "gate_requirements": {
+   "ss_anne": {
+    "required_flags": [
+     "obtain_ss_ticket"
+    ],
+    "blocked_flags": [
+     "ss_anne_departed"
+    ],
+    "blocked_message": "The sailor blocks the gangway. You need an S.S. Ticket to board the S.S. Anne!",
+    "departed_message": "The S.S. Anne has departed! Only calm water remains where the great ship was moored."
+   },
    "diglett_cave": {
     "required_flags": [
      "obtain_hm_01"
@@ -1793,5 +1804,206 @@
    }
   ],
   "noFly": true
+ },
+ "ss_anne": {
+  "name": "S.S. Anne",
+  "description": "A luxurious cruise liner docked at Vermilion harbor. Passengers and sailors mingle on the sunlit main deck.",
+  "isTown": false,
+  "connections": [
+   "vermilion_city",
+   "ss_anne_deck"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "ss_anne_gentleman_thomas",
+   "ss_anne_gentleman_arthur",
+   "ss_anne_lass_1f",
+   "ss_anne_youngster_1f",
+   "ss_anne_sailor_trevor",
+   "ss_anne_sailor_edmond"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 55
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "super_potion"
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "ether"
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "stardust"
+   }
+  ]
+ },
+ "ss_anne_deck": {
+  "name": "S.S. Anne Deck",
+  "description": "The ship's lower decks: passenger cabins, the galley, and crew quarters humming with activity.",
+  "isTown": false,
+  "connections": [
+   "ss_anne",
+   "ss_anne_captain"
+  ],
+  "gate_requirements": {
+   "ss_anne_captain": {
+    "required_flags": [
+     "defeated_rival_ss_anne"
+    ],
+    "blocked_message": "Your rival blocks the stairway to the captain's cabin! Defeat him to get through!"
+   }
+  },
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "ss_anne_fisherman_barny",
+   "ss_anne_sailor_phillip",
+   "ss_anne_sailor_huey",
+   "ss_anne_sailor_dylan",
+   "ss_anne_sailor_duncan",
+   "ss_anne_sailor_leonard",
+   "ss_anne_fisherman_dale",
+   "ss_anne_gentleman_brooks",
+   "ss_anne_lass_dawn",
+   "ss_anne_gentleman_lamar",
+   "rival_ss_anne"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm44"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "great_ball"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "hyper_potion"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "x_attack"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "max_ether"
+   }
+  ]
+ },
+ "ss_anne_captain": {
+  "name": "Captain's Cabin",
+  "description": "The captain's private quarters at the heart of the S.S. Anne. The old captain looks rather green...",
+  "isTown": false,
+  "connections": [
+   "ss_anne_deck"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [
+   "ss_anne_captain"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "vermilion_dock": {
+  "name": "Vermilion City Dock",
+  "description": "The harbor dock where the S.S. Anne was moored. Only calm water and wheeling gulls remain.",
+  "isTown": false,
+  "connections": [
+   "vermilion_city"
+  ],
+  "req_flag": "ss_anne_departed",
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "tentacool",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 30
+    },
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 20
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "shellder",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 8
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 8
+    },
+    {
+     "species": "horsea",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 2
+    },
+    {
+     "species": "staryu",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 2
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
  }
 }
