@@ -31,6 +31,8 @@ export class GrowthEngine {
       mon.level++;
       mon.maxExp = this.getRequiredExp(baseData.growthRate || 'medium_fast', mon.level + 1);
       leveledUp = true;
+      // Leveling up strengthens the bond: +5 friendship (cap 255).
+      mon.friendship = Math.min(255, (mon.friendship ?? 70) + 5);
 
       this.recalculateStats(mon);
       this.game.ui.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
