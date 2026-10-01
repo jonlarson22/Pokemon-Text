@@ -2479,10 +2479,6 @@
     "move": "bite"
    },
    {
-    "level": 30,
-    "move": "helping_hand"
-   },
-   {
     "level": 38,
     "move": "fury_swipes"
    },
@@ -2575,10 +2571,6 @@
    {
     "level": 27,
     "move": "bite"
-   },
-   {
-    "level": 36,
-    "move": "helping_hand"
    },
    {
     "level": 46,
@@ -2750,10 +2742,6 @@
     "move": "horn_attack"
    },
    {
-    "level": 30,
-    "move": "helping_hand"
-   },
-   {
     "level": 38,
     "move": "leer"
    },
@@ -2846,10 +2834,6 @@
    {
     "level": 27,
     "move": "horn_attack"
-   },
-   {
-    "level": 36,
-    "move": "helping_hand"
    },
    {
     "level": 46,
@@ -5092,10 +5076,6 @@
     "move": "flame_wheel"
    },
    {
-    "level": 39,
-    "move": "helping_hand"
-   },
-   {
     "level": 46,
     "move": "agility"
    },
@@ -5593,10 +5573,6 @@
    {
     "level": 48,
     "move": "psychic"
-   },
-   {
-    "level": 57,
-    "move": "trick"
    }
   ],
   "tmMoves": [
@@ -5697,10 +5673,6 @@
    {
     "level": 48,
     "move": "psychic"
-   },
-   {
-    "level": 57,
-    "move": "trick"
    }
   ],
   "tmMoves": [
