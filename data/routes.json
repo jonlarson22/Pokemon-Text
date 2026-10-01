@@ -113,8 +113,8 @@
    },
    {
     "type": "item",
-    "item": "Pokeball",
-    "weight": 20
+    "weight": 20,
+    "item": "pokeball"
    }
   ]
  },
@@ -149,16 +149,28 @@
    "grass": [],
    "water": [
     {
-     "species": "Poliwag",
-     "min_level": 10,
-     "max_level": 20,
-     "weight": 50
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 20
     },
     {
-     "species": "Tentacool",
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 30
+    },
+    {
+     "species": "tentacool",
      "min_level": 15,
      "max_level": 25,
-     "weight": 50
+     "weight": 30
     }
    ]
   },
@@ -171,8 +183,8 @@
    },
    {
     "type": "item",
-    "item": "Potion",
-    "weight": 40
+    "weight": 40,
+    "item": "potion"
    }
   ]
  },
@@ -184,7 +196,10 @@
    "viridian_city"
   ],
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [
    "cooltrainer_samuel",
    "blackbelt_atsushi",
@@ -197,8 +212,8 @@
    },
    {
     "type": "item",
-    "item": "Revive",
-    "weight": 30
+    "weight": 30,
+    "item": "revive"
    }
   ],
   "noFly": true
@@ -211,16 +226,50 @@
    "route23"
   ],
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Rattata",
-    "min_level": 2,
-    "max_level": 4,
-    "weight": 50
-   }
+  "encounters": {
+   "grass": [
+    {
+     "species": "rattata",
+     "min_level": 2,
+     "max_level": 4,
+     "weight": 30
+    },
+    {
+     "species": "nidoran_f",
+     "min_level": 2,
+     "max_level": 4,
+     "weight": 20
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 2,
+     "max_level": 4,
+     "weight": 20
+    },
+    {
+     "species": "spearow",
+     "min_level": 2,
+     "max_level": 5,
+     "weight": 15
+    },
+    {
+     "species": "mankey",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "rival_route22"
   ],
-  "trainers": [],
-  "explore_table": []
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
  },
  "route2_south": {
   "name": "Route 2 - South",
@@ -230,29 +279,36 @@
    "viridian_forest"
   ],
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Caterpie",
-    "min_level": 3,
-    "max_level": 5,
-    "weight": 40
-   },
-   {
-    "species": "Weedle",
-    "min_level": 3,
-    "max_level": 5,
-    "weight": 40
-   },
-   {
-    "species": "Pidgey",
-    "min_level": 3,
-    "max_level": 5,
-    "weight": 20
-   }
-  ],
-  "trainers": [
-   "youngster_joey"
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 35
+    },
+    {
+     "species": "rattata",
+     "min_level": 2,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "caterpie",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 20
+    },
+    {
+     "species": "weedle",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
   "explore_table": [
    {
     "type": "nothing",
@@ -281,41 +337,45 @@
    }
   },
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Caterpie",
-    "min_level": 3,
-    "max_level": 6,
-    "weight": 35
-   },
-   {
-    "species": "Metapod",
-    "min_level": 4,
-    "max_level": 6,
-    "weight": 15
-   },
-   {
-    "species": "Weedle",
-    "min_level": 3,
-    "max_level": 6,
-    "weight": 35
-   },
-   {
-    "species": "Kakuna",
-    "min_level": 4,
-    "max_level": 6,
-    "weight": 10
-   },
-   {
-    "species": "Pikachu",
-    "min_level": 3,
-    "max_level": 5,
-    "weight": 5
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Caterpie",
+     "min_level": 3,
+     "max_level": 6,
+     "weight": 35
+    },
+    {
+     "species": "Metapod",
+     "min_level": 4,
+     "max_level": 6,
+     "weight": 15
+    },
+    {
+     "species": "Weedle",
+     "min_level": 3,
+     "max_level": 6,
+     "weight": 35
+    },
+    {
+     "species": "Kakuna",
+     "min_level": 4,
+     "max_level": 6,
+     "weight": 10
+    },
+    {
+     "species": "Pikachu",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
   "trainers": [
    "bug_catcher_rick",
-   "bug_catcher_doug"
+   "bug_catcher_doug",
+   "bug_catcher_sammy"
   ],
   "explore_table": [
    {
@@ -328,8 +388,8 @@
    },
    {
     "type": "item",
-    "item": "Antidote",
-    "weight": 10
+    "weight": 10,
+    "item": "antidote"
    }
   ]
  },
@@ -350,26 +410,35 @@
    }
   },
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Caterpie",
-    "min_level": 3,
-    "max_level": 5,
-    "weight": 40
-   },
-   {
-    "species": "Weedle",
-    "min_level": 3,
-    "max_level": 5,
-    "weight": 40
-   },
-   {
-    "species": "Pidgey",
-    "min_level": 3,
-    "max_level": 5,
-    "weight": 20
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 35
+    },
+    {
+     "species": "rattata",
+     "min_level": 2,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "caterpie",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 20
+    },
+    {
+     "species": "weedle",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
   "trainers": [],
   "explore_table": [
    {
@@ -403,9 +472,17 @@
   "req_flag": null,
   "hasCenter": true,
   "hasShop": true,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [],
-  "explore_table": []
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
  },
  "pewter_city_gym": {
   "name": "Pewter City Gym",
@@ -415,7 +492,10 @@
    "pewter_city"
   ],
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [
    "camper_liam",
    "brock_gym"
@@ -438,16 +518,19 @@
   "gate_requirements": {
    "pewter_city": {
     "required_flags": [
-     "old_amber_donated"
+     "obtained_old_amber"
     ],
     "blocked_message": "You should check out the fossil exhibits before leaving!"
    }
   },
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [],
   "npcs": [
-   "scientist_hiker"
+   "fossil_scientist_amber"
   ],
   "explore_table": [
    {
@@ -456,8 +539,9 @@
    },
    {
     "type": "item",
-    "item": "Old Amber",
-    "weight": 20
+    "weight": 20,
+    "item": "old_amber",
+    "flag": "obtained_old_amber"
    }
   ],
   "noFly": true
@@ -470,29 +554,38 @@
    "mt_moon_1f"
   ],
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Pidgey",
-    "min_level": 6,
-    "max_level": 8,
-    "weight": 40
-   },
-   {
-    "species": "Spearow",
-    "min_level": 6,
-    "max_level": 8,
-    "weight": 40
-   },
-   {
-    "species": "Jigglypuff",
-    "min_level": 3,
-    "max_level": 7,
-    "weight": 20
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Pidgey",
+     "min_level": 6,
+     "max_level": 8,
+     "weight": 40
+    },
+    {
+     "species": "Spearow",
+     "min_level": 6,
+     "max_level": 8,
+     "weight": 40
+    },
+    {
+     "species": "Jigglypuff",
+     "min_level": 3,
+     "max_level": 7,
+     "weight": 20
+    }
+   ],
+   "water": []
+  },
   "trainers": [
-   "bug_catcher_don",
-   "lass_janice"
+   "lass_janice",
+   "bug_catcher_colton",
+   "youngster_ben",
+   "bug_catcher_greg",
+   "youngster_calvin",
+   "lass_sally",
+   "bug_catcher_james",
+   "lass_robin"
   ],
   "explore_table": [
    {
@@ -513,29 +606,34 @@
    "mt_moon_b1f"
   ],
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Zubat",
-    "min_level": 7,
-    "max_level": 10,
-    "weight": 50
-   },
-   {
-    "species": "Geodude",
-    "min_level": 7,
-    "max_level": 10,
-    "weight": 30
-   },
-   {
-    "species": "Paras",
-    "min_level": 8,
-    "max_level": 11,
-    "weight": 20
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 7,
+     "max_level": 10,
+     "weight": 50
+    },
+    {
+     "species": "Geodude",
+     "min_level": 7,
+     "max_level": 10,
+     "weight": 30
+    },
+    {
+     "species": "Paras",
+     "min_level": 8,
+     "max_level": 11,
+     "weight": 20
+    }
+   ],
+   "water": []
+  },
   "trainers": [
-   "hiker_marcos",
-   "bug_catcher_kent"
+   "bug_catcher_kent",
+   "lass_iris",
+   "super_nerd_jovan",
+   "bug_catcher_robby"
   ],
   "explore_table": [
    {
@@ -548,8 +646,8 @@
    },
    {
     "type": "item",
-    "item": "Parlyz Heal",
-    "weight": 15
+    "weight": 15,
+    "item": "paralyz_heal"
    }
   ],
   "noFly": true
@@ -564,35 +662,44 @@
   "gate_requirements": {
    "route4": {
     "required_flags": [
-     "defeated_super_nerd_miguell"
+     "defeated_super_nerd_miguel"
     ],
     "blocked_message": "You must defeat the guardian blocking the exit cave!"
    }
   },
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Zubat",
-    "min_level": 8,
-    "max_level": 12,
-    "weight": 40
-   },
-   {
-    "species": "Clefairy",
-    "min_level": 8,
-    "max_level": 12,
-    "weight": 10
-   },
-   {
-    "species": "Paras",
-    "min_level": 9,
-    "max_level": 13,
-    "weight": 50
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 8,
+     "max_level": 12,
+     "weight": 40
+    },
+    {
+     "species": "Clefairy",
+     "min_level": 8,
+     "max_level": 12,
+     "weight": 10
+    },
+    {
+     "species": "Paras",
+     "min_level": 9,
+     "max_level": 13,
+     "weight": 50
+    }
+   ],
+   "water": []
+  },
   "trainers": [
    "team_rocket_grunt_1",
-   "super_nerd_miguel"
+   "super_nerd_miguel",
+   "team_rocket_grunt_mt_moon_2",
+   "team_rocket_grunt_mt_moon_3",
+   "team_rocket_grunt_mt_moon_4",
+   "lass_miriam",
+   "youngster_josh",
+   "hiker_marcos"
   ],
   "explore_table": [
    {
@@ -605,8 +712,8 @@
    },
    {
     "type": "item",
-    "item": "Moon Stone",
-    "weight": 20
+    "weight": 20,
+    "item": "moon_stone"
    }
   ],
   "noFly": true
@@ -620,32 +727,35 @@
   ],
   "req_flag": null,
   "hasCenter": true,
-  "encounters": [
-   {
-    "species": "Rattata",
-    "min_level": 10,
-    "max_level": 12,
-    "weight": 30
-   },
-   {
-    "species": "Spearow",
-    "min_level": 10,
-    "max_level": 12,
-    "weight": 30
-   },
-   {
-    "species": "Ekans",
-    "min_level": 10,
-    "max_level": 12,
-    "weight": 20
-   },
-   {
-    "species": "Sandshrew",
-    "min_level": 10,
-    "max_level": 12,
-    "weight": 20
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Rattata",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 30
+    },
+    {
+     "species": "Spearow",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 30
+    },
+    {
+     "species": "Ekans",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 20
+    },
+    {
+     "species": "Sandshrew",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 20
+    }
+   ],
+   "water": []
+  },
   "trainers": [
    "lass_crissy"
   ],
@@ -660,8 +770,8 @@
    },
    {
     "type": "item",
-    "item": "Super Potion",
-    "weight": 15
+    "weight": 15,
+    "item": "super_potion"
    }
   ]
  },
@@ -737,8 +847,8 @@
    },
    {
     "type": "item",
-    "item": "Rare Candy",
-    "weight": 30
+    "weight": 30,
+    "item": "rare_candy"
    }
   ]
  },
@@ -750,7 +860,10 @@
    "cerulean_city"
   ],
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [
    "swimmer_mira",
    "picnicker_diana",
@@ -770,14 +883,25 @@
   "connections": [
    "cerulean_city",
    "route25",
-   "cerulean_cave"
+   "cerulean_cave_1f"
   ],
   "gate_requirements": {
    "route25": {
     "required_flags": [
+     "defeated_bug_catcher_cale",
+     "defeated_lass_ali",
+     "defeated_youngster_timmy",
+     "defeated_lass_reli",
+     "defeated_camper_ethan",
      "defeated_rocket_nugget_bridge"
     ],
     "blocked_message": "You must prove yourself against the Nugget Bridge challengers and Team Rocket first!"
+   },
+   "cerulean_cave_1f": {
+    "required_flags": [
+     "defeated_elite_four"
+    ],
+    "blocked_message": "A strange, powerful aura radiates from the cave mouth. You should become Champion before entering."
    }
   },
   "forced_battle": {
@@ -785,44 +909,103 @@
    "trainer_id": "team_rocket_nugget_grunt"
   },
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Caterpie",
-    "min_level": 12,
-    "max_level": 14,
-    "weight": 25
-   },
-   {
-    "species": "Weedle",
-    "min_level": 12,
-    "max_level": 14,
-    "weight": 25
-   },
-   {
-    "species": "Pidgey",
-    "min_level": 12,
-    "max_level": 14,
-    "weight": 20
-   },
-   {
-    "species": "Abra",
-    "min_level": 8,
-    "max_level": 12,
-    "weight": 20
-   },
-   {
-    "species": "Bellsprout",
-    "min_level": 12,
-    "max_level": 14,
-    "weight": 10
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 20
+    },
+    {
+     "species": "oddish",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 15
+    },
+    {
+     "species": "abra",
+     "min_level": 8,
+     "max_level": 12,
+     "weight": 15
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 10
+    },
+    {
+     "species": "venonat",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 10
+    },
+    {
+     "species": "caterpie",
+     "min_level": 7,
+     "max_level": 7,
+     "weight": 10
+    },
+    {
+     "species": "weedle",
+     "min_level": 7,
+     "max_level": 7,
+     "weight": 10
+    },
+    {
+     "species": "kakuna",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
+    },
+    {
+     "species": "metapod",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 40
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 10
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 5
+    }
+   ]
+  },
   "trainers": [
-   "bug_catcher_cletus",
+   "bug_catcher_cale",
    "lass_ali",
-   "camper_ricky",
-   "cooltrainer_timmy",
-   "rocket_grunt_nugget"
+   "youngster_timmy",
+   "lass_reli",
+   "camper_ethan",
+   "camper_shane"
   ],
   "explore_table": [
    {
@@ -835,8 +1018,8 @@
    },
    {
     "type": "item",
-    "item": "Nugget",
-    "weight": 15
+    "weight": 15,
+    "item": "nugget"
    }
   ]
  },
@@ -848,32 +1031,96 @@
    "bills_cottage"
   ],
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Pidgey",
-    "min_level": 12,
-    "max_level": 14,
-    "weight": 30
-   },
-   {
-    "species": "Abra",
-    "min_level": 8,
-    "max_level": 12,
-    "weight": 25
-   },
-   {
-    "species": "Bellsprout",
-    "min_level": 12,
-    "max_level": 14,
-    "weight": 25
-   },
-   {
-    "species": "Venonat",
-    "min_level": 12,
-    "max_level": 15,
-    "weight": 20
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 20
+    },
+    {
+     "species": "oddish",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 15
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 15
+    },
+    {
+     "species": "abra",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 15
+    },
+    {
+     "species": "venonat",
+     "min_level": 12,
+     "max_level": 15,
+     "weight": 10
+    },
+    {
+     "species": "weedle",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 10
+    },
+    {
+     "species": "kakuna",
+     "min_level": 9,
+     "max_level": 9,
+     "weight": 5
+    },
+    {
+     "species": "caterpie",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
+    },
+    {
+     "species": "metapod",
+     "min_level": 7,
+     "max_level": 7,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 40
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 10
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 5
+    }
+   ]
+  },
   "trainers": [
    "hiker_franklin",
    "youngster_dillon",
@@ -890,8 +1137,8 @@
    },
    {
     "type": "item",
-    "item": "Potion",
-    "weight": 10
+    "weight": 10,
+    "item": "elixir"
    }
   ]
  },
@@ -903,7 +1150,10 @@
    "route25"
   ],
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [],
   "npcs": [
    "bill_maniac"
@@ -911,12 +1161,7 @@
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 80
-   },
-   {
-    "type": "item",
-    "item": "S.S. Ticket",
-    "weight": 20
+    "weight": 100
    }
   ],
   "noFly": true
@@ -929,47 +1174,79 @@
    "route24",
    "cerulean_cave_b1f"
   ],
-  "gate_requirements": {
-   "cerulean_cave_2f": {
-    "required_flags": [
-     "defeated_elite_four"
-    ],
-    "blocked_message": "The way deeper into the cave is sealed tight by an overwhelming presence!"
-   }
+  "gate_requirements": {},
+  "encounters": {
+   "grass": [
+    {
+     "species": "Golbat",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 30
+    },
+    {
+     "species": "Hypno",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 20
+    },
+    {
+     "species": "Magneton",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 20
+    },
+    {
+     "species": "Dodrio",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 15
+    },
+    {
+     "species": "Kadabra",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 15
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 40
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "slowbro",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 5
+    },
+    {
+     "species": "kingler",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 5
+    },
+    {
+     "species": "seadra",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 5
+    }
+   ]
   },
-  "req_flag": "defeated_elite_four",
-  "encounters": [
-   {
-    "species": "Golbat",
-    "min_level": 46,
-    "max_level": 51,
-    "weight": 30
-   },
-   {
-    "species": "Hypno",
-    "min_level": 46,
-    "max_level": 51,
-    "weight": 20
-   },
-   {
-    "species": "Magneton",
-    "min_level": 46,
-    "max_level": 51,
-    "weight": 20
-   },
-   {
-    "species": "Dodrio",
-    "min_level": 46,
-    "max_level": 51,
-    "weight": 15
-   },
-   {
-    "species": "Kadabra",
-    "min_level": 46,
-    "max_level": 51,
-    "weight": 15
-   }
-  ],
   "trainers": [],
   "explore_table": [
    {
@@ -982,8 +1259,8 @@
    },
    {
     "type": "item",
-    "item": "Full Restore",
-    "weight": 10
+    "weight": 10,
+    "item": "full_restore"
    }
   ],
   "noFly": true
@@ -996,33 +1273,35 @@
    "cerulean_cave_1f",
    "cerulean_cave_b2f"
   ],
-  "req_flag": "defeated_elite_four",
-  "encounters": [
-   {
-    "species": "Golbat",
-    "min_level": 51,
-    "max_level": 56,
-    "weight": 30
-   },
-   {
-    "species": "Sandslash",
-    "min_level": 51,
-    "max_level": 56,
-    "weight": 25
-   },
-   {
-    "species": "Parasect",
-    "min_level": 51,
-    "max_level": 56,
-    "weight": 25
-   },
-   {
-    "species": "Ditto",
-    "min_level": 51,
-    "max_level": 56,
-    "weight": 20
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Golbat",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 30
+    },
+    {
+     "species": "Sandslash",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 25
+    },
+    {
+     "species": "Parasect",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 25
+    },
+    {
+     "species": "Ditto",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 20
+    }
+   ],
+   "water": []
+  },
   "trainers": [],
   "explore_table": [
    {
@@ -1035,8 +1314,8 @@
    },
    {
     "type": "item",
-    "item": "Max Elixir",
-    "weight": 10
+    "weight": 10,
+    "item": "max_elixir"
    }
   ],
   "noFly": true
@@ -1046,49 +1325,91 @@
   "description": "The deepest, darkest basement of the cave where the ultimate genetic Pokémon dwells.",
   "isTown": false,
   "connections": [
-   "cerulean_cave_1f"
+   "cerulean_cave_b1f"
   ],
-  "forced_battle": {
-   "flag": "caught_mewtwo",
-   "trainer_id": "mewtwo_wild"
+  "encounters": {
+   "grass": [
+    {
+     "species": "Rhydon",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 30
+    },
+    {
+     "species": "Marowak",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 30
+    },
+    {
+     "species": "Electrode",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 25
+    },
+    {
+     "species": "Chansey",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 15
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 35
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 20
+    },
+    {
+     "species": "slowbro",
+     "min_level": 23,
+     "max_level": 30,
+     "weight": 8
+    },
+    {
+     "species": "kingler",
+     "min_level": 23,
+     "max_level": 30,
+     "weight": 7
+    },
+    {
+     "species": "seadra",
+     "min_level": 23,
+     "max_level": 30,
+     "weight": 5
+    }
+   ]
   },
-  "req_flag": "defeated_elite_four",
-  "encounters": [
-   {
-    "species": "Rhydon",
-    "min_level": 55,
-    "max_level": 60,
-    "weight": 30
-   },
-   {
-    "species": "Marowak",
-    "min_level": 55,
-    "max_level": 60,
-    "weight": 30
-   },
-   {
-    "species": "Electrode",
-    "min_level": 55,
-    "max_level": 60,
-    "weight": 25
-   },
-   {
-    "species": "Chansey",
-    "min_level": 55,
-    "max_level": 60,
-    "weight": 15
-   }
-  ],
   "trainers": [],
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 70
+    "weight": 10
+   },
+   {
+    "type": "static_encounter",
+    "weight": 70,
+    "species": "mewtwo",
+    "level": 70,
+    "intro": "A powerful psychic presence overwhelms you... MEWTWO blocks your path!"
    },
    {
     "type": "item",
-    "item": "Ultra Ball",
-    "weight": 30
+    "weight": 20,
+    "item": "ultra_ball"
    }
   ],
   "noFly": true
@@ -1103,32 +1424,65 @@
    "saffron_city"
   ],
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Pidgey",
-    "min_level": 13,
-    "max_level": 16,
-    "weight": 35
-   },
-   {
-    "species": "Rattata",
-    "min_level": 13,
-    "max_level": 16,
-    "weight": 35
-   },
-   {
-    "species": "Abra",
-    "min_level": 10,
-    "max_level": 16,
-    "weight": 20
-   },
-   {
-    "species": "Bellsprout",
-    "min_level": 13,
-    "max_level": 16,
-    "weight": 10
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 25
+    },
+    {
+     "species": "rattata",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 20
+    },
+    {
+     "species": "oddish",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 12
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 10
+    },
+    {
+     "species": "meowth",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 10
+    },
+    {
+     "species": "mankey",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 8
+    },
+    {
+     "species": "abra",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 8
+    },
+    {
+     "species": "jigglypuff",
+     "min_level": 3,
+     "max_level": 7,
+     "weight": 5
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 17,
+     "max_level": 17,
+     "weight": 2
+    }
+   ],
+   "water": []
+  },
   "trainers": [],
   "explore_table": [
    {
@@ -1150,7 +1504,10 @@
    "route6"
   ],
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [],
   "explore_table": [
    {
@@ -1159,8 +1516,8 @@
    },
    {
     "type": "item",
-    "item": "Potion",
-    "weight": 20
+    "weight": 20,
+    "item": "potion"
    }
   ],
   "noFly": true
@@ -1175,35 +1532,72 @@
    "saffron_city"
   ],
   "req_flag": null,
-  "encounters": [
-   {
-    "species": "Pidgey",
-    "min_level": 13,
-    "max_level": 16,
-    "weight": 35
-   },
-   {
-    "species": "Rattata",
-    "min_level": 13,
-    "max_level": 16,
-    "weight": 35
-   },
-   {
-    "species": "Abra",
-    "min_level": 10,
-    "max_level": 16,
-    "weight": 20
-   },
-   {
-    "species": "Oddish",
-    "min_level": 13,
-    "max_level": 16,
-    "weight": 10
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 25
+    },
+    {
+     "species": "rattata",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 20
+    },
+    {
+     "species": "oddish",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 12
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 10
+    },
+    {
+     "species": "meowth",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 10
+    },
+    {
+     "species": "mankey",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 8
+    },
+    {
+     "species": "abra",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 8
+    },
+    {
+     "species": "jigglypuff",
+     "min_level": 3,
+     "max_level": 7,
+     "weight": 5
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 17,
+     "max_level": 17,
+     "weight": 2
+    }
+   ],
+   "water": []
+  },
   "trainers": [
    "bug_catcher_elijah",
-   "lass_julia"
+   "bug_catcher_keigo",
+   "picnicker_nancy",
+   "picnicker_isabelle",
+   "camper_jeff",
+   "camper_ricky"
   ],
   "explore_table": [
    {
@@ -1241,22 +1635,52 @@
    "grass": [],
    "water": [
     {
-     "species": "Tentacool",
+     "species": "tentacool",
      "min_level": 10,
      "max_level": 20,
-     "weight": 60
+     "weight": 30
     },
     {
-     "species": "Shellder",
-     "min_level": 15,
-     "max_level": 25,
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
      "weight": 20
     },
     {
-     "species": "Krabby",
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "shellder",
      "min_level": 15,
      "max_level": 25,
-     "weight": 20
+     "weight": 8
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 8
+    },
+    {
+     "species": "horsea",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 2
+    },
+    {
+     "species": "staryu",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 2
     }
    ]
   },
@@ -1271,8 +1695,8 @@
    },
    {
     "type": "item",
-    "item": "Max Ether",
-    "weight": 30
+    "weight": 30,
+    "item": "max_ether"
    }
   ]
  },
@@ -1284,7 +1708,10 @@
    "vermilion_city"
   ],
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [
    "gentleman_tucker",
    "rocker_biff",
@@ -1307,7 +1734,10 @@
    "vermilion_city"
   ],
   "req_flag": null,
-  "encounters": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
   "trainers": [],
   "npcs": [
    "fan_club_chairman"
@@ -1319,8 +1749,8 @@
    },
    {
     "type": "item",
-    "item": "Bike",
-    "weight": 30
+    "weight": 30,
+    "item": "bike"
    }
   ],
   "noFly": true
@@ -1334,20 +1764,23 @@
    "route11"
   ],
   "req_flag": "obtain_hm_01",
-  "encounters": [
-   {
-    "species": "Diglett",
-    "min_level": 15,
-    "max_level": 22,
-    "weight": 95
-   },
-   {
-    "species": "Dugtrio",
-    "min_level": 29,
-    "max_level": 31,
-    "weight": 5
-   }
-  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Diglett",
+     "min_level": 15,
+     "max_level": 22,
+     "weight": 95
+    },
+    {
+     "species": "Dugtrio",
+     "min_level": 29,
+     "max_level": 31,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
   "trainers": [],
   "explore_table": [
    {
