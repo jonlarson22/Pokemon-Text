@@ -132,14 +132,6 @@
   "dialogue_post_flag": "Isn't science amazing? Take good care of Omanyte.",
   "once_flag": "revived_helix_fossil"
  },
- "fossil_scientist_amber": {
-  "name": "Lab Scientist 3",
-  "dialogue_default": "[DRAFT] Ah, Old Amber! Ancient resin with Pokémon DNA trapped inside. We don't have the equipment to revive it here — but the Pokémon Lab on Cinnabar Island does. Take it there!",
-  "requirements": [],
-  "rewards": [],
-  "dialogue_req_unmet": "",
-  "dialogue_post_flag": ""
- },
  "celadon_mansion_eevee": {
   "name": "Eevee Manager",
   "dialogue_default": "I've been looking for someone to take this rare Pokémon off my hands. Would you like it?",
@@ -330,5 +322,43 @@
   "dialogue_req_unmet": "",
   "dialogue_post_flag": "[DRAFT] Enjoy your cruise! The S.S. Anne leaves from Vermilion City.",
   "once_flag": "obtain_ss_ticket"
+ },
+ "pewter_museum_scientist": {
+  "name": "Museum Scientist",
+  "dialogue_default": "[DRAFT] Ah, Old Amber! Ancient resin with Pokémon DNA trapped inside. We don't have the equipment to revive it here — but the Pokémon Lab on Cinnabar Island does. Take it there!",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "fossil_scientist_amber": {
+  "name": "Lab Scientist 3",
+  "dialogue_default": "Ah, the Old Amber! I can resurrect this into Aerodactyl using our machine.",
+  "requirements": [
+   {
+    "type": "item",
+    "id": "old_amber",
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "aerodactyl",
+    "level": 30
+   },
+   {
+    "type": "item_consumption",
+    "id": "old_amber",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "revived_old_amber"
+   }
+  ],
+  "dialogue_req_unmet": "You don't have any Old Amber for me to work with.",
+  "dialogue_post_flag": "Isn't science amazing? Take good care of Aerodactyl.",
+  "once_flag": "revived_old_amber"
  }
 }
