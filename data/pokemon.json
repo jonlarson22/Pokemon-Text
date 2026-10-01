@@ -3409,10 +3409,6 @@
     "move": "double_slap"
    },
    {
-    "level": 17,
-    "move": "follow_me"
-   },
-   {
     "level": 21,
     "move": "minimize"
    },
@@ -6460,10 +6456,6 @@
    {
     "level": 30,
     "move": "future_sight"
-   },
-   {
-    "level": 33,
-    "move": "role_play"
    },
    {
     "level": 36,
@@ -12567,10 +12559,6 @@
     "move": "recover"
    },
    {
-    "level": 19,
-    "move": "camouflage"
-   },
-   {
     "level": 24,
     "move": "swift"
    },
@@ -12795,14 +12783,6 @@
    {
     "level": 29,
     "move": "psybeam"
-   },
-   {
-    "level": 33,
-    "move": "recycle"
-   },
-   {
-    "level": 40,
-    "move": "role_play"
    },
    {
     "level": 43,
@@ -14291,10 +14271,6 @@
    {
     "level": 36,
     "move": "tri_attack"
-   },
-   {
-    "level": 44,
-    "move": "recycle"
    },
    {
     "level": 48,

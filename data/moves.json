@@ -159,7 +159,12 @@
   "category": "physical",
   "power": 30,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "attract": {
   "name": "Attract",
@@ -226,7 +231,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 40
+  "pp": 40,
+  "effect": {
+   "type": "baton_pass",
+   "target": "self"
+  }
  },
  "belly_drum": {
   "name": "Belly Drum",
@@ -271,7 +280,12 @@
   "category": "physical",
   "power": 60,
   "accuracy": 100,
-  "pp": 25
+  "pp": 25,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "blizzard": {
   "name": "Blizzard",
@@ -319,7 +333,12 @@
   "category": "physical",
   "power": 65,
   "accuracy": 85,
-  "pp": 20
+  "pp": 20,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 10,
+   "target": "enemy"
+  }
  },
  "bone_rush": {
   "name": "Bone Rush",
@@ -327,7 +346,11 @@
   "category": "physical",
   "power": 25,
   "accuracy": 90,
-  "pp": 10
+  "pp": 10,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "bonemerang": {
   "name": "Bonemerang",
@@ -417,7 +440,11 @@
   "category": "physical",
   "power": 25,
   "accuracy": 100,
-  "pp": 30
+  "pp": 30,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "calm_mind": {
   "name": "Calm Mind",
@@ -440,14 +467,6 @@
     "target": "self"
    }
   ]
- },
- "camouflage": {
-  "name": "Camouflage",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 20
  },
  "charge": {
   "name": "Charge",
@@ -482,7 +501,11 @@
   "category": "physical",
   "power": 18,
   "accuracy": 85,
-  "pp": 15
+  "pp": 15,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "confuse_ray": {
   "name": "Confuse Ray",
@@ -530,7 +553,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 30
+  "pp": 30,
+  "effect": {
+   "type": "conversion",
+   "target": "self"
+  }
  },
  "conversion_2": {
   "name": "Conversion 2",
@@ -538,7 +565,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 30
+  "pp": 30,
+  "effect": {
+   "type": "conversion2",
+   "target": "self"
+  }
  },
  "cosmic_power": {
   "name": "Cosmic Power",
@@ -744,7 +775,11 @@
   "category": "physical",
   "power": 15,
   "accuracy": 85,
-  "pp": 10
+  "pp": 10,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "double_team": {
   "name": "Double Team",
@@ -951,7 +986,13 @@
   "category": "physical",
   "power": 40,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "firstTurnOnly": true,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 100,
+   "target": "enemy"
+  }
  },
  "fake_tears": {
   "name": "Fake Tears",
@@ -1160,14 +1201,6 @@
   "pp": 20,
   "priority": -3
  },
- "follow_me": {
-  "name": "Follow Me",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 20
- },
  "foresight": {
   "name": "Foresight",
   "type": "Normal",
@@ -1195,7 +1228,11 @@
   "category": "physical",
   "power": 15,
   "accuracy": 85,
-  "pp": 20
+  "pp": 20,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "fury_cutter": {
   "name": "Fury Cutter",
@@ -1211,7 +1248,11 @@
   "category": "physical",
   "power": 18,
   "accuracy": 80,
-  "pp": 15
+  "pp": 15,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "future_sight": {
   "name": "Future Sight",
@@ -1357,7 +1398,12 @@
   "category": "physical",
   "power": 70,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "heat_wave": {
   "name": "Heat Wave",
@@ -1428,7 +1474,12 @@
   "category": "physical",
   "power": 80,
   "accuracy": 90,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 10,
+   "target": "enemy"
+  }
  },
  "hyper_voice": {
   "name": "Hyper Voice",
@@ -1486,7 +1537,11 @@
   "category": "physical",
   "power": 25,
   "accuracy": 100,
-  "pp": 30
+  "pp": 30,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "icy_wind": {
   "name": "Icy Wind",
@@ -1801,7 +1856,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "memento",
+   "target": "enemy"
+  }
  },
  "metal_claw": {
   "name": "Metal Claw",
@@ -2003,7 +2062,11 @@
   "category": "status",
   "power": 0,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "effect": {
+   "type": "nightmare",
+   "target": "enemy"
+  }
  },
  "odor_sleuth": {
   "name": "Odor Sleuth",
@@ -2082,7 +2145,11 @@
   "category": "physical",
   "power": 25,
   "accuracy": 95,
-  "pp": 20
+  "pp": 20,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "poison_fang": {
   "name": "Poison Fang",
@@ -2306,14 +2373,6 @@
    "target": "self"
   }
  },
- "recycle": {
-  "name": "Recycle",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 10
- },
  "reflect": {
   "name": "Reflect",
   "type": "Psychic",
@@ -2396,7 +2455,11 @@
   "category": "physical",
   "power": 25,
   "accuracy": 90,
-  "pp": 10
+  "pp": 10,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "rock_polish": {
   "name": "Rock Polish",
@@ -2418,7 +2481,12 @@
   "category": "physical",
   "power": 75,
   "accuracy": 90,
-  "pp": 10
+  "pp": 10,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "rock_smash": {
   "name": "Rock Smash",
@@ -2458,21 +2526,18 @@
    "chance": 100
   }
  },
- "role_play": {
-  "name": "Role Play",
-  "type": "Psychic",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 10
- },
  "rolling_kick": {
   "name": "Rolling Kick",
   "type": "Fighting",
   "category": "physical",
   "power": 60,
   "accuracy": 85,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "rollout": {
   "name": "Rollout",
@@ -2737,7 +2802,12 @@
   "category": "physical",
   "power": 140,
   "accuracy": 90,
-  "pp": 5
+  "pp": 5,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "sky_uppercut": {
   "name": "Sky Uppercut",
@@ -2783,7 +2853,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "sleep_talk",
+   "target": "self"
+  }
  },
  "sludge": {
   "name": "Sludge",
@@ -2860,7 +2934,12 @@
   "category": "special",
   "power": 50,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "soft_boiled": {
   "name": "Soft Boiled",
@@ -2915,7 +2994,11 @@
   "category": "physical",
   "power": 20,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "multiHit": [
+   2,
+   5
+  ]
  },
  "spikes": {
   "name": "Spikes",
@@ -2923,7 +3006,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "spikes",
+   "target": "enemy"
+  }
  },
  "spit_up": {
   "name": "Spit Up",
@@ -2931,7 +3018,8 @@
   "category": "special",
   "power": 0,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "powerScale": "spitup"
  },
  "spite": {
   "name": "Spite",
@@ -2988,7 +3076,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 20
+  "pp": 20,
+  "effect": {
+   "type": "stockpile",
+   "target": "self"
+  }
  },
  "stomp": {
   "name": "Stomp",
@@ -2996,7 +3088,12 @@
   "category": "physical",
   "power": 65,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 30,
+   "target": "enemy"
+  }
  },
  "strength": {
   "name": "Strength",
@@ -3053,7 +3150,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "substitute",
+   "target": "self"
+  }
  },
  "sunny_day": {
   "name": "Sunny Day",
@@ -3149,7 +3250,11 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "swallow",
+   "target": "self"
+  }
  },
  "sweet_kiss": {
   "name": "Sweet Kiss",
@@ -3447,7 +3552,12 @@
   "category": "special",
   "power": 40,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 20,
+   "target": "enemy"
+  }
  },
  "uproar": {
   "name": "Uproar",
@@ -3521,7 +3631,12 @@
   "category": "physical",
   "power": 80,
   "accuracy": 100,
-  "pp": 15
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "flinch",
+   "chance": 20,
+   "target": "enemy"
+  }
  },
  "whirlwind": {
   "name": "Whirlwind",

@@ -208,6 +208,38 @@ renderRouteScreen() {
     });
   }
 
+  // Baton Pass needs a switch target chosen before the turn runs. Lists
+  // conscious benched party mons; the choice is stashed on the battle and
+  // consumed by the baton_pass effect when the move executes in turn order.
+  openBatonPassChooser(move) {
+    const battle = this.game.gameState.activeBattle;
+    if (!battle) return;
+    const active = battle.playerMon;
+    const candidates = this.game.gameState.party.filter(m => m && m.hp > 0 && m !== active);
+    if (candidates.length === 0) {
+      this.printToLog(`But it failed! There's no one to pass to!`);
+      return;
+    }
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center; font-weight:bold;">Pass to which Pokémon?</p>';
+    controls.innerHTML = '';
+
+    const buttons = candidates.map(mon => ({
+      text: `${mon.species} (Lv. ${mon.level}) — ${mon.hp}/${mon.maxHp} HP`,
+      action: () => {
+        this.setMenuState('battle');
+        this.game.battleManager.handleTurn(move, mon);
+      }
+    }));
+    buttons.push({
+      text: "Cancel",
+      action: () => this.setMenuState('battle')
+    });
+    this.buildMenuControls(controls, buttons);
+  }
+
   // MOVED FROM APP.JS
   openPokemonMenu() {
     this.setMenuState('dynamic');
@@ -323,7 +355,9 @@ renderRouteScreen() {
           } else {
             btn.disabled = false;
             btn.style.opacity = "1";
-            btn.onclick = () => this.game.battleManager.handleTurn(move);
+            btn.onclick = move.name === "Baton Pass"
+              ? () => this.openBatonPassChooser(move)
+              : () => this.game.battleManager.handleTurn(move);
           }
         } else {
           // Handle Empty Move Slots

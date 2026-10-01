@@ -16,6 +16,9 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
     this.weather = null;
     this.movesDb = movesDb;
     this.enemyItems = [...enemyItems];
+    this.playerSpikes = 0;
+    this.enemySpikes = 0;
+    this.pendingBatonTarget = null;
 
     this.participants = new Set([this.playerMon]);
 
@@ -31,7 +34,8 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
       perish: 0, yawn: false, curse: false, destinyBond: false,
       focusEnergy: false, disabled: null, torment: false, taunt: 0,
       encore: null, imprison: null, grudge: false, snatch: false,
-      bide: null
+      bide: null, flinch: false, stockpile: 0, substituteHp: 0,
+      nightmare: false, firstTurnOut: true
     };
   }
 
@@ -49,6 +53,16 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
   // Central damage application: handles Endure, Destiny Bond and Grudge triggers.
   dealDamage(target, amount, source) {
     let dmg = Math.max(0, Math.floor(amount));
+    if (target.vol.substituteHp > 0) {
+      target.vol.substituteHp -= dmg;
+      if (target.vol.substituteHp <= 0) {
+        target.vol.substituteHp = 0;
+        this.onLog(`The substitute broke!`);
+      } else {
+        this.onLog(`The substitute took the hit! (${target.vol.substituteHp} HP left)`);
+      }
+      return 0;
+    }
     if (target.vol.endure && dmg >= target.hp && target.hp > 1) {
       dmg = target.hp - 1;
       target.vol.endure = false;
@@ -88,6 +102,23 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
   }
 
   /**
+   * Entry hazards (Spikes): applied whenever a mon switches in, not on the
+   * initial send-out. Flying-types are immune. Layers: 1/8, 3/16, 1/4 max HP.
+   */
+  applyEntryHazards(mon, isPlayer) {
+    const layers = isPlayer ? this.playerSpikes : this.enemySpikes;
+    if (!layers || mon.hp <= 0) return;
+    if ((mon.types || []).includes("Flying")) {
+      this.onLog(`${mon.species} floats above the spikes!`);
+      return;
+    }
+    const frac = [0, 1 / 8, 3 / 16, 1 / 4][layers];
+    const dmg = Math.max(1, Math.floor(mon.maxHp * frac));
+    mon.hp = Math.max(0, mon.hp - dmg);
+    this.onLog(`${mon.species} was hurt by spikes! (-${dmg} HP, ${mon.hp}/${mon.maxHp} HP)`);
+  }
+
+  /**
    * Manual Mid-Battle Switch (Consumes Player Turn)
    */
   switchPokemon(newMon) {
@@ -101,10 +132,15 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
     this.playerMon = newMon;
     this.setupBattleStats(this.playerMon);
     this.participants.add(this.playerMon);
+    this.applyEntryHazards(this.playerMon, true);
+    if (this.playerMon.hp <= 0) {
+      this.checkWinLoss();
+      return true;
+    }
 
     // Enemy gets a turn because switching takes an action
-    if (this.canMove(this.enemyMon)) {
-      const enemyMove = this.getRandomEnemyMove();
+    const enemyMove = this.getRandomEnemyMove();
+    if (this.canMove(this.enemyMon, enemyMove)) {
       this.processAction(this.enemyMon, this.playerMon, enemyMove, false);
     }
 
@@ -122,6 +158,7 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
     this.playerMon = newMon;
     this.setupBattleStats(this.playerMon);
     this.participants.add(this.playerMon);
+    this.applyEntryHazards(this.playerMon, true);
     this.onLog(`Go! ${this.playerMon.species}!`);
     return true;
   }
@@ -135,7 +172,7 @@ executeTurn(playerMove) {
     if (enemyUsedItem) {
       // If the enemy used an item, they skip their attack this turn. 
       // The player proceeds with their move.
-      if (this.canMove(this.playerMon)) {
+      if (this.canMove(this.playerMon, playerMove)) {
         this.processAction(this.playerMon, this.enemyMon, playerMove, true);
       }
       if (this.checkWinLoss()) return;
@@ -160,11 +197,15 @@ executeTurn(playerMove) {
     });
 
     for (const act of actions) {
-      if (this.canMove(act.mon)) {
-        this.processAction(act.mon, act.foe, act.move, act.isPlayer);
+      const liveFoe = act.isPlayer ? this.enemyMon : this.playerMon;
+      if (this.canMove(act.mon, act.move)) {
+        this.processAction(act.mon, liveFoe, act.move, act.isPlayer);
       }
       if (this.checkWinLoss()) return;
     }
+    // A flinch only matters if the target hadn't moved yet this turn.
+    this.playerMon.vol.flinch = false;
+    this.enemyMon.vol.flinch = false;
 
     this.applyEndOfTurnEffects(this.playerMon, this.enemyMon);
     if (this.checkWinLoss()) return;
@@ -186,6 +227,8 @@ executeTurn(playerMove) {
     }
     let pool = mon.moves;
     const foe = mon === this.enemyMon ? this.playerMon : this.enemyMon;
+    // The AI has no party-switch UI, so it never Baton Passes.
+    pool = pool.filter(m => m.name !== "Baton Pass");
     if (mon.vol.disabled && mon.vol.disabled.turns > 0) {
       pool = pool.filter(m => m.name !== mon.vol.disabled.move);
     }
@@ -205,8 +248,10 @@ executeTurn(playerMove) {
     return pool[randomIndex];
   }
 
-  canMove(mon) {
+  canMove(mon, move) {
     if (mon.status === 'SLP') {
+      // Sleep Talk is usable while asleep (and doesn't tick the sleep clock).
+      if (move && move.name === "Sleep Talk") return true;
       mon.sleepTurns--;
       if (mon.sleepTurns <= 0) {
         mon.status = null;
@@ -291,6 +336,16 @@ executeTurn(playerMove) {
       this.onLog(`${mon.species} is afflicted by the curse! (-${dmg} HP, ${mon.hp}/${mon.maxHp} HP)`);
     }
 
+    if (mon.vol.nightmare && mon.hp > 0) {
+      if (mon.status === 'SLP') {
+        const dmg = Math.max(1, Math.floor(mon.maxHp / 4));
+        mon.hp = Math.max(0, mon.hp - dmg);
+        this.onLog(`${mon.species} is tormented by a nightmare! (-${dmg} HP, ${mon.hp}/${mon.maxHp} HP)`);
+      } else {
+        mon.vol.nightmare = false;
+      }
+    }
+
     if (mon.vol.aquaRing && mon.hp > 0 && mon.hp < mon.maxHp) {
       const heal = Math.min(mon.maxHp - mon.hp, Math.max(1, Math.floor(mon.maxHp / 16)));
       mon.hp += heal;
@@ -364,6 +419,10 @@ executeTurn(playerMove) {
   
   applyStatus(target, status) {
     if (target.status) return;
+    if (target.vol.substituteHp > 0) {
+      this.onLog(`${target.species} is protected by its substitute!`);
+      return;
+    }
     if (target.vol.safeguard > 0) {
       this.onLog(`${target.species} is protected by Safeguard!`);
       return;
@@ -390,9 +449,13 @@ executeTurn(playerMove) {
     }
   }
 
-  applyStatChange(target, stat, stages) {
+  applyStatChange(target, stat, stages, source = null) {
     if (stages < 0 && target.vol.mist > 0) {
       this.onLog(`${target.species} is protected by Mist!`);
+      return;
+    }
+    if (stages < 0 && source && source !== target && target.vol.substituteHp > 0) {
+      this.onLog(`${target.species} is protected by its substitute!`);
       return;
     }
     const current = target.statStages[stat];
@@ -450,12 +513,50 @@ executeTurn(playerMove) {
       effects.every(e => e.target === "self" && stealable.has(e.type));
   }
 
+  // Single accuracy roll for one strike. Consumes Lock-On. Returns true on hit.
+  checkAccuracyHit(attacker, defender, move) {
+    if (attacker.vol.lockOn) {
+      attacker.vol.lockOn = false;
+      return true;
+    }
+    if (!move.accuracy) return true;
+    const accStage = attacker.statStages.accuracy || 0;
+    const evaStage = defender.statStages.evasion || 0;
+    const netStage = Math.max(-6, Math.min(6, accStage - evaStage));
+    const multiplier = netStage >= 0 ? (3 + netStage) / 3 : 3 / (3 + Math.abs(netStage));
+    return Math.random() * 100 <= move.accuracy * multiplier;
+  }
+
+  rollMultiHit(hits) {
+    const [min, max] = hits;
+    if (min === max) return min;
+    const r = Math.random();
+    if (r < 3 / 8) return 2;
+    if (r < 6 / 8) return 3;
+    if (r < 7 / 8) return 4;
+    return 5;
+  }
+
   processAction(attacker, defender, move, isPlayer) {
     if (attacker.hp <= 0) return;
+
+    if (attacker.vol.flinch) {
+      attacker.vol.flinch = false;
+      attacker.vol.firstTurnOut = false;
+      this.onLog(`${attacker.species} flinched and couldn't move!`);
+      return;
+    }
 
     this.onLog(`${attacker.species} used ${move.name}!`);
     attacker.lastMove = move.name;
     attacker.lastMoveData = move;
+
+    if (move.firstTurnOnly && !attacker.vol.firstTurnOut) {
+      this.onLog(`But it failed!`);
+      attacker.vol.firstTurnOut = false;
+      return;
+    }
+    attacker.vol.firstTurnOut = false;
 
     if (defender.vol.protecting) {
       defender.vol.protecting = false;
@@ -488,19 +589,9 @@ executeTurn(playerMove) {
       }
     }
 
-    if (move.accuracy && !attacker.vol.lockOn) {
-      const accStage = attacker.statStages.accuracy || 0;
-      const evaStage = defender.statStages.evasion || 0;
-      const netStage = Math.max(-6, Math.min(6, accStage - evaStage));
-      const multiplier = netStage >= 0 ? (3 + netStage) / 3 : 3 / (3 + Math.abs(netStage));
-      const finalAccuracy = move.accuracy * multiplier;
-
-      if (Math.random() * 100 > finalAccuracy) {
-        this.onLog(`${attacker.species}'s attack missed!`);
-        return;
-      }
-    } else if (attacker.vol.lockOn) {
-      attacker.vol.lockOn = false;
+    if (!move.multiHit && !this.checkAccuracyHit(attacker, defender, move)) {
+      this.onLog(`${attacker.species}'s attack missed!`);
+      return;
     }
 
     if (move.ohko) {
@@ -509,7 +600,7 @@ executeTurn(playerMove) {
         return;
       }
       this.dealDamage(defender, defender.hp, attacker);
-      defender.lastHit = { damage: defender.maxHp, category: move.category };
+      defender.lastHit = { damage: defender.maxHp, category: move.category, type: move.type };
       if (defender.hp <= 0) this.onLog(`It's a one-hit KO!`);
       return;
     }
@@ -536,7 +627,7 @@ executeTurn(playerMove) {
         return;
       }
       const dealtFixed = this.dealDamage(defender, fixedDamage, attacker);
-      defender.lastHit = { damage: dealtFixed, category: move.category };
+      defender.lastHit = { damage: dealtFixed, category: move.category, type: move.type };
       this.onLog(`${defender.species} took ${dealtFixed} damage! (${defender.hp}/${defender.maxHp} HP)`);
       return;
     }
@@ -559,7 +650,7 @@ executeTurn(playerMove) {
         return;
       }
       const endDmg = this.dealDamage(defender, defender.hp - attacker.hp, attacker);
-      defender.lastHit = { damage: endDmg, category: move.category };
+      defender.lastHit = { damage: endDmg, category: move.category, type: move.type };
       this.onLog(`${defender.species} took ${endDmg} damage! (${defender.hp}/${defender.maxHp} HP)`);
       return;
     }
@@ -567,7 +658,7 @@ executeTurn(playerMove) {
     if (move.powerScale === "psywave") {
       const psyDmg = 1 + Math.floor(Math.random() * Math.max(1, Math.floor(attacker.level * 1.5)));
       const dealtPsy = this.dealDamage(defender, psyDmg, attacker);
-      defender.lastHit = { damage: dealtPsy, category: move.category };
+      defender.lastHit = { damage: dealtPsy, category: move.category, type: move.type };
       this.onLog(`A wave of psychic energy hit ${defender.species}!`);
       this.onLog(`${defender.species} took ${dealtPsy} damage! (${defender.hp}/${defender.maxHp} HP)`);
       return;
@@ -582,7 +673,9 @@ executeTurn(playerMove) {
       for (const effect of effects) {
         const target = effect.target === "self" ? attacker : defender;
         if (effect.type === "leech_seed") {
-          if (target.seeded) {
+          if (target !== attacker && target.vol.substituteHp > 0) {
+            this.onLog(`${target.species} is protected by its substitute!`);
+          } else if (target.seeded) {
             this.onLog(`${target.species} is already seeded!`);
           } else {
             target.seeded = true;
@@ -591,7 +684,7 @@ executeTurn(playerMove) {
         } else if (effect.type === "status") {
           this.applyStatus(target, effect.condition);
         } else if (effect.type === "stat") {
-          this.applyStatChange(target, effect.stat, effect.stages);
+          this.applyStatChange(target, effect.stat, effect.stages, attacker);
         } else if (effect.type === "heal") {
           const amount = Math.min(target.maxHp - target.hp, Math.max(1, Math.floor(target.maxHp * effect.value)));
           if (amount > 0) {
@@ -655,9 +748,9 @@ executeTurn(playerMove) {
             defender.vol.curse = true;
             this.onLog(`${target.species} laid a curse on ${defender.species}!`);
           } else {
-            this.applyStatChange(target, "speed", -1);
-            this.applyStatChange(target, "attack", 1);
-            this.applyStatChange(target, "defense", 1);
+            this.applyStatChange(target, "speed", -1, target);
+            this.applyStatChange(target, "attack", 1, target);
+            this.applyStatChange(target, "defense", 1, target);
           }
         } else if (effect.type === "yawn") {
           target.vol.yawn = true;
@@ -706,7 +799,9 @@ executeTurn(playerMove) {
             this.onLog(`But it failed!`);
           }
         } else if (effect.type === "confusion") {
-          if (target.vol.confusion === 0) {
+          if (target !== attacker && target.vol.substituteHp > 0) {
+            this.onLog(`${target.species} is protected by its substitute!`);
+          } else if (target.vol.confusion === 0) {
             target.vol.confusion = Math.floor(Math.random() * 4) + 2;
             this.onLog(`${target.species} became confused!`);
           }
@@ -748,6 +843,127 @@ executeTurn(playerMove) {
             this.onLog(`${target.species}'s ${lm.name} lost 4 PP!`);
           } else {
             this.onLog(`But it failed!`);
+          }
+        } else if (effect.type === "stockpile") {
+          if (attacker.vol.stockpile >= 3) {
+            this.onLog(`But it failed!`);
+          } else {
+            attacker.vol.stockpile++;
+            this.applyStatChange(attacker, "defense", 1, attacker);
+            this.applyStatChange(attacker, "spDef", 1, attacker);
+            this.onLog(`${attacker.species} stockpiled ${attacker.vol.stockpile}!`);
+          }
+        } else if (effect.type === "swallow") {
+          const charges = attacker.vol.stockpile || 0;
+          if (charges <= 0) {
+            this.onLog(`But it failed!`);
+          } else {
+            const frac = [0, 0.25, 0.5, 1][charges];
+            const amount = Math.min(attacker.maxHp - attacker.hp, Math.max(1, Math.floor(attacker.maxHp * frac)));
+            attacker.vol.stockpile = 0;
+            if (amount > 0) {
+              attacker.hp += amount;
+              this.onLog(`${attacker.species} swallowed its stockpile and recovered ${amount} HP!`);
+            } else {
+              this.onLog(`${attacker.species} swallowed its stockpile!`);
+            }
+          }
+        } else if (effect.type === "nightmare") {
+          if (target.status !== "SLP" || target.vol.nightmare) {
+            this.onLog(`But it failed!`);
+          } else {
+            target.vol.nightmare = true;
+            this.onLog(`${target.species} was given a nightmare!`);
+          }
+        } else if (effect.type === "memento") {
+          this.applyStatChange(defender, "attack", -2, attacker);
+          this.applyStatChange(defender, "spAtk", -2, attacker);
+          attacker.hp = 0;
+          this.onLog(`${attacker.species} fainted!`);
+          return;
+        } else if (effect.type === "sleep_talk") {
+          const pool = (attacker.moves || []).filter(m => m && m.name !== "Sleep Talk" && (m.pp ?? 1) > 0);
+          if (pool.length === 0) {
+            this.onLog(`But it failed!`);
+          } else {
+            const pick = pool[Math.floor(Math.random() * pool.length)];
+            this.onLog(`${attacker.species} used ${pick.name} via Sleep Talk!`);
+            this.processAction(attacker, defender, { ...pick }, isPlayer);
+          }
+        } else if (effect.type === "substitute") {
+          const cost = Math.floor(attacker.maxHp / 4);
+          if (attacker.vol.substituteHp > 0) {
+            this.onLog(`But it failed!`);
+          } else if (attacker.hp <= cost) {
+            this.onLog(`But it failed!`);
+          } else {
+            attacker.hp -= cost;
+            attacker.vol.substituteHp = cost;
+            this.onLog(`${attacker.species} put in a substitute! (${attacker.hp}/${attacker.maxHp} HP)`);
+          }
+        } else if (effect.type === "baton_pass") {
+          const target2 = this.pendingBatonTarget;
+          this.pendingBatonTarget = null;
+          const candidates = (this.party || []).filter(m => m && m.hp > 0 && m !== attacker);
+          if (!target2 || target2.hp <= 0 || target2 === attacker || !candidates.includes(target2)) {
+            this.onLog(`But it failed!`);
+          } else {
+            const keepStages = { ...attacker.statStages };
+            const keepVol = {
+              confusion: attacker.vol.confusion, aquaRing: attacker.vol.aquaRing,
+              stockpile: attacker.vol.stockpile, substituteHp: attacker.vol.substituteHp,
+              focusEnergy: attacker.vol.focusEnergy
+            };
+            const oldIdx = this.party.indexOf(attacker);
+            const newIdx = this.party.indexOf(target2);
+            this.party[oldIdx] = target2;
+            this.party[newIdx] = attacker;
+            this.onLog(`${attacker.species} switched out! Go! ${target2.species}!`);
+            this.playerMon = target2;
+            this.setupBattleStats(target2);
+            target2.statStages = keepStages;
+            Object.assign(target2.vol, keepVol);
+            target2.vol.firstTurnOut = true;
+            this.participants.add(target2);
+            this.applyEntryHazards(target2, true);
+          }
+        } else if (effect.type === "spikes") {
+          if (attacker === this.playerMon) {
+            if (this.enemySpikes >= 3) this.onLog(`But it failed!`);
+            else { this.enemySpikes++; this.onLog(`Spikes were scattered around the foe!`); }
+          } else {
+            if (this.playerSpikes >= 3) this.onLog(`But it failed!`);
+            else { this.playerSpikes++; this.onLog(`Spikes were scattered around your team!`); }
+          }
+        } else if (effect.type === "conversion") {
+          const pool = [...new Set((attacker.moves || []).filter(m => m && m.name !== "Curse" && m.type).map(m => m.type))];
+          const eligible = pool.filter(t => !(attacker.types || []).includes(t));
+          if (eligible.length === 0) {
+            this.onLog(`But it failed!`);
+          } else {
+            const pick = eligible[Math.floor(Math.random() * eligible.length)];
+            attacker.types = [pick];
+            this.onLog(`${attacker.species} changed its type to ${pick}!`);
+          }
+        } else if (effect.type === "conversion2") {
+          const last = attacker.lastHit;
+          if (!last || !last.type || !this.typeChart) {
+            this.onLog(`But it failed!`);
+          } else {
+            const atkType = last.type.toLowerCase();
+            const row = this.typeChart[atkType] || {};
+            const mine = (attacker.types || []).map(t => t.toLowerCase());
+            const candidates = Object.keys(this.typeChart).filter(t => {
+              const mult = row[t] === undefined ? 1 : row[t];
+              return mult < 1 && !mine.includes(t);
+            });
+            if (candidates.length === 0) {
+              this.onLog(`But it failed!`);
+            } else {
+              const pick = candidates[Math.floor(Math.random() * candidates.length)];
+              attacker.types = [pick[0].toUpperCase() + pick.slice(1)];
+              this.onLog(`${attacker.species} changed its type to ${attacker.types[0]}!`);
+            }
           }
         } else if (effect.type === "mimic") {
           const last = defender.lastMoveData;
@@ -808,69 +1024,96 @@ executeTurn(playerMove) {
     } else if (move.powerScale === "frustration") {
       const f = attacker.friendship ?? 70;
       power = Math.min(102, Math.max(1, Math.floor((255 - f) / 2.5)));
-    }
-
-    const isCrit = Math.random() < (attacker.vol.focusEnergy ? 0.25 : 0.0625);
-    const levelFactor = (2 * attacker.level / 5) + 2;
-    const atkStat = move.category === "special" ? this.getModifiedStat(attacker, 'spAtk') : this.getModifiedStat(attacker, 'attack');
-    const defStat = move.category === "special" ? this.getModifiedStat(defender, 'spDef') : this.getModifiedStat(defender, 'defense');
-
-    let baseDamage = ((levelFactor * power * (atkStat / defStat)) / 50) + 2;
-
-    let stabMultiplier = (attacker.types && attacker.types.includes(move.type)) ? 1.5 : 1.0;
-    let typeMultiplier = 1.0;
-
-    if (this.typeChart && defender.types) {
-      const moveTypeLower = move.type.toLowerCase();
-      defender.types.forEach(defType => {
-        const defTypeLower = defType.toLowerCase();
-        if (this.typeChart[moveTypeLower] && this.typeChart[moveTypeLower][defTypeLower] !== undefined) {
-          typeMultiplier *= this.typeChart[moveTypeLower][defTypeLower];
-        }
-      });
-    }
-
-    if (typeMultiplier === 0 && defender.vol.identified) typeMultiplier = 1;
-
-    if (typeMultiplier === 0) {
-      this.onLog(`It had no effect on ${defender.species}!`);
-      return; 
-    }
-
-    let weatherMultiplier = 1.0;
-    if (this.weather) {
-      if (this.weather.type === "sun") {
-        if (move.type === "Fire") weatherMultiplier = 1.5;
-        else if (move.type === "Water") weatherMultiplier = 0.5;
-      } else if (this.weather.type === "rain") {
-        if (move.type === "Water") weatherMultiplier = 1.5;
-        else if (move.type === "Fire") weatherMultiplier = 0.5;
+    } else if (move.powerScale === "spitup") {
+      const charges = attacker.vol.stockpile || 0;
+      if (charges <= 0) {
+        this.onLog(`But it failed!`);
+        return;
       }
+      power = 100 * charges;
+      attacker.vol.stockpile = 0;
+      this.onLog(`${attacker.species} released its stockpiled power!`);
     }
 
-    let screenMultiplier = 1.0;
-    if (move.category === "physical" && defender.vol.reflect > 0) screenMultiplier = 0.5;
-    if (move.category === "special" && defender.vol.lightScreen > 0) screenMultiplier = 0.5;
+    const hitCount = move.multiHit ? this.rollMultiHit(move.multiHit) : 1;
+    let totalDealt = 0;
+    let strikesLanded = 0;
+    for (let h = 0; h < hitCount; h++) {
+      if (hitCount > 1 && !this.checkAccuracyHit(attacker, defender, move)) {
+        this.onLog(`${attacker.species}'s attack missed!`);
+        break;
+      }
+      const isCrit = Math.random() < (attacker.vol.focusEnergy ? 0.25 : 0.0625);
+      const levelFactor = (2 * attacker.level / 5) + 2;
+      const atkStat = move.category === "special" ? this.getModifiedStat(attacker, 'spAtk') : this.getModifiedStat(attacker, 'attack');
+      const defStat = move.category === "special" ? this.getModifiedStat(defender, 'spDef') : this.getModifiedStat(defender, 'defense');
 
-    let sportMultiplier = 1.0;
-    if (move.type === "Electric" && (attacker.vol.mudSport || defender.vol.mudSport)) sportMultiplier = 0.5;
-    if (move.type === "Fire" && (attacker.vol.waterSport || defender.vol.waterSport)) sportMultiplier = 0.5;
+      let baseDamage = ((levelFactor * power * (atkStat / defStat)) / 50) + 2;
 
-    const critMultiplier = isCrit ? 1.5 : 1.0;
-    const randomFactor = (Math.floor(Math.random() * 16) + 85) / 100;
+      let stabMultiplier = (attacker.types && attacker.types.includes(move.type)) ? 1.5 : 1.0;
+      let typeMultiplier = 1.0;
 
-    let finalDamage = Math.floor(baseDamage * stabMultiplier * typeMultiplier * critMultiplier * randomFactor * weatherMultiplier * screenMultiplier * sportMultiplier);
-    finalDamage = Math.max(1, finalDamage); 
+      if (this.typeChart && defender.types) {
+        const moveTypeLower = move.type.toLowerCase();
+        defender.types.forEach(defType => {
+          const defTypeLower = defType.toLowerCase();
+          if (this.typeChart[moveTypeLower] && this.typeChart[moveTypeLower][defTypeLower] !== undefined) {
+            typeMultiplier *= this.typeChart[moveTypeLower][defTypeLower];
+          }
+        });
+      }
 
-    const dealt = this.dealDamage(defender, finalDamage, attacker);
-    defender.lastHit = { damage: dealt, category: move.category };
+      if (typeMultiplier === 0 && defender.vol.identified) typeMultiplier = 1;
 
-    if (isCrit) this.onLog(`A critical hit!`);
-    if (typeMultiplier > 1.0) this.onLog(`It's super effective!`);
-    else if (typeMultiplier < 1.0) this.onLog(`It's not very effective...`);
+      if (typeMultiplier === 0) {
+        this.onLog(`It had no effect on ${defender.species}!`);
+        break;
+      }
 
-    this.onLog(`${defender.species} took ${dealt} damage! (${defender.hp}/${defender.maxHp} HP)`);
-    
+      let weatherMultiplier = 1.0;
+      if (this.weather) {
+        if (this.weather.type === "sun") {
+          if (move.type === "Fire") weatherMultiplier = 1.5;
+          else if (move.type === "Water") weatherMultiplier = 0.5;
+        } else if (this.weather.type === "rain") {
+          if (move.type === "Water") weatherMultiplier = 1.5;
+          else if (move.type === "Fire") weatherMultiplier = 0.5;
+        }
+      }
+
+      let screenMultiplier = 1.0;
+      if (move.category === "physical" && defender.vol.reflect > 0) screenMultiplier = 0.5;
+      if (move.category === "special" && defender.vol.lightScreen > 0) screenMultiplier = 0.5;
+
+      let sportMultiplier = 1.0;
+      if (move.type === "Electric" && (attacker.vol.mudSport || defender.vol.mudSport)) sportMultiplier = 0.5;
+      if (move.type === "Fire" && (attacker.vol.waterSport || defender.vol.waterSport)) sportMultiplier = 0.5;
+
+      const critMultiplier = isCrit ? 1.5 : 1.0;
+      const randomFactor = (Math.floor(Math.random() * 16) + 85) / 100;
+
+      let finalDamage = Math.floor(baseDamage * stabMultiplier * typeMultiplier * critMultiplier * randomFactor * weatherMultiplier * screenMultiplier * sportMultiplier);
+      finalDamage = Math.max(1, finalDamage);
+
+      const dealt = this.dealDamage(defender, finalDamage, attacker);
+      defender.lastHit = { damage: dealt, category: move.category, type: move.type };
+      totalDealt += dealt;
+      strikesLanded++;
+
+      if (isCrit) this.onLog(`A critical hit!`);
+      if (h === 0) {
+        if (typeMultiplier > 1.0) this.onLog(`It's super effective!`);
+        else if (typeMultiplier < 1.0) this.onLog(`It's not very effective...`);
+      }
+
+      if (dealt > 0) {
+        this.onLog(`${defender.species} took ${dealt} damage! (${defender.hp}/${defender.maxHp} HP)`);
+      }
+      if (defender.hp <= 0) break;
+    }
+    if (strikesLanded === 0) return;
+    if (hitCount > 1) this.onLog(`Hit ${strikesLanded} time${strikesLanded === 1 ? "" : "s"}!`);
+
     if (move.name === "Struggle") {
       const recoil = Math.max(1, Math.floor(attacker.maxHp / 4));
       attacker.hp = Math.max(0, attacker.hp - recoil);
@@ -878,14 +1121,14 @@ executeTurn(playerMove) {
     }
 
     if (move.effect?.type === "recoil") {
-      const r = Math.max(1, Math.floor(dealt * move.effect.value));
+      const r = Math.max(1, Math.floor(totalDealt * move.effect.value));
       attacker.hp = Math.max(0, attacker.hp - r);
       this.onLog(`${attacker.species} is hit with recoil! (${attacker.hp}/${attacker.maxHp} HP)`);
     }
-      
+
     if (move.drain || move.effect?.type === "drain") {
       const drainRatio = move.drain || 0.5;
-      const recovered = Math.min(attacker.maxHp - attacker.hp, Math.max(1, Math.floor(dealt * drainRatio)));
+      const recovered = Math.min(attacker.maxHp - attacker.hp, Math.max(1, Math.floor(totalDealt * drainRatio)));
       if (recovered > 0) {
         attacker.hp += recovered;
         this.onLog(`${attacker.species} drained health and recovered ${recovered} HP!`);
@@ -897,17 +1140,24 @@ executeTurn(playerMove) {
 
   applySecondaryEffects(attacker, defender, move) {
     if (!move.secondaryEffect) return;
+    if (defender.vol.substituteHp > 0) return; // Substitute blocks added effects.
     const secondaries = Array.isArray(move.secondaryEffect) ? move.secondaryEffect : [move.secondaryEffect];
     for (const se of secondaries) {
       const chance = se.chance || 100;
       if (Math.random() * 100 > chance) continue;
       const target = se.target === "self" ? attacker : defender;
-      if (se.type === "status") {
+      if (se.type === "flinch") {
+        if (target.hp > 0 && !target.vol.flinch) {
+          target.vol.flinch = true;
+        }
+      } else if (se.type === "status") {
         this.applyStatus(target, se.condition);
       } else if (se.type === "stat") {
-        this.applyStatChange(target, se.stat, se.stages);
+        this.applyStatChange(target, se.stat, se.stages, attacker);
       } else if (se.type === "confusion") {
-        if (target.vol.confusion === 0) {
+        if (target !== attacker && target.vol.substituteHp > 0) {
+          this.onLog(`${target.species} is protected by its substitute!`);
+        } else if (target.vol.confusion === 0) {
           target.vol.confusion = Math.floor(Math.random() * 4) + 2;
           this.onLog(`${target.species} became confused!`);
         }
@@ -1051,10 +1301,11 @@ startTrainerBattle(enemyParty, trainer, winFlag = null) {
     this.game.ui.setMenuState('battle');
   }
 
-    handleTurn(playerMove) {
+    handleTurn(playerMove, batonTarget = null) {
     if (!this.game.gameState.activeBattle) return;
 
     const battle = this.game.gameState.activeBattle;
+    battle.pendingBatonTarget = batonTarget;
     const pmon = battle.playerMon;
     const foe = battle.enemyMon;
 
@@ -1366,6 +1617,8 @@ handleBattleEnd() {
     
     this.game.gameState.activeBattle.enemyMon = enemyMon;
     this.game.gameState.activeBattle.isOver = false;
+    this.game.gameState.activeBattle.setupBattleStats(enemyMon);
+    this.game.gameState.activeBattle.applyEntryHazards(enemyMon, false);
     
     this.game.ui.refreshBattleMoveButtons();
     this.game.ui.setMenuState('battle');
