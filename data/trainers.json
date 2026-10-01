@@ -1,17 +1,4 @@
 {
- "youngster_joey": {
-  "name": "Youngster Joey",
-  "title": "Youngster",
-  "dialogueBefore": "My Rattata is among the top percentage of Rattata!",
-  "dialogueAfter": "Aww, my Rattata...",
-  "rewardMoney": 120,
-  "party": [
-   {
-    "species": "Rattata",
-    "level": 4
-   }
-  ]
- },
  "rival_pallet_1": {
   "name": "Rival",
   "title": "Pokémon Trainer",
@@ -59,27 +46,6 @@
    }
   ]
  },
- "bug_catcher_don": {
-  "name": "Don",
-  "title": "Bug Catcher",
-  "dialogueBefore": "Hey! Catching bugs is what life is all about!",
-  "dialogueAfter": "My bugs... they need more training!",
-  "rewardMoney": 200,
-  "party": [
-   {
-    "species": "Caterpie",
-    "level": 10
-   },
-   {
-    "species": "Metapod",
-    "level": 10
-   },
-   {
-    "species": "Caterpie",
-    "level": 10
-   }
-  ]
- },
  "lass_janice": {
   "name": "Janice",
   "title": "Lass",
@@ -88,11 +54,11 @@
   "rewardMoney": 240,
   "party": [
    {
-    "species": "Pidgey",
+    "species": "pidgey",
     "level": 9
    },
    {
-    "species": "nidoran_f",
+    "species": "pidgey",
     "level": 9
    }
   ]
@@ -463,29 +429,16 @@
   "rewardMoney": 220,
   "party": [
    {
-    "species": "oddish",
-    "level": 11
+    "species": "paras",
+    "level": 31
    },
    {
-    "species": "bellsprout",
-    "level": 11
-   }
-  ]
- },
- "bug_catcher_cletus": {
-  "name": "Cletus",
-  "title": "Bug Catcher",
-  "dialogueBefore": "My bug Pokémon are itching for a fight!",
-  "dialogueAfter": "Squashed... My bugs couldn't cut it!",
-  "rewardMoney": 168,
-  "party": [
-   {
-    "species": "caterpie",
-    "level": 12
+    "species": "paras",
+    "level": 31
    },
    {
-    "species": "weedle",
-    "level": 12
+    "species": "parasect",
+    "level": 31
    }
   ]
  },
@@ -498,53 +451,36 @@
   "party": [
    {
     "species": "pidgey",
-    "level": 13
+    "level": 14
    },
    {
     "species": "nidoran_f",
-    "level": 13
+    "level": 14
    }
   ]
  },
  "camper_ricky": {
   "name": "Ricky",
   "title": "Camper",
-  "dialogueBefore": "I'm camping out here until someone beats my team!",
-  "dialogueAfter": "Guess I'll be packing up my tent!",
+  "dialogueBefore": "I'm camping out here and training my Pokémon!",
+  "dialogueAfter": "Back to training!",
   "rewardMoney": 260,
   "party": [
    {
     "species": "rattata",
-    "level": 13
+    "level": 16
    },
    {
     "species": "ekans",
-    "level": 13
+    "level": 16
    }
   ]
  },
- "cooltrainer_timmy": {
-  "name": "Timmy",
-  "title": "Cooltrainer",
-  "dialogueBefore": "I train on Nugget Bridge because only the strong cross it!",
-  "dialogueAfter": "Strong... You're stronger than the bridge trolls say!",
-  "rewardMoney": 560,
-  "party": [
-   {
-    "species": "rattata",
-    "level": 14
-   },
-   {
-    "species": "ekans",
-    "level": 14
-   }
-  ]
- },
- "rocket_grunt_nugget": {
+ "team_rocket_nugget_grunt": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "Team Rocket will cross this bridge whenever we want!",
-  "dialogueAfter": "Tch! Blast it all!",
+  "dialogueBefore": "Hey, kid! Want to join Team Rocket? ...No? Then battle me!",
+  "dialogueAfter": "Tch! Fine, take this Nugget and get lost!",
   "rewardMoney": 420,
   "party": [
    {
@@ -555,22 +491,12 @@
     "species": "zubat",
     "level": 13
    }
-  ]
- },
- "team_rocket_nugget_grunt": {
-  "name": "Grunt",
-  "title": "Team Rocket",
-  "dialogueBefore": "Halt! This bridge is under Team Rocket control!",
-  "dialogueAfter": "Impossible! A kid beat me?!",
-  "rewardMoney": 480,
-  "party": [
+  ],
+  "rewards": [
    {
-    "species": "rattata",
-    "level": 15
-   },
-   {
-    "species": "ekans",
-    "level": 15
+    "type": "item",
+    "id": "nugget",
+    "qty": 1
    }
   ]
  },
@@ -642,23 +568,6 @@
    }
   ]
  },
- "lass_julia": {
-  "name": "Julia",
-  "title": "Lass",
-  "dialogueBefore": "The path to Vermilion goes through me!",
-  "dialogueAfter": "Fine! Vermilion's all yours!",
-  "rewardMoney": 300,
-  "party": [
-   {
-    "species": "pidgey",
-    "level": 15
-   },
-   {
-    "species": "rattata",
-    "level": 15
-   }
-  ]
- },
  "hiker_marcos": {
   "name": "Marcos",
   "title": "Hiker",
@@ -684,12 +593,12 @@
   "rewardMoney": 140,
   "party": [
    {
-    "species": "caterpie",
-    "level": 10
+    "species": "weedle",
+    "level": 11
    },
    {
-    "species": "metapod",
-    "level": 10
+    "species": "kakuna",
+    "level": 11
    }
   ]
  },
@@ -713,17 +622,21 @@
  "super_nerd_miguel": {
   "name": "Miguel",
   "title": "Super Nerd",
-  "dialogueBefore": "My calculations predict a 100% victory rate!",
-  "dialogueAfter": "My calculations... were wrong?!",
+  "dialogueBefore": "Halt! These fossils belong to Team Rocket!",
+  "dialogueAfter": "Blast it all! The fossils!",
   "rewardMoney": 264,
   "party": [
    {
-    "species": "magnemite",
-    "level": 11
+    "species": "grimer",
+    "level": 12
    },
    {
     "species": "voltorb",
-    "level": 11
+    "level": 12
+   },
+   {
+    "species": "koffing",
+    "level": 12
    }
   ]
  },
@@ -745,19 +658,6 @@
    {
     "species": "abra",
     "level": 16
-   }
-  ]
- },
- "mewtwo_wild": {
-  "name": "Mewtwo",
-  "title": "Wild Pokémon",
-  "dialogueBefore": "...",
-  "dialogueAfter": "...",
-  "rewardMoney": 0,
-  "party": [
-   {
-    "species": "mewtwo",
-    "level": 70
    }
   ]
  },
@@ -1387,6 +1287,460 @@
     "type": "pokemon",
     "species": "hitmonchan",
     "level": 30
+   }
+  ]
+ },
+ "bug_catcher_colton": {
+  "name": "Colton",
+  "title": "Bug Catcher",
+  "dialogueBefore": "My Bug Pokémon are the best! Let me show you!",
+  "dialogueAfter": "My bugs... defeated?",
+  "rewardMoney": 168,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 10
+   },
+   {
+    "species": "weedle",
+    "level": 10
+   },
+   {
+    "species": "caterpie",
+    "level": 10
+   }
+  ]
+ },
+ "youngster_ben": {
+  "name": "Ben",
+  "title": "Youngster",
+  "dialogueBefore": "I'm going to be the greatest trainer ever!",
+  "dialogueAfter": "You're pretty strong, I guess!",
+  "rewardMoney": 192,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 11
+   },
+   {
+    "species": "ekans",
+    "level": 11
+   }
+  ]
+ },
+ "bug_catcher_greg": {
+  "name": "Greg",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Bugs are so cool, don't you think?",
+  "dialogueAfter": "Aw, my beautiful bugs...",
+  "rewardMoney": 180,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 9
+   },
+   {
+    "species": "kakuna",
+    "level": 9
+   },
+   {
+    "species": "caterpie",
+    "level": 9
+   },
+   {
+    "species": "metapod",
+    "level": 9
+   }
+  ]
+ },
+ "youngster_calvin": {
+  "name": "Calvin",
+  "title": "Youngster",
+  "dialogueBefore": "My Spearow is super fast! You can't hit it!",
+  "dialogueAfter": "Too fast for me, I guess.",
+  "rewardMoney": 200,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 14
+   }
+  ]
+ },
+ "lass_sally": {
+  "name": "Sally",
+  "title": "Lass",
+  "dialogueBefore": "Want to see my cute Pokémon?",
+  "dialogueAfter": "They're still cute even though we lost!",
+  "rewardMoney": 260,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 10
+   },
+   {
+    "species": "nidoran_m",
+    "level": 10
+   }
+  ]
+ },
+ "bug_catcher_james": {
+  "name": "James",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Check out my well-raised Bug Pokémon!",
+  "dialogueAfter": "My training wasn't enough...",
+  "rewardMoney": 176,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 11
+   },
+   {
+    "species": "metapod",
+    "level": 11
+   }
+  ]
+ },
+ "lass_robin": {
+  "name": "Robin",
+  "title": "Lass",
+  "dialogueBefore": "My Jigglypuff's song will put you right to sleep!",
+  "dialogueAfter": "You stayed awake?!",
+  "rewardMoney": 280,
+  "party": [
+   {
+    "species": "jigglypuff",
+    "level": 14
+   }
+  ]
+ },
+ "bug_catcher_sammy": {
+  "name": "Sammy",
+  "title": "Bug Catcher",
+  "dialogueBefore": "I'm the toughest Bug Catcher in this forest!",
+  "dialogueAfter": "You're tougher...",
+  "rewardMoney": 140,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 9
+   }
+  ]
+ },
+ "lass_iris": {
+  "name": "Iris",
+  "title": "Lass",
+  "dialogueBefore": "Isn't my Clefairy just adorable?",
+  "dialogueAfter": "Adorable and strong would be better...",
+  "rewardMoney": 300,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 14
+   }
+  ]
+ },
+ "super_nerd_jovan": {
+  "name": "Jovan",
+  "title": "Super Nerd",
+  "dialogueBefore": "My Electric Pokémon will shock you!",
+  "dialogueAfter": "My calculations were wrong!",
+  "rewardMoney": 880,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 11
+   },
+   {
+    "species": "voltorb",
+    "level": 11
+   }
+  ]
+ },
+ "bug_catcher_robby": {
+  "name": "Robby",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Bug Pokémon thrive in caves too!",
+  "dialogueAfter": "Even in a cave, I lose...",
+  "rewardMoney": 168,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 10
+   },
+   {
+    "species": "metapod",
+    "level": 10
+   },
+   {
+    "species": "caterpie",
+    "level": 10
+   }
+  ]
+ },
+ "team_rocket_grunt_mt_moon_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "Team Rocket is after the Moon Stone!",
+  "dialogueAfter": "Blast it all!",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 12
+   },
+   {
+    "species": "ekans",
+    "level": 12
+   }
+  ]
+ },
+ "team_rocket_grunt_mt_moon_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "No kids allowed down here!",
+  "dialogueAfter": "A kid beat me?!",
+  "rewardMoney": 480,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 16
+   }
+  ]
+ },
+ "team_rocket_grunt_mt_moon_4": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "This cave belongs to Team Rocket!",
+  "dialogueAfter": "Tch! Blast it all!",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "sandshrew",
+    "level": 11
+   },
+   {
+    "species": "rattata",
+    "level": 11
+   },
+   {
+    "species": "zubat",
+    "level": 11
+   }
+  ]
+ },
+ "lass_miriam": {
+  "name": "Miriam",
+  "title": "Lass",
+  "dialogueBefore": "I'm looking for a Moon Stone too!",
+  "dialogueAfter": "Did you find one?",
+  "rewardMoney": 280,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 11
+   },
+   {
+    "species": "bellsprout",
+    "level": 11
+   }
+  ]
+ },
+ "youngster_josh": {
+  "name": "Josh",
+  "title": "Youngster",
+  "dialogueBefore": "I got lost in this cave!",
+  "dialogueAfter": "Can you show me the way out?",
+  "rewardMoney": 192,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 10
+   },
+   {
+    "species": "rattata",
+    "level": 10
+   },
+   {
+    "species": "zubat",
+    "level": 10
+   }
+  ]
+ },
+ "lass_reli": {
+  "name": "Reli",
+  "title": "Lass",
+  "dialogueBefore": "My Pokémon and I are the best pair!",
+  "dialogueAfter": "We need more training!",
+  "rewardMoney": 300,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 16
+   },
+   {
+    "species": "nidoran_f",
+    "level": 16
+   }
+  ]
+ },
+ "camper_ethan": {
+  "name": "Ethan",
+  "title": "Camper",
+  "dialogueBefore": "I caught this Mankey in the forest!",
+  "dialogueAfter": "Mankey, we lost...",
+  "rewardMoney": 260,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 18
+   }
+  ]
+ },
+ "bug_catcher_keigo": {
+  "name": "Keigo",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Have you seen my friend Elijah?",
+  "dialogueAfter": "Elijah's bugs are stronger...",
+  "rewardMoney": 200,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 16
+   },
+   {
+    "species": "caterpie",
+    "level": 16
+   },
+   {
+    "species": "weedle",
+    "level": 16
+   }
+  ]
+ },
+ "picnicker_nancy": {
+  "name": "Nancy",
+  "title": "Picnicker",
+  "dialogueBefore": "Pikachu is so cute, isn't it?",
+  "dialogueAfter": "Cute isn't everything...",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 16
+   },
+   {
+    "species": "pikachu",
+    "level": 16
+   }
+  ]
+ },
+ "picnicker_isabelle": {
+  "name": "Isabelle",
+  "title": "Picnicker",
+  "dialogueBefore": "My Pidgeys fly in formation!",
+  "dialogueAfter": "Our formation broke...",
+  "rewardMoney": 480,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 16
+   },
+   {
+    "species": "pidgey",
+    "level": 16
+   },
+   {
+    "species": "pidgey",
+    "level": 16
+   }
+  ]
+ },
+ "camper_jeff": {
+  "name": "Jeff",
+  "title": "Camper",
+  "dialogueBefore": "I train by camping out here!",
+  "dialogueAfter": "Back to training!",
+  "rewardMoney": 260,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 16
+   },
+   {
+    "species": "raticate",
+    "level": 16
+   }
+  ]
+ },
+ "bug_catcher_cale": {
+  "name": "Cale",
+  "title": "Bug Catcher",
+  "dialogueBefore": "This bridge is the perfect place to show off my Bug Pokémon!",
+  "dialogueAfter": "My bugs weren't strong enough...",
+  "rewardMoney": 196,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 14
+   },
+   {
+    "species": "weedle",
+    "level": 14
+   }
+  ]
+ },
+ "youngster_timmy": {
+  "name": "Timmy",
+  "title": "Youngster",
+  "dialogueBefore": "I'm the toughest kid on this bridge!",
+  "dialogueAfter": "You're tougher...",
+  "rewardMoney": 224,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 14
+   },
+   {
+    "species": "ekans",
+    "level": 14
+   },
+   {
+    "species": "zubat",
+    "level": 14
+   }
+  ]
+ },
+ "rival_route22": {
+  "name": "Rival",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Yo! Heading to the Pokémon League? You need Badges to get through! Let's see if you're even worth my time!",
+  "dialogueAfter": "[DRAFT] Hmph! Lucky! Train harder if you want to face me again!",
+  "rewardMoney": 200,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 9
+   },
+   {
+    "species": "RIVAL_STARTER",
+    "level": 8
+   }
+  ]
+ },
+ "camper_shane": {
+  "name": "Shane",
+  "title": "Camper",
+  "dialogueBefore": "[DRAFT] I'm training in the tall grass, away from the bridge crowds!",
+  "dialogueAfter": "[DRAFT] Strong... maybe I should train on the bridge instead.",
+  "rewardMoney": 240,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 14
+   },
+   {
+    "species": "ekans",
+    "level": 14
    }
   ]
  }
