@@ -364,5 +364,24 @@
   "dialogue_req_unmet": "You don't have any Old Amber for me to work with.",
   "dialogue_post_flag": "Isn't science amazing? Take good care of Aerodactyl.",
   "once_flag": "revived_old_amber"
+ },
+ "snorlax_route12": {
+  "name": "Snorlax",
+  "dialogue_default": "[DRAFT] Snorlax woke up with a tremendous yawn! It looks ready to battle... (Something stirs in the tall grass nearby.)",
+  "requirements": [
+   {
+    "type": "flag",
+    "id": "obtained_pokeflute"
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "woke_snorlax_route12"
+   }
+  ],
+  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep, blocking the path. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
+  "dialogue_post_flag": "[DRAFT] Snorlax is wide awake now, and seems eager to test its strength!",
+  "once_flag": "woke_snorlax_route12"
  }
 }

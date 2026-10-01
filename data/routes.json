@@ -1619,7 +1619,8 @@
    "vermilion_city_gym",
    "pokemon_fan_club",
    "ss_anne",
-   "vermilion_dock"
+   "vermilion_dock",
+   "route11"
   ],
   "gate_requirements": {
    "ss_anne": {
@@ -2003,6 +2004,516 @@
    {
     "type": "nothing",
     "weight": 100
+   }
+  ]
+ },
+ "route9": {
+  "name": "Route 9",
+  "description": "A rocky route east of Cerulean City, winding past ledges toward Route 10. Trainers lurk around every bend.",
+  "isTown": false,
+  "connections": [
+   "cerulean_city",
+   "route10"
+  ],
+  "trainers": [
+   "route9_jr_trainer_1",
+   "route9_hiker_1",
+   "route9_jr_trainer_2",
+   "route9_bug_catcher_1",
+   "route9_hiker_2",
+   "route9_bug_catcher_2",
+   "route9_jr_trainer_3",
+   "route9_hiker_3",
+   "route9_jr_trainer_4"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "rattata",
+     "min_level": 14,
+     "max_level": 17,
+     "weight": 40
+    },
+    {
+     "species": "spearow",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 35
+    },
+    {
+     "species": "ekans",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 13
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 12
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 20,
+    "item": "tm30"
+   },
+   {
+    "type": "item",
+    "weight": 20,
+    "item": "ether"
+   }
+  ]
+ },
+ "route10": {
+  "name": "Route 10",
+  "description": "A north-south route split by a river. North lie Rock Tunnel and the abandoned Power Plant; south, Lavender Town.",
+  "isTown": false,
+  "connections": [
+   "route9",
+   "rock_tunnel",
+   "lavender_town",
+   "power_plant"
+  ],
+  "gate_requirements": {
+   "power_plant": {
+    "required_flags": [
+     "soul_badge"
+    ],
+    "blocked_message": "A wide, fast river separates you from the Power Plant. You'd need to Surf across it — Koga of the Fuchsia Gym is said to hold that HM."
+   }
+  },
+  "trainers": [
+   "route10_jr_trainer_1",
+   "route10_jr_trainer_2",
+   "route10_hiker_1",
+   "route10_hiker_2",
+   "route10_pokemaniac_1",
+   "route10_pokemaniac_2"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 35
+    },
+    {
+     "species": "ekans",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 13
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 12
+    },
+    {
+     "species": "voltorb",
+     "min_level": 14,
+     "max_level": 17,
+     "weight": 40
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "poliwhirl",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 15
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 55
+   },
+   {
+    "type": "item",
+    "weight": 22,
+    "item": "super_potion"
+   },
+   {
+    "type": "item",
+    "weight": 23,
+    "item": "max_ether"
+   }
+  ]
+ },
+ "route11": {
+  "name": "Route 11",
+  "description": "A busy east-west route from Vermilion City. Diglett's Cave opens nearby, and a gatehouse leads east toward Route 12.",
+  "isTown": false,
+  "connections": [
+   "vermilion_city",
+   "route12",
+   "diglett_cave"
+  ],
+  "trainers": [
+   "route11_gambler_1",
+   "route11_youngster_1",
+   "route11_youngster_2",
+   "route11_youngster_3",
+   "route11_gambler_2",
+   "route11_gambler_3",
+   "route11_engineer_1",
+   "route11_youngster_4",
+   "route11_gambler_4",
+   "route11_engineer_2"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 35
+    },
+    {
+     "species": "ekans",
+     "min_level": 12,
+     "max_level": 15,
+     "weight": 20
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 12,
+     "max_level": 15,
+     "weight": 20
+    },
+    {
+     "species": "drowzee",
+     "min_level": 9,
+     "max_level": 15,
+     "weight": 25
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "shellder",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 30,
+    "item": "escape_rope"
+   }
+  ]
+ },
+ "route12": {
+  "name": "Route 12",
+  "description": "Silence Bridge stretches over the water. A huge Pokémon sleeps by the northern gate, and the only tall grass grows behind dense, cuttable trees.",
+  "isTown": false,
+  "connections": [
+   "route11",
+   "lavender_town",
+   "route13"
+  ],
+  "gate_requirements": {
+   "lavender_town": {
+    "required_flags": [
+     "woke_snorlax_route12"
+    ],
+    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
+   }
+  },
+  "npcs": [
+   "snorlax_route12"
+  ],
+  "trainers": [
+   "route12_fisherman_1",
+   "route12_fisherman_2",
+   "route12_fisherman_3",
+   "route12_fisherman_4",
+   "route12_rocker_1",
+   "route12_jr_trainer_1",
+   "route12_fisherman_5"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 23,
+     "max_level": 28,
+     "weight": 35,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 10,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 27,
+     "weight": 15,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 27,
+     "weight": 15,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "gloom",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 26,
+     "weight": 15,
+     "req_flag": "obtain_hm_01"
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 25
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "tentacool",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 15
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm39"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm16",
+    "req_flag": "soul_badge"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "hyper_potion"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "iron",
+    "req_flag": "obtain_hm_01"
+   },
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "snorlax",
+    "level": 30,
+    "req_flag": "woke_snorlax_route12",
+    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
+   }
+  ]
+ },
+ "power_plant": {
+  "name": "Power Plant",
+  "description": "An abandoned power plant east of Route 10, humming with Electric-type Pokémon. Something powerful nests near the exit...",
+  "isTown": false,
+  "connections": [
+   "route10"
+  ],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pikachu",
+     "min_level": 20,
+     "max_level": 24,
+     "weight": 25
+    },
+    {
+     "species": "raichu",
+     "min_level": 33,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "magnemite",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 30
+    },
+    {
+     "species": "magneton",
+     "min_level": 32,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "voltorb",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 25
+    },
+    {
+     "species": "electabuzz",
+     "min_level": 33,
+     "max_level": 36,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 10
+   },
+   {
+    "type": "static_encounter",
+    "weight": 60,
+    "species": "zapdos",
+    "level": 50,
+    "intro": "A legendary bird crackling with electricity blocks your path... ZAPDOS!"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm25"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "carbos"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm33"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "hp_up"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "pp_up"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_elixir"
    }
   ]
  }

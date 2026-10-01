@@ -83,7 +83,6 @@ class GameEngine {
         if (!this.db.routes[connId]) {
           console.warn(`[dev] Route "${routeId}" connects to "${connId}", which is not in routes.json yet.`);
         }
-      }
       });
     });
 
@@ -160,19 +159,24 @@ class GameEngine {
 
     const buttons = [];
 
-    if (route.encounters.grass && route.encounters.grass.length > 0) {
+    // Encounter entries can require a flag (e.g. Route 12's grass needs Cut).
+    const eligible = (list) => (list || []).filter(e => !e.req_flag || this.hasFlag(e.req_flag));
+
+    const grass = eligible(route.encounters.grass);
+    if (grass.length > 0) {
       buttons.push({
         text: "Search Tall Grass",
-        action: () => this.executeEncounter(route.encounters.grass)
+        action: () => this.executeEncounter(grass)
       });
     }
 
-    if (route.encounters.water && route.encounters.water.length > 0) {
+    const water = eligible(route.encounters.water);
+    if (water.length > 0) {
       buttons.push({
         text: "Fish / Surf",
         action: () => {
           if (this.gameState.inventory['fishing_rod'] || this.hasFlag('soul_badge')) {
-            this.executeEncounter(route.encounters.water);
+            this.executeEncounter(water);
           } else {
             this.ui.printToLog("You need a Fishing Rod or Surf to look here!");
             this.ui.setMenuState('route');
@@ -218,14 +222,17 @@ class GameEngine {
 
   triggerExplore() {
     const route = this.db.routes[this.gameState.currentRoute];
-    const outcome = this.getWeightedRandom(route.explore_table);
+    // Entries can require a flag (e.g. Snorlax only appears once woken).
+    // If nothing is eligible, exploring finds nothing.
+    const table = (route.explore_table || []).filter(e => !e.req_flag || this.hasFlag(e.req_flag));
+    const outcome = this.getWeightedRandom(table.length ? table : [{ type: "nothing", weight: 1 }]);
 
     switch (outcome.type) {
       case "nothing":
         return "You searched the area but found nothing of interest.";
       
       case "encounter":
-        const zone = route.encounters.grass || [];
+        const zone = (route.encounters.grass || []).filter(e => !e.req_flag || this.hasFlag(e.req_flag));
         return this.triggerEncounter(zone);
       
       case "item":

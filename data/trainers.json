@@ -2040,5 +2040,577 @@
     "level": 20
    }
   ]
+ },
+ "route9_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Pokémon are cute, but they pack a punch!",
+  "dialogueAfter": "[DRAFT] Your Pokémon are stronger than they look...",
+  "rewardMoney": 360,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 18
+   },
+   {
+    "species": "bellsprout",
+    "level": 18
+   },
+   {
+    "species": "oddish",
+    "level": 18
+   },
+   {
+    "species": "bellsprout",
+    "level": 18
+   }
+  ]
+ },
+ "route9_hiker_1": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] The mountain air makes my Pokémon tough!",
+  "dialogueAfter": "[DRAFT] Tough... just like the mountain.",
+  "rewardMoney": 800,
+  "party": [
+   {
+    "species": "machop",
+    "level": 20
+   },
+   {
+    "species": "onix",
+    "level": 20
+   }
+  ]
+ },
+ "route9_jr_trainer_2": {
+  "name": "Jr. Trainer 2",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Fire types are the best! Feel the heat!",
+  "dialogueAfter": "[DRAFT] Burned out...",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 21
+   },
+   {
+    "species": "charmander",
+    "level": 21
+   }
+  ]
+ },
+ "route9_bug_catcher_1": {
+  "name": "Bug Catcher",
+  "title": "Bug Catcher",
+  "dialogueBefore": "[DRAFT] My Beedrill's Twineedle never misses!",
+  "dialogueAfter": "[DRAFT] Buzz... I lost.",
+  "rewardMoney": 190,
+  "party": [
+   {
+    "species": "beedrill",
+    "level": 19
+   },
+   {
+    "species": "beedrill",
+    "level": 19
+   }
+  ]
+ },
+ "route9_hiker_2": {
+  "name": "Hiker 2",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Watch out for falling rocks! And my Pokémon!",
+  "dialogueAfter": "[DRAFT] Rock slide...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "onix",
+    "level": 21
+   }
+  ]
+ },
+ "route9_bug_catcher_2": {
+  "name": "Bug Catcher 2",
+  "title": "Bug Catcher",
+  "dialogueBefore": "[DRAFT] Bugs are the strongest in numbers!",
+  "dialogueAfter": "[DRAFT] Squashed...",
+  "rewardMoney": 200,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 20
+   },
+   {
+    "species": "weedle",
+    "level": 20
+   },
+   {
+    "species": "venonat",
+    "level": 20
+   }
+  ]
+ },
+ "route9_jr_trainer_3": {
+  "name": "Jr. Trainer 3",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] I train all kinds of Pokémon!",
+  "dialogueAfter": "[DRAFT] So many types, still lost...",
+  "rewardMoney": 380,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "diglett",
+    "level": 19
+   },
+   {
+    "species": "ekans",
+    "level": 19
+   },
+   {
+    "species": "sandshrew",
+    "level": 19
+   }
+  ]
+ },
+ "route9_hiker_3": {
+  "name": "Hiker 3",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] These trails are my gym!",
+  "dialogueAfter": "[DRAFT] I need to train harder.",
+  "rewardMoney": 800,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 20
+   },
+   {
+    "species": "machop",
+    "level": 20
+   },
+   {
+    "species": "geodude",
+    "level": 20
+   }
+  ]
+ },
+ "route9_jr_trainer_4": {
+  "name": "Jr. Trainer 4",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Meowth brings me luck!",
+  "dialogueAfter": "[DRAFT] My luck ran out...",
+  "rewardMoney": 460,
+  "party": [
+   {
+    "species": "meowth",
+    "level": 23
+   }
+  ]
+ },
+ "route10_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] The Power Plant makes the air tingle!",
+  "dialogueAfter": "[DRAFT] What a shock...",
+  "rewardMoney": 400,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 20
+   },
+   {
+    "species": "clefairy",
+    "level": 20
+   }
+  ]
+ },
+ "route10_jr_trainer_2": {
+  "name": "Jr. Trainer 2",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My birds rule these skies!",
+  "dialogueAfter": "[DRAFT] Clipped wings...",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 21
+   },
+   {
+    "species": "pidgeotto",
+    "level": 21
+   }
+  ]
+ },
+ "route10_hiker_1": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Rock Tunnel ahead! My Pokémon know every stone!",
+  "dialogueAfter": "[DRAFT] Stoned...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "onix",
+    "level": 21
+   }
+  ]
+ },
+ "route10_hiker_2": {
+  "name": "Hiker 2",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Rolling stones gather no moss!",
+  "dialogueAfter": "[DRAFT] I got rolled over.",
+  "rewardMoney": 760,
+  "party": [
+   {
+    "species": "onix",
+    "level": 19
+   },
+   {
+    "species": "graveler",
+    "level": 19
+   }
+  ]
+ },
+ "route10_pokemaniac_1": {
+  "name": "Pokémaniac",
+  "title": "Pokémaniac",
+  "dialogueBefore": "[DRAFT] Rare Pokémon are my obsession!",
+  "dialogueAfter": "[DRAFT] My collection is incomplete...",
+  "rewardMoney": 1000,
+  "party": [
+   {
+    "species": "cubone",
+    "level": 20
+   },
+   {
+    "species": "slowpoke",
+    "level": 20
+   }
+  ]
+ },
+ "route10_pokemaniac_2": {
+  "name": "Pokémaniac 2",
+  "title": "Pokémaniac",
+  "dialogueBefore": "[DRAFT] Something amazing sleeps inside the Power Plant!",
+  "dialogueAfter": "[DRAFT] Not amazing enough, apparently.",
+  "rewardMoney": 1450,
+  "party": [
+   {
+    "species": "rhyhorn",
+    "level": 29
+   },
+   {
+    "species": "lickitung",
+    "level": 29
+   }
+  ]
+ },
+ "route11_gambler_1": {
+  "name": "Gambler",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] I bet my Pokémon can beat yours!",
+  "dialogueAfter": "[DRAFT] Lost the bet...",
+  "rewardMoney": 1800,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 18
+   },
+   {
+    "species": "horsea",
+    "level": 18
+   }
+  ]
+ },
+ "route11_youngster_1": {
+  "name": "Youngster",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] My Ekans is super fast!",
+  "dialogueAfter": "[DRAFT] Not fast enough!",
+  "rewardMoney": 315,
+  "party": [
+   {
+    "species": "ekans",
+    "level": 21
+   }
+  ]
+ },
+ "route11_youngster_2": {
+  "name": "Youngster 2",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] Two Pokémon are better than one!",
+  "dialogueAfter": "[DRAFT] Double trouble for me!",
+  "rewardMoney": 285,
+  "party": [
+   {
+    "species": "sandshrew",
+    "level": 19
+   },
+   {
+    "species": "zubat",
+    "level": 19
+   }
+  ]
+ },
+ "route11_youngster_3": {
+  "name": "Youngster 3",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] Nidoran are the coolest!",
+  "dialogueAfter": "[DRAFT] Not cool enough...",
+  "rewardMoney": 270,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 18
+   },
+   {
+    "species": "nidorino",
+    "level": 18
+   }
+  ]
+ },
+ "route11_gambler_2": {
+  "name": "Gambler 2",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] Double or nothing!",
+  "dialogueAfter": "[DRAFT] Nothing it is...",
+  "rewardMoney": 1800,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 18
+   },
+   {
+    "species": "oddish",
+    "level": 18
+   }
+  ]
+ },
+ "route11_gambler_3": {
+  "name": "Gambler 3",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] Feeling lucky? You shouldn't!",
+  "dialogueAfter": "[DRAFT] My luck turned!",
+  "rewardMoney": 1800,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 18
+   },
+   {
+    "species": "vulpix",
+    "level": 18
+   }
+  ]
+ },
+ "route11_engineer_1": {
+  "name": "Engineer",
+  "title": "Engineer",
+  "dialogueBefore": "[DRAFT] My Magnemite runs on pure voltage!",
+  "dialogueAfter": "[DRAFT] Short circuit...",
+  "rewardMoney": 1050,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 21
+   }
+  ]
+ },
+ "route11_youngster_4": {
+  "name": "Youngster 4",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] My Rattata gang never loses!",
+  "dialogueAfter": "[DRAFT] The gang got scattered!",
+  "rewardMoney": 255,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 17
+   },
+   {
+    "species": "rattata",
+    "level": 17
+   },
+   {
+    "species": "raticate",
+    "level": 17
+   }
+  ]
+ },
+ "route11_gambler_4": {
+  "name": "Gambler 4",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] High voltage, high stakes!",
+  "dialogueAfter": "[DRAFT] I'm all out of stakes.",
+  "rewardMoney": 1800,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 18
+   },
+   {
+    "species": "magnemite",
+    "level": 18
+   }
+  ]
+ },
+ "route11_engineer_2": {
+  "name": "Engineer 2",
+  "title": "Engineer",
+  "dialogueBefore": "[DRAFT] The Power Plant is my second home!",
+  "dialogueAfter": "[DRAFT] Power outage!",
+  "rewardMoney": 900,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 18
+   },
+   {
+    "species": "magnemite",
+    "level": 18
+   },
+   {
+    "species": "magneton",
+    "level": 18
+   }
+  ]
+ },
+ "route12_fisherman_1": {
+  "name": "Fisherman",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] I just caught these! They're still fresh!",
+  "dialogueAfter": "[DRAFT] They slipped away...",
+  "rewardMoney": 770,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 22
+   },
+   {
+    "species": "poliwag",
+    "level": 22
+   },
+   {
+    "species": "goldeen",
+    "level": 22
+   }
+  ]
+ },
+ "route12_fisherman_2": {
+  "name": "Fisherman 2",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] The sea provides!",
+  "dialogueAfter": "[DRAFT] The sea took them back...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 24
+   },
+   {
+    "species": "goldeen",
+    "level": 24
+   }
+  ]
+ },
+ "route12_fisherman_3": {
+  "name": "Fisherman 3",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] One perfect Goldeen is all I need!",
+  "dialogueAfter": "[DRAFT] Not so perfect...",
+  "rewardMoney": 945,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 27
+   }
+  ]
+ },
+ "route12_fisherman_4": {
+  "name": "Fisherman 4",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] Four catches, four wins!",
+  "dialogueAfter": "[DRAFT] Four losses...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 21
+   },
+   {
+    "species": "shellder",
+    "level": 21
+   },
+   {
+    "species": "goldeen",
+    "level": 21
+   },
+   {
+    "species": "horsea",
+    "level": 21
+   }
+  ]
+ },
+ "route12_rocker_1": {
+  "name": "Rocker",
+  "title": "Rocker",
+  "dialogueBefore": "[DRAFT] My music is electric, baby!",
+  "dialogueAfter": "[DRAFT] The crowd goes silent...",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 29
+   },
+   {
+    "species": "electrode",
+    "level": 29
+   }
+  ]
+ },
+ "route12_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] I've been training by the bridge for years!",
+  "dialogueAfter": "[DRAFT] Years wasted!",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 29
+   },
+   {
+    "species": "nidorino",
+    "level": 29
+   }
+  ]
+ },
+ "route12_fisherman_5": {
+  "name": "Fisherman 5",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] Magikarp are the true kings of the sea!",
+  "dialogueAfter": "[DRAFT] Dethroned...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "magikarp",
+    "level": 24
+   },
+   {
+    "species": "magikarp",
+    "level": 24
+   }
+  ]
  }
 }
