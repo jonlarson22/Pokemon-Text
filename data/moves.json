@@ -240,6 +240,18 @@
    "target": "self"
   }
  },
+ "bide": {
+  "name": "Bide",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 10,
+  "effect": {
+   "type": "bide",
+   "target": "self"
+  }
+ },
  "bind": {
   "name": "Bind",
   "type": "Normal",
@@ -774,6 +786,18 @@
   "fixed": {
    "kind": "value",
    "value": 40
+  }
+ },
+ "dream_eater": {
+  "name": "Dream Eater",
+  "type": "Psychic",
+  "category": "special",
+  "power": 100,
+  "accuracy": 100,
+  "pp": 15,
+  "effect": {
+   "type": "drain",
+   "value": 0.5
   }
  },
  "drill_peck": {
@@ -2010,6 +2034,16 @@
    "chance": 10
   }
  },
+ "psywave": {
+  "name": "Psywave",
+  "type": "Psychic",
+  "category": "special",
+  "power": 0,
+  "accuracy": 100,
+  "pp": 15,
+  "powerScale": "psywave",
+  "effect": null
+ },
  "pursuit": {
   "name": "Pursuit",
   "type": "Dark",
@@ -2070,6 +2104,15 @@
   "power": 55,
   "accuracy": 95,
   "pp": 25
+ },
+ "razor_wind": {
+  "name": "Razor Wind",
+  "type": "Normal",
+  "category": "physical",
+  "power": 80,
+  "accuracy": 100,
+  "pp": 10,
+  "effect": null
  },
  "recover": {
   "name": "Recover",
@@ -2181,6 +2224,15 @@
    "stages": 2,
    "target": "self"
   }
+ },
+ "rock_slide": {
+  "name": "Rock Slide",
+  "type": "Rock",
+  "category": "physical",
+  "power": 75,
+  "accuracy": 90,
+  "pp": 10,
+  "effect": null
  },
  "rock_smash": {
   "name": "Rock Smash",
@@ -2464,14 +2516,6 @@
    "target": "enemy"
   }
  },
- "skill_swap": {
-  "name": "Skill Swap",
-  "type": "Psychic",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 10
- },
  "skull_bash": {
   "name": "Skull Bash",
   "type": "Normal",
@@ -2602,6 +2646,19 @@
   "power": 0,
   "accuracy": null,
   "pp": 5,
+  "effect": {
+   "type": "heal",
+   "value": 0.5,
+   "target": "self"
+  }
+ },
+ "softboiled": {
+  "name": "Softboiled",
+  "type": "Normal",
+  "category": "status",
+  "power": 0,
+  "accuracy": null,
+  "pp": 10,
   "effect": {
    "type": "heal",
    "value": 0.5,
@@ -2927,14 +2984,6 @@
    "type": "force_flee",
    "target": "enemy"
   }
- },
- "thief": {
-  "name": "Thief",
-  "type": "Dark",
-  "category": "physical",
-  "power": 60,
-  "accuracy": 100,
-  "pp": 25
  },
  "thrash": {
   "name": "Thrash",

@@ -336,59 +336,59 @@
   "description": "An awesome, high-tech fishing rod. Use it by any body of water to fish up all kinds of Pokémon."
  },
  "tm01": {
-  "name": "TM01 (Focus Punch)",
+  "name": "TM01 (Mega Punch)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "focus_punch"
+   "move": "mega_punch"
   },
   "price": 0,
-  "description": "An attack that is executed last. The user flinches if hit beforehand.",
-  "move": "focus_punch"
+  "description": "A powerful punch thrown with maximal force.",
+  "move": "mega_punch"
  },
  "tm02": {
-  "name": "TM02 (Dragon Claw)",
+  "name": "TM02 (Razor Wind)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "dragon_claw"
+   "move": "razor_wind"
   },
   "price": 0,
-  "description": "Sharp, huge claws hook and slash the foe quickly and with great power.",
-  "move": "dragon_claw"
+  "description": "Razor-sharp winds slash at the foe.",
+  "move": "razor_wind"
  },
  "tm03": {
-  "name": "TM03 (Water Pulse)",
+  "name": "TM03 (Swords Dance)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "water_pulse"
+   "move": "swords_dance"
   },
   "price": 0,
-  "description": "An attack with a pulsing blast of water. It may also confuse the foe.",
-  "move": "water_pulse"
+  "description": "A frenetic dance that sharply raises the user's Attack.",
+  "move": "swords_dance"
  },
  "tm04": {
-  "name": "TM04 (Calm Mind)",
+  "name": "TM04 (Whirlwind)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "calm_mind"
+   "move": "whirlwind"
   },
   "price": 0,
-  "description": "The user focuses its mind to raise the Sp. Atk and Sp. Def stats.",
-  "move": "calm_mind"
+  "description": "A gust of wind blows the foe away.",
+  "move": "whirlwind"
  },
  "tm05": {
-  "name": "TM05 (Roar)",
+  "name": "TM05 (Mega Kick)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "roar"
+   "move": "mega_kick"
   },
-  "price": 1000,
-  "description": "The foe is made to switch out with an ally. In the wild, the battle ends.",
-  "move": "roar"
+  "price": 0,
+  "description": "A powerful kick thrown with maximal force.",
+  "move": "mega_kick"
  },
  "tm06": {
   "name": "TM06 (Toxic)",
@@ -402,70 +402,70 @@
   "move": "toxic"
  },
  "tm07": {
-  "name": "TM07 (Hail)",
+  "name": "TM07 (Horn Drill)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "hail"
+   "move": "horn_drill"
   },
   "price": 0,
-  "description": "A hailstorm lasting five turns damages all Pokémon except the Ice-type.",
-  "move": "hail"
+  "description": "A drilling attack that knocks out the foe in one hit if it lands.",
+  "move": "horn_drill"
  },
  "tm08": {
-  "name": "TM08 (Bulk Up)",
+  "name": "TM08 (Body Slam)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "bulk_up"
+   "move": "body_slam"
   },
   "price": 0,
-  "description": "The user bulks up its body to boost both its Attack and Defense stats.",
-  "move": "bulk_up"
+  "description": "The user slams its full weight into the foe.",
+  "move": "body_slam"
  },
  "tm09": {
-  "name": "TM09 (Bullet Seed)",
+  "name": "TM09 (Take Down)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "bullet_seed"
+   "move": "take_down"
   },
   "price": 0,
-  "description": "The user shoots seeds at the foe. Two to five seeds are shot at once.",
-  "move": "bullet_seed"
+  "description": "A reckless charging attack that also hurts the user.",
+  "move": "take_down"
  },
  "tm10": {
-  "name": "TM10 (Hidden Power)",
+  "name": "TM10 (Double Edge)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "hidden_power"
+   "move": "double_edge"
   },
   "price": 0,
-  "description": "An attack that varies in type and intensity depending on the user.",
-  "move": "hidden_power"
+  "description": "A reckless tackle that also hurts the user.",
+  "move": "double_edge"
  },
  "tm11": {
-  "name": "TM11 (Sunny Day)",
+  "name": "TM11 (Bubble Beam)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "sunny_day"
+   "move": "bubble_beam"
   },
   "price": 0,
-  "description": "The sun blazes for five turns, powering up Fire-type moves.",
-  "move": "sunny_day"
+  "description": "A forceful spray of bubbles is fired at the foe.",
+  "move": "bubble_beam"
  },
  "tm12": {
-  "name": "TM12 (Taunt)",
+  "name": "TM12 (Water Gun)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "taunt"
+   "move": "water_gun"
   },
   "price": 0,
-  "description": "The foe is taunted into a rage that allows it to use only attack moves.",
-  "move": "taunt"
+  "description": "A squirt of water is shot at the foe.",
+  "move": "water_gun"
  },
  "tm13": {
   "name": "TM13 (Ice Beam)",
@@ -496,78 +496,78 @@
    "type": "teach_move",
    "move": "hyper_beam"
   },
-  "price": 7500,
+  "price": 0,
   "description": "A severely damaging attack that makes the user rest on the next turn.",
   "move": "hyper_beam"
  },
  "tm16": {
-  "name": "TM16 (Light Screen)",
+  "name": "TM16 (Pay Day)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "light_screen"
+   "move": "pay_day"
   },
   "price": 0,
-  "description": "A wall of light cuts damage from Sp. Atk attacks for five turns.",
-  "move": "light_screen"
+  "description": "Coins are scattered about, earning extra money after the battle.",
+  "move": "pay_day"
  },
  "tm17": {
-  "name": "TM17 (Protect)",
+  "name": "TM17 (Submission)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "protect"
+   "move": "submission"
   },
   "price": 0,
-  "description": "Enables the user to evade all attacks. It may fail if used in succession.",
-  "move": "protect"
+  "description": "A reckless wrestling throw that also hurts the user.",
+  "move": "submission"
  },
  "tm18": {
-  "name": "TM18 (Rain Dance)",
+  "name": "TM18 (Counter)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "rain_dance"
+   "move": "counter"
   },
   "price": 0,
-  "description": "A heavy rain falls for five turns, powering up Water-type moves.",
-  "move": "rain_dance"
+  "description": "Returns double the damage taken from a physical hit.",
+  "move": "counter"
  },
  "tm19": {
-  "name": "TM19 (Giga Drain)",
+  "name": "TM19 (Seismic Toss)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "giga_drain"
+   "move": "seismic_toss"
   },
   "price": 0,
-  "description": "A harsh attack that absorbs half the damage it inflicted to restore HP.",
-  "move": "giga_drain"
+  "description": "A gravity-defying throw that deals damage equal to the user's level.",
+  "move": "seismic_toss"
  },
  "tm20": {
-  "name": "TM20 (Safeguard)",
+  "name": "TM20 (Rage)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "safeguard"
+   "move": "rage"
   },
   "price": 0,
-  "description": "It protects the user's party from all status problems for five turns.",
-  "move": "safeguard"
+  "description": "An attack that grows in power each time the user is hit.",
+  "move": "rage"
  },
  "tm21": {
-  "name": "TM21 (Frustration)",
+  "name": "TM21 (Mega Drain)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "frustration"
+   "move": "mega_drain"
   },
   "price": 0,
-  "description": "A full-power attack that grows harsher the less the user likes its trainer.",
-  "move": "frustration"
+  "description": "Drains the foe's health to restore the user's HP.",
+  "move": "mega_drain"
  },
  "tm22": {
-  "name": "TM22 (SolarBeam)",
+  "name": "TM22 (Solar Beam)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
@@ -578,15 +578,15 @@
   "move": "solar_beam"
  },
  "tm23": {
-  "name": "TM23 (Iron Tail)",
+  "name": "TM23 (Dragon Rage)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "iron_tail"
+   "move": "dragon_rage"
   },
   "price": 0,
-  "description": "The foe is slammed with a steel-hard tail. It may lower Defense.",
-  "move": "iron_tail"
+  "description": "A blast of dragon energy that always deals 40 damage.",
+  "move": "dragon_rage"
  },
  "tm24": {
   "name": "TM24 (Thunderbolt)",
@@ -622,15 +622,15 @@
   "move": "earthquake"
  },
  "tm27": {
-  "name": "TM27 (Return)",
+  "name": "TM27 (Fissure)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "return"
+   "move": "fissure"
   },
   "price": 0,
-  "description": "An attack that builds power the more the user loves its trainer.",
-  "move": "return"
+  "description": "A ground-splitting attack that knocks out the foe in one hit if it lands.",
+  "move": "fissure"
  },
  "tm28": {
   "name": "TM28 (Dig)",
@@ -639,7 +639,7 @@
    "type": "teach_move",
    "move": "dig"
   },
-  "price": 2000,
+  "price": 0,
   "description": "The user burrows on the first turn and strikes on the second.",
   "move": "dig"
  },
@@ -655,26 +655,26 @@
   "move": "psychic"
  },
  "tm30": {
-  "name": "TM30 (Shadow Ball)",
+  "name": "TM30 (Teleport)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "shadow_ball"
+   "move": "teleport"
   },
   "price": 0,
-  "description": "The user hurls a black blob that may lower the foe's Sp. Def stat.",
-  "move": "shadow_ball"
+  "description": "Vanishes instantly to flee from wild battles.",
+  "move": "teleport"
  },
  "tm31": {
-  "name": "TM31 (Brick Break)",
+  "name": "TM31 (Mimic)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "brick_break"
+   "move": "mimic"
   },
-  "price": 3000,
-  "description": "Destroys barriers like Light Screen and Reflect and causes damage.",
-  "move": "brick_break"
+  "price": 0,
+  "description": "Copies the foe's last move for the rest of the battle.",
+  "move": "mimic"
  },
  "tm32": {
   "name": "TM32 (Double Team)",
@@ -694,53 +694,53 @@
    "type": "teach_move",
    "move": "reflect"
   },
-  "price": 1000,
+  "price": 0,
   "description": "A wall of light cuts damage from physical attacks for five turns.",
   "move": "reflect"
  },
  "tm34": {
-  "name": "TM34 (Shock Wave)",
+  "name": "TM34 (Bide)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "shock_wave"
+   "move": "bide"
   },
   "price": 0,
-  "description": "The user strikes the target with a quick, unevadable electric shock.",
-  "move": "shock_wave"
+  "description": "The user stores energy for two turns, then unleashes double the damage taken.",
+  "move": "bide"
  },
  "tm35": {
-  "name": "TM35 (Flamethrower)",
+  "name": "TM35 (Metronome)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "flamethrower"
+   "move": "metronome"
   },
   "price": 0,
-  "description": "The foe is scorched with an intense blast of fire. It may cause a burn.",
-  "move": "flamethrower"
+  "description": "Waggles a finger to unleash a completely random move.",
+  "move": "metronome"
  },
  "tm36": {
-  "name": "TM36 (Sludge Bomb)",
+  "name": "TM36 (Self Destruct)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "sludge_bomb"
+   "move": "self_destruct"
   },
   "price": 0,
-  "description": "Unsanitary sludge is hurled at the target. It may poison the foe.",
-  "move": "sludge_bomb"
+  "description": "A massive explosion that knocks out the user as well.",
+  "move": "self_destruct"
  },
  "tm37": {
-  "name": "TM37 (Sandstorm)",
+  "name": "TM37 (Egg Bomb)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "sandstorm"
+   "move": "egg_bomb"
   },
   "price": 0,
-  "description": "A 5-turn sandstorm buffets the battlefield, damaging non-rock/ground/steel types.",
-  "move": "sandstorm"
+  "description": "A barrage of eggs is hurled at the foe.",
+  "move": "egg_bomb"
  },
  "tm38": {
   "name": "TM38 (Fire Blast)",
@@ -754,59 +754,59 @@
   "move": "fire_blast"
  },
  "tm39": {
-  "name": "TM39 (Rock Tomb)",
+  "name": "TM39 (Swift)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "rock_tomb"
+   "move": "swift"
   },
   "price": 0,
-  "description": "Boulders are hurled at the foe. It lowers the target's Speed stat.",
-  "move": "rock_tomb"
+  "description": "A star-shaped ray that never misses.",
+  "move": "swift"
  },
  "tm40": {
-  "name": "TM40 (Aerial Ace)",
+  "name": "TM40 (Skull Bash)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "aerial_ace"
+   "move": "skull_bash"
   },
   "price": 0,
-  "description": "An extremely fast attack that is completely unevadable.",
-  "move": "aerial_ace"
+  "description": "The user tucks in its head, then rams the foe on the next turn.",
+  "move": "skull_bash"
  },
  "tm41": {
-  "name": "TM41 (Torment)",
+  "name": "TM41 (Softboiled)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "torment"
+   "move": "softboiled"
   },
   "price": 0,
-  "description": "Torments the foe and stops it from using the same move twice in a row.",
-  "move": "torment"
+  "description": "Restores the user's HP by up to half of its maximum.",
+  "move": "softboiled"
  },
  "tm42": {
-  "name": "TM42 (Facade)",
+  "name": "TM42 (Dream Eater)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "facade"
+   "move": "dream_eater"
   },
   "price": 0,
-  "description": "Boosts Attack power if the user is burned, paralyzed, or poisoned.",
-  "move": "facade"
+  "description": "Eats the foe's dreams to restore HP. Fails if the foe is awake.",
+  "move": "dream_eater"
  },
  "tm43": {
-  "name": "TM43 (Secret Power)",
+  "name": "TM43 (Sky Attack)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
-   "move": "secret_power"
+   "move": "sky_attack"
   },
-  "price": 3000,
-  "description": "An attack that has varying secondary effects depending on the environment.",
-  "move": "secret_power"
+  "price": 0,
+  "description": "A second-turn diving charge, wreathed in light.",
+  "move": "sky_attack"
  },
  "tm44": {
   "name": "TM44 (Rest)",
@@ -820,29 +820,414 @@
   "move": "rest"
  },
  "tm45": {
-  "name": "TM45 (Attract)",
+  "name": "TM45 (Thunder Wave)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "thunder_wave"
+  },
+  "price": 0,
+  "description": "A weak electric shock that paralyzes the foe.",
+  "move": "thunder_wave"
+ },
+ "tm46": {
+  "name": "TM46 (Psywave)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "psywave"
+  },
+  "price": 0,
+  "description": "A wave of psychic energy. Damage varies with the user's level.",
+  "move": "psywave"
+ },
+ "tm47": {
+  "name": "TM47 (Explosion)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "explosion"
+  },
+  "price": 0,
+  "description": "The ultimate explosion. It knocks out the user as well.",
+  "move": "explosion"
+ },
+ "tm48": {
+  "name": "TM48 (Rock Slide)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "rock_slide"
+  },
+  "price": 0,
+  "description": "Large boulders are hurled at the foe.",
+  "move": "rock_slide"
+ },
+ "tm49": {
+  "name": "TM49 (Tri Attack)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "tri_attack"
+  },
+  "price": 0,
+  "description": "A triple strike that may also burn, freeze, or paralyze the foe.",
+  "move": "tri_attack"
+ },
+ "tm50": {
+  "name": "TM50 (Substitute)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "substitute"
+  },
+  "price": 0,
+  "description": "The user creates a decoy using some of its own HP.",
+  "move": "substitute"
+ },
+ "tm51": {
+  "name": "TM51 (Focus Punch)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "focus_punch"
+  },
+  "price": 0,
+  "description": "An attack that is executed last. The user flinches if hit beforehand.",
+  "move": "focus_punch"
+ },
+ "tm52": {
+  "name": "TM52 (Dragon Claw)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "dragon_claw"
+  },
+  "price": 0,
+  "description": "Sharp, huge claws hook and slash the foe quickly and with great power.",
+  "move": "dragon_claw"
+ },
+ "tm53": {
+  "name": "TM53 (Water Pulse)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "water_pulse"
+  },
+  "price": 0,
+  "description": "An attack with a pulsing blast of water. It may also confuse the foe.",
+  "move": "water_pulse"
+ },
+ "tm54": {
+  "name": "TM54 (Calm Mind)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "calm_mind"
+  },
+  "price": 0,
+  "description": "The user focuses its mind to raise the Sp. Atk and Sp. Def stats.",
+  "move": "calm_mind"
+ },
+ "tm55": {
+  "name": "TM55 (Roar)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "roar"
+  },
+  "price": 0,
+  "description": "The foe is made to switch out with an ally. In the wild, the battle ends.",
+  "move": "roar"
+ },
+ "tm56": {
+  "name": "TM56 (Hail)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "hail"
+  },
+  "price": 0,
+  "description": "A hailstorm lasting five turns damages all Pokémon except the Ice-type.",
+  "move": "hail"
+ },
+ "tm57": {
+  "name": "TM57 (Bulk Up)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "bulk_up"
+  },
+  "price": 0,
+  "description": "The user bulks up its body to boost both its Attack and Defense stats.",
+  "move": "bulk_up"
+ },
+ "tm58": {
+  "name": "TM58 (Bullet Seed)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "bullet_seed"
+  },
+  "price": 0,
+  "description": "The user shoots seeds at the foe. Two to five seeds are shot at once.",
+  "move": "bullet_seed"
+ },
+ "tm59": {
+  "name": "TM59 (Hidden Power)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "hidden_power"
+  },
+  "price": 0,
+  "description": "An attack that varies in type and intensity depending on the user.",
+  "move": "hidden_power"
+ },
+ "tm60": {
+  "name": "TM60 (Sunny Day)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "sunny_day"
+  },
+  "price": 0,
+  "description": "The sun blazes for five turns, powering up Fire-type moves.",
+  "move": "sunny_day"
+ },
+ "tm61": {
+  "name": "TM61 (Taunt)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "taunt"
+  },
+  "price": 0,
+  "description": "The foe is taunted into a rage that allows it to use only attack moves.",
+  "move": "taunt"
+ },
+ "tm62": {
+  "name": "TM62 (Light Screen)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "light_screen"
+  },
+  "price": 0,
+  "description": "A wall of light cuts damage from Sp. Atk attacks for five turns.",
+  "move": "light_screen"
+ },
+ "tm63": {
+  "name": "TM63 (Protect)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "protect"
+  },
+  "price": 0,
+  "description": "Enables the user to evade all attacks. It may fail if used in succession.",
+  "move": "protect"
+ },
+ "tm64": {
+  "name": "TM64 (Rain Dance)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "rain_dance"
+  },
+  "price": 0,
+  "description": "A heavy rain falls for five turns, powering up Water-type moves.",
+  "move": "rain_dance"
+ },
+ "tm65": {
+  "name": "TM65 (Giga Drain)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "giga_drain"
+  },
+  "price": 0,
+  "description": "A harsh attack that absorbs half the damage it inflicted to restore HP.",
+  "move": "giga_drain"
+ },
+ "tm66": {
+  "name": "TM66 (Safeguard)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "safeguard"
+  },
+  "price": 0,
+  "description": "It protects the user's party from all status problems for five turns.",
+  "move": "safeguard"
+ },
+ "tm67": {
+  "name": "TM67 (Frustration)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "frustration"
+  },
+  "price": 0,
+  "description": "A full-power attack that grows harsher the less the user likes its trainer.",
+  "move": "frustration"
+ },
+ "tm68": {
+  "name": "TM68 (Iron Tail)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "iron_tail"
+  },
+  "price": 0,
+  "description": "The foe is slammed with a steel-hard tail. It may lower Defense.",
+  "move": "iron_tail"
+ },
+ "tm69": {
+  "name": "TM69 (Return)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "return"
+  },
+  "price": 0,
+  "description": "An attack that builds power the more the user loves its trainer.",
+  "move": "return"
+ },
+ "tm70": {
+  "name": "TM70 (Shadow Ball)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "shadow_ball"
+  },
+  "price": 0,
+  "description": "The user hurls a black blob that may lower the foe's Sp. Def stat.",
+  "move": "shadow_ball"
+ },
+ "tm71": {
+  "name": "TM71 (Brick Break)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "brick_break"
+  },
+  "price": 0,
+  "description": "Destroys barriers like Light Screen and Reflect and causes damage.",
+  "move": "brick_break"
+ },
+ "tm72": {
+  "name": "TM72 (Shock Wave)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "shock_wave"
+  },
+  "price": 0,
+  "description": "The user strikes the target with a quick, unevadable electric shock.",
+  "move": "shock_wave"
+ },
+ "tm73": {
+  "name": "TM73 (Flamethrower)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "flamethrower"
+  },
+  "price": 0,
+  "description": "The foe is scorched with an intense blast of fire. It may cause a burn.",
+  "move": "flamethrower"
+ },
+ "tm74": {
+  "name": "TM74 (Sludge Bomb)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "sludge_bomb"
+  },
+  "price": 0,
+  "description": "Unsanitary sludge is hurled at the target. It may poison the foe.",
+  "move": "sludge_bomb"
+ },
+ "tm75": {
+  "name": "TM75 (Sandstorm)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "sandstorm"
+  },
+  "price": 0,
+  "description": "A 5-turn sandstorm buffets the battlefield, damaging non-rock/ground/steel types.",
+  "move": "sandstorm"
+ },
+ "tm76": {
+  "name": "TM76 (Rock Tomb)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "rock_tomb"
+  },
+  "price": 0,
+  "description": "Boulders are hurled at the foe. It lowers the target's Speed stat.",
+  "move": "rock_tomb"
+ },
+ "tm77": {
+  "name": "TM77 (Aerial Ace)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "aerial_ace"
+  },
+  "price": 0,
+  "description": "An extremely fast attack that is completely unevadable.",
+  "move": "aerial_ace"
+ },
+ "tm78": {
+  "name": "TM78 (Torment)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "torment"
+  },
+  "price": 0,
+  "description": "Torments the foe and stops it from using the same move twice in a row.",
+  "move": "torment"
+ },
+ "tm79": {
+  "name": "TM79 (Facade)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "facade"
+  },
+  "price": 0,
+  "description": "Boosts Attack power if the user is burned, paralyzed, or poisoned.",
+  "move": "facade"
+ },
+ "tm80": {
+  "name": "TM80 (Secret Power)",
+  "category": "tm",
+  "effect": {
+   "type": "teach_move",
+   "move": "secret_power"
+  },
+  "price": 0,
+  "description": "An attack that has varying secondary effects depending on the environment.",
+  "move": "secret_power"
+ },
+ "tm81": {
+  "name": "TM81 (Attract)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
    "move": "attract"
   },
-  "price": 3000,
-  "description": "Makes it tough for the opposite gender foe to attack the user.",
+  "price": 0,
+  "description": "Lowers the foe's Attack and Sp. Atk by one stage.",
   "move": "attract"
  },
- "tm46": {
-  "name": "TM46 (Thief)",
-  "category": "tm",
-  "effect": {
-   "type": "teach_move",
-   "move": "thief"
-  },
-  "price": 0,
-  "description": "An attack that lets the user steal the foe's held item while attacking.",
-  "move": "thief"
- },
- "tm47": {
-  "name": "TM47 (Steel Wing)",
+ "tm82": {
+  "name": "TM82 (Steel Wing)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
@@ -852,19 +1237,8 @@
   "description": "The target is struck with rigid wings. It may raise the user's Defense.",
   "move": "steel_wing"
  },
- "tm48": {
-  "name": "TM48 (Skill Swap)",
-  "category": "tm",
-  "effect": {
-   "type": "teach_move",
-   "move": "skill_swap"
-  },
-  "price": 0,
-  "description": "The user employs psychic power to trade special abilities with the target.",
-  "move": "skill_swap"
- },
- "tm49": {
-  "name": "TM49 (Snatch)",
+ "tm83": {
+  "name": "TM83 (Snatch)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
@@ -874,8 +1248,8 @@
   "description": "Steals the effects of the foe's healing or status moves on that turn.",
   "move": "snatch"
  },
- "tm50": {
-  "name": "TM50 (Overheat)",
+ "tm84": {
+  "name": "TM84 (Overheat)",
   "category": "tm",
   "effect": {
    "type": "teach_move",
@@ -889,8 +1263,9 @@
   "name": "HM01 (Cut)",
   "category": "hm",
   "effect": {
-   "type": "field_move",
-   "action": "cut_trees"
+   "type": "teach_move",
+   "move": "cut",
+   "field_action": "cut_trees"
   },
   "price": 0,
   "description": "Allows the user to cut down small trees outside of battle. Deals Normal-type damage.",
@@ -900,8 +1275,9 @@
   "name": "HM02 (Fly)",
   "category": "hm",
   "effect": {
-   "type": "field_move",
-   "action": "fly_to_town"
+   "type": "teach_move",
+   "move": "fly",
+   "field_action": "fly_to_town"
   },
   "price": 0,
   "description": "The user flies up on the second turn and drops down to attack. Allows instant travel between visited towns.",
@@ -911,8 +1287,9 @@
   "name": "HM03 (Surf)",
   "category": "hm",
   "effect": {
-   "type": "field_move",
-   "action": "cross_water"
+   "type": "teach_move",
+   "move": "surf",
+   "field_action": "cross_water"
   },
   "price": 0,
   "description": "The user plows across water to hit the foe. Allows the trainer to surf across water bodies.",
@@ -922,8 +1299,9 @@
   "name": "HM04 (Strength)",
   "category": "hm",
   "effect": {
-   "type": "field_move",
-   "action": "push_boulders"
+   "type": "teach_move",
+   "move": "strength",
+   "field_action": "push_boulders"
   },
   "price": 0,
   "description": "The target is hammered with a physical blow. Allows the user to push heavy boulders out of the way.",
@@ -933,8 +1311,9 @@
   "name": "HM05 (Flash)",
   "category": "hm",
   "effect": {
-   "type": "field_move",
-   "action": "illuminate_caves"
+   "type": "teach_move",
+   "move": "flash",
+   "field_action": "illuminate_caves"
   },
   "price": 0,
   "description": "A powerful flash of light blinds the target, reducing accuracy. Illuminates pitch-dark caves.",
@@ -944,8 +1323,9 @@
   "name": "HM06 (Rock Smash)",
   "category": "hm",
   "effect": {
-   "type": "field_move",
-   "action": "smash_rocks"
+   "type": "teach_move",
+   "move": "rock_smash",
+   "field_action": "smash_rocks"
   },
   "price": 0,
   "description": "The foe is hit with an impact that can lower Defense. Smashes cracked rocks blocking paths.",
@@ -955,8 +1335,9 @@
   "name": "HM07 (Waterfall)",
   "category": "hm",
   "effect": {
-   "type": "field_move",
-   "action": "climb_waterfalls"
+   "type": "teach_move",
+   "move": "waterfall",
+   "field_action": "climb_waterfalls"
   },
   "price": 0,
   "description": "The user charges at the target at a high speed. Powerful enough to charge up waterfalls.",

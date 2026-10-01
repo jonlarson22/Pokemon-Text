@@ -286,7 +286,6 @@
    "secret_power",
    "rest",
    "attract",
-   "frenzy_plant",
    "cut",
    "flash"
   ],
@@ -585,7 +584,6 @@
    "attract",
    "steel_wing",
    "fire_punch",
-   "frenzy_plant",
    "strength",
    "rock_smash",
    "fly",
@@ -690,8 +688,7 @@
    "surf",
    "strength",
    "rock_smash",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -802,8 +799,7 @@
    "surf",
    "strength",
    "rock_smash",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -909,12 +905,10 @@
    "secret_power",
    "rest",
    "attract",
-   "frenzy_plant",
    "surf",
    "strength",
    "rock_smash",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -1094,7 +1088,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flash"
   ],
   "catchRate": 45
@@ -1264,7 +1257,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut"
   ],
   "catchRate": 45
@@ -1350,7 +1342,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fly"
   ],
   "catchRate": 255
@@ -1446,7 +1437,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fly"
   ],
   "catchRate": 120
@@ -1543,7 +1533,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fly"
   ],
   "catchRate": 45
@@ -1629,7 +1618,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength"
   ],
   "catchRate": 255
@@ -1722,7 +1710,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -1806,7 +1793,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fly"
   ],
   "catchRate": 255
@@ -1895,7 +1881,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fly"
   ],
   "catchRate": 90
@@ -1982,7 +1967,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -2077,7 +2061,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -2330,7 +2313,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -2421,7 +2403,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -2430,7 +2411,7 @@
  "nidoran_f": {
   "pokedexNumber": 29,
   "id": "nidoran_f",
-  "name": "Nidoran♀",
+  "name": "Nidoran\u2640",
   "growthRate": "medium_slow",
   "evolution": {
    "target": "nidorina",
@@ -2506,8 +2487,7 @@
    "facade",
    "secret_power",
    "rest",
-   "attract",
-   "thief"
+   "attract"
   ],
   "catchRate": 235
  },
@@ -2600,8 +2580,7 @@
    "facade",
    "secret_power",
    "rest",
-   "attract",
-   "thief"
+   "attract"
   ],
   "catchRate": 120
  },
@@ -2680,7 +2659,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "surf",
    "strength",
@@ -2693,7 +2671,7 @@
  "nidoran_m": {
   "pokedexNumber": 32,
   "id": "nidoran_m",
-  "name": "Nidoran♂",
+  "name": "Nidoran\u2642",
   "growthRate": "medium_slow",
   "evolution": {
    "target": "nidorino",
@@ -2769,8 +2747,7 @@
    "facade",
    "secret_power",
    "rest",
-   "attract",
-   "thief"
+   "attract"
   ],
   "catchRate": 235
  },
@@ -2863,8 +2840,7 @@
    "facade",
    "secret_power",
    "rest",
-   "attract",
-   "thief"
+   "attract"
   ],
   "catchRate": 120
  },
@@ -2944,7 +2920,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "surf",
    "strength",
@@ -3540,7 +3515,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "steel_wing"
   ],
   "catchRate": 255
@@ -3638,7 +3612,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "steel_wing"
   ],
   "catchRate": 90
@@ -3883,7 +3856,6 @@
    "secret_power",
    "rest",
    "attract",
-   "frenzy_plant",
    "cut",
    "flash"
   ],
@@ -3969,7 +3941,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut",
    "flash"
   ],
@@ -4066,7 +4037,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut",
    "flash"
   ],
@@ -4159,7 +4129,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flash"
   ],
   "catchRate": 190
@@ -4260,7 +4229,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flash"
   ],
   "catchRate": 75
@@ -4341,7 +4309,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "rock_smash"
   ],
   "catchRate": 255
@@ -4429,7 +4396,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "rock_smash"
   ],
   "catchRate": 50
@@ -4515,7 +4481,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flash"
   ],
   "catchRate": 255
@@ -4608,7 +4573,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flash"
   ],
   "catchRate": 90
@@ -4704,7 +4668,6 @@
    "strength",
    "rock_smash",
    "waterfall",
-   "dive",
    "flash"
   ],
   "catchRate": 190
@@ -4813,7 +4776,6 @@
    "strength",
    "rock_smash",
    "waterfall",
-   "dive",
    "flash"
   ],
   "catchRate": 75
@@ -4912,7 +4874,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "strength",
@@ -5016,7 +4977,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "strength",
@@ -5106,7 +5066,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -5172,7 +5131,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -5254,10 +5212,8 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "surf",
    "waterfall",
-   "dive",
    "flash"
   ],
   "catchRate": 255
@@ -5351,12 +5307,10 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "surf",
    "strength",
    "rock_smash",
    "waterfall",
-   "dive",
    "flash"
   ],
   "catchRate": 120
@@ -5439,12 +5393,10 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "surf",
    "strength",
    "rock_smash",
    "waterfall",
-   "dive",
    "flash"
   ],
   "catchRate": 45
@@ -5501,7 +5453,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flash"
   ],
   "catchRate": 200
@@ -5599,7 +5550,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "flash"
@@ -5700,7 +5650,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "flash"
@@ -6113,7 +6062,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut",
    "flash"
   ],
@@ -6216,7 +6164,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut",
    "flash"
   ],
@@ -6284,8 +6231,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
-   "frenzy_plant",
    "cut",
    "flash"
   ],
@@ -6373,10 +6318,8 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 190
  },
@@ -6473,10 +6416,8 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 60
  },
@@ -7417,7 +7358,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "steel_wing",
    "cut",
    "fly",
@@ -7499,7 +7439,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "steel_wing",
    "fly"
   ],
@@ -7585,7 +7524,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "steel_wing",
    "fly"
   ],
@@ -7668,8 +7606,7 @@
    "attract",
    "surf",
    "strength",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 190
  },
@@ -7766,8 +7703,7 @@
    "attract",
    "surf",
    "strength",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 75
  },
@@ -7854,7 +7790,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flamethrower",
    "fire_blast"
   ],
@@ -7949,7 +7884,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flamethrower",
    "fire_blast"
   ],
@@ -8032,8 +7966,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 190
  },
@@ -8101,8 +8034,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 60
  },
@@ -8195,8 +8127,7 @@
    "facade",
    "secret_power",
    "rest",
-   "attract",
-   "thief"
+   "attract"
   ],
   "catchRate": 190
  },
@@ -8294,8 +8225,7 @@
    "facade",
    "secret_power",
    "rest",
-   "attract",
-   "thief"
+   "attract"
   ],
   "catchRate": 90
  },
@@ -8398,7 +8328,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "strength",
@@ -8582,13 +8511,11 @@
    "shadow_ball",
    "brick_break",
    "double_team",
-   "reflected",
    "torment",
    "facade",
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "flash"
@@ -8683,13 +8610,11 @@
    "shadow_ball",
    "brick_break",
    "double_team",
-   "reflected",
    "torment",
    "facade",
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "flash"
@@ -8783,12 +8708,10 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "surf",
    "strength",
    "rock_smash",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 225
  },
@@ -8885,12 +8808,10 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "surf",
    "strength",
    "rock_smash",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 60
  },
@@ -9155,7 +9076,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flash"
   ],
   "catchRate": 90
@@ -9228,7 +9148,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "flash"
   ],
@@ -9335,7 +9254,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -9450,7 +9368,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -9553,7 +9470,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "strength",
    "rock_smash"
   ],
@@ -9652,7 +9568,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "strength",
@@ -9748,7 +9663,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "strength",
@@ -9839,7 +9753,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flamethrower",
    "fire_blast"
   ],
@@ -9934,7 +9847,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "flamethrower",
    "fire_blast"
   ],
@@ -10336,7 +10248,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut",
    "flash"
   ],
@@ -10433,7 +10344,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "surf",
@@ -10514,8 +10424,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 225
  },
@@ -10602,8 +10511,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 75
  },
@@ -10693,8 +10601,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 225
  },
@@ -10785,8 +10692,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 60
  },
@@ -10884,8 +10790,7 @@
    "rest",
    "attract",
    "surf",
-   "flash",
-   "dive"
+   "flash"
   ],
   "catchRate": 225
  },
@@ -10958,8 +10863,7 @@
    "rest",
    "attract",
    "surf",
-   "flash",
-   "dive"
+   "flash"
   ],
   "catchRate": 60
  },
@@ -11065,7 +10969,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "strength",
@@ -11170,7 +11073,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "steel_wing",
    "cut",
    "strength",
@@ -11281,7 +11183,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "ice_punch",
    "flash"
   ],
@@ -11379,7 +11280,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "thunder_punch",
    "strength",
@@ -11477,7 +11377,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "fire_punch",
    "strength",
    "rock_smash"
@@ -11566,7 +11465,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut",
    "strength",
    "rock_smash"
@@ -11809,8 +11707,7 @@
    "attract",
    "surf",
    "strength",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -11905,8 +11802,7 @@
    "attract",
    "surf",
    "strength",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -12124,8 +12020,7 @@
    "attract",
    "surf",
    "strength",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -12490,7 +12385,6 @@
    "facade",
    "secret_power",
    "rest",
-   "attract_thief",
    "surf",
    "rock_smash"
   ],
@@ -12762,7 +12656,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "cut",
    "surf",
    "strength",
@@ -12857,7 +12750,6 @@
    "secret_power",
    "rest",
    "attract",
-   "thief",
    "steel_wing",
    "fly",
    "strength",
@@ -13312,8 +13204,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -13413,8 +13304,7 @@
    "rest",
    "attract",
    "surf",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -13533,8 +13423,7 @@
    "surf",
    "strength",
    "rock_smash",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  },
@@ -13641,7 +13530,6 @@
    "secret_power",
    "rest",
    "psych_up",
-   "skill_swap",
    "flash"
   ],
   "catchRate": 3
@@ -13732,7 +13620,6 @@
    "secret_power",
    "rest",
    "psych_up",
-   "skill_swap",
    "snatch",
    "cut",
    "fly",
@@ -13740,8 +13627,7 @@
    "strength",
    "flash",
    "rock_smash",
-   "waterfall",
-   "dive"
+   "waterfall"
   ],
   "catchRate": 45
  }
