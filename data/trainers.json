@@ -2071,7 +2071,7 @@
   "title": "Hiker",
   "dialogueBefore": "[DRAFT] The mountain air makes my Pokémon tough!",
   "dialogueAfter": "[DRAFT] Tough... just like the mountain.",
-  "rewardMoney": 800,
+  "rewardMoney": 700,
   "party": [
    {
     "species": "machop",
@@ -2122,7 +2122,7 @@
   "title": "Hiker",
   "dialogueBefore": "[DRAFT] Watch out for falling rocks! And my Pokémon!",
   "dialogueAfter": "[DRAFT] Rock slide...",
-  "rewardMoney": 840,
+  "rewardMoney": 735,
   "party": [
    {
     "species": "geodude",
@@ -2185,7 +2185,7 @@
   "title": "Hiker",
   "dialogueBefore": "[DRAFT] These trails are my gym!",
   "dialogueAfter": "[DRAFT] I need to train harder.",
-  "rewardMoney": 800,
+  "rewardMoney": 700,
   "party": [
    {
     "species": "geodude",
@@ -2253,7 +2253,7 @@
   "title": "Hiker",
   "dialogueBefore": "[DRAFT] Rock Tunnel ahead! My Pokémon know every stone!",
   "dialogueAfter": "[DRAFT] Stoned...",
-  "rewardMoney": 840,
+  "rewardMoney": 735,
   "party": [
    {
     "species": "geodude",
@@ -2270,7 +2270,7 @@
   "title": "Hiker",
   "dialogueBefore": "[DRAFT] Rolling stones gather no moss!",
   "dialogueAfter": "[DRAFT] I got rolled over.",
-  "rewardMoney": 760,
+  "rewardMoney": 665,
   "party": [
    {
     "species": "onix",
@@ -2610,6 +2610,289 @@
    {
     "species": "magikarp",
     "level": 24
+   }
+  ]
+ },
+ "rocktunnel1f_pokemaniac_1": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] Cubone... Slowpoke... don't you just love them all?",
+  "dialogueAfter": "[DRAFT] My collection... defeated...",
+  "rewardMoney": 1150,
+  "party": [
+   {
+    "species": "cubone",
+    "level": 23
+   },
+   {
+    "species": "slowpoke",
+    "level": 23
+   }
+  ]
+ },
+ "rocktunnel1f_hiker_1": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Watch out! This tunnel's full of rough customers!",
+  "dialogueAfter": "[DRAFT] Oof... you're rougher than all of them.",
+  "rewardMoney": 665,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 19
+   },
+   {
+    "species": "machop",
+    "level": 19
+   },
+   {
+    "species": "geodude",
+    "level": 19
+   },
+   {
+    "species": "geodude",
+    "level": 19
+   }
+  ]
+ },
+ "rocktunnel1f_hiker_2": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Nobody gets past my rock-solid blockade without a battle!",
+  "dialogueAfter": "[DRAFT] Hmph. Blockade... busted.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "onix",
+    "level": 20
+   },
+   {
+    "species": "onix",
+    "level": 20
+   },
+   {
+    "species": "geodude",
+    "level": 20
+   }
+  ]
+ },
+ "rocktunnel1f_hiker_3": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] You want down? Then go through ME first!",
+  "dialogueAfter": "[DRAFT] Through you go, then...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "graveler",
+    "level": 21
+   }
+  ]
+ },
+ "rocktunnel1f_jr_trainer_f_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] It's dark in here... battle me so I forget I'm scared!",
+  "dialogueAfter": "[DRAFT] That was scary-exciting!",
+  "rewardMoney": 440,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 22
+   },
+   {
+    "species": "clefairy",
+    "level": 22
+   }
+  ]
+ },
+ "rocktunnel1f_jr_trainer_f_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] I got lost in here ages ago. Battle me while I wait for rescue!",
+  "dialogueAfter": "[DRAFT] Still lost... but at least I'm entertained.",
+  "rewardMoney": 380,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 19
+   },
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "bellsprout",
+    "level": 19
+   }
+  ]
+ },
+ "rocktunnel1f_jr_trainer_f_3": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Shh! The echoes in here give away my position... FIGHT ME!",
+  "dialogueAfter": "[DRAFT] Echo... echo... I lost...",
+  "rewardMoney": 400,
+  "party": [
+   {
+    "species": "meowth",
+    "level": 20
+   },
+   {
+    "species": "oddish",
+    "level": 20
+   },
+   {
+    "species": "pidgey",
+    "level": 20
+   }
+  ]
+ },
+ "rocktunnelb1f_pokemaniac_1": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] Slowpoke... so slow... so perfect. Battle me! Or don't. Whatever.",
+  "dialogueAfter": "[DRAFT] Yaaawn... you win...",
+  "rewardMoney": 1250,
+  "party": [
+   {
+    "species": "slowpoke",
+    "level": 25
+   }
+  ]
+ },
+ "rocktunnelb1f_jr_trainer_f_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Grass Pokémon glow a little in the dark! Pretty, huh?",
+  "dialogueAfter": "[DRAFT] They're still pretty, even beaten...",
+  "rewardMoney": 440,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 22
+   },
+   {
+    "species": "bulbasaur",
+    "level": 22
+   }
+  ]
+ },
+ "rocktunnelb1f_pokemaniac_2": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] A Charmander AND a Cubone! Behold my prized pair!",
+  "dialogueAfter": "[DRAFT] My prized pair... prized no more.",
+  "rewardMoney": 1100,
+  "party": [
+   {
+    "species": "charmander",
+    "level": 22
+   },
+   {
+    "species": "cubone",
+    "level": 22
+   }
+  ]
+ },
+ "rocktunnelb1f_hiker_4": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] This tunnel's MY turf! You want through, you battle!",
+  "dialogueAfter": "[DRAFT] My turf... your tunnel now.",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 25
+   }
+  ]
+ },
+ "rocktunnelb1f_hiker_5": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Heh! Another traveler to test my mountain muscles on!",
+  "dialogueAfter": "[DRAFT] Muscles... crushed...",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "machop",
+    "level": 20
+   },
+   {
+    "species": "onix",
+    "level": 20
+   }
+  ]
+ },
+ "rocktunnelb1f_jr_trainer_f_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Jigglypuff's singing echoes forever down here! Listen... FIGHT!",
+  "dialogueAfter": "[DRAFT] The echo faded... so did I.",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "jigglypuff",
+    "level": 21
+   },
+   {
+    "species": "pidgey",
+    "level": 21
+   },
+   {
+    "species": "meowth",
+    "level": 21
+   }
+  ]
+ },
+ "rocktunnelb1f_hiker_6": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Rock hard! That's me! And my Pokémon!",
+  "dialogueAfter": "[DRAFT] Cracked... I'm cracked...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "graveler",
+    "level": 21
+   }
+  ]
+ },
+ "rocktunnelb1f_pokemaniac_3": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] One Slowpoke is bliss. THREE Slowpoke is paradise!",
+  "dialogueAfter": "[DRAFT] Paradise... lost...",
+  "rewardMoney": 1000,
+  "party": [
+   {
+    "species": "slowpoke",
+    "level": 20
+   },
+   {
+    "species": "slowpoke",
+    "level": 20
+   },
+   {
+    "species": "slowpoke",
+    "level": 20
    }
   ]
  }

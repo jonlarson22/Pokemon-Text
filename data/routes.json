@@ -401,14 +401,6 @@
    "pewter_city",
    "diglett_cave"
   ],
-  "gate_requirements": {
-   "route9": {
-    "required_flags": [
-     "obtain_hm_01"
-    ],
-    "blocked_message": "A small tree blocks your path. You need the HM for Cut to pass!"
-   }
-  },
   "req_flag": null,
   "encounters": {
    "grass": [
@@ -2078,8 +2070,7 @@
   "isTown": false,
   "connections": [
    "route9",
-   "rock_tunnel",
-   "lavender_town",
+   "rock_tunnel_1f",
    "power_plant"
   ],
   "gate_requirements": {
@@ -2266,7 +2257,15 @@
     "weight": 30,
     "item": "escape_rope"
    }
-  ]
+  ],
+  "gate_requirements": {
+   "route12": {
+    "required_flags": [
+     "woke_snorlax_route12"
+    ],
+    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
+   }
+  }
  },
  "route12": {
   "name": "Route 12",
@@ -2283,11 +2282,15 @@
      "woke_snorlax_route12"
     ],
     "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
+   },
+   "route11": {
+    "required_flags": [
+     "woke_snorlax_route12"
+    ],
+    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
    }
   },
-  "npcs": [
-   "snorlax_route12"
-  ],
+  "npcs": [],
   "trainers": [
    "route12_fisherman_1",
    "route12_fisherman_2",
@@ -2408,14 +2411,6 @@
     "weight": 10,
     "item": "iron",
     "req_flag": "obtain_hm_01"
-   },
-   {
-    "type": "static_encounter",
-    "weight": 20,
-    "species": "snorlax",
-    "level": 30,
-    "req_flag": "woke_snorlax_route12",
-    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
    }
   ]
  },
@@ -2514,6 +2509,185 @@
     "type": "item",
     "weight": 5,
     "item": "max_elixir"
+   }
+  ]
+ },
+ "rock_tunnel_1f": {
+  "name": "Rock Tunnel 1F",
+  "description": "A pitch-dark tunnel bored through solid rock between Cerulean and Lavender. Without a light, every footstep echoes into the black.",
+  "isTown": false,
+  "connections": [
+   "route10",
+   "rock_tunnel_b1f"
+  ],
+  "gate_requirements": {
+   "rock_tunnel_b1f": {
+    "required_flags": [
+     "defeated_rocktunnel1f_hiker_2",
+     "defeated_rocktunnel1f_hiker_3"
+    ],
+    "blocked_message": "Two burly Hikers block the tunnel mouth, spoiling for a fight! (Defeat the Hikers in the west tunnel to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "zubat",
+     "min_level": 15,
+     "max_level": 18,
+     "weight": 55
+    },
+    {
+     "species": "geodude",
+     "min_level": 16,
+     "max_level": 17,
+     "weight": 25
+    },
+    {
+     "species": "machop",
+     "min_level": 15,
+     "max_level": 17,
+     "weight": 15
+    },
+    {
+     "species": "onix",
+     "min_level": 13,
+     "max_level": 15,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [
+   "rocktunnel1f_pokemaniac_1",
+   "rocktunnel1f_hiker_1",
+   "rocktunnel1f_hiker_2",
+   "rocktunnel1f_hiker_3",
+   "rocktunnel1f_jr_trainer_f_1",
+   "rocktunnel1f_jr_trainer_f_2",
+   "rocktunnel1f_jr_trainer_f_3"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "rock_tunnel_b1f": {
+  "name": "Rock Tunnel B1F",
+  "description": "The lower floor of Rock Tunnel. The air is cooler here, and the darkness feels heavier — but a faint draft hints at the Lavender exit.",
+  "isTown": false,
+  "connections": [
+   "rock_tunnel_1f",
+   "lavender_town"
+  ],
+  "gate_requirements": {
+   "lavender_town": {
+    "required_flags": [
+     "defeated_rocktunnelb1f_hiker_4",
+     "defeated_rocktunnelb1f_hiker_5"
+    ],
+    "blocked_message": "Two Hikers are having a shouting match in the tunnel ahead, and neither will let anyone squeeze past! (Defeat the Hikers in the northeast tunnel to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "zubat",
+     "min_level": 16,
+     "max_level": 18,
+     "weight": 50
+    },
+    {
+     "species": "geodude",
+     "min_level": 16,
+     "max_level": 18,
+     "weight": 26
+    },
+    {
+     "species": "machop",
+     "min_level": 15,
+     "max_level": 17,
+     "weight": 15
+    },
+    {
+     "species": "onix",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 9
+    }
+   ]
+  },
+  "trainers": [
+   "rocktunnelb1f_pokemaniac_1",
+   "rocktunnelb1f_jr_trainer_f_1",
+   "rocktunnelb1f_pokemaniac_2",
+   "rocktunnelb1f_hiker_4",
+   "rocktunnelb1f_hiker_5",
+   "rocktunnelb1f_jr_trainer_f_2",
+   "rocktunnelb1f_hiker_6",
+   "rocktunnelb1f_pokemaniac_3"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "lavender_town": {
+  "name": "Lavender Town",
+  "description": "LAVENDER TOWN — The Noble Purple Town. A hushed little town watched over by the towering POKéMON TOWER, where departed Pokémon are laid to rest.",
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": true,
+  "connections": [
+   "rock_tunnel_b1f",
+   "route8",
+   "route12",
+   "pokemon_tower_1f"
+  ],
+  "gate_requirements": {
+   "route12": {
+    "required_flags": [
+     "woke_snorlax_route12"
+    ],
+    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
+   }
+  },
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "mr_fuji",
+   "snorlax_lavender",
+   "name_rater",
+   "lavender_youngster",
+   "lavender_gramps",
+   "lavender_girl",
+   "lavender_cooltrainer",
+   "lavender_center_gentleman",
+   "lavender_center_nerd",
+   "lavender_mart_youngster",
+   "lavender_cubone_girl",
+   "lavender_fuji_girl",
+   "lavender_psyduck"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 80
+   },
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "snorlax",
+    "level": 30,
+    "req_flag": "woke_snorlax_route12",
+    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
    }
   ]
  }

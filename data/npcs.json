@@ -365,9 +365,9 @@
   "dialogue_post_flag": "Isn't science amazing? Take good care of Aerodactyl.",
   "once_flag": "revived_old_amber"
  },
- "snorlax_route12": {
+ "snorlax_lavender": {
   "name": "Snorlax",
-  "dialogue_default": "[DRAFT] Snorlax woke up with a tremendous yawn! It looks ready to battle... (Something stirs in the tall grass nearby.)",
+  "dialogue_default": "[DRAFT] Snorlax woke with a tremendous yawn! It lumbers about, ready to battle... (Something stirs nearby.)",
   "requirements": [
    {
     "type": "flag",
@@ -380,8 +380,69 @@
     "id": "woke_snorlax_route12"
    }
   ],
-  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep, blocking the path. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
+  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep at the town's south gate, blocking the road to Route 12. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
   "dialogue_post_flag": "[DRAFT] Snorlax is wide awake now, and seems eager to test its strength!",
   "once_flag": "woke_snorlax_route12"
+ },
+ "mr_fuji": {
+  "name": "Mr. Fuji",
+  "dialogue_default": "[DRAFT] Ah, a young Trainer! I am Fuji, caretaker of this Pokémon House. Your Pokédex quest will fail without love for your Pokémon... Here — this Poké Flute may help your quest. Its melody wakes even the deepest sleeper!",
+  "rewards": [
+   {
+    "type": "item",
+    "id": "poke_flute",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_pokeflute"
+   }
+  ],
+  "dialogue_post_flag": "[DRAFT] Has my flute helped you? Play it near any sleeping Pokémon, and watch them spring awake!",
+  "once_flag": "obtained_pokeflute"
+ },
+ "name_rater": {
+  "name": "Name Rater",
+  "dialogue_default": "Hello, hello! I am the official NAME RATER! Want me to rate the nicknames of your Pokémon? ...Hmm, what splendid names! Truly impeccable — I couldn't improve on a one of them!"
+ },
+ "lavender_youngster": {
+  "name": "Youngster",
+  "dialogue_default": "This town is famous for POKéMON TOWER. The TOWER is a resting place for POKéMON."
+ },
+ "lavender_gramps": {
+  "name": "Gramps",
+  "dialogue_default": "In POKéMON TOWER, there are POKéMON spirits. You should respect them!"
+ },
+ "lavender_girl": {
+  "name": "Little Girl",
+  "dialogue_default": "My CUBONE's mother is in POKéMON TOWER... Poor CUBONE!"
+ },
+ "lavender_cooltrainer": {
+  "name": "Cooltrainer",
+  "dialogue_default": "I heard that someone in CELADON has something that can help in POKéMON TOWER."
+ },
+ "lavender_center_gentleman": {
+  "name": "Gentleman",
+  "dialogue_default": "In POKéMON TOWER, the spirits of dead POKéMON rest. It's very sacred."
+ },
+ "lavender_center_nerd": {
+  "name": "Super Nerd",
+  "dialogue_default": "TEAM ROCKET is up to no good in POKéMON TOWER! Those awful people!"
+ },
+ "lavender_mart_youngster": {
+  "name": "Youngster",
+  "dialogue_default": "Do you know about the POKéMON TOWER? It's a cemetery for POKéMON!"
+ },
+ "lavender_cubone_girl": {
+  "name": "Brunette Girl",
+  "dialogue_default": "I hate those horrible ROCKETs! That poor CUBONE's mother... It was killed trying to escape from TEAM ROCKET!"
+ },
+ "lavender_fuji_girl": {
+  "name": "Little Girl",
+  "dialogue_default": "This is really MR.FUJI's house. He's really kind! He looks after abandoned and orphaned POKéMON!"
+ },
+ "lavender_psyduck": {
+  "name": "Psyduck",
+  "dialogue_default": "PSYDUCK: Gwappa!"
  }
 }
