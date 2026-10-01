@@ -1,5 +1,5 @@
 // Bump this when gameState's shape changes in a way old saves can't handle.
-const SAVE_VERSION = 1;
+const SAVE_VERSION = 2;
 
 export class StorageManager {
   constructor(game) {
@@ -14,6 +14,10 @@ export class StorageManager {
     if (!state.flags) state.flags = {};
     if (!state.defeatedTrainers) state.defeatedTrainers = {};
     if (!state.visitedTowns) state.visitedTowns = [];
+    // Friendship system (save v2): default old saves to the gen 3 base value.
+    for (const mon of (state.party || [])) {
+      if (mon.friendship === undefined) mon.friendship = 70;
+    }
     if (state.saveVersion !== SAVE_VERSION) {
       console.warn(`[save] Save version ${state.saveVersion || "unknown"} loaded; current version is ${SAVE_VERSION}. Some things may not work as expected.`);
       this.game.ui.printToLog("Note: this save is from an older version of the game. Some things may not work as expected.");
