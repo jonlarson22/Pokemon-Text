@@ -83,6 +83,7 @@ class GameEngine {
         if (!this.db.routes[connId]) {
           console.warn(`[dev] Route "${routeId}" connects to "${connId}", which is not in routes.json yet.`);
         }
+      }
       });
     });
 
@@ -170,7 +171,7 @@ class GameEngine {
       buttons.push({
         text: "Fish / Surf",
         action: () => {
-          if (this.gameState.inventory['fishing_rod'] || this.hasFlag('badge_5')) {
+          if (this.gameState.inventory['fishing_rod'] || this.hasFlag('soul_badge')) {
             this.executeEncounter(route.encounters.water);
           } else {
             this.ui.printToLog("You need a Fishing Rod or Surf to look here!");
@@ -228,23 +229,33 @@ class GameEngine {
         return this.triggerEncounter(zone);
       
       case "item":
-        // 1. Create a unique flag for this route to prevent infinite looting
-        const itemFlag = `found_item_${this.gameState.currentRoute}`;
+        // 1. Create a unique flag per route+item to prevent infinite looting.
+        //    Different items on the same route can each be found once.
+        // 2. Force the item ID to lowercase to ensure it matches db.items exactly
+        const itemId = outcome.item.toLowerCase();
+        const itemFlag = `found_item_${this.gameState.currentRoute}_${itemId}`;
         if (this.hasFlag(itemFlag)) {
-          // If they already found this route's item, default to "nothing" instead
+          // If they already found this item, default to "nothing" instead
           return "You searched the area but found nothing of interest.";
         }
         
         // Mark the item as found
         this.setFlag(itemFlag, true);
+        // Optional extra flag (e.g. quest items like the Old Amber)
+        if (outcome.flag) this.setFlag(outcome.flag, true);
 
-        // 2. Force the item ID to lowercase to ensure it matches db.items exactly
-        const itemId = outcome.item.toLowerCase();
         this.gameState.inventory[itemId] = (this.gameState.inventory[itemId] || 0) + 1;
         
         // Try to get the formatted name from the DB for the log message, fallback to the raw string
         const itemName = this.db.items[itemId] ? this.db.items[itemId].name : outcome.item;
         return `You found a ${itemName}!`;
+      case "static_encounter": {
+        // Scripted wild battle (e.g. Mewtwo). Re-encounterable until caught.
+        if (this.gameState.pokedex.caught[outcome.species.toLowerCase()]) {
+          return "You searched the area but found nothing of interest.";
+        }
+        return { species: outcome.species, level: outcome.level, intro: outcome.intro };
+      }
       }
     }
 
@@ -267,7 +278,7 @@ class GameEngine {
       const result = this.triggerExplore();
       if (typeof result === 'string') this.ui.printToLog(result);
       else if (result && result.species) {
-        this.ui.printToLog(`You were ambushed!`);
+        this.ui.printToLog(result.intro || `You were ambushed!`);
         this.battleManager.startBattle(result);
       }
     });
