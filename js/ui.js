@@ -348,9 +348,191 @@ renderRouteScreen() {
       } else {
         this.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
       }
-    } else if (item.category === "healing") { 
+    } else if (item.category === "healing") {
       this.openPartyTargetScreen(itemKey, item);
+    } else if (item.category === "tm" || item.category === "hm") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use a TM or HM in battle!");
+        return;
+      }
+      this.openTeachMenu(itemKey, item);
     }
+  }
+
+  // --- TM / HM teaching --------------------------------------------------
+  // TMs and HMs are both reusable (never consumed) and HMs can be
+  // forgotten/overwritten like any other move — unlike the original games.
+  // Compatibility is gated on the canon tmMoves list in pokemon.json.
+
+  // Pure-ish helpers (no DOM) so the teach logic is unit-testable.
+  resolveTeachMove(itemData) {
+    const moveId = (itemData.effect && itemData.effect.move) || itemData.move;
+    if (!moveId) return null;
+    const moveDef = this.game.db.moves[moveId];
+    if (!moveDef) return null;
+    return { moveId, moveDef };
+  }
+
+  canLearnMachine(mon, moveId) {
+    const baseData = this.game.db.pokemon[mon.id];
+    if (!baseData || !baseData.tmMoves) return false;
+    if (baseData.tmMoves.includes(moveId)) return true;
+    // Fallback: if NO pokemon in pokemon.json lists this move in tmMoves,
+    // there is no compat data for it yet (e.g. RBY-only TMs whose canon
+    // learnsets haven't been entered). Allow everyone so the TM still works,
+    // and log it for the dev data pass.
+    if (!this._tmCompatUnion) {
+      this._tmCompatUnion = new Set();
+      Object.values(this.game.db.pokemon).forEach(p => {
+        (p.tmMoves || []).forEach(m => this._tmCompatUnion.add(m));
+      });
+    }
+    if (!this._tmCompatUnion.has(moveId)) {
+      console.warn(`[dev] no tmMoves compat data for "${moveId}" — allowing all learners for now.`);
+      return true;
+    }
+    return false;
+  }
+
+  monKnowsMove(mon, moveId, moveName) {
+    return (mon.moves || []).some(m => m.moveId === moveId || m.name === moveName);
+  }
+
+  makeTaughtMove(moveId, moveDef) {
+    return { ...moveDef, moveId, maxPp: moveDef.pp, pp: moveDef.pp };
+  }
+
+  // Shows the party so the player can pick who learns the move.
+  openTeachMenu(itemKey, itemData) {
+    const resolved = this.resolveTeachMove(itemData);
+    if (!resolved) {
+      console.warn(`[dev] "${itemKey}" has no teachable move in items.json.`);
+      this.printToLog("That doesn't seem to teach anything...");
+      return;
+    }
+    const { moveId, moveDef } = resolved;
+
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold; margin-bottom:8px;">Teach ${moveDef.name} to which Pokémon?</p>`;
+    controls.innerHTML = '';
+
+    this.game.gameState.party.forEach((mon, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+
+      if (this.monKnowsMove(mon, moveId, moveDef.name)) {
+        btn.textContent = `${mon.species} (already knows it)`;
+        btn.onclick = () => {
+          this.printToLog(`${mon.species} already knows ${moveDef.name}!`);
+        };
+      } else if (!this.canLearnMachine(mon, moveId)) {
+        btn.textContent = `${mon.species} (can't learn it)`;
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+      } else {
+        btn.textContent = mon.species;
+        btn.onclick = () => this.teachMoveToMon(itemKey, itemData, moveId, moveDef, index);
+      }
+      content.appendChild(btn);
+    });
+
+    this.buildMenuControls(controls, [
+      { text: "Cancel", action: () => this.game.openBag() }
+    ]);
+  }
+
+  // Separate TM/HM submenu: one bag entry opens this, sorted by number
+  // (TM01..TM84, then HM01..HM07). Each button routes through
+  // handleItemClick so the normal teach flow applies.
+  openMachineMenu(entries) {
+    const numOf = key => parseInt((key.match(/\d+/) || [0])[0], 10);
+    const rank = key => (this.game.db.items[key]?.category === 'hm' ? 1000 : 0) + numOf(key);
+    const sorted = [...entries].sort((a, b) => rank(a[0]) - rank(b[0]));
+
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold; margin-bottom:8px;">TMs &amp; HMs</p>`;
+    controls.innerHTML = '';
+
+    sorted.forEach(([itemKey, qty]) => {
+      const item = this.game.db.items[itemKey];
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `${item.name} ×${qty}`;
+      btn.title = item.description || '';
+      btn.onclick = () => this.handleItemClick(itemKey);
+      content.appendChild(btn);
+    });
+
+    this.buildMenuControls(controls, [
+      { text: "Back", action: () => this.game.openBag() }
+    ]);
+  }
+
+  // Applies the taught move: empty slot learns it directly, a full
+  // moveset prompts for a move to forget (HMs included — they are NOT
+  // permanent here). TMs/HMs are never consumed.
+  teachMoveToMon(itemKey, itemData, moveId, moveDef, partyIndex) {
+    const mon = this.game.gameState.party[partyIndex];
+
+    if (this.monKnowsMove(mon, moveId, moveDef.name)) {
+      this.printToLog(`${mon.species} already knows ${moveDef.name}!`);
+      return;
+    }
+
+    if ((mon.moves || []).length < 4) {
+      mon.moves.push(this.makeTaughtMove(moveId, moveDef));
+      this.printToLog(`${mon.species} learned ${moveDef.name}!`);
+      this.updatePartyUI();
+      this.game.openBag();
+    } else {
+      this.promptTeachMoveReplacement(mon, moveId, moveDef, itemKey, itemData);
+    }
+  }
+
+  // Pure-ish (no DOM): swaps a move slot for the taught move. Returns the
+  // forgotten move's name for the log line.
+  applyTeachReplacement(mon, slotIndex, moveId, moveDef) {
+    const oldMoveName = mon.moves[slotIndex].name;
+    mon.moves[slotIndex] = this.makeTaughtMove(moveId, moveDef);
+    return oldMoveName;
+  }
+
+  promptTeachMoveReplacement(mon, moveId, moveDef, itemKey, itemData) {
+    this.printToLog(`${mon.species} is trying to learn ${moveDef.name}...`);
+    this.printToLog(`But ${mon.species} can only know 4 moves!`);
+
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center;">Select a move to forget:</p>';
+    controls.innerHTML = '';
+
+    mon.moves.forEach((currentMove, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Forget ${currentMove.name}`;
+      btn.onclick = () => {
+        const oldMoveName = this.applyTeachReplacement(mon, index, moveId, moveDef);
+        this.printToLog(`1, 2, and... Poof! ${mon.species} forgot ${oldMoveName} and learned ${moveDef.name}!`);
+        this.updatePartyUI();
+        this.game.openBag();
+      };
+      content.appendChild(btn);
+    });
+
+    this.buildMenuControls(controls, [
+      {
+        text: "Don't Teach",
+        action: () => {
+          this.printToLog(`${mon.species} gave up on learning ${moveDef.name}.`);
+          this.openTeachMenu(itemKey, itemData);
+        }
+      }
+    ]);
   }
 
   // MOVED FROM APP.JS

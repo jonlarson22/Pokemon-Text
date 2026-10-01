@@ -30,7 +30,8 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
       aquaRing: false, identified: false, mudSport: false, waterSport: false,
       perish: 0, yawn: false, curse: false, destinyBond: false,
       focusEnergy: false, disabled: null, torment: false, taunt: 0,
-      encore: null, imprison: null, grudge: false, snatch: false
+      encore: null, imprison: null, grudge: false, snatch: false,
+      bide: null
     };
   }
 
@@ -54,6 +55,9 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
       this.onLog(`${target.species} endured the hit!`);
     }
     target.hp = Math.max(0, target.hp - dmg);
+    if (target.vol && target.vol.bide) {
+      target.vol.bide.damage += dmg;
+    }
     if (target.hp <= 0) {
       if (target.vol.destinyBond) {
         target.vol.destinyBond = false;
@@ -226,6 +230,24 @@ executeTurn(playerMove) {
         this.onLog(`${mon.species} is paralyzed! It can't move!`);
         return false;
       }
+    }
+    if (mon.vol.bide) {
+      const b = mon.vol.bide;
+      b.turns--;
+      const foe = mon === this.playerMon ? this.enemyMon : this.playerMon;
+      if (b.turns <= 0) {
+        mon.vol.bide = null;
+        this.onLog(`${mon.species} unleashed energy!`);
+        if (foe && foe.hp > 0) {
+          const dealt = this.dealDamage(foe, b.damage * 2, mon);
+          this.onLog(`${foe.species} took ${dealt} damage! (${foe.hp}/${foe.maxHp} HP)`);
+        } else {
+          this.onLog(`But there was no target!`);
+        }
+        return false;
+      }
+      this.onLog(`${mon.species} is storing energy!`);
+      return false;
     }
     return true;
   }
@@ -542,6 +564,15 @@ executeTurn(playerMove) {
       return;
     }
 
+    if (move.powerScale === "psywave") {
+      const psyDmg = 1 + Math.floor(Math.random() * Math.max(1, Math.floor(attacker.level * 1.5)));
+      const dealtPsy = this.dealDamage(defender, psyDmg, attacker);
+      defender.lastHit = { damage: dealtPsy, category: move.category };
+      this.onLog(`A wave of psychic energy hit ${defender.species}!`);
+      this.onLog(`${defender.species} took ${dealtPsy} damage! (${defender.hp}/${defender.maxHp} HP)`);
+      return;
+    }
+
     if (move.category === "status" || (move.power === 0 && !move.powerScale)) {
       const effects = move.effect ? (Array.isArray(move.effect) ? move.effect : [move.effect]) : [];
       if (effects.length === 0) {
@@ -575,6 +606,9 @@ executeTurn(playerMove) {
           target.sleepTurns = 2;
           target.status = "SLP";
           this.onLog(`${target.species} fell asleep and recovered all its HP!`);
+        } else if (effect.type === "bide") {
+          target.vol.bide = { turns: 2, damage: 0 };
+          this.onLog(`${target.species} is storing energy!`);
         } else if (effect.type === "protect") {
           target.vol.protecting = true;
           this.onLog(`${target.species} protected itself!`);

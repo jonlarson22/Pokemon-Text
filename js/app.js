@@ -373,10 +373,32 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
 
     this.ui.printToLog("--- Bag Contents ---");
 
+    // TMs & HMs live behind one submenu button (sorted by number inside),
+    // so 90+ machines don't flood the bag.
+    const machineEntries = [];
+    inventoryEntries.forEach(([itemKey, count]) => {
+      if (count > 0) {
+        const itemData = this.db.items[itemKey];
+        if (itemData && (itemData.category === "tm" || itemData.category === "hm")) {
+          machineEntries.push([itemKey, count]);
+        }
+      }
+    });
+
+    if (machineEntries.length > 0) {
+      const total = machineEntries.reduce((n, [, c]) => n + c, 0);
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `TMs & HMs (x${total})`;
+      btn.onclick = () => this.ui.openMachineMenu(machineEntries);
+      content.appendChild(btn);
+    }
+
     inventoryEntries.forEach(([itemKey, count]) => {
       if (count > 0) {
         const itemData = this.db.items[itemKey];
         if (!itemData) return;
+        if (itemData.category === "tm" || itemData.category === "hm") return;
 
         const btn = document.createElement('button');
         btn.className = 'btn';
