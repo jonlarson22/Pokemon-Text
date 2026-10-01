@@ -1285,17 +1285,32 @@
   "price": 0,
   "description": "A rod for fishing up water-dwelling Pokémon."
  },
- "ss_ticket": {
-  "name": "S.S. Ticket",
-  "category": "key",
-  "price": 0,
-  "description": "A ticket for boarding the luxury liner S.S. Anne."
- },
  "safari_ball": {
   "name": "Safari Ball",
   "category": "catch",
   "catchRate": 1.5,
   "price": 0,
   "description": "A special Ball used only in the Safari Zone."
+ },
+ "rare_candy": {
+  "name": "Rare Candy",
+  "category": "candy",
+  "effect": {
+   "type": "level_up"
+  },
+  "price": 4800,
+  "description": "A candy that raises the level of a Pokémon by one."
+ },
+ "nugget": {
+  "name": "Nugget",
+  "category": "treasure",
+  "price": 5000,
+  "description": "A nugget of pure gold. Sell it for a high price."
+ },
+ "bike": {
+  "name": "Bicycle",
+  "category": "key",
+  "price": 0,
+  "description": "A folding bicycle that lets you move around much faster."
  }
 }
