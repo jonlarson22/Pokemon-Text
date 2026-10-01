@@ -30,7 +30,7 @@ constructor(playerMon, enemyParty, onLog, onVictory, onBlackout, onForceSwitch, 
       aquaRing: false, identified: false, mudSport: false, waterSport: false,
       perish: 0, yawn: false, curse: false, destinyBond: false,
       focusEnergy: false, disabled: null, torment: false, taunt: 0,
-      encore: null, imprison: null, grudge: false
+      encore: null, imprison: null, grudge: false, snatch: false
     };
   }
 
@@ -142,32 +142,30 @@ executeTurn(playerMove) {
     }
 
     // Normal Turn Execution (No item was used)
-    const playerSpd = this.getModifiedStat(this.playerMon, 'speed');
-    const enemySpd = this.getModifiedStat(this.enemyMon, 'speed');
-    const playerFirst = playerSpd >= enemySpd;
+    // Priority brackets go first, then speed, then a coin flip (canon order).
+    const actions = [
+      { mon: this.playerMon, foe: this.enemyMon, move: playerMove, isPlayer: true },
+      { mon: this.enemyMon, foe: this.playerMon, move: this.getRandomEnemyMove(), isPlayer: false },
+    ];
+    actions.sort((a, b) => {
+      const pa = a.move.priority || 0, pb = b.move.priority || 0;
+      if (pb !== pa) return pb - pa;
+      const sa = this.getModifiedStat(a.mon, 'speed'), sb = this.getModifiedStat(b.mon, 'speed');
+      if (sb !== sa) return sb - sa;
+      return Math.random() < 0.5 ? -1 : 1;
+    });
 
-    const firstAttacker = playerFirst ? this.playerMon : this.enemyMon;
-    const firstDefender = playerFirst ? this.enemyMon : this.playerMon;
-    const firstMove = playerFirst ? playerMove : this.getRandomEnemyMove();
-
-    const secondAttacker = playerFirst ? this.enemyMon : this.playerMon;
-    const secondDefender = playerFirst ? this.playerMon : this.enemyMon;
-    const secondMove = playerFirst ? this.getRandomEnemyMove() : playerMove;
-
-    if (this.canMove(firstAttacker)) {
-      this.processAction(firstAttacker, firstDefender, firstMove, playerFirst);
+    for (const act of actions) {
+      if (this.canMove(act.mon)) {
+        this.processAction(act.mon, act.foe, act.move, act.isPlayer);
+      }
+      if (this.checkWinLoss()) return;
     }
+
+    this.applyEndOfTurnEffects(this.playerMon, this.enemyMon);
     if (this.checkWinLoss()) return;
 
-    if (this.canMove(secondAttacker)) {
-      this.processAction(secondAttacker, secondDefender, secondMove, !playerFirst);
-    }
-    if (this.checkWinLoss()) return;
-
-    this.applyEndOfTurnEffects(firstAttacker, firstDefender);
-    if (this.checkWinLoss()) return;
-    
-    this.applyEndOfTurnEffects(secondAttacker, firstAttacker);
+    this.applyEndOfTurnEffects(this.enemyMon, this.playerMon);
     if (this.checkWinLoss()) return;
 
     this.tickWeather();
@@ -317,6 +315,7 @@ executeTurn(playerMove) {
     }
     mon.vol.protecting = false;
     mon.vol.endure = false;
+    mon.vol.snatch = false;
   }
 
   tickWeather() {
@@ -417,6 +416,18 @@ executeTurn(playerMove) {
       return false;
     }
   
+  // Move types Snatch can steal: self-targeting boosts, heals and screens.
+  // (Snatch itself is not stealable, which also bounds the redirect below.)
+  isSnatchable(move) {
+    if (!move || move.category !== "status") return false;
+    const stealable = new Set(["stat", "heal", "rest", "protect", "endure",
+      "reflect", "light_screen", "mist", "safeguard", "aqua_ring",
+      "focus_energy", "belly_drum", "refresh", "aromatherapy"]);
+    const effects = move.effect ? (Array.isArray(move.effect) ? move.effect : [move.effect]) : [];
+    return effects.length > 0 &&
+      effects.every(e => e.target === "self" && stealable.has(e.type));
+  }
+
   processAction(attacker, defender, move, isPlayer) {
     if (attacker.hp <= 0) return;
 
@@ -427,6 +438,16 @@ executeTurn(playerMove) {
     if (defender.vol.protecting) {
       defender.vol.protecting = false;
       this.onLog(`${defender.species} protected itself!`);
+      return;
+    }
+
+    // Snatch: steal a snatchable self-targeting move. The snatch user becomes
+    // the beneficiary, so re-run the move with the roles swapped and the
+    // self-targeted effects land on the stealer instead of the foe.
+    if (defender.vol.snatch && this.isSnatchable(move)) {
+      defender.vol.snatch = false;
+      this.onLog(`${defender.species} snatched ${move.name}!`);
+      this.processAction(defender, attacker, move, !isPlayer);
       return;
     }
 
@@ -560,6 +581,9 @@ executeTurn(playerMove) {
         } else if (effect.type === "endure") {
           target.vol.endure = true;
           this.onLog(`${target.species} braced itself!`);
+        } else if (effect.type === "snatch") {
+          target.vol.snatch = true;
+          this.onLog(`${target.species} is waiting to snatch the foe's move!`);
         } else if (effect.type === "lock_on") {
           target.vol.lockOn = true;
           this.onLog(`${target.species} took aim at ${defender.species}!`);
@@ -744,6 +768,12 @@ executeTurn(playerMove) {
       power = [10, 30, 50, 70, 90, 110, 150][Math.floor(Math.random() * 7)];
     } else if (move.powerScale === "lowkick") {
       power = 60;
+    } else if (move.powerScale === "return") {
+      const f = attacker.friendship ?? 70;
+      power = Math.min(102, Math.max(1, Math.floor(f / 2.5)));
+    } else if (move.powerScale === "frustration") {
+      const f = attacker.friendship ?? 70;
+      power = Math.min(102, Math.max(1, Math.floor((255 - f) / 2.5)));
     }
 
     const isCrit = Math.random() < (attacker.vol.focusEnergy ? 0.25 : 0.0625);
@@ -883,6 +913,8 @@ executeTurn(playerMove) {
 
     if (this.playerMon.hp <= 0) {
       this.onLog(`${this.playerMon.species} fainted!`);
+      // Fainting strains the bond: -2 friendship (floor 0).
+      this.playerMon.friendship = Math.max(0, (this.playerMon.friendship ?? 70) - 2);
       const hasHealthyMon = this.party.some(mon => mon.hp > 0);
       
       if (hasHealthyMon) {
