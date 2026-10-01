@@ -537,7 +537,8 @@
   "power": 0,
   "accuracy": 100,
   "pp": 20,
-  "counter": "physical"
+  "counter": "physical",
+  "priority": -5
  },
  "crabhammer": {
   "name": "Crabhammer",
@@ -626,7 +627,8 @@
   "effect": {
    "type": "protect",
    "target": "self"
-  }
+  },
+  "priority": 3
  },
  "dig": {
   "name": "Dig",
@@ -856,7 +858,8 @@
   "effect": {
    "type": "endure",
    "target": "self"
-  }
+  },
+  "priority": 3
  },
  "explosion": {
   "name": "Explosion",
@@ -1074,7 +1077,8 @@
   "category": "physical",
   "power": 150,
   "accuracy": 100,
-  "pp": 20
+  "pp": 20,
+  "priority": -3
  },
  "foresight": {
   "name": "Foresight",
@@ -1092,10 +1096,10 @@
   "name": "Frustration",
   "type": "Normal",
   "category": "physical",
-  "power": 1,
+  "power": 0,
   "accuracy": 100,
   "pp": 20,
-  "_note": "no friendship system: fixed at min-friendship power"
+  "powerScale": "frustration"
  },
  "fury_attack": {
   "name": "Fury Attack",
@@ -1280,14 +1284,6 @@
    "chance": 10,
    "target": "enemy"
   }
- },
- "helping_hand": {
-  "name": "Helping Hand",
-  "type": "Normal",
-  "category": "status",
-  "power": 0,
-  "accuracy": null,
-  "pp": 20
  },
  "hidden_power": {
   "name": "Hidden Power",
@@ -1580,7 +1576,8 @@
   "category": "physical",
   "power": 40,
   "accuracy": 100,
-  "pp": 30
+  "pp": 30,
+  "priority": 1
  },
  "magnitude": {
   "name": "Magnitude",
@@ -1739,7 +1736,8 @@
   "power": 0,
   "accuracy": 100,
   "pp": 20,
-  "counter": "special"
+  "counter": "special",
+  "priority": -5
  },
  "mirror_move": {
   "name": "Mirror Move",
@@ -1969,7 +1967,8 @@
   "effect": {
    "type": "protect",
    "target": "self"
-  }
+  },
+  "priority": 3
  },
  "psybeam": {
   "name": "Psybeam",
@@ -2025,7 +2024,8 @@
   "category": "physical",
   "power": 40,
   "accuracy": 100,
-  "pp": 30
+  "pp": 30,
+  "priority": 1
  },
  "rage": {
   "name": "Rage",
@@ -2124,10 +2124,10 @@
   "name": "Return",
   "type": "Normal",
   "category": "physical",
-  "power": 102,
+  "power": 0,
   "accuracy": 100,
   "pp": 20,
-  "_note": "no friendship system: fixed at max-friendship power"
+  "powerScale": "return"
  },
  "revenge": {
   "name": "Revenge",
@@ -2135,7 +2135,8 @@
   "category": "physical",
   "power": 60,
   "accuracy": 100,
-  "pp": 10
+  "pp": 10,
+  "priority": -4
  },
  "reversal": {
   "name": "Reversal",
@@ -2156,7 +2157,8 @@
   "effect": {
    "type": "force_flee",
    "target": "enemy"
-  }
+  },
+  "priority": -1
  },
  "rock_blast": {
   "name": "Rock Blast",
@@ -2578,7 +2580,12 @@
   "category": "status",
   "power": 0,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "effect": {
+   "type": "snatch",
+   "target": "self"
+  },
+  "priority": 4
  },
  "snore": {
   "name": "Snore",
@@ -3085,14 +3092,6 @@
    "target": "enemy"
   }
  },
- "trick": {
-  "name": "Trick",
-  "type": "Psychic",
-  "category": "status",
-  "power": 0,
-  "accuracy": 100,
-  "pp": 10
- },
  "twineedle": {
   "name": "Twineedle",
   "type": "Bug",
@@ -3145,7 +3144,8 @@
   "category": "physical",
   "power": 70,
   "accuracy": null,
-  "pp": 10
+  "pp": 10,
+  "priority": -1
  },
  "water_gun": {
   "name": "Water Gun",
@@ -3198,7 +3198,8 @@
   "effect": {
    "type": "force_flee",
    "target": "enemy"
-  }
+  },
+  "priority": -1
  },
  "will_o_wisp": {
   "name": "Will O Wisp",
