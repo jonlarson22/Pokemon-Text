@@ -101,7 +101,10 @@ export class PokemonFactory {
       
       // NEW: Apply accurate EXP values
       exp: startExp,
-      maxExp: nextExp
+      maxExp: nextExp,
+      // Bond with the trainer: 0-255, starts at 70 (gen 3 default).
+      // Powers Return/Frustration; +5 per level-up, -2 per faint.
+      friendship: 70
     };
   }
 
