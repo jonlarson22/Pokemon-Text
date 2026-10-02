@@ -69,9 +69,15 @@ export class InteractionManager {
 
   givePokemon(pokemonId, level) {
     const mon = this.game.factory.generatePokemonInstance(pokemonId, level);
-    this.game.gameState.party.push(mon);
+    if (this.game.gameState.party.length < 6) {
+      this.game.gameState.party.push(mon);
+      this.game.ui.printToLog(`Received ${mon.species} (Lv.${level})!`);
+    } else {
+      if (!this.game.gameState.pc) this.game.gameState.pc = [];
+      this.game.gameState.pc.push(mon);
+      this.game.ui.printToLog(`Received ${mon.species} (Lv.${level})! Sent to the PC.`);
+    }
     this.game.ui.updatePartyUI();
-    this.game.ui.printToLog(`Received ${mon.species} (Lv.${level})!`);
   }
 
   grantRewards(rewards) {

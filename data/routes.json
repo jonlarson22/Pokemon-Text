@@ -2762,9 +2762,10 @@
    "pokemon_tower_3f": {
     "required_flags": [
      "defeated_tower_channeler_1",
-     "defeated_tower_channeler_2"
+     "defeated_tower_channeler_2",
+     "defeated_tower_rival"
     ],
-    "blocked_message": "Two Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
+    "blocked_message": "Two Channelers bar the stairs, deep in séance... and your RIVAL leans against the wall, waiting. (Defeat the Channelers and your rival to pass.)"
    }
   },
   "encounters": {
@@ -2969,6 +2970,13 @@
      "guard_let_pass"
     ],
     "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   },
+   "underground_path": {
+    "required_flags": [
+     "defeated_route7_youngster_1",
+     "defeated_route7_lass_1"
+    ],
+    "blocked_message": "Two trainers are sparring in front of the tunnel stairs! (Defeat them to pass.)"
    }
   },
   "encounters": {
@@ -3046,6 +3054,12 @@
      "guard_let_pass"
     ],
     "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   },
+   "underground_path": {
+    "required_flags": [
+     "defeated_route8_lass_1"
+    ],
+    "blocked_message": "A Lass is picnicking right on the tunnel stairs and won't budge! (Defeat her to pass.)"
    }
   },
   "encounters": {
