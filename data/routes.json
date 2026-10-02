@@ -704,7 +704,8 @@
   "description": "A deeper, darker subterranean level where rare fossils and Team Rocket lurk.",
   "connections": [
    "mt_moon_1f",
-   "route4"
+   "route4",
+   "mt_moon_b2f"
   ],
   "gate_requirements": {
    "route4": {
@@ -767,21 +768,6 @@
     "type": "item",
     "weight": 8,
     "item": "moon_stone"
-   },
-   {
-    "type": "item",
-    "weight": 6,
-    "item": "tm01"
-   },
-   {
-    "type": "item",
-    "weight": 6,
-    "item": "hp_up"
-   },
-   {
-    "type": "item",
-    "weight": 5,
-    "item": "ether"
    }
   ],
   "noFly": true,
@@ -1720,18 +1706,6 @@
      "min_level": 15,
      "max_level": 15,
      "weight": 15
-    },
-    {
-     "species": "Horsea",
-     "min_level": 15,
-     "max_level": 15,
-     "weight": 2.5
-    },
-    {
-     "species": "Staryu",
-     "min_level": 15,
-     "max_level": 15,
-     "weight": 2.5
     }
    ]
   },
@@ -2013,18 +1987,6 @@
      "min_level": 15,
      "max_level": 15,
      "weight": 15
-    },
-    {
-     "species": "Horsea",
-     "min_level": 15,
-     "max_level": 15,
-     "weight": 2.5
-    },
-    {
-     "species": "Staryu",
-     "min_level": 15,
-     "max_level": 15,
-     "weight": 2.5
     }
    ]
   },
@@ -4504,7 +4466,15 @@
     "type": "nothing",
     "weight": 60
    }
-  ]
+  ],
+  "gate_requirements": {
+   "route19": {
+    "required_flags": [
+     "soul_badge"
+    ],
+    "blocked_message": "The open sea is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+   }
+  }
  },
  "fuchsia_city_gym": {
   "name": "Fuchsia City Gym",
@@ -4995,5 +4965,533 @@
     "weight": 100
    }
   ]
+ },
+ "mt_moon_b2f": {
+  "name": "Mt. Moon - B2F",
+  "description": "The deepest level of Mt. Moon. Few trainers venture this far down, but rare items glitter in the dark.",
+  "connections": [
+   "mt_moon_b1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 8,
+     "max_level": 12,
+     "weight": 75
+    },
+    {
+     "species": "Geodude",
+     "min_level": 9,
+     "max_level": 12,
+     "weight": 18
+    },
+    {
+     "species": "Paras",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 5
+    },
+    {
+     "species": "Clefairy",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 2
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "tm01"
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "hp_up"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "ether"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "moon_stone"
+   }
+  ],
+  "noFly": true,
+  "npcs": []
+ },
+ "route19": {
+  "name": "Route 19",
+  "description": "A sparkling sea route running south from Fuchsia City to the Seafoam Islands. Swimmers and Beauties train in these waters.",
+  "connections": [
+   "fuchsia_city",
+   "seafoam_1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 15,
+     "max_level": 30,
+     "weight": 35
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "swimmer_kyler",
+   "swimmer_spencer",
+   "swimmer_tucker",
+   "swimmer_reese",
+   "swimmer_david",
+   "swimmer_douglas",
+   "swimmer_axle",
+   "beauty_alice",
+   "beauty_anya",
+   "beauty_connie"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": []
+ },
+ "route20": {
+  "name": "Route 20",
+  "description": "The eastern sea route, running from the Seafoam Islands toward Cinnabar Island. Strong currents and stronger trainers.",
+  "connections": [
+   "seafoam_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 15,
+     "max_level": 30,
+     "weight": 35
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "swimmer_dean",
+   "swimmer_barry",
+   "beauty_victoria",
+   "beauty_sheila"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": []
+ },
+ "seafoam_1f": {
+  "name": "Seafoam Islands - 1F",
+  "description": "The windswept entrance of the Seafoam Islands caverns. The cries of Zubat echo off the walls.",
+  "connections": [
+   "route19",
+   "seafoam_2f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 60
+    },
+    {
+     "species": "Golbat",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 40
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 50
+   }
+  ],
+  "noFly": true,
+  "npcs": []
+ },
+ "seafoam_2f": {
+  "name": "Seafoam Islands - B1F",
+  "description": "Deeper into the islands, underground pools dot the cavern floor. Something valuable glints in the dark.",
+  "connections": [
+   "seafoam_1f",
+   "seafoam_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 30
+    },
+    {
+     "species": "Golbat",
+     "min_level": 32,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 20
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 15
+    },
+    {
+     "species": "Seel",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 15
+    },
+    {
+     "species": "Shellder",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "Seel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 20
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Shellder",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Horsea",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Krabby",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Staryu",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Dewgong",
+     "min_level": 33,
+     "max_level": 37,
+     "weight": 3
+    },
+    {
+     "species": "Seadra",
+     "min_level": 33,
+     "max_level": 37,
+     "weight": 3
+    },
+    {
+     "species": "Kingler",
+     "min_level": 33,
+     "max_level": 37,
+     "weight": 2
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 3
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "max_elixir"
+   }
+  ],
+  "noFly": true,
+  "npcs": []
+ },
+ "seafoam_3f": {
+  "name": "Seafoam Islands - B2F",
+  "description": "The bottom of the Seafoam Islands. An unnatural chill hangs in the air, and frost creeps across the stone...",
+  "connections": [
+   "seafoam_2f",
+   "route20"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Golbat",
+     "min_level": 33,
+     "max_level": 36,
+     "weight": 25
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 25
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 25
+    },
+    {
+     "species": "Seel",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 25
+    }
+   ],
+   "water": [
+    {
+     "species": "Seel",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 18
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 15
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 15
+    },
+    {
+     "species": "Shellder",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Horsea",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Krabby",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Staryu",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Dewgong",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 4
+    },
+    {
+     "species": "Seadra",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 4
+    },
+    {
+     "species": "Kingler",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 2
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 2
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 25
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "static_encounter",
+    "weight": 25,
+    "species": "articuno",
+    "level": 50,
+    "intro": "A legendary bird of ice regards you with piercing eyes... ARTICUNO!"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "ultra_ball"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "water_stone"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_revive"
+   }
+  ],
+  "noFly": true,
+  "npcs": []
  }
 }

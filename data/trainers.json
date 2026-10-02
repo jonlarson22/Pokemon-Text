@@ -5460,5 +5460,295 @@
     "level": 39
    }
   ]
+ },
+ "swimmer_kyler": {
+  "name": "Kyler",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 29
+   },
+   {
+    "species": "horsea",
+    "level": 29
+   },
+   {
+    "species": "staryu",
+    "level": 29
+   }
+  ]
+ },
+ "swimmer_spencer": {
+  "name": "Spencer",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 30
+   },
+   {
+    "species": "shellder",
+    "level": 30
+   }
+  ]
+ },
+ "swimmer_tucker": {
+  "name": "Tucker",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 30
+   },
+   {
+    "species": "horsea",
+    "level": 30
+   }
+  ]
+ },
+ "swimmer_reese": {
+  "name": "Reese",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 30
+   },
+   {
+    "species": "poliwhirl",
+    "level": 30
+   }
+  ]
+ },
+ "swimmer_david": {
+  "name": "David",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 27
+   },
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "goldeen",
+    "level": 27
+   }
+  ]
+ },
+ "swimmer_douglas": {
+  "name": "Douglas",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 29
+   },
+   {
+    "species": "shellder",
+    "level": 29
+   },
+   {
+    "species": "seaking",
+    "level": 29
+   }
+  ]
+ },
+ "swimmer_axle": {
+  "name": "Axle",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "staryu",
+    "level": 27
+   },
+   {
+    "species": "horsea",
+    "level": 27
+   },
+   {
+    "species": "tentacruel",
+    "level": 27
+   }
+  ]
+ },
+ "beauty_alice": {
+  "name": "Alice",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 30
+   },
+   {
+    "species": "seaking",
+    "level": 30
+   }
+  ]
+ },
+ "beauty_anya": {
+  "name": "Anya",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1512,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 27
+   },
+   {
+    "species": "goldeen",
+    "level": 27
+   },
+   {
+    "species": "seaking",
+    "level": 27
+   },
+   {
+    "species": "goldeen",
+    "level": 27
+   },
+   {
+    "species": "poliwag",
+    "level": 27
+   }
+  ]
+ },
+ "beauty_connie": {
+  "name": "Connie",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1624,
+  "party": [
+   {
+    "species": "staryu",
+    "level": 29
+   },
+   {
+    "species": "staryu",
+    "level": 29
+   },
+   {
+    "species": "staryu",
+    "level": 29
+   }
+  ]
+ },
+ "swimmer_dean": {
+  "name": "Dean",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 620,
+  "party": [
+   {
+    "species": "shellder",
+    "level": 31
+   },
+   {
+    "species": "cloyster",
+    "level": 31
+   }
+  ]
+ },
+ "swimmer_barry": {
+  "name": "Barry",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 28
+   },
+   {
+    "species": "horsea",
+    "level": 28
+   },
+   {
+    "species": "seadra",
+    "level": 28
+   },
+   {
+    "species": "horsea",
+    "level": 28
+   }
+  ]
+ },
+ "beauty_victoria": {
+  "name": "Victoria",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "seadra",
+    "level": 30
+   },
+   {
+    "species": "horsea",
+    "level": 30
+   },
+   {
+    "species": "seadra",
+    "level": 30
+   }
+  ]
+ },
+ "beauty_sheila": {
+  "name": "Sheila",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1960,
+  "party": [
+   {
+    "species": "seaking",
+    "level": 35
+   }
+  ]
  }
 }
