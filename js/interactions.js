@@ -117,9 +117,22 @@ export class InteractionManager {
   }
 
   // --- In-game trades (RBY-faithful: received mon matches traded mon's level) ---
+  // Dynamic placeholders (missing_starter_a/b): the two starters the player
+  // did not pick, derived from the rival's starter.
+  resolveTradeSpecies(give) {
+    give = (give || '').toLowerCase();
+    if (give === 'missing_starter_a' || give === 'missing_starter_b') {
+      const reverseMap = { 'charmander': 'bulbasaur', 'squirtle': 'charmander', 'bulbasaur': 'squirtle' };
+      const playerStarter = reverseMap[(this.game.gameState.rivalStarter || 'charmander').toLowerCase()];
+      const missing = ['bulbasaur', 'charmander', 'squirtle'].filter(s => s !== playerStarter);
+      return give === 'missing_starter_a' ? missing[0] : missing[1];
+    }
+    return give;
+  }
+
   offerTrade(npcId, npc) {
     const want = (npc.trade.want || '').toLowerCase();
-    const give = (npc.trade.give || '').toLowerCase();
+    const give = this.resolveTradeSpecies(npc.trade.give);
     const party = this.game.gameState.party || [];
     const idx = party.findIndex(mon => (mon.species || '').toLowerCase() === want);
     if (idx < 0) {
@@ -149,9 +162,10 @@ export class InteractionManager {
       this.game.ui.printToLog("You can't trade away your last Pokémon!");
       return;
     }
+    const giveSpecies = this.resolveTradeSpecies(give);
     const traded = party.splice(idx, 1)[0];
     this.game.ui.printToLog(`You traded your ${traded.species} (Lv.${traded.level})!`);
-    this.givePokemon(give, traded.level);
+    this.givePokemon(giveSpecies, traded.level);
     if (npc.once_flag) this.setFlag(npc.once_flag);
     if (npc.remove_after_claim) this.removeNPCFromRoute(npcId);
   }

@@ -910,36 +910,80 @@
  "koga_gym": {
   "name": "Koga",
   "title": "Gym Leader",
-  "dialogueBefore": "Aiiieee! You have come to challenge me? Very well. I shall show you the true power of poison!",
-  "dialogueAfter": "Ah! You have proven your worth! Take the Soul Badge!",
-  "rewardMoney": 3900,
+  "dialogueBefore": "[DRAFT] I am Koga, master of the Fuchsia Gym! My ninja techniques will poison your every move! Fwahahaha!",
+  "dialogueAfter": "[DRAFT] Ah! You have proven your worth! Take the Soul Badge -- and TM06, containing TOXIC. You have earned them, ninja!",
+  "rewardMoney": 4300,
   "party": [
    {
     "species": "koffing",
     "level": 37,
     "moves": [
-     "tackle"
+     {
+      "moveId": "tackle"
+     },
+     {
+      "moveId": "smokescreen"
+     },
+     {
+      "moveId": "sludge"
+     },
+     {
+      "moveId": "smog"
+     }
+    ]
+   },
+   {
+    "species": "koffing",
+    "level": 37,
+    "moves": [
+     {
+      "moveId": "tackle"
+     },
+     {
+      "moveId": "sludge"
+     },
+     {
+      "moveId": "smog"
+     },
+     {
+      "moveId": "smokescreen"
+     }
     ]
    },
    {
     "species": "muk",
     "level": 39,
     "moves": [
-     "poison_sting"
-    ]
-   },
-   {
-    "species": "koffing",
-    "level": 37,
-    "moves": [
-     "tackle"
+     {
+      "moveId": "disable"
+     },
+     {
+      "moveId": "poison_gas"
+     },
+     {
+      "moveId": "minimize"
+     },
+     {
+      "moveId": "sludge"
+     }
     ]
    },
    {
     "species": "weezing",
     "level": 43,
     "moves": [
-     "tackle"
+     {
+      "moveId": "sludge"
+     },
+     {
+      "moveId": "smog"
+     },
+     {
+      "moveId": "toxic"
+     },
+     {
+      "moveId": "self_destruct"
+     }
     ]
    }
   ],
@@ -952,13 +996,17 @@
     "type": "item",
     "id": "tm06",
     "qty": 1
+   },
+   {
+    "type": "item",
+    "id": "hm03",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_hm03"
    }
-  ],
-  "items": [
-   "full_heal",
-   "full_restore"
-  ],
-  "clearsRouteTrainers": true
+  ]
  },
  "psychic_johan": {
   "name": "Johan",
@@ -5252,6 +5300,116 @@
   "party": [
    {
     "species": "dodrio",
+    "level": 34
+   }
+  ]
+ },
+ "fuchsia_juggler_1": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1190,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 34
+   },
+   {
+    "species": "kadabra",
+    "level": 34
+   }
+  ]
+ },
+ "fuchsia_juggler_2": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1330,
+  "party": [
+   {
+    "species": "hypno",
+    "level": 38
+   }
+  ]
+ },
+ "fuchsia_juggler_3": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1085,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 31
+   },
+   {
+    "species": "drowzee",
+    "level": 31
+   },
+   {
+    "species": "kadabra",
+    "level": 31
+   },
+   {
+    "species": "drowzee",
+    "level": 31
+   }
+  ]
+ },
+ "fuchsia_tamer_1": {
+  "name": "Tamer",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1320,
+  "party": [
+   {
+    "species": "arbok",
+    "level": 33
+   },
+   {
+    "species": "sandslash",
+    "level": 33
+   },
+   {
+    "species": "arbok",
+    "level": 33
+   }
+  ]
+ },
+ "fuchsia_tamer_2": {
+  "name": "Tamer",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1360,
+  "party": [
+   {
+    "species": "sandslash",
+    "level": 34
+   },
+   {
+    "species": "arbok",
+    "level": 34
+   }
+  ]
+ },
+ "fuchsia_juggler_4": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1190,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 34
+   },
+   {
+    "species": "hypno",
     "level": 34
    }
   ]

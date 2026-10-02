@@ -4461,5 +4461,100 @@
     "weight": 100
    }
   ]
+ },
+ "fuchsia_city": {
+  "name": "Fuchsia City",
+  "description": "A quiet city in southern Kanto, famous for the Safari Zone and Koga's ninja gym. The Warden's house sits to the east.",
+  "isTown": true,
+  "connections": [
+   "route15",
+   "route18",
+   "route19",
+   "fuchsia_city_gym",
+   "fuchsia_warden_house",
+   "safari_zone_center"
+  ],
+  "hasShop": true,
+  "npcs": [
+   "fuchsia_townsperson_1",
+   "fuchsia_townsperson_2"
+  ],
+  "trainers": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "rare_candy",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "fuchsia_city_gym": {
+  "name": "Fuchsia City Gym",
+  "description": "Koga's gym: a disorienting maze of invisible walls. Ninja trainers lurk behind every barrier.",
+  "isTown": false,
+  "connections": [
+   "fuchsia_city"
+  ],
+  "npcs": [],
+  "trainers": [
+   "fuchsia_juggler_1",
+   "fuchsia_juggler_2",
+   "fuchsia_juggler_3",
+   "fuchsia_tamer_1",
+   "fuchsia_tamer_2",
+   "fuchsia_juggler_4",
+   "koga_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "fuchsia_warden_house": {
+  "name": "Warden's House",
+  "description": "The home of the Safari Zone Warden. He seems distressed about something.",
+  "isTown": false,
+  "connections": [
+   "fuchsia_city"
+  ],
+  "npcs": [
+   "fuchsia_warden"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "safari_zone_center": {
+  "name": "Safari Zone Gate",
+  "description": "The entrance building of Kanto's famous Safari Zone. The exhibits are still being prepared.",
+  "isTown": false,
+  "connections": [
+   "fuchsia_city"
+  ],
+  "npcs": [
+   "safari_attendant"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
  }
 }
