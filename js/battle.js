@@ -1320,6 +1320,7 @@ export class BattleManager {
   }
 
   safariThrowBall() {
+    if (this.game.gameState.catchAnimating) return; // ball mid-shake: input locked
     const sb = this._safariState();
     if (!sb) return;
     if ((this.game.gameState.safariBalls || 0) <= 0) {
@@ -1331,6 +1332,7 @@ export class BattleManager {
   }
 
   safariThrowBait() {
+    if (this.game.gameState.catchAnimating) return; // ball mid-shake: input locked
     const sb = this._safariState();
     if (!sb) return;
     sb.eating = 2 + Math.floor(Math.random() * 3); // 2-4 turns
@@ -1340,6 +1342,7 @@ export class BattleManager {
   }
 
   safariThrowRock() {
+    if (this.game.gameState.catchAnimating) return; // ball mid-shake: input locked
     const sb = this._safariState();
     if (!sb) return;
     sb.angry = 2 + Math.floor(Math.random() * 3); // 2-4 turns
@@ -1349,6 +1352,7 @@ export class BattleManager {
   }
 
   safariRun() {
+    if (this.game.gameState.catchAnimating) return; // ball mid-shake: input locked
     const sb = this._safariState();
     if (!sb) return;
     this.game.ui.printToLog("Got away safely!");
@@ -1435,6 +1439,7 @@ startTrainerBattle(enemyParty, trainer, winFlag = null) {
   }
 
     handleTurn(playerMove, batonTarget = null) {
+    if (this.game.gameState.catchAnimating) return; // ball mid-shake: input locked
     if (!this.game.gameState.activeBattle) return;
 
     const battle = this.game.gameState.activeBattle;
@@ -1635,11 +1640,14 @@ handleBattleEnd() {
     const isWiped = this.game.gameState.party.every(p => p.hp <= 0);
     if (isWiped) {
       this.game.ui.printToLog("You hurried away to protect your Pokemon from further harm.");
-      this.game.gameState.money = Math.min(Math.floor(this.game.gameState.money / 2), 5000);
+      // Cap the blackout LOSS (not the remaining money) at 5000.
+      const loss = Math.min(Math.floor(this.game.gameState.money / 2), 5000);
+      this.game.gameState.money -= loss;
       this.game.gameState.currentRoute = this.game.gameState.lastHealedLocation || "pallet_town";
       
       this.game.gameState.party.forEach(p => {
         p.hp = p.maxHp;
+        p.status = null;
         if (p.moves) p.moves.forEach(m => { if (m.maxPp !== undefined) m.pp = m.maxPp; });
       });
       

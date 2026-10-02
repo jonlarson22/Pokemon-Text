@@ -351,6 +351,7 @@ challengeGymLeader(gymId) {
         { text: "Heal Party", action: () => {
           this.engine.gameState.party.forEach(p => {
             p.hp = p.maxHp;
+            p.status = null;
             if (p.moves) {
               p.moves.forEach(m => {
                 if (m.maxPp !== undefined) m.pp = m.maxPp;

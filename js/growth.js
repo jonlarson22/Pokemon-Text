@@ -165,11 +165,14 @@ export class GrowthEngine {
       const alreadyKnows = mon.moves.some(m => m.name === moveData.name);
       if (alreadyKnows) return;
 
+      // Clone the db entry: battle decrements move.pp, so handing out the
+      // shared object would corrupt the global move database for every mon.
+      const learned = { ...moveData, maxPp: moveData.pp, pp: moveData.pp };
       if (mon.moves.length < 4) {
-        mon.moves.push(moveData);
+        mon.moves.push(learned);
         this.game.ui.printToLog(`${mon.species} learned ${moveData.name}!`);
       } else {
-        this.promptMoveReplacement(mon, moveData);
+        this.promptMoveReplacement(mon, learned);
       }
     });
   }

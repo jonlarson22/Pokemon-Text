@@ -81,16 +81,24 @@ export class CaptureSystem {
   }
 
   _runShakes(enemy, speciesData, catchProbability, onSuccess, onFail) {
+    // Lock out battle/safari input while the ball is shaking. Without this,
+    // delayed shake callbacks can fire after the player has acted (attacked,
+    // run, or thrown bait), catching a fled/KO'd mon or double-advancing state.
+    this.app.gameState.catchAnimating = true;
+    const done = (fn) => {
+      this.app.gameState.catchAnimating = false;
+      fn();
+    };
     let shakes = 0;
     const checkShake = () => {
       if (shakes < 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
         shakes++;
-        this.app.ui.printToLog("The ball shook...");
+        this.app.ui.printToLog("Shake...");
         setTimeout(checkShake, 500);
       } else if (shakes === 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
-        onSuccess();
+        done(onSuccess);
       } else {
-        onFail();
+        done(onFail);
       }
     };
 

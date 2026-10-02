@@ -391,6 +391,7 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
         });
     
     document.getElementById('btn-run')?.addEventListener('click', () => {
+      if (this.gameState.catchAnimating) return; // ball mid-shake: input locked
       if (this.gameState.activeTrainer) {
         this.ui.printToLog("You can't run from a trainer battle!");
         return;
@@ -408,6 +409,7 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
   }
     
   openBag() {
+    if (this.gameState.catchAnimating) return; // ball mid-shake: input locked
     const inventoryEntries = Object.entries(this.gameState.inventory);
     
     if (inventoryEntries.length === 0 || inventoryEntries.every(([_, count]) => count <= 0)) {

@@ -163,8 +163,8 @@ renderRouteScreen() {
   
     // UPDATED METHOD: Builds the dynamic travel list based on visited towns
     handleFlyAction() {
-      // Note: Make sure 'can_fly' matches the flag you actually set in your DB/Game!
-      if (!this.game.hasFlag('can_fly')) {
+      // Field use of Fly is unlocked by obtaining HM02 (Route 16).
+      if (!this.game.hasFlag('obtained_hm02')) {
          this.printToLog("You don't have the HM Fly yet!");
          return;
       }
@@ -444,7 +444,7 @@ renderRouteScreen() {
       } else {
         this.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
       }
-    } else if (item.category === "healing") {
+    } else if (item.category === "healing" || item.category === "revival" || item.category === "status") {
       this.openPartyTargetScreen(itemKey, item);
     } else if (item.effect && item.effect.type === "awaken_sleeping_pokemon") {
       this.usePokeFlute(itemKey, item);
@@ -723,18 +723,51 @@ renderRouteScreen() {
     });
   }
 
+  // --- Healing / revival / status items -------------------------------------
+  // Returns true if the item had an effect (and applies it). Prints the result
+  // or "It won't have any effect." and returns false when nothing happens --
+  // in which case the item is NOT consumed.
+  applyHealingEffect(target, itemData) {
+    const effect = itemData.effect || {};
+    const type = effect.type;
+    const STATUS_MAP = { poison: 'PSN', burn: 'BRN', freeze: 'FRZ', sleep: 'SLP', paralysis: 'PAR' };
+
+    if (type === 'heal' || type === 'heal_and_cure') {
+      if (target.hp <= 0) { this.printToLog("It won't have any effect."); return false; }
+      const fullHp = target.hp >= target.maxHp;
+      if (fullHp && type === 'heal') { this.printToLog("It won't have any effect."); return false; }
+      if (fullHp && !target.status) { this.printToLog("It won't have any effect."); return false; }
+      const amount = effect.value === 'max' ? target.maxHp : effect.value;
+      target.hp = Math.min(target.maxHp, target.hp + amount);
+      if (type === 'heal_and_cure') target.status = null;
+      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
+      return true;
+    }
+    if (type === 'revive') {
+      if (target.hp > 0) { this.printToLog("It won't have any effect."); return false; }
+      target.hp = effect.value === 'max' ? target.maxHp : Math.floor(target.maxHp / 2);
+      target.status = null;
+      this.printToLog(`You used a ${itemData.name}! ${target.species} was revived!`);
+      return true;
+    }
+    if (type === 'cure_status') {
+      const want = effect.status;
+      if (!target.status || (want !== 'all' && target.status !== STATUS_MAP[want])) {
+        this.printToLog("It won't have any effect."); return false;
+      }
+      this.printToLog(`You used a ${itemData.name}! ${target.species} was cured!`);
+      target.status = null;
+      return true;
+    }
+    return false;
+  }
+
   // MOVED FROM APP.JS
   applyItemToPokemon(itemKey, itemData, partyIndex) {
     const target = this.game.gameState.party[partyIndex];
 
-    if (itemData.effect.type === "heal") { 
-      if (target.hp >= target.maxHp) {
-        this.printToLog("It won't have any effect.");
-        return; 
-      }
-      const amount = itemData.effect.value === "max" ? target.maxHp : itemData.effect.value;
-      target.hp = Math.min(target.maxHp, target.hp + amount); 
-      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
+    if (!this.applyHealingEffect(target, itemData)) {
+      return;
     }
 
     this.game.gameState.inventory[itemKey]--;
