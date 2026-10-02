@@ -65,7 +65,8 @@
   "npcs": [
    "oak_pallet",
    "pallet_kid",
-   "pallet_elder"
+   "pallet_elder",
+   "oak_pallet_dex"
   ],
   "explore_table": [
    {
@@ -566,7 +567,8 @@
   },
   "trainers": [],
   "npcs": [
-   "pewter_museum_scientist"
+   "pewter_museum_scientist",
+   "pewter_museum_clerk"
   ],
   "explore_table": [
    {
@@ -1865,7 +1867,8 @@
     "weight": 15,
     "item": "stardust"
    }
-  ]
+  ],
+  "noFly": true
  },
  "ss_anne_deck": {
   "name": "S.S. Anne Deck",
@@ -1931,7 +1934,8 @@
     "weight": 10,
     "item": "ether"
    }
-  ]
+  ],
+  "noFly": true
  },
  "ss_anne_captain": {
   "name": "Captain's Cabin",
@@ -1954,7 +1958,8 @@
     "type": "nothing",
     "weight": 100
    }
-  ]
+  ],
+  "noFly": true
  },
  "vermilion_dock": {
   "name": "Vermilion City Dock",
@@ -2593,7 +2598,8 @@
     "type": "nothing",
     "weight": 100
    }
-  ]
+  ],
+  "noFly": true
  },
  "rock_tunnel_b1f": {
   "name": "Rock Tunnel B1F",
@@ -2656,7 +2662,8 @@
     "type": "nothing",
     "weight": 100
    }
-  ]
+  ],
+  "noFly": true
  },
  "lavender_town": {
   "name": "Lavender Town",
@@ -2716,7 +2723,8 @@
     "type": "nothing",
     "weight": 100
    }
-  ]
+  ],
+  "noFly": true
  },
  "pokemon_tower_2f": {
   "name": "Pokémon Tower 2F",
@@ -2788,7 +2796,8 @@
     "weight": 10,
     "item": "hp_up"
    }
-  ]
+  ],
+  "noFly": true
  },
  "pokemon_tower_3f": {
   "name": "Pokémon Tower 3F",
@@ -2866,7 +2875,8 @@
     "weight": 10,
     "item": "rare_candy"
    }
-  ]
+  ],
+  "noFly": true
  },
  "route7": {
   "name": "Route 7",
@@ -3079,7 +3089,8 @@
     "weight": 15,
     "item": "nugget"
    }
-  ]
+  ],
+  "noFly": true
  },
  "celadon_city": {
   "name": "Celadon City",
@@ -3164,7 +3175,8 @@
     "type": "nothing",
     "weight": 100
    }
-  ]
+  ],
+  "noFly": true
  },
  "celadon_mansion": {
   "name": "Celadon Mansion",
@@ -3186,7 +3198,8 @@
     "type": "nothing",
     "weight": 100
    }
-  ]
+  ],
+  "noFly": true
  },
  "celadon_city_gym": {
   "name": "Celadon City Gym",
@@ -3359,7 +3372,8 @@
     "type": "nothing",
     "weight": 59
    }
-  ]
+  ],
+  "noFly": true
  },
  "celadon_rocket_hideout_b2f": {
   "name": "Rocket Hideout B2F",
@@ -3424,7 +3438,8 @@
     "type": "nothing",
     "weight": 57
    }
-  ]
+  ],
+  "noFly": true
  },
  "celadon_rocket_hideout_office": {
   "name": "Giovanni's Office",
@@ -3449,7 +3464,8 @@
     "type": "nothing",
     "weight": 90
    }
-  ]
+  ],
+  "noFly": true
  },
  "saffron_city": {
   "name": "Saffron City",
@@ -4371,7 +4387,8 @@
     ],
     "blocked_message": "The open sea is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
    }
-  }
+  },
+  "hasCenter": true
  },
  "fuchsia_city_gym": {
   "name": "Fuchsia City Gym",
@@ -4456,7 +4473,8 @@
     ],
     "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
    }
-  }
+  },
+  "noFly": true
  },
  "safari_zone_east": {
   "name": "Safari Zone: East Area",
@@ -6052,7 +6070,8 @@
     "win_flag": "calmed_marowak",
     "intro": "The SILPH SCOPE reveals the ghost... a furious MAROWAK, mother of CUBONE! It attacks!"
    }
-  ]
+  ],
+  "noFly": true
  },
  "pokemon_tower_4f": {
   "name": "Pokemon Tower 4F",
@@ -6122,7 +6141,8 @@
     "weight": 11,
     "item": "pp_up"
    }
-  ]
+  ],
+  "noFly": true
  },
  "pokemon_tower_5f": {
   "name": "Pokemon Tower 5F",
@@ -6191,7 +6211,8 @@
     "weight": 11,
     "item": "elixir"
    }
-  ]
+  ],
+  "noFly": true
  },
  "silph_co_8f": {
   "name": "Silph Co. 8F",

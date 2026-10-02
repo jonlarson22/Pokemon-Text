@@ -275,34 +275,6 @@
   "dialogue_post_flag": "Urrp... Thank you for rubbing my back. You can use Cut outside of battle to clear small trees.",
   "once_flag": "received_hm01"
  },
- "cinnabar_lab_trade_seel": {
-  "name": "Super Nerd",
-  "dialogue_default": "I'm looking for a Ponyta. Want to trade it for my Seel?",
-  "requirements": [
-   {
-    "type": "pokemon_species",
-    "id": "ponyta"
-   }
-  ],
-  "rewards": [
-   {
-    "type": "pokemon",
-    "id": "seel",
-    "level": 35
-   },
-   {
-    "type": "pokemon_removal",
-    "species": "ponyta"
-   },
-   {
-    "type": "flag",
-    "id": "traded_ponyta_for_seel"
-   }
-  ],
-  "dialogue_req_unmet": "Hmm, that's not a Ponyta. Bring me one if you want to trade!",
-  "dialogue_post_flag": "Isn't my old Seel doing great?",
-  "once_flag": "traded_ponyta_for_seel"
- },
  "pewter_museum_clerk": {
   "name": "Museum Guide",
   "dialogue_default": "Welcome to the Pewter Museum of Science! Admission is ¥50. Would you like to enter?",
@@ -325,26 +297,6 @@
   "dialogue_req_unmet": "Oops, looks like you're short on cash. Admission is ¥50!",
   "dialogue_post_flag": "Enjoy looking at the fossils and space exhibit!",
   "once_flag": "pewter_museum_entered"
- },
- "victory_road_guard": {
-  "name": "League Guard",
-  "dialogue_default": "Only trainers who have proven themselves against all eight Gym Leaders can pass through to Victory Road.",
-  "requirements": [
-   {
-    "type": "flag_count",
-    "category": "gym_badges",
-    "qty": 8
-   }
-  ],
-  "rewards": [
-   {
-    "type": "flag",
-    "id": "victory_road_let_pass"
-   }
-  ],
-  "dialogue_req_unmet": "You don't have all eight Gym Badges yet! You need the Earth Badge and all the others to prove your strength.",
-  "dialogue_post_flag": "Ah, you possess all eight Badges! Go right ahead, and good luck at the Pokémon League!",
-  "once_flag": "victory_road_let_pass"
  },
  "oak_pallet_dex": {
   "name": "Prof. Oak",

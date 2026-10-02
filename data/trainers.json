@@ -37,11 +37,15 @@
   "rewardMoney": 70,
   "party": [
    {
-    "species": "Weedle",
+    "species": "weedle",
     "level": 7
    },
    {
-    "species": "Kakuna",
+    "species": "kakuna",
+    "level": 7
+   },
+   {
+    "species": "weedle",
     "level": 7
    }
   ]
@@ -60,23 +64,6 @@
    {
     "species": "pidgey",
     "level": 9
-   }
-  ]
- },
- "pewter_gym_camper_liam": {
-  "name": "Camper Liam",
-  "title": "Camper",
-  "dialogueBefore": "Stop right there! You're gonna have to get past me to challenge Brock!",
-  "dialogueAfter": "Darn! You're tougher than you look.",
-  "rewardMoney": 220,
-  "party": [
-   {
-    "species": "Diglett",
-    "level": 10
-   },
-   {
-    "species": "Sandshrew",
-    "level": 11
    }
   ]
  },
@@ -388,7 +375,7 @@
   "rewardMoney": 390,
   "party": [
    {
-    "species": "rattata",
+    "species": "ekans",
     "level": 13
    },
    {
@@ -412,11 +399,19 @@
   "rewardMoney": 455,
   "party": [
    {
-    "species": "machop",
+    "species": "geodude",
     "level": 13
    },
    {
     "species": "geodude",
+    "level": 13
+   },
+   {
+    "species": "geodude",
+    "level": 13
+   },
+   {
+    "species": "machop",
     "level": 13
    }
   ]
@@ -426,15 +421,15 @@
   "title": "Youngster",
   "dialogueBefore": "Bill's cottage is just ahead, but first... battle!",
   "dialogueAfter": "Aw, I wanted to show Bill my Pokémon!",
-  "rewardMoney": 180,
+  "rewardMoney": 225,
   "party": [
    {
     "species": "rattata",
-    "level": 12
+    "level": 15
    },
    {
     "species": "spearow",
-    "level": 12
+    "level": 15
    }
   ]
  },
@@ -443,15 +438,19 @@
   "title": "Lass",
   "dialogueBefore": "I came to see Bill, but I'll battle you instead!",
   "dialogueAfter": "You're way stronger than the rumors said!",
-  "rewardMoney": 210,
+  "rewardMoney": 195,
   "party": [
    {
     "species": "oddish",
     "level": 13
    },
    {
-    "species": "bellsprout",
-    "level": 14
+    "species": "pidgey",
+    "level": 13
+   },
+   {
+    "species": "oddish",
+    "level": 13
    }
   ]
  },
@@ -1138,7 +1137,7 @@
     "level": 34
    },
    {
-    "species": "charmeleon",
+    "species": "charmander",
     "level": 34
    },
    {
@@ -2346,15 +2345,15 @@
   "title": "Pokémaniac",
   "dialogueBefore": "[DRAFT] Something amazing sleeps inside the Power Plant!",
   "dialogueAfter": "[DRAFT] Not amazing enough, apparently.",
-  "rewardMoney": 1450,
+  "rewardMoney": 1500,
   "party": [
    {
     "species": "rhyhorn",
-    "level": 29
+    "level": 30
    },
    {
     "species": "lickitung",
-    "level": 29
+    "level": 30
    }
   ]
  },
