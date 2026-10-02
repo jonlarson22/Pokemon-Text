@@ -767,29 +767,62 @@
  "erika_gym": {
   "name": "Erika",
   "title": "Gym Leader",
-  "dialogueBefore": "Hello. My name is Erika. I am the Leader of the Celadon Gym. I am a student of the art of flower arranging. My Pokémon are all of the grass-type. Oh, I hope you will not be disappointed by my humble skills.",
-  "dialogueAfter": "Oh! I concede defeat. You are remarkably strong. I must confer on you the Rainbow Badge.",
+  "dialogueBefore": "[DRAFT] Ah, a challenger. I am Erika, the Nature-Loving Princess. Let my Grass Pokémon show you their beauty!",
+  "dialogueAfter": "[DRAFT] Oh! I concede defeat... You are truly a skilled trainer. Take the Rainbow Badge.",
   "rewardMoney": 2900,
   "party": [
    {
     "species": "victreebel",
     "level": 29,
     "moves": [
-     "vine_whip"
+     {
+      "moveId": "razor_leaf"
+     },
+     {
+      "moveId": "sleep_powder"
+     },
+     {
+      "moveId": "stun_spore"
+     },
+     {
+      "moveId": "acid"
+     }
     ]
    },
    {
     "species": "tangela",
     "level": 24,
     "moves": [
-     "vine_whip"
+     {
+      "moveId": "constrict"
+     },
+     {
+      "moveId": "bind"
+     },
+     {
+      "moveId": "mega_drain"
+     },
+     {
+      "moveId": "stun_spore"
+     }
     ]
    },
    {
     "species": "vileplume",
     "level": 29,
     "moves": [
-     "scratch"
+     {
+      "moveId": "petal_dance"
+     },
+     {
+      "moveId": "sleep_powder"
+     },
+     {
+      "moveId": "acid"
+     },
+     {
+      "moveId": "mega_drain"
+     }
     ]
    }
   ],
@@ -803,11 +836,7 @@
     "id": "tm21",
     "qty": 1
    }
-  ],
-  "items": [
-   "full_heal"
-  ],
-  "clearsRouteTrainers": true
+  ]
  },
  "tamer_phil": {
   "name": "Phil",
@@ -3377,6 +3406,133 @@
    {
     "species": "magnemite",
     "level": 20
+   }
+  ]
+ },
+ "celadon_lass_1": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] The flowers here bloom so beautifully!",
+  "dialogueAfter": "[DRAFT] Wilted...",
+  "rewardMoney": 345,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 23
+   },
+   {
+    "species": "weepinbell",
+    "level": 23
+   }
+  ]
+ },
+ "celadon_beauty_1": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Aren't my Pokémon simply gorgeous?",
+  "dialogueAfter": "[DRAFT] Gorgeous... and beaten...",
+  "rewardMoney": 1470,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 21
+   },
+   {
+    "species": "bellsprout",
+    "level": 21
+   },
+   {
+    "species": "oddish",
+    "level": 21
+   },
+   {
+    "species": "bellsprout",
+    "level": 21
+   }
+  ]
+ },
+ "celadon_beauty_2": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Beauty is power, darling!",
+  "dialogueAfter": "[DRAFT] Power... faded...",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 24
+   },
+   {
+    "species": "bellsprout",
+    "level": 24
+   }
+  ]
+ },
+ "celadon_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Erika taught me everything about Grass Pokémon!",
+  "dialogueAfter": "[DRAFT] I still have much to learn...",
+  "rewardMoney": 480,
+  "party": [
+   {
+    "species": "bulbasaur",
+    "level": 24
+   },
+   {
+    "species": "ivysaur",
+    "level": 24
+   }
+  ]
+ },
+ "celadon_beauty_3": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] My EXEGGCUTE never loses its charm!",
+  "dialogueAfter": "[DRAFT] Charm... cracked...",
+  "rewardMoney": 1820,
+  "party": [
+   {
+    "species": "exeggcute",
+    "level": 26
+   }
+  ]
+ },
+ "celadon_cooltrainer_1": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] I've mastered Grass types. Let's see if you have!",
+  "dialogueAfter": "[DRAFT] Mastered... almost...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "weepinbell",
+    "level": 24
+   },
+   {
+    "species": "gloom",
+    "level": 24
+   },
+   {
+    "species": "ivysaur",
+    "level": 24
+   }
+  ]
+ },
+ "celadon_lass_2": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] This gym smells like a garden, doesn't it?",
+  "dialogueAfter": "[DRAFT] A... thorny garden...",
+  "rewardMoney": 345,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 23
+   },
+   {
+    "species": "gloom",
+    "level": 23
    }
   ]
  }

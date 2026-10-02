@@ -3165,5 +3165,114 @@
     "item": "nugget"
    }
   ]
+ },
+ "celadon_city": {
+  "name": "Celadon City",
+  "description": "CELADON CITY — The City of Rainbow Dreams. Kanto's largest city: a towering department store, a fragrant gym, and more neon than anywhere else.",
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": false,
+  "connections": [
+   "route7",
+   "route16",
+   "celadon_dept_store",
+   "celadon_mansion",
+   "celadon_city_gym"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "celadon_tourist",
+   "celadon_gambler"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 85
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "pp_up",
+    "req_flag": "obtain_hm_01"
+   }
+  ]
+ },
+ "celadon_dept_store": {
+  "name": "Celadon Department Store",
+  "description": "Kanto's grandest shop, all condensed onto one bustling floor: TMs, stones, vitamins, and vending-machine drinks.",
+  "isTown": false,
+  "hasShop": true,
+  "connections": [
+   "celadon_city"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "celadon_clerk_tm18",
+   "celadon_clerk_2"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "celadon_mansion": {
+  "name": "Celadon Mansion",
+  "description": "A luxury condominium in northwest Celadon. Game Freak's offices fill the front; a quiet rooftop room sits out back.",
+  "isTown": false,
+  "connections": [
+   "celadon_city"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "celadon_mansion_eevee",
+   "celadon_mansion_freak"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "celadon_city_gym": {
+  "name": "Celadon City Gym",
+  "description": "A garden-like gym run by Erika, the Nature-Loving Princess. A maze of cuttable trees once guarded her (bring Cut for the full experience).",
+  "isTown": false,
+  "connections": [
+   "celadon_city"
+  ],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "celadon_lass_1",
+   "celadon_beauty_1",
+   "celadon_beauty_2",
+   "celadon_jr_trainer_1",
+   "celadon_beauty_3",
+   "celadon_cooltrainer_1",
+   "celadon_lass_2",
+   "erika_gym"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
  }
 }
