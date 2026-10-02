@@ -63,8 +63,14 @@ renderRouteScreen() {
     }
 
     if (shopBtn) {
-      shopBtn.style.display = route.hasShop ? "block" : "none";
-      shopBtn.onclick = () => this.game.facilities.openShop();
+      // A route can point its shop button at another route's shop (e.g.
+      // Celadon City -> the Department Store) with a custom label.
+      const shopId = route.shopId || (route.hasShop ? this.game.gameState.currentRoute : null);
+      shopBtn.style.display = shopId ? "block" : "none";
+      if (shopId) {
+        shopBtn.textContent = route.shopLabel || "Poké Mart";
+        shopBtn.onclick = () => this.game.facilities.openShop(shopId);
+      }
     }
 
     if (interactBtn) {

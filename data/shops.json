@@ -42,7 +42,43 @@
   "ice_heal",
   "paralyz_heal"
  ],
- "celadon_department_store": [
+ "saffron_city": [
+  "great_ball",
+  "hyper_potion",
+  "max_repel",
+  "escape_rope",
+  "full_heal",
+  "revive"
+ ],
+ "fuchsia_city": [
+  "ultra_ball",
+  "great_ball",
+  "super_potion",
+  "revive",
+  "full_heal",
+  "super_repel"
+ ],
+ "cinnabar_island": [
+  "ultra_ball",
+  "great_ball",
+  "hyper_potion",
+  "max_repel",
+  "escape_rope",
+  "full_heal",
+  "revive"
+ ],
+ "indigo_plateau": [
+  "ultra_ball",
+  "great_ball",
+  "hyper_potion",
+  "max_potion",
+  "full_restore",
+  "max_repel",
+  "escape_rope",
+  "full_heal",
+  "revive"
+ ],
+ "celadon_dept_store": [
   "great_ball",
   "super_potion",
   "revive",
@@ -84,41 +120,5 @@
   "fresh_water",
   "soda_pop",
   "lemonade"
- ],
- "saffron_city": [
-  "great_ball",
-  "hyper_potion",
-  "max_repel",
-  "escape_rope",
-  "full_heal",
-  "revive"
- ],
- "fuchsia_city": [
-  "ultra_ball",
-  "great_ball",
-  "super_potion",
-  "revive",
-  "full_heal",
-  "super_repel"
- ],
- "cinnabar_island": [
-  "ultra_ball",
-  "great_ball",
-  "hyper_potion",
-  "max_repel",
-  "escape_rope",
-  "full_heal",
-  "revive"
- ],
- "indigo_plateau": [
-  "ultra_ball",
-  "great_ball",
-  "hyper_potion",
-  "max_potion",
-  "full_restore",
-  "max_repel",
-  "escape_rope",
-  "full_heal",
-  "revive"
  ]
 }

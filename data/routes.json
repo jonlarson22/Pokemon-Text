@@ -3175,7 +3175,6 @@
   "connections": [
    "route7",
    "route16",
-   "celadon_dept_store",
    "celadon_mansion",
    "celadon_city_gym"
   ],
@@ -3198,7 +3197,9 @@
     "item": "pp_up",
     "req_flag": "obtain_hm_01"
    }
-  ]
+  ],
+  "shopId": "celadon_dept_store",
+  "shopLabel": "Department Store"
  },
  "celadon_dept_store": {
   "name": "Celadon Department Store",

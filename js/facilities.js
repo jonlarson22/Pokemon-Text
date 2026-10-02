@@ -40,18 +40,19 @@ challengeGymLeader(gymId) {
   }
 
   // --- POKÉ MART LOGIC ---
-  openShop() {
+  openShop(shopId = null) {
     this.engine.ui.setMenuState('dynamic');
-    this.renderBuyMenu();
+    this.renderBuyMenu(shopId);
   }
 
-  renderBuyMenu() {
+  renderBuyMenu(shopId = null) {
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = '';
     controls.innerHTML = '';
 
-    const shopItemKeys = this.engine.db.shops[this.engine.gameState.currentRoute];
+    const key = shopId || this.engine.gameState.currentRoute;
+    const shopItemKeys = this.engine.db.shops[key];
 
     if (!shopItemKeys) {
       this.engine.ui.printToLog("This shop is currently closed.");
@@ -59,7 +60,9 @@ challengeGymLeader(gymId) {
       return;
     }
 
-    this.engine.ui.printToLog("Welcome to the Poké Mart! What would you like to buy?");
+    const shopRoute = shopId ? this.engine.db.routes[shopId] : null;
+    const shopName = shopRoute ? shopRoute.name : "Poké Mart";
+    this.engine.ui.printToLog(`Welcome to the ${shopName}! What would you like to buy?`);
 
     shopItemKeys.forEach(itemKey => {
       const itemData = this.engine.db.items[itemKey];
