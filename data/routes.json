@@ -328,6 +328,9 @@
     "type": "encounter",
     "weight": 40
    }
+  ],
+  "npcs": [
+   "route2_trade_boy"
   ]
  },
  "viridian_forest": {
@@ -788,7 +791,8 @@
    }
   ],
   "npcs": [
-   "route4_hiker"
+   "route4_hiker",
+   "route4_magikarp_salesman"
   ]
  },
  "cerulean_city": {
@@ -857,7 +861,8 @@
    "cerulean_police_officer",
    "cerulean_swimmer",
    "cerulean_artist",
-   "cerulean_biker"
+   "cerulean_biker",
+   "cerulean_trade_elder"
   ],
   "explore_table": [
    {
@@ -1746,7 +1751,8 @@
    "vermilion_sailor",
    "vermilion_fisher",
    "vermilion_tourist",
-   "vermilion_dockworker"
+   "vermilion_dockworker",
+   "vermilion_trade_girl"
   ],
   "explore_table": [
    {
@@ -2324,7 +2330,8 @@
    }
   },
   "npcs": [
-   "snorlax_route11"
+   "snorlax_route11",
+   "route11_trade_man"
   ]
  },
  "route12": {
@@ -3149,7 +3156,9 @@
    "grass": []
   },
   "trainers": [],
-  "npcs": [],
+  "npcs": [
+   "underground_trade_girl"
+  ],
   "explore_table": [
    {
     "type": "nothing",
@@ -3909,7 +3918,14 @@
    "route12",
    "route14"
   ],
-  "gate_requirements": {},
+  "gate_requirements": {
+   "route14": {
+    "required_flags": [
+     "defeated_route13_biker_1"
+    ],
+    "blocked_message": "A Biker roars up on his motorcycle, blocking the west path! \"Toll's a battle, kid!\" (Defeat the Biker to continue west.)"
+   }
+  },
   "npcs": [
    "route13_picnicker"
   ],
@@ -4012,7 +4028,14 @@
    "route13",
    "route15"
   ],
-  "gate_requirements": {},
+  "gate_requirements": {
+   "route15": {
+    "required_flags": [
+     "defeated_route14_bird_keeper_5"
+    ],
+    "blocked_message": "A Bird Keeper and his Farfetch'd bar the southern trail! \"None shall pass the master of birds!\" (Defeat the Bird Keeper to continue south.)"
+   }
+  },
   "npcs": [
    "route14_bird_watcher"
   ],
@@ -4131,7 +4154,14 @@
    "route14",
    "fuchsia_city"
   ],
-  "gate_requirements": {},
+  "gate_requirements": {
+   "fuchsia_city": {
+    "required_flags": [
+     "defeated_route15_bird_keeper_1"
+    ],
+    "blocked_message": "A Bird Keeper's Dodrio blocks the road to Fuchsia City, kicking up dust! (Defeat the Bird Keeper to continue west.)"
+   }
+  },
   "npcs": [
    "route15_jogger"
   ],
@@ -4300,7 +4330,15 @@
    "route16",
    "route18"
   ],
-  "gate_requirements": {},
+  "gate_requirements": {
+   "route18": {
+    "required_flags": [
+     "defeated_route17_biker_2",
+     "defeated_route17_cue_ball_3"
+    ],
+    "blocked_message": "A Biker with a Muk and a Cue Ball with a Machoke block the bottom of the slope! \"The road toll is TWO battles!\" (Defeat them both to reach Route 18.)"
+   }
+  },
   "npcs": [
    "route17_biker_rest"
   ],
@@ -4371,10 +4409,17 @@
      "obtained_bike"
     ],
     "blocked_message": "The guard stops you. \"Cycling Road is bicycles only!\" (Obtain a Bicycle to enter.)"
+   },
+   "fuchsia_city": {
+    "required_flags": [
+     "defeated_route18_bird_keeper_3"
+    ],
+    "blocked_message": "A Bird Keeper's Dodrio stands sentinel before Fuchsia City! \"Not one step further!\" (Defeat the Bird Keeper to continue east.)"
    }
   },
   "npcs": [
-   "route18_guard"
+   "route18_guard",
+   "route18_trade_boy"
   ],
   "trainers": [
    "route18_bird_keeper_1",

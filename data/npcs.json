@@ -1024,5 +1024,83 @@
   "dialogue_default": "[DRAFT] Fuchsia City lies east, friend! Safari Zone, the gym... and watch out for the Bird Keepers in the fenced field. Nasty bunch!",
   "requirements": [],
   "rewards": []
+ },
+ "route2_trade_boy": {
+  "name": "Trade Boy",
+  "dialogue_default": "[DRAFT] Hey! I've got a Mr. Mime, but what I really want is an Abra! Trade with me?",
+  "dialogue_no_trade": "[DRAFT] No Abra? Bummer! Catch one on Routes 24 or 25 and come back!",
+  "dialogue_repeat": "[DRAFT] Mr. Mime is a star! Thanks again for the Abra!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "abra",
+   "give": "mr_mime"
+  },
+  "once_flag": "traded_mr_mime"
+ },
+ "underground_trade_girl": {
+  "name": "Trade Girl",
+  "dialogue_default": "[DRAFT] My Nidoran is lonely! Will you trade me your male Nidoran for my female one?",
+  "dialogue_no_trade": "[DRAFT] You don't have a male Nidoran in your party... hers is getting lonely!",
+  "dialogue_repeat": "[DRAFT] They're so happy together now! Thank you!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "nidoran_m",
+   "give": "nidoran_f"
+  },
+  "once_flag": "traded_nidoran_f"
+ },
+ "route11_trade_man": {
+  "name": "Trade Man",
+  "dialogue_default": "[DRAFT] I'm collecting! Trade me your Nidorino for my Nidorina?",
+  "dialogue_no_trade": "[DRAFT] No Nidorino? Come back when you've caught one!",
+  "dialogue_repeat": "[DRAFT] My collection grows! Thanks, kid!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "nidorino",
+   "give": "nidorina"
+  },
+  "once_flag": "traded_nidorina"
+ },
+ "route18_trade_boy": {
+  "name": "Trade Boy",
+  "dialogue_default": "[DRAFT] Psst! I'll trade you my rare Lickitung for your Slowbro! What do you say?",
+  "dialogue_no_trade": "[DRAFT] No Slowbro, no Lickitung! That's the deal!",
+  "dialogue_repeat": "[DRAFT] Lickitung's tongue is something else, huh? Enjoy!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "slowbro",
+   "give": "lickitung"
+  },
+  "once_flag": "traded_lickitung"
+ },
+ "cerulean_trade_elder": {
+  "name": "Lonely Elder",
+  "dialogue_default": "[DRAFT] My Jynx and I... we're so lonely. Would you trade your Poliwhirl for her? She needs a lively trainer!",
+  "dialogue_no_trade": "[DRAFT] Oh... you don't have a Poliwhirl with you. How lonely...",
+  "dialogue_repeat": "[DRAFT] Jynx, be good to your new trainer!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "poliwhirl",
+   "give": "jynx"
+  },
+  "once_flag": "traded_jynx"
+ },
+ "vermilion_trade_girl": {
+  "name": "Trade Girl",
+  "dialogue_default": "[DRAFT] I love Farfetch'd, but I want a Spearow instead! Trade with me?",
+  "dialogue_no_trade": "[DRAFT] No Spearow? Farfetch'd and I will wait right here!",
+  "dialogue_repeat": "[DRAFT] Farfetch'd, behave for your new trainer!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "spearow",
+   "give": "farfetchd"
+  },
+  "once_flag": "traded_farfetchd"
  }
 }

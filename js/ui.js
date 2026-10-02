@@ -23,8 +23,11 @@ export class UIManager {
 
     this.buildMenuControls(controls, [
       { text: choice.yes_label || "Yes", action: () => {
-          if (choice.flag) this.game.setFlag(choice.flag, true);
-          this.printToLog(choice.success || "Done.");
+          if (choice.onYes) { choice.onYes(); }
+          else {
+            if (choice.flag) this.game.setFlag(choice.flag, true);
+            this.printToLog(choice.success || "Done.");
+          }
           this.setMenuState('route');
       } },
       { text: choice.no_label || "No", action: () => {

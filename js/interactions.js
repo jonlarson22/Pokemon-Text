@@ -116,6 +116,46 @@ export class InteractionManager {
     this.game.gameState.removedNPCs[routeId] = list;
   }
 
+  // --- In-game trades (RBY-faithful: received mon matches traded mon's level) ---
+  offerTrade(npcId, npc) {
+    const want = (npc.trade.want || '').toLowerCase();
+    const give = (npc.trade.give || '').toLowerCase();
+    const party = this.game.gameState.party || [];
+    const idx = party.findIndex(mon => (mon.species || '').toLowerCase() === want);
+    if (idx < 0) {
+      this.game.ui.printToLog(npc.dialogue_no_trade ||
+        `You don't have a ${want} in your party to trade!`);
+      return;
+    }
+    const mon = party[idx];
+    this.game.ui.printToLog(npc.dialogue_default || `Trade your ${mon.species} for a ${give}?`);
+    this.game.ui.openChoiceMenu({
+      prompt: `Trade your Lv.${mon.level} ${mon.species} for a ${give}?`,
+      yes_label: "Trade",
+      no_label: "Cancel",
+      decline: "Maybe another time!",
+      onYes: () => this.completeTrade(npcId, npc, want, give),
+    });
+  }
+
+  completeTrade(npcId, npc, want, give) {
+    const party = this.game.gameState.party || [];
+    const idx = party.findIndex(mon => (mon.species || '').toLowerCase() === want);
+    if (idx < 0) {
+      this.game.ui.printToLog("The trade fell through...");
+      return;
+    }
+    if (party.length <= 1) {
+      this.game.ui.printToLog("You can't trade away your last Pokémon!");
+      return;
+    }
+    const traded = party.splice(idx, 1)[0];
+    this.game.ui.printToLog(`You traded your ${traded.species} (Lv.${traded.level})!`);
+    this.givePokemon(give, traded.level);
+    if (npc.once_flag) this.setFlag(npc.once_flag);
+    if (npc.remove_after_claim) this.removeNPCFromRoute(npcId);
+  }
+
   // --- Main Processing ---
   processNPC(npcId) {
     const npc = this.game.db.npcs[npcId];
@@ -134,6 +174,7 @@ export class InteractionManager {
       if (npc.action === 'buy_coins') { this.game.facilities.openCoinMenu(); return; }
       if (npc.action === 'open_shop') { this.game.facilities.openShop(npc.shop_id, npc.shop_name); return; }
       if (npc.action === 'play_slots') { this.game.facilities.openSlotMachine(); return; }
+      if (npc.trade) { this.offerTrade(npcId, npc); return; }
       this.grantRewards(npc.rewards);
       if (npc.once_flag) this.setFlag(npc.once_flag);
       if (npc.remove_after_claim) this.removeNPCFromRoute(npcId);
