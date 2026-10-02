@@ -17,7 +17,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "Hey! My bug Pokémon are tough. Care to see?",
   "dialogueAfter": "Aww, they just weren't strong enough!",
-  "rewardMoney": 160,
+  "rewardMoney": 60,
   "party": [
    {
     "species": "Weedle",
@@ -34,7 +34,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "You can't escape if you come into the forest!",
   "dialogueAfter": "You got me! Good strategy!",
-  "rewardMoney": 180,
+  "rewardMoney": 70,
   "party": [
    {
     "species": "Weedle",
@@ -51,7 +51,7 @@
   "title": "Lass",
   "dialogueBefore": "Excuse me! Don't be so impatient, let's battle!",
   "dialogueAfter": "Oh well! I'll just have to train harder.",
-  "rewardMoney": 240,
+  "rewardMoney": 135,
   "party": [
    {
     "species": "pidgey",
@@ -68,7 +68,7 @@
   "title": "Camper",
   "dialogueBefore": "Stop right there! You're gonna have to get past me to challenge Brock!",
   "dialogueAfter": "Darn! You're tougher than you look.",
-  "rewardMoney": 240,
+  "rewardMoney": 220,
   "party": [
    {
     "species": "Diglett",
@@ -140,7 +140,7 @@
   "title": "Swimmer",
   "dialogueBefore": "The water's fine... for my Pokémon, anyway!",
   "dialogueAfter": "Blub... blub... You swim better than I thought.",
-  "rewardMoney": 360,
+  "rewardMoney": 80,
   "party": [
    {
     "species": "horsea",
@@ -211,7 +211,7 @@
   "title": "Gentleman",
   "dialogueBefore": "A gentleman never backs down from an electrifying battle!",
   "dialogueAfter": "Quite shocking! Most stimulating, old chap!",
-  "rewardMoney": 1260,
+  "rewardMoney": 1610,
   "party": [
    {
     "species": "pikachu",
@@ -224,7 +224,7 @@
   "title": "Rocker",
   "dialogueBefore": "Time to turn the voltage up to eleven!",
   "dialogueAfter": "You blew my amp! ...I mean, my team!",
-  "rewardMoney": 840,
+  "rewardMoney": 500,
   "party": [
    {
     "species": "voltorb",
@@ -245,7 +245,7 @@
   "title": "Sailor",
   "dialogueBefore": "These electric-types have weathered every storm at sea!",
   "dialogueAfter": "Blown off course! You're a strong trainer!",
-  "rewardMoney": 880,
+  "rewardMoney": 630,
   "party": [
    {
     "species": "pikachu",
@@ -308,7 +308,7 @@
   "title": "Gym Leader",
   "dialogueBefore": "I am the leader here. You dare challenge me? You are a fool!",
   "dialogueAfter": "Ha! That was a truly intense fight. You have won! Take the Earth Badge!",
-  "rewardMoney": 5000,
+  "rewardMoney": 4950,
   "party": [
    {
     "species": "rhyhorn",
@@ -368,7 +368,7 @@
   "title": "Lass",
   "dialogueBefore": "Nugget Bridge is no place for the unprepared!",
   "dialogueAfter": "Okay, okay! You're prepared!",
-  "rewardMoney": 260,
+  "rewardMoney": 210,
   "party": [
    {
     "species": "pidgey",
@@ -385,7 +385,7 @@
   "title": "Team Rocket",
   "dialogueBefore": "Hey, kid! Want to join Team Rocket? ...No? Then battle me!",
   "dialogueAfter": "Tch! Fine, take this Nugget and get lost!",
-  "rewardMoney": 420,
+  "rewardMoney": 390,
   "party": [
    {
     "species": "rattata",
@@ -409,7 +409,7 @@
   "title": "Hiker",
   "dialogueBefore": "These trails forged my Pokémon into stone!",
   "dialogueAfter": "Rock solid effort, kid!",
-  "rewardMoney": 390,
+  "rewardMoney": 455,
   "party": [
    {
     "species": "machop",
@@ -426,7 +426,7 @@
   "title": "Youngster",
   "dialogueBefore": "Bill's cottage is just ahead, but first... battle!",
   "dialogueAfter": "Aw, I wanted to show Bill my Pokémon!",
-  "rewardMoney": 192,
+  "rewardMoney": 180,
   "party": [
    {
     "species": "rattata",
@@ -443,7 +443,7 @@
   "title": "Lass",
   "dialogueBefore": "I came to see Bill, but I'll battle you instead!",
   "dialogueAfter": "You're way stronger than the rumors said!",
-  "rewardMoney": 280,
+  "rewardMoney": 210,
   "party": [
    {
     "species": "oddish",
@@ -460,7 +460,7 @@
   "title": "Hiker",
   "dialogueBefore": "Careful in these caves, kid. Let me test your footing!",
   "dialogueAfter": "Steady... You're steadier than me!",
-  "rewardMoney": 330,
+  "rewardMoney": 350,
   "party": [
    {
     "species": "geodude",
@@ -481,7 +481,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "Cave bugs are the toughest bugs!",
   "dialogueAfter": "Even cave bugs have limits...",
-  "rewardMoney": 140,
+  "rewardMoney": 110,
   "party": [
    {
     "species": "weedle",
@@ -498,7 +498,7 @@
   "title": "Team Rocket",
   "dialogueBefore": "We're digging for fossils! Beat it, kid!",
   "dialogueAfter": "Our fossil scheme... ruined!",
-  "rewardMoney": 360,
+  "rewardMoney": 390,
   "party": [
    {
     "species": "rattata",
@@ -515,7 +515,7 @@
   "title": "Super Nerd",
   "dialogueBefore": "Halt! These fossils belong to Team Rocket!",
   "dialogueAfter": "Blast it all! The fossils!",
-  "rewardMoney": 264,
+  "rewardMoney": 300,
   "party": [
    {
     "species": "grimer",
@@ -536,7 +536,7 @@
   "title": "Pokémon Trainer",
   "dialogueBefore": "Hey! You're still struggling? Let me show you how a real trainer battles!",
   "dialogueAfter": "What?! I had a type advantage! ...This isn't over!",
-  "rewardMoney": 1800,
+  "rewardMoney": 1105,
   "party": [
    {
     "species": "pidgeotto",
@@ -561,7 +561,7 @@
   "title": "Lass",
   "dialogueBefore": "Erika's garden is the prettiest battlefield in Kanto!",
   "dialogueAfter": "Your battle style is beautiful too!",
-  "rewardMoney": 480,
+  "rewardMoney": 360,
   "party": [
    {
     "species": "oddish",
@@ -578,7 +578,7 @@
   "title": "Beauty",
   "dialogueBefore": "A lady never wilts, and neither do my Pokémon!",
   "dialogueAfter": "Oh, my! You plucked my winning streak!",
-  "rewardMoney": 1620,
+  "rewardMoney": 1820,
   "party": [
    {
     "species": "bellsprout",
@@ -591,7 +591,7 @@
   "title": "Picnicker",
   "dialogueBefore": "I had a picnic in Erika's garden once. Now I battle in it!",
   "dialogueAfter": "That was more fun than sandwiches!",
-  "rewardMoney": 520,
+  "rewardMoney": 500,
   "party": [
    {
     "species": "oddish",
@@ -608,7 +608,7 @@
   "title": "Lass",
   "dialogueBefore": "Grass Pokémon are gentle, but don't mistake gentle for weak!",
   "dialogueAfter": "Okay! Gentle can still lose!",
-  "rewardMoney": 500,
+  "rewardMoney": 375,
   "party": [
    {
     "species": "tangela",
@@ -621,7 +621,7 @@
   "title": "Beauty",
   "dialogueBefore": "Erika taught me that beauty blooms brightest in battle!",
   "dialogueAfter": "Wilted... like a flower in winter.",
-  "rewardMoney": 1680,
+  "rewardMoney": 1890,
   "party": [
    {
     "species": "gloom",
@@ -634,7 +634,7 @@
   "title": "Cooltrainer",
   "dialogueBefore": "I've trained in every garden in Kanto. This one is the toughest.",
   "dialogueAfter": "Even the toughest garden has weeds. Like me, apparently.",
-  "rewardMoney": 1080,
+  "rewardMoney": 910,
   "party": [
    {
     "species": "weepinbell",
@@ -651,7 +651,7 @@
   "title": "Beauty",
   "dialogueBefore": "One last petal stands between you and Erika: me!",
   "dialogueAfter": "You plucked me too! Erika won't be so easy!",
-  "rewardMoney": 1740,
+  "rewardMoney": 1890,
   "party": [
    {
     "species": "vileplume",
@@ -664,7 +664,7 @@
   "title": "Gym Leader",
   "dialogueBefore": "[DRAFT] Ah, a challenger. I am Erika, the Nature-Loving Princess. Let my Grass Pokémon show you their beauty!",
   "dialogueAfter": "[DRAFT] Oh! I concede defeat... You are truly a skilled trainer. Take the Rainbow Badge.",
-  "rewardMoney": 2900,
+  "rewardMoney": 2871,
   "party": [
    {
     "species": "victreebel",
@@ -765,7 +765,7 @@
   "title": "Juggler",
   "dialogueBefore": "Watch closely! My Pokémon disappear... into battle!",
   "dialogueAfter": "Now you see them, now you don't... I lost!",
-  "rewardMoney": 1560,
+  "rewardMoney": 1295,
   "party": [
    {
     "species": "koffing",
@@ -782,7 +782,7 @@
   "title": "Juggler",
   "dialogueBefore": "A juggler never drops a Pokémon! Or a battle!",
   "dialogueAfter": "Dropped it! I dropped the battle!",
-  "rewardMoney": 1520,
+  "rewardMoney": 1330,
   "party": [
    {
     "species": "koffing",
@@ -795,7 +795,7 @@
   "title": "Juggler",
   "dialogueBefore": "Koga's final test is me! And I'm no joke!",
   "dialogueAfter": "The joke's on me!",
-  "rewardMoney": 1600,
+  "rewardMoney": 1365,
   "party": [
    {
     "species": "weezing",
@@ -808,7 +808,7 @@
   "title": "Gym Leader",
   "dialogueBefore": "[DRAFT] I am Koga, master of the Fuchsia Gym! My ninja techniques will poison your every move! Fwahahaha!",
   "dialogueAfter": "[DRAFT] Ah! You have proven your worth! Take the Soul Badge -- and TM06, containing TOXIC. You have earned them, ninja!",
-  "rewardMoney": 4300,
+  "rewardMoney": 4257,
   "party": [
    {
     "species": "koffing",
@@ -905,7 +905,7 @@
   "title": "Psychic",
   "dialogueBefore": "I foresaw your arrival. I also foresaw my victory.",
   "dialogueAfter": "My vision... was cloudy!",
-  "rewardMoney": 720,
+  "rewardMoney": 360,
   "party": [
    {
     "species": "kadabra",
@@ -918,7 +918,7 @@
   "title": "Channeler",
   "dialogueBefore": "The spirits whisper that you will lose!",
   "dialogueAfter": "The spirits lied to me!",
-  "rewardMoney": 760,
+  "rewardMoney": 1110,
   "party": [
    {
     "species": "haunter",
@@ -931,7 +931,7 @@
   "title": "Psychic",
   "dialogueBefore": "Sabrina's mind is as sharp as her Pokémon's.",
   "dialogueAfter": "You shattered my concentration!",
-  "rewardMoney": 740,
+  "rewardMoney": 370,
   "party": [
    {
     "species": "slowbro",
@@ -944,7 +944,7 @@
   "title": "Channeler",
   "dialogueBefore": "I channel the power of the unseen world!",
   "dialogueAfter": "The unseen world has abandoned me!",
-  "rewardMoney": 780,
+  "rewardMoney": 1140,
   "party": [
    {
     "species": "haunter",
@@ -957,7 +957,7 @@
   "title": "Psychic",
   "dialogueBefore": "Your thoughts betray you. You fear my power.",
   "dialogueAfter": "Impossible! You thought of nothing but victory!",
-  "rewardMoney": 760,
+  "rewardMoney": 380,
   "party": [
    {
     "species": "kadabra",
@@ -970,7 +970,7 @@
   "title": "Channeler",
   "dialogueBefore": "One step closer to Sabrina. One step closer to defeat!",
   "dialogueAfter": "The spirits acknowledge your strength.",
-  "rewardMoney": 800,
+  "rewardMoney": 1170,
   "party": [
    {
     "species": "gengar",
@@ -983,7 +983,7 @@
   "title": "Psychic",
   "dialogueBefore": "I am Sabrina's final shield. You shall not pass!",
   "dialogueAfter": "My mind... is blank. You win.",
-  "rewardMoney": 820,
+  "rewardMoney": 390,
   "party": [
    {
     "species": "alakazam",
@@ -996,7 +996,7 @@
   "title": "Gym Leader",
   "dialogueBefore": "[DRAFT] I am Sabrina, Saffron's Gym Leader! My psychic power is unmatched. Prepare to have your mind read... and your team crushed!",
   "dialogueAfter": "[DRAFT] I... lost? My visions never showed this! Take the Marsh Badge. You have a remarkable mind, trainer.",
-  "rewardMoney": 4300,
+  "rewardMoney": 4257,
   "party": [
    {
     "species": "kadabra",
@@ -1269,7 +1269,7 @@
   "title": "Blackbelt",
   "dialogueBefore": "Our karate blows will crush you!",
   "dialogueAfter": "Your spirit is stronger than my fists!",
-  "rewardMoney": 990,
+  "rewardMoney": 750,
   "party": [
    {
     "species": "hitmonlee",
@@ -1282,7 +1282,7 @@
   "title": "Blackbelt",
   "dialogueBefore": "Hi-yah! Taste my chop attack!",
   "dialogueAfter": "Chopped down!",
-  "rewardMoney": 960,
+  "rewardMoney": 750,
   "party": [
    {
     "species": "hitmonchan",
@@ -1295,7 +1295,7 @@
   "title": "Blackbelt",
   "dialogueBefore": "The dojo's honor rests on my shoulders!",
   "dialogueAfter": "The dojo's honor... dented!",
-  "rewardMoney": 1020,
+  "rewardMoney": 775,
   "party": [
    {
     "species": "hitmonlee",
@@ -1308,7 +1308,7 @@
   "title": "Karate Master",
   "dialogueBefore": "Yo! I am the Karate Master! I am the leader of this dojo! You dare challenge me?",
   "dialogueAfter": "Wah! You are strong! Choose one of the fighting Pokémon as your prize!",
-  "rewardMoney": 1500,
+  "rewardMoney": 825,
   "party": [
    {
     "species": "hitmonlee",
@@ -1337,7 +1337,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "My Bug Pokémon are the best! Let me show you!",
   "dialogueAfter": "My bugs... defeated?",
-  "rewardMoney": 168,
+  "rewardMoney": 100,
   "party": [
    {
     "species": "caterpie",
@@ -1358,7 +1358,7 @@
   "title": "Youngster",
   "dialogueBefore": "I'm going to be the greatest trainer ever!",
   "dialogueAfter": "You're pretty strong, I guess!",
-  "rewardMoney": 192,
+  "rewardMoney": 165,
   "party": [
    {
     "species": "rattata",
@@ -1375,7 +1375,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "Bugs are so cool, don't you think?",
   "dialogueAfter": "Aw, my beautiful bugs...",
-  "rewardMoney": 180,
+  "rewardMoney": 90,
   "party": [
    {
     "species": "weedle",
@@ -1400,7 +1400,7 @@
   "title": "Youngster",
   "dialogueBefore": "My Spearow is super fast! You can't hit it!",
   "dialogueAfter": "Too fast for me, I guess.",
-  "rewardMoney": 200,
+  "rewardMoney": 210,
   "party": [
    {
     "species": "spearow",
@@ -1413,7 +1413,7 @@
   "title": "Lass",
   "dialogueBefore": "Want to see my cute Pokémon?",
   "dialogueAfter": "They're still cute even though we lost!",
-  "rewardMoney": 260,
+  "rewardMoney": 150,
   "party": [
    {
     "species": "rattata",
@@ -1430,7 +1430,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "Check out my well-raised Bug Pokémon!",
   "dialogueAfter": "My training wasn't enough...",
-  "rewardMoney": 176,
+  "rewardMoney": 110,
   "party": [
    {
     "species": "caterpie",
@@ -1447,7 +1447,7 @@
   "title": "Lass",
   "dialogueBefore": "My Jigglypuff's song will put you right to sleep!",
   "dialogueAfter": "You stayed awake?!",
-  "rewardMoney": 280,
+  "rewardMoney": 210,
   "party": [
    {
     "species": "jigglypuff",
@@ -1460,7 +1460,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "I'm the toughest Bug Catcher in this forest!",
   "dialogueAfter": "You're tougher...",
-  "rewardMoney": 140,
+  "rewardMoney": 90,
   "party": [
    {
     "species": "weedle",
@@ -1473,7 +1473,7 @@
   "title": "Lass",
   "dialogueBefore": "Isn't my Clefairy just adorable?",
   "dialogueAfter": "Adorable and strong would be better...",
-  "rewardMoney": 300,
+  "rewardMoney": 210,
   "party": [
    {
     "species": "clefairy",
@@ -1486,7 +1486,7 @@
   "title": "Super Nerd",
   "dialogueBefore": "My Electric Pokémon will shock you!",
   "dialogueAfter": "My calculations were wrong!",
-  "rewardMoney": 880,
+  "rewardMoney": 275,
   "party": [
    {
     "species": "magnemite",
@@ -1503,7 +1503,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "Bug Pokémon thrive in caves too!",
   "dialogueAfter": "Even in a cave, I lose...",
-  "rewardMoney": 168,
+  "rewardMoney": 100,
   "party": [
    {
     "species": "caterpie",
@@ -1524,7 +1524,7 @@
   "title": "Team Rocket",
   "dialogueBefore": "Team Rocket is after the Moon Stone!",
   "dialogueAfter": "Blast it all!",
-  "rewardMoney": 420,
+  "rewardMoney": 360,
   "party": [
    {
     "species": "zubat",
@@ -1554,7 +1554,7 @@
   "title": "Team Rocket",
   "dialogueBefore": "This cave belongs to Team Rocket!",
   "dialogueAfter": "Tch! Blast it all!",
-  "rewardMoney": 420,
+  "rewardMoney": 330,
   "party": [
    {
     "species": "sandshrew",
@@ -1575,7 +1575,7 @@
   "title": "Lass",
   "dialogueBefore": "I'm looking for a Moon Stone too!",
   "dialogueAfter": "Did you find one?",
-  "rewardMoney": 280,
+  "rewardMoney": 165,
   "party": [
    {
     "species": "oddish",
@@ -1592,7 +1592,7 @@
   "title": "Youngster",
   "dialogueBefore": "I got lost in this cave!",
   "dialogueAfter": "Can you show me the way out?",
-  "rewardMoney": 192,
+  "rewardMoney": 150,
   "party": [
    {
     "species": "rattata",
@@ -1613,7 +1613,7 @@
   "title": "Lass",
   "dialogueBefore": "My Pokémon and I are the best pair!",
   "dialogueAfter": "We need more training!",
-  "rewardMoney": 300,
+  "rewardMoney": 240,
   "party": [
    {
     "species": "pidgey",
@@ -1630,7 +1630,7 @@
   "title": "Camper",
   "dialogueBefore": "I caught this Mankey in the forest!",
   "dialogueAfter": "Mankey, we lost...",
-  "rewardMoney": 260,
+  "rewardMoney": 360,
   "party": [
    {
     "species": "mankey",
@@ -1643,7 +1643,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "Have you seen my friend Elijah?",
   "dialogueAfter": "Elijah's bugs are stronger...",
-  "rewardMoney": 200,
+  "rewardMoney": 160,
   "party": [
    {
     "species": "weedle",
@@ -1664,7 +1664,7 @@
   "title": "Picnicker",
   "dialogueBefore": "Pikachu is so cute, isn't it?",
   "dialogueAfter": "Cute isn't everything...",
-  "rewardMoney": 420,
+  "rewardMoney": 320,
   "party": [
    {
     "species": "rattata",
@@ -1681,7 +1681,7 @@
   "title": "Picnicker",
   "dialogueBefore": "My Pidgeys fly in formation!",
   "dialogueAfter": "Our formation broke...",
-  "rewardMoney": 480,
+  "rewardMoney": 320,
   "party": [
    {
     "species": "pidgey",
@@ -1702,7 +1702,7 @@
   "title": "Camper",
   "dialogueBefore": "I train by camping out here!",
   "dialogueAfter": "Back to training!",
-  "rewardMoney": 260,
+  "rewardMoney": 320,
   "party": [
    {
     "species": "spearow",
@@ -1719,7 +1719,7 @@
   "title": "Bug Catcher",
   "dialogueBefore": "This bridge is the perfect place to show off my Bug Pokémon!",
   "dialogueAfter": "My bugs weren't strong enough...",
-  "rewardMoney": 196,
+  "rewardMoney": 140,
   "party": [
    {
     "species": "caterpie",
@@ -1736,7 +1736,7 @@
   "title": "Youngster",
   "dialogueBefore": "I'm the toughest kid on this bridge!",
   "dialogueAfter": "You're tougher...",
-  "rewardMoney": 224,
+  "rewardMoney": 210,
   "party": [
    {
     "species": "rattata",
@@ -1757,7 +1757,7 @@
   "title": "Pokémon Trainer",
   "dialogueBefore": "[DRAFT] Yo! Heading to the Pokémon League? You need Badges to get through! Let's see if you're even worth my time!",
   "dialogueAfter": "[DRAFT] Hmph! Lucky! Train harder if you want to face me again!",
-  "rewardMoney": 200,
+  "rewardMoney": 280,
   "party": [
    {
     "species": "pidgey",
@@ -1774,7 +1774,7 @@
   "title": "Camper",
   "dialogueBefore": "[DRAFT] I'm training in the tall grass, away from the bridge crowds!",
   "dialogueAfter": "[DRAFT] Strong... maybe I should train on the bridge instead.",
-  "rewardMoney": 240,
+  "rewardMoney": 280,
   "party": [
    {
     "species": "rattata",
@@ -2063,7 +2063,7 @@
   "title": "Pokémon Trainer",
   "dialogueBefore": "[DRAFT] Yo! I heard about the party on this ship and came to crash it! Let's see how much stronger I've gotten!",
   "dialogueAfter": "[DRAFT] Hmph! You just lucked out! I'm heading to the captain's cabin... don't follow me!",
-  "rewardMoney": 1330,
+  "rewardMoney": 1300,
   "party": [
    {
     "species": "pidgeotto",
@@ -3025,7 +3025,7 @@
   "title": "Pokémon Trainer",
   "dialogueBefore": "[DRAFT] Well, well. Come to pay respects too? Or are you just here to gawk at ghosts?",
   "dialogueAfter": "[DRAFT] Tch. Even the dead couldn't carry you to a win.",
-  "rewardMoney": 1625,
+  "rewardMoney": 1430,
   "party": [
    {
     "species": "pidgeotto",
@@ -3869,7 +3869,7 @@
  "dojo_blackbelt_1": {
   "name": "Black Belt",
   "title": "Black Belt",
-  "rewardMoney": 768,
+  "rewardMoney": 800,
   "party": [
    {
     "species": "machop",
@@ -3886,7 +3886,7 @@
  "dojo_blackbelt_2": {
   "name": "Black Belt",
   "title": "Black Belt",
-  "rewardMoney": 744,
+  "rewardMoney": 775,
   "party": [
    {
     "species": "machop",
@@ -3907,7 +3907,7 @@
  "dojo_blackbelt_3": {
   "name": "Black Belt",
   "title": "Black Belt",
-  "rewardMoney": 744,
+  "rewardMoney": 775,
   "party": [
    {
     "species": "mankey",
@@ -3928,7 +3928,7 @@
  "dojo_blackbelt_4": {
   "name": "Black Belt",
   "title": "Black Belt",
-  "rewardMoney": 864,
+  "rewardMoney": 900,
   "party": [
    {
     "species": "primeape",
@@ -3943,7 +3943,7 @@
   "title": "Karate Master",
   "dialogueBefore": "[DRAFT] Yo! Champ in the making! I am Koichi, the Karate Master! My Hitmonchan and Hitmonlee will show you true fighting spirit!",
   "dialogueAfter": "[DRAFT] Magnificent! You have bested the Karate Master himself! Take these two Pokémon -- Hitmonlee AND Hitmonchan -- as proof of your strength!",
-  "rewardMoney": 888,
+  "rewardMoney": 925,
   "party": [
    {
     "species": "hitmonchan",
@@ -4005,7 +4005,7 @@
  "silph_scientist_2f_1": {
   "name": "Scientist",
   "title": "Scientist",
-  "rewardMoney": 875,
+  "rewardMoney": 1750,
   "party": [
    {
     "species": "electabuzz",
@@ -4018,7 +4018,7 @@
  "silph_scientist_2f_2": {
   "name": "Scientist",
   "title": "Scientist",
-  "rewardMoney": 875,
+  "rewardMoney": 1750,
   "party": [
    {
     "species": "weezing",
@@ -4069,7 +4069,7 @@
  "silph_scientist_3f_1": {
   "name": "Scientist",
   "title": "Scientist",
-  "rewardMoney": 875,
+  "rewardMoney": 1750,
   "party": [
    {
     "species": "koffing",
@@ -4120,7 +4120,7 @@
  "silph_scientist_4f_1": {
   "name": "Scientist",
   "title": "Scientist",
-  "rewardMoney": 875,
+  "rewardMoney": 1750,
   "party": [
    {
     "species": "electrode",
@@ -4175,7 +4175,7 @@
  "silph_scientist_5f_1": {
   "name": "Scientist",
   "title": "Scientist",
-  "rewardMoney": 875,
+  "rewardMoney": 1750,
   "party": [
    {
     "species": "magnemite",
@@ -4222,20 +4222,20 @@
     "level": 37
    },
    {
-    "species": "RIVAL_STARTER_STAGE_3",
-    "level": 40
+    "species": "RIVAL_SILPH_EXTRA_A",
+    "level": 1
    },
    {
     "species": "alakazam",
     "level": 35
    },
    {
-    "species": "RIVAL_SILPH_EXTRA_A",
+    "species": "RIVAL_SILPH_EXTRA_B",
     "level": 1
    },
    {
-    "species": "RIVAL_SILPH_EXTRA_B",
-    "level": 1
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 40
    }
   ]
  },
@@ -4244,7 +4244,7 @@
   "title": "Team Rocket Boss",
   "dialogueBefore": "[DRAFT] So! We meet again, child! I am Giovanni, and this company is MINE now! Its president cowers behind me -- and you will never reach him!",
   "dialogueAfter": "[DRAFT] Impossible... TWICE?! ...Very well. Silph Co. is yours. But remember -- Team Rocket never truly falls! (Giovanni vanishes.)",
-  "rewardMoney": 4100,
+  "rewardMoney": 4059,
   "party": [
    {
     "species": "nidorino",
@@ -5498,7 +5498,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 580,
+  "rewardMoney": 145,
   "party": [
    {
     "species": "goldeen",
@@ -5519,7 +5519,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 600,
+  "rewardMoney": 150,
   "party": [
    {
     "species": "tentacool",
@@ -5536,7 +5536,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 600,
+  "rewardMoney": 150,
   "party": [
    {
     "species": "horsea",
@@ -5553,7 +5553,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 600,
+  "rewardMoney": 150,
   "party": [
    {
     "species": "poliwag",
@@ -5570,7 +5570,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 540,
+  "rewardMoney": 135,
   "party": [
    {
     "species": "horsea",
@@ -5595,7 +5595,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 580,
+  "rewardMoney": 145,
   "party": [
    {
     "species": "goldeen",
@@ -5616,7 +5616,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 540,
+  "rewardMoney": 135,
   "party": [
    {
     "species": "tentacool",
@@ -5645,7 +5645,7 @@
   "title": "Beauty",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 1680,
+  "rewardMoney": 2100,
   "party": [
    {
     "species": "goldeen",
@@ -5662,7 +5662,7 @@
   "title": "Beauty",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 1512,
+  "rewardMoney": 1890,
   "party": [
    {
     "species": "poliwag",
@@ -5691,7 +5691,7 @@
   "title": "Beauty",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 1624,
+  "rewardMoney": 2030,
   "party": [
    {
     "species": "staryu",
@@ -5712,7 +5712,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 620,
+  "rewardMoney": 155,
   "party": [
    {
     "species": "shellder",
@@ -5729,7 +5729,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 560,
+  "rewardMoney": 140,
   "party": [
    {
     "species": "horsea",
@@ -5754,7 +5754,7 @@
   "title": "Beauty",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 1680,
+  "rewardMoney": 2100,
   "party": [
    {
     "species": "seadra",
@@ -5775,7 +5775,7 @@
   "title": "Beauty",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 1960,
+  "rewardMoney": 2450,
   "party": [
    {
     "species": "seaking",
@@ -5948,7 +5948,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 660,
+  "rewardMoney": 165,
   "party": [
    {
     "species": "seadra",
@@ -6020,7 +6020,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 740,
+  "rewardMoney": 185,
   "party": [
    {
     "species": "starmie",
@@ -6033,7 +6033,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 660,
+  "rewardMoney": 165,
   "party": [
    {
     "species": "staryu",
@@ -6050,7 +6050,7 @@
   "title": "Swimmer",
   "dialogueBefore": "[DRAFT]",
   "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 640,
+  "rewardMoney": 160,
   "party": [
    {
     "species": "poliwhirl",
