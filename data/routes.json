@@ -3534,7 +3534,9 @@
    "mr_psychic",
    "saffron_townsperson_1",
    "saffron_townsperson_2",
-   "saffron_townsperson_3"
+   "saffron_townsperson_3",
+   "saffron_rocket_guard_gym",
+   "saffron_rocket_guard_dojo"
   ],
   "trainers": [],
   "explore_table": [
@@ -3542,7 +3544,21 @@
     "type": "nothing",
     "weight": 100
    }
-  ]
+  ],
+  "gate_requirements": {
+   "saffron_city_gym": {
+    "required_flags": [
+     "defeated_silph_co_giovanni"
+    ],
+    "blocked_message": "A Team Rocket grunt bars the Gym door. \"Nobody gets in while Team Rocket runs this town!\" (Defeat Giovanni at Silph Co. first.)"
+   },
+   "saffron_fighting_dojo": {
+    "required_flags": [
+     "defeated_silph_co_giovanni"
+    ],
+    "blocked_message": "A Team Rocket grunt bars the dojo door. \"The Fighting Dojo is closed!\" (Defeat Giovanni at Silph Co. first.)"
+   }
+  }
  },
  "saffron_city_gym": {
   "name": "Saffron City Gym",

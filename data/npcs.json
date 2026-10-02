@@ -905,5 +905,19 @@
   "once_flag": "received_master_ball",
   "dialogue_req_unmet": "[DRAFT] Giovanni is still in my office! I can't think straight while that man is here... please, defeat him first!",
   "dialogue_repeat": "[DRAFT] The Master Ball will never fail. Save it for something truly special!"
+ },
+ "saffron_rocket_guard_gym": {
+  "name": "Rocket Grunt",
+  "dialogue_default": "[DRAFT] Heh! Nobody gets into the Saffron Gym while Team Rocket runs this town! Scram, kid!",
+  "requirements": [],
+  "rewards": [],
+  "req_flag_to_disappear": "defeated_silph_co_giovanni"
+ },
+ "saffron_rocket_guard_dojo": {
+  "name": "Rocket Grunt",
+  "dialogue_default": "[DRAFT] The Fighting Dojo is closed! Team Rocket says so! Beat it!",
+  "requirements": [],
+  "rewards": [],
+  "req_flag_to_disappear": "defeated_silph_co_giovanni"
  }
 }
