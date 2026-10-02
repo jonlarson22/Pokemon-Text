@@ -257,11 +257,17 @@ class GameEngine {
         const itemName = this.db.items[itemId] ? this.db.items[itemId].name : outcome.item;
         return `You found a ${itemName}!`;
       case "static_encounter": {
-        // Scripted wild battle (e.g. Mewtwo). Re-encounterable until caught.
+        // Scripted wild battle (e.g. Mewtwo). Re-encounterable until caught,
+        // or until win_flag is set (for uncatchable scripted fights like the
+        // ghost Marowak).
         if (this.gameState.pokedex.caught[outcome.species.toLowerCase()]) {
           return "You searched the area but found nothing of interest.";
         }
-        return { species: outcome.species, level: outcome.level, intro: outcome.intro };
+        if (outcome.win_flag && this.hasFlag(outcome.win_flag)) {
+          return "You searched the area but found nothing of interest.";
+        }
+        return { species: outcome.species, level: outcome.level, intro: outcome.intro,
+                 uncatchable: !!outcome.uncatchable, win_flag: outcome.win_flag || null };
       }
       }
     }

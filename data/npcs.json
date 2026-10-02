@@ -527,5 +527,194 @@
  "route22_jogger": {
   "name": "Jogger",
   "dialogue_default": "[DRAFT] I run this route every morning. Great training for my Pokémon too!"
+ },
+ "tower_mourner_1": {
+  "name": "Mourner",
+  "dialogue_default": "[DRAFT] My poor RATICATE... Rest well, my friend."
+ },
+ "tower_mourner_2": {
+  "name": "Mourner",
+  "dialogue_default": "[DRAFT] Shh... This is a place of rest. Show some respect."
+ },
+ "tower_mourner_3": {
+  "name": "Elder",
+  "dialogue_default": "[DRAFT] Pokémon Tower watches over every departed soul in Kanto."
+ },
+ "tower_purified_npc": {
+  "name": "Channeler",
+  "dialogue_default": "[DRAFT] This spot is purified... The air itself heals the weary. Rest a moment if you need it."
+ },
+ "tower_ghost_hint": {
+  "name": "Restless Presence",
+  "dialogue_default": "[DRAFT] A chilling presence fills the top of the tower... Your Pokémon are too scared to approach! (Something like a SILPH SCOPE might reveal it.)",
+  "req_flag_to_disappear": "obtained_silph_scope"
+ },
+ "mr_fuji_tower": {
+  "name": "Mr. Fuji",
+  "dialogue_default": "[DRAFT] Heh? You came to save me? Thank you... but I came here of my own free will, to calm the soul of CUBONE's mother. Her spirit has gone to the afterlife now. Please — take this Poké Flute. Its melody wakes even the deepest sleeper.",
+  "requirements": [
+   {
+    "type": "flag",
+    "id": "calmed_marowak"
+   },
+   {
+    "type": "flag",
+    "id": "defeated_tower_rocket_1"
+   },
+   {
+    "type": "flag",
+    "id": "defeated_tower_rocket_2"
+   },
+   {
+    "type": "flag",
+    "id": "defeated_tower_rocket_3"
+   }
+  ],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "poke_flute",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_pokeflute"
+   }
+  ],
+  "dialogue_req_unmet": "[DRAFT] Heh? A visitor? ...TEAM ROCKET is still here, and CUBONE's mother still screams above. Come back when this tower is at peace.",
+  "dialogue_post_flag": "[DRAFT] Has my flute helped you? Play it near any sleeping Pokémon, and watch them spring awake!",
+  "once_flag": "obtained_pokeflute"
+ },
+ "thirsty_guard_route5": {
+  "name": "Thirsty Guard",
+  "dialogue_default": "I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
+  "requirements": [
+   {
+    "type": "item_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "guard_let_pass"
+   },
+   {
+    "type": "item_consumption_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "dialogue_req_unmet": "I'm sooo thirsty... If only I had something to drink... (The vending machines on the CELADON Department Store roof sell drinks.)",
+  "dialogue_post_flag": "Ahh, that hit the spot! SAFFRON CITY is open to you, kid!",
+  "once_flag": "guard_let_pass"
+ },
+ "thirsty_guard_route6": {
+  "name": "Thirsty Guard",
+  "dialogue_default": "I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
+  "requirements": [
+   {
+    "type": "item_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "guard_let_pass"
+   },
+   {
+    "type": "item_consumption_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "dialogue_req_unmet": "I'm sooo thirsty... If only I had something to drink... (The vending machines on the CELADON Department Store roof sell drinks.)",
+  "dialogue_post_flag": "Ahh, that hit the spot! SAFFRON CITY is open to you, kid!",
+  "once_flag": "guard_let_pass"
+ },
+ "thirsty_guard_route7": {
+  "name": "Thirsty Guard",
+  "dialogue_default": "I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
+  "requirements": [
+   {
+    "type": "item_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "guard_let_pass"
+   },
+   {
+    "type": "item_consumption_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "dialogue_req_unmet": "I'm sooo thirsty... If only I had something to drink... (The vending machines on the CELADON Department Store roof sell drinks.)",
+  "dialogue_post_flag": "Ahh, that hit the spot! SAFFRON CITY is open to you, kid!",
+  "once_flag": "guard_let_pass"
+ },
+ "thirsty_guard_route8": {
+  "name": "Thirsty Guard",
+  "dialogue_default": "I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
+  "requirements": [
+   {
+    "type": "item_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "guard_let_pass"
+   },
+   {
+    "type": "item_consumption_any_of",
+    "ids": [
+     "fresh_water",
+     "soda_pop",
+     "lemonade"
+    ],
+    "qty": 1
+   }
+  ],
+  "dialogue_req_unmet": "I'm sooo thirsty... If only I had something to drink... (The vending machines on the CELADON Department Store roof sell drinks.)",
+  "dialogue_post_flag": "Ahh, that hit the spot! SAFFRON CITY is open to you, kid!",
+  "once_flag": "guard_let_pass"
  }
 }

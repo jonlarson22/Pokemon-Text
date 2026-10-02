@@ -1254,6 +1254,11 @@ export class BattleManager {
     const battleBagBtn = document.getElementById('btn-battle-bag');
     if (battleBagBtn) battleBagBtn.onclick = () => this.game.openBag();
 
+    // Scripted wild battles can be uncatchable (ghost Marowak) and/or set a
+    // flag on victory (calming the ghost).
+    this.game.gameState.activeBattle.uncatchable = !!wildPokemonInfo.uncatchable;
+    this.game.gameState.activeWildWinFlag = wildPokemonInfo.win_flag || null;
+
     this.game.ui.setMenuState('battle');
   }
 
@@ -1398,6 +1403,10 @@ handleBattleEnd() {
         return; 
       }
     }
+    else if (this.game.gameState.activeWildWinFlag) {
+      // Scripted wild victory (e.g. calming the ghost Marowak).
+      this.game.setFlag(this.game.gameState.activeWildWinFlag, true);
+    }
     
     this.finishBattleCleanup();
   }
@@ -1483,6 +1492,7 @@ handleBattleEnd() {
     this.game.gameState.activeTrainer = null;
     this.game.gameState.activeBattle = null;
     this.game.gameState.activeWinFlag = null; 
+    this.game.gameState.activeWildWinFlag = null;
     this.game.gameState.activeTrainerPartyIndex = 0; 
 
     setTimeout(() => {

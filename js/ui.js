@@ -384,12 +384,40 @@ renderRouteScreen() {
       }
     } else if (item.category === "healing") {
       this.openPartyTargetScreen(itemKey, item);
+    } else if (item.effect && item.effect.type === "awaken_sleeping_pokemon") {
+      this.usePokeFlute(itemKey, item);
     } else if (item.category === "tm" || item.category === "hm") {
       if (this.game.gameState.activeBattle) {
         this.printToLog("You can't use a TM or HM in battle!");
         return;
       }
       this.openTeachMenu(itemKey, item);
+    }
+  }
+
+  // --- Poke Flute: waking -----------------------------------------------
+  // Canon: usable in battle to wake the player's sleeping active Pokemon.
+  // Playing it takes your turn (the foe moves afterwards). Key item: never
+  // consumed. Out of battle it's just a soothing melody.
+  usePokeFlute(itemKey, item) {
+    if (this.game.gameState.activeBattle) {
+      const active = this.game.gameState.party[0];
+      if (!active || active.status !== "SLP") {
+        this.printToLog("It won't have any effect.");
+        return;
+      }
+      active.status = null;
+      this.printToLog(`You played the ${item.name}! ${active.species} woke up!`);
+      this.setMenuState('battle');
+      const enemyMove = this.game.gameState.activeBattle.getRandomEnemyMove();
+      this.game.gameState.activeBattle.processAction(this.game.gameState.activeBattle.enemyMon, this.game.gameState.party[0], enemyMove, false);
+      this.game.gameState.activeBattle.checkWinLoss();
+
+      if (this.game.gameState.activeBattle.isOver) {
+        this.game.battleManager.handleBattleEnd();
+      }
+    } else {
+      this.printToLog("You play a soothing melody on the Poké Flute...");
     }
   }
 

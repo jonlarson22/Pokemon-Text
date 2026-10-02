@@ -1515,7 +1515,18 @@
     "type": "encounter",
     "weight": 40
    }
-  ]
+  ],
+  "npcs": [
+   "thirsty_guard_route5"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   }
+  }
  },
  "underground_path_north_south": {
   "name": "Underground Path (Routes 5-6)",
@@ -1632,8 +1643,17 @@
    }
   ],
   "npcs": [
-   "route6_commuter"
-  ]
+   "route6_commuter",
+   "thirsty_guard_route6"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   }
+  }
  },
  "vermilion_city": {
   "name": "Vermilion City",
@@ -2703,6 +2723,432 @@
    {
     "type": "nothing",
     "weight": 100
+   }
+  ]
+ },
+ "pokemon_tower_1f": {
+  "name": "Pokémon Tower 1F",
+  "description": "The entrance hall of Pokémon Tower. Candles flicker before rows of memorial tablets, and the air smells of incense. Mourners come and go in silence.",
+  "isTown": false,
+  "connections": [
+   "lavender_town",
+   "pokemon_tower_2f"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "tower_mourner_1",
+   "tower_mourner_2",
+   "tower_mourner_3"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "pokemon_tower_2f": {
+  "name": "Pokémon Tower 2F",
+  "description": "The second floor. Shadows cling to the corners, and Channelers sway in eerie meditation among the graves.",
+  "isTown": false,
+  "connections": [
+   "pokemon_tower_1f",
+   "pokemon_tower_3f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_3f": {
+    "required_flags": [
+     "defeated_tower_channeler_1",
+     "defeated_tower_channeler_2"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "gastly",
+     "min_level": 18,
+     "max_level": 24,
+     "weight": 88
+    },
+    {
+     "species": "haunter",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 3
+    },
+    {
+     "species": "cubone",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 9
+    }
+   ]
+  },
+  "trainers": [
+   "tower_channeler_1",
+   "tower_channeler_2",
+   "tower_channeler_3",
+   "tower_channeler_4",
+   "tower_channeler_5",
+   "tower_channeler_6",
+   "tower_rival"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "escape_rope"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "awakening"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "hp_up"
+   }
+  ]
+ },
+ "pokemon_tower_3f": {
+  "name": "Pokémon Tower 3F",
+  "description": "The third floor. The air grows heavy and cold. A purified spot near the stairs hums with calm energy.",
+  "isTown": false,
+  "connections": [
+   "pokemon_tower_2f",
+   "pokemon_tower_4f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_4f": {
+    "required_flags": [
+     "defeated_tower_channeler_7",
+     "defeated_tower_channeler_8"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "gastly",
+     "min_level": 19,
+     "max_level": 24,
+     "weight": 85
+    },
+    {
+     "species": "haunter",
+     "min_level": 26,
+     "max_level": 28,
+     "weight": 6
+    },
+    {
+     "species": "cubone",
+     "min_level": 22,
+     "max_level": 24,
+     "weight": 9
+    }
+   ]
+  },
+  "trainers": [
+   "tower_channeler_7",
+   "tower_channeler_8",
+   "tower_channeler_9",
+   "tower_channeler_10",
+   "tower_channeler_11",
+   "tower_channeler_12",
+   "tower_channeler_13"
+  ],
+  "npcs": [
+   "tower_purified_npc"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "elixir"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "x_accuracy"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "rare_candy"
+   }
+  ]
+ },
+ "pokemon_tower_4f": {
+  "name": "Pokémon Tower 4F",
+  "description": "The top of the tower. A restless ghost wails near the stairs, and TEAM ROCKET grunts loiter by an old man's side.",
+  "isTown": false,
+  "connections": [
+   "pokemon_tower_3f"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "gastly",
+     "min_level": 20,
+     "max_level": 24,
+     "weight": 75
+    },
+    {
+     "species": "haunter",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "cubone",
+     "min_level": 22,
+     "max_level": 24,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "tower_rocket_1",
+   "tower_rocket_2",
+   "tower_rocket_3"
+  ],
+  "npcs": [
+   "tower_ghost_hint",
+   "mr_fuji_tower"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 80
+   },
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "marowak",
+    "level": 30,
+    "req_flag": "obtained_silph_scope",
+    "uncatchable": true,
+    "win_flag": "calmed_marowak",
+    "intro": "The SILPH SCOPE reveals the ghost... a furious MAROWAK, mother of CUBONE! It attacks!"
+   }
+  ]
+ },
+ "route7": {
+  "name": "Route 7",
+  "description": "A short road between CELADON and SAFFRON. A stairway on the grass leads down into the underground path.",
+  "isTown": false,
+  "connections": [
+   "celadon_city",
+   "saffron_city",
+   "underground_path"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 19,
+     "max_level": 22,
+     "weight": 30
+    },
+    {
+     "species": "oddish",
+     "min_level": 19,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 19,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "mankey",
+     "min_level": 17,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "meowth",
+     "min_level": 17,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "growlithe",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 5
+    },
+    {
+     "species": "vulpix",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [
+   "route7_youngster_1",
+   "route7_lass_1"
+  ],
+  "npcs": [
+   "thirsty_guard_route7"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "route8": {
+  "name": "Route 8",
+  "description": "A winding road from LAVENDER to SAFFRON. A fenced patch of grass needs CUT to enter, and a stairway leads down to the underground path.",
+  "isTown": false,
+  "connections": [
+   "lavender_town",
+   "saffron_city",
+   "underground_path"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 30,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "ekans",
+     "min_level": 17,
+     "max_level": 19,
+     "weight": 10,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 17,
+     "max_level": 19,
+     "weight": 10,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "mankey",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 15,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "meowth",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 15,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "growlithe",
+     "min_level": 15,
+     "max_level": 18,
+     "weight": 10,
+     "req_flag": "obtain_hm_01"
+    },
+    {
+     "species": "vulpix",
+     "min_level": 15,
+     "max_level": 18,
+     "weight": 10,
+     "req_flag": "obtain_hm_01"
+    }
+   ]
+  },
+  "trainers": [
+   "route8_lass_1",
+   "route8_gambler_1",
+   "route8_super_nerd_1",
+   "route8_lass_2",
+   "route8_super_nerd_2",
+   "route8_lass_3",
+   "route8_lass_4",
+   "route8_gambler_2",
+   "route8_super_nerd_3"
+  ],
+  "npcs": [
+   "thirsty_guard_route8"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "underground_path": {
+  "name": "Underground Path",
+  "description": "A straight, well-lit tunnel running under SAFFRON CITY, connecting Route 7 in the west to Route 8 in the east.",
+  "isTown": false,
+  "connections": [
+   "route7",
+   "route8"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "elixir"
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "nugget"
    }
   ]
  }

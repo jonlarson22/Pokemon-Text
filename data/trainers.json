@@ -2321,7 +2321,7 @@
   "title": "Gambler",
   "dialogueBefore": "[DRAFT] I bet my Pokémon can beat yours!",
   "dialogueAfter": "[DRAFT] Lost the bet...",
-  "rewardMoney": 1800,
+  "rewardMoney": 1260,
   "party": [
    {
     "species": "poliwag",
@@ -2385,7 +2385,7 @@
   "title": "Gambler",
   "dialogueBefore": "[DRAFT] Double or nothing!",
   "dialogueAfter": "[DRAFT] Nothing it is...",
-  "rewardMoney": 1800,
+  "rewardMoney": 1260,
   "party": [
    {
     "species": "bellsprout",
@@ -2402,7 +2402,7 @@
   "title": "Gambler",
   "dialogueBefore": "[DRAFT] Feeling lucky? You shouldn't!",
   "dialogueAfter": "[DRAFT] My luck turned!",
-  "rewardMoney": 1800,
+  "rewardMoney": 1260,
   "party": [
    {
     "species": "growlithe",
@@ -2453,7 +2453,7 @@
   "title": "Gambler",
   "dialogueBefore": "[DRAFT] High voltage, high stakes!",
   "dialogueAfter": "[DRAFT] I'm all out of stakes.",
-  "rewardMoney": 1800,
+  "rewardMoney": 1260,
   "party": [
    {
     "species": "voltorb",
@@ -2892,6 +2892,490 @@
    },
    {
     "species": "slowpoke",
+    "level": 20
+   }
+  ]
+ },
+ "tower_channeler_1": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Give... me... your... soul...",
+  "dialogueAfter": "[DRAFT] My soul... taken...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 23
+   }
+  ]
+ },
+ "tower_channeler_2": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The dead speak through me! Battle!",
+  "dialogueAfter": "[DRAFT] They've gone silent...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_3": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] I sense a restless spirit clinging to you!",
+  "dialogueAfter": "[DRAFT] It has moved on...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_channeler_4": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Two spirits guard my soul! Face them!",
+  "dialogueAfter": "[DRAFT] Both... exorcised...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 23
+   },
+   {
+    "species": "gastly",
+    "level": 23
+   }
+  ]
+ },
+ "tower_channeler_5": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] This tower is a sacred resting place. Prove your respect!",
+  "dialogueAfter": "[DRAFT] Respect... shown...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_6": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The veil between worlds is thin here...",
+  "dialogueAfter": "[DRAFT] The veil... mends...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_rival": {
+  "name": "Rival",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Well, well. Come to pay respects too? Or are you just here to gawk at ghosts?",
+  "dialogueAfter": "[DRAFT] Tch. Even the dead couldn't carry you to a win.",
+  "rewardMoney": 1625,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 25
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_2",
+    "level": 25
+   },
+   {
+    "species": "kadabra",
+    "level": 20
+   },
+   {
+    "species": "gyarados",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_7": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Higher we climb, heavier the air grows...",
+  "dialogueAfter": "[DRAFT] Lighter... now...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_8": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] My HAUNTER feeds on fear! Show me yours!",
+  "dialogueAfter": "[DRAFT] It hungers... still...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 23
+   }
+  ]
+ },
+ "tower_channeler_9": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Shh... can you hear them whispering?",
+  "dialogueAfter": "[DRAFT] Only... silence...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_channeler_10": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The spirits demand a tribute... of battle!",
+  "dialogueAfter": "[DRAFT] Tribute... accepted...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_11": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] A trio of lost souls follows me everywhere!",
+  "dialogueAfter": "[DRAFT] They've found... peace...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   },
+   {
+    "species": "gastly",
+    "level": 22
+   },
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_12": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Something terrible lurks above... Turn back!",
+  "dialogueAfter": "[DRAFT] You... persist...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_channeler_13": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The MAROWAK's ghost screams for its child! Feel its rage!",
+  "dialogueAfter": "[DRAFT] Rage... quieted...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_rocket_1": {
+  "name": "Team Rocket",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Heh! This old man's Pokémon are ours, kid. Scram!",
+  "dialogueAfter": "[DRAFT] Grr... The boss won't like this...",
+  "rewardMoney": 750,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 25
+   },
+   {
+    "species": "zubat",
+    "level": 25
+   },
+   {
+    "species": "golbat",
+    "level": 25
+   }
+  ]
+ },
+ "tower_rocket_2": {
+  "name": "Team Rocket",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] We're stealing Cubone skulls! You got a problem with that?!",
+  "dialogueAfter": "[DRAFT] Our operation... ruined...",
+  "rewardMoney": 780,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 26
+   },
+   {
+    "species": "drowzee",
+    "level": 26
+   }
+  ]
+ },
+ "tower_rocket_3": {
+  "name": "Team Rocket",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Intruder! Nobody gets past TEAM ROCKET!",
+  "dialogueAfter": "[DRAFT] How... how did you...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 23
+   },
+   {
+    "species": "rattata",
+    "level": 23
+   },
+   {
+    "species": "raticate",
+    "level": 23
+   },
+   {
+    "species": "zubat",
+    "level": 23
+   }
+  ]
+ },
+ "route7_youngster_1": {
+  "name": "Youngster",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] This road leads to SAFFRON... if the guard ever lets anyone in!",
+  "dialogueAfter": "[DRAFT] The guard... still thirsty, huh?",
+  "rewardMoney": 300,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 20
+   },
+   {
+    "species": "rattata",
+    "level": 20
+   }
+  ]
+ },
+ "route7_lass_1": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] I take the underground path to avoid the SAFFRON gatehouse!",
+  "dialogueAfter": "[DRAFT] The tunnel's faster anyway!",
+  "rewardMoney": 315,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 21
+   },
+   {
+    "species": "bellsprout",
+    "level": 21
+   }
+  ]
+ },
+ "route8_lass_1": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] My CLEFAIRY are the cutest! Battle us!",
+  "dialogueAfter": "[DRAFT] Cute... and defeated...",
+  "rewardMoney": 330,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 22
+   },
+   {
+    "species": "clefairy",
+    "level": 22
+   }
+  ]
+ },
+ "route8_gambler_1": {
+  "name": "Gambler",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] Heh, kid. Care to make this battle interesting?",
+  "dialogueAfter": "[DRAFT] My wallet... lighter...",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 24
+   },
+   {
+    "species": "vulpix",
+    "level": 24
+   }
+  ]
+ },
+ "route8_super_nerd_1": {
+  "name": "Super Nerd",
+  "title": "Super Nerd",
+  "dialogueBefore": "[DRAFT] My Poison Pokémon are a triumph of science!",
+  "dialogueAfter": "[DRAFT] Science... fails...",
+  "rewardMoney": 550,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 22
+   },
+   {
+    "species": "muk",
+    "level": 22
+   },
+   {
+    "species": "grimer",
+    "level": 22
+   }
+  ]
+ },
+ "route8_lass_2": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] NIDORAN are so elegant, don't you think?",
+  "dialogueAfter": "[DRAFT] Elegance... wasn't enough...",
+  "rewardMoney": 345,
+  "party": [
+   {
+    "species": "nidoran_f",
+    "level": 23
+   },
+   {
+    "species": "nidorina",
+    "level": 23
+   }
+  ]
+ },
+ "route8_super_nerd_2": {
+  "name": "Super Nerd",
+  "title": "Super Nerd",
+  "dialogueBefore": "[DRAFT] Behold! My KOFFING's toxic potential!",
+  "dialogueAfter": "[DRAFT] Toxic... to my pride...",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 26
+   }
+  ]
+ },
+ "route8_lass_3": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] Three MEOWTH are three times the charm!",
+  "dialogueAfter": "[DRAFT] Charmed... I'm sure...",
+  "rewardMoney": 360,
+  "party": [
+   {
+    "species": "meowth",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   }
+  ]
+ },
+ "route8_lass_4": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] I couldn't pick just one Pokémon, so I brought them all!",
+  "dialogueAfter": "[DRAFT] Too many... choices...",
+  "rewardMoney": 285,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 19
+   },
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "nidoran_m",
+    "level": 19
+   },
+   {
+    "species": "meowth",
+    "level": 19
+   },
+   {
+    "species": "pikachu",
+    "level": 19
+   }
+  ]
+ },
+ "route8_gambler_2": {
+  "name": "Gambler",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] The odds favor the bold, kid!",
+  "dialogueAfter": "[DRAFT] The odds... betrayed me...",
+  "rewardMoney": 1540,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 22
+   },
+   {
+    "species": "poliwag",
+    "level": 22
+   },
+   {
+    "species": "poliwhirl",
+    "level": 22
+   }
+  ]
+ },
+ "route8_super_nerd_3": {
+  "name": "Super Nerd",
+  "title": "Super Nerd",
+  "dialogueBefore": "[DRAFT] Electric and Poison: the future of battling!",
+  "dialogueAfter": "[DRAFT] The future... is delayed...",
+  "rewardMoney": 500,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 20
+   },
+   {
+    "species": "koffing",
+    "level": 20
+   },
+   {
+    "species": "voltorb",
+    "level": 20
+   },
+   {
+    "species": "magnemite",
     "level": 20
    }
   ]

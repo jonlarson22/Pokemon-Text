@@ -11,6 +11,13 @@ export class CaptureSystem {
     const enemy = battle.enemyMon;
     const speciesData = this.app.db.pokemon[enemy.id] || {};
 
+    // Scripted uncatchable encounters (e.g. the ghost Marowak): the ball
+    // is dodged and not consumed.
+    if (battle.uncatchable) {
+      this.app.ui.printToLog(`The ghostly ${enemy.species} dodged the ${ballItem.name}! It can't be caught!`);
+      return;
+    }
+
     // Consume ball from inventory
     this.app.gameState.inventory[ballKey]--;
     if (this.app.gameState.inventory[ballKey] <= 0) {
