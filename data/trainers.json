@@ -1054,36 +1054,80 @@
  "sabrina_gym": {
   "name": "Sabrina",
   "title": "Gym Leader",
-  "dialogueBefore": "I had a vision of your arrival. I have had psychic powers since I was a child. I dislike battling, but if you wish, I will show you my powers!",
-  "dialogueAfter": "I'm surprised, but a loss is a loss. Take the Marsh Badge.",
+  "dialogueBefore": "[DRAFT] I am Sabrina, Saffron's Gym Leader! My psychic power is unmatched. Prepare to have your mind read... and your team crushed!",
+  "dialogueAfter": "[DRAFT] I... lost? My visions never showed this! Take the Marsh Badge. You have a remarkable mind, trainer.",
   "rewardMoney": 4300,
   "party": [
    {
     "species": "kadabra",
-    "level": 37,
+    "level": 38,
     "moves": [
-     "tackle"
+     {
+      "moveId": "psybeam"
+     },
+     {
+      "moveId": "recover"
+     },
+     {
+      "moveId": "psychic"
+     },
+     {
+      "moveId": "disable"
+     }
     ]
    },
    {
     "species": "mr_mime",
-    "level": 39,
+    "level": 37,
     "moves": [
-     "tackle"
+     {
+      "moveId": "confusion"
+     },
+     {
+      "moveId": "barrier"
+     },
+     {
+      "moveId": "light_screen"
+     },
+     {
+      "moveId": "double_slap"
+     }
     ]
    },
    {
     "species": "venomoth",
-    "level": 39,
+    "level": 38,
     "moves": [
-     "gust"
+     {
+      "moveId": "psybeam"
+     },
+     {
+      "moveId": "leech_life"
+     },
+     {
+      "moveId": "stun_spore"
+     },
+     {
+      "moveId": "poison_powder"
+     }
     ]
    },
    {
     "species": "alakazam",
     "level": 43,
     "moves": [
-     "tackle"
+     {
+      "moveId": "psybeam"
+     },
+     {
+      "moveId": "recover"
+     },
+     {
+      "moveId": "psywave"
+     },
+     {
+      "moveId": "reflect"
+     }
     ]
    }
   ],
@@ -1097,11 +1141,7 @@
     "id": "tm46",
     "qty": 1
    }
-  ],
-  "items": [
-   "full_restore"
-  ],
-  "clearsRouteTrainers": true
+  ]
  },
  "super_nerd_erik": {
   "name": "Erik",
@@ -3553,88 +3593,12 @@
    }
   ]
  },
- "hideout_rocket_b1f_1": {
-  "name": "Grunt",
-  "title": "Team Rocket",
-  "rewardMoney": 630,
-  "party": [
-   {
-    "species": "machop",
-    "level": 21
-   },
-   {
-    "species": "machop",
-    "level": 21
-   }
-  ],
-  "dialogueBefore": "[DRAFT] This stairwell is off limits! Team Rocket business only!",
-  "dialogueAfter": "[DRAFT] Grr... fine! Go down! The boss's guards will crush you anyway!"
- },
- "hideout_rocket_b1f_2": {
-  "name": "Grunt",
-  "title": "Team Rocket",
-  "rewardMoney": 630,
-  "party": [
-   {
-    "species": "koffing",
-    "level": 21
-   },
-   {
-    "species": "zubat",
-    "level": 21
-   }
-  ],
-  "dialogueBefore": "[DRAFT] Hey! How'd you get in here? Whatever -- you're not leaving!",
-  "dialogueAfter": "[DRAFT] Tch! Lucky kid..."
- },
- "hideout_rocket_b2f_1": {
-  "name": "Grunt",
-  "title": "Team Rocket",
-  "rewardMoney": 690,
-  "party": [
-   {
-    "species": "sandshrew",
-    "level": 23
-   },
-   {
-    "species": "ekans",
-    "level": 23
-   },
-   {
-    "species": "sandslash",
-    "level": 23
-   }
-  ],
-  "dialogueBefore": "[DRAFT] The boss is busy! No visitors! Especially not nosy kids!",
-  "dialogueAfter": "[DRAFT] Impossible... The boss won't be pleased..."
- },
- "hideout_rocket_b2f_2": {
-  "name": "Grunt",
-  "title": "Team Rocket",
-  "rewardMoney": 690,
-  "party": [
-   {
-    "species": "ekans",
-    "level": 23
-   },
-   {
-    "species": "sandshrew",
-    "level": 23
-   },
-   {
-    "species": "arbok",
-    "level": 23
-   }
-  ],
-  "dialogueBefore": "[DRAFT] Sssss... Team Rocket does not forgive trespassers!",
-  "dialogueAfter": "[DRAFT] You fight like the boss himself..."
- },
  "hideout_giovanni": {
   "name": "Giovanni",
   "title": "Team Rocket Boss",
   "dialogueBefore": "[DRAFT] So! I am Giovanni, leader of Team Rocket! You dare trespass in MY hideout? Then I will crush you myself!",
   "dialogueAfter": "[DRAFT] Unbelievable... Very well. Take this Silph Scope and be gone. But know this: Team Rocket will never fall! (Giovanni slips away into the shadows.)",
-  "rewardMoney": 2900,
+  "rewardMoney": 2871,
   "party": [
    {
     "species": "onix",
@@ -3655,5 +3619,380 @@
     "id": "obtained_silph_scope"
    }
   ]
+ },
+ "hideout_rocket_b1f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Halt! Nobody gets past me to the lower floors!",
+  "dialogueAfter": "[DRAFT] Argh... you're tougher than you look. Go on, then...",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 21
+   },
+   {
+    "species": "machop",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b1f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] This stairwell is Team Rocket territory, kid!",
+  "dialogueAfter": "[DRAFT] My Raticates... beaten... The boss will hear of this!",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 21
+   },
+   {
+    "species": "raticate",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b1f_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Eww, you saw our secret base! Now I HAVE to battle you!",
+  "dialogueAfter": "[DRAFT] Gross... even my Grimer is embarrassed.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 20
+   },
+   {
+    "species": "koffing",
+    "level": 20
+   },
+   {
+    "species": "koffing",
+    "level": 20
+   }
+  ]
+ },
+ "hideout_rocket_b1f_4": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] A whole team against one kid? Heh, I like those odds!",
+  "dialogueAfter": "[DRAFT] Okay, okay! Maybe not those odds...",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 17
+   },
+   {
+    "species": "koffing",
+    "level": 17
+   },
+   {
+    "species": "grimer",
+    "level": 17
+   },
+   {
+    "species": "zubat",
+    "level": 17
+   },
+   {
+    "species": "raticate",
+    "level": 17
+   }
+  ]
+ },
+ "hideout_rocket_b2f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] The office is off limits! Turn around, kid!",
+  "dialogueAfter": "[DRAFT] Gah! My Machops... Go on, the boss will finish you!",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "machop",
+    "level": 21
+   },
+   {
+    "species": "machop",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b2f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] You want the boss? You'll have to go through me first!",
+  "dialogueAfter": "[DRAFT] Cough... I can't believe I lost...",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 21
+   },
+   {
+    "species": "zubat",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b2f_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Intruder! Sound the alarm! ...Fine, I'll just battle you myself!",
+  "dialogueAfter": "[DRAFT] The alarm was a bluff. Please don't tell the boss.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 20
+   },
+   {
+    "species": "raticate",
+    "level": 20
+   },
+   {
+    "species": "drowzee",
+    "level": 20
+   }
+  ]
+ },
+ "hideout_rocket_b2f_4": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] I'm Giovanni's personal guard! My team is the strongest in the hideout!",
+  "dialogueAfter": "[DRAFT] The strongest... except against you, apparently.",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "sandshrew",
+    "level": 23
+   },
+   {
+    "species": "ekans",
+    "level": 23
+   },
+   {
+    "species": "sandslash",
+    "level": 23
+   }
+  ]
+ },
+ "saffron_psychic_1": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 330,
+  "party": [
+   {
+    "species": "slowpoke",
+    "level": 33
+   },
+   {
+    "species": "slowpoke",
+    "level": 33
+   },
+   {
+    "species": "slowbro",
+    "level": 33
+   }
+  ]
+ },
+ "saffron_psychic_2": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 340,
+  "party": [
+   {
+    "species": "mr_mime",
+    "level": 34
+   },
+   {
+    "species": "kadabra",
+    "level": 34
+   }
+  ]
+ },
+ "saffron_channeler_1": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "rewardMoney": 1140,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 38
+   }
+  ]
+ },
+ "saffron_psychic_3": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 380,
+  "party": [
+   {
+    "species": "slowbro",
+    "level": 38
+   }
+  ]
+ },
+ "saffron_channeler_2": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "rewardMoney": 1020,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 34
+   },
+   {
+    "species": "haunter",
+    "level": 34
+   }
+  ]
+ },
+ "saffron_channeler_3": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 33
+   },
+   {
+    "species": "gastly",
+    "level": 33
+   },
+   {
+    "species": "haunter",
+    "level": 33
+   }
+  ]
+ },
+ "saffron_psychic_4": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 310,
+  "party": [
+   {
+    "species": "kadabra",
+    "level": 31
+   },
+   {
+    "species": "slowpoke",
+    "level": 31
+   },
+   {
+    "species": "mr_mime",
+    "level": 31
+   },
+   {
+    "species": "kadabra",
+    "level": 31
+   }
+  ]
+ },
+ "dojo_blackbelt_1": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 768,
+  "party": [
+   {
+    "species": "machop",
+    "level": 32
+   },
+   {
+    "species": "machoke",
+    "level": 32
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Hiyah! My fighting spirit burns! Let's battle!",
+  "dialogueAfter": "[DRAFT] Urgh... your spirit burns brighter..."
+ },
+ "dojo_blackbelt_2": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 744,
+  "party": [
+   {
+    "species": "machop",
+    "level": 31
+   },
+   {
+    "species": "mankey",
+    "level": 31
+   },
+   {
+    "species": "primeape",
+    "level": 31
+   }
+  ],
+  "dialogueBefore": "[DRAFT] I've trained my body to the limit! You can't win!",
+  "dialogueAfter": "[DRAFT] My training... was not enough..."
+ },
+ "dojo_blackbelt_3": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 744,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 31
+   },
+   {
+    "species": "mankey",
+    "level": 31
+   },
+   {
+    "species": "primeape",
+    "level": 31
+   }
+  ],
+  "dialogueBefore": "[DRAFT] A true fighter never backs down! Come on!",
+  "dialogueAfter": "[DRAFT] Hmph! Strong... very strong..."
+ },
+ "dojo_blackbelt_4": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 864,
+  "party": [
+   {
+    "species": "primeape",
+    "level": 36
+   }
+  ],
+  "dialogueBefore": "[DRAFT] My Primeape and I are one! Feel our fury!",
+  "dialogueAfter": "[DRAFT] Defeated... by a mere child..."
+ },
+ "dojo_koichi": {
+  "name": "Koichi",
+  "title": "Karate Master",
+  "dialogueBefore": "[DRAFT] Yo! Champ in the making! I am Koichi, the Karate Master! My Hitmonchan and Hitmonlee will show you true fighting spirit!",
+  "dialogueAfter": "[DRAFT] Magnificent! You have bested the Karate Master himself! Take these two Pokémon -- Hitmonlee AND Hitmonchan -- as proof of your strength!",
+  "rewardMoney": 888,
+  "party": [
+   {
+    "species": "hitmonchan",
+    "level": 37
+   },
+   {
+    "species": "hitmonlee",
+    "level": 37
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "species": "hitmonlee",
+    "level": 30
+   },
+   {
+    "type": "pokemon",
+    "species": "hitmonchan",
+    "level": 30
+   }
+  ],
+  "clearsRouteTrainers": true
  }
 }

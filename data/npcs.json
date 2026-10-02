@@ -815,5 +815,49 @@
   "dialogue_default": "[DRAFT] I installed the spinner tiles myself. Step on one and WHOOSH, you're across the room! Disorienting, ain't it? Good thing they took most of 'em out.",
   "requirements": [],
   "rewards": []
+ },
+ "mr_psychic": {
+  "name": "Mr. Psychic",
+  "dialogue_default": "[DRAFT] Hmm... I sense great psychic potential in you! Take this TM. It contains Psychic, the ultimate psychic technique!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "tm29",
+    "qty": 1
+   }
+  ],
+  "once_flag": "received_tm29",
+  "dialogue_repeat": "[DRAFT] Psychic is the most powerful psychic move there is. Use it well!"
+ },
+ "saffron_townsperson_1": {
+  "name": "Townsfolk",
+  "dialogue_default": "[DRAFT] Sabrina's gym is a maze of warp tiles! One wrong step and you're back at the entrance. Bring strong physical attackers -- her psychic types hate those.",
+  "requirements": [],
+  "rewards": []
+ },
+ "saffron_townsperson_2": {
+  "name": "Townsfolk",
+  "dialogue_default": "[DRAFT] Did you know Saffron has TWO gyms? The Fighting Dojo isn't official, but the Karate Master gives away rare Pokémon to anyone strong enough to beat him!",
+  "requirements": [],
+  "rewards": []
+ },
+ "saffron_townsperson_3": {
+  "name": "Townsfolk",
+  "dialogue_default": "[DRAFT] Silph Co. makes all sorts of amazing devices... like the Silph Scope! Lately there've been some shady characters hanging around their building, though.",
+  "requirements": [],
+  "rewards": []
+ },
+ "silph_employee_1": {
+  "name": "Silph Employee",
+  "dialogue_default": "[DRAFT] Welcome to Silph Co.! ...Um, actually, we're not receiving visitors right now. The upper floors are... off limits. Company orders. Sorry!",
+  "requirements": [],
+  "rewards": []
+ },
+ "silph_scientist_1": {
+  "name": "Scientist",
+  "dialogue_default": "[DRAFT] My research on the Silph Scope is almost complete! Being able to see ghosts... what a breakthrough! If only those Rocket thugs would leave us alone...",
+  "requirements": [],
+  "rewards": []
  }
 }

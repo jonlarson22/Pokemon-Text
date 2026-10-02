@@ -3378,9 +3378,10 @@
   "gate_requirements": {
    "celadon_rocket_hideout_b2f": {
     "required_flags": [
-     "defeated_hideout_rocket_b1f_1"
+     "defeated_hideout_rocket_b1f_1",
+     "defeated_hideout_rocket_b1f_2"
     ],
-    "blocked_message": "A burly grunt bars the stairwell down. \"No one gets past me!\" (Defeat the grunt to descend.)"
+    "blocked_message": "Two Rocket grunts bar the stairwell down. \"No one gets past us!\" (Defeat both grunts to descend.)"
    }
   },
   "npcs": [
@@ -3388,27 +3389,39 @@
   ],
   "trainers": [
    "hideout_rocket_b1f_1",
-   "hideout_rocket_b1f_2"
+   "hideout_rocket_b1f_2",
+   "hideout_rocket_b1f_3",
+   "hideout_rocket_b1f_4"
   ],
   "explore_table": [
    {
     "type": "item",
     "item": "escape_rope",
-    "weight": 15
-   },
-   {
-    "type": "item",
-    "item": "hyper_potion",
     "weight": 12
    },
    {
     "type": "item",
+    "item": "hyper_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
     "item": "nugget",
-    "weight": 8
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "pp_up",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "iron",
+    "weight": 6
    },
    {
     "type": "nothing",
-    "weight": 65
+    "weight": 59
    }
   ]
  },
@@ -3425,9 +3438,10 @@
   "gate_requirements": {
    "celadon_rocket_hideout_office": {
     "required_flags": [
-     "defeated_hideout_rocket_b2f_1"
+     "defeated_hideout_rocket_b2f_1",
+     "defeated_hideout_rocket_b2f_2"
     ],
-    "blocked_message": "The grunt guarding Giovanni's office glares. \"The boss sees no one!\" (Defeat the grunt to enter.)"
+    "blocked_message": "Two grunts guard Giovanni's office door. \"The boss sees no one!\" (Defeat both grunts to enter.)"
    }
   },
   "npcs": [
@@ -3435,27 +3449,44 @@
   ],
   "trainers": [
    "hideout_rocket_b2f_1",
-   "hideout_rocket_b2f_2"
+   "hideout_rocket_b2f_2",
+   "hideout_rocket_b2f_3",
+   "hideout_rocket_b2f_4"
   ],
   "explore_table": [
    {
     "type": "item",
     "item": "moon_stone",
-    "weight": 10
-   },
-   {
-    "type": "item",
-    "item": "tm07",
     "weight": 8
    },
    {
     "type": "item",
+    "item": "tm07",
+    "weight": 7
+   },
+   {
+    "type": "item",
     "item": "super_potion",
-    "weight": 12
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "tm10",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "hp_up",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "tm02",
+    "weight": 6
    },
    {
     "type": "nothing",
-    "weight": 70
+    "weight": 57
    }
   ]
  },
@@ -3483,5 +3514,103 @@
     "weight": 90
    }
   ]
+ },
+ "saffron_city": {
+  "name": "Saffron City",
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": true,
+  "description": "The biggest city in Kanto, dominated by the towering Silph Co. headquarters. Sabrina's psychic gym warps challengers in circles, while a humble fighting dojo keeps the old ways alive next door.",
+  "connections": [
+   "route5",
+   "route6",
+   "route7",
+   "route8",
+   "saffron_city_gym",
+   "saffron_fighting_dojo",
+   "silph_co_1f"
+  ],
+  "npcs": [
+   "mr_psychic",
+   "saffron_townsperson_1",
+   "saffron_townsperson_2",
+   "saffron_townsperson_3"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "saffron_city_gym": {
+  "name": "Saffron City Gym",
+  "description": "Sabrina's gym: a disorienting maze of warp tiles. Psychics and channelers drift between rooms, waiting for challengers.",
+  "isTown": false,
+  "connections": [
+   "saffron_city"
+  ],
+  "trainers": [
+   "saffron_psychic_1",
+   "saffron_psychic_2",
+   "saffron_channeler_1",
+   "saffron_psychic_3",
+   "saffron_channeler_2",
+   "saffron_channeler_3",
+   "saffron_psychic_4",
+   "sabrina_gym"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "saffron_fighting_dojo": {
+  "name": "Fighting Dojo",
+  "description": "A humble fighting dojo next to the grand psychic gym. Blackbelts train here under Karate Master Koichi, who rewards the strong with rare Pokémon.",
+  "isTown": false,
+  "connections": [
+   "saffron_city"
+  ],
+  "trainers": [
+   "dojo_blackbelt_1",
+   "dojo_blackbelt_2",
+   "dojo_blackbelt_3",
+   "dojo_blackbelt_4",
+   "dojo_koichi"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_1f": {
+  "name": "Silph Co. 1F",
+  "description": "The gleaming lobby of Silph Co., Kanto's premier Poké Ball manufacturer. The elevators to the upper floors are locked down -- something is wrong upstairs.",
+  "isTown": false,
+  "connections": [
+   "saffron_city"
+  ],
+  "trainers": [],
+  "npcs": [
+   "silph_employee_1",
+   "silph_scientist_1"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
  }
 }
