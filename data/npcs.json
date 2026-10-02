@@ -72,6 +72,98 @@
   "dialogue_post_flag": "Thanks for the drink! The road to Saffron City is open.",
   "once_flag": "guard_let_pass"
  },
+ "mt_moon_dome_fossil": {
+  "name": "Dome Fossil",
+  "dialogue_default": "[DRAFT] A smooth, dome-shaped fossil is half-buried in the cave floor. (You took the Dome Fossil!)",
+  "dialogue_repeat": "[DRAFT] There's nothing else here.",
+  "rewards": [
+   {
+    "type": "item",
+    "id": "dome_fossil",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "took_dome_fossil"
+   },
+   {
+    "type": "flag",
+    "id": "took_first_fossil"
+   }
+  ],
+  "once_flag": "took_dome_fossil",
+  "remove_after_claim": true,
+  "req_flag_to_disappear": "took_first_fossil"
+ },
+ "mt_moon_helix_fossil": {
+  "name": "Helix Fossil",
+  "dialogue_default": "[DRAFT] A spiral-shaped fossil is half-buried in the cave floor. (You took the Helix Fossil!)",
+  "dialogue_repeat": "[DRAFT] There's nothing else here.",
+  "rewards": [
+   {
+    "type": "item",
+    "id": "helix_fossil",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "took_helix_fossil"
+   },
+   {
+    "type": "flag",
+    "id": "took_first_fossil"
+   }
+  ],
+  "once_flag": "took_helix_fossil",
+  "remove_after_claim": true,
+  "req_flag_to_disappear": "took_first_fossil"
+ },
+ "mt_moon_nerd_dome": {
+  "name": "Super Nerd",
+  "dialogue_default": "[DRAFT] HEY! That Dome Fossil was MINE! I was... uh... studying it! ...Ugh, fine. You clearly love fossils. Take the Helix Fossil too — but ONLY if you promise to show them BOTH to my friends at the Cinnabar Lab! They can bring fossils back to life!",
+  "dialogue_repeat": "[DRAFT] Cinnabar Lab! Don't forget — go show them my fossils!",
+  "req_flag_to_appear": "took_dome_fossil",
+  "rewards": [
+   {
+    "type": "item",
+    "id": "helix_fossil",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "nerd_gave_second_fossil"
+   },
+   {
+    "type": "flag",
+    "id": "heard_cinnabar_fossil_tip"
+   }
+  ],
+  "once_flag": "nerd_gave_second_fossil",
+  "remove_after_claim": true
+ },
+ "mt_moon_nerd_helix": {
+  "name": "Super Nerd",
+  "dialogue_default": "[DRAFT] HEY! That Helix Fossil was MINE! I was... uh... studying it! ...Ugh, fine. You clearly love fossils. Take the Dome Fossil too — but ONLY if you promise to show them BOTH to my friends at the Cinnabar Lab! They can bring fossils back to life!",
+  "dialogue_repeat": "[DRAFT] Cinnabar Lab! Don't forget — go show them my fossils!",
+  "req_flag_to_appear": "took_helix_fossil",
+  "rewards": [
+   {
+    "type": "item",
+    "id": "dome_fossil",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "nerd_gave_second_fossil"
+   },
+   {
+    "type": "flag",
+    "id": "heard_cinnabar_fossil_tip"
+   }
+  ],
+  "once_flag": "nerd_gave_second_fossil",
+  "remove_after_claim": true
+ },
  "fossil_scientist_dome": {
   "name": "Lab Scientist 1",
   "dialogue_default": "Ah, the Dome Fossil! I can resurrect this into Kabuto using our machine.",

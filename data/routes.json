@@ -732,7 +732,13 @@
     "item": "moon_stone"
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "npcs": [
+   "mt_moon_dome_fossil",
+   "mt_moon_helix_fossil",
+   "mt_moon_nerd_dome",
+   "mt_moon_nerd_helix"
+  ]
  },
  "route4": {
   "name": "Route 4",
