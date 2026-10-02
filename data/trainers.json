@@ -6549,5 +6549,154 @@
     "level": 43
    }
   ]
+ },
+ "elite_four_lorelei": {
+  "name": "Lorelei",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 5544,
+  "party": [
+   {
+    "species": "dewgong",
+    "level": 54
+   },
+   {
+    "species": "cloyster",
+    "level": 53
+   },
+   {
+    "species": "slowbro",
+    "level": 54
+   },
+   {
+    "species": "jynx",
+    "level": 56
+   },
+   {
+    "species": "lapras",
+    "level": 56
+   }
+  ]
+ },
+ "elite_four_bruno": {
+  "name": "Bruno",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 5742,
+  "party": [
+   {
+    "species": "onix",
+    "level": 53
+   },
+   {
+    "species": "hitmonchan",
+    "level": 55
+   },
+   {
+    "species": "hitmonlee",
+    "level": 55
+   },
+   {
+    "species": "onix",
+    "level": 56
+   },
+   {
+    "species": "machamp",
+    "level": 58
+   }
+  ]
+ },
+ "elite_four_agatha": {
+  "name": "Agatha",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 5940,
+  "party": [
+   {
+    "species": "gengar",
+    "level": 56
+   },
+   {
+    "species": "golbat",
+    "level": 56
+   },
+   {
+    "species": "haunter",
+    "level": 55
+   },
+   {
+    "species": "arbok",
+    "level": 58
+   },
+   {
+    "species": "gengar",
+    "level": 60
+   }
+  ]
+ },
+ "elite_four_lance": {
+  "name": "Lance",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 6138,
+  "party": [
+   {
+    "species": "gyarados",
+    "level": 58
+   },
+   {
+    "species": "dragonair",
+    "level": 56
+   },
+   {
+    "species": "dragonair",
+    "level": 56
+   },
+   {
+    "species": "aerodactyl",
+    "level": 60
+   },
+   {
+    "species": "dragonite",
+    "level": 62
+   }
+  ]
+ },
+ "champion_rival": {
+  "name": "Rival",
+  "title": "Champion",
+  "dialogueBefore": "[DRAFT] Well, well. Look who finally crawled out of Victory Road. Heh... I beat the Elite Four while you were still getting lost in a cave. That's the difference between us - I'm always one step ahead. But I'll give you this: nobody else even made it to my throne room. So come on! If you want my title, you're going to have to rip it out of my hands!",
+  "dialogueAfter": "[DRAFT] ...No way. NO way! I... I was the Champion! ...Hmph. Fine. You win. You were always the annoying one, weren't you? Chasing me from town to town, snapping at my heels since Pallet Town... You know what? I'm not even mad. A Champion who never loses gets soft. Go on - take the title. Just don't you dare lose it to the first kid with a Rattata who walks in here. ...And hey. Thanks. Losing to you was the most fun I've had in years.",
+  "rewardMoney": 6435,
+  "party": [
+   {
+    "species": "pidgeot",
+    "level": 61
+   },
+   {
+    "species": "alakazam",
+    "level": 59
+   },
+   {
+    "species": "rhydon",
+    "level": 61
+   },
+   {
+    "species": "RIVAL_CHAMP_EXTRA_A",
+    "level": 61
+   },
+   {
+    "species": "RIVAL_CHAMP_EXTRA_B",
+    "level": 63
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 65
+   }
+  ]
  }
 }

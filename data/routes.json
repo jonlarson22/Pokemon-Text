@@ -6773,5 +6773,195 @@
    }
   ],
   "noFly": true
+ },
+ "indigo_plateau": {
+  "name": "Indigo Plateau",
+  "description": "The seat of the Pokemon League. A Pokemon Center and a well-stocked mart serve those about to face the Elite Four. The League gates stand to the north.",
+  "connections": [
+   "victory_road_3f",
+   "elite_four_1"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": true,
+  "gate_requirements": {
+   "elite_four_1": {
+    "confirm": {
+     "prompt": "The League gates loom ahead. Once you enter, the Elite Four await: Lorelei, Bruno, Agatha, and Lance - and beyond them, the Champion. Are you ready to challenge the Elite Four?",
+     "yes_label": "Enter",
+     "no_label": "Not yet",
+     "decline": "You step back from the gates. The Elite Four will wait."
+    }
+   }
+  }
+ },
+ "elite_four_1": {
+  "name": "Elite Four - Lorelei",
+  "description": "A chamber of ice and still water. Lorelei, master of the frozen north, awaits.",
+  "connections": [
+   "indigo_plateau",
+   "elite_four_2"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_lorelei",
+   "trainer_id": "elite_four_lorelei"
+  },
+  "gate_requirements": {
+   "elite_four_2": {
+    "required_flags": [
+     "defeated_lorelei"
+    ],
+    "blocked_message": "You must defeat Lorelei before proceeding!"
+   }
+  }
+ },
+ "elite_four_2": {
+  "name": "Elite Four - Bruno",
+  "description": "A stark chamber of stone. Bruno's fighting spirit radiates from every corner.",
+  "connections": [
+   "elite_four_1",
+   "elite_four_3"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_bruno",
+   "trainer_id": "elite_four_bruno"
+  },
+  "gate_requirements": {
+   "elite_four_3": {
+    "required_flags": [
+     "defeated_bruno"
+    ],
+    "blocked_message": "You must defeat Bruno before proceeding!"
+   }
+  }
+ },
+ "elite_four_3": {
+  "name": "Elite Four - Agatha",
+  "description": "Shadows cling to the walls. Agatha's ghostly laughter echoes in the dark.",
+  "connections": [
+   "elite_four_2",
+   "elite_four_4"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_agatha",
+   "trainer_id": "elite_four_agatha"
+  },
+  "gate_requirements": {
+   "elite_four_4": {
+    "required_flags": [
+     "defeated_agatha"
+    ],
+    "blocked_message": "You must defeat Agatha before proceeding!"
+   }
+  }
+ },
+ "elite_four_4": {
+  "name": "Elite Four - Lance",
+  "description": "A vast chamber beneath a painted sky. Lance, master of dragons, stands waiting.",
+  "connections": [
+   "elite_four_3",
+   "hall_of_champions"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_lance",
+   "trainer_id": "elite_four_lance"
+  },
+  "gate_requirements": {
+   "hall_of_champions": {
+    "required_flags": [
+     "defeated_lance"
+    ],
+    "blocked_message": "You must defeat Lance before proceeding!"
+   }
+  }
+ },
+ "hall_of_champions": {
+  "name": "Hall of Champions",
+  "description": "The final chamber. Marble pillars rise toward a domed ceiling, and at the far end, on the Champion's throne, sits a familiar face...",
+  "connections": [
+   "elite_four_4"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_elite_four",
+   "trainer_id": "champion_rival"
+  }
  }
 }

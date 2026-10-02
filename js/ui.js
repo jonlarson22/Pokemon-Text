@@ -872,14 +872,32 @@ renderRouteScreen() {
         this.printToLog(gate.departed_message || gate.blocked_message);
         return false;
       }
-      const satisfiesReqs = gate.required_flags.every(flag => this.game.hasFlag(flag));
-      
+      const satisfiesReqs = (gate.required_flags || []).every(flag => this.game.hasFlag(flag));
+
       if (!satisfiesReqs) {
         this.printToLog(gate.blocked_message);
-        return false; 
+        return false;
+      }
+
+      // confirm: ask the player to confirm every attempt (e.g. entering the
+      // Elite Four from Indigo Plateau). Yes completes the travel, No stays.
+      if (gate.confirm) {
+        this.openChoiceMenu({
+          prompt: gate.confirm.prompt,
+          yes_label: gate.confirm.yes_label || "Yes",
+          no_label: gate.confirm.no_label || "No",
+          decline: gate.confirm.decline || "You step back.",
+          onYes: () => this._finishTravel(targetRouteId, currentRoute, targetRoute),
+        });
+        return false;
       }
     }
 
+    return this._finishTravel(targetRouteId, currentRoute, targetRoute);
+  }
+
+  // MOVED FROM APP.JS
+  _finishTravel(targetRouteId, currentRoute, targetRoute) {
     // Leaving the Safari Zone ends the visit: leftover Safari Balls are
     // forfeited and the entry flag is cleared (re-entry costs the fee again).
     if (currentRoute && currentRoute.safari && !(targetRoute && targetRoute.safari)) {

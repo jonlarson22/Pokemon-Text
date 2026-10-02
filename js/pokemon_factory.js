@@ -162,6 +162,19 @@ export class PokemonFactory {
         mon.species = pick[0];
         mon.level = pick[1];
       }
+      // Canon RBY champion rival: slots 4-5 depend on the rival's starter
+      // (slots: Pidgeot 61 / Alakazam 59 / Rhydon 61 / A / B / starter 65).
+      if (mon.species === "RIVAL_CHAMP_EXTRA_A" || mon.species === "RIVAL_CHAMP_EXTRA_B") {
+        const champExtras = {
+          'bulbasaur': { A: ['gyarados', 61], B: ['arcanine', 63] },
+          'charmander': { A: ['exeggutor', 61], B: ['gyarados', 63] },
+          'squirtle': { A: ['arcanine', 61], B: ['exeggutor', 63] },
+        };
+        const slot = mon.species === "RIVAL_CHAMP_EXTRA_A" ? 'A' : 'B';
+        const pick = champExtras[this.engine.gameState.rivalStarter][slot];
+        mon.species = pick[0];
+        mon.level = pick[1];
+      }
     });
 
     return trainer;  

@@ -71,13 +71,11 @@
  "indigo_plateau": [
   "ultra_ball",
   "great_ball",
-  "hyper_potion",
-  "max_potion",
   "full_restore",
-  "max_repel",
-  "escape_rope",
+  "max_potion",
   "full_heal",
-  "revive"
+  "revive",
+  "max_repel"
  ],
  "celadon_dept_store": [
   "great_ball",
