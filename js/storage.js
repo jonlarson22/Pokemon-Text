@@ -1,5 +1,5 @@
 // Bump this when gameState's shape changes in a way old saves can't handle.
-const SAVE_VERSION = 2;
+const SAVE_VERSION = 3;
 
 export class StorageManager {
   constructor(game) {
@@ -18,6 +18,8 @@ export class StorageManager {
     for (const mon of (state.party || [])) {
       if (mon.friendship === undefined) mon.friendship = 70;
     }
+    // Game Corner coins (save v3).
+    if (state.coins === undefined) state.coins = 0;
     if (state.saveVersion !== SAVE_VERSION) {
       console.warn(`[save] Save version ${state.saveVersion || "unknown"} loaded; current version is ${SAVE_VERSION}. Some things may not work as expected.`);
       this.game.ui.printToLog("Note: this save is from an older version of the game. Some things may not work as expected.");

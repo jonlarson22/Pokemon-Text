@@ -17,6 +17,7 @@ class GameEngine {
       defeatedTrainers: {},
       party: [],
       money: 3000,
+      coins: 0,
       inventory: { "potion": 1 },
       pc: { pokemon: [], items: {} },
       pokedex: { seen: {}, caught: {} },
@@ -223,8 +224,12 @@ class GameEngine {
   triggerExplore() {
     const route = this.db.routes[this.gameState.currentRoute];
     // Entries can require a flag (e.g. Snorlax only appears once woken).
+    // secret_switch entries vanish once their flag is set (one-time discovery).
     // If nothing is eligible, exploring finds nothing.
-    const table = (route.explore_table || []).filter(e => !e.req_flag || this.hasFlag(e.req_flag));
+    const table = (route.explore_table || []).filter(e =>
+      (!e.req_flag || this.hasFlag(e.req_flag)) &&
+      !(e.type === "secret_switch" && e.flag && this.hasFlag(e.flag))
+    );
     const outcome = this.getWeightedRandom(table.length ? table : [{ type: "nothing", weight: 1 }]);
 
     switch (outcome.type) {
@@ -269,6 +274,29 @@ class GameEngine {
         return { species: outcome.species, level: outcome.level, intro: outcome.intro,
                  uncatchable: !!outcome.uncatchable, win_flag: outcome.win_flag || null };
       }
+      case "coins": {
+        // Game Corner floor coins: one-time pickup per id, needs the coin case flag.
+        const coinFlag = `found_coins_${this.gameState.currentRoute}_${outcome.id || outcome.amount}`;
+        if (this.hasFlag(coinFlag)) {
+          return "You searched the area but found nothing of interest.";
+        }
+        this.setFlag(coinFlag, true);
+        const amount = outcome.amount || 0;
+        this.gameState.coins = (this.gameState.coins || 0) + amount;
+        this.ui.updateMoneyUI();
+        return `You found ${amount} coins on the floor! (Total: ${this.gameState.coins})`;
+      }
+      case "secret_switch": {
+        // One-time discovery with a yes/no choice (e.g. the Rocket Hideout switch).
+        return { choice: {
+          prompt: outcome.prompt,
+          yes_label: outcome.yes_label || "Yes",
+          no_label: outcome.no_label || "No",
+          flag: outcome.flag,
+          success: outcome.success,
+          decline: outcome.decline,
+        } };
+      }
       }
     }
 
@@ -290,6 +318,7 @@ class GameEngine {
     document.getElementById('btn-explore')?.addEventListener('click', () => {
       const result = this.triggerExplore();
       if (typeof result === 'string') this.ui.printToLog(result);
+      else if (result && result.choice) this.ui.openChoiceMenu(result.choice);
       else if (result && result.species) {
         this.ui.printToLog(result.intro || `You were ambushed!`);
         this.battleManager.startBattle(result);

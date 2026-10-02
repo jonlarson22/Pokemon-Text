@@ -5,7 +5,33 @@ export class UIManager {
 
   updateMoneyUI() {
     const moneyEl = document.getElementById('money-count');
-    if (moneyEl) moneyEl.textContent = `Money: ¥${this.game.gameState.money}`;
+    if (moneyEl) {
+      const coins = this.game.gameState.coins || 0;
+      const coinText = (coins > 0 || this.game.hasFlag('obtained_coin_case'))
+        ? ` · Coins: ${coins}` : '';
+      moneyEl.textContent = `Money: ¥${this.game.gameState.money}${coinText}`;
+    }
+  }
+
+  // Yes/no choice menu (e.g. "Press the hidden switch? Who wouldn't?").
+  openChoiceMenu(choice) {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold; margin-bottom:8px;">${choice.prompt}</p>`;
+    controls.innerHTML = '';
+
+    this.buildMenuControls(controls, [
+      { text: choice.yes_label || "Yes", action: () => {
+          if (choice.flag) this.game.setFlag(choice.flag, true);
+          this.printToLog(choice.success || "Done.");
+          this.setMenuState('route');
+      } },
+      { text: choice.no_label || "No", action: () => {
+          this.printToLog(choice.decline || "You leave it alone.");
+          this.setMenuState('route');
+      } },
+    ]);
   }
 
   updatePokedexTrackerUI() {

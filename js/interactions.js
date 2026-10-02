@@ -129,6 +129,11 @@ export class InteractionManager {
 
     if (this.checkRequirements(npc.requirements)) {
       this.game.ui.printToLog(npc.dialogue_default || npc.dialogue_success);
+      // Special actions (Game Corner counters, slot machines, ...) run instead
+      // of the normal reward flow.
+      if (npc.action === 'buy_coins') { this.game.facilities.openCoinMenu(); return; }
+      if (npc.action === 'open_shop') { this.game.facilities.openShop(npc.shop_id, npc.shop_name); return; }
+      if (npc.action === 'play_slots') { this.game.facilities.openSlotMachine(); return; }
       this.grantRewards(npc.rewards);
       if (npc.once_flag) this.setFlag(npc.once_flag);
       if (npc.remove_after_claim) this.removeNPCFromRoute(npcId);

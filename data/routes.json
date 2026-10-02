@@ -3176,7 +3176,8 @@
    "route7",
    "route16",
    "celadon_mansion",
-   "celadon_city_gym"
+   "celadon_city_gym",
+   "celadon_game_corner"
   ],
   "encounters": {
    "grass": []
@@ -3275,5 +3276,94 @@
    }
   ],
   "noFly": true
+ },
+ "celadon_game_corner": {
+  "name": "Celadon Game Corner",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "description": "Celadon's infamous Game Corner. Slot machines hum, coins clatter, and a suspicious grunt loiters by a poster on the back wall...",
+  "connections": [
+   "celadon_city",
+   "celadon_rocket_hideout"
+  ],
+  "npcs": [
+   "gamecorner_coin_clerk",
+   "gamecorner_prize_clerk",
+   "gamecorner_slots_1",
+   "gamecorner_slots_2",
+   "gamecorner_gambler_1",
+   "gamecorner_gambler_2",
+   "gamecorner_gambler_3"
+  ],
+  "trainers": [
+   "gamecorner_rocket_grunt"
+  ],
+  "explore_table": [
+   {
+    "type": "coins",
+    "id": "floor_coins_1",
+    "amount": 20,
+    "weight": 15,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_2",
+    "amount": 50,
+    "weight": 10,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_3",
+    "amount": 100,
+    "weight": 6,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "secret_switch",
+    "weight": 30,
+    "req_flag": "defeated_gamecorner_rocket_grunt",
+    "prompt": "Behind the poster you find a hidden switch... Press it? Who wouldn't?",
+    "yes_label": "Press it",
+    "no_label": "Leave it alone",
+    "flag": "found_rocket_hideout",
+    "success": "Click! The floor rumbles and a hidden staircase grinds open, leading down into darkness. The Rocket Hideout is revealed!",
+    "decline": "You decide not to touch it. Some mysteries are best left alone... for now."
+   },
+   {
+    "type": "nothing",
+    "weight": 40
+   }
+  ]
+ },
+ "celadon_rocket_hideout": {
+  "name": "Rocket Hideout",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "req_flag": "found_rocket_hideout",
+  "description": "Team Rocket's secret base beneath the Game Corner. The air smells of oil and ambition. An elevator hums at the far end, going nowhere.",
+  "connections": [
+   "celadon_game_corner"
+  ],
+  "npcs": [
+   "hideout_elevator_grunt"
+  ],
+  "trainers": [
+   "hideout_rocket_grunt_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "escape_rope",
+    "weight": 20
+   },
+   {
+    "type": "nothing",
+    "weight": 80
+   }
+  ]
  }
 }

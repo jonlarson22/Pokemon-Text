@@ -755,5 +755,59 @@
  "celadon_mansion_freak": {
   "name": "Game Freak",
   "dialogue_default": "[DRAFT] We're designing a new game... Someday, someone will complete the entire Pokédex!"
+ },
+ "gamecorner_coin_clerk": {
+  "name": "Coin Clerk",
+  "dialogue_default": "[DRAFT] Welcome to the Game Corner, kid! Coins are the name of the game here. First visit? Then take this Coin Case, on the house -- it holds up to 9,999 coins. We sell 500 coins for just ¥1,000. Best rate in Kanto, no questions asked!",
+  "action": "buy_coins",
+  "requirements": [],
+  "rewards": []
+ },
+ "gamecorner_prize_clerk": {
+  "name": "Prize Clerk",
+  "dialogue_default": "[DRAFT] Step right up! Trade your hard-won coins for fabulous prizes: rare Pokémon you can't find anywhere else, plus choice TMs!",
+  "action": "open_shop",
+  "shop_id": "celadon_game_corner_prizes",
+  "shop_name": "Prize Exchange",
+  "requirements": [],
+  "rewards": []
+ },
+ "gamecorner_slots_1": {
+  "name": "Slot Machine",
+  "dialogue_default": "[DRAFT] A flashy slot machine, humming with promise. Bet 1 to 3 coins per spin. Three 7s pays 300! Feeling lucky?",
+  "action": "play_slots",
+  "requirements": [],
+  "rewards": []
+ },
+ "gamecorner_slots_2": {
+  "name": "Slot Machine",
+  "dialogue_default": "[DRAFT] A flashy slot machine, humming with promise. Bet 1 to 3 coins per spin. Three 7s pays 300! Feeling lucky?",
+  "action": "play_slots",
+  "requirements": [],
+  "rewards": []
+ },
+ "gamecorner_gambler_1": {
+  "name": "Gambler",
+  "dialogue_default": "[DRAFT] Shhh! I'm on a hot streak... well, I was, until that third reel. The slots here are brutal, but the prizes! Have you SEEN that Porygon?",
+  "requirements": [],
+  "rewards": []
+ },
+ "gamecorner_gambler_2": {
+  "name": "Gentleman",
+  "dialogue_default": "[DRAFT] I come here for the ambiance, my good fellow. The clatter of coins, the thrill of the reels... and the occasional Dratini, of course.",
+  "requirements": [],
+  "rewards": []
+ },
+ "gamecorner_gambler_3": {
+  "name": "Little Girl",
+  "dialogue_default": "[DRAFT] My brother found coins just lying on the floor! He says you need one of those coin case thingies first, though.",
+  "requirements": [],
+  "rewards": []
+ },
+ "hideout_elevator_grunt": {
+  "name": "Rocket Grunt",
+  "dialogue_default": "[DRAFT] This elevator only goes where the boss says it goes, and right now it ain't going anywhere without the Lift Key. Beat it, kid.",
+  "requirements": [],
+  "rewards": []
  }
 }

@@ -3535,5 +3535,39 @@
     "level": 23
    }
   ]
+ },
+ "gamecorner_rocket_grunt": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Hey! I'm guarding this poster! Go away, or else!",
+  "dialogueAfter": "[DRAFT] Urgh... Team Rocket's hideout might be discovered! I'd better tell the boss!",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 20
+   },
+   {
+    "species": "zubat",
+    "level": 20
+   }
+  ]
+ },
+ "hideout_rocket_grunt_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] You weren't supposed to find this place! Boss won't like this...",
+  "dialogueAfter": "[DRAFT] Fine! Snoop around! You'll never get past the spinners anyway!",
+  "rewardMoney": 570,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "zubat",
+    "level": 19
+   }
+  ]
  }
 }

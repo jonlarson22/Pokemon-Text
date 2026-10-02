@@ -40,54 +40,262 @@ challengeGymLeader(gymId) {
   }
 
   // --- POKÉ MART LOGIC ---
-  openShop(shopId = null) {
+  openShop(shopId = null, shopName = null) {
     this.engine.ui.setMenuState('dynamic');
-    this.renderBuyMenu(shopId);
+    this.renderBuyMenu(shopId, shopName);
   }
 
-  renderBuyMenu(shopId = null) {
+  renderBuyMenu(shopId = null, shopName = null) {
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = '';
     controls.innerHTML = '';
 
     const key = shopId || this.engine.gameState.currentRoute;
-    const shopItemKeys = this.engine.db.shops[key];
+    const shopEntries = this.engine.db.shops[key];
 
-    if (!shopItemKeys) {
+    if (!shopEntries) {
       this.engine.ui.printToLog("This shop is currently closed.");
       setTimeout(() => this.engine.ui.setMenuState('route'), 1500);
       return;
     }
 
     const shopRoute = shopId ? this.engine.db.routes[shopId] : null;
-    const shopName = shopRoute ? shopRoute.name : "Poké Mart";
-    this.engine.ui.printToLog(`Welcome to the ${shopName}! What would you like to buy?`);
+    const displayName = shopName || (shopRoute ? shopRoute.name : null) || "Poké Mart";
+    const useCoins = shopEntries.some(e => typeof e === 'object' && e.coinPrice);
+    this.engine.ui.printToLog(`Welcome to the ${displayName}! What would you like to buy?`);
+    if (useCoins) {
+      const p = document.createElement('p');
+      p.style.textAlign = 'center';
+      p.textContent = `Your coins: ${this.engine.gameState.coins || 0}`;
+      content.appendChild(p);
+    }
 
-    shopItemKeys.forEach(itemKey => {
-      const itemData = this.engine.db.items[itemKey];
-      if (!itemData) return;
+    shopEntries.forEach(entry => {
+      // Entries are either item keys (yen price from items.json) or
+      // { key, coinPrice, kind: 'item'|'pokemon', level } for coin shops.
+      const itemKey = typeof entry === 'string' ? entry : entry.key;
+      const coinPrice = typeof entry === 'object' ? entry.coinPrice : null;
+      const kind = typeof entry === 'object' ? (entry.kind || 'item') : 'item';
 
       const btn = document.createElement('button');
       btn.className = 'btn';
-      btn.textContent = `${itemData.name} - ¥${itemData.price}`;
-      btn.onclick = () => {
-        if (this.engine.gameState.money >= itemData.price) {
-          this.engine.gameState.money -= itemData.price;
-          this.engine.gameState.inventory[itemKey] = (this.engine.gameState.inventory[itemKey] || 0) + 1;
-          this.engine.ui.updateMoneyUI();
-          this.engine.ui.printToLog(`You bought a ${itemData.name}!`);
+
+      if (kind === 'pokemon') {
+        const pkmn = this.engine.db.pokemon ? this.engine.db.pokemon[itemKey] : null;
+        const name = pkmn ? (pkmn.name || itemKey) : itemKey;
+        const level = entry.level || 5;
+        btn.textContent = `${name} (Lv.${level}) - ${coinPrice.toLocaleString()} coins`;
+        btn.onclick = () => {
+          if ((this.engine.gameState.coins || 0) >= coinPrice) {
+            this.engine.gameState.coins -= coinPrice;
+            this.engine.interactions.givePokemon(itemKey, level);
+            this.engine.ui.updateMoneyUI();
+            this.engine.ui.printToLog(`${name} joined your team!`);
+            this.renderBuyMenu(shopId, shopName);
+          } else {
+            this.engine.ui.printToLog(`You don't have enough coins for ${name}.`);
+          }
+        };
+      } else {
+        const itemData = this.engine.db.items[itemKey];
+        if (!itemData) return;
+        if (coinPrice) {
+          btn.textContent = `${itemData.name} - ${coinPrice.toLocaleString()} coins`;
+          btn.onclick = () => {
+            if ((this.engine.gameState.coins || 0) >= coinPrice) {
+              this.engine.gameState.coins -= coinPrice;
+              this.engine.gameState.inventory[itemKey] = (this.engine.gameState.inventory[itemKey] || 0) + 1;
+              this.engine.ui.updateMoneyUI();
+              this.engine.ui.printToLog(`You bought a ${itemData.name}!`);
+              this.renderBuyMenu(shopId, shopName);
+            } else {
+              this.engine.ui.printToLog(`You don't have enough coins for a ${itemData.name}.`);
+            }
+          };
         } else {
-          this.engine.ui.printToLog(`You don't have enough money for a ${itemData.name}.`);
+          btn.textContent = `${itemData.name} - ¥${itemData.price}`;
+          btn.onclick = () => {
+            if (this.engine.gameState.money >= itemData.price) {
+              this.engine.gameState.money -= itemData.price;
+              this.engine.gameState.inventory[itemKey] = (this.engine.gameState.inventory[itemKey] || 0) + 1;
+              this.engine.ui.updateMoneyUI();
+              this.engine.ui.printToLog(`You bought a ${itemData.name}!`);
+            } else {
+              this.engine.ui.printToLog(`You don't have enough money for a ${itemData.name}.`);
+            }
+          };
         }
+      }
+      content.appendChild(btn);
+    });
+
+    const menuButtons = [
+      { text: "Buy", action: () => this.renderBuyMenu(shopId, shopName) },
+    ];
+    // Coin prize counters don't buy your items back.
+    if (!useCoins) menuButtons.push({ text: "Sell", action: () => this.renderSellMenu() });
+    menuButtons.push({ text: "Exit", action: () => { this.engine.ui.printToLog("Come again!"); this.engine.ui.setMenuState('route'); } });
+    this.engine.ui.buildMenuControls(controls, menuButtons);
+  }
+
+  // --- GAME CORNER: COIN EXCHANGE ---
+  // Coins are a plain gameState number (no Coin Case item); the first visit
+  // sets the obtained_coin_case flag so floor coins become findable.
+  openCoinMenu() {
+    if (!this.engine.hasFlag('obtained_coin_case')) {
+      this.engine.setFlag('obtained_coin_case', true);
+      this.engine.ui.printToLog("The clerk hands you a Coin Case! It can hold up to 9,999 coins.");
+    }
+    this.renderCoinMenu();
+  }
+
+  renderCoinMenu() {
+    this.engine.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    const p = document.createElement('p');
+    p.style.textAlign = 'center';
+    p.textContent = `Your coins: ${this.engine.gameState.coins || 0} — Your money: ¥${this.engine.gameState.money}`;
+    content.appendChild(p);
+
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = 'Buy 500 coins (¥1,000)';
+    btn.onclick = () => {
+      if (this.engine.gameState.money >= 1000) {
+        this.engine.gameState.money -= 1000;
+        this.engine.gameState.coins = Math.min(9999, (this.engine.gameState.coins || 0) + 500);
+        this.engine.ui.updateMoneyUI();
+        this.engine.ui.printToLog(`You bought 500 coins! (Total: ${this.engine.gameState.coins})`);
+        this.renderCoinMenu();
+      } else {
+        this.engine.ui.printToLog("You don't have enough money for coins.");
+      }
+    };
+    content.appendChild(btn);
+
+    this.engine.ui.buildMenuControls(controls, [
+      { text: "Done", action: () => { this.engine.ui.printToLog("Good luck in there!"); this.engine.ui.setMenuState('route'); } },
+    ]);
+  }
+
+  // --- GAME CORNER: SLOT MACHINE (text-based) ---
+  slotPayout(reels) {
+    const [a, b, c] = reels;
+    if (a === "7" && b === "7" && c === "7") return 300;
+    if (a === "BAR" && b === "BAR" && c === "BAR") return 100;
+    if (a === b && b === c) return 15;
+    if (reels.filter(s => s === "Cherry").length === 2) return 8;
+    return 0;
+  }
+
+  openSlotMachine() {
+    this.engine.ui.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    const p = document.createElement('p');
+    p.style.textAlign = 'center';
+    p.textContent = `Your coins: ${this.engine.gameState.coins || 0}. How many coins do you want to bet?`;
+    content.appendChild(p);
+
+    [1, 2, 3].forEach(bet => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Bet ${bet} coin${bet > 1 ? 's' : ''}`;
+      btn.onclick = () => {
+        if ((this.engine.gameState.coins || 0) < bet) {
+          this.engine.ui.printToLog("You don't have enough coins for that bet.");
+          return;
+        }
+        this.engine.gameState.coins -= bet;
+        this.engine.ui.updateMoneyUI();
+        this.renderSlotSpin();
       };
       content.appendChild(btn);
     });
 
     this.engine.ui.buildMenuControls(controls, [
-      { text: "Buy", action: () => this.renderBuyMenu() },
-      { text: "Sell", action: () => this.renderSellMenu() },
-      { text: "Exit", action: () => { this.engine.ui.printToLog("Come again!"); this.engine.ui.setMenuState('route'); } }
+      { text: "Walk away", action: () => this.engine.ui.setMenuState('route') },
+    ]);
+  }
+
+  renderSlotSpin() {
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    const symbols = ["7", "BAR", "Cherry", "Star", "Moon"];
+    const reels = [null, null, null];
+    const reelEls = [];
+
+    const title = document.createElement('p');
+    title.style.textAlign = 'center';
+    title.style.fontWeight = 'bold';
+    title.textContent = 'The reels are spinning... stop each one!';
+    content.appendChild(title);
+
+    for (let i = 0; i < 3; i++) {
+      const el = document.createElement('p');
+      el.style.textAlign = 'center';
+      el.textContent = `Reel ${i + 1}: [ ? ]`;
+      content.appendChild(el);
+      reelEls.push(el);
+    }
+
+    const stopButtons = [];
+    for (let i = 0; i < 3; i++) {
+      stopButtons.push({ text: `Stop reel ${i + 1}`, action: () => {
+        if (reels[i] !== null) return;
+        reels[i] = symbols[Math.floor(Math.random() * symbols.length)];
+        reelEls[i].textContent = `Reel ${i + 1}: [ ${reels[i]} ]`;
+        if (reels.every(r => r !== null)) this.resolveSlotSpin(reels);
+        else this.renderSlotSpinContinue(reels, reelEls);
+      } });
+    }
+    stopButtons.push({ text: "Give up", action: () => this.engine.ui.setMenuState('route') });
+    this.engine.ui.buildMenuControls(controls, stopButtons);
+  }
+
+  // Re-render the stop buttons after each stop so spent reels can't be re-stopped.
+  renderSlotSpinContinue(reels, reelEls) {
+    const controls = document.getElementById('dynamic-controls');
+    controls.innerHTML = '';
+    const stopButtons = [];
+    for (let i = 0; i < 3; i++) {
+      if (reels[i] !== null) continue;
+      stopButtons.push({ text: `Stop reel ${i + 1}`, action: () => {
+        const symbols = ["7", "BAR", "Cherry", "Star", "Moon"];
+        reels[i] = symbols[Math.floor(Math.random() * symbols.length)];
+        reelEls[i].textContent = `Reel ${i + 1}: [ ${reels[i]} ]`;
+        if (reels.every(r => r !== null)) this.resolveSlotSpin(reels);
+        else this.renderSlotSpinContinue(reels, reelEls);
+      } });
+    }
+    stopButtons.push({ text: "Give up", action: () => this.engine.ui.setMenuState('route') });
+    this.engine.ui.buildMenuControls(controls, stopButtons);
+  }
+
+  resolveSlotSpin(reels) {
+    const payout = this.slotPayout(reels);
+    if (payout > 0) {
+      this.engine.gameState.coins = Math.min(9999, (this.engine.gameState.coins || 0) + payout);
+      this.engine.ui.printToLog(`[ ${reels.join(' | ')} ] — You won ${payout} coins!`);
+    } else {
+      this.engine.ui.printToLog(`[ ${reels.join(' | ')} ] — No luck this time.`);
+    }
+    this.engine.ui.updateMoneyUI();
+    const controls = document.getElementById('dynamic-controls');
+    this.engine.ui.buildMenuControls(controls, [
+      { text: "Play again", action: () => this.openSlotMachine() },
+      { text: "Cash out", action: () => this.engine.ui.setMenuState('route') },
     ]);
   }
 
