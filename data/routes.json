@@ -88,7 +88,7 @@
     {
      "species": "Pidgey",
      "min_level": 2,
-     "max_level": 5,
+     "max_level": 7,
      "weight": 55
     },
     {
@@ -108,16 +108,11 @@
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 50
+    "weight": 70
    },
    {
     "type": "encounter",
     "weight": 30
-   },
-   {
-    "type": "item",
-    "weight": 20,
-    "item": "pokeball"
    }
   ]
  },
@@ -393,7 +388,7 @@
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 40
+    "weight": 35
    },
    {
     "type": "encounter",
@@ -401,8 +396,18 @@
    },
    {
     "type": "item",
-    "weight": 10,
+    "weight": 5,
     "item": "antidote"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "pokeball"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "potion"
    }
   ],
   "npcs": [
@@ -628,7 +633,7 @@
      "species": "Zubat",
      "min_level": 7,
      "max_level": 10,
-     "weight": 50
+     "weight": 60
     },
     {
      "species": "Geodude",
@@ -640,7 +645,7 @@
      "species": "Paras",
      "min_level": 8,
      "max_level": 11,
-     "weight": 20
+     "weight": 10
     }
    ],
    "water": []
@@ -654,7 +659,7 @@
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 50
+    "weight": 40
    },
    {
     "type": "encounter",
@@ -662,8 +667,28 @@
    },
    {
     "type": "item",
-    "weight": 15,
-    "item": "paralyz_heal"
+    "weight": 5,
+    "item": "tm12"
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "potion"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "escape_rope"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "moon_stone"
    }
   ],
   "noFly": true
@@ -688,21 +713,27 @@
    "grass": [
     {
      "species": "Zubat",
+     "min_level": 6,
+     "max_level": 11,
+     "weight": 79
+    },
+    {
+     "species": "Geodude",
      "min_level": 8,
-     "max_level": 12,
-     "weight": 40
+     "max_level": 11,
+     "weight": 15
+    },
+    {
+     "species": "Paras",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
     },
     {
      "species": "Clefairy",
      "min_level": 8,
-     "max_level": 12,
-     "weight": 10
-    },
-    {
-     "species": "Paras",
-     "min_level": 9,
-     "max_level": 13,
-     "weight": 50
+     "max_level": 8,
+     "weight": 1
     }
    ],
    "water": []
@@ -720,7 +751,7 @@
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 40
+    "weight": 35
    },
    {
     "type": "encounter",
@@ -728,8 +759,23 @@
    },
    {
     "type": "item",
-    "weight": 20,
+    "weight": 8,
     "item": "moon_stone"
+   },
+   {
+    "type": "item",
+    "weight": 6,
+    "item": "tm01"
+   },
+   {
+    "type": "item",
+    "weight": 6,
+    "item": "hp_up"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "ether"
    }
   ],
   "noFly": true,
@@ -778,13 +824,11 @@
    ],
    "water": []
   },
-  "trainers": [
-   "lass_crissy"
-  ],
+  "trainers": [],
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 50
+    "weight": 45
    },
    {
     "type": "encounter",
@@ -792,8 +836,13 @@
    },
    {
     "type": "item",
-    "weight": 15,
-    "item": "super_potion"
+    "weight": 10,
+    "item": "great_ball"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm04"
    }
   ],
   "npcs": [
@@ -945,7 +994,7 @@
      "species": "pidgey",
      "min_level": 12,
      "max_level": 14,
-     "weight": 20
+     "weight": 30
     },
     {
      "species": "oddish",
@@ -963,12 +1012,6 @@
      "species": "bellsprout",
      "min_level": 12,
      "max_level": 14,
-     "weight": 10
-    },
-    {
-     "species": "venonat",
-     "min_level": 13,
-     "max_level": 16,
      "weight": 10
     },
     {
@@ -1040,7 +1083,7 @@
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 40
+    "weight": 35
    },
    {
     "type": "encounter",
@@ -1048,8 +1091,13 @@
    },
    {
     "type": "item",
-    "weight": 15,
+    "weight": 12,
     "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "tm45"
    }
   ],
   "npcs": [
@@ -1070,7 +1118,7 @@
      "species": "pidgey",
      "min_level": 12,
      "max_level": 14,
-     "weight": 20
+     "weight": 30
     },
     {
      "species": "oddish",
@@ -1089,12 +1137,6 @@
      "min_level": 10,
      "max_level": 12,
      "weight": 15
-    },
-    {
-     "species": "venonat",
-     "min_level": 12,
-     "max_level": 15,
-     "weight": 10
     },
     {
      "species": "weedle",
@@ -1460,58 +1502,34 @@
   "encounters": {
    "grass": [
     {
-     "species": "pidgey",
+     "species": "Pidgey",
      "min_level": 13,
      "max_level": 16,
-     "weight": 25
+     "weight": 35
     },
     {
-     "species": "rattata",
+     "species": "Oddish",
      "min_level": 13,
      "max_level": 16,
      "weight": 20
     },
     {
-     "species": "oddish",
+     "species": "Bellsprout",
      "min_level": 13,
      "max_level": 16,
-     "weight": 12
+     "weight": 18
     },
     {
-     "species": "bellsprout",
-     "min_level": 13,
-     "max_level": 16,
-     "weight": 10
-    },
-    {
-     "species": "meowth",
+     "species": "Meowth",
      "min_level": 10,
      "max_level": 16,
-     "weight": 10
+     "weight": 14
     },
     {
-     "species": "mankey",
+     "species": "Mankey",
      "min_level": 10,
      "max_level": 16,
-     "weight": 8
-    },
-    {
-     "species": "abra",
-     "min_level": 10,
-     "max_level": 16,
-     "weight": 8
-    },
-    {
-     "species": "jigglypuff",
-     "min_level": 3,
-     "max_level": 7,
-     "weight": 5
-    },
-    {
-     "species": "pidgeotto",
-     "min_level": 17,
-     "max_level": 17,
-     "weight": 2
+     "weight": 13
     }
    ],
    "water": []
@@ -1579,69 +1597,45 @@
   "encounters": {
    "grass": [
     {
-     "species": "pidgey",
+     "species": "Pidgey",
      "min_level": 13,
      "max_level": 16,
-     "weight": 25
+     "weight": 35
     },
     {
-     "species": "rattata",
+     "species": "Oddish",
      "min_level": 13,
      "max_level": 16,
      "weight": 20
     },
     {
-     "species": "oddish",
+     "species": "Bellsprout",
      "min_level": 13,
      "max_level": 16,
-     "weight": 12
+     "weight": 18
     },
     {
-     "species": "bellsprout",
-     "min_level": 13,
-     "max_level": 16,
-     "weight": 10
-    },
-    {
-     "species": "meowth",
+     "species": "Meowth",
      "min_level": 10,
      "max_level": 16,
-     "weight": 10
+     "weight": 14
     },
     {
-     "species": "mankey",
+     "species": "Mankey",
      "min_level": 10,
      "max_level": 16,
-     "weight": 8
-    },
-    {
-     "species": "abra",
-     "min_level": 10,
-     "max_level": 16,
-     "weight": 8
-    },
-    {
-     "species": "jigglypuff",
-     "min_level": 3,
-     "max_level": 7,
-     "weight": 5
-    },
-    {
-     "species": "pidgeotto",
-     "min_level": 17,
-     "max_level": 17,
-     "weight": 2
+     "weight": 13
     }
    ],
    "water": []
   },
   "trainers": [
-   "bug_catcher_elijah",
    "bug_catcher_keigo",
    "picnicker_nancy",
    "picnicker_isabelle",
    "camper_jeff",
-   "camper_ricky"
+   "jr_trainer_owen",
+   "bug_catcher_wesley"
   ],
   "explore_table": [
    {
@@ -1689,11 +1683,11 @@
     "blocked_message": "The sailor blocks the gangway. You need an S.S. Ticket to board the S.S. Anne!",
     "departed_message": "The S.S. Anne has departed! Only calm water remains where the great ship was moored."
    },
-   "diglett_cave": {
+   "vermilion_city_gym": {
     "required_flags": [
      "obtain_hm_01"
     ],
-    "blocked_message": "A small tree blocks the tunnel entrance. You need the HM for Cut to pass!"
+    "blocked_message": "A small tree blocks the Gym entrance. It looks like it could be CUT down..."
    }
   },
   "req_flag": null,
@@ -1703,52 +1697,46 @@
    "grass": [],
    "water": [
     {
-     "species": "tentacool",
-     "min_level": 10,
-     "max_level": 20,
-     "weight": 30
+     "species": "Magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 25
     },
     {
-     "species": "magikarp",
-     "min_level": 5,
-     "max_level": 15,
+     "species": "Poliwag",
+     "min_level": 10,
+     "max_level": 10,
      "weight": 20
     },
     {
-     "species": "poliwag",
+     "species": "Goldeen",
      "min_level": 10,
-     "max_level": 20,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "Shellder",
+     "min_level": 15,
+     "max_level": 15,
      "weight": 15
     },
     {
-     "species": "goldeen",
-     "min_level": 10,
-     "max_level": 20,
+     "species": "Krabby",
+     "min_level": 15,
+     "max_level": 15,
      "weight": 15
     },
     {
-     "species": "shellder",
+     "species": "Horsea",
      "min_level": 15,
-     "max_level": 25,
-     "weight": 8
+     "max_level": 15,
+     "weight": 2.5
     },
     {
-     "species": "krabby",
+     "species": "Staryu",
      "min_level": 15,
-     "max_level": 25,
-     "weight": 8
-    },
-    {
-     "species": "horsea",
-     "min_level": 15,
-     "max_level": 25,
-     "weight": 2
-    },
-    {
-     "species": "staryu",
-     "min_level": 15,
-     "max_level": 25,
-     "weight": 2
+     "max_level": 15,
+     "weight": 2.5
     }
    ]
   },
@@ -1763,14 +1751,10 @@
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 70
-   },
-   {
-    "type": "item",
-    "weight": 30,
-    "item": "max_ether"
+    "weight": 100
    }
-  ]
+  ],
+  "on_enter_set_flag": "reached_vermilion"
  },
  "vermilion_city_gym": {
   "name": "Vermilion City Gym",
@@ -1836,7 +1820,6 @@
    "route2_north",
    "route11"
   ],
-  "req_flag": "obtain_hm_01",
   "encounters": {
    "grass": [
     {
@@ -1865,7 +1848,8 @@
     "weight": 30
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "req_flag": "reached_vermilion"
  },
  "ss_anne": {
   "name": "S.S. Anne",
@@ -1972,7 +1956,7 @@
    {
     "type": "item",
     "weight": 10,
-    "item": "max_ether"
+    "item": "ether"
    }
   ]
  },
@@ -2011,52 +1995,46 @@
    "grass": [],
    "water": [
     {
-     "species": "tentacool",
-     "min_level": 10,
-     "max_level": 20,
-     "weight": 30
+     "species": "Magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 25
     },
     {
-     "species": "magikarp",
-     "min_level": 5,
-     "max_level": 15,
+     "species": "Poliwag",
+     "min_level": 10,
+     "max_level": 10,
      "weight": 20
     },
     {
-     "species": "poliwag",
+     "species": "Goldeen",
      "min_level": 10,
-     "max_level": 20,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "Shellder",
+     "min_level": 15,
+     "max_level": 15,
      "weight": 15
     },
     {
-     "species": "goldeen",
-     "min_level": 10,
-     "max_level": 20,
+     "species": "Krabby",
+     "min_level": 15,
+     "max_level": 15,
      "weight": 15
     },
     {
-     "species": "shellder",
+     "species": "Horsea",
      "min_level": 15,
-     "max_level": 25,
-     "weight": 8
+     "max_level": 15,
+     "weight": 2.5
     },
     {
-     "species": "krabby",
+     "species": "Staryu",
      "min_level": 15,
-     "max_level": 25,
-     "weight": 8
-    },
-    {
-     "species": "horsea",
-     "min_level": 15,
-     "max_level": 25,
-     "weight": 2
-    },
-    {
-     "species": "staryu",
-     "min_level": 15,
-     "max_level": 25,
-     "weight": 2
+     "max_level": 15,
+     "weight": 2.5
     }
    ]
   },

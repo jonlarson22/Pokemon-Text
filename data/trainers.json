@@ -108,7 +108,7 @@
   "rewardMoney": 220,
   "party": [
    {
-    "species": "geodude",
+    "species": "diglett",
     "level": 11
    },
    {
@@ -122,7 +122,7 @@
   "title": "Gym Leader",
   "dialogueBefore": "I'm Brock! Pewter's Gym Leader! My rock-hard willpower is absolute!",
   "dialogueAfter": "It's an amazing feeling... You're stronger than I expected. Take this Boulder Badge!",
-  "rewardMoney": 1400,
+  "rewardMoney": 1386,
   "party": [
    {
     "species": "geodude",
@@ -164,27 +164,23 @@
   "party": [
    {
     "species": "horsea",
-    "level": 18
+    "level": 16
    },
    {
     "species": "shellder",
-    "level": 18
+    "level": 16
    }
   ]
  },
  "picnicker_diana": {
   "name": "Diana",
-  "title": "Picnicker",
+  "title": "Jr. Trainer",
   "dialogueBefore": "Misty taught me everything I know about water Pokémon!",
-  "dialogueAfter": "You're as graceful as a Starmie in battle!",
+  "dialogueAfter": "You're as graceful as a Goldeen in battle!",
   "rewardMoney": 380,
   "party": [
    {
     "species": "goldeen",
-    "level": 19
-   },
-   {
-    "species": "staryu",
     "level": 19
    }
   ]
@@ -194,11 +190,11 @@
   "title": "Gym Leader",
   "dialogueBefore": "Hi, you're a new face! Trainers who want to turn me down have to show me in a battle!",
   "dialogueAfter": "Wow! You're too much! All right! Take the Cascade Badge!",
-  "rewardMoney": 2100,
+  "rewardMoney": 2079,
   "party": [
    {
     "species": "staryu",
-    "level": 21,
+    "level": 18,
     "moves": [
      "tackle",
      "water_gun"
@@ -206,7 +202,7 @@
    },
    {
     "species": "starmie",
-    "level": 24,
+    "level": 21,
     "moves": [
      "tackle",
      "water_gun"
@@ -238,10 +234,6 @@
   "rewardMoney": 1260,
   "party": [
    {
-    "species": "voltorb",
-    "level": 21
-   },
-   {
     "species": "pikachu",
     "level": 23
    }
@@ -261,6 +253,10 @@
    {
     "species": "magnemite",
     "level": 20
+   },
+   {
+    "species": "voltorb",
+    "level": 20
    }
   ]
  },
@@ -276,8 +272,8 @@
     "level": 21
    },
    {
-    "species": "magnemite",
-    "level": 22
+    "species": "pikachu",
+    "level": 21
    }
   ]
  },
@@ -286,7 +282,7 @@
   "title": "Gym Leader",
   "dialogueBefore": "Hey, kid! What do you think you're doing here? You won't live long in combat! That's for sure!",
   "dialogueAfter": "Whoa! You're the real deal, kid! Take the Thunder Badge!",
-  "rewardMoney": 2800,
+  "rewardMoney": 2376,
   "party": [
    {
     "species": "voltorb",
@@ -297,14 +293,14 @@
    },
    {
     "species": "pikachu",
-    "level": 24,
+    "level": 18,
     "moves": [
      "quick_attack"
     ]
    },
    {
     "species": "raichu",
-    "level": 28,
+    "level": 24,
     "moves": [
      "quick_attack"
     ]
@@ -421,27 +417,6 @@
   ],
   "clearsRouteTrainers": true
  },
- "lass_crissy": {
-  "name": "Crissy",
-  "title": "Lass",
-  "dialogueBefore": "I picked these cuties myself on Route 4!",
-  "dialogueAfter": "They're still cute even when they lose!",
-  "rewardMoney": 220,
-  "party": [
-   {
-    "species": "paras",
-    "level": 31
-   },
-   {
-    "species": "paras",
-    "level": 31
-   },
-   {
-    "species": "parasect",
-    "level": 31
-   }
-  ]
- },
  "lass_ali": {
   "name": "Ali",
   "title": "Lass",
@@ -456,23 +431,6 @@
    {
     "species": "nidoran_f",
     "level": 14
-   }
-  ]
- },
- "camper_ricky": {
-  "name": "Ricky",
-  "title": "Camper",
-  "dialogueBefore": "I'm camping out here and training my Pokémon!",
-  "dialogueAfter": "Back to training!",
-  "rewardMoney": 260,
-  "party": [
-   {
-    "species": "rattata",
-    "level": 16
-   },
-   {
-    "species": "ekans",
-    "level": 16
    }
   ]
  },
@@ -551,23 +509,6 @@
    }
   ]
  },
- "bug_catcher_elijah": {
-  "name": "Elijah",
-  "title": "Bug Catcher",
-  "dialogueBefore": "Bzzz! My swarm is ready!",
-  "dialogueAfter": "My swarm... scattered!",
-  "rewardMoney": 196,
-  "party": [
-   {
-    "species": "weedle",
-    "level": 14
-   },
-   {
-    "species": "kakuna",
-    "level": 14
-   }
-  ]
- },
  "hiker_marcos": {
   "name": "Marcos",
   "title": "Hiker",
@@ -580,8 +521,12 @@
     "level": 10
    },
    {
+    "species": "geodude",
+    "level": 10
+   },
+   {
     "species": "onix",
-    "level": 11
+    "level": 10
    }
   ]
  },
@@ -611,11 +556,11 @@
   "party": [
    {
     "species": "rattata",
-    "level": 12
+    "level": 13
    },
    {
     "species": "zubat",
-    "level": 12
+    "level": 13
    }
   ]
  },
@@ -648,16 +593,20 @@
   "rewardMoney": 1800,
   "party": [
    {
-    "species": "RIVAL_STARTER_STAGE_2",
-    "level": 20
-   },
-   {
     "species": "pidgeotto",
     "level": 18
    },
    {
     "species": "abra",
-    "level": 16
+    "level": 15
+   },
+   {
+    "species": "rattata",
+    "level": 15
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_2",
+    "level": 17
    }
   ]
  },
@@ -836,7 +785,8 @@
     "id": "tm21",
     "qty": 1
    }
-  ]
+  ],
+  "clearsRouteTrainers": true
  },
  "tamer_phil": {
   "name": "Phil",
@@ -1001,7 +951,8 @@
     "type": "flag",
     "id": "obtained_hm03"
    }
-  ]
+  ],
+  "clearsRouteTrainers": true
  },
  "psychic_johan": {
   "name": "Johan",
@@ -1184,7 +1135,8 @@
     "id": "tm46",
     "qty": 1
    }
-  ]
+  ],
+  "clearsRouteTrainers": true
  },
  "super_nerd_erik": {
   "name": "Erik",
@@ -5406,6 +5358,32 @@
    {
     "species": "hypno",
     "level": 34
+   }
+  ]
+ },
+ "jr_trainer_owen": {
+  "name": "Owen",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Squirtle is tougher than it looks!",
+  "dialogueAfter": "[DRAFT] Wow, you're strong!",
+  "rewardMoney": 400,
+  "party": [
+   {
+    "species": "squirtle",
+    "level": 20
+   }
+  ]
+ },
+ "bug_catcher_wesley": {
+  "name": "Wesley",
+  "title": "Bug Catcher",
+  "dialogueBefore": "[DRAFT] My Butterfree's Compoundeyes can't miss!",
+  "dialogueAfter": "[DRAFT] My bugs need more training...",
+  "rewardMoney": 200,
+  "party": [
+   {
+    "species": "butterfree",
+    "level": 20
    }
   ]
  }

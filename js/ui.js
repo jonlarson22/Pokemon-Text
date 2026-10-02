@@ -845,6 +845,11 @@ renderRouteScreen() {
 
     this.game.gameState.currentRoute = targetRouteId;
     this.game.trackVisitedTown(targetRouteId); // Leave trackVisitedTown in app.js as a core logic state-tracker
+    // Routes can set a flag on first arrival (e.g. Vermilion sets
+    // reached_vermilion, which unhides Diglett's Cave on Route 2 North).
+    if (targetRoute && targetRoute.on_enter_set_flag) {
+      this.game.setFlag(targetRoute.on_enter_set_flag);
+    }
 
     this.printToLog(`Arrived at ${targetRoute.name}.`);
     this.renderRouteScreen();
