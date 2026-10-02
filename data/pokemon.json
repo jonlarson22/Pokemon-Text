@@ -2686,7 +2686,7 @@
  "nidoran_f": {
   "pokedexNumber": 29,
   "id": "nidoran_f",
-  "name": "Nidoran\u2640",
+  "name": "Nidoran♀",
   "growthRate": "medium_slow",
   "evolution": {
    "target": "nidorina",
@@ -3023,7 +3023,7 @@
  "nidoran_m": {
   "pokedexNumber": 32,
   "id": "nidoran_m",
-  "name": "Nidoran\u2642",
+  "name": "Nidoran♂",
   "growthRate": "medium_slow",
   "evolution": {
    "target": "nidorino",
@@ -12518,7 +12518,7 @@
   "growthRate": "slow",
   "evolution": {
    "target": "starmie",
-   "method": "use_item",
+   "method": "item",
    "item": "water_stone"
   },
   "types": [
@@ -13895,7 +13895,15 @@
    "take_down",
    "toxic"
   ],
-  "catchRate": 45
+  "catchRate": 45,
+  "evolution": {
+   "method": "item_choice",
+   "choices": {
+    "fire_stone": "flareon",
+    "water_stone": "vaporeon",
+    "thunder_stone": "jolteon"
+   }
+  }
  },
  "vaporeon": {
   "pokedexNumber": 134,

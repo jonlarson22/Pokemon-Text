@@ -454,7 +454,56 @@ renderRouteScreen() {
         return;
       }
       this.openTeachMenu(itemKey, item);
+    } else if (item.effect && item.effect.type === "evolve") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use that in battle!");
+        return;
+      }
+      this.openEvolveTargetScreen(itemKey, item);
     }
+  }
+
+  // --- Evolution stones / Linking Cord ------------------------------------
+  // Resolves which species a stone/cord evolves a given mon into (null if
+  // incompatible). Supports single-target item evolutions and Eevee's
+  // stone-choice map.
+  evolutionTargetForItem(monId, itemKey) {
+    const base = this.game.db.pokemon[(monId || '').toLowerCase()];
+    const evo = base && base.evolution;
+    if (!evo) return null;
+    if ((evo.method === 'item' || evo.method === 'use_item') && evo.item === itemKey) return evo.target;
+    if (evo.method === 'item_choice' && evo.choices && evo.choices[itemKey]) return evo.choices[itemKey];
+    return null;
+  }
+
+  openEvolveTargetScreen(itemKey, itemData) {
+    const targets = (itemData.effect && itemData.effect.target) || [];
+    const candidates = [];
+    this.game.gameState.party.forEach((mon, index) => {
+      const id = (mon.id || mon.species || '').toLowerCase();
+      if (targets.includes(id) && this.evolutionTargetForItem(id, itemKey)) {
+        candidates.push({ mon, index });
+      }
+    });
+    if (!candidates.length) {
+      this.printToLog("It won't have any effect.");
+      return;
+    }
+    this.setMenuState('party-select');
+    const container = document.getElementById('party-select-list');
+    container.innerHTML = '';
+    candidates.forEach(({ mon, index }) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = `${mon.species} (Lv. ${mon.level})`;
+      btn.onclick = () => {
+        this.game.gameState.inventory[itemKey]--;
+        if (this.game.gameState.inventory[itemKey] <= 0) delete this.game.gameState.inventory[itemKey];
+        this.printToLog(`You used a ${itemData.name} on ${mon.species}!`);
+        this.game.growth.checkEvolution(this.game.gameState.party[index], 'item', itemKey);
+      };
+      container.appendChild(btn);
+    });
   }
 
   // --- Poke Flute: waking -----------------------------------------------
@@ -683,7 +732,8 @@ renderRouteScreen() {
         this.printToLog("It won't have any effect.");
         return; 
       }
-      target.hp = Math.min(target.maxHp, target.hp + itemData.effect.value); 
+      const amount = itemData.effect.value === "max" ? target.maxHp : itemData.effect.value;
+      target.hp = Math.min(target.maxHp, target.hp + amount); 
       this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
     }
 

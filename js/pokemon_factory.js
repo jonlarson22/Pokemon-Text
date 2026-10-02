@@ -5,6 +5,13 @@ export class PokemonFactory {
     this.engine = engine;
   }
 
+  // Individual Values, 0-31 per stat. Shared by wild generation and captures
+  // so caught Pokémon always carry IVs (growth.js recalculateStats needs them).
+  generateIVs() {
+    const r = () => Math.floor(Math.random() * 32);
+    return { hp: r(), attack: r(), defense: r(), spAtk: r(), spDef: r(), speed: r() };
+  }
+
   generatePokemonInstance(speciesId, level) {
     const safeId = speciesId.toLowerCase(); 
     const baseData = this.engine.db.pokemon[safeId];
@@ -15,14 +22,7 @@ export class PokemonFactory {
     }
 
     // Generate Individual Values (IVs) between 0 and 31
-    const ivs = {
-      hp: Math.floor(Math.random() * 32),
-      attack: Math.floor(Math.random() * 32),
-      defense: Math.floor(Math.random() * 32),
-      spAtk: Math.floor(Math.random() * 32),
-      spDef: Math.floor(Math.random() * 32),
-      speed: Math.floor(Math.random() * 32)
-    };
+    const ivs = this.generateIVs();
 
     const calcStat = (base, iv, lvl, isHP) => {
       if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;

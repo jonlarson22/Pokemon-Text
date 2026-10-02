@@ -67,16 +67,18 @@ export class GrowthEngine {
     if (!baseData || !baseData.evolution) return;
 
     const evo = baseData.evolution;
-    let canEvolve = false;
+    let target = null;
 
     if (method === 'level' && evo.method === 'level' && mon.level >= evo.level) {
-      canEvolve = true;
-    } else if (method === 'item' && evo.method === 'item' && itemUsed === evo.item) {
-      canEvolve = true;
+      target = evo.target;
+    } else if (method === 'item' && (evo.method === 'item' || evo.method === 'use_item') && itemUsed === evo.item) {
+      target = evo.target;
+    } else if (method === 'item' && evo.method === 'item_choice' && evo.choices && evo.choices[itemUsed]) {
+      target = evo.choices[itemUsed];
     }
 
-    if (canEvolve) {
-      this.promptEvolution(mon, evo.target);
+    if (target) {
+      this.promptEvolution(mon, target);
     }
   }
 

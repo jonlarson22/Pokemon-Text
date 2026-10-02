@@ -73,8 +73,9 @@ export class InteractionManager {
       this.game.gameState.party.push(mon);
       this.game.ui.printToLog(`Received ${mon.species} (Lv.${level})!`);
     } else {
-      if (!this.game.gameState.pc) this.game.gameState.pc = [];
-      this.game.gameState.pc.push(mon);
+      const pc = this.game.gameState.pc;
+      if (!pc || !Array.isArray(pc.pokemon)) this.game.gameState.pc = { pokemon: [], items: {} };
+      this.game.gameState.pc.pokemon.push(mon);
       this.game.ui.printToLog(`Received ${mon.species} (Lv.${level})! Sent to the PC.`);
     }
     this.game.ui.updatePartyUI();

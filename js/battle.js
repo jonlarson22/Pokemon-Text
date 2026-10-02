@@ -1562,8 +1562,9 @@ handleBattleEnd() {
                 this.game.gameState.party.push(newMon);
                 this.game.ui.printToLog(`Added ${newMon.species} to your party!`);
               } else {
-                if (!this.game.gameState.pc) this.game.gameState.pc = [];
-                this.game.gameState.pc.push(newMon);
+                const pc = this.game.gameState.pc;
+                if (!pc || !Array.isArray(pc.pokemon)) this.game.gameState.pc = { pokemon: [], items: {} };
+                this.game.gameState.pc.pokemon.push(newMon);
                 this.game.ui.printToLog(`Sent ${newMon.species} to the PC!`);
               }
               this.game.ui.updatePartyUI();
@@ -1606,8 +1607,9 @@ handleBattleEnd() {
         this.game.ui.printToLog(`Added ${newMon.species} to your party!`);
       } else {
         // Fallback if you have a PC box system implemented
-        if (!this.game.gameState.pc) this.game.gameState.pc = [];
-        this.game.gameState.pc.push(newMon);
+        const pc = this.game.gameState.pc;
+        if (!pc || !Array.isArray(pc.pokemon)) this.game.gameState.pc = { pokemon: [], items: {} };
+        this.game.gameState.pc.pokemon.push(newMon);
         this.game.ui.printToLog(`Sent ${newMon.species} to the PC!`);
       }
       this.game.ui.updatePartyUI();

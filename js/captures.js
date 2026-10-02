@@ -112,6 +112,7 @@ export class CaptureSystem {
       species: enemy.species,
       id: enemy.id,
       level: enemy.level,
+      ivs: enemy.ivs || this.app.factory.generateIVs(),
       hp: enemy.hp,
       maxHp: enemy.maxHp,
       attack: enemy.attack,
