@@ -202,13 +202,17 @@ export class InteractionManager {
     if (!npc) return;
 
     // One-time NPCs: once the claim flag is set, rewards can't be claimed again.
+    const badgeCountEarly = Object.keys(this.game.gameState.flags || {}).filter(f => f.endsWith('_badge') && this.game.gameState.flags[f]).length;
+    const subEarly = (t) => (t || "...").replaceAll("{badges}", String(badgeCountEarly));
     if (npc.once_flag && this.hasFlag(npc.once_flag)) {
-      this.game.ui.printToLog(npc.dialogue_repeat || npc.dialogue_default || "...");
+      this.game.ui.printToLog(subEarly(npc.dialogue_repeat || npc.dialogue_default || "..."));
       return;
     }
 
+    const badgeCount = Object.keys(this.game.gameState.flags || {}).filter(f => f.endsWith('_badge') && this.game.gameState.flags[f]).length;
+    const sub = (t) => (t || "...").replaceAll("{badges}", String(badgeCount));
     if (this.checkRequirements(npc.requirements)) {
-      this.game.ui.printToLog(npc.dialogue_default || npc.dialogue_success);
+      this.game.ui.printToLog(sub(npc.dialogue_default || npc.dialogue_success));
       // Special actions (Game Corner counters, slot machines, ...) run instead
       // of the normal reward flow.
       if (npc.action === 'buy_coins') { this.game.facilities.openCoinMenu(); return; }
@@ -220,7 +224,7 @@ export class InteractionManager {
       if (npc.once_flag) this.setFlag(npc.once_flag);
       if (npc.remove_after_claim) this.removeNPCFromRoute(npcId);
     } else {
-      this.game.ui.printToLog(npc.dialogue_req_unmet || npc.dialogue);
+      this.game.ui.printToLog(sub(npc.dialogue_req_unmet || npc.dialogue));
     }
   }
 }

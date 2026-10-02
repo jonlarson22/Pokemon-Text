@@ -6326,5 +6326,228 @@
     "level": 38
    }
   ]
+ },
+ "cooltrainer_vr1f_1": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1540,
+  "party": [
+   {
+    "species": "persian",
+    "level": 44
+   },
+   {
+    "species": "ninetales",
+    "level": 44
+   }
+  ]
+ },
+ "cooltrainer_vr1f_2": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1470,
+  "party": [
+   {
+    "species": "ivysaur",
+    "level": 42
+   },
+   {
+    "species": "wartortle",
+    "level": 42
+   },
+   {
+    "species": "charmeleon",
+    "level": 42
+   },
+   {
+    "species": "charizard",
+    "level": 42
+   }
+  ]
+ },
+ "blackbelt_vr2f": {
+  "name": "Black Belt",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1075,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 43
+   },
+   {
+    "species": "machop",
+    "level": 43
+   },
+   {
+    "species": "machoke",
+    "level": 43
+   }
+  ]
+ },
+ "juggler_vr2f_1": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1435,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 41
+   },
+   {
+    "species": "hypno",
+    "level": 41
+   },
+   {
+    "species": "kadabra",
+    "level": 41
+   },
+   {
+    "species": "kadabra",
+    "level": 41
+   }
+  ]
+ },
+ "tamer_vr2f": {
+  "name": "Tamer",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1760,
+  "party": [
+   {
+    "species": "persian",
+    "level": 44
+   },
+   {
+    "species": "golduck",
+    "level": 44
+   }
+  ]
+ },
+ "juggler_vr2f_2": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "mr_mime",
+    "level": 48
+   }
+  ]
+ },
+ "pokemaniac_vr2f": {
+  "name": "Pokemaniac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 2000,
+  "party": [
+   {
+    "species": "charmeleon",
+    "level": 40
+   },
+   {
+    "species": "lapras",
+    "level": 40
+   },
+   {
+    "species": "lickitung",
+    "level": 40
+   }
+  ]
+ },
+ "cooltrainer_vr3f_1": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "exeggutor",
+    "level": 43
+   },
+   {
+    "species": "cloyster",
+    "level": 43
+   },
+   {
+    "species": "arcanine",
+    "level": 43
+   }
+  ]
+ },
+ "cooltrainer_vr3f_2": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "parasect",
+    "level": 43
+   },
+   {
+    "species": "chansey",
+    "level": 43
+   },
+   {
+    "species": "dewgong",
+    "level": 43
+   }
+  ]
+ },
+ "cooltrainer_vr3f_3": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "tentacruel",
+    "level": 43
+   },
+   {
+    "species": "kingler",
+    "level": 43
+   },
+   {
+    "species": "blastoise",
+    "level": 43
+   }
+  ]
+ },
+ "cooltrainer_vr3f_4": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 43
+   },
+   {
+    "species": "weepinbell",
+    "level": 43
+   },
+   {
+    "species": "victreebel",
+    "level": 43
+   }
+  ]
  }
 }

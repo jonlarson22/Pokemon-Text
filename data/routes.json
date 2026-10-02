@@ -231,6 +231,7 @@
   "description": "A winding path leading toward the Pokémon League reception gate.",
   "connections": [
    "viridian_city",
+   "route23",
    "route23"
   ],
   "req_flag": null,
@@ -280,7 +281,15 @@
   ],
   "npcs": [
    "route22_jogger"
-  ]
+  ],
+  "gate_requirements": {
+   "route23": {
+    "required_flags": [
+     "soul_badge"
+    ],
+    "blocked_message": "The water north of here is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+   }
+  }
  },
  "route2_south": {
   "name": "Route 2 - South",
@@ -6338,6 +6347,429 @@
    {
     "type": "nothing",
     "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "route23": {
+  "name": "Route 23",
+  "description": "The final stretch: a mountain path where only the strongest Trainers may pass. Surf across the water to reach Victory Road.",
+  "connections": [
+   "route22",
+   "victory_road_1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Spearow",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "Fearow",
+     "min_level": 38,
+     "max_level": 43,
+     "weight": 25
+    },
+    {
+     "species": "Ekans",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 10
+    },
+    {
+     "species": "Arbok",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Sandshrew",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 10
+    },
+    {
+     "species": "Sandslash",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Ditto",
+     "min_level": 33,
+     "max_level": 43,
+     "weight": 30
+    }
+   ],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 40
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 40,
+     "weight": 15
+    },
+    {
+     "species": "Slowbro",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Kingler",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Seadra",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Seaking",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "route23_badge_guard"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 55
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_ether"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "ultra_ball"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "full_restore"
+   }
+  ],
+  "gate_requirements": {
+   "victory_road_1f": {
+    "required_flags": [
+     "boulder_badge",
+     "cascade_badge",
+     "thunder_badge",
+     "rainbow_badge",
+     "soul_badge",
+     "marsh_badge",
+     "volcano_badge",
+     "earth_badge"
+    ],
+    "blocked_message": "The League Guard bars the way. 'All 8 Kanto badges are required to enter Victory Road.'"
+   }
+  }
+ },
+ "victory_road_1f": {
+  "name": "Victory Road - 1F",
+  "description": "The legendary gauntlet. Boulders, ladders, and the strongest wild Pokemon in Kanto guard the path to the Pokemon League.",
+  "connections": [
+   "route23",
+   "victory_road_2f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "Golbat",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Machop",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 20
+    },
+    {
+     "species": "Machoke",
+     "min_level": 42,
+     "max_level": 42,
+     "weight": 4
+    },
+    {
+     "species": "Geodude",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 20
+    },
+    {
+     "species": "Graveler",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Onix",
+     "min_level": 36,
+     "max_level": 42,
+     "weight": 30
+    },
+    {
+     "species": "Marowak",
+     "min_level": 43,
+     "max_level": 43,
+     "weight": 1
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "cooltrainer_vr1f_1",
+   "cooltrainer_vr1f_2"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "full_heal"
+   }
+  ],
+  "noFly": true
+ },
+ "victory_road_2f": {
+  "name": "Victory Road - 2F",
+  "description": "Deeper into the mountain. A strange heat radiates from an isolated chamber...",
+  "connections": [
+   "victory_road_1f",
+   "victory_road_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "Golbat",
+     "min_level": 40,
+     "max_level": 40,
+     "weight": 5
+    },
+    {
+     "species": "Machop",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 20
+    },
+    {
+     "species": "Machoke",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Geodude",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 20
+    },
+    {
+     "species": "Graveler",
+     "min_level": 43,
+     "max_level": 43,
+     "weight": 1
+    },
+    {
+     "species": "Onix",
+     "min_level": 36,
+     "max_level": 42,
+     "weight": 30
+    },
+    {
+     "species": "Marowak",
+     "min_level": 40,
+     "max_level": 40,
+     "weight": 4
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "blackbelt_vr2f",
+   "juggler_vr2f_1",
+   "tamer_vr2f",
+   "juggler_vr2f_2",
+   "pokemaniac_vr2f"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "static_encounter",
+    "weight": 10,
+    "species": "moltres",
+    "level": 50,
+    "intro": "A legendary bird of fire blocks the path, wings wreathed in flame... MOLTRES!"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "tm05"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "full_heal"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "tm17"
+   },
+   {
+    "type": "item",
+    "weight": 3,
+    "item": "guard_spec"
+   }
+  ],
+  "noFly": true
+ },
+ "victory_road_3f": {
+  "name": "Victory Road - 3F",
+  "description": "The final floor. Beyond the exit lies the Indigo Plateau - and the Elite Four.",
+  "connections": [
+   "victory_road_2f",
+   "indigo_plateau"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Machop",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 25
+    },
+    {
+     "species": "Onix",
+     "min_level": 42,
+     "max_level": 45,
+     "weight": 20
+    },
+    {
+     "species": "Zubat",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "Geodude",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "Venomoth",
+     "min_level": 40,
+     "max_level": 40,
+     "weight": 10
+    },
+    {
+     "species": "Golbat",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Machoke",
+     "min_level": 42,
+     "max_level": 45,
+     "weight": 5
+    },
+    {
+     "species": "Graveler",
+     "min_level": 43,
+     "max_level": 43,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "cooltrainer_vr3f_1",
+   "cooltrainer_vr3f_2",
+   "cooltrainer_vr3f_3",
+   "cooltrainer_vr3f_4"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "max_revive"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "tm47"
    }
   ],
   "noFly": true

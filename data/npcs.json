@@ -1150,5 +1150,19 @@
   "requirements": [],
   "rewards": [],
   "req_flag_to_appear": "obtained_secret_key"
+ },
+ "route23_badge_guard": {
+  "name": "League Guard",
+  "dialogue_default": "[DRAFT] All 8 Kanto badges! Impressive. Victory Road lies ahead - good luck, challenger!",
+  "dialogue_req_unmet": "[DRAFT] Halt! I count {badges} badges. All 8 Kanto badges are required to proceed to Victory Road.",
+  "dialogue_repeat": "[DRAFT] All 8 Kanto badges! Impressive. Victory Road lies ahead - good luck, challenger!",
+  "requirements": [
+   {
+    "type": "flag_count",
+    "category": "gym_badges",
+    "qty": 8
+   }
+  ],
+  "rewards": []
  }
 }
