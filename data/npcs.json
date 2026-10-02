@@ -804,9 +804,15 @@
   "requirements": [],
   "rewards": []
  },
- "hideout_elevator_grunt": {
+ "hideout_b1f_lookout": {
   "name": "Rocket Grunt",
-  "dialogue_default": "[DRAFT] This elevator only goes where the boss says it goes, and right now it ain't going anywhere without the Lift Key. Beat it, kid.",
+  "dialogue_default": "[DRAFT] Psst... you want the boss? He's in the office, two floors down. You didn't hear it from me, got it?",
+  "requirements": [],
+  "rewards": []
+ },
+ "hideout_b2f_mechanic": {
+  "name": "Rocket Grunt",
+  "dialogue_default": "[DRAFT] I installed the spinner tiles myself. Step on one and WHOOSH, you're across the room! Disorienting, ain't it? Good thing they took most of 'em out.",
   "requirements": [],
   "rewards": []
  }

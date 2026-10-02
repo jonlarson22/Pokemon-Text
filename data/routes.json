@@ -3180,7 +3180,33 @@
    "celadon_game_corner"
   ],
   "encounters": {
-   "grass": []
+   "grass": [],
+   "water": [
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 18,
+     "weight": 30
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 18,
+     "weight": 25
+    },
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "poliwhirl",
+     "min_level": 15,
+     "max_level": 22,
+     "weight": 10
+    }
+   ]
   },
   "trainers": [],
   "npcs": [
@@ -3339,30 +3365,122 @@
   ]
  },
  "celadon_rocket_hideout": {
-  "name": "Rocket Hideout",
+  "name": "Rocket Hideout B1F",
   "isTown": false,
   "hasCenter": false,
   "hasShop": false,
   "req_flag": "found_rocket_hideout",
-  "description": "Team Rocket's secret base beneath the Game Corner. The air smells of oil and ambition. An elevator hums at the far end, going nowhere.",
+  "description": "Team Rocket's secret base beneath the Game Corner. Fluorescent lights hum over rows of humming machinery. A stairwell leads deeper.",
   "connections": [
-   "celadon_game_corner"
+   "celadon_game_corner",
+   "celadon_rocket_hideout_b2f"
   ],
+  "gate_requirements": {
+   "celadon_rocket_hideout_b2f": {
+    "required_flags": [
+     "defeated_hideout_rocket_b1f_1"
+    ],
+    "blocked_message": "A burly grunt bars the stairwell down. \"No one gets past me!\" (Defeat the grunt to descend.)"
+   }
+  },
   "npcs": [
-   "hideout_elevator_grunt"
+   "hideout_b1f_lookout"
   ],
   "trainers": [
-   "hideout_rocket_grunt_1"
+   "hideout_rocket_b1f_1",
+   "hideout_rocket_b1f_2"
   ],
   "explore_table": [
    {
     "type": "item",
     "item": "escape_rope",
-    "weight": 20
+    "weight": 15
+   },
+   {
+    "type": "item",
+    "item": "hyper_potion",
+    "weight": 12
+   },
+   {
+    "type": "item",
+    "item": "nugget",
+    "weight": 8
    },
    {
     "type": "nothing",
-    "weight": 80
+    "weight": 65
+   }
+  ]
+ },
+ "celadon_rocket_hideout_b2f": {
+  "name": "Rocket Hideout B2F",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "description": "Deeper in the hideout. The air is thick with oil and static. Giovanni's office door looms at the far end, guarded.",
+  "connections": [
+   "celadon_rocket_hideout",
+   "celadon_rocket_hideout_office"
+  ],
+  "gate_requirements": {
+   "celadon_rocket_hideout_office": {
+    "required_flags": [
+     "defeated_hideout_rocket_b2f_1"
+    ],
+    "blocked_message": "The grunt guarding Giovanni's office glares. \"The boss sees no one!\" (Defeat the grunt to enter.)"
+   }
+  },
+  "npcs": [
+   "hideout_b2f_mechanic"
+  ],
+  "trainers": [
+   "hideout_rocket_b2f_1",
+   "hideout_rocket_b2f_2"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "moon_stone",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "tm07",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "super_potion",
+    "weight": 12
+   },
+   {
+    "type": "nothing",
+    "weight": 70
+   }
+  ]
+ },
+ "celadon_rocket_hideout_office": {
+  "name": "Giovanni's Office",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "description": "A lavish office deep beneath Celadon. A Persian statue gleams in the corner. Giovanni himself rises from his desk as you enter.",
+  "connections": [
+   "celadon_rocket_hideout_b2f"
+  ],
+  "npcs": [],
+  "trainers": [
+   "hideout_giovanni"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "rare_candy",
+    "weight": 10
+   },
+   {
+    "type": "nothing",
+    "weight": 90
    }
   ]
  }

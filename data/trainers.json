@@ -3553,20 +3553,106 @@
    }
   ]
  },
- "hideout_rocket_grunt_1": {
+ "hideout_rocket_b1f_1": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] You weren't supposed to find this place! Boss won't like this...",
-  "dialogueAfter": "[DRAFT] Fine! Snoop around! You'll never get past the spinners anyway!",
-  "rewardMoney": 570,
+  "rewardMoney": 630,
   "party": [
    {
-    "species": "rattata",
-    "level": 19
+    "species": "machop",
+    "level": 21
+   },
+   {
+    "species": "machop",
+    "level": 21
+   }
+  ],
+  "dialogueBefore": "[DRAFT] This stairwell is off limits! Team Rocket business only!",
+  "dialogueAfter": "[DRAFT] Grr... fine! Go down! The boss's guards will crush you anyway!"
+ },
+ "hideout_rocket_b1f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 21
    },
    {
     "species": "zubat",
-    "level": 19
+    "level": 21
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Hey! How'd you get in here? Whatever -- you're not leaving!",
+  "dialogueAfter": "[DRAFT] Tch! Lucky kid..."
+ },
+ "hideout_rocket_b2f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "sandshrew",
+    "level": 23
+   },
+   {
+    "species": "ekans",
+    "level": 23
+   },
+   {
+    "species": "sandslash",
+    "level": 23
+   }
+  ],
+  "dialogueBefore": "[DRAFT] The boss is busy! No visitors! Especially not nosy kids!",
+  "dialogueAfter": "[DRAFT] Impossible... The boss won't be pleased..."
+ },
+ "hideout_rocket_b2f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "ekans",
+    "level": 23
+   },
+   {
+    "species": "sandshrew",
+    "level": 23
+   },
+   {
+    "species": "arbok",
+    "level": 23
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Sssss... Team Rocket does not forgive trespassers!",
+  "dialogueAfter": "[DRAFT] You fight like the boss himself..."
+ },
+ "hideout_giovanni": {
+  "name": "Giovanni",
+  "title": "Team Rocket Boss",
+  "dialogueBefore": "[DRAFT] So! I am Giovanni, leader of Team Rocket! You dare trespass in MY hideout? Then I will crush you myself!",
+  "dialogueAfter": "[DRAFT] Unbelievable... Very well. Take this Silph Scope and be gone. But know this: Team Rocket will never fall! (Giovanni slips away into the shadows.)",
+  "rewardMoney": 2900,
+  "party": [
+   {
+    "species": "onix",
+    "level": 25
+   },
+   {
+    "species": "rhyhorn",
+    "level": 24
+   },
+   {
+    "species": "kangaskhan",
+    "level": 29
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "obtained_silph_scope"
    }
   ]
  }
