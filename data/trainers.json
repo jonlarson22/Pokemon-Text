@@ -4257,16 +4257,12 @@
     "level": 35
    },
    {
-    "species": "gyarados",
-    "level": 38
+    "species": "RIVAL_SILPH_EXTRA_A",
+    "level": 1
    },
    {
-    "species": "exeggcute",
-    "level": 38
-   },
-   {
-    "species": "rhyhorn",
-    "level": 37
+    "species": "RIVAL_SILPH_EXTRA_B",
+    "level": 1
    }
   ]
  },

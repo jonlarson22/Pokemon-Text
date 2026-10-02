@@ -149,6 +149,19 @@ export class PokemonFactory {
         const stage3Map = { 'bulbasaur': 'venusaur', 'charmander': 'charizard', 'squirtle': 'blastoise' };
         mon.species = stage3Map[this.engine.gameState.rivalStarter];
       }
+      // Canon FRLG Silph Co. rival: the two non-starter support mons depend on
+      // the rival's starter (one at 38, one at 35).
+      if (mon.species === "RIVAL_SILPH_EXTRA_A" || mon.species === "RIVAL_SILPH_EXTRA_B") {
+        const silphExtras = {
+          'bulbasaur': { A: ['growlithe', 35], B: ['gyarados', 38] },
+          'charmander': { A: ['exeggcute', 38], B: ['gyarados', 35] },
+          'squirtle': { A: ['exeggcute', 35], B: ['growlithe', 38] },
+        };
+        const slot = mon.species === "RIVAL_SILPH_EXTRA_A" ? 'A' : 'B';
+        const pick = silphExtras[this.engine.gameState.rivalStarter][slot];
+        mon.species = pick[0];
+        mon.level = pick[1];
+      }
     });
 
     return trainer;  
