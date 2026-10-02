@@ -176,7 +176,7 @@ class GameEngine {
       buttons.push({
         text: "Fish / Surf",
         action: () => {
-          if (this.gameState.inventory['fishing_rod'] || this.hasFlag('soul_badge')) {
+          if (this.gameState.inventory['fishing_rod'] || this.hasFlag('soul_badge') || this.hasFlag('obtained_hm03')) {
             this.executeEncounter(water);
           } else {
             this.ui.printToLog("You need a Fishing Rod or Surf to look here!");

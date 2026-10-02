@@ -1053,13 +1053,13 @@
  },
  "route11_trade_man": {
   "name": "Trade Man",
-  "dialogue_default": "[DRAFT] I'm a collector, and I just got my hands on a RARE starter Pokémon! Your Nidorino for it?",
-  "dialogue_no_trade": "[DRAFT] No Nidorino? Come back when you've caught one!",
+  "dialogue_default": "[DRAFT] I'm a collector, and I just got my hands on a RARE starter Pokémon! Your Nidoran (male) for it?",
+  "dialogue_no_trade": "[DRAFT] No male Nidoran? Come back when you've caught one!",
   "dialogue_repeat": "[DRAFT] A starter for your collection! Lucky!",
   "requirements": [],
   "rewards": [],
   "trade": {
-   "want": "nidorino",
+   "want": "nidoran_m",
    "give": "missing_starter_b"
   },
   "once_flag": "traded_missing_starter_b"
