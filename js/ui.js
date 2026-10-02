@@ -243,6 +243,33 @@ renderRouteScreen() {
     });
   }
 
+  // Safari Zone minigame menu: Ball / Bait / Rock / Run (no fighting).
+  // Rebuilt after every safari turn via battleManager.
+  openSafariMenu() {
+    const sb = this.game.gameState.safariBattle;
+    if (!sb) {
+      this.setMenuState('route');
+      return;
+    }
+    const balls = this.game.gameState.safariBalls || 0;
+    const moodText = sb.eating > 0 ? "It is eating." : sb.angry > 0 ? "It is angry!" : "It is watching carefully.";
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold;">Wild ${sb.enemy.species} (Lv. ${sb.enemy.level})<br><span style="font-weight:normal;">${moodText}</span></p>`;
+    controls.innerHTML = '';
+
+    this.buildMenuControls(controls, [
+      {
+        text: `Throw Safari Ball (${balls} left)`,
+        action: () => this.game.battleManager.safariThrowBall(),
+      },
+      { text: "Throw Bait", action: () => this.game.battleManager.safariThrowBait() },
+      { text: "Throw Rock", action: () => this.game.battleManager.safariThrowRock() },
+      { text: "Run", action: () => this.game.battleManager.safariRun() },
+    ]);
+  }
+
   // Baton Pass needs a switch target chosen before the turn runs. Lists
   // conscious benched party mons; the choice is stashed on the battle and
   // consumed by the baton_pass effect when the move executes in turn order.
@@ -725,9 +752,17 @@ renderRouteScreen() {
       }
     }
 
+    // Leaving the Safari Zone ends the visit: leftover Safari Balls are
+    // forfeited and the entry flag is cleared (re-entry costs the fee again).
+    if (currentRoute && currentRoute.safari && !(targetRoute && targetRoute.safari)) {
+      this.game.gameState.safariBattle = null;
+      this.game.gameState.safariBalls = 0;
+      this.game.setFlag('in_safari_zone', false);
+    }
+
     this.game.gameState.currentRoute = targetRouteId;
     this.game.trackVisitedTown(targetRouteId); // Leave trackVisitedTown in app.js as a core logic state-tracker
-    
+
     this.printToLog(`Arrived at ${targetRoute.name}.`);
     this.renderRouteScreen();
     this.setMenuState('route');

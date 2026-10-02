@@ -1,3 +1,5 @@
+import { safariCatchProbability, safariMoodOf } from './battle.js';
+
 export class CaptureSystem {
   constructor(app) {
     this.app = app;
@@ -42,6 +44,43 @@ export class CaptureSystem {
     catchProbability = Math.min(1.0, Math.max(0.01, catchProbability));
 
     // 3. Shake Checks (4 sequential rolls based on probability)
+    this._runShakes(enemy, speciesData, catchProbability,
+      () => this.successCapture(enemy, speciesData),
+      () => {
+        this.app.ui.printToLog(`Oh no! ${enemy.species} broke free!`);
+        setTimeout(() => {
+          this.app.ui.setMenuState('battle');
+        }, 500);
+      });
+  }
+
+  // Safari Zone catch: Safari Balls only, no HP weakening, mood modifiers.
+  // On break-free the safari turn continues (flee check); on success the
+  // visit ends if that was the last ball.
+  attemptSafariCatch() {
+    const sb = this.app.gameState.safariBattle;
+    if (!sb) return;
+    const enemy = sb.enemy;
+    const speciesData = this.app.db.pokemon[enemy.id] || {};
+    const catchRate = speciesData.catchRate || enemy.catchRate || 45;
+    const catchProbability = safariCatchProbability(catchRate, safariMoodOf(sb));
+
+    this.app.ui.printToLog("You threw a Safari Ball!");
+    this._runShakes(enemy, speciesData, catchProbability,
+      () => {
+        this.app.gameState.safariBattle = null;
+        this.successCapture(enemy, speciesData);
+        if ((this.app.gameState.safariBalls || 0) <= 0) {
+          setTimeout(() => this.app.battleManager.ejectFromSafari(), 1200);
+        }
+      },
+      () => {
+        this.app.ui.printToLog(`Oh no! The wild ${enemy.species} broke free!`);
+        setTimeout(() => this.app.battleManager.safariEndOfTurn(), 500);
+      });
+  }
+
+  _runShakes(enemy, speciesData, catchProbability, onSuccess, onFail) {
     let shakes = 0;
     const checkShake = () => {
       if (shakes < 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
@@ -49,12 +88,9 @@ export class CaptureSystem {
         this.app.ui.printToLog("The ball shook...");
         setTimeout(checkShake, 500);
       } else if (shakes === 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
-        this.successCapture(enemy, speciesData);
+        onSuccess();
       } else {
-        this.app.ui.printToLog(`Oh no! ${enemy.species} broke free!`);
-        setTimeout(() => {
-          this.app.ui.setMenuState('battle');
-        }, 500);
+        onFail();
       }
     };
 

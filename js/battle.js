@@ -1215,6 +1215,39 @@ executeTurn(playerMove) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Safari Zone catching minigame.
+// Rebalanced from RBY: bait is less punishing (catch x0.75 instead of x0.5),
+// rocks are more helpful (catch x2.5 instead of x2.0, flee x1.75 instead of x2).
+// ---------------------------------------------------------------------------
+export const SAFARI_BALL_MULT = 1.5;
+export const SAFARI_MOODS = {
+  neutral: { catch: 1.0, flee: 1.0 },
+  eating:  { catch: 0.75, flee: 0.5 },   // bait
+  angry:   { catch: 2.5, flee: 1.75 },   // rock
+};
+
+// Per-ball catch probability. mood is 'neutral' | 'eating' | 'angry'.
+export function safariCatchProbability(catchRate, mood = 'neutral') {
+  const mult = (SAFARI_MOODS[mood] || SAFARI_MOODS.neutral).catch;
+  const p = (catchRate / 255) * SAFARI_BALL_MULT * mult;
+  return Math.min(0.95, Math.max(0.01, p));
+}
+
+// End-of-turn flee probability. Rarer (low catch rate) species flee more.
+export function safariFleeProbability(catchRate, mood = 'neutral') {
+  const mult = (SAFARI_MOODS[mood] || SAFARI_MOODS.neutral).flee;
+  const base = Math.min(0.28, Math.max(0.03, 0.03 + (1 - catchRate / 255) * 0.22));
+  return Math.min(0.95, base * mult);
+}
+
+export function safariMoodOf(safariBattle) {
+  if (!safariBattle) return 'neutral';
+  if (safariBattle.eating > 0) return 'eating';
+  if (safariBattle.angry > 0) return 'angry';
+  return 'neutral';
+}
+
 export class BattleManager {
   constructor(gameEngine) {
     this.game = gameEngine;
@@ -1260,6 +1293,101 @@ export class BattleManager {
     this.game.gameState.activeWildWinFlag = wildPokemonInfo.win_flag || null;
 
     this.game.ui.setMenuState('battle');
+  }
+
+  // --- Safari Zone minigame -------------------------------------------------
+  // Lightweight battle state: no BattleEngine, no player mon, no EXP.
+  // Actions are Ball / Bait / Rock / Run via ui.openSafariMenu().
+  startSafariBattle(wildPokemonInfo) {
+    const speciesKey = wildPokemonInfo.species.toLowerCase();
+    this.game.gameState.pokedex.seen[speciesKey] = true;
+    this.game.ui.updatePokedexTrackerUI();
+
+    const enemyMon = this.game.factory.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
+    if (!enemyMon) {
+      this.game.ui.printToLog("Error generating wild Pokémon stats!");
+      return;
+    }
+
+    this.game.ui.printToLog(`A wild ${enemyMon.species} (Lv. ${enemyMon.level}) appeared!`);
+    this.game.ui.printToLog("Safari Zone rules: no fighting! Throw Safari Balls, bait, or rocks.");
+    this.game.gameState.safariBattle = { enemy: enemyMon, eating: 0, angry: 0 };
+    this.game.ui.openSafariMenu();
+  }
+
+  _safariState() {
+    return this.game.gameState.safariBattle || null;
+  }
+
+  safariThrowBall() {
+    const sb = this._safariState();
+    if (!sb) return;
+    if ((this.game.gameState.safariBalls || 0) <= 0) {
+      this.ejectFromSafari();
+      return;
+    }
+    this.game.gameState.safariBalls--;
+    this.game.captures.attemptSafariCatch();
+  }
+
+  safariThrowBait() {
+    const sb = this._safariState();
+    if (!sb) return;
+    sb.eating = 2 + Math.floor(Math.random() * 3); // 2-4 turns
+    sb.angry = 0;
+    this.game.ui.printToLog(`You threw some bait. The wild ${sb.enemy.species} is eating!`);
+    this.safariEndOfTurn();
+  }
+
+  safariThrowRock() {
+    const sb = this._safariState();
+    if (!sb) return;
+    sb.angry = 2 + Math.floor(Math.random() * 3); // 2-4 turns
+    sb.eating = 0;
+    this.game.ui.printToLog(`You threw a rock. The wild ${sb.enemy.species} is angry!`);
+    this.safariEndOfTurn();
+  }
+
+  safariRun() {
+    const sb = this._safariState();
+    if (!sb) return;
+    this.game.ui.printToLog("Got away safely!");
+    this.game.gameState.safariBattle = null;
+    this.game.ui.setMenuState('route');
+  }
+
+  // After every safari action that leaves the Pokémon present: tick mood
+  // timers, roll the flee check, then back to the action menu (or eject).
+  safariEndOfTurn() {
+    const sb = this._safariState();
+    if (!sb) return;
+    if (sb.eating > 0) sb.eating--;
+    if (sb.angry > 0) sb.angry--;
+    const speciesData = this.game.db.pokemon[sb.enemy.id] || {};
+    const catchRate = speciesData.catchRate || sb.enemy.catchRate || 45;
+    const mood = safariMoodOf(sb);
+    if (Math.random() < safariFleeProbability(catchRate, mood)) {
+      this.game.ui.printToLog(`Oh no! The wild ${sb.enemy.species} fled!`);
+      this.game.gameState.safariBattle = null;
+      this.game.ui.setMenuState('route');
+      return;
+    }
+    if ((this.game.gameState.safariBalls || 0) <= 0) {
+      this.ejectFromSafari();
+      return;
+    }
+    if (mood === 'eating') this.game.ui.printToLog(`The wild ${sb.enemy.species} is eating.`);
+    else if (mood === 'angry') this.game.ui.printToLog(`The wild ${sb.enemy.species} is angry!`);
+    this.game.ui.openSafariMenu();
+  }
+
+  // Out of Safari Balls: the visit ends, back to the gate.
+  ejectFromSafari() {
+    this.game.gameState.safariBattle = null;
+    this.game.gameState.safariBalls = 0;
+    this.game.setFlag('in_safari_zone', false);
+    this.game.ui.printToLog("The PA announces: \"You're out of Safari Balls! Your Safari Zone visit is over!\"");
+    this.game.ui.travelTo('safari_zone_center');
   }
 
 startTrainerBattle(enemyParty, trainer, winFlag = null) {

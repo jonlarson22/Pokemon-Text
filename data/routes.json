@@ -4541,13 +4541,442 @@
  },
  "safari_zone_center": {
   "name": "Safari Zone Gate",
-  "description": "The entrance building of Kanto's famous Safari Zone. The exhibits are still being prepared.",
+  "description": "The entrance building of Kanto's famous Safari Zone. Pay the entry fee to roam the three wild areas.",
   "isTown": false,
   "connections": [
-   "fuchsia_city"
+   "fuchsia_city",
+   "safari_zone_east",
+   "safari_zone_north",
+   "safari_zone_west"
   ],
   "npcs": [
    "safari_attendant"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "safari": true,
+  "gate_requirements": {
+   "safari_zone_east": {
+    "required_flags": [
+     "in_safari_zone"
+    ],
+    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+   },
+   "safari_zone_north": {
+    "required_flags": [
+     "in_safari_zone"
+    ],
+    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+   },
+   "safari_zone_west": {
+    "required_flags": [
+     "in_safari_zone"
+    ],
+    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+   }
+  }
+ },
+ "safari_zone_east": {
+  "name": "Safari Zone: East Area",
+  "description": "Tall grass stretches around a rocky ridge and a quiet lake. Rare Pokémon roam here.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_center"
+  ],
+  "npcs": [],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "nidoran_f",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 12
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 12
+    },
+    {
+     "species": "nidorina",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "nidorino",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "paras",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 13
+    },
+    {
+     "species": "parasect",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 5
+    },
+    {
+     "species": "doduo",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "exeggcute",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 18
+    },
+    {
+     "species": "kangaskhan",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 4
+    },
+    {
+     "species": "scyther",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 3
+    },
+    {
+     "species": "pinsir",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 3
+    }
+   ],
+   "water": [
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "dratini",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "carbos",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "tm37",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "max_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "full_restore",
+    "weight": 10
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "safari_zone_north": {
+  "name": "Safari Zone: North Area",
+  "description": "Rocky ridges overlook three small ponds. Something heavy moves in the tall grass.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_center"
+  ],
+  "npcs": [],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "nidoran_f",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 12
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 12
+    },
+    {
+     "species": "nidorina",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 8
+    },
+    {
+     "species": "nidorino",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 8
+    },
+    {
+     "species": "paras",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 14
+    },
+    {
+     "species": "venomoth",
+     "min_level": 32,
+     "max_level": 32,
+     "weight": 5
+    },
+    {
+     "species": "exeggcute",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "rhyhorn",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "chansey",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 4
+    },
+    {
+     "species": "tauros",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "dratini",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "tm40",
+    "weight": 12
+   },
+   {
+    "type": "item",
+    "item": "protein",
+    "weight": 12
+   },
+   {
+    "type": "nothing",
+    "weight": 76
+   }
+  ]
+ },
+ "safari_zone_west": {
+  "name": "Safari Zone: West Area",
+  "description": "The deepest part of the park. A small house peeks through the trees to the west.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_center",
+   "safari_secret_house"
+  ],
+  "npcs": [],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "nidoran_f",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 12
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 12
+    },
+    {
+     "species": "nidorina",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "nidorino",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "venonat",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 18
+    },
+    {
+     "species": "venomoth",
+     "min_level": 31,
+     "max_level": 31,
+     "weight": 5
+    },
+    {
+     "species": "doduo",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "exeggcute",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 18
+    },
+    {
+     "species": "kangaskhan",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 1
+    },
+    {
+     "species": "tauros",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 4
+    }
+   ],
+   "water": [
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "dratini",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "gold_teeth",
+    "weight": 12,
+    "flag": "obtained_gold_teeth"
+   },
+   {
+    "type": "item",
+    "item": "tm32",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "revive",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "max_potion",
+    "weight": 8,
+    "req_flag": "obtained_hm03"
+   },
+   {
+    "type": "item",
+    "item": "max_revive",
+    "weight": 8,
+    "req_flag": "obtained_hm03"
+   },
+   {
+    "type": "nothing",
+    "weight": 54
+   }
+  ]
+ },
+ "safari_secret_house": {
+  "name": "Secret House",
+  "description": "A lonely house at the far end of the Safari Zone. Someone lives out here.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_west"
+  ],
+  "npcs": [
+   "safari_secret_house_man"
   ],
   "trainers": [],
   "explore_table": [

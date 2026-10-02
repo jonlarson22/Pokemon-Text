@@ -942,15 +942,9 @@
   "name": "Fishing Fan",
   "dialogue_default": "[DRAFT] There's nothing like fishing for Pokémon! Here, take my spare FISHING ROD! The waters around Kanto are full of surprises!",
   "requirements": [],
-  "rewards": [
-   {
-    "type": "item",
-    "id": "fishing_rod",
-    "qty": 1
-   }
-  ],
+  "rewards": [],
   "once_flag": "obtained_fishing_rod",
-  "dialogue_post_flag": "[DRAFT] Magikarp, Goldeen... the sea provides! Tight lines, kid!"
+  "dialogue_post_flag": "[DRAFT] That rod of yours will serve you well! Magikarp, Goldeen... the sea provides! Tight lines, kid!"
  },
  "route16_snorlax": {
   "name": "Snorlax",
@@ -1146,8 +1140,26 @@
  },
  "safari_attendant": {
   "name": "Safari Attendant",
-  "dialogue_default": "[DRAFT] Welcome to the Safari Zone! ...Unfortunately, we're still setting up the exhibits. Come back once the Zone is open!",
+  "dialogue_default": "[DRAFT] Welcome to the Safari Zone! For just ¥500 you get 30 Safari Balls and the run of all three areas. No battling -- just balls, bait, and rocks!",
+  "dialogue_repeat": "[DRAFT] You're all paid up! You've got Safari Balls left -- get out there and catch something!",
   "requirements": [],
-  "rewards": []
+  "rewards": [],
+  "action": "enter_safari",
+  "safari_cost": 500,
+  "safari_balls": 30
+ },
+ "safari_secret_house_man": {
+  "name": "Secret House Keeper",
+  "dialogue_default": "[DRAFT] You made it all the way out here! Not many trainers do. Take this -- HM03! It teaches SURF to a Water Pokémon!",
+  "dialogue_repeat": "[DRAFT] SURF will carry you across any water -- once you've earned the SOUL BADGE, which lets you use it outside of battle!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "hm03",
+    "qty": 1
+   }
+  ],
+  "once_flag": "obtained_safari_hm03"
  }
 }

@@ -170,6 +170,31 @@ export class InteractionManager {
     if (npc.remove_after_claim) this.removeNPCFromRoute(npcId);
   }
 
+  // Safari Zone entry: pay the fee for 30 Safari Balls + the entry flag that
+  // unlocks travel into the three wild areas. Re-entry re-pays (fresh balls).
+  enterSafari(npc) {
+    const cost = npc.safari_cost || 500;
+    const ballCount = npc.safari_balls || 30;
+    if (this.hasFlag('in_safari_zone') && (this.game.gameState.safariBalls || 0) > 0) {
+      this.game.ui.printToLog(`[DRAFT] You're already entered! You have ${this.game.gameState.safariBalls} Safari Balls left -- get out there!`);
+      return;
+    }
+    this.game.ui.openChoiceMenu({
+      prompt: `[DRAFT] Pay ¥${cost} for ${ballCount} Safari Balls and entry to all three areas?`,
+      onYes: () => {
+        if ((this.game.gameState.money || 0) < cost) {
+          this.game.ui.printToLog("[DRAFT] You don't have enough money for the entry fee!");
+          return;
+        }
+        this.game.gameState.money -= cost;
+        this.game.ui.updateMoneyUI();
+        this.game.gameState.safariBalls = ballCount;
+        this.setFlag('in_safari_zone', true);
+        this.game.ui.printToLog(`[DRAFT] Paid ¥${cost}! You received ${ballCount} Safari Balls! The areas are open -- good hunting!`);
+      },
+    });
+  }
+
   // --- Main Processing ---
   processNPC(npcId) {
     const npc = this.game.db.npcs[npcId];
@@ -188,6 +213,7 @@ export class InteractionManager {
       if (npc.action === 'buy_coins') { this.game.facilities.openCoinMenu(); return; }
       if (npc.action === 'open_shop') { this.game.facilities.openShop(npc.shop_id, npc.shop_name); return; }
       if (npc.action === 'play_slots') { this.game.facilities.openSlotMachine(); return; }
+      if (npc.action === 'enter_safari') { this.enterSafari(npc); return; }
       if (npc.trade) { this.offerTrade(npcId, npc); return; }
       this.grantRewards(npc.rewards);
       if (npc.once_flag) this.setFlag(npc.once_flag);

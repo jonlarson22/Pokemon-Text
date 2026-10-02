@@ -176,7 +176,7 @@ class GameEngine {
       buttons.push({
         text: "Fish / Surf",
         action: () => {
-          if (this.gameState.inventory['fishing_rod'] || this.hasFlag('soul_badge') || this.hasFlag('obtained_hm03')) {
+          if (this.hasFlag('obtained_fishing_rod') || this.hasFlag('soul_badge') || this.hasFlag('obtained_hm03')) {
             this.executeEncounter(water);
           } else {
             this.ui.printToLog("You need a Fishing Rod or Surf to look here!");
@@ -193,6 +193,14 @@ class GameEngine {
   executeEncounter(encounterList) {
     const result = this.triggerEncounter(encounterList);
     if (typeof result === 'string') this.ui.printToLog(result);
+    else this.startWildBattle(result);
+  }
+
+  // Wild battles in the Safari Zone use the Safari catching minigame
+  // (Safari Balls / bait / rocks, no fighting) instead of normal battles.
+  startWildBattle(result) {
+    const route = this.db.routes[this.gameState.currentRoute];
+    if (route && route.safari) this.battleManager.startSafariBattle(result);
     else this.battleManager.startBattle(result);
   }
 
@@ -321,7 +329,7 @@ class GameEngine {
       else if (result && result.choice) this.ui.openChoiceMenu(result.choice);
       else if (result && result.species) {
         this.ui.printToLog(result.intro || `You were ambushed!`);
-        this.battleManager.startBattle(result);
+        this.startWildBattle(result);
       }
     });
 
