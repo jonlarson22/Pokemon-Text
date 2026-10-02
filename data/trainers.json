@@ -3994,5 +3994,305 @@
    }
   ],
   "clearsRouteTrainers": true
+ },
+ "silph_rocket_2f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] This floor belongs to Team Rocket! Scram!",
+  "dialogueAfter": "[DRAFT] Grr... go on up. You'll never make it past the others!"
+ },
+ "silph_rocket_2f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 33
+   },
+   {
+    "species": "koffing",
+    "level": 33
+   },
+   {
+    "species": "koffing",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Koffing! Gas attack, go!",
+  "dialogueAfter": "[DRAFT] Cough... my eyes..."
+ },
+ "silph_scientist_2f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "electabuzz",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] My Electabuzz research will not be interrupted!",
+  "dialogueAfter": "[DRAFT] Fascinating... your battle data is remarkable..."
+ },
+ "silph_scientist_2f_2": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Team Rocket pays better than Silph ever did!",
+  "dialogueAfter": "[DRAFT] Traitor? Me? Never!"
+ },
+ "silph_rocket_3f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 33
+   },
+   {
+    "species": "golbat",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] The stairs are closed! By order of Team Rocket!",
+  "dialogueAfter": "[DRAFT] Fine! Climb all you want! The boss will crush you!"
+ },
+ "silph_rocket_3f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 33
+   },
+   {
+    "species": "voltorb",
+    "level": 33
+   },
+   {
+    "species": "voltorb",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Intruder alert! Voltorb squad, roll out!",
+  "dialogueAfter": "[DRAFT] They rolled... right over me..."
+ },
+ "silph_scientist_3f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 35
+   },
+   {
+    "species": "magneton",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Hmm, a test subject! Let's see how you handle magnets and gas!",
+  "dialogueAfter": "[DRAFT] Unexpected results..."
+ },
+ "silph_rocket_4f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 33
+   },
+   {
+    "species": "persian",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Nobody goes up without the boss's permission!",
+  "dialogueAfter": "[DRAFT] Permission... granted... ugh..."
+ },
+ "silph_rocket_4f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 33
+   },
+   {
+    "species": "koffing",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Smell that? That's the smell of your defeat!",
+  "dialogueAfter": "[DRAFT] Phew... I need some fresh air..."
+ },
+ "silph_scientist_4f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "electrode",
+    "level": 35
+   },
+   {
+    "species": "porygon",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Behold! Silph's latest: a Porygon, born of pure data!",
+  "dialogueAfter": "[DRAFT] Data... inconclusive..."
+ },
+ "silph_rocket_5f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 960,
+  "party": [
+   {
+    "species": "cubone",
+    "level": 32
+   },
+   {
+    "species": "drowzee",
+    "level": 32
+   },
+   {
+    "species": "marowak",
+    "level": 32
+   }
+  ],
+  "dialogueBefore": "[DRAFT] The top floors are for Team Rocket only! Turn back!",
+  "dialogueAfter": "[DRAFT] Cubone... avenge me..."
+ },
+ "silph_rocket_5f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 33
+   },
+   {
+    "species": "golbat",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] You need a Card Key AND my permission! You have neither!",
+  "dialogueAfter": "[DRAFT] Take the key... just stop battling me..."
+ },
+ "silph_scientist_5f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 35
+   },
+   {
+    "species": "magnemite",
+    "level": 35
+   },
+   {
+    "species": "magmar",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] My magnetic research is nearly complete! You can't stop science!",
+  "dialogueAfter": "[DRAFT] Science... will remember this..."
+ },
+ "silph_scientist_6f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "electrode",
+    "level": 35
+   },
+   {
+    "species": "electrode",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] The president's office is sealed! No one passes!",
+  "dialogueAfter": "[DRAFT] Sealed... except by you, apparently..."
+ },
+ "silph_co_rival": {
+  "name": "Rival",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Well, well! If it isn't my favorite loser! Team Rocket hired ME as security! There's no way I'm letting you into the president's office!",
+  "dialogueAfter": "[DRAFT] What?! Hired... and fired in the same day?! Fine! The office is yours. But Giovanni's in there, and he's way tougher than me!",
+  "rewardMoney": 2600,
+  "party": [
+   {
+    "species": "pidgeot",
+    "level": 37
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 40
+   },
+   {
+    "species": "alakazam",
+    "level": 35
+   },
+   {
+    "species": "gyarados",
+    "level": 38
+   },
+   {
+    "species": "exeggcute",
+    "level": 38
+   },
+   {
+    "species": "rhyhorn",
+    "level": 37
+   }
+  ]
+ },
+ "silph_co_giovanni": {
+  "name": "Giovanni",
+  "title": "Team Rocket Boss",
+  "dialogueBefore": "[DRAFT] So! We meet again, child! I am Giovanni, and this company is MINE now! Its president cowers behind me -- and you will never reach him!",
+  "dialogueAfter": "[DRAFT] Impossible... TWICE?! ...Very well. Silph Co. is yours. But remember -- Team Rocket never truly falls! (Giovanni vanishes.)",
+  "rewardMoney": 4100,
+  "party": [
+   {
+    "species": "nidorino",
+    "level": 37
+   },
+   {
+    "species": "kangaskhan",
+    "level": 35
+   },
+   {
+    "species": "rhyhorn",
+    "level": 37
+   },
+   {
+    "species": "nidoqueen",
+    "level": 41
+   }
+  ]
  }
 }

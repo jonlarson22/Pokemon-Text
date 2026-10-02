@@ -3598,12 +3598,283 @@
   "description": "The gleaming lobby of Silph Co., Kanto's premier Poké Ball manufacturer. The elevators to the upper floors are locked down -- something is wrong upstairs.",
   "isTown": false,
   "connections": [
-   "saffron_city"
+   "saffron_city",
+   "silph_co_2f"
   ],
   "trainers": [],
   "npcs": [
    "silph_employee_1",
    "silph_scientist_1"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_2f": {
+  "name": "Silph Co. 2F",
+  "description": "Silph Co. offices, now crawling with Team Rocket. Papers are scattered everywhere.",
+  "isTown": false,
+  "connections": [
+   "silph_co_1f",
+   "silph_co_3f"
+  ],
+  "gate_requirements": {
+   "silph_co_3f": {
+    "required_flags": [
+     "defeated_silph_rocket_2f_1"
+    ],
+    "blocked_message": "A Rocket grunt bars the stairwell. \"This floor belongs to Team Rocket!\" (Defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [
+   "silph_employee_2f"
+  ],
+  "trainers": [
+   "silph_rocket_2f_1",
+   "silph_rocket_2f_2",
+   "silph_scientist_2f_1",
+   "silph_scientist_2f_2"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "super_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "tm36",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "x_attack",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_3f": {
+  "name": "Silph Co. 3F",
+  "description": "More ransacked offices. A Rocket patrols the stairwell; scientists loyal to Rocket linger by the lab equipment.",
+  "isTown": false,
+  "connections": [
+   "silph_co_2f",
+   "silph_co_4f"
+  ],
+  "gate_requirements": {
+   "silph_co_4f": {
+    "required_flags": [
+     "defeated_silph_rocket_3f_1"
+    ],
+    "blocked_message": "A Rocket grunt blocks the stairs up. \"The stairs are closed!\" (Defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [],
+  "trainers": [
+   "silph_rocket_3f_1",
+   "silph_rocket_3f_2",
+   "silph_scientist_3f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "hyper_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "full_heal",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "tm03",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_4f": {
+  "name": "Silph Co. 4F",
+  "description": "A quieter floor -- and somewhere here, a Card Key that opens Silph's security doors.",
+  "isTown": false,
+  "connections": [
+   "silph_co_3f",
+   "silph_co_5f"
+  ],
+  "gate_requirements": {
+   "silph_co_5f": {
+    "required_flags": [
+     "defeated_silph_rocket_4f_1"
+    ],
+    "blocked_message": "A Rocket grunt bars the stairwell. \"Nobody goes up without the boss's permission!\" (Defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [
+   "silph_employee_4f"
+  ],
+  "trainers": [
+   "silph_rocket_4f_1",
+   "silph_rocket_4f_2",
+   "silph_scientist_4f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "card_key",
+    "flag": "obtained_card_key",
+    "weight": 12
+   },
+   {
+    "type": "item",
+    "item": "max_revive",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "escape_rope",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_5f": {
+  "name": "Silph Co. 5F",
+  "description": "The executive floor. A security door seals the stairwell to the top -- it needs the Card Key. Giovanni's elite guard waits beyond.",
+  "isTown": false,
+  "connections": [
+   "silph_co_4f",
+   "silph_co_6f"
+  ],
+  "gate_requirements": {
+   "silph_co_6f": {
+    "required_flags": [
+     "defeated_silph_rocket_5f_1",
+     "obtained_card_key"
+    ],
+    "blocked_message": "A security door bars the stairs -- and a Rocket grunt stands guard! (Find the Card Key and defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [],
+  "trainers": [
+   "silph_rocket_5f_1",
+   "silph_rocket_5f_2",
+   "silph_scientist_5f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "protein",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "tm09",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "rare_candy",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "calcium",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_6f": {
+  "name": "Silph Co. 6F",
+  "description": "The top floor corridor. Your rival leans against the president's office door, smirking. A grateful employee peeks out from a side room.",
+  "isTown": false,
+  "connections": [
+   "silph_co_5f",
+   "silph_co_office"
+  ],
+  "gate_requirements": {
+   "silph_co_office": {
+    "required_flags": [
+     "defeated_silph_scientist_6f_1",
+     "defeated_silph_co_rival"
+    ],
+    "blocked_message": "Your rival blocks the office door, arms crossed. \"Not a chance, loser!\" (Defeat the scientist and your rival to enter.)"
+   }
+  },
+  "npcs": [
+   "silph_lapras_employee"
+  ],
+  "trainers": [
+   "silph_scientist_6f_1",
+   "silph_co_rival"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "hp_up",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "x_accuracy",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "max_potion",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "carbos",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "tm26",
+    "weight": 6
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_office": {
+  "name": "President's Office",
+  "description": "The Silph Co. president's lavish office. Giovanni himself stands between you and the trembling president.",
+  "isTown": false,
+  "connections": [
+   "silph_co_6f"
+  ],
+  "npcs": [
+   "silph_president"
+  ],
+  "trainers": [
+   "silph_co_giovanni"
   ],
   "explore_table": [
    {

@@ -859,5 +859,51 @@
   "dialogue_default": "[DRAFT] My research on the Silph Scope is almost complete! Being able to see ghosts... what a breakthrough! If only those Rocket thugs would leave us alone...",
   "requirements": [],
   "rewards": []
+ },
+ "silph_employee_2f": {
+  "name": "Silph Employee",
+  "dialogue_default": "[DRAFT] Team Rocket took over the whole building! They've locked all the doors... if only someone had the Card Key! I heard it's on one of the middle floors.",
+  "requirements": [],
+  "rewards": []
+ },
+ "silph_employee_4f": {
+  "name": "Silph Employee",
+  "dialogue_default": "[DRAFT] Shhh! Hide! The Rockets are using our labs to build... something. The president is trapped upstairs! Please, you've got to help him!",
+  "requirements": [],
+  "rewards": []
+ },
+ "silph_lapras_employee": {
+  "name": "Grateful Employee",
+  "dialogue_default": "[DRAFT] You drove off that rotten rival of yours! Thank you! Please, take this Lapras -- it was going to be a company gift, but you'd give it a better home!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "lapras",
+    "level": 15
+   }
+  ],
+  "once_flag": "received_lapras",
+  "dialogue_repeat": "[DRAFT] Lapras is a gentle soul. Take good care of it!"
+ },
+ "silph_president": {
+  "name": "Silph President",
+  "dialogue_default": "[DRAFT] You... you defeated Giovanni?! The whole building is free! Please, take this Master Ball -- our company's greatest achievement. It will catch any Pokémon without fail!",
+  "requirements": [
+   {
+    "type": "flag",
+    "id": "defeated_silph_co_giovanni"
+   }
+  ],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "master_ball",
+    "qty": 1
+   }
+  ],
+  "once_flag": "received_master_ball",
+  "dialogue_req_unmet": "[DRAFT] Giovanni is still in my office! I can't think straight while that man is here... please, defeat him first!",
+  "dialogue_repeat": "[DRAFT] The Master Ball will never fail. Save it for something truly special!"
  }
 }
