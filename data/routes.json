@@ -63,7 +63,9 @@
   },
   "trainers": [],
   "npcs": [
-   "oak_pallet"
+   "oak_pallet",
+   "pallet_kid",
+   "pallet_elder"
   ],
   "explore_table": [
    {
@@ -100,7 +102,8 @@
   },
   "trainers": [],
   "npcs": [
-   "route_1_clerk"
+   "route_1_clerk",
+   "route1_kid"
   ],
   "explore_table": [
    {
@@ -175,7 +178,11 @@
    ]
   },
   "trainers": [],
-  "npcs": [],
+  "npcs": [
+   "viridian_traveler",
+   "viridian_shopper",
+   "viridian_kid"
+  ],
   "explore_table": [
    {
     "type": "nothing",
@@ -269,6 +276,9 @@
     "type": "nothing",
     "weight": 100
    }
+  ],
+  "npcs": [
+   "route22_jogger"
   ]
  },
  "route2_south": {
@@ -391,6 +401,9 @@
     "weight": 10,
     "item": "antidote"
    }
+  ],
+  "npcs": [
+   "viridian_forest_camper"
   ]
  },
  "route2_north": {
@@ -441,6 +454,9 @@
     "type": "encounter",
     "weight": 40
    }
+  ],
+  "npcs": [
+   "oaks_aide_flash"
   ]
  },
  "pewter_city": {
@@ -474,6 +490,11 @@
     "type": "nothing",
     "weight": 100
    }
+  ],
+  "npcs": [
+   "pewter_museum_goer",
+   "pewter_rock_fan",
+   "pewter_kid"
   ]
  },
  "pewter_city_gym": {
@@ -765,6 +786,9 @@
     "weight": 15,
     "item": "super_potion"
    }
+  ],
+  "npcs": [
+   "route4_hiker"
   ]
  },
  "cerulean_city": {
@@ -830,7 +854,10 @@
   },
   "trainers": [],
   "npcs": [
-   "cerulean_police_officer"
+   "cerulean_police_officer",
+   "cerulean_swimmer",
+   "cerulean_artist",
+   "cerulean_biker"
   ],
   "explore_table": [
    {
@@ -1013,6 +1040,9 @@
     "weight": 15,
     "item": "nugget"
    }
+  ],
+  "npcs": [
+   "route24_picnicker"
   ]
  },
  "route25": {
@@ -1600,6 +1630,9 @@
     "type": "encounter",
     "weight": 40
    }
+  ],
+  "npcs": [
+   "route6_commuter"
   ]
  },
  "vermilion_city": {
@@ -1690,7 +1723,10 @@
   },
   "trainers": [],
   "npcs": [
-   "vermilion_sailor"
+   "vermilion_sailor",
+   "vermilion_fisher",
+   "vermilion_tourist",
+   "vermilion_dockworker"
   ],
   "explore_table": [
    {
@@ -2265,7 +2301,10 @@
     ],
     "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
    }
-  }
+  },
+  "npcs": [
+   "snorlax_route11"
+  ]
  },
  "route12": {
   "name": "Route 12",
@@ -2276,20 +2315,6 @@
    "lavender_town",
    "route13"
   ],
-  "gate_requirements": {
-   "lavender_town": {
-    "required_flags": [
-     "woke_snorlax_route12"
-    ],
-    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
-   },
-   "route11": {
-    "required_flags": [
-     "woke_snorlax_route12"
-    ],
-    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
-   }
-  },
   "npcs": [],
   "trainers": [
    "route12_fisherman_1",
@@ -2411,6 +2436,14 @@
     "weight": 10,
     "item": "iron",
     "req_flag": "obtain_hm_01"
+   },
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "snorlax",
+    "level": 30,
+    "req_flag": "woke_snorlax_route12",
+    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
    }
   ]
  },
@@ -2649,22 +2682,11 @@
    "route12",
    "pokemon_tower_1f"
   ],
-  "gate_requirements": {
-   "route12": {
-    "required_flags": [
-     "woke_snorlax_route12"
-    ],
-    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
-   }
-  },
   "encounters": {
    "grass": []
   },
   "trainers": [],
   "npcs": [
-   "mr_fuji",
-   "snorlax_lavender",
-   "name_rater",
    "lavender_youngster",
    "lavender_gramps",
    "lavender_girl",
@@ -2674,20 +2696,13 @@
    "lavender_mart_youngster",
    "lavender_cubone_girl",
    "lavender_fuji_girl",
+   "lavender_fuji_nerd",
    "lavender_psyduck"
   ],
   "explore_table": [
    {
     "type": "nothing",
-    "weight": 80
-   },
-   {
-    "type": "static_encounter",
-    "weight": 20,
-    "species": "snorlax",
-    "level": 30,
-    "req_flag": "woke_snorlax_route12",
-    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
+    "weight": 100
    }
   ]
  }

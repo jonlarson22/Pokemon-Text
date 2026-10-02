@@ -365,46 +365,6 @@
   "dialogue_post_flag": "Isn't science amazing? Take good care of Aerodactyl.",
   "once_flag": "revived_old_amber"
  },
- "snorlax_lavender": {
-  "name": "Snorlax",
-  "dialogue_default": "[DRAFT] Snorlax woke with a tremendous yawn! It lumbers about, ready to battle... (Something stirs nearby.)",
-  "requirements": [
-   {
-    "type": "flag",
-    "id": "obtained_pokeflute"
-   }
-  ],
-  "rewards": [
-   {
-    "type": "flag",
-    "id": "woke_snorlax_route12"
-   }
-  ],
-  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep at the town's south gate, blocking the road to Route 12. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
-  "dialogue_post_flag": "[DRAFT] Snorlax is wide awake now, and seems eager to test its strength!",
-  "once_flag": "woke_snorlax_route12"
- },
- "mr_fuji": {
-  "name": "Mr. Fuji",
-  "dialogue_default": "[DRAFT] Ah, a young Trainer! I am Fuji, caretaker of this Pokémon House. Your Pokédex quest will fail without love for your Pokémon... Here — this Poké Flute may help your quest. Its melody wakes even the deepest sleeper!",
-  "rewards": [
-   {
-    "type": "item",
-    "id": "poke_flute",
-    "qty": 1
-   },
-   {
-    "type": "flag",
-    "id": "obtained_pokeflute"
-   }
-  ],
-  "dialogue_post_flag": "[DRAFT] Has my flute helped you? Play it near any sleeping Pokémon, and watch them spring awake!",
-  "once_flag": "obtained_pokeflute"
- },
- "name_rater": {
-  "name": "Name Rater",
-  "dialogue_default": "Hello, hello! I am the official NAME RATER! Want me to rate the nicknames of your Pokémon? ...Hmm, what splendid names! Truly impeccable — I couldn't improve on a one of them!"
- },
  "lavender_youngster": {
   "name": "Youngster",
   "dialogue_default": "This town is famous for POKéMON TOWER. The TOWER is a resting place for POKéMON."
@@ -444,5 +404,128 @@
  "lavender_psyduck": {
   "name": "Psyduck",
   "dialogue_default": "PSYDUCK: Gwappa!"
+ },
+ "snorlax_route11": {
+  "name": "Snorlax",
+  "dialogue_default": "[DRAFT] Snorlax woke with a tremendous yawn! It lumbers about, ready to battle... (Something stirs nearby.)",
+  "requirements": [
+   {
+    "type": "flag",
+    "id": "obtained_pokeflute"
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "woke_snorlax_route12"
+   }
+  ],
+  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep at the east end of Route 11, blocking the road to Route 12. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
+  "dialogue_post_flag": "[DRAFT] Snorlax is wide awake now, and seems eager to test its strength!",
+  "once_flag": "woke_snorlax_route12"
+ },
+ "lavender_fuji_nerd": {
+  "name": "Super Nerd",
+  "dialogue_default": "That's odd, MR.FUJI isn't here. Where'd he go?"
+ },
+ "oaks_aide_flash": {
+  "name": "Oak's Aide",
+  "dialogue_default": "[DRAFT] You cut through the thicket! I'm one of Professor Oak's aides. The Professor asked me to reward resourceful young trainers — please take this HM05! Its FLASH can illuminate even the darkest cave.",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "hm05",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_hm05"
+   }
+  ],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": "[DRAFT] FLASH lights even the darkest dungeons! In battle it lowers the foe's accuracy, too.",
+  "once_flag": "obtained_hm05",
+  "req_flag_to_appear": "obtain_hm_01"
+ },
+ "pallet_kid": {
+  "name": "Kid",
+  "dialogue_default": "[DRAFT] When I grow up I'm going to be a Pokémon Master, just like you!"
+ },
+ "pallet_elder": {
+  "name": "Elder",
+  "dialogue_default": "[DRAFT] Professor Oak was just a boy when he started studying Pokémon... Now look at him."
+ },
+ "viridian_traveler": {
+  "name": "Traveler",
+  "dialogue_default": "[DRAFT] Viridian Forest is crawling with Bug Pokémon. Stock up on Potions before you go in!"
+ },
+ "viridian_shopper": {
+  "name": "Shopper",
+  "dialogue_default": "[DRAFT] The shop here has the best prices this side of Pewter, or so they tell me."
+ },
+ "viridian_kid": {
+  "name": "Kid",
+  "dialogue_default": "[DRAFT] My daddy works at the Gym! He's super strong! ...He's never home, though."
+ },
+ "pewter_museum_goer": {
+  "name": "Tourist",
+  "dialogue_default": "[DRAFT] The Museum's fossil exhibit is amazing! They say real Pokémon bones are inside!"
+ },
+ "pewter_rock_fan": {
+  "name": "Hiker",
+  "dialogue_default": "[DRAFT] Pewter sits on solid bedrock — the hardest stone in all Kanto!"
+ },
+ "pewter_kid": {
+  "name": "Kid",
+  "dialogue_default": "[DRAFT] Brock's Onix is HUGE! I saw it through the Gym window once!"
+ },
+ "cerulean_swimmer": {
+  "name": "Swimmer",
+  "dialogue_default": "[DRAFT] The river here is perfect for Water Pokémon! Misty's Starmie loves it."
+ },
+ "cerulean_artist": {
+  "name": "Artist",
+  "dialogue_default": "[DRAFT] I'm painting the river... but the light never sits still long enough!"
+ },
+ "cerulean_biker": {
+  "name": "Biker",
+  "dialogue_default": "[DRAFT] Someday I'll ride my bike all the way to FUCHSIA CITY!"
+ },
+ "vermilion_fisher": {
+  "name": "Fisher",
+  "dialogue_default": "[DRAFT] I caught a MAGIKARP this big! ...Well, okay, maybe this big."
+ },
+ "vermilion_tourist": {
+  "name": "Tourist",
+  "dialogue_default": "[DRAFT] The S.S. Anne! I've never seen a ship so grand!"
+ },
+ "vermilion_dockworker": {
+  "name": "Dockworker",
+  "dialogue_default": "[DRAFT] Careful near the cranes, kid. This port never sleeps."
+ },
+ "route1_kid": {
+  "name": "Kid",
+  "dialogue_default": "[DRAFT] I just started my journey too! Let's both do our best!"
+ },
+ "viridian_forest_camper": {
+  "name": "Camper",
+  "dialogue_default": "[DRAFT] Shh... I heard a PIKACHU rustling in the bushes over there..."
+ },
+ "route4_hiker": {
+  "name": "Hiker",
+  "dialogue_default": "[DRAFT] Mt. Moon looms ahead. The tunnel through is dark and long — pace yourself."
+ },
+ "route6_commuter": {
+  "name": "Commuter",
+  "dialogue_default": "[DRAFT] I walk this road to Saffron every day for work. My feet know every stone."
+ },
+ "route24_picnicker": {
+  "name": "Picnicker",
+  "dialogue_default": "[DRAFT] The trainers on Nugget Bridge are the toughest around! Bring your best team."
+ },
+ "route22_jogger": {
+  "name": "Jogger",
+  "dialogue_default": "[DRAFT] I run this route every morning. Great training for my Pokémon too!"
  }
 }
