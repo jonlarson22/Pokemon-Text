@@ -5439,7 +5439,10 @@
    ]
   },
   "trainers": [],
-  "npcs": [],
+  "npcs": [
+   "cinnabar_gym_door_locked",
+   "cinnabar_gym_door_unlocked"
+  ],
   "explore_table": [
    {
     "type": "nothing",

@@ -1124,14 +1124,9 @@
  },
  "mansion_secret_key": {
   "name": "Secret Key",
-  "dialogue_default": "[DRAFT] A small red key sits on the lab table. (You took the Secret Key!)",
+  "dialogue_default": "[DRAFT] A small red key sits on the lab table. (You pocketed the Secret Key!)",
   "dialogue_repeat": "[DRAFT] Nothing else here.",
   "rewards": [
-   {
-    "type": "item",
-    "id": "secret_key",
-    "qty": 1
-   },
    {
     "type": "flag",
     "id": "obtained_secret_key"
@@ -1139,5 +1134,21 @@
   ],
   "once_flag": "obtained_secret_key",
   "remove_after_claim": true
+ },
+ "cinnabar_gym_door_locked": {
+  "name": "Gym Door",
+  "dialogue_default": "[DRAFT] The Gym door is locked tight. A sign reads: 'Gym closed - key required.'",
+  "dialogue_repeat": "[DRAFT] Still locked. The key must be somewhere...",
+  "requirements": [],
+  "rewards": [],
+  "req_flag_to_disappear": "obtained_secret_key"
+ },
+ "cinnabar_gym_door_unlocked": {
+  "name": "Gym Door",
+  "dialogue_default": "[DRAFT] You tried the key from the mansion and it unlocked the door!",
+  "dialogue_repeat": "[DRAFT] The door swings open freely now.",
+  "requirements": [],
+  "rewards": [],
+  "req_flag_to_appear": "obtained_secret_key"
  }
 }
