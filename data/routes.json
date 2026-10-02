@@ -20,9 +20,9 @@
    },
    "route21": {
     "required_flags": [
-     "obtain_hm_03"
+     "soul_badge"
     ],
-    "blocked_message": "You need the HM to surf before heading into the water!"
+    "blocked_message": "The open sea south of Pallet is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
    }
   },
   "req_flag": null,
@@ -2859,61 +2859,6 @@
    }
   ]
  },
- "pokemon_tower_4f": {
-  "name": "Pokémon Tower 4F",
-  "description": "The top of the tower. A restless ghost wails near the stairs, and TEAM ROCKET grunts loiter by an old man's side.",
-  "isTown": false,
-  "connections": [
-   "pokemon_tower_3f"
-  ],
-  "encounters": {
-   "grass": [
-    {
-     "species": "gastly",
-     "min_level": 20,
-     "max_level": 24,
-     "weight": 75
-    },
-    {
-     "species": "haunter",
-     "min_level": 28,
-     "max_level": 30,
-     "weight": 15
-    },
-    {
-     "species": "cubone",
-     "min_level": 22,
-     "max_level": 24,
-     "weight": 10
-    }
-   ]
-  },
-  "trainers": [
-   "tower_rocket_1",
-   "tower_rocket_2",
-   "tower_rocket_3"
-  ],
-  "npcs": [
-   "tower_ghost_hint",
-   "mr_fuji_tower"
-  ],
-  "explore_table": [
-   {
-    "type": "nothing",
-    "weight": 80
-   },
-   {
-    "type": "static_encounter",
-    "weight": 20,
-    "species": "marowak",
-    "level": 30,
-    "req_flag": "obtained_silph_scope",
-    "uncatchable": true,
-    "win_flag": "calmed_marowak",
-    "intro": "The SILPH SCOPE reveals the ghost... a furious MAROWAK, mother of CUBONE! It attacks!"
-   }
-  ]
- },
  "route7": {
   "name": "Route 7",
   "description": "A short road between CELADON and SAFFRON. A stairway on the grass leads down into the underground path.",
@@ -3804,69 +3749,12 @@
   ],
   "noFly": true
  },
- "silph_co_6f": {
-  "name": "Silph Co. 6F",
-  "description": "The top floor corridor. Your rival leans against the president's office door, smirking. A grateful employee peeks out from a side room.",
-  "isTown": false,
-  "connections": [
-   "silph_co_5f",
-   "silph_co_office"
-  ],
-  "gate_requirements": {
-   "silph_co_office": {
-    "required_flags": [
-     "defeated_silph_scientist_6f_1",
-     "defeated_silph_co_rival"
-    ],
-    "blocked_message": "Your rival blocks the office door, arms crossed. \"Not a chance, loser!\" (Defeat the scientist and your rival to enter.)"
-   }
-  },
-  "npcs": [
-   "silph_lapras_employee"
-  ],
-  "trainers": [
-   "silph_scientist_6f_1",
-   "silph_co_rival"
-  ],
-  "explore_table": [
-   {
-    "type": "item",
-    "item": "hp_up",
-    "weight": 8
-   },
-   {
-    "type": "item",
-    "item": "x_accuracy",
-    "weight": 7
-   },
-   {
-    "type": "item",
-    "item": "max_potion",
-    "weight": 8
-   },
-   {
-    "type": "item",
-    "item": "carbos",
-    "weight": 7
-   },
-   {
-    "type": "item",
-    "item": "tm26",
-    "weight": 6
-   },
-   {
-    "type": "nothing",
-    "weight": 60
-   }
-  ],
-  "noFly": true
- },
  "silph_co_office": {
   "name": "President's Office",
   "description": "The Silph Co. president's lavish office. Giovanni himself stands between you and the trembling president.",
   "isTown": false,
   "connections": [
-   "silph_co_6f"
+   "silph_co_8f"
   ],
   "npcs": [
    "silph_president"
@@ -4977,27 +4865,27 @@
    "grass": [
     {
      "species": "Zubat",
-     "min_level": 8,
+     "min_level": 9,
      "max_level": 12,
-     "weight": 75
+     "weight": 49
     },
     {
      "species": "Geodude",
      "min_level": 9,
-     "max_level": 12,
-     "weight": 18
+     "max_level": 10,
+     "weight": 30
     },
     {
      "species": "Paras",
      "min_level": 10,
-     "max_level": 10,
-     "weight": 5
+     "max_level": 12,
+     "weight": 15
     },
     {
      "species": "Clefairy",
      "min_level": 10,
-     "max_level": 10,
-     "weight": 2
+     "max_level": 12,
+     "weight": 6
     }
    ],
    "water": []
@@ -5113,7 +5001,8 @@
   "name": "Route 20",
   "description": "The eastern sea route, running from the Seafoam Islands toward Cinnabar Island. Strong currents and stronger trainers.",
   "connections": [
-   "seafoam_3f"
+   "seafoam_3f",
+   "cinnabar_island"
   ],
   "req_flag": null,
   "encounters": {
@@ -5493,5 +5382,961 @@
   ],
   "noFly": true,
   "npcs": []
+ },
+ "cinnabar_island": {
+  "name": "Cinnabar Island",
+  "description": "A volcanic island town. The Cinnabar Lab, the abandoned Pokemon Mansion, and Blaine's locked Gym dot the landscape.",
+  "isTown": true,
+  "connections": [
+   "route20",
+   "route21",
+   "cinnabar_lab",
+   "pokemon_mansion_1f",
+   "cinnabar_island_gym"
+  ],
+  "req_flag": null,
+  "hasCenter": true,
+  "hasShop": true,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 15,
+     "max_level": 30,
+     "weight": 30
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   }
+  ],
+  "gate_requirements": {
+   "cinnabar_island_gym": {
+    "required_flags": [
+     "obtained_secret_key"
+    ],
+    "blocked_message": "The Gym door is locked tight. A sign reads: 'Gym closed - key required.' (Find the Secret Key)"
+   },
+   "route21": {
+    "required_flags": [
+     "soul_badge"
+    ],
+    "blocked_message": "The open sea is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+   }
+  }
+ },
+ "cinnabar_island_gym": {
+  "name": "Cinnabar Island Gym",
+  "description": "Blaine's Gym: a quiz-show gauntlet of fire. Answer correctly or battle the trainer behind each door.",
+  "isTown": false,
+  "connections": [
+   "cinnabar_island"
+  ],
+  "npcs": [],
+  "trainers": [
+   "super_nerd_erik",
+   "burglar_ramon",
+   "super_nerd_dusty",
+   "burglar_arnie",
+   "super_nerd_zack",
+   "burglar_dusty",
+   "super_nerd_bryan",
+   "blaine_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "cinnabar_lab": {
+  "name": "Cinnabar Lab",
+  "description": "The Pokemon Lab. Scientists here can resurrect fossils - and two of them are eager to trade.",
+  "isTown": false,
+  "connections": [
+   "cinnabar_island"
+  ],
+  "npcs": [
+   "fossil_scientist_dome",
+   "fossil_scientist_helix",
+   "fossil_scientist_amber",
+   "cinnabar_trade_seel",
+   "cinnabar_trade_electrode"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true,
+  "encounters": {
+   "grass": [],
+   "water": []
+  }
+ },
+ "pokemon_mansion_1f": {
+  "name": "Pokemon Mansion - 1F",
+  "description": "The abandoned mansion's entrance hall. Dusty statues line the walls, and something scurries in the shadows.",
+  "connections": [
+   "cinnabar_island",
+   "pokemon_mansion_2f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "scientist_mansion_1"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "moon_stone"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "escape_rope"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_mansion_2f": {
+  "name": "Pokemon Mansion - 2F",
+  "description": "The mansion's second floor. A statue's hidden switch clicks somewhere in the dark...",
+  "connections": [
+   "pokemon_mansion_1f",
+   "pokemon_mansion_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "burglar_mansion_1",
+   "scientist_mansion_2"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 45
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "calcium"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_mansion_3f": {
+  "name": "Pokemon Mansion - 3F",
+  "description": "The top floor. A balcony overlooks the floors below - the only way down is to jump.",
+  "connections": [
+   "pokemon_mansion_2f",
+   "pokemon_mansion_b1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "burglar_mansion_2",
+   "burglar_mansion_3"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 35
+   },
+   {
+    "type": "encounter",
+    "weight": 45
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "iron"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "max_potion"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_revive"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_mansion_b1f": {
+  "name": "Pokemon Mansion - B1F",
+  "description": "The mansion's basement lab. Journals describe terrible experiments... and something glints in the final room.",
+  "connections": [
+   "pokemon_mansion_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "scientist_mansion_3"
+  ],
+  "npcs": [
+   "mansion_secret_key"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 35
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "carbos"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm14"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "full_restore"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm22"
+   }
+  ],
+  "noFly": true
+ },
+ "route21": {
+  "name": "Route 21",
+  "description": "The northern sea route, stretching from Cinnabar Island to Pallet Town. A grassy islet south of Pallet hides Tangela.",
+  "connections": [
+   "cinnabar_island",
+   "pallet_town"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Pidgey",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 30
+    },
+    {
+     "species": "Pidgeotto",
+     "min_level": 30,
+     "max_level": 32,
+     "weight": 15
+    },
+    {
+     "species": "Rattata",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 30
+    },
+    {
+     "species": "Raticate",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Tangela",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 10
+    }
+   ],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 20,
+     "max_level": 35,
+     "weight": 35
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 35,
+     "max_level": 40,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "fisherman_wilton",
+   "fisherman_arnold",
+   "swimmer_spencer_r21",
+   "cue_ball_camron",
+   "fisherman_hideto",
+   "fisherman_elliot",
+   "swimmer_nicole",
+   "swimmer_dawn",
+   "swimmer_tara"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ]
+ },
+ "pokemon_tower_6f": {
+  "name": "Pokemon Tower 6F",
+  "description": "The top of the tower. A restless ghost wails near the stairs, and TEAM ROCKET grunts loiter by an old man's side.",
+  "isTown": false,
+  "connections": [
+   "pokemon_tower_5f"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "gastly",
+     "min_level": 20,
+     "max_level": 24,
+     "weight": 75
+    },
+    {
+     "species": "haunter",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "cubone",
+     "min_level": 22,
+     "max_level": 24,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "tower_rocket_1",
+   "tower_rocket_2",
+   "tower_rocket_3"
+  ],
+  "npcs": [
+   "tower_ghost_hint",
+   "mr_fuji_tower"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 80
+   },
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "marowak",
+    "level": 30,
+    "req_flag": "obtained_silph_scope",
+    "uncatchable": true,
+    "win_flag": "calmed_marowak",
+    "intro": "The SILPH SCOPE reveals the ghost... a furious MAROWAK, mother of CUBONE! It attacks!"
+   }
+  ]
+ },
+ "pokemon_tower_4f": {
+  "name": "Pokemon Tower 4F",
+  "description": "The fourth floor. Channelers' chants echo off the walls, growing more frantic the higher you climb.",
+  "connections": [
+   "pokemon_tower_3f",
+   "pokemon_tower_5f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_5f": {
+    "required_flags": [
+     "defeated_tower_channeler_14",
+     "defeated_tower_channeler_15"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in seance... (Defeat Channelers on this floor to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "Gastly",
+     "min_level": 21,
+     "max_level": 25,
+     "weight": 75
+    },
+    {
+     "species": "Haunter",
+     "min_level": 29,
+     "max_level": 31,
+     "weight": 15
+    },
+    {
+     "species": "Cubone",
+     "min_level": 23,
+     "max_level": 25,
+     "weight": 10
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "tower_channeler_14",
+   "tower_channeler_15",
+   "tower_channeler_16",
+   "tower_channeler_17",
+   "tower_channeler_18",
+   "tower_channeler_19"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 65
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "awakening"
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 11,
+    "item": "pp_up"
+   }
+  ]
+ },
+ "pokemon_tower_5f": {
+  "name": "Pokemon Tower 5F",
+  "description": "The fifth floor. The veil between worlds feels thinnest here - ghostly wails drift up from below and down from above.",
+  "connections": [
+   "pokemon_tower_4f",
+   "pokemon_tower_6f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_6f": {
+    "required_flags": [
+     "defeated_tower_channeler_20",
+     "defeated_tower_channeler_21"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in seance... (Defeat Channelers on this floor to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "Gastly",
+     "min_level": 21,
+     "max_level": 25,
+     "weight": 75
+    },
+    {
+     "species": "Haunter",
+     "min_level": 29,
+     "max_level": 31,
+     "weight": 15
+    },
+    {
+     "species": "Cubone",
+     "min_level": 23,
+     "max_level": 25,
+     "weight": 10
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "tower_channeler_20",
+   "tower_channeler_21",
+   "tower_channeler_22",
+   "tower_channeler_23",
+   "tower_channeler_24"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 65
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "full_heal"
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 11,
+    "item": "elixir"
+   }
+  ]
+ },
+ "silph_co_8f": {
+  "name": "Silph Co. 8F",
+  "description": "The top floor corridor. Your rival leans against the president's office door, smirking. A grateful employee peeks out from a side room.",
+  "isTown": false,
+  "connections": [
+   "silph_co_7f",
+   "silph_co_office"
+  ],
+  "gate_requirements": {
+   "silph_co_office": {
+    "required_flags": [
+     "defeated_silph_scientist_6f_1",
+     "defeated_silph_co_rival"
+    ],
+    "blocked_message": "Your rival blocks the office door, arms crossed. \"Not a chance, loser!\" (Defeat the scientist and your rival to enter.)"
+   }
+  },
+  "npcs": [
+   "silph_lapras_employee"
+  ],
+  "trainers": [
+   "silph_scientist_6f_1",
+   "silph_co_rival"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "hp_up",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "x_accuracy",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "max_potion",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "carbos",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "tm26",
+    "weight": 6
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_6f": {
+  "name": "Silph Co. 6F",
+  "description": "A maze of warp panels and locked storerooms. Rocket grunts patrol every corridor.",
+  "connections": [
+   "silph_co_5f",
+   "silph_co_7f"
+  ],
+  "gate_requirements": {
+   "silph_co_7f": {
+    "required_flags": [
+     "defeated_silph_rocket_6f_1",
+     "obtained_card_key"
+    ],
+    "blocked_message": "A security door bars the stairs -- and a Rocket grunt stands guard! (Find the Card Key and defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [],
+  "trainers": [
+   "silph_rocket_6f_1",
+   "silph_rocket_6f_2",
+   "silph_scientist_6f_1",
+   "silph_rocket_6f_3"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "tm09",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "full_restore",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "revive",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "iron",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_7f": {
+  "name": "Silph Co. 7F",
+  "description": "Research labs converted to Rocket staging grounds. The elevator hums - the top floors are close.",
+  "connections": [
+   "silph_co_6f",
+   "silph_co_8f"
+  ],
+  "gate_requirements": {
+   "silph_co_8f": {
+    "required_flags": [
+     "defeated_silph_rocket_7f_1",
+     "defeated_silph_rocket_7f_2"
+    ],
+    "blocked_message": "Two Rocket grunts block the stairwell! (Defeat the grunts on this floor to ascend.)"
+   }
+  },
+  "npcs": [],
+  "trainers": [
+   "silph_rocket_7f_1",
+   "silph_rocket_7f_2",
+   "silph_scientist_7f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "calcium",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "max_elixir",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "tm26",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "pp_up",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
  }
 }

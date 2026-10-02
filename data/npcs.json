@@ -1095,5 +1095,49 @@
   "dialogue_repeat": "[DRAFT] The S.S. Anne boards from this dock. No ticket, no trip!",
   "requirements": [],
   "rewards": []
+ },
+ "cinnabar_trade_seel": {
+  "name": "Trade Scientist",
+  "dialogue_default": "[DRAFT] My Ponyta is so lonely... I'd trade it for a Seel in a heartbeat! Trade with me?",
+  "dialogue_no_trade": "[DRAFT] No Seel? The Seafoam Islands are full of them - go catch one!",
+  "dialogue_repeat": "[DRAFT] My Seel is doing great! Thanks again!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "ponyta",
+   "give": "seel"
+  },
+  "once_flag": "traded_seel_cinnabar"
+ },
+ "cinnabar_trade_electrode": {
+  "name": "Trade Scientist",
+  "dialogue_default": "[DRAFT] I need a Raichu for my research! I'll give you my Electrode for one! Trade?",
+  "dialogue_no_trade": "[DRAFT] No Raichu? The Power Plant has plenty of Pikachu - evolve one!",
+  "dialogue_repeat": "[DRAFT] This Raichu is perfect for my experiments!",
+  "requirements": [],
+  "rewards": [],
+  "trade": {
+   "want": "raichu",
+   "give": "electrode"
+  },
+  "once_flag": "traded_electrode_cinnabar"
+ },
+ "mansion_secret_key": {
+  "name": "Secret Key",
+  "dialogue_default": "[DRAFT] A small red key sits on the lab table. (You took the Secret Key!)",
+  "dialogue_repeat": "[DRAFT] Nothing else here.",
+  "rewards": [
+   {
+    "type": "item",
+    "id": "secret_key",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_secret_key"
+   }
+  ],
+  "once_flag": "obtained_secret_key",
+  "remove_after_claim": true
  }
 }

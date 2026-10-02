@@ -1089,11 +1089,19 @@
   "title": "Super Nerd",
   "dialogueBefore": "My calculations say fire beats everything! Let me demonstrate!",
   "dialogueAfter": "My calculations failed to account for you!",
-  "rewardMoney": 880,
+  "rewardMoney": 900,
   "party": [
    {
     "species": "vulpix",
-    "level": 40
+    "level": 36
+   },
+   {
+    "species": "vulpix",
+    "level": 36
+   },
+   {
+    "species": "ninetales",
+    "level": 36
    }
   ]
  },
@@ -1102,11 +1110,19 @@
   "title": "Burglar",
   "dialogueBefore": "I'll steal this victory right from under you!",
   "dialogueAfter": "You've robbed me of my win!",
-  "rewardMoney": 1760,
+  "rewardMoney": 3240,
   "party": [
    {
     "species": "growlithe",
-    "level": 41
+    "level": 36
+   },
+   {
+    "species": "vulpix",
+    "level": 36
+   },
+   {
+    "species": "ninetales",
+    "level": 36
    }
   ]
  },
@@ -1115,11 +1131,23 @@
   "title": "Super Nerd",
   "dialogueBefore": "Did you know? Fire Pokémon's body temperature exceeds 900 degrees!",
   "dialogueAfter": "My trivia couldn't save me!",
-  "rewardMoney": 900,
+  "rewardMoney": 850,
   "party": [
    {
     "species": "ponyta",
-    "level": 40
+    "level": 34
+   },
+   {
+    "species": "charmeleon",
+    "level": 34
+   },
+   {
+    "species": "vulpix",
+    "level": 34
+   },
+   {
+    "species": "growlithe",
+    "level": 34
    }
   ]
  },
@@ -1128,11 +1156,11 @@
   "title": "Burglar",
   "dialogueBefore": "This gym is a quiz and a battle! Hope you studied!",
   "dialogueAfter": "You passed with flying colors!",
-  "rewardMoney": 1800,
+  "rewardMoney": 3690,
   "party": [
    {
-    "species": "rapidash",
-    "level": 42
+    "species": "ponyta",
+    "level": 41
    }
   ]
  },
@@ -1141,15 +1169,11 @@
   "title": "Super Nerd",
   "dialogueBefore": "Blaine's riddles are nothing compared to his Pokémon!",
   "dialogueAfter": "Riddle me this: how did I lose?!",
-  "rewardMoney": 920,
+  "rewardMoney": 1025,
   "party": [
    {
-    "species": "vulpix",
-    "level": 42
-   },
-   {
-    "species": "growlithe",
-    "level": 42
+    "species": "rapidash",
+    "level": 41
    }
   ]
  },
@@ -1158,11 +1182,15 @@
   "title": "Burglar",
   "dialogueBefore": "No, not that Dusty. I'm the burglar one! Battle me!",
   "dialogueAfter": "Wrong Dusty to mess with, huh?",
-  "rewardMoney": 1840,
+  "rewardMoney": 3330,
   "party": [
    {
-    "species": "ponyta",
-    "level": 41
+    "species": "vulpix",
+    "level": 37
+   },
+   {
+    "species": "growlithe",
+    "level": 37
    }
   ]
  },
@@ -1171,11 +1199,15 @@
   "title": "Super Nerd",
   "dialogueBefore": "I'm Blaine's last line of defense! My data is flawless!",
   "dialogueAfter": "Flawless... except for this result!",
-  "rewardMoney": 940,
+  "rewardMoney": 925,
   "party": [
    {
-    "species": "rapidash",
-    "level": 43
+    "species": "growlithe",
+    "level": 37
+   },
+   {
+    "species": "vulpix",
+    "level": 37
    }
   ]
  },
@@ -1184,7 +1216,7 @@
   "title": "Gym Leader",
   "dialogueBefore": "Hah! I am Blaine! I am the Leader of the Cinnabar Gym! My fiery Pokémon will incinerate all challengers!",
   "dialogueAfter": "I have burned down to nothing! Not even ashes remain! You have earned the Volcano Badge!",
-  "rewardMoney": 4700,
+  "rewardMoney": 4653,
   "party": [
    {
     "species": "growlithe",
@@ -4164,19 +4196,19 @@
  "silph_scientist_6f_1": {
   "name": "Scientist",
   "title": "Scientist",
-  "rewardMoney": 875,
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1800,
   "party": [
    {
-    "species": "electrode",
-    "level": 35
+    "species": "magneton",
+    "level": 36
    },
    {
     "species": "electrode",
-    "level": 35
+    "level": 36
    }
-  ],
-  "dialogueBefore": "[DRAFT] The president's office is sealed! No one passes!",
-  "dialogueAfter": "[DRAFT] Sealed... except by you, apparently..."
+  ]
  },
  "silph_co_rival": {
   "name": "Rival",
@@ -5748,6 +5780,550 @@
    {
     "species": "seaking",
     "level": 35
+   }
+  ]
+ },
+ "scientist_mansion_1": {
+  "name": "Ted",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1450,
+  "party": [
+   {
+    "species": "electrode",
+    "level": 29
+   },
+   {
+    "species": "weezing",
+    "level": 29
+   }
+  ]
+ },
+ "burglar_mansion_1": {
+  "name": "Lewis",
+  "title": "Burglar",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 3060,
+  "party": [
+   {
+    "species": "charmander",
+    "level": 34
+   },
+   {
+    "species": "charmeleon",
+    "level": 34
+   }
+  ]
+ },
+ "burglar_mansion_2": {
+  "name": "Simon",
+  "title": "Burglar",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 3420,
+  "party": [
+   {
+    "species": "ninetales",
+    "level": 38
+   }
+  ]
+ },
+ "scientist_mansion_2": {
+  "name": "Ivan",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1650,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 33
+   },
+   {
+    "species": "magneton",
+    "level": 33
+   },
+   {
+    "species": "voltorb",
+    "level": 33
+   }
+  ]
+ },
+ "burglar_mansion_3": {
+  "name": "Arnie",
+  "title": "Burglar",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 3060,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 34
+   },
+   {
+    "species": "ponyta",
+    "level": 34
+   }
+  ]
+ },
+ "scientist_mansion_3": {
+  "name": "Braydon",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1700,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 34
+   },
+   {
+    "species": "electrode",
+    "level": 34
+   }
+  ]
+ },
+ "fisherman_wilton": {
+  "name": "Wilton",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 945,
+  "party": [
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   }
+  ]
+ },
+ "fisherman_arnold": {
+  "name": "Arnold",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 980,
+  "party": [
+   {
+    "species": "seaking",
+    "level": 28
+   },
+   {
+    "species": "goldeen",
+    "level": 28
+   },
+   {
+    "species": "seaking",
+    "level": 28
+   },
+   {
+    "species": "seaking",
+    "level": 28
+   }
+  ]
+ },
+ "swimmer_spencer_r21": {
+  "name": "Spencer",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "seadra",
+    "level": 33
+   },
+   {
+    "species": "tentacruel",
+    "level": 33
+   }
+  ]
+ },
+ "cue_ball_camron": {
+  "name": "Camron",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 775,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 31
+   },
+   {
+    "species": "tentacool",
+    "level": 31
+   },
+   {
+    "species": "tentacruel",
+    "level": 31
+   }
+  ]
+ },
+ "fisherman_hideto": {
+  "name": "Hideto",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1085,
+  "party": [
+   {
+    "species": "shellder",
+    "level": 31
+   },
+   {
+    "species": "cloyster",
+    "level": 31
+   }
+  ]
+ },
+ "fisherman_elliot": {
+  "name": "Elliot",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1155,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 33
+   },
+   {
+    "species": "seaking",
+    "level": 33
+   }
+  ]
+ },
+ "swimmer_nicole": {
+  "name": "Nicole",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 740,
+  "party": [
+   {
+    "species": "starmie",
+    "level": 37
+   }
+  ]
+ },
+ "swimmer_dawn": {
+  "name": "Dawn",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "staryu",
+    "level": 33
+   },
+   {
+    "species": "wartortle",
+    "level": 33
+   }
+  ]
+ },
+ "swimmer_tara": {
+  "name": "Tara",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 640,
+  "party": [
+   {
+    "species": "poliwhirl",
+    "level": 32
+   },
+   {
+    "species": "tentacool",
+    "level": 32
+   },
+   {
+    "species": "seadra",
+    "level": 32
+   }
+  ]
+ },
+ "tower_channeler_14": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_channeler_15": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 750,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 25
+   },
+   {
+    "species": "gastly",
+    "level": 25
+   }
+  ]
+ },
+ "tower_channeler_16": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 780,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 26
+   }
+  ]
+ },
+ "tower_channeler_17": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 810,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   },
+   {
+    "species": "haunter",
+    "level": 27
+   }
+  ]
+ },
+ "tower_channeler_18": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 780,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 26
+   },
+   {
+    "species": "gastly",
+    "level": 26
+   }
+  ]
+ },
+ "tower_channeler_19": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 28
+   }
+  ]
+ },
+ "tower_channeler_20": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 27
+   },
+   {
+    "species": "haunter",
+    "level": 28
+   }
+  ]
+ },
+ "tower_channeler_21": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 870,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 29
+   }
+  ]
+ },
+ "tower_channeler_22": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 28
+   },
+   {
+    "species": "gastly",
+    "level": 28
+   },
+   {
+    "species": "haunter",
+    "level": 28
+   }
+  ]
+ },
+ "tower_channeler_23": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 900,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 30
+   }
+  ]
+ },
+ "tower_channeler_24": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 900,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 29
+   },
+   {
+    "species": "haunter",
+    "level": 30
+   }
+  ]
+ },
+ "silph_rocket_6f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1050,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 35
+   },
+   {
+    "species": "rattata",
+    "level": 35
+   }
+  ]
+ },
+ "silph_rocket_6f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1080,
+  "party": [
+   {
+    "species": "machop",
+    "level": 36
+   },
+   {
+    "species": "machoke",
+    "level": 36
+   }
+  ]
+ },
+ "silph_rocket_6f_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1110,
+  "party": [
+   {
+    "species": "arbok",
+    "level": 37
+   }
+  ]
+ },
+ "silph_rocket_7f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1110,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 37
+   },
+   {
+    "species": "arbok",
+    "level": 37
+   }
+  ]
+ },
+ "silph_rocket_7f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1140,
+  "party": [
+   {
+    "species": "golbat",
+    "level": 38
+   }
+  ]
+ },
+ "silph_scientist_7f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1900,
+  "party": [
+   {
+    "species": "porygon",
+    "level": 38
    }
   ]
  }
