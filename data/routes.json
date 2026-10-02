@@ -1800,7 +1800,8 @@
   },
   "trainers": [],
   "npcs": [
-   "fan_club_chairman"
+   "fan_club_chairman",
+   "fan_club_angler"
   ],
   "explore_table": [
    {
@@ -3899,5 +3900,521 @@
    }
   ],
   "noFly": true
+ },
+ "route13": {
+  "name": "Route 13",
+  "description": "A winding path through a maze of fences, crawling with trainers. Ditto are said to hide in the tall grass here.",
+  "isTown": false,
+  "connections": [
+   "route12",
+   "route14"
+  ],
+  "gate_requirements": {},
+  "npcs": [
+   "route13_picnicker"
+  ],
+  "trainers": [
+   "route13_jr_trainer_1",
+   "route13_bird_keeper_1",
+   "route13_jr_trainer_2",
+   "route13_beauty_1",
+   "route13_beauty_2",
+   "route13_jr_trainer_3",
+   "route13_jr_trainer_4",
+   "route13_bird_keeper_2",
+   "route13_bird_keeper_3",
+   "route13_biker_1"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 30
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 25
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 25
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "gloom",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "ditto",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "tentacool",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "route14": {
+  "name": "Route 14",
+  "description": "A narrow trail heading south, dominated by Bird Keepers and Bikers. The grass here hides rare Ditto.",
+  "isTown": false,
+  "connections": [
+   "route13",
+   "route15"
+  ],
+  "gate_requirements": {},
+  "npcs": [
+   "route14_bird_watcher"
+  ],
+  "trainers": [
+   "route14_bird_keeper_1",
+   "route14_bird_keeper_2",
+   "route14_bird_keeper_3",
+   "route14_bird_keeper_4",
+   "route14_biker_1",
+   "route14_bird_keeper_5",
+   "route14_biker_2",
+   "route14_biker_3",
+   "route14_biker_4",
+   "route14_bird_keeper_6"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 15
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 15
+    },
+    {
+     "species": "gloom",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "ditto",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    }
+   ],
+   "water": [
+    {
+     "species": "tentacool",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "pp_up",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "calcium",
+    "weight": 10
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route15": {
+  "name": "Route 15",
+  "description": "The final stretch west toward Fuchsia City. Trainers crowd both the high road and the low path.",
+  "isTown": false,
+  "connections": [
+   "route14",
+   "fuchsia_city"
+  ],
+  "gate_requirements": {},
+  "npcs": [
+   "route15_jogger"
+  ],
+  "trainers": [
+   "route15_jr_trainer_1",
+   "route15_beauty_1",
+   "route15_jr_trainer_2",
+   "route15_biker_1",
+   "route15_biker_2",
+   "route15_beauty_2",
+   "route15_jr_trainer_3",
+   "route15_bird_keeper_1",
+   "route15_bird_keeper_2",
+   "route15_jr_trainer_4"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 15
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 15
+    },
+    {
+     "species": "gloom",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "ditto",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "venomoth",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 1
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "tm20",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route16": {
+  "name": "Route 16",
+  "description": "A quiet road west of Celadon. A Snorlax sleeps soundly in the middle of the path, and a reclusive girl hides in a house past the trees.",
+  "isTown": false,
+  "connections": [
+   "celadon_city",
+   "route17"
+  ],
+  "gate_requirements": {
+   "route17": {
+    "required_flags": [
+     "woke_snorlax_route16",
+     "obtained_bike"
+    ],
+    "blocked_message": "A sleeping Snorlax blocks the road west, and beyond it a guard stops all travelers without a Bicycle. (Wake the Snorlax with the Poké Flute and obtain a Bicycle to continue.)"
+   }
+  },
+  "npcs": [
+   "route16_snorlax",
+   "route16_fly_girl",
+   "route16_cyclist"
+  ],
+  "trainers": [
+   "route16_biker_1",
+   "route16_cue_ball_1",
+   "route16_cue_ball_2",
+   "route16_biker_2",
+   "route16_cue_ball_3",
+   "route16_biker_3"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "rattata",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 30
+    },
+    {
+     "species": "spearow",
+     "min_level": 20,
+     "max_level": 24,
+     "weight": 30
+    },
+    {
+     "species": "doduo",
+     "min_level": 22,
+     "max_level": 28,
+     "weight": 25
+    },
+    {
+     "species": "raticate",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "snorlax",
+    "level": 30,
+    "req_flag": "woke_snorlax_route16",
+    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route17": {
+  "name": "Route 17",
+  "description": "Cycling Road! A steep downhill slope packed with Bikers and Cue Balls. No bicycles, no entry.",
+  "isTown": false,
+  "connections": [
+   "route16",
+   "route18"
+  ],
+  "gate_requirements": {},
+  "npcs": [
+   "route17_biker_rest"
+  ],
+  "trainers": [
+   "route17_cue_ball_1",
+   "route17_cue_ball_2",
+   "route17_biker_1",
+   "route17_biker_2",
+   "route17_biker_3",
+   "route17_cue_ball_3",
+   "route17_cue_ball_4",
+   "route17_cue_ball_5",
+   "route17_biker_4",
+   "route17_biker_5"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 40
+    },
+    {
+     "species": "raticate",
+     "min_level": 25,
+     "max_level": 29,
+     "weight": 30
+    },
+    {
+     "species": "doduo",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 25
+    },
+    {
+     "species": "fearow",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "max_elixir",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route18": {
+  "name": "Route 18",
+  "description": "A short road east toward Fuchsia City. Bird Keepers patrol the fenced fields.",
+  "isTown": false,
+  "connections": [
+   "route17",
+   "fuchsia_city"
+  ],
+  "gate_requirements": {
+   "route17": {
+    "required_flags": [
+     "obtained_bike"
+    ],
+    "blocked_message": "The guard stops you. \"Cycling Road is bicycles only!\" (Obtain a Bicycle to enter.)"
+   }
+  },
+  "npcs": [
+   "route18_guard"
+  ],
+  "trainers": [
+   "route18_bird_keeper_1",
+   "route18_bird_keeper_2",
+   "route18_bird_keeper_3"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 35
+    },
+    {
+     "species": "fearow",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 10
+    },
+    {
+     "species": "doduo",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 30
+    },
+    {
+     "species": "raticate",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 25
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
  }
 }

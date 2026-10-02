@@ -4290,5 +4290,970 @@
     "level": 41
    }
   ]
+ },
+ "route13_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 28
+   },
+   {
+    "species": "poliwag",
+    "level": 28
+   },
+   {
+    "species": "horsea",
+    "level": 28
+   }
+  ]
+ },
+ "route13_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 29
+   },
+   {
+    "species": "pidgeotto",
+    "level": 29
+   }
+  ]
+ },
+ "route13_jr_trainer_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 480,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   },
+   {
+    "species": "rattata",
+    "level": 24
+   },
+   {
+    "species": "pikachu",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   }
+  ]
+ },
+ "route13_beauty_1": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 1890,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 27
+   },
+   {
+    "species": "pikachu",
+    "level": 27
+   },
+   {
+    "species": "rattata",
+    "level": 27
+   }
+  ]
+ },
+ "route13_beauty_2": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 2030,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 29
+   },
+   {
+    "species": "meowth",
+    "level": 29
+   }
+  ]
+ },
+ "route13_jr_trainer_3": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 30
+   },
+   {
+    "species": "poliwag",
+    "level": 30
+   }
+  ]
+ },
+ "route13_jr_trainer_4": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 27
+   },
+   {
+    "species": "meowth",
+    "level": 27
+   },
+   {
+    "species": "pidgey",
+    "level": 27
+   },
+   {
+    "species": "pidgeotto",
+    "level": 27
+   }
+  ]
+ },
+ "route13_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 625,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 25
+   },
+   {
+    "species": "pidgey",
+    "level": 25
+   },
+   {
+    "species": "pidgey",
+    "level": 25
+   },
+   {
+    "species": "spearow",
+    "level": 25
+   },
+   {
+    "species": "spearow",
+    "level": 25
+   }
+  ]
+ },
+ "route13_bird_keeper_3": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 26
+   },
+   {
+    "species": "pidgeotto",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "fearow",
+    "level": 26
+   }
+  ]
+ },
+ "route13_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   }
+  ]
+ },
+ "route14_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "pidgey",
+    "level": 26
+   },
+   {
+    "species": "fearow",
+    "level": 26
+   }
+  ]
+ },
+ "route14_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   },
+   {
+    "species": "pidgeotto",
+    "level": 28
+   }
+  ]
+ },
+ "route14_bird_keeper_3": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 29
+   },
+   {
+    "species": "fearow",
+    "level": 29
+   }
+  ]
+ },
+ "route14_bird_keeper_4": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   },
+   {
+    "species": "fearow",
+    "level": 28
+   }
+  ]
+ },
+ "route14_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 29
+   },
+   {
+    "species": "muk",
+    "level": 29
+   }
+  ]
+ },
+ "route14_bird_keeper_5": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 825,
+  "party": [
+   {
+    "species": "farfetchd",
+    "level": 33
+   }
+  ]
+ },
+ "route14_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 29
+   },
+   {
+    "species": "grimer",
+    "level": 29
+   }
+  ]
+ },
+ "route14_biker_3": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 28
+   },
+   {
+    "species": "grimer",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   }
+  ]
+ },
+ "route14_biker_4": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 520,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 26
+   },
+   {
+    "species": "koffing",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "koffing",
+    "level": 26
+   }
+  ]
+ },
+ "route14_bird_keeper_6": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 29
+   },
+   {
+    "species": "fearow",
+    "level": 29
+   }
+  ]
+ },
+ "route15_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 33
+   }
+  ]
+ },
+ "route15_beauty_1": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 2030,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 29
+   },
+   {
+    "species": "wigglytuff",
+    "level": 29
+   }
+  ]
+ },
+ "route15_jr_trainer_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 29
+   },
+   {
+    "species": "raichu",
+    "level": 29
+   }
+  ]
+ },
+ "route15_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 500,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "weezing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "grimer",
+    "level": 25
+   }
+  ]
+ },
+ "route15_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "grimer",
+    "level": 28
+   },
+   {
+    "species": "weezing",
+    "level": 28
+   }
+  ]
+ },
+ "route15_beauty_2": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 2030,
+  "party": [
+   {
+    "species": "bulbasaur",
+    "level": 29
+   },
+   {
+    "species": "ivysaur",
+    "level": 29
+   }
+  ]
+ },
+ "route15_jr_trainer_3": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "gloom",
+    "level": 28
+   },
+   {
+    "species": "oddish",
+    "level": 28
+   },
+   {
+    "species": "oddish",
+    "level": 28
+   }
+  ]
+ },
+ "route15_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "dodrio",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   }
+  ]
+ },
+ "route15_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 26
+   },
+   {
+    "species": "farfetchd",
+    "level": 26
+   },
+   {
+    "species": "doduo",
+    "level": 26
+   },
+   {
+    "species": "pidgey",
+    "level": 26
+   }
+  ]
+ },
+ "route15_jr_trainer_4": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 29
+   },
+   {
+    "species": "oddish",
+    "level": 29
+   },
+   {
+    "species": "tangela",
+    "level": 29
+   }
+  ]
+ },
+ "route16_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 29
+   },
+   {
+    "species": "koffing",
+    "level": 29
+   }
+  ]
+ },
+ "route16_cue_ball_1": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "machop",
+    "level": 28
+   },
+   {
+    "species": "mankey",
+    "level": 28
+   },
+   {
+    "species": "machop",
+    "level": 28
+   }
+  ]
+ },
+ "route16_cue_ball_2": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 29
+   },
+   {
+    "species": "machop",
+    "level": 29
+   }
+  ]
+ },
+ "route16_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 33
+   }
+  ]
+ },
+ "route16_cue_ball_3": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 825,
+  "party": [
+   {
+    "species": "machop",
+    "level": 33
+   }
+  ]
+ },
+ "route16_biker_3": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 520,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   }
+  ]
+ },
+ "route17_cue_ball_1": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "machop",
+    "level": 29
+   },
+   {
+    "species": "machoke",
+    "level": 29
+   }
+  ]
+ },
+ "route17_cue_ball_2": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 29
+   },
+   {
+    "species": "primeape",
+    "level": 29
+   }
+  ]
+ },
+ "route17_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "weezing",
+    "level": 28
+   }
+  ]
+ },
+ "route17_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "muk",
+    "level": 33
+   }
+  ]
+ },
+ "route17_biker_3": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 29
+   },
+   {
+    "species": "voltorb",
+    "level": 29
+   }
+  ]
+ },
+ "route17_cue_ball_3": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 825,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 33
+   }
+  ]
+ },
+ "route17_cue_ball_4": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "primeape",
+    "level": 29
+   },
+   {
+    "species": "machoke",
+    "level": 29
+   }
+  ]
+ },
+ "route17_cue_ball_5": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 26
+   },
+   {
+    "species": "mankey",
+    "level": 26
+   },
+   {
+    "species": "machoke",
+    "level": 26
+   },
+   {
+    "species": "machop",
+    "level": 26
+   }
+  ]
+ },
+ "route17_biker_4": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 29
+   },
+   {
+    "species": "muk",
+    "level": 29
+   }
+  ]
+ },
+ "route17_biker_5": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 500,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "weezing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "weezing",
+    "level": 25
+   }
+  ]
+ },
+ "route18_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 29
+   },
+   {
+    "species": "fearow",
+    "level": 29
+   }
+  ]
+ },
+ "route18_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "fearow",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   }
+  ]
+ },
+ "route18_bird_keeper_3": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 850,
+  "party": [
+   {
+    "species": "dodrio",
+    "level": 34
+   }
+  ]
  }
 }

@@ -919,5 +919,110 @@
   "requirements": [],
   "rewards": [],
   "req_flag_to_disappear": "defeated_silph_co_giovanni"
+ },
+ "fan_club_chairman": {
+  "name": "Fan Club Chairman",
+  "dialogue_default": "[DRAFT] Ah, a fellow Pokémon lover! You remind me of myself as a young trainer... Here! Take my spare BICYCLE! A true fan of Pokémon should see the world at speed! (Obtained the Bicycle! You can now ride on Cycling Road.)",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "bike",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_bike"
+   }
+  ],
+  "once_flag": "obtained_bike",
+  "dialogue_post_flag": "[DRAFT] My Rapidash and I used to race the wind! ...Those were the days."
+ },
+ "fan_club_angler": {
+  "name": "Fishing Fan",
+  "dialogue_default": "[DRAFT] There's nothing like fishing for Pokémon! Here, take my spare FISHING ROD! The waters around Kanto are full of surprises!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "fishing_rod",
+    "qty": 1
+   }
+  ],
+  "once_flag": "obtained_fishing_rod",
+  "dialogue_post_flag": "[DRAFT] Magikarp, Goldeen... the sea provides! Tight lines, kid!"
+ },
+ "route16_snorlax": {
+  "name": "Snorlax",
+  "dialogue_default": "[DRAFT] You play the Poké Flute! Snorlax stirs... yawns enormously... and lumbers to its feet, ready to battle! (Something stirs nearby.)",
+  "requirements": [
+   {
+    "type": "flag",
+    "id": "obtained_pokeflute"
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "woke_snorlax_route16"
+   }
+  ],
+  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep in the middle of Route 16, blocking the road west. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
+  "dialogue_post_flag": "[DRAFT] Snorlax is wide awake now, and seems eager to test its strength!",
+  "once_flag": "woke_snorlax_route16"
+ },
+ "route16_fly_girl": {
+  "name": "Reclusive Girl",
+  "dialogue_default": "[DRAFT] You found my secret house! Please don't tell anyone where I am... As thanks, take this HM02! It teaches FLY -- you can soar to any town you've visited!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "hm02",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_hm02"
+   }
+  ],
+  "once_flag": "obtained_hm02",
+  "dialogue_post_flag": "[DRAFT] Shhh! Secret! ...FLY is wonderful, isn't it?"
+ },
+ "route13_picnicker": {
+  "name": "Lost Picnicker",
+  "dialogue_default": "[DRAFT] This fence maze is impossible! I've been going in circles for an hour... have you seen my basket? No? ...Then at least battle me!",
+  "requirements": [],
+  "rewards": []
+ },
+ "route14_bird_watcher": {
+  "name": "Bird Watcher",
+  "dialogue_default": "[DRAFT] Shhh! I'm tracking a Farfetch'd! It carries a leek... fascinating! The Bird Keepers here train the finest flying types on this side of Kanto.",
+  "requirements": [],
+  "rewards": []
+ },
+ "route15_jogger": {
+  "name": "Tired Jogger",
+  "dialogue_default": "[DRAFT] Huff... puff... Fuchsia City is just west of here, but these trainers keep challenging me! My legs are jelly!",
+  "requirements": [],
+  "rewards": []
+ },
+ "route16_cyclist": {
+  "name": "Cyclist",
+  "dialogue_default": "[DRAFT] Flat tire... again! This road eats tires for breakfast. If you've got a bike, the guard up ahead will let you onto Cycling Road. Good luck!",
+  "requirements": [],
+  "rewards": []
+ },
+ "route17_biker_rest": {
+  "name": "Winded Biker",
+  "dialogue_default": "[DRAFT] Whew! Downhill is easy... it's the ride BACK UP that kills you! The Cue Balls and Bikers here never let anyone pass without a battle!",
+  "requirements": [],
+  "rewards": []
+ },
+ "route18_guard": {
+  "name": "Gate Guard",
+  "dialogue_default": "[DRAFT] Fuchsia City lies east, friend! Safari Zone, the gym... and watch out for the Bird Keepers in the fenced field. Nasty bunch!",
+  "requirements": [],
+  "rewards": []
  }
 }
