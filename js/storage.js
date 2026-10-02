@@ -99,6 +99,7 @@ export class StorageManager {
     this.game.ui.renderRouteScreen();
     this.game.ui.updatePartyUI();
     this.game.ui.updateMoneyUI();
+    this.game.ui.updateBadgeUI();
     this.game.ui.updatePokedexTrackerUI();
     this.game.ui.setMenuState('route');
     this.game.ui.printToLog(successMessage);

@@ -168,7 +168,7 @@ challengeGymLeader(gymId) {
     btn.onclick = () => {
       if (this.engine.gameState.money >= 1000) {
         this.engine.gameState.money -= 1000;
-        this.engine.gameState.coins = Math.min(9999, (this.engine.gameState.coins || 0) + 500);
+        this.engine.gameState.coins = (this.engine.gameState.coins || 0) + 500;
         this.engine.ui.updateMoneyUI();
         this.engine.ui.printToLog(`You bought 500 coins! (Total: ${this.engine.gameState.coins})`);
         this.renderCoinMenu();
@@ -286,7 +286,7 @@ challengeGymLeader(gymId) {
   resolveSlotSpin(reels) {
     const payout = this.slotPayout(reels);
     if (payout > 0) {
-      this.engine.gameState.coins = Math.min(9999, (this.engine.gameState.coins || 0) + payout);
+      this.engine.gameState.coins = (this.engine.gameState.coins || 0) + payout;
       this.engine.ui.printToLog(`[ ${reels.join(' | ')} ] — You won ${payout} coins!`);
     } else {
       this.engine.ui.printToLog(`[ ${reels.join(' | ')} ] — No luck this time.`);

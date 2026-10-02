@@ -203,8 +203,14 @@
    "water": []
   },
   "trainers": [
-   "cooltrainer_samuel",
-   "blackbelt_atsushi",
+   "viridian_blackbelt_1",
+   "viridian_cooltrainer_1",
+   "viridian_tamer_1",
+   "viridian_cooltrainer_2",
+   "viridian_blackbelt_2",
+   "viridian_tamer_2",
+   "viridian_blackbelt_3",
+   "viridian_cooltrainer_3",
    "giovanni_gym"
   ],
   "explore_table": [
@@ -1546,7 +1552,7 @@
    }
   ],
   "npcs": [
-   "thirsty_guard_route5"
+   "thirsty_guard"
   ],
   "gate_requirements": {
    "saffron_city": {
@@ -1649,7 +1655,7 @@
   ],
   "npcs": [
    "route6_commuter",
-   "thirsty_guard_route6"
+   "thirsty_guard"
   ],
   "gate_requirements": {
    "saffron_city": {
@@ -1668,21 +1674,10 @@
    "route6",
    "vermilion_city_gym",
    "pokemon_fan_club",
-   "ss_anne",
    "vermilion_dock",
    "route11"
   ],
   "gate_requirements": {
-   "ss_anne": {
-    "required_flags": [
-     "obtain_ss_ticket"
-    ],
-    "blocked_flags": [
-     "ss_anne_departed"
-    ],
-    "blocked_message": "The sailor blocks the gangway. You need an S.S. Ticket to board the S.S. Anne!",
-    "departed_message": "The S.S. Anne has departed! Only calm water remains where the great ship was moored."
-   },
    "vermilion_city_gym": {
     "required_flags": [
      "obtain_hm_01"
@@ -1803,11 +1798,6 @@
    {
     "type": "nothing",
     "weight": 70
-   },
-   {
-    "type": "item",
-    "weight": 30,
-    "item": "bike"
    }
   ],
   "noFly": true
@@ -1856,7 +1846,7 @@
   "description": "A luxurious cruise liner docked at Vermilion harbor. Passengers and sailors mingle on the sunlit main deck.",
   "isTown": false,
   "connections": [
-   "vermilion_city",
+   "vermilion_dock",
    "ss_anne_deck"
   ],
   "req_flag": null,
@@ -1988,9 +1978,9 @@
   "description": "The harbor dock where the S.S. Anne was moored. Only calm water and wheeling gulls remain.",
   "isTown": false,
   "connections": [
-   "vermilion_city"
+   "vermilion_city",
+   "ss_anne"
   ],
-  "req_flag": "ss_anne_departed",
   "encounters": {
    "grass": [],
    "water": [
@@ -2044,6 +2034,21 @@
     "type": "nothing",
     "weight": 100
    }
+  ],
+  "gate_requirements": {
+   "ss_anne": {
+    "required_flags": [
+     "obtain_ss_ticket"
+    ],
+    "blocked_flags": [
+     "ss_anne_departed"
+    ],
+    "blocked_message": "The sailor blocks the gangway. You need an S.S. Ticket to board the S.S. Anne!",
+    "departed_message": "The S.S. Anne has departed! Only calm water remains where the great ship was moored."
+   }
+  },
+  "npcs": [
+   "vermilion_dock_sailor"
   ]
  },
  "route9": {
@@ -3022,7 +3027,7 @@
    "route7_lass_1"
   ],
   "npcs": [
-   "thirsty_guard_route7"
+   "thirsty_guard"
   ],
   "explore_table": [
    {
@@ -3119,7 +3124,7 @@
    "route8_super_nerd_3"
   ],
   "npcs": [
-   "thirsty_guard_route8"
+   "thirsty_guard"
   ],
   "explore_table": [
    {
@@ -3323,22 +3328,43 @@
    {
     "type": "coins",
     "id": "floor_coins_1",
-    "amount": 20,
-    "weight": 15,
+    "amount": 10,
+    "weight": 12,
     "req_flag": "obtained_coin_case"
    },
    {
     "type": "coins",
     "id": "floor_coins_2",
-    "amount": 50,
-    "weight": 10,
+    "amount": 10,
+    "weight": 12,
     "req_flag": "obtained_coin_case"
    },
    {
     "type": "coins",
     "id": "floor_coins_3",
-    "amount": 100,
-    "weight": 6,
+    "amount": 10,
+    "weight": 12,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_4",
+    "amount": 20,
+    "weight": 8,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_5",
+    "amount": 10,
+    "weight": 12,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_6",
+    "amount": 20,
+    "weight": 8,
     "req_flag": "obtained_coin_case"
    },
    {

@@ -13,6 +13,16 @@ export class UIManager {
     }
   }
 
+  updateBadgeUI() {
+    const badgeEl = document.getElementById('badge-count');
+    if (badgeEl) {
+      const badges = ['boulder_badge', 'cascade_badge', 'thunder_badge', 'rainbow_badge',
+                      'soul_badge', 'marsh_badge', 'volcano_badge', 'earth_badge'];
+      const count = badges.filter(b => this.game.hasFlag(b)).length;
+      badgeEl.textContent = `Badges: ${count}/8`;
+    }
+  }
+
   // Yes/no choice menu (e.g. "Press the hidden switch? Who wouldn't?").
   openChoiceMenu(choice) {
     this.setMenuState('dynamic');
@@ -460,7 +470,42 @@ renderRouteScreen() {
         return;
       }
       this.openEvolveTargetScreen(itemKey, item);
+    } else if (item.effect && item.effect.type === "repel_wild") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use that in battle!");
+        return;
+      }
+      this.useRepel(itemKey, item);
+    } else if (item.effect && item.effect.type === "escape_cave") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use that in battle!");
+        return;
+      }
+      this.useEscapeRope(itemKey, item);
     }
+  }
+
+  // --- Escape Rope ----------------------------------------------------------
+  // Returns to the last visited Pokémon Center. No healing, no money loss
+  // (unlike blacking out).
+  useEscapeRope(itemKey, itemData) {
+    const dest = this.game.gameState.lastHealedLocation || "pallet_town";
+    this.game.gameState.inventory[itemKey]--;
+    if (this.game.gameState.inventory[itemKey] <= 0) delete this.game.gameState.inventory[itemKey];
+    this.printToLog(`You used an ${itemData.name}!`);
+    this.travelTo(dest);
+  }
+
+  // --- Repels -------------------------------------------------------------
+  // Repel filters wild encounters to mons at/above the lead mon's level and
+  // lasts a fixed number of encounter rolls (Repel 3 / Super 5 / Max 10).
+  useRepel(itemKey, itemData) {
+    const n = (itemData.effect && itemData.effect.encounters) || 3;
+    this.game.gameState.repel = { encountersLeft: n };
+    this.game.gameState.inventory[itemKey]--;
+    if (this.game.gameState.inventory[itemKey] <= 0) delete this.game.gameState.inventory[itemKey];
+    this.printToLog(`You used a ${itemData.name}! Weaker wild Pokémon will stay away for ${n} encounters.`);
+    this.game.openBag();
   }
 
   // --- Evolution stones / Linking Cord ------------------------------------

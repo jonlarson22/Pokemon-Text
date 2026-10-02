@@ -80,26 +80,6 @@
    }
   ]
  },
- "leader_brock": {
-  "name": "Brock",
-  "title": "Gym Leader",
-  "dialogueBefore": "I'm Brock! Pewter's Gym Leader! My rock-hard willpower is absolute!",
-  "dialogueAfter": "It's an amazing feeling... You're stronger than I expected.",
-  "rewardMoney": 1400,
-  "items": [
-   "potion"
-  ],
-  "party": [
-   {
-    "species": "Geodude",
-    "level": 12
-   },
-   {
-    "species": "Onix",
-    "level": 14
-   }
-  ]
- },
  "camper_liam": {
   "name": "Liam",
   "title": "Camper",
@@ -322,40 +302,6 @@
    "super_potion"
   ],
   "clearsRouteTrainers": true
- },
- "cooltrainer_samuel": {
-  "name": "Samuel",
-  "title": "Cooltrainer",
-  "dialogueBefore": "Giovanni's training regime is no joke. Neither am I.",
-  "dialogueAfter": "Hmm. Giovanni will want to hear about you.",
-  "rewardMoney": 1600,
-  "party": [
-   {
-    "species": "rhyhorn",
-    "level": 39
-   },
-   {
-    "species": "nidoking",
-    "level": 40
-   }
-  ]
- },
- "blackbelt_atsushi": {
-  "name": "Atsushi",
-  "title": "Blackbelt",
-  "dialogueBefore": "My fists and my Pokémon strike as one!",
-  "dialogueAfter": "Your spirit burned brighter. I yield!",
-  "rewardMoney": 1720,
-  "party": [
-   {
-    "species": "machoke",
-    "level": 42
-   },
-   {
-    "species": "primeape",
-    "level": 43
-   }
-  ]
  },
  "giovanni_gym": {
   "name": "Giovanni",
@@ -5384,6 +5330,134 @@
    {
     "species": "butterfree",
     "level": 20
+   }
+  ]
+ },
+ "viridian_blackbelt_1": {
+  "name": "Yuji",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1000,
+  "party": [
+   {
+    "species": "machop",
+    "level": 40
+   },
+   {
+    "species": "machoke",
+    "level": 40
+   }
+  ]
+ },
+ "viridian_cooltrainer_1": {
+  "name": "Samuel",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1365,
+  "party": [
+   {
+    "species": "sandslash",
+    "level": 39
+   },
+   {
+    "species": "dugtrio",
+    "level": 39
+   }
+  ]
+ },
+ "viridian_tamer_1": {
+  "name": "Cole",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1720,
+  "party": [
+   {
+    "species": "rhyhorn",
+    "level": 43
+   }
+  ]
+ },
+ "viridian_cooltrainer_2": {
+  "name": "Kelly",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "rhyhorn",
+    "level": 43
+   }
+  ]
+ },
+ "viridian_blackbelt_2": {
+  "name": "Atsushi",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 950,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 38
+   },
+   {
+    "species": "machop",
+    "level": 38
+   },
+   {
+    "species": "machoke",
+    "level": 38
+   }
+  ]
+ },
+ "viridian_tamer_2": {
+  "name": "Jason",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1560,
+  "party": [
+   {
+    "species": "arbok",
+    "level": 39
+   },
+   {
+    "species": "tauros",
+    "level": 39
+   }
+  ]
+ },
+ "viridian_blackbelt_3": {
+  "name": "Takashi",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1075,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 43
+   }
+  ]
+ },
+ "viridian_cooltrainer_3": {
+  "name": "Warren",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1365,
+  "party": [
+   {
+    "species": "nidorino",
+    "level": 39
+   },
+   {
+    "species": "nidoking",
+    "level": 39
    }
   ]
  }

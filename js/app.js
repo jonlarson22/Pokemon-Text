@@ -224,8 +224,25 @@ class GameEngine {
   
   triggerEncounter(encounterList) {
     if (!encounterList || !encounterList.length) return "No wild Pokémon nearby.";
-    const selected = this.getWeightedRandom(encounterList);
-    const level = Math.floor(Math.random() * (selected.max_level - selected.min_level + 1)) + selected.min_level;
+    // Repel: only mons at/above the lead mon's level can appear. Ticks down
+    // once per encounter roll; expires with a message.
+    let list = encounterList;
+    let levelFloor = 0;
+    const repel = this.gameState.repel;
+    if (repel && repel.encountersLeft > 0) {
+      const leadLevel = (this.gameState.party[0] || {}).level || 1;
+      levelFloor = leadLevel;
+      list = encounterList.filter(e => (e.max_level || 0) >= leadLevel);
+      repel.encountersLeft--;
+      if (repel.encountersLeft <= 0) {
+        this.gameState.repel = null;
+        this.ui.printToLog("The Repel's effect wore off!");
+      }
+      if (!list.length) return "The Repel kept the weaker Pokémon away.";
+    }
+    const selected = this.getWeightedRandom(list);
+    const lo = Math.max(selected.min_level, levelFloor);
+    const level = Math.floor(Math.random() * (selected.max_level - lo + 1)) + lo;
     return { species: selected.species, level: level };
   }
 
@@ -310,6 +327,7 @@ class GameEngine {
 
   setFlag(flagName, value = true) {
     this.gameState.flags[flagName] = value;
+    if (this.ui && this.ui.updateBadgeUI) this.ui.updateBadgeUI();
   }
 
   hasFlag(flagName) {

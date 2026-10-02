@@ -171,30 +171,30 @@
   "category": "utility",
   "effect": {
    "type": "repel_wild",
-   "steps": 100
+   "encounters": 3
   },
   "price": 350,
-  "description": "Repels weak wild Pokémon for 100 steps."
+  "description": "Repels weak wild Pokémon for 3 encounters."
  },
  "super_repel": {
   "name": "Super Repel",
   "category": "utility",
   "effect": {
    "type": "repel_wild",
-   "steps": 200
+   "encounters": 5
   },
   "price": 500,
-  "description": "Repels weak wild Pokémon for 200 steps."
+  "description": "Repels weak wild Pokémon for 5 encounters."
  },
  "max_repel": {
   "name": "Max Repel",
   "category": "utility",
   "effect": {
    "type": "repel_wild",
-   "steps": 250
+   "encounters": 10
   },
   "price": 700,
-  "description": "Repels weak wild Pokémon for 250 steps."
+  "description": "Repels weak wild Pokémon for 10 encounters."
  },
  "fire_stone": {
   "name": "Fire Stone",
@@ -267,25 +267,6 @@
   "price": 0,
   "description": "A peculiar stone that makes certain species of Pokémon evolve. It is as black as night."
  },
- "town_map": {
-  "name": "Town Map",
-  "category": "key",
-  "effect": {
-   "type": "view_map"
-  },
-  "price": 0,
-  "description": "A very convenient map that can be viewed anytime. It even shows your present location."
- },
- "bicycle": {
-  "name": "Bicycle",
-  "category": "key",
-  "effect": {
-   "type": "speed_boost",
-   "multiplier": 2.0
-  },
-  "price": 0,
-  "description": "A folding bike that allows faster movement than the Running Shoes."
- },
  "coin_case": {
   "name": "Coin Case",
   "category": "key",
@@ -295,15 +276,6 @@
   },
   "price": 0,
   "description": "A case for holding Coins obtained at the Game Corner. It holds up to 9,999 coins."
- },
- "itemfinder": {
-  "name": "Itemfinder",
-  "category": "key",
-  "effect": {
-   "type": "detect_hidden_items"
-  },
-  "price": 0,
-  "description": "A device used for finding items. If there is a hidden item nearby, it emits a signal."
  },
  "tm01": {
   "name": "TM01 (Mega Punch)",
@@ -1650,12 +1622,6 @@
   "category": "treasure",
   "price": 5000,
   "description": "A nugget of pure gold. Sell it for a high price."
- },
- "bike": {
-  "name": "Bicycle",
-  "category": "key",
-  "price": 0,
-  "description": "A folding bicycle that lets you move around much faster."
  },
  "stardust": {
   "name": "Stardust",

@@ -223,12 +223,16 @@ executeTurn(playerMove) {
       return { name: "Struggle", type: "Normal", category: "physical", power: 50, accuracy: 100 };
     }
     if (mon.vol.encore && mon.vol.encore.turns > 0 && mon.vol.encore.move) {
-      return mon.vol.encore.move;
+      const encored = mon.vol.encore.move;
+      // An encored move with no PP left fails: fall through to Struggle.
+      if (encored.pp === undefined || encored.pp > 0) return encored;
     }
     let pool = mon.moves;
     const foe = mon === this.enemyMon ? this.playerMon : this.enemyMon;
     // The AI has no party-switch UI, so it never Baton Passes.
     pool = pool.filter(m => m.name !== "Baton Pass");
+    // Finite PP: the AI won't pick a depleted move (falls back to Struggle).
+    pool = pool.filter(m => m.pp === undefined || m.pp > 0);
     if (mon.vol.disabled && mon.vol.disabled.turns > 0) {
       pool = pool.filter(m => m.name !== mon.vol.disabled.move);
     }
@@ -549,6 +553,8 @@ executeTurn(playerMove) {
 
     this.onLog(`${attacker.species} used ${move.name}!`);
     attacker.lastMove = move.name;
+    // Finite enemy PP: the AI's moves deplete just like the player's.
+    if (!isPlayer && move.pp !== undefined && move.pp > 0) move.pp--;
     attacker.lastMoveData = move;
 
     if (move.firstTurnOnly && !attacker.vol.firstTurnOut) {
