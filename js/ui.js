@@ -107,16 +107,34 @@ export class UIManager {
     this.setHudVisible(true);
     this.setMenuState('dynamic');
     // Story text goes to the log box; the menu area holds only the button.
-    this.printToLog("Oak: Hello there! Welcome to the world of Pokémon!");
-    this.printToLog("Oak: My name is Oak. People call me the Pokémon Professor.");
-    this.printToLog("Oak: This world is inhabited by creatures called Pokémon. For some people, Pokémon are pets. Others use them for battle.");
-    this.printToLog("Oak: As for myself... I study Pokémon as a profession.");
-    this.printToLog("Oak: Your very own Pokémon journey is about to begin! A world of dreams and adventures awaits!");
+    // Oak's intro populates line by line, Pokemon-style. Tapping Continue
+    // skips the timer and prints any remaining lines instantly.
     document.getElementById('dynamic-content').innerHTML = '';
     const controls = document.getElementById('dynamic-controls');
     controls.innerHTML = '';
+    const lines = [
+      "Oak: Hello there! Welcome to the world of Pokémon!",
+      "Oak: I'm Oak, the Pokémon Professor.",
+      "Oak: This world is full of Pokémon — pets to some, battlers to others.",
+      "Oak: I study them as a profession.",
+      "Oak: Your own journey is about to begin — a world of dreams and adventures awaits!",
+    ];
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < lines.length) {
+        this.printToLog(lines[i++]);
+      } else {
+        clearInterval(timer);
+        this._introTimer = null;
+      }
+    }, 650);
+    this._introTimer = timer;
     this.buildMenuControls(controls, [
-      { text: "Continue", action: () => this.showNameEntry() },
+      { text: "Continue", action: () => {
+          if (this._introTimer) { clearInterval(this._introTimer); this._introTimer = null; }
+          while (i < lines.length) this.printToLog(lines[i++]);
+          this.showNameEntry();
+      } },
     ]);
   }
 
@@ -127,9 +145,9 @@ export class UIManager {
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = `<p style="text-align:center"><b>Your name:</b></p>
-      <input id="input-player-name" maxlength="10" placeholder="Red" style="width:90%;padding:8px;font-size:1em;text-align:center" />
+      <input id="input-player-name" maxlength="10" placeholder="Red" style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />
       <p style="text-align:center;margin-top:12px"><b>Your rival's name:</b></p>
-      <input id="input-rival-name" maxlength="10" placeholder="Blue" style="width:90%;padding:8px;font-size:1em;text-align:center" />`;
+      <input id="input-rival-name" maxlength="10" placeholder="Blue" style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
       { text: "Begin your journey!", action: () => {
