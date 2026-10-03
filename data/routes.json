@@ -2154,6 +2154,12 @@
      "soul_badge"
     ],
     "blocked_message": "A wide, fast river separates you from the Power Plant. You'd need to Surf across it — Koga of the Fuchsia Gym is said to hold that HM."
+   },
+   "rock_tunnel_1f": {
+    "required_flags": [
+     "obtained_hm05"
+    ],
+    "blocked_message": "The tunnel mouth yawns pitch-black before you. It looks too dark to enter... if only a Pokémon could light up the way. (Requires Flash.)"
    }
   },
   "trainers": [
