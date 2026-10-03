@@ -202,7 +202,7 @@ export class UIManager {
       <input id="input-rival-name" maxlength="10" placeholder="Blue" autofocus style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
-      { text: "Begin your journey!", action: () => {
+      { text: "That's his name!", action: () => {
           const rEl = document.getElementById('input-rival-name');
           const r = (rEl && rEl.value.trim()) || 'Blue';
           this.game.gameState.rivalName = r.slice(0, 10);
@@ -219,7 +219,7 @@ export class UIManager {
     const controls = document.getElementById('dynamic-controls');
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
-      { text: "Step onto Route 1", action: () => {
+      { text: "Begin your journey!", action: () => {
           controls.innerHTML = '';
           this.printLinesSequentially([
             "Oak: Hey! Wait! Don't go out there!",
