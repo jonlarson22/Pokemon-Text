@@ -94,13 +94,14 @@ export class UIManager {
 
   showIntro() {
     this.setMenuState('dynamic');
-    const content = document.getElementById('dynamic-content');
+    // Story text goes to the log box; the menu area holds only the button.
+    this.printToLog("Oak: Hello there! Welcome to the world of Pokémon!");
+    this.printToLog("Oak: My name is Oak. People call me the Pokémon Professor.");
+    this.printToLog("Oak: This world is inhabited by creatures called Pokémon. For some people, Pokémon are pets. Others use them for battle.");
+    this.printToLog("Oak: As for myself... I study Pokémon as a profession.");
+    this.printToLog("Oak: Your very own Pokémon journey is about to begin! A world of dreams and adventures awaits!");
+    document.getElementById('dynamic-content').innerHTML = '';
     const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = `<p style="text-align:center;font-weight:bold">Hello there! Welcome to the world of Pokémon!</p>
-      <p>My name is Oak. People call me the Pokémon Professor.</p>
-      <p>This world is inhabited by creatures called Pokémon. For some people, Pokémon are pets. Others use them for battle.</p>
-      <p>As for myself... I study Pokémon as a profession.</p>
-      <p>Your very own Pokémon journey is about to begin! A world of dreams and adventures awaits!</p>`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
       { text: "Continue", action: () => this.showNameEntry() },
@@ -109,11 +110,13 @@ export class UIManager {
 
   showNameEntry() {
     this.setMenuState('dynamic');
+    this.printToLog("Oak: First, tell me a little about yourself. What is your name?");
+    this.printToLog("Oak: And this is my grandson. He's been your rival since you were both babies... What was his name again?");
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = `<p><b>Oak:</b> First, tell me a little about yourself. What is your name?</p>
+    content.innerHTML = `<p style="text-align:center"><b>Your name:</b></p>
       <input id="input-player-name" maxlength="10" placeholder="Red" style="width:90%;padding:8px;font-size:1em;text-align:center" />
-      <p style="margin-top:12px"><b>Oak:</b> And this is my grandson. He's been your rival since you were both babies... What was his name again?</p>
+      <p style="text-align:center;margin-top:12px"><b>Your rival's name:</b></p>
       <input id="input-rival-name" maxlength="10" placeholder="Blue" style="width:90%;padding:8px;font-size:1em;text-align:center" />`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
@@ -131,9 +134,9 @@ export class UIManager {
 
   showOakStopsYou() {
     this.setMenuState('dynamic');
-    const content = document.getElementById('dynamic-content');
+    this.printToLog("You leave your house, full of excitement, and stride toward the tall grass of Route 1...");
+    document.getElementById('dynamic-content').innerHTML = '';
     const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = `<p>You leave your house, full of excitement, and stride toward the tall grass of Route 1...</p>`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
       { text: "Step onto Route 1", action: () => {
@@ -147,9 +150,9 @@ export class UIManager {
 
   showStarterPick() {
     this.setMenuState('dynamic');
-    const content = document.getElementById('dynamic-content');
+    this.printToLog("Oak: Choose your Pokémon partner!");
+    document.getElementById('dynamic-content').innerHTML = '';
     const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = `<p style="text-align:center;font-weight:bold">Oak: Choose your Pokémon partner!</p>`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
       { text: "Bulbasaur", action: () => this.game.factory.pickStarter('bulbasaur') },
