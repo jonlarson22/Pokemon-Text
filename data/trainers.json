@@ -2,7 +2,7 @@
  "rival_pallet_1": {
   "name": "{rival}",
   "title": "Pokémon Trainer",
-  "dialogueBefore": "Wait! Let's check out our Pokémon! I'll take you on!",
+  "dialogueBefore": "Hey, {player}! Let's check out our Pokémon! Come on, I'll take you on!",
   "dialogueAfter": "WHAT? Unbelievable! I picked the wrong Pokémon!",
   "rewardMoney": 175,
   "party": [
@@ -533,7 +533,7 @@
  "rival_cerulean": {
   "name": "{rival}",
   "title": "Pokémon Trainer",
-  "dialogueBefore": "Hey! You're still struggling? Let me show you how a real trainer battles!",
+  "dialogueBefore": "Hey, {player}! Still struggling? Let me show you how a real trainer battles!",
   "dialogueAfter": "What?! I had a type advantage! ...This isn't over!",
   "rewardMoney": 1105,
   "party": [
@@ -1423,7 +1423,7 @@
  "rival_route22": {
   "name": "{rival}",
   "title": "Pokémon Trainer",
-  "dialogueBefore": "[DRAFT] Yo! Heading to the Pokémon League? You need Badges to get through! Let's see if you're even worth my time!",
+  "dialogueBefore": "[DRAFT] Yo, {player}! Heading to the Pokémon League? You need Badges to get through! Let's see if you're even worth my time!",
   "dialogueAfter": "[DRAFT] Hmph! Lucky! Train harder if you want to face me again!",
   "rewardMoney": 280,
   "party": [
@@ -1729,7 +1729,7 @@
  "rival_ss_anne": {
   "name": "{rival}",
   "title": "Pokémon Trainer",
-  "dialogueBefore": "[DRAFT] Yo! I heard about the party on this ship and came to crash it! Let's see how much stronger I've gotten!",
+  "dialogueBefore": "[DRAFT] Yo, {player}! I heard about the party on this ship and came to crash it! Let's see how much stronger I've gotten!",
   "dialogueAfter": "[DRAFT] Hmph! You just lucked out! I'm heading to the captain's cabin... don't follow me!",
   "rewardMoney": 1300,
   "party": [
@@ -2691,7 +2691,7 @@
  "tower_rival": {
   "name": "{rival}",
   "title": "Pokémon Trainer",
-  "dialogueBefore": "[DRAFT] Well, well. Come to pay respects too? Or are you just here to gawk at ghosts?",
+  "dialogueBefore": "[DRAFT] Well, well, {player}. Come to pay respects too? Or are you just here to gawk at ghosts?",
   "dialogueAfter": "[DRAFT] Tch. Even the dead couldn't carry you to a win.",
   "rewardMoney": 1430,
   "party": [
@@ -3847,7 +3847,7 @@
  "silph_co_rival": {
   "name": "{rival}",
   "title": "Pokémon Trainer",
-  "dialogueBefore": "[DRAFT] Well, well! If it isn't my favorite loser! Team Rocket hired ME as security! There's no way I'm letting you into the president's office!",
+  "dialogueBefore": "[DRAFT] Well, well, {player}! If it isn't my favorite loser! Team Rocket hired ME as security! There's no way I'm letting you into the president's office!",
   "dialogueAfter": "[DRAFT] What?! Hired... and fired in the same day?! Fine! The office is yours. But Giovanni's in there, and he's way tougher than me!",
   "rewardMoney": 2600,
   "party": [
@@ -6132,8 +6132,8 @@
  "champion_rival": {
   "name": "{rival}",
   "title": "Champion",
-  "dialogueBefore": "[DRAFT] Well, well. Look who finally crawled out of Victory Road. Heh... I beat the Elite Four while you were still getting lost in a cave. That's the difference between us - I'm always one step ahead. But I'll give you this: nobody else even made it to my throne room. So come on! If you want my title, you're going to have to rip it out of my hands!",
-  "dialogueAfter": "[DRAFT] ...No way. NO way! I... I was the Champion! ...Hmph. Fine. You win. You were always the annoying one, weren't you? Chasing me from town to town, snapping at my heels since Pallet Town... You know what? I'm not even mad. A Champion who never loses gets soft. Go on - take the title. Just don't you dare lose it to the first kid with a Rattata who walks in here. ...And hey. Thanks. Losing to you was the most fun I've had in years.",
+  "dialogueBefore": "[DRAFT] Well, well, {player}. Look who finally crawled out of Victory Road. Heh... I beat the Elite Four while you were still getting lost in a cave. That's the difference between us!",
+  "dialogueAfter": "[DRAFT] ...No way. NO way! I... I was the Champion! ...Hmph. Fine. You win, {player}. You were always the annoying one, weren't you? Chasing me from town to town...",
   "rewardMoney": 6435,
   "party": [
    {

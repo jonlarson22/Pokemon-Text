@@ -1,7 +1,7 @@
 {
  "oak_pallet": {
   "name": "Prof. Oak",
-  "dialogue_default": "It's dangerous to go alone! Take these.",
+  "dialogue_default": "{player}! It's dangerous to go alone! Take these.",
   "requirements": [],
   "rewards": [
    {
@@ -300,7 +300,7 @@
  },
  "oak_pallet_dex": {
   "name": "Prof. Oak",
-  "dialogue_default": "Ah, back again! How is your Pokédex coming along? Remember, the goal is to catch all 151 Pokémon species in Kanto! Every new species brings you closer to completing it. Keep at it!",
+  "dialogue_default": "Ah, {player}! Back again! How is your Pokédex coming along? Remember, the goal is to catch all 151 Pokémon species in Kanto! Every new species brings you closer to completing it. Keep at it!",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",

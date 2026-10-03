@@ -157,6 +157,7 @@ export class UIManager {
           const r = (rEl && rEl.value.trim()) || 'Blue';
           this.game.gameState.playerName = p.slice(0, 10);
           this.game.gameState.rivalName = r.slice(0, 10);
+          this.printToLog("Oak: {player}! And {rival}! Of course — how could I forget? Now, off you go!");
           this.showOakStopsYou();
       } },
     ]);
