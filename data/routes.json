@@ -920,7 +920,6 @@
   },
   "trainers": [],
   "npcs": [
-   "cerulean_police_officer",
    "cerulean_swimmer",
    "cerulean_artist",
    "cerulean_biker",
@@ -1745,7 +1744,6 @@
   },
   "trainers": [],
   "npcs": [
-   "vermilion_sailor",
    "vermilion_fisher",
    "vermilion_tourist",
    "vermilion_dockworker",
@@ -2816,11 +2814,9 @@
   "gate_requirements": {
    "pokemon_tower_3f": {
     "required_flags": [
-     "defeated_tower_channeler_1",
-     "defeated_tower_channeler_2",
      "defeated_tower_rival"
     ],
-    "blocked_message": "Two Channelers bar the stairs, deep in séance... and your RIVAL leans against the wall, waiting. (Defeat the Channelers and your rival to pass.)"
+    "blocked_message": "Your rival leans against the stairwell, waiting. (Defeat your rival to pass.)"
    }
   },
   "encounters": {
@@ -2883,10 +2879,11 @@
   "gate_requirements": {
    "pokemon_tower_4f": {
     "required_flags": [
-     "defeated_tower_channeler_7",
-     "defeated_tower_channeler_8"
+     "defeated_tower_channeler_1",
+     "defeated_tower_channeler_2",
+     "defeated_tower_channeler_3"
     ],
-    "blocked_message": "Two Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
+    "blocked_message": "Three Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
    }
   },
   "encounters": {
@@ -2962,13 +2959,6 @@
      "guard_let_pass"
     ],
     "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
-   },
-   "underground_path": {
-    "required_flags": [
-     "defeated_route7_youngster_1",
-     "defeated_route7_lass_1"
-    ],
-    "blocked_message": "Two trainers are sparring in front of the tunnel stairs! (Defeat them to pass.)"
    }
   },
   "encounters": {
@@ -6193,10 +6183,11 @@
   "gate_requirements": {
    "pokemon_tower_5f": {
     "required_flags": [
-     "defeated_tower_channeler_14",
-     "defeated_tower_channeler_15"
+     "defeated_tower_channeler_4",
+     "defeated_tower_channeler_5",
+     "defeated_tower_channeler_6"
     ],
-    "blocked_message": "Two Channelers bar the stairs, deep in seance... (Defeat Channelers on this floor to pass.)"
+    "blocked_message": "Three Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
    }
   },
   "encounters": {
@@ -6261,10 +6252,12 @@
   "gate_requirements": {
    "pokemon_tower_6f": {
     "required_flags": [
-     "defeated_tower_channeler_20",
-     "defeated_tower_channeler_21"
+     "defeated_tower_channeler_7",
+     "defeated_tower_channeler_8",
+     "defeated_tower_channeler_9",
+     "defeated_tower_channeler_10"
     ],
-    "blocked_message": "Two Channelers bar the stairs, deep in seance... (Defeat Channelers on this floor to pass.)"
+    "blocked_message": "Four Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
    }
   },
   "encounters": {

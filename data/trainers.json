@@ -20,11 +20,11 @@
   "rewardMoney": 60,
   "party": [
    {
-    "species": "Weedle",
+    "species": "weedle",
     "level": 6
    },
    {
-    "species": "Caterpie",
+    "species": "caterpie",
     "level": 6
    }
   ]
