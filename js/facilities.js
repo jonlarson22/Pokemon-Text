@@ -103,27 +103,48 @@ challengeGymLeader(gymId) {
         if (coinPrice) {
           btn.textContent = `${itemData.name} - ${coinPrice.toLocaleString()} coins`;
           btn.onclick = () => {
-            if ((this.engine.gameState.coins || 0) >= coinPrice) {
-              this.engine.gameState.coins -= coinPrice;
-              this.engine.gameState.inventory[itemKey] = (this.engine.gameState.inventory[itemKey] || 0) + 1;
-              this.engine.ui.updateMoneyUI();
-              this.engine.ui.printToLog(`You bought a ${itemData.name}!`);
-              this.renderBuyMenu(shopId, shopName);
-            } else {
-              this.engine.ui.printToLog(`You don't have enough coins for a ${itemData.name}.`);
-            }
+            const owned = this.engine.gameState.inventory[itemKey] || 0;
+            this.renderQuantityPicker({
+              headline: `${itemData.name} — ${coinPrice.toLocaleString()} coins each`,
+              ownedText: `You own: ${owned}`,
+              balanceText: `Your coins: ${this.engine.gameState.coins || 0}`,
+              onCancel: () => this.renderBuyMenu(shopId, shopName),
+              onConfirm: (qty) => {
+                const total = coinPrice * qty;
+                if ((this.engine.gameState.coins || 0) < total) {
+                  this.engine.ui.printToLog(`That's ${total.toLocaleString()} coins — you don't have enough.`);
+                  return;
+                }
+                this.engine.gameState.coins -= total;
+                this.engine.gameState.inventory[itemKey] = owned + qty;
+                this.engine.ui.updateMoneyUI();
+                this.engine.ui.printToLog(`You bought ${qty} ${itemData.name}${qty > 1 ? 's' : ''}!`);
+                this.renderBuyMenu(shopId, shopName);
+              },
+            });
           };
         } else {
           btn.textContent = `${itemData.name} - ¥${itemData.price}`;
           btn.onclick = () => {
-            if (this.engine.gameState.money >= itemData.price) {
-              this.engine.gameState.money -= itemData.price;
-              this.engine.gameState.inventory[itemKey] = (this.engine.gameState.inventory[itemKey] || 0) + 1;
-              this.engine.ui.updateMoneyUI();
-              this.engine.ui.printToLog(`You bought a ${itemData.name}!`);
-            } else {
-              this.engine.ui.printToLog(`You don't have enough money for a ${itemData.name}.`);
-            }
+            const owned = this.engine.gameState.inventory[itemKey] || 0;
+            this.renderQuantityPicker({
+              headline: `${itemData.name} — ¥${itemData.price} each`,
+              ownedText: `You own: ${owned}`,
+              balanceText: `Your money: ¥${this.engine.gameState.money}`,
+              onCancel: () => this.renderBuyMenu(shopId, shopName),
+              onConfirm: (qty) => {
+                const total = itemData.price * qty;
+                if (this.engine.gameState.money < total) {
+                  this.engine.ui.printToLog(`That'll be ¥${total.toLocaleString()} — you don't have enough.`);
+                  return;
+                }
+                this.engine.gameState.money -= total;
+                this.engine.gameState.inventory[itemKey] = owned + qty;
+                this.engine.ui.updateMoneyUI();
+                this.engine.ui.printToLog(`You bought ${qty} ${itemData.name}${qty > 1 ? 's' : ''}!`);
+                this.renderBuyMenu(shopId, shopName);
+              },
+            });
           };
         }
       }
@@ -137,6 +158,57 @@ challengeGymLeader(gymId) {
     if (!useCoins) menuButtons.push({ text: "Sell", action: () => this.renderSellMenu() });
     menuButtons.push({ text: "Exit", action: () => { this.engine.ui.printToLog("Come again!"); this.engine.ui.setMenuState('route'); } });
     this.engine.ui.buildMenuControls(controls, menuButtons);
+  }
+
+  // --- QUANTITY PICKER ---
+  // Shared "how many?" step for shops: shows what you own and your balance,
+  // asks for a quantity, then Buy / Cancel. onConfirm(qty) does the purchase;
+  // onCancel() returns to the shop menu.
+  renderQuantityPicker({ headline, ownedText, balanceText, onConfirm, onCancel }) {
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '';
+    controls.innerHTML = '';
+
+    const info = document.createElement('p');
+    info.style.textAlign = 'center';
+    info.innerHTML = `${headline}<br>${ownedText}<br>${balanceText}`;
+    content.appendChild(info);
+
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'display:flex;gap:8px;justify-content:center;align-items:center;margin:12px 0;';
+    const label = document.createElement('span');
+    label.textContent = 'How many?';
+    const minus = document.createElement('button');
+    minus.className = 'btn';
+    minus.textContent = '−';
+    minus.style.minWidth = '52px';
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.min = '1';
+    input.value = '1';
+    input.inputMode = 'numeric';
+    input.style.cssText = 'width:84px;padding:10px 4px;font-size:1rem;text-align:center;';
+    const plus = document.createElement('button');
+    plus.className = 'btn';
+    plus.textContent = '+';
+    plus.style.minWidth = '52px';
+    minus.onclick = () => { input.value = Math.max(1, (parseInt(input.value, 10) || 1) - 1); };
+    plus.onclick = () => { input.value = (parseInt(input.value, 10) || 0) + 1; };
+    wrap.append(label, minus, input, plus);
+    content.appendChild(wrap);
+
+    this.engine.ui.buildMenuControls(controls, [
+      { text: 'Buy', action: () => {
+          const qty = Math.floor(Number(input.value));
+          if (!qty || qty < 1) {
+            this.engine.ui.printToLog('Enter how many you want (1 or more).');
+            return;
+          }
+          onConfirm(qty);
+        } },
+      { text: 'Cancel', action: onCancel },
+    ]);
   }
 
   // --- GAME CORNER: COIN EXCHANGE ---
@@ -164,17 +236,32 @@ challengeGymLeader(gymId) {
 
     const btn = document.createElement('button');
     btn.className = 'btn';
-    btn.textContent = 'Buy 500 coins (¥1,000)';
+    btn.textContent = 'Buy coins (500 for ¥1,000)';
     btn.onclick = () => {
-      if (this.engine.gameState.money >= 1000) {
-        this.engine.gameState.money -= 1000;
-        this.engine.gameState.coins = (this.engine.gameState.coins || 0) + 500;
-        this.engine.ui.updateMoneyUI();
-        this.engine.ui.printToLog(`You bought 500 coins! (Total: ${this.engine.gameState.coins})`);
-        this.renderCoinMenu();
-      } else {
-        this.engine.ui.printToLog("You don't have enough money for coins.");
-      }
+      this.renderQuantityPicker({
+        headline: `500 coins — ¥1,000`,
+        ownedText: `Your coins: ${this.engine.gameState.coins || 0} / 9,999`,
+        balanceText: `Your money: ¥${this.engine.gameState.money}`,
+        onCancel: () => this.renderCoinMenu(),
+        onConfirm: (qty) => {
+          const totalYen = 1000 * qty;
+          const totalCoins = 500 * qty;
+          const coins = this.engine.gameState.coins || 0;
+          if (this.engine.gameState.money < totalYen) {
+            this.engine.ui.printToLog(`That's ¥${totalYen.toLocaleString()} — you don't have enough money.`);
+            return;
+          }
+          if (coins + totalCoins > 9999) {
+            this.engine.ui.printToLog(`The Coin Case only holds 9,999 coins!`);
+            return;
+          }
+          this.engine.gameState.money -= totalYen;
+          this.engine.gameState.coins = coins + totalCoins;
+          this.engine.ui.updateMoneyUI();
+          this.engine.ui.printToLog(`You bought ${totalCoins.toLocaleString()} coins! (Total: ${this.engine.gameState.coins.toLocaleString()})`);
+          this.renderCoinMenu();
+        },
+      });
     };
     content.appendChild(btn);
 
