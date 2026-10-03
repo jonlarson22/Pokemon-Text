@@ -6104,7 +6104,7 @@
   "name": "Lance",
   "title": "Elite Four",
   "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueAfter": "[DRAFT] ...I yield. You have bested the Elite Four, {player} — by rights, the title of Champion should be yours. But another challenger came through here just ahead of you, and claimed it for himself. If you want the title... you'll have to take it from him.",
   "rewardMoney": 6138,
   "party": [
    {

@@ -1094,6 +1094,21 @@ renderRouteScreen() {
     this.printToLog(`Arrived at ${targetRoute.name}.`);
     this.renderRouteScreen();
     this.setMenuState('route');
+    // Arriving somewhere can trigger a scripted battle, just like the real
+    // game (e.g. the Champion waiting in the Hall of Champions).
+    if (targetRoute.enter_battle && !this.game.hasFlag(targetRoute.enter_battle.flag)) {
+      const eb = targetRoute.enter_battle;
+      const trainer = this.game.factory.getDynamicTrainer(eb.trainer_id);
+      if (!trainer) {
+        console.warn(`[dev] enter_battle trainer "${eb.trainer_id}" is not in trainers.json yet.`);
+      } else {
+        this.printToLog(`Wait! ${trainer.name} steps out to challenge you!`);
+        this.printToLog(`"${trainer.dialogueBefore || 'Let us battle!'}"`);
+        this.game.gameState.activeTrainerId = eb.trainer_id;
+        const enemyParty = this.game.factory.generateTrainerParty(trainer);
+        this.game.battleManager.startTrainerBattle(enemyParty, trainer, eb.flag);
+      }
+    }
     return true;
   }
 }

@@ -7100,7 +7100,7 @@
     "weight": 100
    }
   ],
-  "forced_battle": {
+  "enter_battle": {
    "flag": "defeated_elite_four",
    "trainer_id": "champion_rival"
   }
