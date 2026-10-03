@@ -217,7 +217,7 @@ challengeGymLeader(gymId) {
   openCoinMenu() {
     if (!this.engine.hasFlag('obtained_coin_case')) {
       this.engine.setFlag('obtained_coin_case', true);
-      this.engine.ui.printToLog("The clerk hands you a Coin Case! It can hold up to 9,999 coins.");
+      this.engine.ui.printToLog("The clerk hands you a Coin Case!");
     }
     this.renderCoinMenu();
   }
@@ -240,7 +240,7 @@ challengeGymLeader(gymId) {
     btn.onclick = () => {
       this.renderQuantityPicker({
         headline: `500 coins — ¥1,000`,
-        ownedText: `Your coins: ${this.engine.gameState.coins || 0} / 9,999`,
+        ownedText: `Your coins: ${this.engine.gameState.coins || 0}`,
         balanceText: `Your money: ¥${this.engine.gameState.money}`,
         onCancel: () => this.renderCoinMenu(),
         onConfirm: (qty) => {
@@ -249,10 +249,6 @@ challengeGymLeader(gymId) {
           const coins = this.engine.gameState.coins || 0;
           if (this.engine.gameState.money < totalYen) {
             this.engine.ui.printToLog(`That's ¥${totalYen.toLocaleString()} — you don't have enough money.`);
-            return;
-          }
-          if (coins + totalCoins > 9999) {
-            this.engine.ui.printToLog(`The Coin Case only holds 9,999 coins!`);
             return;
           }
           this.engine.gameState.money -= totalYen;
