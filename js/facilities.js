@@ -164,7 +164,7 @@ challengeGymLeader(gymId) {
   // Shared "how many?" step for shops: shows what you own and your balance,
   // asks for a quantity, then Buy / Cancel. onConfirm(qty) does the purchase;
   // onCancel() returns to the shop menu.
-  renderQuantityPicker({ headline, ownedText, balanceText, onConfirm, onCancel }) {
+  renderQuantityPicker({ headline, ownedText, balanceText, onConfirm, onCancel, confirmLabel = 'Buy' }) {
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = '';
@@ -199,7 +199,7 @@ challengeGymLeader(gymId) {
     content.appendChild(wrap);
 
     this.engine.ui.buildMenuControls(controls, [
-      { text: 'Buy', action: () => {
+      { text: confirmLabel, action: () => {
           const qty = Math.floor(Number(input.value));
           if (!qty || qty < 1) {
             this.engine.ui.printToLog('Enter how many you want (1 or more).');
@@ -406,12 +406,27 @@ challengeGymLeader(gymId) {
       btn.className = 'btn';
       btn.textContent = `Sell ${itemData ? itemData.name : itemKey} (x${count}) - ¥${sellPrice}`;
       btn.onclick = () => {
-        this.engine.gameState.inventory[itemKey]--;
-        if (this.engine.gameState.inventory[itemKey] <= 0) delete this.engine.gameState.inventory[itemKey];
-        this.engine.gameState.money += sellPrice;
-        this.engine.ui.updateMoneyUI();
-        this.engine.ui.printToLog(`You sold a ${itemData ? itemData.name : itemKey} for ¥${sellPrice}!`);
-        this.renderSellMenu();
+        this.renderQuantityPicker({
+          headline: `${itemData ? itemData.name : itemKey} — ¥${sellPrice} each`,
+          ownedText: `You own: ${count}`,
+          balanceText: `Your money: ¥${this.engine.gameState.money}`,
+          confirmLabel: 'Sell',
+          onCancel: () => this.renderSellMenu(),
+          onConfirm: (qty) => {
+            const owned = this.engine.gameState.inventory[itemKey] || 0;
+            if (qty > owned) {
+              this.engine.ui.printToLog(`You only have ${owned}.`);
+              return;
+            }
+            const total = sellPrice * qty;
+            this.engine.gameState.inventory[itemKey] = owned - qty;
+            if (this.engine.gameState.inventory[itemKey] <= 0) delete this.engine.gameState.inventory[itemKey];
+            this.engine.gameState.money += total;
+            this.engine.ui.updateMoneyUI();
+            this.engine.ui.printToLog(`You sold ${qty} ${itemData ? itemData.name : itemKey} for ¥${total}!`);
+            this.renderSellMenu();
+          },
+        });
       };
       content.appendChild(btn);
     });
