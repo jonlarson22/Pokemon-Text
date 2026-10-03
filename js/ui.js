@@ -103,38 +103,46 @@ export class UIManager {
     ]);
   }
 
-  showIntro() {
-    this.setHudVisible(true);
-    this.setMenuState('dynamic');
-    // Story text goes to the log box; the menu area holds only the button.
-    // Oak's intro populates line by line, Pokemon-style. Tapping Continue
-    // skips the timer and prints any remaining lines instantly.
-    document.getElementById('dynamic-content').innerHTML = '';
-    const controls = document.getElementById('dynamic-controls');
-    controls.innerHTML = '';
-    const lines = [
-      "Oak: Hello there! Welcome to the world of Pokémon!",
-      "Oak: I'm Oak, the Pokémon Professor.",
-      "Oak: This world is full of Pokémon — pets to some, battlers to others.",
-      "Oak: I study them as a profession.",
-      "Oak: Your own journey is about to begin — a world of dreams and adventures awaits!",
-    ];
+  // Print lines one by one, Pokemon-style. onDone runs after the last
+  // line. Returns a skip function that flushes any remaining lines
+  // instantly (and still runs onDone once).
+  printLinesSequentially(lines, intervalMs, onDone) {
     let i = 0;
+    let done = false;
+    const finish = () => { if (!done) { done = true; if (onDone) onDone(); } };
     const timer = setInterval(() => {
       if (i < lines.length) {
         this.printToLog(lines[i++]);
       } else {
         clearInterval(timer);
-        this._introTimer = null;
+        if (this._seqTimer === timer) this._seqTimer = null;
+        finish();
       }
-    }, 650);
-    this._introTimer = timer;
+    }, intervalMs || 650);
+    this._seqTimer = timer;
+    return () => {
+      if (this._seqTimer === timer) { clearInterval(timer); this._seqTimer = null; }
+      while (i < lines.length) this.printToLog(lines[i++]);
+      finish();
+    };
+  }
+
+  showIntro() {
+    this.setHudVisible(true);
+    this.setMenuState('dynamic');
+    // Story text goes to the log box; the menu area holds only the button.
+    document.getElementById('dynamic-content').innerHTML = '';
+    const controls = document.getElementById('dynamic-controls');
+    controls.innerHTML = '';
+    const skip = this.printLinesSequentially([
+      "Oak: Hello there! Welcome to the world of Pokémon!",
+      "Oak: I'm Oak, the Pokémon Professor.",
+      "Oak: This world is full of Pokémon — pets to some, battlers to others.",
+      "Oak: I study them as a profession.",
+      "Oak: Your own journey is about to begin — a world of dreams and adventures awaits!",
+    ], 650, null);
     this.buildMenuControls(controls, [
-      { text: "Continue", action: () => {
-          if (this._introTimer) { clearInterval(this._introTimer); this._introTimer = null; }
-          while (i < lines.length) this.printToLog(lines[i++]);
-          this.showNameEntry();
-      } },
+      { text: "Continue", action: () => { skip(); this.showNameEntry(); } },
     ]);
   }
 
@@ -185,17 +193,19 @@ export class UIManager {
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
       { text: "Step onto Route 1", action: () => {
-          this.printToLog("Oak: Hey! Wait! Don't go out there!");
-          this.printToLog("Oak: It's unsafe! Wild Pokémon live in the tall grass! You need your own Pokémon for your protection.");
-          this.printToLog("Oak: Come with me to my lab! I'll give you a Pokémon partner to keep you safe.");
-          this.showStarterPick();
+          controls.innerHTML = '';
+          this.printLinesSequentially([
+            "Oak: Hey! Wait! Don't go out there!",
+            "Oak: It's unsafe! Wild Pokémon live in the tall grass! You need your own Pokémon for your protection.",
+            "Oak: Come with me to my lab! I'll give you a Pokémon partner to keep you safe.",
+            "Oak: Choose your Pokémon partner!",
+          ], 650, () => this.showStarterPick());
       } },
     ]);
   }
 
   showStarterPick() {
     this.setMenuState('dynamic');
-    this.printToLog("Oak: Choose your Pokémon partner!");
     document.getElementById('dynamic-content').innerHTML = '';
     const controls = document.getElementById('dynamic-controls');
     controls.innerHTML = '';
