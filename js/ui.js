@@ -5,7 +5,46 @@ export class UIManager {
 
   updateMoneyUI() {
     const moneyEl = document.getElementById('money-count');
-    if (moneyEl) moneyEl.textContent = `Money: ¥${this.game.gameState.money}`;
+    if (moneyEl) {
+      const coins = this.game.gameState.coins || 0;
+      const coinText = (coins > 0 || this.game.hasFlag('obtained_coin_case'))
+        ? ` · Coins: ${coins}` : '';
+      moneyEl.textContent = `Money: ¥${this.game.gameState.money}${coinText}`;
+    }
+  }
+
+  updateBadgeUI() {
+    const badgeEl = document.getElementById('badge-count');
+    if (badgeEl) {
+      const badges = ['boulder_badge', 'cascade_badge', 'thunder_badge', 'rainbow_badge',
+                      'soul_badge', 'marsh_badge', 'volcano_badge', 'earth_badge'];
+      const count = badges.filter(b => this.game.hasFlag(b)).length;
+      badgeEl.textContent = `Badges: ${count}/8`;
+    }
+  }
+
+  // Yes/no choice menu (e.g. "Press the hidden switch? Who wouldn't?").
+  openChoiceMenu(choice) {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold; margin-bottom:8px;">${choice.prompt}</p>`;
+    controls.innerHTML = '';
+
+    this.buildMenuControls(controls, [
+      { text: choice.yes_label || "Yes", action: () => {
+          if (choice.onYes) { choice.onYes(); }
+          else {
+            if (choice.flag) this.game.setFlag(choice.flag, true);
+            this.printToLog(choice.success || "Done.");
+          }
+          this.setMenuState('route');
+      } },
+      { text: choice.no_label || "No", action: () => {
+          this.printToLog(choice.decline || "You leave it alone.");
+          this.setMenuState('route');
+      } },
+    ]);
   }
 
   updatePokedexTrackerUI() {
@@ -20,12 +59,188 @@ export class UIManager {
   printToLog(message) {
     const display = document.getElementById('display-area');
     if (!display) return;
-    
+
     const p = document.createElement('p');
     p.className = 'log-entry';
-    p.textContent = message;
+    p.textContent = this.substituteNames(message);
     display.appendChild(p);
-    display.scrollTop = display.scrollHeight; 
+    display.scrollTop = display.scrollHeight;
+  }
+
+  // Replace {player} / {rival} tokens with the names chosen at game start
+  // (defaults keep old dialogue working if names were never set).
+  substituteNames(text) {
+    if (typeof text !== 'string') return text;
+    const gs = this.game && this.game.gameState ? this.game.gameState : {};
+    return text
+      .replaceAll('{player}', gs.playerName || 'Red')
+      .replaceAll('{rival}', gs.rivalName || 'Blue');
+  }
+
+  // --- New-game flow: title -> Oak intro -> names -> stopped at Route 1 -> starter pick ---
+  // The title screen hides the game HUD (location, money, party, log box):
+  // none of it means anything until the player picks New / Load / Import.
+  setHudVisible(visible) {
+    const disp = visible ? '' : 'none';
+    for (const id of ['status-bar', 'display-area', 'party-bar']) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = disp;
+    }
+  }
+
+  showTitleScreen() {
+    this.setHudVisible(false);
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center;font-weight:bold;font-size:2em;margin:0.6em 0 0">Pokémon Text</p>
+      <p style="text-align:center;font-size:1.1em">A text adventure through the Kanto region.</p>`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "New Game", action: () => this.showIntro() },
+      { text: "Load Local", action: () => this.game.storage.loadLocal() },
+      { text: "Import Save", action: () => document.getElementById('input-import-file').click() },
+    ]);
+  }
+
+  // Print lines one by one, Pokemon-style. onDone runs after the last
+  // line. Returns a skip function that flushes any remaining lines
+  // instantly (and still runs onDone once).
+  printLinesSequentially(lines, intervalMs, onDone) {
+    let i = 0;
+    let done = false;
+    const finish = () => { if (!done) { done = true; if (onDone) onDone(); } };
+    const timer = setInterval(() => {
+      if (i < lines.length) {
+        this.printToLog(lines[i++]);
+      } else {
+        clearInterval(timer);
+        if (this._seqTimer === timer) this._seqTimer = null;
+        finish();
+      }
+    }, intervalMs || 900);
+    this._seqTimer = timer;
+    return () => {
+      if (this._seqTimer === timer) { clearInterval(timer); this._seqTimer = null; }
+      while (i < lines.length) this.printToLog(lines[i++]);
+      finish();
+    };
+  }
+
+  // Split story text into sentences for line-by-line reveal.
+  splitSentences(text) {
+    const s = String(text || '').trim();
+    if (!s) return [];
+    // Guard abbreviations so "Mr. Mime" / "Mt. Moon" don't split.
+    const guarded = s.replace(/\b(Mr|Mrs|Ms|Dr|St|Mt)\. /g, '$1\x01 ');
+    // Split on whitespace after sentence-ending punctuation, when the next
+    // sentence starts with a capital or quote. Ellipses stay glued.
+    const parts = guarded.split(/(?<=[.!?])\s+(?=["'“‘(\[{A-ZÀ-Þ])/);
+    return parts.map(p => p.trim().split('\x01').join('.')).filter(Boolean);
+  }
+
+  // Print story dialogue sentence-by-sentence, Pokemon-style.
+  // Single-sentence text prints instantly. Resolves when done.
+  // instantDialogue (tests) prints everything instantly, no timers.
+  printDialogue(text) {
+    return new Promise((resolve) => {
+      const sentences = this.splitSentences(text);
+      if (sentences.length <= 1 || this.instantDialogue) {
+        sentences.forEach(s => this.printToLog(s));
+        resolve();
+        return;
+      }
+      this.printLinesSequentially(sentences, 900, resolve);
+    });
+  }
+
+  showIntro() {
+    this.setHudVisible(true);
+    this.setMenuState('dynamic');
+    // Story text goes to the log box; the menu area holds only the button.
+    document.getElementById('dynamic-content').innerHTML = '';
+    const controls = document.getElementById('dynamic-controls');
+    controls.innerHTML = '';
+    const skip = this.printLinesSequentially([
+      "Oak: Hello there! Welcome to the world of Pokémon!",
+      "Oak: I'm Oak, the Pokémon Professor.",
+      "Oak: This world is full of Pokémon — pets to some, battlers to others.",
+      "Oak: I study them as a profession.",
+      "Oak: Your own journey is about to begin — a world of dreams and adventures awaits!",
+    ], 900, null);
+    this.buildMenuControls(controls, [
+      { text: "Continue", action: () => { skip(); this.showNameEntry(); } },
+    ]);
+  }
+
+  // Two-step name entry, RBY-style: Oak asks your name, waits while you
+  // type, then asks about his grandson.
+  showNameEntry() {
+    this.setMenuState('dynamic');
+    this.printToLog("Oak: First, tell me a little about yourself. What is your name?");
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center"><b>Your name:</b></p>
+      <input id="input-player-name" maxlength="10" placeholder="Red" autofocus style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "That's my name!", action: () => {
+          const pEl = document.getElementById('input-player-name');
+          const p = (pEl && pEl.value.trim()) || 'Red';
+          this.game.gameState.playerName = p.slice(0, 10);
+          this.showRivalNameEntry();
+      } },
+    ]);
+  }
+
+  showRivalNameEntry() {
+    this.setMenuState('dynamic');
+    this.printToLog("Oak: And this is my grandson. He's been your rival since you were both babies... What was his name again?");
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center"><b>Your rival's name:</b></p>
+      <input id="input-rival-name" maxlength="10" placeholder="Blue" autofocus style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "That's his name!", action: () => {
+          const rEl = document.getElementById('input-rival-name');
+          const r = (rEl && rEl.value.trim()) || 'Blue';
+          this.game.gameState.rivalName = r.slice(0, 10);
+          this.printToLog("Oak: {player}! And {rival}! Of course — how could I forget? Now, off you go!");
+          this.showOakStopsYou();
+      } },
+    ]);
+  }
+
+  showOakStopsYou() {
+    this.setMenuState('dynamic');
+    this.printToLog("You leave your house, full of excitement, and stride toward the tall grass of Route 1...");
+    document.getElementById('dynamic-content').innerHTML = '';
+    const controls = document.getElementById('dynamic-controls');
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "Begin your journey!", action: () => {
+          controls.innerHTML = '';
+          this.printLinesSequentially([
+            "Oak: Hey! Wait! Don't go out there!",
+            "Oak: It's unsafe! Wild Pokémon live in the tall grass! You need your own Pokémon for your protection.",
+            "Oak: Come with me to my lab! I'll give you a Pokémon partner to keep you safe.",
+            "Oak: Choose your Pokémon partner!",
+          ], 900, () => this.showStarterPick());
+      } },
+    ]);
+  }
+
+  showStarterPick() {
+    this.setMenuState('dynamic');
+    document.getElementById('dynamic-content').innerHTML = '';
+    const controls = document.getElementById('dynamic-controls');
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "Bulbasaur", action: () => this.game.factory.pickStarter('bulbasaur') },
+      { text: "Charmander", action: () => this.game.factory.pickStarter('charmander') },
+      { text: "Squirtle", action: () => this.game.factory.pickStarter('squirtle') },
+    ]);
   }
 
 updatePartyUI() {
@@ -63,8 +278,14 @@ renderRouteScreen() {
     }
 
     if (shopBtn) {
-      shopBtn.style.display = route.hasShop ? "block" : "none";
-      shopBtn.onclick = () => this.game.facilities.openShop();
+      // A route can point its shop button at another route's shop (e.g.
+      // Celadon City -> the Department Store) with a custom label.
+      const shopId = route.shopId || (route.hasShop ? this.game.gameState.currentRoute : null);
+      shopBtn.style.display = shopId ? "block" : "none";
+      if (shopId) {
+        shopBtn.textContent = route.shopLabel || "Poké Mart";
+        shopBtn.onclick = () => this.game.facilities.openShop(shopId);
+      }
     }
 
     if (interactBtn) {
@@ -92,7 +313,23 @@ renderRouteScreen() {
       content.innerHTML = '<p style="text-align:center; font-weight:bold; margin-bottom:8px;">Who would you like to talk to?</p>';
       controls.innerHTML = ''; 
   
-      npcIds.forEach(npcId => {
+      const removedHere = (this.game.gameState.removedNPCs || {})[this.game.gameState.currentRoute] || [];
+      const visibleIds = npcIds.filter(npcId => {
+        const npcData = this.game.db.npcs[npcId];
+        if (!npcData) return true; // placeholder for an NPC that isn't written yet
+        if (npcData.req_flag_to_appear && !this.game.hasFlag(npcData.req_flag_to_appear)) return false;
+        if (npcData.req_flag_to_disappear && this.game.hasFlag(npcData.req_flag_to_disappear)) return false;
+        if (removedHere.includes(npcId)) return false;
+        return true;
+      });
+
+      if (visibleIds.length === 0) {
+        this.printToLog("There is no one to talk to right now.");
+        this.setMenuState('route');
+        return;
+      }
+
+      visibleIds.forEach(npcId => {
         const npcData = this.game.db.npcs[npcId];
         const btn = document.createElement('button');
         btn.className = 'btn';
@@ -112,9 +349,16 @@ renderRouteScreen() {
   
     // UPDATED METHOD: Builds the dynamic travel list based on visited towns
     handleFlyAction() {
-      // Note: Make sure 'can_fly' matches the flag you actually set in your DB/Game!
-      if (!this.game.hasFlag('can_fly')) {
-         this.printToLog("You don't have the HM Fly yet!");
+      // Field use of Fly is unlocked by HM02 (Route 16, after the Snorlax)
+      // and requires the Thunder Badge (canon RBY).
+      if (!this.game.hasFlag('obtained_hm02') || !this.game.hasFlag('thunder_badge')) {
+         this.printToLog("You don't have the HM Fly yet, or you lack the badge to use it!");
+         return;
+      }
+
+      const currentRouteData = this.game.db.routes[this.game.gameState.currentRoute];
+      if (currentRouteData && currentRouteData.noFly) {
+         this.printToLog("You need open sky above you to fly!");
          return;
       }
   
@@ -132,19 +376,19 @@ renderRouteScreen() {
       controls.innerHTML = '';
   
       towns.forEach(townId => {
+        if (townId === this.game.gameState.currentRoute) return;
         const townData = this.game.db.routes[townId];
         if (!townData) return;
-  
+
         const btn = document.createElement('button');
         btn.className = 'btn';
         btn.textContent = `Fly to ${townData.name}`;
         btn.onclick = () => {
-          this.printToLog(`You flew on your Pokémon to ${townData.name}!`);
-          
-          // Update location and re-render
-          this.game.gameState.currentRoute = townId;
-          this.renderRouteScreen(); 
-          this.setMenuState('route');
+          // Route through travelTo so forced battles and gate
+          // requirements are checked exactly like walking there.
+          if (this.travelTo(townId)) {
+            this.printToLog(`You flew on your Pokémon to ${townData.name}!`);
+          }
         };
         content.appendChild(btn);
       });
@@ -184,6 +428,65 @@ renderRouteScreen() {
       btn.onclick = b.action;
       container.appendChild(btn);
     });
+  }
+
+  // Safari Zone minigame menu: Ball / Bait / Rock / Run (no fighting).
+  // Rebuilt after every safari turn via battleManager.
+  openSafariMenu() {
+    const sb = this.game.gameState.safariBattle;
+    if (!sb) {
+      this.setMenuState('route');
+      return;
+    }
+    const balls = this.game.gameState.safariBalls || 0;
+    const moodText = sb.eating > 0 ? "It is eating." : sb.angry > 0 ? "It is angry!" : "It is watching carefully.";
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold;">Wild ${sb.enemy.species} (Lv. ${sb.enemy.level})<br><span style="font-weight:normal;">${moodText}</span></p>`;
+    controls.innerHTML = '';
+
+    this.buildMenuControls(controls, [
+      {
+        text: `Throw Safari Ball (${balls} left)`,
+        action: () => this.game.battleManager.safariThrowBall(),
+      },
+      { text: "Throw Bait", action: () => this.game.battleManager.safariThrowBait() },
+      { text: "Throw Rock", action: () => this.game.battleManager.safariThrowRock() },
+      { text: "Run", action: () => this.game.battleManager.safariRun() },
+    ]);
+  }
+
+  // Baton Pass needs a switch target chosen before the turn runs. Lists
+  // conscious benched party mons; the choice is stashed on the battle and
+  // consumed by the baton_pass effect when the move executes in turn order.
+  openBatonPassChooser(move) {
+    const battle = this.game.gameState.activeBattle;
+    if (!battle) return;
+    const active = battle.playerMon;
+    const candidates = this.game.gameState.party.filter(m => m && m.hp > 0 && m !== active);
+    if (candidates.length === 0) {
+      this.printToLog(`But it failed! There's no one to pass to!`);
+      return;
+    }
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center; font-weight:bold;">Pass to which Pokémon?</p>';
+    controls.innerHTML = '';
+
+    const buttons = candidates.map(mon => ({
+      text: `${mon.species} (Lv. ${mon.level}) — ${mon.hp}/${mon.maxHp} HP`,
+      action: () => {
+        this.setMenuState('battle');
+        this.game.battleManager.handleTurn(move, mon);
+      }
+    }));
+    buttons.push({
+      text: "Cancel",
+      action: () => this.setMenuState('battle')
+    });
+    this.buildMenuControls(controls, buttons);
   }
 
   // MOVED FROM APP.JS
@@ -301,7 +604,9 @@ renderRouteScreen() {
           } else {
             btn.disabled = false;
             btn.style.opacity = "1";
-            btn.onclick = () => this.game.battleManager.handleTurn(move);
+            btn.onclick = move.name === "Baton Pass"
+              ? () => this.openBatonPassChooser(move)
+              : () => this.game.battleManager.handleTurn(move);
           }
         } else {
           // Handle Empty Move Slots
@@ -326,9 +631,303 @@ renderRouteScreen() {
       } else {
         this.printToLog("Oak's words echoed: There's a time and place for everything, but not now.");
       }
-    } else if (item.category === "healing") { 
+    } else if (item.category === "healing" || item.category === "revival" || item.category === "status") {
       this.openPartyTargetScreen(itemKey, item);
+    } else if (item.effect && item.effect.type === "awaken_sleeping_pokemon") {
+      this.usePokeFlute(itemKey, item);
+    } else if (item.category === "tm" || item.category === "hm") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use a TM or HM in battle!");
+        return;
+      }
+      this.openTeachMenu(itemKey, item);
+    } else if (item.effect && item.effect.type === "evolve") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use that in battle!");
+        return;
+      }
+      this.openEvolveTargetScreen(itemKey, item);
+    } else if (item.effect && item.effect.type === "repel_wild") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use that in battle!");
+        return;
+      }
+      this.useRepel(itemKey, item);
+    } else if (item.effect && item.effect.type === "escape_cave") {
+      if (this.game.gameState.activeBattle) {
+        this.printToLog("You can't use that in battle!");
+        return;
+      }
+      this.useEscapeRope(itemKey, item);
     }
+  }
+
+  // --- Escape Rope ----------------------------------------------------------
+  // Returns to the last visited Pokémon Center. No healing, no money loss
+  // (unlike blacking out).
+  useEscapeRope(itemKey, itemData) {
+    const dest = this.game.gameState.lastHealedLocation || "pallet_town";
+    this.game.gameState.inventory[itemKey]--;
+    if (this.game.gameState.inventory[itemKey] <= 0) delete this.game.gameState.inventory[itemKey];
+    this.printToLog(`You used an ${itemData.name}!`);
+    this.travelTo(dest);
+  }
+
+  // --- Repels -------------------------------------------------------------
+  // Repel filters wild encounters to mons at/above the lead mon's level and
+  // lasts a fixed number of encounter rolls (Repel 3 / Super 5 / Max 10).
+  useRepel(itemKey, itemData) {
+    const n = (itemData.effect && itemData.effect.encounters) || 3;
+    this.game.gameState.repel = { encountersLeft: n };
+    this.game.gameState.inventory[itemKey]--;
+    if (this.game.gameState.inventory[itemKey] <= 0) delete this.game.gameState.inventory[itemKey];
+    this.printToLog(`You used a ${itemData.name}! Weaker wild Pokémon will stay away for ${n} encounters.`);
+    this.game.openBag();
+  }
+
+  // --- Evolution stones / Linking Cord ------------------------------------
+  // Resolves which species a stone/cord evolves a given mon into (null if
+  // incompatible). Supports single-target item evolutions and Eevee's
+  // stone-choice map.
+  evolutionTargetForItem(monId, itemKey) {
+    const base = this.game.db.pokemon[(monId || '').toLowerCase()];
+    const evo = base && base.evolution;
+    if (!evo) return null;
+    if ((evo.method === 'item' || evo.method === 'use_item') && evo.item === itemKey) return evo.target;
+    if (evo.method === 'item_choice' && evo.choices && evo.choices[itemKey]) return evo.choices[itemKey];
+    return null;
+  }
+
+  openEvolveTargetScreen(itemKey, itemData) {
+    const targets = (itemData.effect && itemData.effect.target) || [];
+    const candidates = [];
+    this.game.gameState.party.forEach((mon, index) => {
+      const id = (mon.id || mon.species || '').toLowerCase();
+      if (targets.includes(id) && this.evolutionTargetForItem(id, itemKey)) {
+        candidates.push({ mon, index });
+      }
+    });
+    if (!candidates.length) {
+      this.printToLog("It won't have any effect.");
+      return;
+    }
+    this.setMenuState('party-select');
+    const container = document.getElementById('party-select-list');
+    container.innerHTML = '';
+    candidates.forEach(({ mon, index }) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = `${mon.species} (Lv. ${mon.level})`;
+      btn.onclick = () => {
+        this.game.gameState.inventory[itemKey]--;
+        if (this.game.gameState.inventory[itemKey] <= 0) delete this.game.gameState.inventory[itemKey];
+        this.printToLog(`You used a ${itemData.name} on ${mon.species}!`);
+        this.game.growth.checkEvolution(this.game.gameState.party[index], 'item', itemKey);
+      };
+      container.appendChild(btn);
+    });
+  }
+
+  // --- Poke Flute: waking -----------------------------------------------
+  // Canon: usable in battle to wake the player's sleeping active Pokemon.
+  // Playing it takes your turn (the foe moves afterwards). Key item: never
+  // consumed. Out of battle it's just a soothing melody.
+  usePokeFlute(itemKey, item) {
+    if (this.game.gameState.activeBattle) {
+      const active = this.game.gameState.party[0];
+      if (!active || active.status !== "SLP") {
+        this.printToLog("It won't have any effect.");
+        return;
+      }
+      active.status = null;
+      this.printToLog(`You played the ${item.name}! ${active.species} woke up!`);
+      this.setMenuState('battle');
+      const enemyMove = this.game.gameState.activeBattle.getRandomEnemyMove();
+      this.game.gameState.activeBattle.processAction(this.game.gameState.activeBattle.enemyMon, this.game.gameState.party[0], enemyMove, false);
+      this.game.gameState.activeBattle.checkWinLoss();
+
+      if (this.game.gameState.activeBattle.isOver) {
+        this.game.battleManager.handleBattleEnd();
+      }
+    } else {
+      this.printToLog("You play a soothing melody on the Poké Flute...");
+    }
+  }
+
+  // --- TM / HM teaching --------------------------------------------------
+  // TMs and HMs are both reusable (never consumed) and HMs can be
+  // forgotten/overwritten like any other move — unlike the original games.
+  // Compatibility is gated on the canon tmMoves list in pokemon.json.
+
+  // Pure-ish helpers (no DOM) so the teach logic is unit-testable.
+  resolveTeachMove(itemData) {
+    const moveId = (itemData.effect && itemData.effect.move) || itemData.move;
+    if (!moveId) return null;
+    const moveDef = this.game.db.moves[moveId];
+    if (!moveDef) return null;
+    return { moveId, moveDef };
+  }
+
+  canLearnMachine(mon, moveId) {
+    const baseData = this.game.db.pokemon[mon.id];
+    if (!baseData || !baseData.tmMoves) return false;
+    if (baseData.tmMoves.includes(moveId)) return true;
+    // Fallback: if NO pokemon in pokemon.json lists this move in tmMoves,
+    // there is no compat data for it yet (e.g. RBY-only TMs whose canon
+    // learnsets haven't been entered). Allow everyone so the TM still works,
+    // and log it for the dev data pass.
+    if (!this._tmCompatUnion) {
+      this._tmCompatUnion = new Set();
+      Object.values(this.game.db.pokemon).forEach(p => {
+        (p.tmMoves || []).forEach(m => this._tmCompatUnion.add(m));
+      });
+    }
+    if (!this._tmCompatUnion.has(moveId)) {
+      console.warn(`[dev] no tmMoves compat data for "${moveId}" — allowing all learners for now.`);
+      return true;
+    }
+    return false;
+  }
+
+  monKnowsMove(mon, moveId, moveName) {
+    return (mon.moves || []).some(m => m.moveId === moveId || m.name === moveName);
+  }
+
+  makeTaughtMove(moveId, moveDef) {
+    return { ...moveDef, moveId, maxPp: moveDef.pp, pp: moveDef.pp };
+  }
+
+  // Shows the party so the player can pick who learns the move.
+  openTeachMenu(itemKey, itemData) {
+    const resolved = this.resolveTeachMove(itemData);
+    if (!resolved) {
+      console.warn(`[dev] "${itemKey}" has no teachable move in items.json.`);
+      this.printToLog("That doesn't seem to teach anything...");
+      return;
+    }
+    const { moveId, moveDef } = resolved;
+
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold; margin-bottom:8px;">Teach ${moveDef.name} to which Pokémon?</p>`;
+    controls.innerHTML = '';
+
+    this.game.gameState.party.forEach((mon, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+
+      if (this.monKnowsMove(mon, moveId, moveDef.name)) {
+        btn.textContent = `${mon.species} (already knows it)`;
+        btn.onclick = () => {
+          this.printToLog(`${mon.species} already knows ${moveDef.name}!`);
+        };
+      } else if (!this.canLearnMachine(mon, moveId)) {
+        btn.textContent = `${mon.species} (can't learn it)`;
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+      } else {
+        btn.textContent = mon.species;
+        btn.onclick = () => this.teachMoveToMon(itemKey, itemData, moveId, moveDef, index);
+      }
+      content.appendChild(btn);
+    });
+
+    this.buildMenuControls(controls, [
+      { text: "Cancel", action: () => this.game.openBag() }
+    ]);
+  }
+
+  // Separate TM/HM submenu: one bag entry opens this, sorted by number
+  // (TM01..TM84, then HM01..HM07). Each button routes through
+  // handleItemClick so the normal teach flow applies.
+  openMachineMenu(entries) {
+    const numOf = key => parseInt((key.match(/\d+/) || [0])[0], 10);
+    const rank = key => (this.game.db.items[key]?.category === 'hm' ? 1000 : 0) + numOf(key);
+    const sorted = [...entries].sort((a, b) => rank(a[0]) - rank(b[0]));
+
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center; font-weight:bold; margin-bottom:8px;">TMs &amp; HMs</p>`;
+    controls.innerHTML = '';
+
+    sorted.forEach(([itemKey, qty]) => {
+      const item = this.game.db.items[itemKey];
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `${item.name} ×${qty}`;
+      btn.title = item.description || '';
+      btn.onclick = () => this.handleItemClick(itemKey);
+      content.appendChild(btn);
+    });
+
+    this.buildMenuControls(controls, [
+      { text: "Back", action: () => this.game.openBag() }
+    ]);
+  }
+
+  // Applies the taught move: empty slot learns it directly, a full
+  // moveset prompts for a move to forget (HMs included — they are NOT
+  // permanent here). TMs/HMs are never consumed.
+  teachMoveToMon(itemKey, itemData, moveId, moveDef, partyIndex) {
+    const mon = this.game.gameState.party[partyIndex];
+
+    if (this.monKnowsMove(mon, moveId, moveDef.name)) {
+      this.printToLog(`${mon.species} already knows ${moveDef.name}!`);
+      return;
+    }
+
+    if ((mon.moves || []).length < 4) {
+      mon.moves.push(this.makeTaughtMove(moveId, moveDef));
+      this.printToLog(`${mon.species} learned ${moveDef.name}!`);
+      this.updatePartyUI();
+      this.game.openBag();
+    } else {
+      this.promptTeachMoveReplacement(mon, moveId, moveDef, itemKey, itemData);
+    }
+  }
+
+  // Pure-ish (no DOM): swaps a move slot for the taught move. Returns the
+  // forgotten move's name for the log line.
+  applyTeachReplacement(mon, slotIndex, moveId, moveDef) {
+    const oldMoveName = mon.moves[slotIndex].name;
+    mon.moves[slotIndex] = this.makeTaughtMove(moveId, moveDef);
+    return oldMoveName;
+  }
+
+  promptTeachMoveReplacement(mon, moveId, moveDef, itemKey, itemData) {
+    this.printToLog(`${mon.species} is trying to learn ${moveDef.name}...`);
+    this.printToLog(`But ${mon.species} can only know 4 moves!`);
+
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center;">Select a move to forget:</p>';
+    controls.innerHTML = '';
+
+    mon.moves.forEach((currentMove, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = `Forget ${currentMove.name}`;
+      btn.onclick = () => {
+        const oldMoveName = this.applyTeachReplacement(mon, index, moveId, moveDef);
+        this.printToLog(`1, 2, and... Poof! ${mon.species} forgot ${oldMoveName} and learned ${moveDef.name}!`);
+        this.updatePartyUI();
+        this.game.openBag();
+      };
+      content.appendChild(btn);
+    });
+
+    this.buildMenuControls(controls, [
+      {
+        text: "Don't Teach",
+        action: () => {
+          this.printToLog(`${mon.species} gave up on learning ${moveDef.name}.`);
+          this.openTeachMenu(itemKey, itemData);
+        }
+      }
+    ]);
   }
 
   // MOVED FROM APP.JS
@@ -346,17 +945,51 @@ renderRouteScreen() {
     });
   }
 
+  // --- Healing / revival / status items -------------------------------------
+  // Returns true if the item had an effect (and applies it). Prints the result
+  // or "It won't have any effect." and returns false when nothing happens --
+  // in which case the item is NOT consumed.
+  applyHealingEffect(target, itemData) {
+    const effect = itemData.effect || {};
+    const type = effect.type;
+    const STATUS_MAP = { poison: 'PSN', burn: 'BRN', freeze: 'FRZ', sleep: 'SLP', paralysis: 'PAR' };
+
+    if (type === 'heal' || type === 'heal_and_cure') {
+      if (target.hp <= 0) { this.printToLog("It won't have any effect."); return false; }
+      const fullHp = target.hp >= target.maxHp;
+      if (fullHp && type === 'heal') { this.printToLog("It won't have any effect."); return false; }
+      if (fullHp && !target.status) { this.printToLog("It won't have any effect."); return false; }
+      const amount = effect.value === 'max' ? target.maxHp : effect.value;
+      target.hp = Math.min(target.maxHp, target.hp + amount);
+      if (type === 'heal_and_cure') target.status = null;
+      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
+      return true;
+    }
+    if (type === 'revive') {
+      if (target.hp > 0) { this.printToLog("It won't have any effect."); return false; }
+      target.hp = effect.value === 'max' ? target.maxHp : Math.floor(target.maxHp / 2);
+      target.status = null;
+      this.printToLog(`You used a ${itemData.name}! ${target.species} was revived!`);
+      return true;
+    }
+    if (type === 'cure_status') {
+      const want = effect.status;
+      if (!target.status || (want !== 'all' && target.status !== STATUS_MAP[want])) {
+        this.printToLog("It won't have any effect."); return false;
+      }
+      this.printToLog(`You used a ${itemData.name}! ${target.species} was cured!`);
+      target.status = null;
+      return true;
+    }
+    return false;
+  }
+
   // MOVED FROM APP.JS
   applyItemToPokemon(itemKey, itemData, partyIndex) {
     const target = this.game.gameState.party[partyIndex];
 
-    if (itemData.effect.type === "heal") { 
-      if (target.hp >= target.maxHp) {
-        this.printToLog("It won't have any effect.");
-        return; 
-      }
-      target.hp = Math.min(target.maxHp, target.hp + itemData.effect.value); 
-      this.printToLog(`You used a ${itemData.name}! ${target.species} recovered health.`);
+    if (!this.applyHealingEffect(target, itemData)) {
+      return;
     }
 
     this.game.gameState.inventory[itemKey]--;
@@ -382,33 +1015,82 @@ renderRouteScreen() {
     const currentRoute = this.game.db.routes[this.game.gameState.currentRoute];
     const targetRoute = this.game.db.routes[targetRouteId];
 
-    if (currentRoute.forced_battle && !this.game.hasFlag(currentRoute.forced_battle.flag)) {
-      const trainer = this.game.factory.getDynamicTrainer(currentRoute.forced_battle.trainer_id);
-      this.printToLog(`Wait! ${trainer.name} steps out to challenge you!`);
-      this.printToLog(`"${trainer.dialogueBefore || 'Let us battle!'}"`);
-      
-      this.game.gameState.activeTrainerPartyIndex = 0; 
-
-      const enemyMonData = trainer.party[0];
-      const enemyMon = this.game.factory.generatePokemonInstance(enemyMonData.species, enemyMonData.level);
-
-      this.game.battleManager.startTrainerBattle(enemyMon, trainer, currentRoute.forced_battle.flag);
+    if (!targetRoute) {
+      console.warn(`[dev] "${targetRouteId}" is not in routes.json yet.`);
+      this.printToLog("That path isn't built yet. Check back soon!");
       return false;
+    }
+
+    if (currentRoute.forced_battle && !this.game.hasFlag(currentRoute.forced_battle.flag)) {
+      const trainerId = currentRoute.forced_battle.trainer_id;
+      const trainer = this.game.factory.getDynamicTrainer(trainerId);
+      if (!trainer) {
+        console.warn(`[dev] forced_battle trainer "${trainerId}" is not in trainers.json yet.`);
+      } else {
+        this.printToLog(`Wait! ${trainer.name} steps out to challenge you!`);
+        this.printToLog(`"${trainer.dialogueBefore || 'Let us battle!'}"`);
+
+        this.game.gameState.activeTrainerPartyIndex = 0;
+        this.game.gameState.activeTrainerId = trainerId;
+
+        const enemyParty = this.game.factory.generateTrainerParty(trainer);
+
+        this.game.battleManager.startTrainerBattle(enemyParty, trainer, currentRoute.forced_battle.flag);
+        return false;
+      }
     }
 
     if (currentRoute.gate_requirements && currentRoute.gate_requirements[targetRouteId]) {
       const gate = currentRoute.gate_requirements[targetRouteId];
-      const satisfiesReqs = gate.required_flags.every(flag => this.game.hasFlag(flag));
-      
+      // blocked_flags: travel is refused while ANY of these flags is set
+      // (e.g. the S.S. Anne after it departs). Checked before required_flags
+      // so a departed ship reports itself as gone rather than ticket-locked.
+      if (gate.blocked_flags && gate.blocked_flags.some(flag => this.game.hasFlag(flag))) {
+        this.printToLog(gate.departed_message || gate.blocked_message);
+        return false;
+      }
+      const satisfiesReqs = (gate.required_flags || []).every(flag => this.game.hasFlag(flag));
+
       if (!satisfiesReqs) {
         this.printToLog(gate.blocked_message);
-        return false; 
+        return false;
       }
+
+      // confirm: ask the player to confirm every attempt (e.g. entering the
+      // Elite Four from Indigo Plateau). Yes completes the travel, No stays.
+      if (gate.confirm) {
+        this.openChoiceMenu({
+          prompt: gate.confirm.prompt,
+          yes_label: gate.confirm.yes_label || "Yes",
+          no_label: gate.confirm.no_label || "No",
+          decline: gate.confirm.decline || "You step back.",
+          onYes: () => this._finishTravel(targetRouteId, currentRoute, targetRoute),
+        });
+        return false;
+      }
+    }
+
+    return this._finishTravel(targetRouteId, currentRoute, targetRoute);
+  }
+
+  // MOVED FROM APP.JS
+  _finishTravel(targetRouteId, currentRoute, targetRoute) {
+    // Leaving the Safari Zone ends the visit: leftover Safari Balls are
+    // forfeited and the entry flag is cleared (re-entry costs the fee again).
+    if (currentRoute && currentRoute.safari && !(targetRoute && targetRoute.safari)) {
+      this.game.gameState.safariBattle = null;
+      this.game.gameState.safariBalls = 0;
+      this.game.setFlag('in_safari_zone', false);
     }
 
     this.game.gameState.currentRoute = targetRouteId;
     this.game.trackVisitedTown(targetRouteId); // Leave trackVisitedTown in app.js as a core logic state-tracker
-    
+    // Routes can set a flag on first arrival (e.g. Vermilion sets
+    // reached_vermilion, which unhides Diglett's Cave on Route 2 North).
+    if (targetRoute && targetRoute.on_enter_set_flag) {
+      this.game.setFlag(targetRoute.on_enter_set_flag);
+    }
+
     this.printToLog(`Arrived at ${targetRoute.name}.`);
     this.renderRouteScreen();
     this.setMenuState('route');

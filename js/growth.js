@@ -31,6 +31,8 @@ export class GrowthEngine {
       mon.level++;
       mon.maxExp = this.getRequiredExp(baseData.growthRate || 'medium_fast', mon.level + 1);
       leveledUp = true;
+      // Leveling up strengthens the bond: +5 friendship (cap 255).
+      mon.friendship = Math.min(255, (mon.friendship ?? 70) + 5);
 
       this.recalculateStats(mon);
       this.game.ui.printToLog(`${mon.species} grew to Lv. ${mon.level}!`);
@@ -65,16 +67,18 @@ export class GrowthEngine {
     if (!baseData || !baseData.evolution) return;
 
     const evo = baseData.evolution;
-    let canEvolve = false;
+    let target = null;
 
     if (method === 'level' && evo.method === 'level' && mon.level >= evo.level) {
-      canEvolve = true;
-    } else if (method === 'item' && evo.method === 'item' && itemUsed === evo.item) {
-      canEvolve = true;
+      target = evo.target;
+    } else if (method === 'item' && (evo.method === 'item' || evo.method === 'use_item') && itemUsed === evo.item) {
+      target = evo.target;
+    } else if (method === 'item' && evo.method === 'item_choice' && evo.choices && evo.choices[itemUsed]) {
+      target = evo.choices[itemUsed];
     }
 
-    if (canEvolve) {
-      this.promptEvolution(mon, evo.target);
+    if (target) {
+      this.promptEvolution(mon, target);
     }
   }
 
@@ -161,11 +165,14 @@ export class GrowthEngine {
       const alreadyKnows = mon.moves.some(m => m.name === moveData.name);
       if (alreadyKnows) return;
 
+      // Clone the db entry: battle decrements move.pp, so handing out the
+      // shared object would corrupt the global move database for every mon.
+      const learned = { ...moveData, maxPp: moveData.pp, pp: moveData.pp };
       if (mon.moves.length < 4) {
-        mon.moves.push(moveData);
+        mon.moves.push(learned);
         this.game.ui.printToLog(`${mon.species} learned ${moveData.name}!`);
       } else {
-        this.promptMoveReplacement(mon, moveData);
+        this.promptMoveReplacement(mon, learned);
       }
     });
   }

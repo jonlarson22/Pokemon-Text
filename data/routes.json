@@ -1,626 +1,7115 @@
 {
-  "pallet_town": {
-    "name": "Pallet Town",
-    "description": "Shades of your journey await!",
-    "isTown": true,
-    "connections": ["route1", "route21"],
-    "forced_battle": {
-      "flag": "defeated_rival_pallet",
-      "trainer_id": "rival_pallet_1"
-    },
-    "gate_requirements": {
-      "route1": {
-        "required_flags": ["defeated_rival_pallet"],
-        "blocked_message": "You must defeat your rival blocking the path ahead first!"
-      },
-      "route21": {
-        "required_flags": ["obtain_hm_03"],
-        "blocked_message": "You need the HM to surf before heading into the water!"
-      }
-    },
-    "req_flag": null,
-    "encounters": {
-      "grass": [],
-      "water": [
-        { "species": "Magikarp", "min_level": 5, "max_level": 15, "weight": 60 },
-        { "species": "Goldeen", "min_level": 10, "max_level": 20, "weight": 15 },
-        { "species": "Poliwag", "min_level": 10, "max_level": 20, "weight": 15 },
-        { "species": "Tentacool", "min_level": 15, "max_level": 25, "weight": 5 },
-        { "species": "Poliwag", "min_level": 15, "max_level": 25, "weight": 5 }
-      ]
-    },
-    "trainers": [],
-    "npcs": ["oak_pallet"],
-    "explore_table": [
-      { "type": "nothing", "weight": 100 }
-    ]
+ "pallet_town": {
+  "name": "Pallet Town",
+  "description": "Shades of your journey await!",
+  "isTown": true,
+  "connections": [
+   "route1",
+   "route21"
+  ],
+  "forced_battle": {
+   "flag": "defeated_rival_pallet",
+   "trainer_id": "rival_pallet_1"
   },
-  "route1": {
-    "name": "Route 1",
-    "description": "A quiet path connecting Pallet Town and Viridian City.",
-    "isTown": false,
-    "connections": ["pallet_town", "viridian_city"],
-    "req_flag": null,
-    "encounters": {
-      "grass": [
-        { "species": "Pidgey", "min_level": 2, "max_level": 5, "weight": 55 },
-        { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 45 }],
-      "water":  []
-},
-    "trainers": [],
-    "npcs": ["route_1_clerk"],
-    "explore_table": [
-      { "type": "nothing", "weight": 50 },
-      { "type": "encounter", "weight": 30 },
-      { "type": "item", "item": "Pokeball", "weight": 20 }
-    ]
-  },
-  "viridian_city": {
-    "name": "Viridian City",
-    "description": "The perpetually green paradise.",
-    "isTown": true,
-    "connections": ["route1", "route2_south", "route22", "viridian_city_gym"],
-    "gate_requirements": {
-      "viridian_city_gym": {
-        "required_flags": [
-          "boulder_badge",
-          "cascade_badge",
-          "thunder_badge",
-          "rainbow_badge",
-          "soul_badge",
-          "marsh_badge",
-          "volcano_badge"
-        ],
-        "blocked_message": "The gym doors are locked tight. You need 7 Gym Badges to enter!"
-      }
-    },
-    "req_flag": null,
-    "hasCenter": true,
-    "hasShop": true,
-    "encounters": {
-      "grass": [],
-      "water": [
-        { "species": "Poliwag", "min_level": 10, "max_level": 20, "weight": 50 },
-        { "species": "Tentacool", "min_level": 15, "max_level": 25, "weight": 50 }
-      ]
-    },
-    "trainers": [],
-    "npcs": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 60 },
-      { "type": "item", "item": "Potion", "weight": 40 }
-    ]
-  },
-  "viridian_city_gym": {
-    "name": "Viridian City Gym",
-    "description": "The final mysterious gym of Kanto, operated by Giovanni.",
-    "isTown": false,
-    "connections": ["viridian_city"],
-    "forced_battle": {
-      "flag": "defeated_giovanni",
-      "trainer_id": "giovanni_gym"
-    },
-    "req_flag": null,
-    "encounters": [],
-    "trainers": ["cooltrainer_samuel", "blackbelt_atsushi", "giovanni_gym"],
-    "explore_table": [
-      { "type": "nothing", "weight": 70 },
-      { "type": "item", "item": "Revive", "weight": 30 }
-    ]
-  },
-  "route22": {
-    "name": "Route 22",
-    "description": "A winding path leading toward the Pokémon League reception gate.",
-    "connections": ["viridian_city", "route23"],
-    "req_flag": null, 
-    "encounters": [
-      { "species": "Rattata", "min_level": 2, "max_level": 4, "weight": 50 }
+  "gate_requirements": {
+   "route1": {
+    "required_flags": [
+     "defeated_rival_pallet"
     ],
-    "trainers": [],
-    "explore_table": []
-  },
-  "route2_south": {
-    "name": "Route 2 - South",
-    "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
-    "connections": ["viridian_city", "viridian_forest"],
-    "req_flag": null,
-    "encounters": [
-      { "species": "Caterpie", "min_level": 3, "max_level": 5, "weight": 40 },
-      { "species": "Weedle", "min_level": 3, "max_level": 5, "weight": 40 },
-      { "species": "Pidgey", "min_level": 3, "max_level": 5, "weight": 20 }
+    "blocked_message": "You must defeat your rival blocking the path ahead first!"
+   },
+   "route21": {
+    "required_flags": [
+     "soul_badge"
     ],
-    "trainers": ["youngster_joey"],
-    "explore_table": [
-      { "type": "nothing", "weight": 60 },
-      { "type": "encounter", "weight": 40 }
-    ]
+    "blocked_message": "The open sea south of Pallet is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+   }
   },
-  "viridian_forest": {
-    "name": "Viridian Forest",
-    "description": "A deep, natural maze filled with towering trees and bug Pokémon.",
-    "connections": ["route2_south", "route2_north"],
-    "gate_requirements": {
-      "route2_north": {
-        "required_flags": ["defeated_bug_catcher_rick", "defeated_bug_catcher_doug"],
-        "blocked_message": "You must defeat the trainers blocking the path ahead first!"
-      }
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 60
     },
-    "req_flag": null,
-    "encounters": [
-      { "species": "Caterpie", "min_level": 3, "max_level": 6, "weight": 35 },
-      { "species": "Metapod", "min_level": 4, "max_level": 6, "weight": 15 },
-      { "species": "Weedle", "min_level": 3, "max_level": 6, "weight": 35 },
-      { "species": "Kakuna", "min_level": 4, "max_level": 6, "weight": 10 },
-      { "species": "Pikachu", "min_level": 3, "max_level": 5, "weight": 5 }
+    {
+     "species": "Goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "Poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "Tentacool",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 5
+    },
+    {
+     "species": "Poliwag",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "oak_pallet",
+   "pallet_kid",
+   "pallet_elder",
+   "oak_pallet_dex"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "route1": {
+  "name": "Route 1",
+  "description": "A quiet path connecting Pallet Town and Viridian City.",
+  "isTown": false,
+  "connections": [
+   "pallet_town",
+   "viridian_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Pidgey",
+     "min_level": 2,
+     "max_level": 7,
+     "weight": 55
+    },
+    {
+     "species": "Rattata",
+     "min_level": 2,
+     "max_level": 4,
+     "weight": 45
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [
+   "route_1_clerk",
+   "route1_kid"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   }
+  ]
+ },
+ "viridian_city": {
+  "name": "Viridian City",
+  "description": "The perpetually green paradise.",
+  "isTown": true,
+  "connections": [
+   "route1",
+   "route2_south",
+   "route22",
+   "viridian_city_gym"
+  ],
+  "gate_requirements": {
+   "viridian_city_gym": {
+    "required_flags": [
+     "boulder_badge",
+     "cascade_badge",
+     "thunder_badge",
+     "rainbow_badge",
+     "soul_badge",
+     "marsh_badge",
+     "volcano_badge"
     ],
-    "trainers": ["bug_catcher_rick", "bug_catcher_doug"],
-    "explore_table": [
-      { "type": "nothing", "weight": 40 },
-      { "type": "encounter", "weight": 50 },
-      { "type": "item", "item": "Antidote", "weight": 10 }
-    ]
+    "blocked_message": "The gym doors are locked tight. You need 7 Gym Badges to enter!"
+   }
   },
-  "route2_north": {
-    "name": "Route 2 - North",
-    "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
-    "connections": ["viridian_forest", "pewter_city", "diglett_cave"],
-    "gate_requirements": {
-      "route9": {
-        "required_flags": ["obtain_hm_01"],
-        "blocked_message": "A small tree blocks your path. You need the HM for Cut to pass!"
-      }
-     },    
-    "req_flag": null,
-    "encounters": [
-      { "species": "Caterpie", "min_level": 3, "max_level": 5, "weight": 40 },
-      { "species": "Weedle", "min_level": 3, "max_level": 5, "weight": 40 },
-      { "species": "Pidgey", "min_level": 3, "max_level": 5, "weight": 20 }
+  "req_flag": null,
+  "hasCenter": true,
+  "hasShop": true,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 20
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 30
+    },
+    {
+     "species": "tentacool",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 30
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "viridian_traveler",
+   "viridian_shopper",
+   "viridian_kid",
+   "viridian_old_timer"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 40,
+    "item": "potion"
+   }
+  ]
+ },
+ "viridian_city_gym": {
+  "name": "Viridian City Gym",
+  "description": "The final mysterious gym of Kanto, operated by Giovanni.",
+  "isTown": false,
+  "connections": [
+   "viridian_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "viridian_blackbelt_1",
+   "viridian_cooltrainer_1",
+   "viridian_tamer_1",
+   "viridian_cooltrainer_2",
+   "viridian_blackbelt_2",
+   "viridian_tamer_2",
+   "viridian_blackbelt_3",
+   "viridian_cooltrainer_3",
+   "giovanni_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 30,
+    "item": "revive"
+   }
+  ],
+  "noFly": true
+ },
+ "route22": {
+  "name": "Route 22",
+  "description": "A winding path leading toward the Pokémon League reception gate.",
+  "connections": [
+   "viridian_city",
+   "route23",
+   "route23"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "rattata",
+     "min_level": 2,
+     "max_level": 4,
+     "weight": 30
+    },
+    {
+     "species": "nidoran_f",
+     "min_level": 2,
+     "max_level": 4,
+     "weight": 20
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 2,
+     "max_level": 4,
+     "weight": 20
+    },
+    {
+     "species": "spearow",
+     "min_level": 2,
+     "max_level": 5,
+     "weight": 15
+    },
+    {
+     "species": "mankey",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "rival_route22",
+   "rival_route22_rematch"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "npcs": [
+   "route22_jogger"
+  ],
+  "gate_requirements": {
+   "route23": {
+    "required_flags": [
+     "soul_badge",
+     "defeated_rival_route22_rematch"
     ],
-    "trainers": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 60 },
-      { "type": "encounter", "weight": 40 }
-    ]
-  },
-  "pewter_city": {
-    "name": "Pewter City",
-    "description": "A stone gray town where history and gray stones sleep.",
-    "isTown": true,
-    "connections": ["route2_north", "route3", "pewter_city_gym", "pewter_museum_of_science"],
-    "gate_requirements": {
-      "route3": {
-        "required_flags": ["boulder_badge"],
-        "blocked_message": "You must defeat Gym Leader Brock and earn the Boulder Badge before leaving Pewter City!"
-      }
-    },
-    "req_flag": null,
-    "hasCenter": true,
-    "hasShop": true,
-    "encounters": [],
-    "trainers": [],
-    "explore_table": []
-  },
-  "pewter_city_gym": {
-    "name": "Pewter City Gym",
-    "description": "A rugged gym specializing in rock-type Pokémon.",
-    "isTown": false,
-    "connections": ["pewter_city"],
-    "forced_battle": {
-      "flag": "defeated_brock",
-      "trainer_id": "brock_gym"
-    },
-    "req_flag": null,
-    "encounters": [],
-    "trainers": ["camper_liam", "brock_gym"],
-    "explore_table": [
-      { "type": "nothing", "weight": 100 }
-    ]
-  },
-  "pewter_museum_of_science": {
-    "name": "Pewter Museum of Science",
-    "description": "A fascinating museum showcasing ancient fossils and space exhibits.",
-    "isTown": false,
-    "connections": ["pewter_city"],
-    "gate_requirements": {
-      "pewter_city": {
-        "required_flags": ["old_amber_donated"],
-        "blocked_message": "You should check out the fossil exhibits before leaving!"
-      }
-    },
-    "req_flag": null,
-    "encounters": [],
-    "trainers": [],
-    "npcs": ["scientist_hiker"],
-    "explore_table": [
-      { "type": "nothing", "weight": 80 },
-      { "type": "item", "item": "Old Amber", "weight": 20 }
-    ]
-  },
-  "route3": {
-    "name": "Route 3",
-    "description": "A rocky, uneven path leading up toward Mt. Moon.",
-    "connections": ["pewter_city", "mt_moon_1f"],
-    "req_flag": null,
-    "encounters": [
-      { "species": "Pidgey", "min_level": 6, "max_level": 8, "weight": 40 },
-      { "species": "Spearow", "min_level": 6, "max_level": 8, "weight": 40 },
-      { "species": "Jigglypuff", "min_level": 3, "max_level": 7, "weight": 20 }
-    ],
-    "trainers": ["bug_catcher_don", "lass_janice"],
-    "explore_table": [
-      { "type": "nothing", "weight": 55 },
-      { "type": "encounter", "weight": 45 }
-    ]
-  },
-  "mt_moon_1f": {
-    "name": "Mt. Moon - 1F",
-    "description": "The cavernous entrance level of Mt. Moon, filled with wild Zubat and rock formations.",
-    "connections": ["route3", "mt_moon_b1f"],
-    "req_flag": null,
-    "encounters": [
-      { "species": "Zubat", "min_level": 7, "max_level": 10, "weight": 50 },
-      { "species": "Geodude", "min_level": 7, "max_level": 10, "weight": 30 },
-      { "species": "Paras", "min_level": 8, "max_level": 11, "weight": 20 }
-    ],
-    "trainers": ["hiker_marcos", "bug_catcher_kent"],
-    "explore_table": [
-      { "type": "nothing", "weight": 50 },
-      { "type": "encounter", "weight": 35 },
-      { "type": "item", "item": "Parlyz Heal", "weight": 15 }
-    ]
-  },
-  "mt_moon_b1f": {
-    "name": "Mt. Moon - B1F",
-    "description": "A deeper, darker subterranean level where rare fossils and Team Rocket lurk.",
-    "connections": ["mt_moon_1f", "route4"],
-    "gate_requirements": {
-      "route4": {
-        "required_flags": ["defeated_super_nerd_miguell"],
-        "blocked_message": "You must defeat the guardian blocking the exit cave!"
-      }
-    },
-    "req_flag": null,
-    "encounters": [
-      { "species": "Zubat", "min_level": 8, "max_level": 12, "weight": 40 },
-      { "species": "Clefairy", "min_level": 8, "max_level": 12, "weight": 10 },
-      { "species": "Paras", "min_level": 9, "max_level": 13, "weight": 50 }
-    ],
-    "trainers": ["team_rocket_grunt_1", "super_nerd_miguel"],
-    "explore_table": [
-      { "type": "nothing", "weight": 40 },
-      { "type": "encounter", "weight": 40 },
-      { "type": "item", "item": "Moon Stone", "weight": 20 }
-    ]
-  },
-  "route4": {
-    "name": "Route 4",
-    "description": "A rocky path descending from Mt. Moon toward Cerulean City, featuring a Pokémon Center near the cave exit.",
-    "connections": ["mt_moon_b1f", "cerulean_city"],
-    "req_flag": null,
-    "hasCenter": true,
-    "encounters": [
-      { "species": "Rattata", "min_level": 10, "max_level": 12, "weight": 30 },
-      { "species": "Spearow", "min_level": 10, "max_level": 12, "weight": 30 },
-      { "species": "Ekans", "min_level": 10, "max_level": 12, "weight": 20 },
-      { "species": "Sandshrew", "min_level": 10, "max_level": 12, "weight": 20 }
-    ],
-    "trainers": ["lass_crissy"],
-    "explore_table": [
-      { "type": "nothing", "weight": 50 },
-      { "type": "encounter", "weight": 35 },
-      { "type": "item", "item": "Super Potion", "weight": 15 }
-    ]
-  },
-  "cerulean_city": {
-    "name": "Cerulean City",
-    "description": "A mysterious, blue aura surrounds this watery city of central Kanto.",
-    "isTown": true,
-    "connections": ["route4", "route24", "route5", "route9","cerulean_city_gym"],
-    "forced_battle": {
-      "flag": "defeated_rival_cerulean",
-      "trainer_id": "rival_cerulean"
-    },
-    "gate_requirements": {
-      "route24": {
-        "required_flags": ["defeated_rival_cerulean"],
-        "blocked_message": "An old friend is blocking the path. Defeat him to continue on your journey!"
-      },
-      "route5": {
-        "required_flags": ["cascade_badge"],
-        "blocked_message": "The police officer is guarding the route south. You need the Cascade Badge to pass!"
-      },
-      "route9": {
-        "required_flags": ["obtain_hm_01"],
-        "blocked_message": "A small tree blocks your path. You need the HM for Cut to pass!"
-      },
-      "cerulean_city_gym": {
-        "required_flags": ["obtain_ss_ticket"],
-        "blocked_message": "The door is locked! The Gym Leader will hopefully be back soon... "
-      }
-    },
-    "req_flag": null,
-    "hasCenter": true,
-    "hasShop": true,
-    "encounters": {
-      "grass": [],
-      "water": [
-        { "species": "Goldeen", "min_level": 10, "max_level": 20, "weight": 60 },
-        { "species": "Poliwag", "min_level": 10, "max_level": 20, "weight": 40 }
-      ]
-    },
-    "trainers": [],
-    "npcs": ["cerulean_police_officer"],
-    "explore_table": [
-      { "type": "nothing", "weight": 70 },
-      { "type": "item", "item": "Rare Candy", "weight": 30 }
-    ]
-  },
-  "cerulean_city_gym": {
-    "name": "Cerulean City Gym",
-    "description": "An indoor pool gym specializing in graceful water-type Pokémon, led by Misty.",
-    "isTown": false,
-    "connections": ["cerulean_city"],
-    "forced_battle": {
-      "flag": "defeated_misty",
-      "trainer_id": "misty_gym"
-    },
-    "req_flag": null,
-    "encounters": [],
-    "trainers": ["swimmer_mira", "picnicker_diana", "misty_gym"],
-    "explore_table": [
-      { "type": "nothing", "weight": 100 }
-    ]
-  },
-  "route24": {
-    "name": "Route 24 (Nugget Bridge)",
-    "description": "A scenic northern route featuring the infamous Nugget Bridge challenge.",
-    "connections": ["cerulean_city", "route25", "cerulean_cave"],
-    "gate_requirements": {
-      "route25": {
-        "required_flags": ["defeated_rocket_nugget_bridge"],
-        "blocked_message": "You must prove yourself against the Nugget Bridge challengers and Team Rocket first!"
-      }
-    },
-    "forced_battle": {
-      "flag": "defeated_rocket_nugget_bridge",
-      "trainer_id": "team_rocket_nugget_grunt"
-    },
-    "req_flag": null,
-    "encounters": [
-      { "species": "Caterpie", "min_level": 12, "max_level": 14, "weight": 25 },
-      { "species": "Weedle", "min_level": 12, "max_level": 14, "weight": 25 },
-      { "species": "Pidgey", "min_level": 12, "max_level": 14, "weight": 20 },
-      { "species": "Abra", "min_level": 8, "max_level": 12, "weight": 20 },
-      { "species": "Bellsprout", "min_level": 12, "max_level": 14, "weight": 10 }
-    ],
-    "trainers": ["bug_catcher_cletus", "lass_ali", "camper_ricky", "cooltrainer_timmy", "rocket_grunt_nugget"],
-    "explore_table": [
-      { "type": "nothing", "weight": 40 },
-      { "type": "encounter", "weight": 45 },
-      { "type": "item", "item": "Nugget", "weight": 15 }
-    ]
-  },
-  "route25": {
-    "name": "Route 25",
-    "description": "A windy cape stretching eastward to the edge of the continent.",
-    "connections": ["route24", "bills_cottage"],
-    "req_flag": null,
-    "encounters": [
-      { "species": "Pidgey", "min_level": 12, "max_level": 14, "weight": 30 },
-      { "species": "Abra", "min_level": 8, "max_level": 12, "weight": 25 },
-      { "species": "Bellsprout", "min_level": 12, "max_level": 14, "weight": 25 },
-      { "species": "Venonat", "min_level": 12, "max_level": 15, "weight": 20 }
-    ],
-    "trainers": ["hiker_franklin", "youngster_dillon", "lass_haley"],
-    "explore_table": [
-      { "type": "nothing", "weight": 50 },
-      { "type": "encounter", "weight": 40 },
-      { "type": "item", "item": "Potion", "weight": 10 }
-    ]
-  },
-  "bills_cottage": {
-    "name": "Bill's Cottage",
-    "description": "A cozy seaside home belonging to Kanto's eccentric Pokémon maniac, Bill.",
-    "isTown": false,
-    "connections": ["route25"],
-    "req_flag": null,
-    "encounters": [],
-    "trainers": [],
-    "npcs": ["bill_maniac"],
-    "explore_table": [
-      { "type": "nothing", "weight": 80 },
-      { "type": "item", "item": "S.S. Ticket", "weight": 20 }
-    ]
-  },
-  "cerulean_cave_1f": {
-    "name": "Cerulean Cave - 1F",
-    "description": "A mysterious, high-level cave filled with powerful and rare Pokémon.",
-    "isTown": false,
-    "connections": ["route24", "cerulean_cave_b1f"],
-    "gate_requirements": {
-      "cerulean_cave_2f": {
-        "required_flags": ["defeated_elite_four"],
-        "blocked_message": "The way deeper into the cave is sealed tight by an overwhelming presence!"
-      }
-    },
-    "req_flag": "defeated_elite_four",
-    "encounters": [
-      { "species": "Golbat", "min_level": 46, "max_level": 51, "weight": 30 },
-      { "species": "Hypno", "min_level": 46, "max_level": 51, "weight": 20 },
-      { "species": "Magneton", "min_level": 46, "max_level": 51, "weight": 20 },
-      { "species": "Dodrio", "min_level": 46, "max_level": 51, "weight": 15 },
-      { "species": "Kadabra", "min_level": 46, "max_level": 51, "weight": 15 }
-    ],
-    "trainers": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 60 },
-      { "type": "encounter", "weight": 30 },
-      { "type": "item", "item": "Full Restore", "weight": 10 }
-    ]
-  },
-  "cerulean_cave_b1f": {
-    "name": "Cerulean Cave - B1F",
-    "description": "The upper chamber of the mysterious cavern.",
-    "isTown": false,
-    "connections": ["cerulean_cave_1f", "cerulean_cave_b2f"],
-    "req_flag": "defeated_elite_four",
-    "encounters": [
-      { "species": "Golbat", "min_level": 51, "max_level": 56, "weight": 30 },
-      { "species": "Sandslash", "min_level": 51, "max_level": 56, "weight": 25 },
-      { "species": "Parasect", "min_level": 51, "max_level": 56, "weight": 25 },
-      { "species": "Ditto", "min_level": 51, "max_level": 56, "weight": 20 }
-    ],
-    "trainers": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 50 },
-      { "type": "encounter", "weight": 40 },
-      { "type": "item", "item": "Max Elixir", "weight": 10 }
-    ]
-  },
-  "cerulean_cave_b2f": {
-    "name": "Cerulean Cave - B2F",
-    "description": "The deepest, darkest basement of the cave where the ultimate genetic Pokémon dwells.",
-    "isTown": false,
-    "connections": ["cerulean_cave_1f"],
-    "forced_battle": {
-      "flag": "caught_mewtwo",
-      "trainer_id": "mewtwo_wild"
-    },
-    "req_flag": "defeated_elite_four",
-    "encounters": [
-      { "species": "Rhydon", "min_level": 55, "max_level": 60, "weight": 30 },
-      { "species": "Marowak", "min_level": 55, "max_level": 60, "weight": 30 },
-      { "species": "Electrode", "min_level": 55, "max_level": 60, "weight": 25 },
-      { "species": "Chansey", "min_level": 55, "max_level": 60, "weight": 15 }
-    ],
-    "trainers": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 70 },
-      { "type": "item", "item": "Ultra Ball", "weight": 30 }
-    ]
-  },
-  "route5": {
-    "name": "Route 5",
-    "description": "A rolling green route heading south toward Saffron City, featuring the Day Care.",
-    "isTown": false,
-    "connections": ["cerulean_city", "underground_path_north_south", "saffron_city"],
-    "req_flag": null,
-    "encounters": [
-      { "species": "Pidgey", "min_level": 13, "max_level": 16, "weight": 35 },
-      { "species": "Rattata", "min_level": 13, "max_level": 16, "weight": 35 },
-      { "species": "Abra", "min_level": 10, "max_level": 16, "weight": 20 },
-      { "species": "Bellsprout", "min_level": 13, "max_level": 16, "weight": 10 }
-    ],
-    "trainers": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 60 },
-      { "type": "encounter", "weight": 40 }
-    ]
-  },
-  "underground_path_north_south": {
-    "name": "Underground Path (Routes 5-6)",
-    "description": "A heavily lit, secure pedestrian tunnel passing safely beneath Saffron City.",
-    "isTown": false,
-    "connections": ["route5", "route6"],
-    "req_flag": null,
-    "encounters": [],
-    "trainers": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 80 },
-      { "type": "item", "item": "Potion", "weight": 20 }
-    ]
-  },
-  "route6": {
-    "name": "Route 6",
-    "description": "A lush route leading southward from the Underground Path straight into Vermilion City.",
-    "isTown": false,
-    "connections": ["underground_path_north_south", "vermilion_city", "saffron_city"],
-    "req_flag": null,
-    "encounters": [
-      { "species": "Pidgey", "min_level": 13, "max_level": 16, "weight": 35 },
-      { "species": "Rattata", "min_level": 13, "max_level": 16, "weight": 35 },
-      { "species": "Abra", "min_level": 10, "max_level": 16, "weight": 20 },
-      { "species": "Oddish", "min_level": 13, "max_level": 16, "weight": 10 }
-    ],
-    "trainers": ["bug_catcher_elijah", "lass_julia"],
-    "explore_table": [
-      { "type": "nothing", "weight": 60 },
-      { "type": "encounter", "weight": 40 }
-    ]
-  },
-  "vermilion_city": {
-    "name": "Vermilion City",
-    "description": "The port of exquisite sunsets where maritime dreams dock.",
-    "isTown": true,
-    "connections": ["route6", "vermilion_city_gym", "pokemon_fan_club", "ss_anne"],
-    "gate_requirements": {
-      "diglett_cave": {
-        "required_flags": ["obtain_hm_01"],
-        "blocked_message": "A small tree blocks the tunnel entrance. You need the HM for Cut to pass!"
-      }
-    },
-    "req_flag": null,
-    "hasCenter": true,
-    "hasShop": true,
-    "encounters": {
-      "grass": [],
-      "water": [
-        { "species": "Tentacool", "min_level": 10, "max_level": 20, "weight": 60 },
-        { "species": "Shellder", "min_level": 15, "max_level": 25, "weight": 20 },
-        { "species": "Krabby", "min_level": 15, "max_level": 25, "weight": 20 }
-      ]
-    },
-    "trainers": [],
-    "npcs": ["vermilion_sailor"],
-    "explore_table": [
-      { "type": "nothing", "weight": 70 },
-      { "type": "item", "item": "Max Ether", "weight": 30 }
-    ]
-  },
-  "vermilion_city_gym": {
-    "name": "Vermilion City Gym",
-    "description": "An electric shock-themed gym filled with locked electronic door vaults, led by Lt. Surge.",
-    "isTown": false,
-    "connections": ["vermilion_city"],
-    "forced_battle": {
-      "flag": "defeated_surge",
-      "trainer_id": "surge_gym"
-    },
-    "req_flag": null,
-    "encounters": [],
-    "trainers": ["gentleman_tucker", "rocker_biff", "sailor_dwayne", "surge_gym"],
-    "explore_table": [
-      { "type": "nothing", "weight": 100 }
-    ]
-  },
-  "pokemon_fan_club": {
-    "name": "Pokémon Fan Club",
-    "description": "A cozy clubhouse where passionate trainers gather to show off and talk about their favorite Pokémon.",
-    "isTown": false,
-    "connections": ["vermilion_city"],
-    "req_flag": null,
-    "encounters": [],
-    "trainers": [],
-    "npcs": ["fan_club_chairman"],
-    "explore_table": [
-      { "type": "nothing", "weight": 70 },
-      { "type": "item", "item": "Bike", "weight": 30 }
-    ]
-  },
-  "diglett_cave": {
-    "name": "Diglett's Cave",
-    "description": "A long underground tunnel entirely carved out by speedy Diglett, linking Vermilion City to Route 2.",
-    "isTown": false,
-    "connections": ["route2_north", "route11"],
-    "req_flag": "obtain_hm_01",
-    "encounters": [
-      { "species": "Diglett", "min_level": 15, "max_level": 22, "weight": 95 },
-      { "species": "Dugtrio", "min_level": 29, "max_level": 31, "weight": 5 }
-    ],
-    "trainers": [],
-    "explore_table": [
-      { "type": "nothing", "weight": 70 },
-      { "type": "encounter", "weight": 30 }
-    ]
+    "blocked_message": "The water north of here is too rough to cross without a Pokémon that knows Surf, and your rival stands in your path, demanding one final battle! (Requires the Soul Badge and defeating your rival.)"
+   }
   }
+ },
+ "route2_south": {
+  "name": "Route 2 - South",
+  "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
+  "connections": [
+   "viridian_city",
+   "viridian_forest"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 35
+    },
+    {
+     "species": "rattata",
+     "min_level": 2,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "caterpie",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 20
+    },
+    {
+     "species": "weedle",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": [
+   "route2_trade_boy"
+  ]
+ },
+ "viridian_forest": {
+  "name": "Viridian Forest",
+  "description": "A deep, natural maze filled with towering trees and bug Pokémon.",
+  "connections": [
+   "route2_south",
+   "route2_north"
+  ],
+  "gate_requirements": {
+   "route2_north": {
+    "required_flags": [
+     "defeated_bug_catcher_rick",
+     "defeated_bug_catcher_doug"
+    ],
+    "blocked_message": "You must defeat the trainers blocking the path ahead first!"
+   }
+  },
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Caterpie",
+     "min_level": 3,
+     "max_level": 6,
+     "weight": 35
+    },
+    {
+     "species": "Metapod",
+     "min_level": 4,
+     "max_level": 6,
+     "weight": 15
+    },
+    {
+     "species": "Weedle",
+     "min_level": 3,
+     "max_level": 6,
+     "weight": 35
+    },
+    {
+     "species": "Kakuna",
+     "min_level": 4,
+     "max_level": 6,
+     "weight": 10
+    },
+    {
+     "species": "Pikachu",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "bug_catcher_rick",
+   "bug_catcher_doug",
+   "bug_catcher_sammy"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 35
+   },
+   {
+    "type": "encounter",
+    "weight": 50
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "antidote"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "pokeball"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "potion"
+   }
+  ],
+  "npcs": [
+   "viridian_forest_camper"
+  ]
+ },
+ "route2_north": {
+  "name": "Route 2 - North",
+  "description": "A grassy route bridging Viridian City and Pewter City, split by Viridian Forest.",
+  "connections": [
+   "viridian_forest",
+   "pewter_city",
+   "diglett_cave"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 35
+    },
+    {
+     "species": "rattata",
+     "min_level": 2,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "caterpie",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 20
+    },
+    {
+     "species": "weedle",
+     "min_level": 3,
+     "max_level": 5,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": [
+   "oaks_aide_flash"
+  ]
+ },
+ "pewter_city": {
+  "name": "Pewter City",
+  "description": "A stone gray town where history and gray stones sleep.",
+  "isTown": true,
+  "connections": [
+   "route2_north",
+   "route3",
+   "pewter_city_gym",
+   "pewter_museum_of_science"
+  ],
+  "gate_requirements": {
+   "route3": {
+    "required_flags": [
+     "boulder_badge"
+    ],
+    "blocked_message": "You must defeat Gym Leader Brock and earn the Boulder Badge before leaving Pewter City!"
+   }
+  },
+  "req_flag": null,
+  "hasCenter": true,
+  "hasShop": true,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "npcs": [
+   "pewter_museum_goer",
+   "pewter_rock_fan",
+   "pewter_kid"
+  ]
+ },
+ "pewter_city_gym": {
+  "name": "Pewter City Gym",
+  "description": "A rugged gym specializing in rock-type Pokémon.",
+  "isTown": false,
+  "connections": [
+   "pewter_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "camper_liam",
+   "brock_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "pewter_museum_of_science": {
+  "name": "Pewter Museum of Science",
+  "description": "A fascinating museum showcasing ancient fossils and space exhibits.",
+  "isTown": false,
+  "connections": [
+   "pewter_city"
+  ],
+  "gate_requirements": {
+   "pewter_city": {
+    "required_flags": [
+     "obtained_old_amber"
+    ],
+    "blocked_message": "You should check out the fossil exhibits before leaving!"
+   }
+  },
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [
+   "pewter_museum_scientist",
+   "pewter_museum_clerk"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 80
+   },
+   {
+    "type": "item",
+    "weight": 20,
+    "item": "old_amber",
+    "flag": "obtained_old_amber"
+   }
+  ],
+  "noFly": true
+ },
+ "route3": {
+  "name": "Route 3",
+  "description": "A rocky, uneven path leading up toward Mt. Moon.",
+  "connections": [
+   "pewter_city",
+   "mt_moon_1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Pidgey",
+     "min_level": 6,
+     "max_level": 8,
+     "weight": 40
+    },
+    {
+     "species": "Spearow",
+     "min_level": 6,
+     "max_level": 8,
+     "weight": 40
+    },
+    {
+     "species": "Jigglypuff",
+     "min_level": 3,
+     "max_level": 7,
+     "weight": 20
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "lass_janice",
+   "bug_catcher_colton",
+   "youngster_ben",
+   "bug_catcher_greg",
+   "youngster_calvin",
+   "lass_sally",
+   "bug_catcher_james",
+   "lass_robin"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 55
+   },
+   {
+    "type": "encounter",
+    "weight": 45
+   }
+  ]
+ },
+ "mt_moon_1f": {
+  "name": "Mt. Moon - 1F",
+  "description": "The cavernous entrance level of Mt. Moon, filled with wild Zubat and rock formations.",
+  "connections": [
+   "route3",
+   "mt_moon_b1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 7,
+     "max_level": 10,
+     "weight": 60
+    },
+    {
+     "species": "Geodude",
+     "min_level": 7,
+     "max_level": 10,
+     "weight": 30
+    },
+    {
+     "species": "Paras",
+     "min_level": 8,
+     "max_level": 11,
+     "weight": 10
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "bug_catcher_kent",
+   "lass_iris",
+   "super_nerd_jovan",
+   "bug_catcher_robby"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm12"
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "potion"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "escape_rope"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "moon_stone"
+   }
+  ],
+  "noFly": true
+ },
+ "mt_moon_b1f": {
+  "name": "Mt. Moon - B1F",
+  "description": "A deeper, darker subterranean level where rare fossils and Team Rocket lurk.",
+  "connections": [
+   "mt_moon_1f",
+   "route4",
+   "mt_moon_b2f"
+  ],
+  "gate_requirements": {
+   "route4": {
+    "required_flags": [
+     "defeated_super_nerd_miguel"
+    ],
+    "blocked_message": "You must defeat the guardian blocking the exit cave!"
+   }
+  },
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 6,
+     "max_level": 11,
+     "weight": 79
+    },
+    {
+     "species": "Geodude",
+     "min_level": 8,
+     "max_level": 11,
+     "weight": 15
+    },
+    {
+     "species": "Paras",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
+    },
+    {
+     "species": "Clefairy",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 1
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "team_rocket_grunt_1",
+   "super_nerd_miguel",
+   "team_rocket_grunt_mt_moon_2",
+   "team_rocket_grunt_mt_moon_3",
+   "team_rocket_grunt_mt_moon_4",
+   "lass_miriam",
+   "youngster_josh",
+   "hiker_marcos"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 35
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "moon_stone"
+   }
+  ],
+  "noFly": true,
+  "npcs": [
+   "mt_moon_dome_fossil",
+   "mt_moon_helix_fossil",
+   "mt_moon_nerd_dome",
+   "mt_moon_nerd_helix"
+  ]
+ },
+ "route4": {
+  "name": "Route 4",
+  "description": "A rocky path descending from Mt. Moon toward Cerulean City, featuring a Pokémon Center near the cave exit.",
+  "connections": [
+   "mt_moon_b1f",
+   "cerulean_city"
+  ],
+  "req_flag": null,
+  "hasCenter": true,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Rattata",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 30
+    },
+    {
+     "species": "Spearow",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 30
+    },
+    {
+     "species": "Ekans",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 20
+    },
+    {
+     "species": "Sandshrew",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 20
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 45
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "great_ball"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm04"
+   }
+  ],
+  "npcs": [
+   "route4_hiker",
+   "route4_magikarp_salesman"
+  ]
+ },
+ "cerulean_city": {
+  "name": "Cerulean City",
+  "description": "A mysterious, blue aura surrounds this watery city of central Kanto.",
+  "isTown": true,
+  "connections": [
+   "route4",
+   "route24",
+   "route5",
+   "route9",
+   "cerulean_city_gym"
+  ],
+  "forced_battle": {
+   "flag": "defeated_rival_cerulean",
+   "trainer_id": "rival_cerulean"
+  },
+  "gate_requirements": {
+   "route24": {
+    "required_flags": [
+     "defeated_rival_cerulean"
+    ],
+    "blocked_message": "An old friend is blocking the path. Defeat him to continue on your journey!"
+   },
+   "route5": {
+    "required_flags": [
+     "cascade_badge"
+    ],
+    "blocked_message": "The police officer is guarding the route south. You need the Cascade Badge to pass!"
+   },
+   "route9": {
+    "required_flags": [
+     "obtain_hm_01",
+     "cascade_badge"
+    ],
+    "blocked_message": "A small tree blocks your path. You need the HM for Cut and the Cascade Badge to cut it down!"
+   },
+   "cerulean_city_gym": {
+    "required_flags": [
+     "obtain_ss_ticket"
+    ],
+    "blocked_message": "The door is locked! The Gym Leader will hopefully be back soon... "
+   }
+  },
+  "req_flag": null,
+  "hasCenter": true,
+  "hasShop": true,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 60
+    },
+    {
+     "species": "Poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 40
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "cerulean_police_officer",
+   "cerulean_swimmer",
+   "cerulean_artist",
+   "cerulean_biker",
+   "cerulean_trade_elder",
+   "cerulean_burglary_victim"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 30,
+    "item": "rare_candy"
+   }
+  ]
+ },
+ "cerulean_city_gym": {
+  "name": "Cerulean City Gym",
+  "description": "An indoor pool gym specializing in graceful water-type Pokémon, led by Misty.",
+  "isTown": false,
+  "connections": [
+   "cerulean_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "swimmer_mira",
+   "picnicker_diana",
+   "misty_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "route24": {
+  "name": "Route 24 (Nugget Bridge)",
+  "description": "A scenic northern route featuring the infamous Nugget Bridge challenge.",
+  "connections": [
+   "cerulean_city",
+   "route25",
+   "cerulean_cave_1f"
+  ],
+  "gate_requirements": {
+   "route25": {
+    "required_flags": [
+     "defeated_bug_catcher_cale",
+     "defeated_lass_ali",
+     "defeated_youngster_timmy",
+     "defeated_lass_reli",
+     "defeated_camper_ethan",
+     "defeated_rocket_nugget_bridge"
+    ],
+    "blocked_message": "You must prove yourself against the Nugget Bridge challengers and Team Rocket first!"
+   },
+   "cerulean_cave_1f": {
+    "required_flags": [
+     "defeated_elite_four"
+    ],
+    "blocked_message": "A strange, powerful aura radiates from the cave mouth. You should become Champion before entering."
+   }
+  },
+  "forced_battle": {
+   "flag": "defeated_rocket_nugget_bridge",
+   "trainer_id": "team_rocket_nugget_grunt"
+  },
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 30
+    },
+    {
+     "species": "oddish",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 15
+    },
+    {
+     "species": "abra",
+     "min_level": 8,
+     "max_level": 12,
+     "weight": 15
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 10
+    },
+    {
+     "species": "caterpie",
+     "min_level": 7,
+     "max_level": 7,
+     "weight": 10
+    },
+    {
+     "species": "weedle",
+     "min_level": 7,
+     "max_level": 7,
+     "weight": 10
+    },
+    {
+     "species": "kakuna",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
+    },
+    {
+     "species": "metapod",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 40
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 10
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [
+   "bug_catcher_cale",
+   "lass_ali",
+   "youngster_timmy",
+   "lass_reli",
+   "camper_ethan",
+   "camper_shane"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 35
+   },
+   {
+    "type": "encounter",
+    "weight": 45
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "tm45"
+   }
+  ],
+  "npcs": [
+   "route24_picnicker"
+  ]
+ },
+ "route25": {
+  "name": "Route 25",
+  "description": "A windy cape stretching eastward to the edge of the continent.",
+  "connections": [
+   "route24",
+   "bills_cottage"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 30
+    },
+    {
+     "species": "oddish",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 15
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 12,
+     "max_level": 14,
+     "weight": 15
+    },
+    {
+     "species": "abra",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 15
+    },
+    {
+     "species": "weedle",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 10
+    },
+    {
+     "species": "kakuna",
+     "min_level": 9,
+     "max_level": 9,
+     "weight": 5
+    },
+    {
+     "species": "caterpie",
+     "min_level": 8,
+     "max_level": 8,
+     "weight": 5
+    },
+    {
+     "species": "metapod",
+     "min_level": 7,
+     "max_level": 7,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 40
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 10
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [
+   "hiker_franklin",
+   "youngster_dillon",
+   "lass_haley"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "elixir"
+   }
+  ]
+ },
+ "bills_cottage": {
+  "name": "Bill's Cottage",
+  "description": "A cozy seaside home belonging to Kanto's eccentric Pokémon maniac, Bill.",
+  "isTown": false,
+  "connections": [
+   "route25"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [
+   "bill_maniac"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "cerulean_cave_1f": {
+  "name": "Cerulean Cave - 1F",
+  "description": "A mysterious, high-level cave filled with powerful and rare Pokémon.",
+  "isTown": false,
+  "connections": [
+   "route24",
+   "cerulean_cave_b1f"
+  ],
+  "gate_requirements": {
+   "cerulean_cave_b1f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "Golbat",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 30
+    },
+    {
+     "species": "Hypno",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 20
+    },
+    {
+     "species": "Magneton",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 20
+    },
+    {
+     "species": "Dodrio",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 15
+    },
+    {
+     "species": "Kadabra",
+     "min_level": 46,
+     "max_level": 51,
+     "weight": 15
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 40
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 20
+    },
+    {
+     "species": "slowbro",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 5
+    },
+    {
+     "species": "kingler",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 5
+    },
+    {
+     "species": "seadra",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "full_restore"
+   }
+  ],
+  "noFly": true
+ },
+ "cerulean_cave_b1f": {
+  "name": "Cerulean Cave - B1F",
+  "description": "The upper chamber of the mysterious cavern.",
+  "isTown": false,
+  "connections": [
+   "cerulean_cave_1f",
+   "cerulean_cave_b2f"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Golbat",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 30
+    },
+    {
+     "species": "Sandslash",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 25
+    },
+    {
+     "species": "Parasect",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 25
+    },
+    {
+     "species": "Ditto",
+     "min_level": 51,
+     "max_level": 56,
+     "weight": 20
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "max_elixir"
+   }
+  ],
+  "noFly": true,
+  "gate_requirements": {
+   "cerulean_cave_b2f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
+ },
+ "cerulean_cave_b2f": {
+  "name": "Cerulean Cave - B2F",
+  "description": "The deepest, darkest basement of the cave where the ultimate genetic Pokémon dwells.",
+  "isTown": false,
+  "connections": [
+   "cerulean_cave_b1f"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Rhydon",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 30
+    },
+    {
+     "species": "Marowak",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 30
+    },
+    {
+     "species": "Electrode",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 25
+    },
+    {
+     "species": "Chansey",
+     "min_level": 55,
+     "max_level": 60,
+     "weight": 15
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 35
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 15,
+     "max_level": 25,
+     "weight": 20
+    },
+    {
+     "species": "slowbro",
+     "min_level": 23,
+     "max_level": 30,
+     "weight": 8
+    },
+    {
+     "species": "kingler",
+     "min_level": 23,
+     "max_level": 30,
+     "weight": 7
+    },
+    {
+     "species": "seadra",
+     "min_level": 23,
+     "max_level": 30,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 10
+   },
+   {
+    "type": "static_encounter",
+    "weight": 70,
+    "species": "mewtwo",
+    "level": 70,
+    "intro": "A powerful psychic presence overwhelms you... MEWTWO blocks your path!"
+   },
+   {
+    "type": "item",
+    "weight": 20,
+    "item": "ultra_ball"
+   }
+  ],
+  "noFly": true
+ },
+ "route5": {
+  "name": "Route 5",
+  "description": "A rolling green route heading south toward Saffron City, featuring the Day Care.",
+  "isTown": false,
+  "connections": [
+   "cerulean_city",
+   "underground_path_north_south",
+   "saffron_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Pidgey",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 35
+    },
+    {
+     "species": "Oddish",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 20
+    },
+    {
+     "species": "Bellsprout",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 18
+    },
+    {
+     "species": "Meowth",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 14
+    },
+    {
+     "species": "Mankey",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 13
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": [
+   "thirsty_guard"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   }
+  }
+ },
+ "underground_path_north_south": {
+  "name": "Underground Path (Routes 5-6)",
+  "description": "A heavily lit, secure pedestrian tunnel passing safely beneath Saffron City.",
+  "isTown": false,
+  "connections": [
+   "route5",
+   "route6"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 80
+   },
+   {
+    "type": "item",
+    "weight": 20,
+    "item": "potion"
+   }
+  ],
+  "noFly": true
+ },
+ "route6": {
+  "name": "Route 6",
+  "description": "A lush route leading southward from the Underground Path straight into Vermilion City.",
+  "isTown": false,
+  "connections": [
+   "underground_path_north_south",
+   "vermilion_city",
+   "saffron_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Pidgey",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 35
+    },
+    {
+     "species": "Oddish",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 20
+    },
+    {
+     "species": "Bellsprout",
+     "min_level": 13,
+     "max_level": 16,
+     "weight": 18
+    },
+    {
+     "species": "Meowth",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 14
+    },
+    {
+     "species": "Mankey",
+     "min_level": 10,
+     "max_level": 16,
+     "weight": 13
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "bug_catcher_keigo",
+   "picnicker_nancy",
+   "picnicker_isabelle",
+   "camper_jeff",
+   "jr_trainer_owen",
+   "bug_catcher_wesley"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": [
+   "route6_commuter",
+   "thirsty_guard"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   }
+  }
+ },
+ "vermilion_city": {
+  "name": "Vermilion City",
+  "description": "The port of exquisite sunsets where maritime dreams dock.",
+  "isTown": true,
+  "connections": [
+   "route6",
+   "vermilion_city_gym",
+   "pokemon_fan_club",
+   "vermilion_dock",
+   "route11"
+  ],
+  "gate_requirements": {
+   "vermilion_city_gym": {
+    "required_flags": [
+     "obtain_hm_01",
+     "cascade_badge"
+    ],
+    "blocked_message": "A small tree blocks the Gym entrance. It looks like it could be CUT down... (Requires Cut and the Cascade Badge.)"
+   }
+  },
+  "req_flag": null,
+  "hasCenter": true,
+  "hasShop": true,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 25
+    },
+    {
+     "species": "Poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "Shellder",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    },
+    {
+     "species": "Krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "vermilion_sailor",
+   "vermilion_fisher",
+   "vermilion_tourist",
+   "vermilion_dockworker",
+   "vermilion_trade_girl"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "on_enter_set_flag": "reached_vermilion"
+ },
+ "vermilion_city_gym": {
+  "name": "Vermilion City Gym",
+  "description": "An electric shock-themed gym filled with locked electronic door vaults, led by Lt. Surge.",
+  "isTown": false,
+  "connections": [
+   "vermilion_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "gentleman_tucker",
+   "rocker_biff",
+   "sailor_dwayne",
+   "surge_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_fan_club": {
+  "name": "Pokémon Fan Club",
+  "description": "A cozy clubhouse where passionate trainers gather to show off and talk about their favorite Pokémon.",
+  "isTown": false,
+  "connections": [
+   "vermilion_city"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [
+   "fan_club_chairman",
+   "fan_club_angler"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   }
+  ],
+  "noFly": true
+ },
+ "diglett_cave": {
+  "name": "Diglett's Cave",
+  "description": "A long underground tunnel entirely carved out by speedy Diglett, linking Vermilion City to Route 2.",
+  "isTown": false,
+  "connections": [
+   "route2_north",
+   "route11"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "Diglett",
+     "min_level": 15,
+     "max_level": 22,
+     "weight": 95
+    },
+    {
+     "species": "Dugtrio",
+     "min_level": 29,
+     "max_level": 31,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   }
+  ],
+  "noFly": true,
+  "req_flag": "reached_vermilion"
+ },
+ "ss_anne": {
+  "name": "S.S. Anne",
+  "description": "A luxurious cruise liner docked at Vermilion harbor. Passengers and sailors mingle on the sunlit main deck.",
+  "isTown": false,
+  "connections": [
+   "vermilion_dock",
+   "ss_anne_deck"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "ss_anne_gentleman_thomas",
+   "ss_anne_gentleman_arthur",
+   "ss_anne_lass_1f",
+   "ss_anne_youngster_1f",
+   "ss_anne_sailor_trevor",
+   "ss_anne_sailor_edmond"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 55
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "super_potion"
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "ether"
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "stardust"
+   }
+  ],
+  "noFly": true,
+  "npcs": [
+   "ss_anne_gentleman"
+  ]
+ },
+ "ss_anne_deck": {
+  "name": "S.S. Anne Deck",
+  "description": "The ship's lower decks: passenger cabins, the galley, and crew quarters humming with activity.",
+  "isTown": false,
+  "connections": [
+   "ss_anne",
+   "ss_anne_captain"
+  ],
+  "gate_requirements": {
+   "ss_anne_captain": {
+    "required_flags": [
+     "defeated_rival_ss_anne"
+    ],
+    "blocked_message": "Your rival blocks the stairway to the captain's cabin! Defeat him to get through!"
+   }
+  },
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "ss_anne_fisherman_barny",
+   "ss_anne_sailor_phillip",
+   "ss_anne_sailor_huey",
+   "ss_anne_sailor_dylan",
+   "ss_anne_sailor_duncan",
+   "ss_anne_sailor_leonard",
+   "ss_anne_fisherman_dale",
+   "ss_anne_gentleman_brooks",
+   "ss_anne_lass_dawn",
+   "ss_anne_gentleman_lamar",
+   "rival_ss_anne"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm44"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "great_ball"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "hyper_potion"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "x_attack"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "ether"
+   }
+  ],
+  "noFly": true,
+  "npcs": [
+   "ss_anne_seasick"
+  ]
+ },
+ "ss_anne_captain": {
+  "name": "Captain's Cabin",
+  "description": "The captain's private quarters at the heart of the S.S. Anne. The old captain looks rather green...",
+  "isTown": false,
+  "connections": [
+   "ss_anne_deck"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [
+   "ss_anne_captain"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "vermilion_dock": {
+  "name": "Vermilion City Dock",
+  "description": "The harbor dock where the S.S. Anne was moored. Only calm water and wheeling gulls remain. An old, rusted truck sits half-hidden behind some cargo crates.",
+  "isTown": false,
+  "connections": [
+   "vermilion_city",
+   "ss_anne"
+  ],
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 25
+    },
+    {
+     "species": "Poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "Shellder",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    },
+    {
+     "species": "Krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   },
+   {
+    "type": "prompt_encounter",
+    "weight": 8,
+    "req_flag_count": {
+     "category": "gym_badges",
+     "qty": 8
+    },
+    "species": "mew",
+    "level": 30,
+    "prompt": "There's an old, rusted truck parked by the dock, half-hidden behind cargo crates. Something glints beneath it... Look underneath?",
+    "yes_label": "Look under the truck",
+    "no_label": "Leave it alone",
+    "decline": "You decide not to disturb whatever's under there.",
+    "intro": "You crouch and peer under the truck... two enormous blue eyes blink back at you! A wild MEW leaps out, crackling with psychic energy!"
+   }
+  ],
+  "gate_requirements": {
+   "ss_anne": {
+    "required_flags": [
+     "obtain_ss_ticket"
+    ],
+    "blocked_flags": [
+     "ss_anne_departed"
+    ],
+    "blocked_message": "The sailor blocks the gangway. You need an S.S. Ticket to board the S.S. Anne!",
+    "departed_message": "The S.S. Anne has departed! Only calm water remains where the great ship was moored."
+   }
+  },
+  "npcs": [
+   "vermilion_dock_sailor"
+  ]
+ },
+ "route9": {
+  "name": "Route 9",
+  "description": "A rocky route east of Cerulean City, winding past ledges toward Route 10. Trainers lurk around every bend.",
+  "isTown": false,
+  "connections": [
+   "cerulean_city",
+   "route10"
+  ],
+  "trainers": [
+   "route9_jr_trainer_1",
+   "route9_hiker_1",
+   "route9_jr_trainer_2",
+   "route9_bug_catcher_1",
+   "route9_hiker_2",
+   "route9_bug_catcher_2",
+   "route9_jr_trainer_3",
+   "route9_hiker_3",
+   "route9_jr_trainer_4"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "rattata",
+     "min_level": 14,
+     "max_level": 17,
+     "weight": 40
+    },
+    {
+     "species": "spearow",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 35
+    },
+    {
+     "species": "ekans",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 13
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 12
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 20,
+    "item": "tm30"
+   },
+   {
+    "type": "item",
+    "weight": 20,
+    "item": "ether"
+   }
+  ],
+  "npcs": [
+   "route9_hiker"
+  ]
+ },
+ "route10": {
+  "name": "Route 10",
+  "description": "A north-south route split by a river. North lie Rock Tunnel and the abandoned Power Plant; south, Lavender Town.",
+  "isTown": false,
+  "connections": [
+   "route9",
+   "rock_tunnel_1f",
+   "power_plant"
+  ],
+  "gate_requirements": {
+   "power_plant": {
+    "required_flags": [
+     "soul_badge"
+    ],
+    "blocked_message": "A wide, fast river separates you from the Power Plant. You'd need to Surf across it — Koga of the Fuchsia Gym is said to hold that HM."
+   },
+   "rock_tunnel_1f": {
+    "required_flags": [
+     "obtained_hm05"
+    ],
+    "blocked_message": "The tunnel mouth yawns pitch-black before you. It looks too dark to enter... if only a Pokémon could light up the way. (Requires Flash.)"
+   }
+  },
+  "trainers": [
+   "route10_jr_trainer_1",
+   "route10_jr_trainer_2",
+   "route10_hiker_1",
+   "route10_hiker_2",
+   "route10_pokemaniac_1",
+   "route10_pokemaniac_2"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 35
+    },
+    {
+     "species": "ekans",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 13
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 11,
+     "max_level": 15,
+     "weight": 12
+    },
+    {
+     "species": "voltorb",
+     "min_level": 14,
+     "max_level": 17,
+     "weight": 40
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "poliwhirl",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 15
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 55
+   },
+   {
+    "type": "item",
+    "weight": 22,
+    "item": "super_potion"
+   },
+   {
+    "type": "item",
+    "weight": 23,
+    "item": "max_ether"
+   }
+  ]
+ },
+ "route11": {
+  "name": "Route 11",
+  "description": "A busy east-west route from Vermilion City. Diglett's Cave opens nearby, and a gatehouse leads east toward Route 12.",
+  "isTown": false,
+  "connections": [
+   "vermilion_city",
+   "route12",
+   "diglett_cave"
+  ],
+  "trainers": [
+   "route11_gambler_1",
+   "route11_youngster_1",
+   "route11_youngster_2",
+   "route11_youngster_3",
+   "route11_gambler_2",
+   "route11_gambler_3",
+   "route11_engineer_1",
+   "route11_youngster_4",
+   "route11_gambler_4",
+   "route11_engineer_2"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 35
+    },
+    {
+     "species": "ekans",
+     "min_level": 12,
+     "max_level": 15,
+     "weight": 20
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 12,
+     "max_level": 15,
+     "weight": 20
+    },
+    {
+     "species": "drowzee",
+     "min_level": 9,
+     "max_level": 15,
+     "weight": 25
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 30
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "shellder",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 30,
+    "item": "escape_rope"
+   }
+  ],
+  "gate_requirements": {
+   "route12": {
+    "required_flags": [
+     "woke_snorlax_route12"
+    ],
+    "blocked_message": "A huge sleeping Snorlax blocks the path! It won't budge..."
+   }
+  },
+  "npcs": [
+   "snorlax_route11",
+   "route11_trade_man"
+  ]
+ },
+ "route12": {
+  "name": "Route 12",
+  "description": "Silence Bridge stretches over the water. A huge Pokémon sleeps by the northern gate, and the only tall grass grows behind dense, cuttable trees.",
+  "isTown": false,
+  "connections": [
+   "route11",
+   "lavender_town",
+   "route13"
+  ],
+  "npcs": [
+   "route12_angler"
+  ],
+  "trainers": [
+   "route12_fisherman_1",
+   "route12_fisherman_2",
+   "route12_fisherman_3",
+   "route12_fisherman_4",
+   "route12_rocker_1",
+   "route12_jr_trainer_1",
+   "route12_fisherman_5"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 23,
+     "max_level": 28,
+     "weight": 35,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 10,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 27,
+     "weight": 15,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 27,
+     "weight": 15,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "gloom",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 26,
+     "weight": 15,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    }
+   ],
+   "water": [
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 25
+    },
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "tentacool",
+     "min_level": 5,
+     "max_level": 5,
+     "weight": 15
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 15
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm39"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "tm16",
+    "req_flag": "soul_badge"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "hyper_potion"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "iron",
+    "req_flag": [
+     "obtain_hm_01",
+     "cascade_badge"
+    ]
+   },
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "snorlax",
+    "level": 30,
+    "req_flag": "woke_snorlax_route12",
+    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
+   }
+  ]
+ },
+ "power_plant": {
+  "name": "Power Plant",
+  "description": "An abandoned power plant east of Route 10, humming with Electric-type Pokémon. Something powerful nests near the exit...",
+  "isTown": false,
+  "connections": [
+   "route10"
+  ],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pikachu",
+     "min_level": 20,
+     "max_level": 24,
+     "weight": 25
+    },
+    {
+     "species": "raichu",
+     "min_level": 33,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "magnemite",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 30
+    },
+    {
+     "species": "magneton",
+     "min_level": 32,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "voltorb",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 25
+    },
+    {
+     "species": "electabuzz",
+     "min_level": 33,
+     "max_level": 36,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 10
+   },
+   {
+    "type": "static_encounter",
+    "weight": 60,
+    "species": "zapdos",
+    "level": 50,
+    "intro": "A legendary bird crackling with electricity blocks your path... ZAPDOS!"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm25"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "carbos"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm33"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "hp_up"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "pp_up"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_elixir"
+   }
+  ]
+ },
+ "rock_tunnel_1f": {
+  "name": "Rock Tunnel 1F",
+  "description": "A pitch-dark tunnel bored through solid rock between Cerulean and Lavender. Without a light, every footstep echoes into the black.",
+  "isTown": false,
+  "connections": [
+   "route10",
+   "rock_tunnel_b1f"
+  ],
+  "gate_requirements": {
+   "rock_tunnel_b1f": {
+    "required_flags": [
+     "defeated_rocktunnel1f_hiker_2",
+     "defeated_rocktunnel1f_hiker_3"
+    ],
+    "blocked_message": "Two burly Hikers block the tunnel mouth, spoiling for a fight! (Defeat the Hikers in the west tunnel to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "zubat",
+     "min_level": 15,
+     "max_level": 18,
+     "weight": 55
+    },
+    {
+     "species": "geodude",
+     "min_level": 16,
+     "max_level": 17,
+     "weight": 25
+    },
+    {
+     "species": "machop",
+     "min_level": 15,
+     "max_level": 17,
+     "weight": 15
+    },
+    {
+     "species": "onix",
+     "min_level": 13,
+     "max_level": 15,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [
+   "rocktunnel1f_pokemaniac_1",
+   "rocktunnel1f_hiker_1",
+   "rocktunnel1f_hiker_2",
+   "rocktunnel1f_hiker_3",
+   "rocktunnel1f_jr_trainer_f_1",
+   "rocktunnel1f_jr_trainer_f_2",
+   "rocktunnel1f_jr_trainer_f_3"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "rock_tunnel_b1f": {
+  "name": "Rock Tunnel B1F",
+  "description": "The lower floor of Rock Tunnel. The air is cooler here, and the darkness feels heavier — but a faint draft hints at the Lavender exit.",
+  "isTown": false,
+  "connections": [
+   "rock_tunnel_1f",
+   "lavender_town"
+  ],
+  "gate_requirements": {
+   "lavender_town": {
+    "required_flags": [
+     "defeated_rocktunnelb1f_hiker_4",
+     "defeated_rocktunnelb1f_hiker_5"
+    ],
+    "blocked_message": "Two Hikers are having a shouting match in the tunnel ahead, and neither will let anyone squeeze past! (Defeat the Hikers in the northeast tunnel to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "zubat",
+     "min_level": 16,
+     "max_level": 18,
+     "weight": 50
+    },
+    {
+     "species": "geodude",
+     "min_level": 16,
+     "max_level": 18,
+     "weight": 26
+    },
+    {
+     "species": "machop",
+     "min_level": 15,
+     "max_level": 17,
+     "weight": 15
+    },
+    {
+     "species": "onix",
+     "min_level": 13,
+     "max_level": 17,
+     "weight": 9
+    }
+   ]
+  },
+  "trainers": [
+   "rocktunnelb1f_pokemaniac_1",
+   "rocktunnelb1f_jr_trainer_f_1",
+   "rocktunnelb1f_pokemaniac_2",
+   "rocktunnelb1f_hiker_4",
+   "rocktunnelb1f_hiker_5",
+   "rocktunnelb1f_jr_trainer_f_2",
+   "rocktunnelb1f_hiker_6",
+   "rocktunnelb1f_pokemaniac_3"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "lavender_town": {
+  "name": "Lavender Town",
+  "description": "LAVENDER TOWN — The Noble Purple Town. A hushed little town watched over by the towering POKéMON TOWER, where departed Pokémon are laid to rest.",
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": true,
+  "connections": [
+   "rock_tunnel_b1f",
+   "route8",
+   "route12",
+   "pokemon_tower_1f"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "lavender_youngster",
+   "lavender_gramps",
+   "lavender_girl",
+   "lavender_cooltrainer",
+   "lavender_center_gentleman",
+   "lavender_center_nerd",
+   "lavender_mart_youngster",
+   "lavender_cubone_girl",
+   "lavender_fuji_girl",
+   "lavender_fuji_nerd",
+   "lavender_psyduck"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "pokemon_tower_1f": {
+  "name": "Pokémon Tower 1F",
+  "description": "The entrance hall of Pokémon Tower. Candles flicker before rows of memorial tablets, and the air smells of incense. Mourners come and go in silence.",
+  "isTown": false,
+  "connections": [
+   "lavender_town",
+   "pokemon_tower_2f"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "tower_mourner_1",
+   "tower_mourner_2",
+   "tower_mourner_3"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_tower_2f": {
+  "name": "Pokémon Tower 2F",
+  "description": "The second floor. Shadows cling to the corners, and Channelers sway in eerie meditation among the graves.",
+  "isTown": false,
+  "connections": [
+   "pokemon_tower_1f",
+   "pokemon_tower_3f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_3f": {
+    "required_flags": [
+     "defeated_tower_channeler_1",
+     "defeated_tower_channeler_2",
+     "defeated_tower_rival"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in séance... and your RIVAL leans against the wall, waiting. (Defeat the Channelers and your rival to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "gastly",
+     "min_level": 18,
+     "max_level": 24,
+     "weight": 88
+    },
+    {
+     "species": "haunter",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 3
+    },
+    {
+     "species": "cubone",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 9
+    }
+   ]
+  },
+  "trainers": [
+   "tower_rival"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "escape_rope"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "awakening"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "hp_up"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_tower_3f": {
+  "name": "Pokémon Tower 3F",
+  "description": "The third floor. The air grows heavy and cold. A purified spot near the stairs hums with calm energy.",
+  "isTown": false,
+  "connections": [
+   "pokemon_tower_2f",
+   "pokemon_tower_4f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_4f": {
+    "required_flags": [
+     "defeated_tower_channeler_7",
+     "defeated_tower_channeler_8"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in séance... (Defeat Channelers on this floor to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "gastly",
+     "min_level": 19,
+     "max_level": 24,
+     "weight": 85
+    },
+    {
+     "species": "haunter",
+     "min_level": 26,
+     "max_level": 28,
+     "weight": 6
+    },
+    {
+     "species": "cubone",
+     "min_level": 22,
+     "max_level": 24,
+     "weight": 9
+    }
+   ]
+  },
+  "trainers": [
+   "tower_channeler_1",
+   "tower_channeler_2",
+   "tower_channeler_3"
+  ],
+  "npcs": [
+   "tower_purified_npc"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "elixir"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "x_accuracy"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "rare_candy"
+   }
+  ],
+  "noFly": true
+ },
+ "route7": {
+  "name": "Route 7",
+  "description": "A short road between CELADON and SAFFRON. A stairway on the grass leads down into the underground path.",
+  "isTown": false,
+  "connections": [
+   "celadon_city",
+   "saffron_city",
+   "underground_path"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   },
+   "underground_path": {
+    "required_flags": [
+     "defeated_route7_youngster_1",
+     "defeated_route7_lass_1"
+    ],
+    "blocked_message": "Two trainers are sparring in front of the tunnel stairs! (Defeat them to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 19,
+     "max_level": 22,
+     "weight": 30
+    },
+    {
+     "species": "oddish",
+     "min_level": 19,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 19,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "mankey",
+     "min_level": 17,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "meowth",
+     "min_level": 17,
+     "max_level": 20,
+     "weight": 15
+    },
+    {
+     "species": "growlithe",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 5
+    },
+    {
+     "species": "vulpix",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 5
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "thirsty_guard"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "route8": {
+  "name": "Route 8",
+  "description": "A winding road from LAVENDER to SAFFRON. A fenced patch of grass needs CUT to enter, and a stairway leads down to the underground path.",
+  "isTown": false,
+  "connections": [
+   "lavender_town",
+   "saffron_city",
+   "underground_path"
+  ],
+  "gate_requirements": {
+   "saffron_city": {
+    "required_flags": [
+     "guard_let_pass"
+    ],
+    "blocked_message": "A thirsty guard blocks the SAFFRON gatehouse! (Give him a Fresh Water, Soda Pop, or Lemonade.)"
+   },
+   "underground_path": {
+    "required_flags": [
+     "defeated_route8_lass_1"
+    ],
+    "blocked_message": "A Lass is picnicking right on the tunnel stairs and won't budge! (Defeat her to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 30,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "ekans",
+     "min_level": 17,
+     "max_level": 19,
+     "weight": 10,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "sandshrew",
+     "min_level": 17,
+     "max_level": 19,
+     "weight": 10,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "mankey",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 15,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "meowth",
+     "min_level": 18,
+     "max_level": 20,
+     "weight": 15,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "growlithe",
+     "min_level": 15,
+     "max_level": 18,
+     "weight": 10,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    },
+    {
+     "species": "vulpix",
+     "min_level": 15,
+     "max_level": 18,
+     "weight": 10,
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
+    }
+   ]
+  },
+  "trainers": [
+   "route8_lass_1",
+   "route8_gambler_1",
+   "route8_super_nerd_1",
+   "route8_lass_2",
+   "route8_super_nerd_2",
+   "route8_lass_3",
+   "route8_lass_4",
+   "route8_gambler_2",
+   "route8_super_nerd_3"
+  ],
+  "npcs": [
+   "thirsty_guard"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "underground_path": {
+  "name": "Underground Path",
+  "description": "A straight, well-lit tunnel running under SAFFRON CITY, connecting Route 7 in the west to Route 8 in the east.",
+  "isTown": false,
+  "connections": [
+   "route7",
+   "route8"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "underground_trade_girl"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "elixir"
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "nugget"
+   }
+  ],
+  "noFly": true
+ },
+ "celadon_city": {
+  "name": "Celadon City",
+  "description": "CELADON CITY — The City of Rainbow Dreams. Kanto's largest city: a towering department store, a fragrant gym, and more neon than anywhere else.",
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": false,
+  "connections": [
+   "route7",
+   "route16",
+   "celadon_mansion",
+   "celadon_city_gym",
+   "celadon_game_corner"
+  ],
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "poliwag",
+     "min_level": 10,
+     "max_level": 18,
+     "weight": 30
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 18,
+     "weight": 25
+    },
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 10,
+     "weight": 20
+    },
+    {
+     "species": "poliwhirl",
+     "min_level": 15,
+     "max_level": 22,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "celadon_tourist",
+   "celadon_gambler",
+   "celadon_eevee_kid",
+   "celadon_office_worker"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 85
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "pp_up",
+    "req_flag": [
+     "obtain_hm_01",
+     "cascade_badge"
+    ]
+   }
+  ],
+  "shopId": "celadon_dept_store",
+  "shopLabel": "Department Store"
+ },
+ "celadon_dept_store": {
+  "name": "Celadon Department Store",
+  "description": "Kanto's grandest shop, all condensed onto one bustling floor: TMs, stones, vitamins, and vending-machine drinks.",
+  "isTown": false,
+  "hasShop": true,
+  "connections": [
+   "celadon_city"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "celadon_clerk_tm18",
+   "celadon_clerk_2"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "celadon_mansion": {
+  "name": "Celadon Mansion",
+  "description": "A luxury condominium in northwest Celadon. Game Freak's offices fill the front; a quiet rooftop room sits out back.",
+  "isTown": false,
+  "connections": [
+   "celadon_city"
+  ],
+  "encounters": {
+   "grass": []
+  },
+  "trainers": [],
+  "npcs": [
+   "celadon_mansion_eevee",
+   "celadon_mansion_freak"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "celadon_city_gym": {
+  "name": "Celadon City Gym",
+  "description": "A garden-like gym run by Erika, the Nature-Loving Princess. A maze of cuttable trees once guarded her (bring Cut for the full experience).",
+  "isTown": false,
+  "connections": [
+   "celadon_city"
+  ],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [
+   "celadon_lass_1",
+   "celadon_beauty_1",
+   "celadon_beauty_2",
+   "celadon_jr_trainer_1",
+   "celadon_beauty_3",
+   "celadon_cooltrainer_1",
+   "celadon_lass_2",
+   "erika_gym"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "celadon_game_corner": {
+  "name": "Celadon Game Corner",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "description": "Celadon's infamous Game Corner. Slot machines hum, coins clatter, and a suspicious grunt loiters by a poster on the back wall...",
+  "connections": [
+   "celadon_city",
+   "celadon_rocket_hideout"
+  ],
+  "npcs": [
+   "gamecorner_coin_clerk",
+   "gamecorner_prize_clerk",
+   "gamecorner_slots_1",
+   "gamecorner_slots_2",
+   "gamecorner_gambler_1",
+   "gamecorner_gambler_2",
+   "gamecorner_gambler_3"
+  ],
+  "trainers": [
+   "gamecorner_rocket_grunt"
+  ],
+  "explore_table": [
+   {
+    "type": "coins",
+    "id": "floor_coins_1",
+    "amount": 10,
+    "weight": 12,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_2",
+    "amount": 10,
+    "weight": 12,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_3",
+    "amount": 10,
+    "weight": 12,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_4",
+    "amount": 20,
+    "weight": 8,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_5",
+    "amount": 10,
+    "weight": 12,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "coins",
+    "id": "floor_coins_6",
+    "amount": 20,
+    "weight": 8,
+    "req_flag": "obtained_coin_case"
+   },
+   {
+    "type": "secret_switch",
+    "weight": 30,
+    "req_flag": "defeated_gamecorner_rocket_grunt",
+    "prompt": "Behind the poster you find a hidden switch... Press it? Who wouldn't?",
+    "yes_label": "Press it",
+    "no_label": "Leave it alone",
+    "flag": "found_rocket_hideout",
+    "success": "Click! The floor rumbles and a hidden staircase grinds open, leading down into darkness. The Rocket Hideout is revealed!",
+    "decline": "You decide not to touch it. Some mysteries are best left alone... for now."
+   },
+   {
+    "type": "nothing",
+    "weight": 40
+   }
+  ]
+ },
+ "celadon_rocket_hideout": {
+  "name": "Rocket Hideout B1F",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "req_flag": "found_rocket_hideout",
+  "description": "Team Rocket's secret base beneath the Game Corner. Fluorescent lights hum over rows of humming machinery. A stairwell leads deeper.",
+  "connections": [
+   "celadon_game_corner",
+   "celadon_rocket_hideout_b2f"
+  ],
+  "gate_requirements": {
+   "celadon_rocket_hideout_b2f": {
+    "required_flags": [
+     "defeated_hideout_rocket_b1f_1",
+     "defeated_hideout_rocket_b1f_2"
+    ],
+    "blocked_message": "Two Rocket grunts bar the stairwell down. \"No one gets past us!\" (Defeat both grunts to descend.)"
+   }
+  },
+  "npcs": [
+   "hideout_b1f_lookout"
+  ],
+  "trainers": [
+   "hideout_rocket_b1f_1",
+   "hideout_rocket_b1f_2",
+   "hideout_rocket_b1f_3",
+   "hideout_rocket_b1f_4"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "escape_rope",
+    "weight": 12
+   },
+   {
+    "type": "item",
+    "item": "hyper_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "nugget",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "pp_up",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "iron",
+    "weight": 6
+   },
+   {
+    "type": "nothing",
+    "weight": 59
+   }
+  ],
+  "noFly": true
+ },
+ "celadon_rocket_hideout_b2f": {
+  "name": "Rocket Hideout B2F",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "description": "Deeper in the hideout. The air is thick with oil and static. Giovanni's office door looms at the far end, guarded.",
+  "connections": [
+   "celadon_rocket_hideout",
+   "celadon_rocket_hideout_office"
+  ],
+  "gate_requirements": {
+   "celadon_rocket_hideout_office": {
+    "required_flags": [
+     "defeated_hideout_rocket_b2f_1",
+     "defeated_hideout_rocket_b2f_2"
+    ],
+    "blocked_message": "Two grunts guard Giovanni's office door. \"The boss sees no one!\" (Defeat both grunts to enter.)"
+   }
+  },
+  "npcs": [
+   "hideout_b2f_mechanic"
+  ],
+  "trainers": [
+   "hideout_rocket_b2f_1",
+   "hideout_rocket_b2f_2",
+   "hideout_rocket_b2f_3",
+   "hideout_rocket_b2f_4"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "moon_stone",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "tm07",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "super_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "tm10",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "hp_up",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "tm02",
+    "weight": 6
+   },
+   {
+    "type": "nothing",
+    "weight": 57
+   }
+  ],
+  "noFly": true
+ },
+ "celadon_rocket_hideout_office": {
+  "name": "Giovanni's Office",
+  "isTown": false,
+  "hasCenter": false,
+  "hasShop": false,
+  "description": "A lavish office deep beneath Celadon. A Persian statue gleams in the corner. Giovanni himself rises from his desk as you enter.",
+  "connections": [
+   "celadon_rocket_hideout_b2f"
+  ],
+  "npcs": [],
+  "trainers": [
+   "hideout_giovanni"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "rare_candy",
+    "weight": 10
+   },
+   {
+    "type": "nothing",
+    "weight": 90
+   }
+  ],
+  "noFly": true
+ },
+ "saffron_city": {
+  "name": "Saffron City",
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": true,
+  "description": "The biggest city in Kanto, dominated by the towering Silph Co. headquarters. Sabrina's psychic gym warps challengers in circles, while a humble fighting dojo keeps the old ways alive next door.",
+  "connections": [
+   "route5",
+   "route6",
+   "route7",
+   "route8",
+   "saffron_city_gym",
+   "saffron_fighting_dojo",
+   "silph_co_1f"
+  ],
+  "npcs": [
+   "mr_psychic",
+   "saffron_townsperson_1",
+   "saffron_townsperson_2",
+   "saffron_townsperson_3",
+   "saffron_rocket_guard_gym",
+   "saffron_rocket_guard_dojo"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "gate_requirements": {
+   "saffron_city_gym": {
+    "required_flags": [
+     "defeated_silph_co_giovanni"
+    ],
+    "blocked_message": "A Team Rocket grunt bars the Gym door. \"Nobody gets in while Team Rocket runs this town!\" (Defeat Giovanni at Silph Co. first.)"
+   },
+   "saffron_fighting_dojo": {
+    "required_flags": [
+     "defeated_silph_co_giovanni"
+    ],
+    "blocked_message": "A Team Rocket grunt bars the dojo door. \"The Fighting Dojo is closed!\" (Defeat Giovanni at Silph Co. first.)"
+   }
+  }
+ },
+ "saffron_city_gym": {
+  "name": "Saffron City Gym",
+  "description": "Sabrina's gym: a disorienting maze of warp tiles. Psychics and channelers drift between rooms, waiting for challengers.",
+  "isTown": false,
+  "connections": [
+   "saffron_city"
+  ],
+  "trainers": [
+   "saffron_psychic_1",
+   "saffron_psychic_2",
+   "saffron_channeler_1",
+   "saffron_psychic_3",
+   "saffron_channeler_2",
+   "saffron_channeler_3",
+   "saffron_psychic_4",
+   "sabrina_gym"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "saffron_fighting_dojo": {
+  "name": "Fighting Dojo",
+  "description": "A humble fighting dojo next to the grand psychic gym. Blackbelts train here under Karate Master Koichi, who rewards the strong with rare Pokémon.",
+  "isTown": false,
+  "connections": [
+   "saffron_city"
+  ],
+  "trainers": [
+   "dojo_blackbelt_1",
+   "dojo_blackbelt_2",
+   "dojo_blackbelt_3",
+   "dojo_blackbelt_4",
+   "dojo_koichi"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_1f": {
+  "name": "Silph Co. 1F",
+  "description": "The gleaming lobby of Silph Co., Kanto's premier Poké Ball manufacturer. The elevators to the upper floors are locked down -- something is wrong upstairs.",
+  "isTown": false,
+  "connections": [
+   "saffron_city",
+   "silph_co_2f"
+  ],
+  "trainers": [],
+  "npcs": [
+   "silph_employee_1",
+   "silph_scientist_1"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_2f": {
+  "name": "Silph Co. 2F",
+  "description": "Silph Co. offices, now crawling with Team Rocket. Papers are scattered everywhere.",
+  "isTown": false,
+  "connections": [
+   "silph_co_1f",
+   "silph_co_3f"
+  ],
+  "gate_requirements": {
+   "silph_co_3f": {
+    "required_flags": [
+     "defeated_silph_rocket_2f_1"
+    ],
+    "blocked_message": "A Rocket grunt bars the stairwell. \"This floor belongs to Team Rocket!\" (Defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [
+   "silph_employee_2f"
+  ],
+  "trainers": [
+   "silph_rocket_2f_1",
+   "silph_rocket_2f_2",
+   "silph_scientist_2f_1",
+   "silph_scientist_2f_2"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "super_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "tm36",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "x_attack",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_3f": {
+  "name": "Silph Co. 3F",
+  "description": "More ransacked offices. A Rocket patrols the stairwell; scientists loyal to Rocket linger by the lab equipment.",
+  "isTown": false,
+  "connections": [
+   "silph_co_2f",
+   "silph_co_4f"
+  ],
+  "gate_requirements": {
+   "silph_co_4f": {
+    "required_flags": [
+     "defeated_silph_rocket_3f_1"
+    ],
+    "blocked_message": "A Rocket grunt blocks the stairs up. \"The stairs are closed!\" (Defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [],
+  "trainers": [
+   "silph_rocket_3f_1",
+   "silph_rocket_3f_2",
+   "silph_scientist_3f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "hyper_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "full_heal",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "tm03",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_4f": {
+  "name": "Silph Co. 4F",
+  "description": "A quieter floor -- and somewhere here, a Card Key that opens Silph's security doors.",
+  "isTown": false,
+  "connections": [
+   "silph_co_3f",
+   "silph_co_5f"
+  ],
+  "gate_requirements": {
+   "silph_co_5f": {
+    "required_flags": [
+     "defeated_silph_rocket_4f_1"
+    ],
+    "blocked_message": "A Rocket grunt bars the stairwell. \"Nobody goes up without the boss's permission!\" (Defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [
+   "silph_employee_4f"
+  ],
+  "trainers": [
+   "silph_rocket_4f_1",
+   "silph_rocket_4f_2",
+   "silph_scientist_4f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "card_key",
+    "flag": "obtained_card_key",
+    "weight": 12
+   },
+   {
+    "type": "item",
+    "item": "max_revive",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "escape_rope",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_5f": {
+  "name": "Silph Co. 5F",
+  "description": "The executive floor. A security door seals the stairwell to the top -- it needs the Card Key. Giovanni's elite guard waits beyond.",
+  "isTown": false,
+  "connections": [
+   "silph_co_4f",
+   "silph_co_6f"
+  ],
+  "gate_requirements": {
+   "silph_co_6f": {
+    "required_flags": [
+     "defeated_silph_rocket_5f_1",
+     "obtained_card_key"
+    ],
+    "blocked_message": "A security door bars the stairs -- and a Rocket grunt stands guard! (Find the Card Key and defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [
+   "silph_hiding_worker"
+  ],
+  "trainers": [
+   "silph_rocket_5f_1",
+   "silph_rocket_5f_2",
+   "silph_scientist_5f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "protein",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "tm09",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "rare_candy",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "calcium",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_office": {
+  "name": "President's Office",
+  "description": "The Silph Co. president's lavish office. Giovanni himself stands between you and the trembling president.",
+  "isTown": false,
+  "connections": [
+   "silph_co_8f"
+  ],
+  "npcs": [
+   "silph_president"
+  ],
+  "trainers": [
+   "silph_co_giovanni"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "route13": {
+  "name": "Route 13",
+  "description": "A winding path through a maze of fences, crawling with trainers. Ditto are said to hide in the tall grass here.",
+  "isTown": false,
+  "connections": [
+   "route12",
+   "route14"
+  ],
+  "gate_requirements": {
+   "route14": {
+    "required_flags": [
+     "defeated_route13_biker_1"
+    ],
+    "blocked_message": "A Biker roars up on his motorcycle, blocking the west path! \"Toll's a battle, kid!\" (Defeat the Biker to continue west.)"
+   }
+  },
+  "npcs": [
+   "route13_picnicker"
+  ],
+  "trainers": [
+   "route13_jr_trainer_1",
+   "route13_bird_keeper_1",
+   "route13_jr_trainer_2",
+   "route13_beauty_1",
+   "route13_beauty_2",
+   "route13_jr_trainer_3",
+   "route13_jr_trainer_4",
+   "route13_bird_keeper_2",
+   "route13_bird_keeper_3",
+   "route13_biker_1"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 30
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 25
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 25
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "gloom",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "ditto",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "tentacool",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "route14": {
+  "name": "Route 14",
+  "description": "A narrow trail heading south, dominated by Bird Keepers and Bikers. The grass here hides rare Ditto.",
+  "isTown": false,
+  "connections": [
+   "route13",
+   "route15"
+  ],
+  "gate_requirements": {
+   "route15": {
+    "required_flags": [
+     "defeated_route14_bird_keeper_5"
+    ],
+    "blocked_message": "A Bird Keeper and his Farfetch'd bar the southern trail! \"None shall pass the master of birds!\" (Defeat the Bird Keeper to continue south.)"
+   }
+  },
+  "npcs": [
+   "route14_bird_watcher"
+  ],
+  "trainers": [
+   "route14_bird_keeper_1",
+   "route14_bird_keeper_2",
+   "route14_bird_keeper_3",
+   "route14_bird_keeper_4",
+   "route14_biker_1",
+   "route14_bird_keeper_5",
+   "route14_biker_2",
+   "route14_biker_3",
+   "route14_biker_4",
+   "route14_bird_keeper_6"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 15
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 15
+    },
+    {
+     "species": "gloom",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "ditto",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    }
+   ],
+   "water": [
+    {
+     "species": "tentacool",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "goldeen",
+     "min_level": 10,
+     "max_level": 20,
+     "weight": 25
+    },
+    {
+     "species": "magikarp",
+     "min_level": 5,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "pp_up",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "calcium",
+    "weight": 10
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route15": {
+  "name": "Route 15",
+  "description": "The final stretch west toward Fuchsia City. Trainers crowd both the high road and the low path.",
+  "isTown": false,
+  "connections": [
+   "route14",
+   "fuchsia_city"
+  ],
+  "gate_requirements": {
+   "fuchsia_city": {
+    "required_flags": [
+     "defeated_route15_bird_keeper_1"
+    ],
+    "blocked_message": "A Bird Keeper's Dodrio blocks the road to Fuchsia City, kicking up dust! (Defeat the Bird Keeper to continue west.)"
+   }
+  },
+  "npcs": [
+   "route15_jogger"
+  ],
+  "trainers": [
+   "route15_jr_trainer_1",
+   "route15_beauty_1",
+   "route15_jr_trainer_2",
+   "route15_biker_1",
+   "route15_biker_2",
+   "route15_beauty_2",
+   "route15_jr_trainer_3",
+   "route15_bird_keeper_1",
+   "route15_bird_keeper_2",
+   "route15_jr_trainer_4"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "pidgey",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 15
+    },
+    {
+     "species": "pidgeotto",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 5
+    },
+    {
+     "species": "oddish",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "bellsprout",
+     "min_level": 22,
+     "max_level": 26,
+     "weight": 30
+    },
+    {
+     "species": "venonat",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 15
+    },
+    {
+     "species": "gloom",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "weepinbell",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 4
+    },
+    {
+     "species": "ditto",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "venomoth",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 1
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "tm20",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route16": {
+  "name": "Route 16",
+  "description": "A quiet road west of Celadon. A Snorlax sleeps soundly in the middle of the path, and a reclusive girl hides in a house past the trees.",
+  "isTown": false,
+  "connections": [
+   "celadon_city",
+   "route17"
+  ],
+  "gate_requirements": {
+   "route17": {
+    "required_flags": [
+     "woke_snorlax_route16",
+     "obtained_bike"
+    ],
+    "blocked_message": "A sleeping Snorlax blocks the road west, and beyond it a guard stops all travelers without a Bicycle. (Wake the Snorlax with the Poké Flute and obtain a Bicycle to continue.)"
+   }
+  },
+  "npcs": [
+   "route16_snorlax",
+   "route16_fly_girl",
+   "route16_cyclist"
+  ],
+  "trainers": [
+   "route16_biker_1",
+   "route16_cue_ball_1",
+   "route16_cue_ball_2",
+   "route16_biker_2",
+   "route16_cue_ball_3",
+   "route16_biker_3"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "rattata",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 30
+    },
+    {
+     "species": "spearow",
+     "min_level": 20,
+     "max_level": 24,
+     "weight": 30
+    },
+    {
+     "species": "doduo",
+     "min_level": 22,
+     "max_level": 28,
+     "weight": 25
+    },
+    {
+     "species": "raticate",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 15
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "snorlax",
+    "level": 30,
+    "req_flag": "woke_snorlax_route16",
+    "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route17": {
+  "name": "Route 17",
+  "description": "Cycling Road! A steep downhill slope packed with Bikers and Cue Balls. No bicycles, no entry.",
+  "isTown": false,
+  "connections": [
+   "route16",
+   "route18"
+  ],
+  "gate_requirements": {
+   "route18": {
+    "required_flags": [
+     "defeated_route17_biker_2",
+     "defeated_route17_cue_ball_3"
+    ],
+    "blocked_message": "A Biker with a Muk and a Cue Ball with a Machoke block the bottom of the slope! \"The road toll is TWO battles!\" (Defeat them both to reach Route 18.)"
+   }
+  },
+  "npcs": [
+   "route17_biker_rest"
+  ],
+  "trainers": [
+   "route17_cue_ball_1",
+   "route17_cue_ball_2",
+   "route17_biker_1",
+   "route17_biker_2",
+   "route17_biker_3",
+   "route17_cue_ball_3",
+   "route17_cue_ball_4",
+   "route17_cue_ball_5",
+   "route17_biker_4",
+   "route17_biker_5"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 40
+    },
+    {
+     "species": "raticate",
+     "min_level": 25,
+     "max_level": 29,
+     "weight": 30
+    },
+    {
+     "species": "doduo",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 25
+    },
+    {
+     "species": "fearow",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "max_elixir",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "route18": {
+  "name": "Route 18",
+  "description": "A short road east toward Fuchsia City. Bird Keepers patrol the fenced fields.",
+  "isTown": false,
+  "connections": [
+   "route17",
+   "fuchsia_city"
+  ],
+  "gate_requirements": {
+   "route17": {
+    "required_flags": [
+     "obtained_bike"
+    ],
+    "blocked_message": "The guard stops you. \"Cycling Road is bicycles only!\" (Obtain a Bicycle to enter.)"
+   },
+   "fuchsia_city": {
+    "required_flags": [
+     "defeated_route18_bird_keeper_3"
+    ],
+    "blocked_message": "A Bird Keeper's Dodrio stands sentinel before Fuchsia City! \"Not one step further!\" (Defeat the Bird Keeper to continue east.)"
+   }
+  },
+  "npcs": [
+   "route18_guard",
+   "route18_trade_boy"
+  ],
+  "trainers": [
+   "route18_bird_keeper_1",
+   "route18_bird_keeper_2",
+   "route18_bird_keeper_3"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "spearow",
+     "min_level": 20,
+     "max_level": 22,
+     "weight": 35
+    },
+    {
+     "species": "fearow",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 10
+    },
+    {
+     "species": "doduo",
+     "min_level": 24,
+     "max_level": 28,
+     "weight": 30
+    },
+    {
+     "species": "raticate",
+     "min_level": 25,
+     "max_level": 27,
+     "weight": 25
+    }
+   ],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "fuchsia_city": {
+  "name": "Fuchsia City",
+  "description": "A quiet city in southern Kanto, famous for the Safari Zone and Koga's ninja gym. The Warden's house sits to the east.",
+  "isTown": true,
+  "connections": [
+   "route15",
+   "route18",
+   "route19",
+   "fuchsia_city_gym",
+   "fuchsia_warden_house",
+   "safari_zone_center"
+  ],
+  "hasShop": true,
+  "npcs": [
+   "fuchsia_townsperson_1",
+   "fuchsia_townsperson_2",
+   "fuchsia_surfer"
+  ],
+  "trainers": [],
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "rare_candy",
+    "weight": 8
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "gate_requirements": {
+   "route19": {
+    "required_flags": [
+     "soul_badge"
+    ],
+    "blocked_message": "The open sea is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+   }
+  },
+  "hasCenter": true
+ },
+ "fuchsia_city_gym": {
+  "name": "Fuchsia City Gym",
+  "description": "Koga's gym: a disorienting maze of invisible walls. Ninja trainers lurk behind every barrier.",
+  "isTown": false,
+  "connections": [
+   "fuchsia_city"
+  ],
+  "npcs": [],
+  "trainers": [
+   "fuchsia_juggler_1",
+   "fuchsia_juggler_2",
+   "fuchsia_juggler_3",
+   "fuchsia_tamer_1",
+   "fuchsia_tamer_2",
+   "fuchsia_juggler_4",
+   "koga_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "fuchsia_warden_house": {
+  "name": "Warden's House",
+  "description": "The home of the Safari Zone Warden. He seems distressed about something.",
+  "isTown": false,
+  "connections": [
+   "fuchsia_city"
+  ],
+  "npcs": [
+   "fuchsia_warden"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "safari_zone_center": {
+  "name": "Safari Zone Gate",
+  "description": "The entrance building of Kanto's famous Safari Zone. Pay the entry fee to roam the three wild areas.",
+  "isTown": false,
+  "connections": [
+   "fuchsia_city",
+   "safari_zone_east",
+   "safari_zone_north",
+   "safari_zone_west"
+  ],
+  "npcs": [
+   "safari_attendant"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "safari": true,
+  "gate_requirements": {
+   "safari_zone_east": {
+    "required_flags": [
+     "in_safari_zone"
+    ],
+    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+   },
+   "safari_zone_north": {
+    "required_flags": [
+     "in_safari_zone"
+    ],
+    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+   },
+   "safari_zone_west": {
+    "required_flags": [
+     "in_safari_zone"
+    ],
+    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+   }
+  },
+  "noFly": true
+ },
+ "safari_zone_east": {
+  "name": "Safari Zone: East Area",
+  "description": "Tall grass stretches around a rocky ridge and a quiet lake. Rare Pokémon roam here.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_center"
+  ],
+  "npcs": [],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "nidoran_f",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 12
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 12
+    },
+    {
+     "species": "nidorina",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "nidorino",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "paras",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 13
+    },
+    {
+     "species": "parasect",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 5
+    },
+    {
+     "species": "doduo",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "exeggcute",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 18
+    },
+    {
+     "species": "kangaskhan",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 4
+    },
+    {
+     "species": "scyther",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 3
+    },
+    {
+     "species": "pinsir",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 3
+    }
+   ],
+   "water": [
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "dratini",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "carbos",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "tm37",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "max_potion",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "full_restore",
+    "weight": 10
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ]
+ },
+ "safari_zone_north": {
+  "name": "Safari Zone: North Area",
+  "description": "Rocky ridges overlook three small ponds. Something heavy moves in the tall grass.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_center"
+  ],
+  "npcs": [],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "nidoran_f",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 12
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 12
+    },
+    {
+     "species": "nidorina",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 8
+    },
+    {
+     "species": "nidorino",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 8
+    },
+    {
+     "species": "paras",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 14
+    },
+    {
+     "species": "venomoth",
+     "min_level": 32,
+     "max_level": 32,
+     "weight": 5
+    },
+    {
+     "species": "exeggcute",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "rhyhorn",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "chansey",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 4
+    },
+    {
+     "species": "tauros",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 1
+    }
+   ],
+   "water": [
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "dratini",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "tm40",
+    "weight": 12
+   },
+   {
+    "type": "item",
+    "item": "protein",
+    "weight": 12
+   },
+   {
+    "type": "nothing",
+    "weight": 76
+   }
+  ]
+ },
+ "safari_zone_west": {
+  "name": "Safari Zone: West Area",
+  "description": "The deepest part of the park. A small house peeks through the trees to the west.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_center",
+   "safari_secret_house"
+  ],
+  "npcs": [],
+  "trainers": [],
+  "encounters": {
+   "grass": [
+    {
+     "species": "nidoran_f",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 12
+    },
+    {
+     "species": "nidoran_m",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 12
+    },
+    {
+     "species": "nidorina",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "nidorino",
+     "min_level": 33,
+     "max_level": 33,
+     "weight": 6
+    },
+    {
+     "species": "venonat",
+     "min_level": 23,
+     "max_level": 23,
+     "weight": 18
+    },
+    {
+     "species": "venomoth",
+     "min_level": 31,
+     "max_level": 31,
+     "weight": 5
+    },
+    {
+     "species": "doduo",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 18
+    },
+    {
+     "species": "exeggcute",
+     "min_level": 25,
+     "max_level": 25,
+     "weight": 18
+    },
+    {
+     "species": "kangaskhan",
+     "min_level": 28,
+     "max_level": 28,
+     "weight": 1
+    },
+    {
+     "species": "tauros",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 4
+    }
+   ],
+   "water": [
+    {
+     "species": "psyduck",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "slowpoke",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "krabby",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    },
+    {
+     "species": "dratini",
+     "min_level": 15,
+     "max_level": 15,
+     "weight": 25
+    }
+   ]
+  },
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "gold_teeth",
+    "weight": 12,
+    "flag": "obtained_gold_teeth"
+   },
+   {
+    "type": "item",
+    "item": "tm32",
+    "weight": 10
+   },
+   {
+    "type": "item",
+    "item": "revive",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "max_potion",
+    "weight": 8,
+    "req_flag": "obtained_hm03"
+   },
+   {
+    "type": "item",
+    "item": "max_revive",
+    "weight": 8,
+    "req_flag": "obtained_hm03"
+   },
+   {
+    "type": "nothing",
+    "weight": 54
+   }
+  ]
+ },
+ "safari_secret_house": {
+  "name": "Secret House",
+  "description": "A lonely house at the far end of the Safari Zone. Someone lives out here.",
+  "isTown": false,
+  "safari": true,
+  "connections": [
+   "safari_zone_west"
+  ],
+  "npcs": [
+   "safari_secret_house_man"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "mt_moon_b2f": {
+  "name": "Mt. Moon - B2F",
+  "description": "The deepest level of Mt. Moon. Few trainers venture this far down, but rare items glitter in the dark.",
+  "connections": [
+   "mt_moon_b1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 9,
+     "max_level": 12,
+     "weight": 49
+    },
+    {
+     "species": "Geodude",
+     "min_level": 9,
+     "max_level": 10,
+     "weight": 30
+    },
+    {
+     "species": "Paras",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 15
+    },
+    {
+     "species": "Clefairy",
+     "min_level": 10,
+     "max_level": 12,
+     "weight": 6
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "tm01"
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "hp_up"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "ether"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "moon_stone"
+   }
+  ],
+  "noFly": true,
+  "npcs": []
+ },
+ "route19": {
+  "name": "Route 19",
+  "description": "A sparkling sea route running south from Fuchsia City to the Seafoam Islands. Swimmers and Beauties train in these waters.",
+  "connections": [
+   "fuchsia_city",
+   "seafoam_1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 15,
+     "max_level": 30,
+     "weight": 35
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "swimmer_kyler",
+   "swimmer_spencer",
+   "swimmer_tucker",
+   "swimmer_reese",
+   "swimmer_david",
+   "swimmer_douglas",
+   "swimmer_axle",
+   "beauty_alice",
+   "beauty_anya",
+   "beauty_connie"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": []
+ },
+ "route20": {
+  "name": "Route 20",
+  "description": "The eastern sea route, running from the Seafoam Islands toward Cinnabar Island. Strong currents and stronger trainers.",
+  "connections": [
+   "seafoam_3f",
+   "cinnabar_island"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 15,
+     "max_level": 30,
+     "weight": 35
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "swimmer_dean",
+   "swimmer_barry",
+   "beauty_victoria",
+   "beauty_sheila"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ],
+  "npcs": []
+ },
+ "seafoam_1f": {
+  "name": "Seafoam Islands - 1F",
+  "description": "The windswept entrance of the Seafoam Islands caverns. The cries of Zubat echo off the walls.",
+  "connections": [
+   "route19",
+   "seafoam_2f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 60
+    },
+    {
+     "species": "Golbat",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 40
+    }
+   ],
+   "water": []
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 50
+   }
+  ],
+  "noFly": true,
+  "npcs": []
+ },
+ "seafoam_2f": {
+  "name": "Seafoam Islands - B1F",
+  "description": "Deeper into the islands, underground pools dot the cavern floor. Something valuable glints in the dark.",
+  "connections": [
+   "seafoam_1f",
+   "seafoam_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 30
+    },
+    {
+     "species": "Golbat",
+     "min_level": 32,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 20
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 15
+    },
+    {
+     "species": "Seel",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 15
+    },
+    {
+     "species": "Shellder",
+     "min_level": 30,
+     "max_level": 33,
+     "weight": 5
+    }
+   ],
+   "water": [
+    {
+     "species": "Seel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 20
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Shellder",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Horsea",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Krabby",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Staryu",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Dewgong",
+     "min_level": 33,
+     "max_level": 37,
+     "weight": 3
+    },
+    {
+     "species": "Seadra",
+     "min_level": 33,
+     "max_level": 37,
+     "weight": 3
+    },
+    {
+     "species": "Kingler",
+     "min_level": 33,
+     "max_level": 37,
+     "weight": 2
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 3
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "max_elixir"
+   }
+  ],
+  "noFly": true,
+  "npcs": [],
+  "gate_requirements": {
+   "seafoam_3f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the passage to the lower cavern... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
+ },
+ "seafoam_3f": {
+  "name": "Seafoam Islands - B2F",
+  "description": "The bottom of the Seafoam Islands. An unnatural chill hangs in the air, and frost creeps across the stone...",
+  "connections": [
+   "seafoam_2f",
+   "route20"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Golbat",
+     "min_level": 33,
+     "max_level": 36,
+     "weight": 25
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 25
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 25
+    },
+    {
+     "species": "Seel",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 25
+    }
+   ],
+   "water": [
+    {
+     "species": "Seel",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 18
+    },
+    {
+     "species": "Psyduck",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 15
+    },
+    {
+     "species": "Slowpoke",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 15
+    },
+    {
+     "species": "Shellder",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Horsea",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Krabby",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Staryu",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 10
+    },
+    {
+     "species": "Dewgong",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 4
+    },
+    {
+     "species": "Seadra",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 4
+    },
+    {
+     "species": "Kingler",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 2
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 32,
+     "max_level": 37,
+     "weight": 2
+    }
+   ]
+  },
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 25
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "static_encounter",
+    "weight": 25,
+    "species": "articuno",
+    "level": 50,
+    "intro": "A legendary bird of ice regards you with piercing eyes... ARTICUNO!"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "ultra_ball"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "water_stone"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_revive"
+   }
+  ],
+  "noFly": true,
+  "npcs": []
+ },
+ "cinnabar_island": {
+  "name": "Cinnabar Island",
+  "description": "A volcanic island town. The Cinnabar Lab, the abandoned Pokemon Mansion, and Blaine's locked Gym dot the landscape.",
+  "isTown": true,
+  "connections": [
+   "route20",
+   "route21",
+   "cinnabar_lab",
+   "pokemon_mansion_1f",
+   "cinnabar_island_gym"
+  ],
+  "req_flag": null,
+  "hasCenter": true,
+  "hasShop": true,
+  "encounters": {
+   "grass": [],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 15,
+     "max_level": 30,
+     "weight": 30
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 15
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "cinnabar_gym_door_locked",
+   "cinnabar_gym_door_unlocked",
+   "cinnabar_beachcomber"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 70
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   }
+  ],
+  "gate_requirements": {
+   "cinnabar_island_gym": {
+    "required_flags": [
+     "obtained_secret_key"
+    ],
+    "blocked_message": "The Gym door is locked tight. A sign reads: 'Gym closed - key required.' (Find the Secret Key)"
+   },
+   "route21": {
+    "required_flags": [
+     "soul_badge"
+    ],
+    "blocked_message": "The open sea is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+   }
+  }
+ },
+ "cinnabar_island_gym": {
+  "name": "Cinnabar Island Gym",
+  "description": "Blaine's Gym: a quiz-show gauntlet of fire. Answer correctly or battle the trainer behind each door.",
+  "isTown": false,
+  "connections": [
+   "cinnabar_island"
+  ],
+  "npcs": [],
+  "trainers": [
+   "super_nerd_erik",
+   "burglar_ramon",
+   "super_nerd_dusty",
+   "burglar_arnie",
+   "super_nerd_zack",
+   "burglar_dusty",
+   "super_nerd_bryan",
+   "blaine_gym"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true
+ },
+ "cinnabar_lab": {
+  "name": "Cinnabar Lab",
+  "description": "The Pokemon Lab. Scientists here can resurrect fossils - and two of them are eager to trade.",
+  "isTown": false,
+  "connections": [
+   "cinnabar_island"
+  ],
+  "npcs": [
+   "fossil_scientist_dome",
+   "fossil_scientist_helix",
+   "fossil_scientist_amber",
+   "cinnabar_trade_seel",
+   "cinnabar_trade_electrode"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "noFly": true,
+  "encounters": {
+   "grass": [],
+   "water": []
+  }
+ },
+ "pokemon_mansion_1f": {
+  "name": "Pokemon Mansion - 1F",
+  "description": "The abandoned mansion's entrance hall. Dusty statues line the walls, and something scurries in the shadows.",
+  "connections": [
+   "cinnabar_island",
+   "pokemon_mansion_2f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "scientist_mansion_1"
+  ],
+  "npcs": [
+   "mansion_explorer"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "moon_stone"
+   },
+   {
+    "type": "item",
+    "weight": 10,
+    "item": "escape_rope"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_mansion_2f": {
+  "name": "Pokemon Mansion - 2F",
+  "description": "The mansion's second floor. A statue's hidden switch clicks somewhere in the dark...",
+  "connections": [
+   "pokemon_mansion_1f",
+   "pokemon_mansion_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "burglar_mansion_1",
+   "scientist_mansion_2"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 45
+   },
+   {
+    "type": "item",
+    "weight": 15,
+    "item": "calcium"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_mansion_3f": {
+  "name": "Pokemon Mansion - 3F",
+  "description": "The top floor. A balcony overlooks the floors below - the only way down is to jump.",
+  "connections": [
+   "pokemon_mansion_2f",
+   "pokemon_mansion_b1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "burglar_mansion_2",
+   "burglar_mansion_3"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 35
+   },
+   {
+    "type": "encounter",
+    "weight": 45
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "iron"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "max_potion"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_revive"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_mansion_b1f": {
+  "name": "Pokemon Mansion - B1F",
+  "description": "The mansion's basement lab. Journals describe terrible experiments... and something glints in the final room.",
+  "connections": [
+   "pokemon_mansion_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Ponyta",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 25
+    },
+    {
+     "species": "Grimer",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Koffing",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 20
+    },
+    {
+     "species": "Growlithe",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Vulpix",
+     "min_level": 30,
+     "max_level": 34,
+     "weight": 10
+    },
+    {
+     "species": "Muk",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Weezing",
+     "min_level": 32,
+     "max_level": 36,
+     "weight": 5
+    },
+    {
+     "species": "Magmar",
+     "min_level": 34,
+     "max_level": 38,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "scientist_mansion_3"
+  ],
+  "npcs": [
+   "mansion_secret_key"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 35
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "carbos"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm14"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "full_restore"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm22"
+   }
+  ],
+  "noFly": true
+ },
+ "route21": {
+  "name": "Route 21",
+  "description": "The northern sea route, stretching from Cinnabar Island to Pallet Town. A grassy islet south of Pallet hides Tangela.",
+  "connections": [
+   "cinnabar_island",
+   "pallet_town"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Pidgey",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 30
+    },
+    {
+     "species": "Pidgeotto",
+     "min_level": 30,
+     "max_level": 32,
+     "weight": 15
+    },
+    {
+     "species": "Rattata",
+     "min_level": 21,
+     "max_level": 23,
+     "weight": 30
+    },
+    {
+     "species": "Raticate",
+     "min_level": 30,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "Tangela",
+     "min_level": 28,
+     "max_level": 32,
+     "weight": 10
+    }
+   ],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 20,
+     "max_level": 35,
+     "weight": 35
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 35,
+     "max_level": 40,
+     "weight": 10
+    },
+    {
+     "species": "Shellder",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Horsea",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Goldeen",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Staryu",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "fisherman_wilton",
+   "fisherman_arnold",
+   "swimmer_spencer_r21",
+   "cue_ball_camron",
+   "fisherman_hideto",
+   "fisherman_elliot",
+   "swimmer_nicole",
+   "swimmer_dawn",
+   "swimmer_tara"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 60
+   },
+   {
+    "type": "encounter",
+    "weight": 40
+   }
+  ]
+ },
+ "pokemon_tower_6f": {
+  "name": "Pokemon Tower 6F",
+  "description": "The top of the tower. A restless ghost wails near the stairs, and TEAM ROCKET grunts loiter by an old man's side.",
+  "isTown": false,
+  "connections": [
+   "pokemon_tower_5f"
+  ],
+  "encounters": {
+   "grass": [
+    {
+     "species": "gastly",
+     "min_level": 20,
+     "max_level": 24,
+     "weight": 75
+    },
+    {
+     "species": "haunter",
+     "min_level": 28,
+     "max_level": 30,
+     "weight": 15
+    },
+    {
+     "species": "cubone",
+     "min_level": 22,
+     "max_level": 24,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [
+   "tower_channeler_11",
+   "tower_channeler_12",
+   "tower_channeler_13",
+   "tower_rocket_1",
+   "tower_rocket_2",
+   "tower_rocket_3"
+  ],
+  "npcs": [
+   "tower_ghost_hint",
+   "mr_fuji_tower"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 80
+   },
+   {
+    "type": "static_encounter",
+    "weight": 20,
+    "species": "marowak",
+    "level": 30,
+    "req_flag": "obtained_silph_scope",
+    "uncatchable": true,
+    "win_flag": "calmed_marowak",
+    "intro": "The SILPH SCOPE reveals the ghost... a furious MAROWAK, mother of CUBONE! It attacks!"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_tower_4f": {
+  "name": "Pokemon Tower 4F",
+  "description": "The fourth floor. Channelers' chants echo off the walls, growing more frantic the higher you climb.",
+  "connections": [
+   "pokemon_tower_3f",
+   "pokemon_tower_5f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_5f": {
+    "required_flags": [
+     "defeated_tower_channeler_14",
+     "defeated_tower_channeler_15"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in seance... (Defeat Channelers on this floor to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "Gastly",
+     "min_level": 21,
+     "max_level": 25,
+     "weight": 75
+    },
+    {
+     "species": "Haunter",
+     "min_level": 29,
+     "max_level": 31,
+     "weight": 15
+    },
+    {
+     "species": "Cubone",
+     "min_level": 23,
+     "max_level": 25,
+     "weight": 10
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "tower_channeler_4",
+   "tower_channeler_5",
+   "tower_channeler_6"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 65
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "awakening"
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 11,
+    "item": "pp_up"
+   }
+  ],
+  "noFly": true
+ },
+ "pokemon_tower_5f": {
+  "name": "Pokemon Tower 5F",
+  "description": "The fifth floor. The veil between worlds feels thinnest here - ghostly wails drift up from below and down from above.",
+  "connections": [
+   "pokemon_tower_4f",
+   "pokemon_tower_6f"
+  ],
+  "gate_requirements": {
+   "pokemon_tower_6f": {
+    "required_flags": [
+     "defeated_tower_channeler_20",
+     "defeated_tower_channeler_21"
+    ],
+    "blocked_message": "Two Channelers bar the stairs, deep in seance... (Defeat Channelers on this floor to pass.)"
+   }
+  },
+  "encounters": {
+   "grass": [
+    {
+     "species": "Gastly",
+     "min_level": 21,
+     "max_level": 25,
+     "weight": 75
+    },
+    {
+     "species": "Haunter",
+     "min_level": 29,
+     "max_level": 31,
+     "weight": 15
+    },
+    {
+     "species": "Cubone",
+     "min_level": 23,
+     "max_level": 25,
+     "weight": 10
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "tower_channeler_7",
+   "tower_channeler_8",
+   "tower_channeler_9",
+   "tower_channeler_10"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 65
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "full_heal"
+   },
+   {
+    "type": "item",
+    "weight": 12,
+    "item": "nugget"
+   },
+   {
+    "type": "item",
+    "weight": 11,
+    "item": "elixir"
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_8f": {
+  "name": "Silph Co. 8F",
+  "description": "The top floor corridor. Your rival leans against the president's office door, smirking. A grateful employee peeks out from a side room.",
+  "isTown": false,
+  "connections": [
+   "silph_co_7f",
+   "silph_co_office"
+  ],
+  "gate_requirements": {
+   "silph_co_office": {
+    "required_flags": [
+     "defeated_silph_scientist_6f_1",
+     "defeated_silph_co_rival"
+    ],
+    "blocked_message": "Your rival blocks the office door, arms crossed. \"Not a chance, loser!\" (Defeat the scientist and your rival to enter.)"
+   }
+  },
+  "npcs": [
+   "silph_lapras_employee"
+  ],
+  "trainers": [
+   "silph_scientist_6f_1",
+   "silph_co_rival"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "hp_up",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "x_accuracy",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "max_potion",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "carbos",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "tm26",
+    "weight": 6
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_6f": {
+  "name": "Silph Co. 6F",
+  "description": "A maze of warp panels and locked storerooms. Rocket grunts patrol every corridor.",
+  "connections": [
+   "silph_co_5f",
+   "silph_co_7f"
+  ],
+  "gate_requirements": {
+   "silph_co_7f": {
+    "required_flags": [
+     "defeated_silph_rocket_6f_1",
+     "obtained_card_key"
+    ],
+    "blocked_message": "A security door bars the stairs -- and a Rocket grunt stands guard! (Find the Card Key and defeat the grunt to ascend.)"
+   }
+  },
+  "npcs": [],
+  "trainers": [
+   "silph_rocket_6f_1",
+   "silph_rocket_6f_2",
+   "silph_scientist_6f_1",
+   "silph_rocket_6f_3"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "tm09",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "full_restore",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "revive",
+    "weight": 8
+   },
+   {
+    "type": "item",
+    "item": "iron",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "silph_co_7f": {
+  "name": "Silph Co. 7F",
+  "description": "Research labs converted to Rocket staging grounds. The elevator hums - the top floors are close.",
+  "connections": [
+   "silph_co_6f",
+   "silph_co_8f"
+  ],
+  "gate_requirements": {
+   "silph_co_8f": {
+    "required_flags": [
+     "defeated_silph_rocket_7f_1",
+     "defeated_silph_rocket_7f_2"
+    ],
+    "blocked_message": "Two Rocket grunts block the stairwell! (Defeat the grunts on this floor to ascend.)"
+   }
+  },
+  "npcs": [],
+  "trainers": [
+   "silph_rocket_7f_1",
+   "silph_rocket_7f_2",
+   "silph_scientist_7f_1"
+  ],
+  "explore_table": [
+   {
+    "type": "item",
+    "item": "calcium",
+    "weight": 7
+   },
+   {
+    "type": "item",
+    "item": "max_elixir",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "tm26",
+    "weight": 6
+   },
+   {
+    "type": "item",
+    "item": "pp_up",
+    "weight": 7
+   },
+   {
+    "type": "nothing",
+    "weight": 60
+   }
+  ],
+  "noFly": true
+ },
+ "route23": {
+  "name": "Route 23",
+  "description": "The final stretch: a mountain path where only the strongest Trainers may pass. Surf across the water to reach Victory Road.",
+  "connections": [
+   "route22",
+   "victory_road_1f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Spearow",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "Fearow",
+     "min_level": 38,
+     "max_level": 43,
+     "weight": 25
+    },
+    {
+     "species": "Ekans",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 10
+    },
+    {
+     "species": "Arbok",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Sandshrew",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 10
+    },
+    {
+     "species": "Sandslash",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Ditto",
+     "min_level": 33,
+     "max_level": 43,
+     "weight": 30
+    }
+   ],
+   "water": [
+    {
+     "species": "Tentacool",
+     "min_level": 20,
+     "max_level": 30,
+     "weight": 40
+    },
+    {
+     "species": "Tentacruel",
+     "min_level": 30,
+     "max_level": 40,
+     "weight": 15
+    },
+    {
+     "species": "Slowbro",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 15
+    },
+    {
+     "species": "Kingler",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Seadra",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    },
+    {
+     "species": "Seaking",
+     "min_level": 25,
+     "max_level": 35,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [
+   "route23_badge_guard"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 55
+   },
+   {
+    "type": "encounter",
+    "weight": 30
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "max_ether"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "ultra_ball"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "full_restore"
+   }
+  ],
+  "gate_requirements": {
+   "victory_road_1f": {
+    "required_flags": [
+     "boulder_badge",
+     "cascade_badge",
+     "thunder_badge",
+     "rainbow_badge",
+     "soul_badge",
+     "marsh_badge",
+     "volcano_badge",
+     "earth_badge"
+    ],
+    "blocked_message": "The League Guard bars the way. 'All 8 Kanto badges are required to enter Victory Road.'"
+   }
+  }
+ },
+ "victory_road_1f": {
+  "name": "Victory Road - 1F",
+  "description": "The legendary gauntlet. Boulders, ladders, and the strongest wild Pokemon in Kanto guard the path to the Pokemon League.",
+  "connections": [
+   "route23",
+   "victory_road_2f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "Golbat",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Machop",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 20
+    },
+    {
+     "species": "Machoke",
+     "min_level": 42,
+     "max_level": 42,
+     "weight": 4
+    },
+    {
+     "species": "Geodude",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 20
+    },
+    {
+     "species": "Graveler",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Onix",
+     "min_level": 36,
+     "max_level": 42,
+     "weight": 30
+    },
+    {
+     "species": "Marowak",
+     "min_level": 43,
+     "max_level": 43,
+     "weight": 1
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "cooltrainer_vr1f_1",
+   "cooltrainer_vr1f_2"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "full_heal"
+   }
+  ],
+  "noFly": true,
+  "gate_requirements": {
+   "victory_road_2f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
+ },
+ "victory_road_2f": {
+  "name": "Victory Road - 2F",
+  "description": "Deeper into the mountain. A strange heat radiates from an isolated chamber...",
+  "connections": [
+   "victory_road_1f",
+   "victory_road_3f"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Zubat",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "Golbat",
+     "min_level": 40,
+     "max_level": 40,
+     "weight": 5
+    },
+    {
+     "species": "Machop",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 20
+    },
+    {
+     "species": "Machoke",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Geodude",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 20
+    },
+    {
+     "species": "Graveler",
+     "min_level": 43,
+     "max_level": 43,
+     "weight": 1
+    },
+    {
+     "species": "Onix",
+     "min_level": 36,
+     "max_level": 42,
+     "weight": 30
+    },
+    {
+     "species": "Marowak",
+     "min_level": 40,
+     "max_level": 40,
+     "weight": 4
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "blackbelt_vr2f",
+   "juggler_vr2f_1",
+   "tamer_vr2f",
+   "juggler_vr2f_2",
+   "pokemaniac_vr2f"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 40
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "static_encounter",
+    "weight": 10,
+    "species": "moltres",
+    "level": 50,
+    "intro": "A legendary bird of fire blocks the path, wings wreathed in flame... MOLTRES!"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "tm05"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "full_heal"
+   },
+   {
+    "type": "item",
+    "weight": 4,
+    "item": "tm17"
+   },
+   {
+    "type": "item",
+    "weight": 3,
+    "item": "guard_spec"
+   }
+  ],
+  "noFly": true,
+  "gate_requirements": {
+   "victory_road_3f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
+ },
+ "victory_road_3f": {
+  "name": "Victory Road - 3F",
+  "description": "The final floor. Beyond the exit lies the Indigo Plateau - and the Elite Four.",
+  "connections": [
+   "victory_road_2f",
+   "indigo_plateau"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "Machop",
+     "min_level": 24,
+     "max_level": 24,
+     "weight": 25
+    },
+    {
+     "species": "Onix",
+     "min_level": 42,
+     "max_level": 45,
+     "weight": 20
+    },
+    {
+     "species": "Zubat",
+     "min_level": 22,
+     "max_level": 22,
+     "weight": 15
+    },
+    {
+     "species": "Geodude",
+     "min_level": 26,
+     "max_level": 26,
+     "weight": 15
+    },
+    {
+     "species": "Venomoth",
+     "min_level": 40,
+     "max_level": 40,
+     "weight": 10
+    },
+    {
+     "species": "Golbat",
+     "min_level": 41,
+     "max_level": 41,
+     "weight": 5
+    },
+    {
+     "species": "Machoke",
+     "min_level": 42,
+     "max_level": 45,
+     "weight": 5
+    },
+    {
+     "species": "Graveler",
+     "min_level": 43,
+     "max_level": 43,
+     "weight": 5
+    }
+   ],
+   "water": []
+  },
+  "trainers": [
+   "cooltrainer_vr3f_1",
+   "cooltrainer_vr3f_2",
+   "cooltrainer_vr3f_3",
+   "cooltrainer_vr3f_4"
+  ],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 50
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "item",
+    "weight": 8,
+    "item": "max_revive"
+   },
+   {
+    "type": "item",
+    "weight": 7,
+    "item": "tm47"
+   }
+  ],
+  "noFly": true
+ },
+ "indigo_plateau": {
+  "name": "Indigo Plateau",
+  "description": "The seat of the Pokemon League. A Pokemon Center and a well-stocked mart serve those about to face the Elite Four. The League gates stand to the north.",
+  "connections": [
+   "victory_road_3f",
+   "elite_four_1"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [
+   "indigo_retired_official",
+   "indigo_nervous_challenger"
+  ],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "isTown": true,
+  "hasCenter": true,
+  "hasShop": true,
+  "gate_requirements": {
+   "elite_four_1": {
+    "confirm": {
+     "prompt": "The League gates loom ahead. Once you enter, the Elite Four await: Lorelei, Bruno, Agatha, and Lance - and beyond them, the Champion. Are you ready to challenge the Elite Four?",
+     "yes_label": "Enter",
+     "no_label": "Not yet",
+     "decline": "You step back from the gates. The Elite Four will wait."
+    }
+   }
+  }
+ },
+ "elite_four_1": {
+  "name": "Elite Four - Lorelei",
+  "description": "A chamber of ice and still water. Lorelei, master of the frozen north, awaits.",
+  "connections": [
+   "indigo_plateau",
+   "elite_four_2"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_lorelei",
+   "trainer_id": "elite_four_lorelei"
+  },
+  "gate_requirements": {
+   "elite_four_2": {
+    "required_flags": [
+     "defeated_lorelei"
+    ],
+    "blocked_message": "You must defeat Lorelei before proceeding!"
+   }
+  }
+ },
+ "elite_four_2": {
+  "name": "Elite Four - Bruno",
+  "description": "A stark chamber of stone. Bruno's fighting spirit radiates from every corner.",
+  "connections": [
+   "elite_four_1",
+   "elite_four_3"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_bruno",
+   "trainer_id": "elite_four_bruno"
+  },
+  "gate_requirements": {
+   "elite_four_3": {
+    "required_flags": [
+     "defeated_bruno"
+    ],
+    "blocked_message": "You must defeat Bruno before proceeding!"
+   }
+  }
+ },
+ "elite_four_3": {
+  "name": "Elite Four - Agatha",
+  "description": "Shadows cling to the walls. Agatha's ghostly laughter echoes in the dark.",
+  "connections": [
+   "elite_four_2",
+   "elite_four_4"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_agatha",
+   "trainer_id": "elite_four_agatha"
+  },
+  "gate_requirements": {
+   "elite_four_4": {
+    "required_flags": [
+     "defeated_agatha"
+    ],
+    "blocked_message": "You must defeat Agatha before proceeding!"
+   }
+  }
+ },
+ "elite_four_4": {
+  "name": "Elite Four - Lance",
+  "description": "A vast chamber beneath a painted sky. Lance, master of dragons, stands waiting.",
+  "connections": [
+   "elite_four_3",
+   "hall_of_champions"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_lance",
+   "trainer_id": "elite_four_lance"
+  },
+  "gate_requirements": {
+   "hall_of_champions": {
+    "required_flags": [
+     "defeated_lance"
+    ],
+    "blocked_message": "You must defeat Lance before proceeding!"
+   }
+  }
+ },
+ "hall_of_champions": {
+  "name": "Hall of Champions",
+  "description": "The final chamber. Marble pillars rise toward a domed ceiling, and at the far end, on the Champion's throne, sits a familiar face...",
+  "connections": [
+   "elite_four_4"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [],
+   "water": []
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ],
+  "forced_battle": {
+   "flag": "defeated_elite_four",
+   "trainer_id": "champion_rival"
+  }
+ }
 }

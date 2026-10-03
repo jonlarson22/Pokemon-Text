@@ -1,19 +1,190 @@
 {
-  "viridian_city": ["pokeball", "antidote", "paralyz_heal", "burn_heal"],
-  "pewter_city": ["pokeball", "potion", "escape_rope", "antidote", "burn_heal", "awakening", "paralyz_heal"],
-  "cerulean_city": ["pokeball", "potion", "repel", "antidote", "burn_heal", "awakening", "paralyz_heal"],
-  "vermilion_city": ["pokeball", "super_potion", "ice_heal", "awakening", "paralyz_heal", "repel"],
-  "lavender_town": ["great_ball", "super_potion", "revive", "escape_rope", "super_repel", "antidote", "burn_heal", "ice_heal", "paralyz_heal"],
-  "celadon_department_store": [
-    "great_ball", "super_potion", "revive", "super_repel", "antidote", "burn_heal", "ice_heal", "awakening", "paralyz_heal",
-    "tm13", "tm48", "tm49", "tm01", "tm05", "tm09", "tm17", "tm27", "tm30", "tm21", "tm12",
-    "poke_doll", "fire_stone", "thunder_stone", "water_stone", "leaf_stone", "linking_cord",
-    "x_accuracy", "guard_spec", "dire_hit", "x_attack", "x_defend", "x_speed", "x_special",
-    "hp_up", "protein", "iron", "carbos", "calcium",
-    "fresh_water", "soda_pop", "lemonade"
-  ],
-  "saffron_city": ["great_ball", "hyper_potion", "max_repel", "escape_rope", "full_heal", "revive"],
-  "fuchsia_city": ["ultra_ball", "great_ball", "super_potion", "revive", "full_heal", "super_repel"],
-  "cinnabar_island": ["ultra_ball", "great_ball", "hyper_potion", "max_repel", "escape_rope", "full_heal", "revive"],
-  "indigo_plateau": ["ultra_ball", "great_ball", "hyper_potion", "max_potion", "full_restore", "max_repel", "escape_rope", "full_heal", "revive"]
+ "viridian_city": [
+  "pokeball",
+  "antidote",
+  "paralyz_heal",
+  "burn_heal"
+ ],
+ "pewter_city": [
+  "pokeball",
+  "potion",
+  "escape_rope",
+  "antidote",
+  "burn_heal",
+  "awakening",
+  "paralyz_heal"
+ ],
+ "cerulean_city": [
+  "pokeball",
+  "potion",
+  "repel",
+  "antidote",
+  "burn_heal",
+  "awakening",
+  "paralyz_heal"
+ ],
+ "vermilion_city": [
+  "pokeball",
+  "super_potion",
+  "ice_heal",
+  "awakening",
+  "paralyz_heal",
+  "repel"
+ ],
+ "lavender_town": [
+  "great_ball",
+  "super_potion",
+  "revive",
+  "escape_rope",
+  "super_repel",
+  "antidote",
+  "burn_heal",
+  "ice_heal",
+  "paralyz_heal"
+ ],
+ "saffron_city": [
+  "great_ball",
+  "hyper_potion",
+  "max_repel",
+  "escape_rope",
+  "full_heal",
+  "revive"
+ ],
+ "fuchsia_city": [
+  "ultra_ball",
+  "great_ball",
+  "super_potion",
+  "hyper_potion",
+  "revive",
+  "full_heal",
+  "super_repel"
+ ],
+ "cinnabar_island": [
+  "ultra_ball",
+  "great_ball",
+  "hyper_potion",
+  "max_repel",
+  "escape_rope",
+  "full_heal",
+  "revive"
+ ],
+ "indigo_plateau": [
+  "ultra_ball",
+  "great_ball",
+  "full_restore",
+  "max_potion",
+  "full_heal",
+  "revive",
+  "max_repel"
+ ],
+ "celadon_dept_store": [
+  "great_ball",
+  "super_potion",
+  "revive",
+  "super_repel",
+  "antidote",
+  "burn_heal",
+  "ice_heal",
+  "awakening",
+  "paralyz_heal",
+  "tm32",
+  "tm33",
+  "tm02",
+  "tm07",
+  "tm37",
+  "tm01",
+  "tm05",
+  "tm09",
+  "tm17",
+  "tm13",
+  "tm48",
+  "tm49",
+  "poke_doll",
+  "fire_stone",
+  "thunder_stone",
+  "water_stone",
+  "leaf_stone",
+  "x_accuracy",
+  "guard_spec",
+  "dire_hit",
+  "x_attack",
+  "x_defend",
+  "x_speed",
+  "x_special",
+  "hp_up",
+  "protein",
+  "iron",
+  "carbos",
+  "calcium",
+  "fresh_water",
+  "soda_pop",
+  "lemonade",
+  "moon_stone",
+  "linking_cord"
+ ],
+ "celadon_game_corner_prizes": [
+  {
+   "key": "abra",
+   "kind": "pokemon",
+   "level": 9,
+   "coinPrice": 180
+  },
+  {
+   "key": "clefairy",
+   "kind": "pokemon",
+   "level": 8,
+   "coinPrice": 500
+  },
+  {
+   "key": "nidorina",
+   "kind": "pokemon",
+   "level": 17,
+   "coinPrice": 1200
+  },
+  {
+   "key": "nidorino",
+   "kind": "pokemon",
+   "level": 17,
+   "coinPrice": 1200
+  },
+  {
+   "key": "dratini",
+   "kind": "pokemon",
+   "level": 18,
+   "coinPrice": 2800
+  },
+  {
+   "key": "scyther",
+   "kind": "pokemon",
+   "level": 25,
+   "coinPrice": 5500
+  },
+  {
+   "key": "pinsir",
+   "kind": "pokemon",
+   "level": 25,
+   "coinPrice": 5500
+  },
+  {
+   "key": "porygon",
+   "kind": "pokemon",
+   "level": 26,
+   "coinPrice": 9999
+  },
+  {
+   "key": "tm23",
+   "kind": "item",
+   "coinPrice": 3300
+  },
+  {
+   "key": "tm15",
+   "kind": "item",
+   "coinPrice": 5500
+  },
+  {
+   "key": "tm50",
+   "kind": "item",
+   "coinPrice": 7700
+  }
+ ]
 }

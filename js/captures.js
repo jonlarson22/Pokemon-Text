@@ -1,3 +1,5 @@
+import { safariCatchProbability, safariMoodOf } from './battle.js';
+
 export class CaptureSystem {
   constructor(app) {
     this.app = app;
@@ -10,6 +12,13 @@ export class CaptureSystem {
     const ballItem = this.app.db.items[ballKey];
     const enemy = battle.enemyMon;
     const speciesData = this.app.db.pokemon[enemy.id] || {};
+
+    // Scripted uncatchable encounters (e.g. the ghost Marowak): the ball
+    // is dodged and not consumed.
+    if (battle.uncatchable) {
+      this.app.ui.printToLog(`The ghostly ${enemy.species} dodged the ${ballItem.name}! It can't be caught!`);
+      return;
+    }
 
     // Consume ball from inventory
     this.app.gameState.inventory[ballKey]--;
@@ -35,19 +44,61 @@ export class CaptureSystem {
     catchProbability = Math.min(1.0, Math.max(0.01, catchProbability));
 
     // 3. Shake Checks (4 sequential rolls based on probability)
-    let shakes = 0;
-    const checkShake = () => {
-      if (shakes < 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
-        shakes++;
-        this.app.ui.printToLog("The ball shook...");
-        setTimeout(checkShake, 500);
-      } else if (shakes === 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
-        this.successCapture(enemy, speciesData);
-      } else {
+    this._runShakes(enemy, speciesData, catchProbability,
+      () => this.successCapture(enemy, speciesData),
+      () => {
         this.app.ui.printToLog(`Oh no! ${enemy.species} broke free!`);
         setTimeout(() => {
           this.app.ui.setMenuState('battle');
         }, 500);
+      });
+  }
+
+  // Safari Zone catch: Safari Balls only, no HP weakening, mood modifiers.
+  // On break-free the safari turn continues (flee check); on success the
+  // visit ends if that was the last ball.
+  attemptSafariCatch() {
+    const sb = this.app.gameState.safariBattle;
+    if (!sb) return;
+    const enemy = sb.enemy;
+    const speciesData = this.app.db.pokemon[enemy.id] || {};
+    const catchRate = speciesData.catchRate || enemy.catchRate || 45;
+    const catchProbability = safariCatchProbability(catchRate, safariMoodOf(sb));
+
+    this.app.ui.printToLog("You threw a Safari Ball!");
+    this._runShakes(enemy, speciesData, catchProbability,
+      () => {
+        this.app.gameState.safariBattle = null;
+        this.successCapture(enemy, speciesData);
+        if ((this.app.gameState.safariBalls || 0) <= 0) {
+          setTimeout(() => this.app.battleManager.ejectFromSafari(), 1200);
+        }
+      },
+      () => {
+        this.app.ui.printToLog(`Oh no! The wild ${enemy.species} broke free!`);
+        setTimeout(() => this.app.battleManager.safariEndOfTurn(), 500);
+      });
+  }
+
+  _runShakes(enemy, speciesData, catchProbability, onSuccess, onFail) {
+    // Lock out battle/safari input while the ball is shaking. Without this,
+    // delayed shake callbacks can fire after the player has acted (attacked,
+    // run, or thrown bait), catching a fled/KO'd mon or double-advancing state.
+    this.app.gameState.catchAnimating = true;
+    const done = (fn) => {
+      this.app.gameState.catchAnimating = false;
+      fn();
+    };
+    let shakes = 0;
+    const checkShake = () => {
+      if (shakes < 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
+        shakes++;
+        this.app.ui.printToLog("Shake...");
+        setTimeout(checkShake, 500);
+      } else if (shakes === 3 && Math.random() < Math.pow(catchProbability, 0.25)) {
+        done(onSuccess);
+      } else {
+        done(onFail);
       }
     };
 
@@ -69,6 +120,7 @@ export class CaptureSystem {
       species: enemy.species,
       id: enemy.id,
       level: enemy.level,
+      ivs: enemy.ivs || this.app.factory.generateIVs(),
       hp: enemy.hp,
       maxHp: enemy.maxHp,
       attack: enemy.attack,

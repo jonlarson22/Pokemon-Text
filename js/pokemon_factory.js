@@ -5,6 +5,13 @@ export class PokemonFactory {
     this.engine = engine;
   }
 
+  // Individual Values, 0-31 per stat. Shared by wild generation and captures
+  // so caught Pokémon always carry IVs (growth.js recalculateStats needs them).
+  generateIVs() {
+    const r = () => Math.floor(Math.random() * 32);
+    return { hp: r(), attack: r(), defense: r(), spAtk: r(), spDef: r(), speed: r() };
+  }
+
   generatePokemonInstance(speciesId, level) {
     const safeId = speciesId.toLowerCase(); 
     const baseData = this.engine.db.pokemon[safeId];
@@ -15,14 +22,7 @@ export class PokemonFactory {
     }
 
     // Generate Individual Values (IVs) between 0 and 31
-    const ivs = {
-      hp: Math.floor(Math.random() * 32),
-      attack: Math.floor(Math.random() * 32),
-      defense: Math.floor(Math.random() * 32),
-      spAtk: Math.floor(Math.random() * 32),
-      spDef: Math.floor(Math.random() * 32),
-      speed: Math.floor(Math.random() * 32)
-    };
+    const ivs = this.generateIVs();
 
     const calcStat = (base, iv, lvl, isHP) => {
       if (isHP) return Math.floor(((2 * base + iv) * lvl) / 100) + lvl + 10;
@@ -80,7 +80,7 @@ export class PokemonFactory {
         }
 
         // Clone move object and inject PP tracking
-        return selectedMoves.map(moveId => {
+        let resolved = selectedMoves.map(moveId => {
           const moveDef = this.engine.db.moves[moveId];
           if (!moveDef) return null;
           return {
@@ -89,11 +89,22 @@ export class PokemonFactory {
             pp: moveDef.pp
           };
         }).filter(Boolean);
+
+        // Safety net: never send a Pokemon into battle with zero moves.
+        // Falls back to Tackle until moves.json is fully built out.
+        if (resolved.length === 0 && this.engine.db.moves['tackle']) {
+          const t = this.engine.db.moves['tackle'];
+          resolved = [{ ...t, maxPp: t.pp, pp: t.pp }];
+        }
+        return resolved;
       })(),
       
       // NEW: Apply accurate EXP values
       exp: startExp,
-      maxExp: nextExp
+      maxExp: nextExp,
+      // Bond with the trainer: 0-255, starts at 70 (gen 3 default).
+      // Powers Return/Frustration; +5 per level-up, -2 per faint.
+      friendship: 70
     };
   }
 
@@ -138,8 +149,69 @@ export class PokemonFactory {
         const stage3Map = { 'bulbasaur': 'venusaur', 'charmander': 'charizard', 'squirtle': 'blastoise' };
         mon.species = stage3Map[this.engine.gameState.rivalStarter];
       }
+      // Canon FRLG Silph Co. rival: the two non-starter support mons depend on
+      // the rival's starter (one at 38, one at 35).
+      if (mon.species === "RIVAL_SILPH_EXTRA_A" || mon.species === "RIVAL_SILPH_EXTRA_B") {
+        const silphExtras = {
+          'bulbasaur': { A: ['growlithe', 35], B: ['gyarados', 38] },
+          'charmander': { A: ['exeggcute', 38], B: ['gyarados', 35] },
+          'squirtle': { A: ['exeggcute', 35], B: ['growlithe', 38] },
+        };
+        const slot = mon.species === "RIVAL_SILPH_EXTRA_A" ? 'A' : 'B';
+        const pick = silphExtras[this.engine.gameState.rivalStarter][slot];
+        mon.species = pick[0];
+        mon.level = pick[1];
+      }
+      // Canon RBY Route 22 rematch rival: slots 3-4 depend on the rival's starter
+      // (slots: Pidgeot 47 / Rhyhorn 45 / A(45) / B(47) / Alakazam 50 / starter 53).
+      if (mon.species === "RIVAL_R22_EXTRA_A" || mon.species === "RIVAL_R22_EXTRA_B") {
+        const r22Extras = {
+          'bulbasaur': { A: ['gyarados', 45], B: ['growlithe', 47] },
+          'charmander': { A: ['exeggcute', 45], B: ['gyarados', 47] },
+          'squirtle': { A: ['growlithe', 45], B: ['exeggcute', 47] },
+        };
+        const slot = mon.species === "RIVAL_R22_EXTRA_A" ? 'A' : 'B';
+        const pick = r22Extras[this.engine.gameState.rivalStarter][slot];
+        mon.species = pick[0];
+        mon.level = pick[1];
+      }
+      // Canon RBY champion rival: slots 4-5 depend on the rival's starter
+      // (slots: Pidgeot 61 / Alakazam 59 / Rhydon 61 / A / B / starter 65).
+      if (mon.species === "RIVAL_CHAMP_EXTRA_A" || mon.species === "RIVAL_CHAMP_EXTRA_B") {
+        const champExtras = {
+          'bulbasaur': { A: ['gyarados', 61], B: ['arcanine', 63] },
+          'charmander': { A: ['exeggutor', 61], B: ['gyarados', 63] },
+          'squirtle': { A: ['arcanine', 61], B: ['exeggutor', 63] },
+        };
+        const slot = mon.species === "RIVAL_CHAMP_EXTRA_A" ? 'A' : 'B';
+        const pick = champExtras[this.engine.gameState.rivalStarter][slot];
+        mon.species = pick[0];
+        mon.level = pick[1];
+      }
     });
 
     return trainer;  
+  }
+
+  // Builds full battle-ready party instances for a trainer template,
+  // applying custom movesets when the moves exist in moves.json.
+  // Moves that don't exist yet are skipped so the generated
+  // level-up moves stay intact.
+  generateTrainerParty(trainer) {
+    const moveDb = (this.engine.db && this.engine.db.moves) || {};
+    return (trainer.party || []).map(monData => {
+      const enemyMon = this.generatePokemonInstance(monData.species, monData.level);
+      if (monData.moves && monData.moves.length > 0) {
+        const customMoves = monData.moves.map(moveId => {
+          const moveDef = moveDb[moveId];
+          if (!moveDef) return null;
+          return { ...moveDef, maxPp: moveDef.pp, pp: moveDef.pp };
+        }).filter(Boolean);
+        if (customMoves.length > 0) {
+          enemyMon.moves = customMoves;
+        }
+      }
+      return enemyMon;
+    });
   }
 }

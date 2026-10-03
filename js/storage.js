@@ -1,12 +1,39 @@
+// Bump this when gameState's shape changes in a way old saves can't handle.
+const SAVE_VERSION = 3;
+
 export class StorageManager {
   constructor(game) {
     this.game = game;
     // Centralize the save key so it's easily changeable later
-    this.saveKey = 'pkmnSaveData'; 
+    this.saveKey = 'pkmnSaveData';
+  }
+
+  // Fill in fields that older saves predate so loaded games don't crash.
+  migrateState(state) {
+    if (!state.removedNPCs) state.removedNPCs = {};
+    if (!state.flags) state.flags = {};
+    if (!state.defeatedTrainers) state.defeatedTrainers = {};
+    if (!state.visitedTowns) state.visitedTowns = [];
+    // Name entry (start-screen flow): default old saves to canon names.
+    if (!state.playerName) state.playerName = 'Red';
+    if (!state.rivalName) state.rivalName = 'Blue';
+    // Friendship system (save v2): default old saves to the gen 3 base value.
+    for (const mon of (state.party || [])) {
+      if (mon.friendship === undefined) mon.friendship = 70;
+    }
+    // Game Corner coins (save v3).
+    if (state.coins === undefined) state.coins = 0;
+    if (state.saveVersion !== SAVE_VERSION) {
+      console.warn(`[save] Save version ${state.saveVersion || "unknown"} loaded; current version is ${SAVE_VERSION}. Some things may not work as expected.`);
+      this.game.ui.printToLog("Note: this save is from an older version of the game. Some things may not work as expected.");
+      state.saveVersion = SAVE_VERSION;
+    }
+    return state;
   }
 
   saveLocal() {
     try {
+      this.game.gameState.saveVersion = SAVE_VERSION;
       localStorage.setItem(this.saveKey, JSON.stringify(this.game.gameState));
       this.game.ui.printToLog("Game saved locally!");
     } catch (e) {
@@ -19,7 +46,7 @@ export class StorageManager {
     try {
       const saveString = localStorage.getItem(this.saveKey);
       if (saveString) {
-        this.game.gameState = JSON.parse(saveString);
+        this.game.gameState = this.migrateState(JSON.parse(saveString));
         this.updateUIAfterLoad("Game loaded from local storage!");
       } else {
         this.game.ui.printToLog("No local save found.");
@@ -56,7 +83,7 @@ export class StorageManager {
         const parsedState = JSON.parse(e.target.result);
         // Basic validation to ensure it's actually our save file
         if (parsedState && parsedState.party && parsedState.currentRoute) {
-          this.game.gameState = parsedState;
+          this.game.gameState = this.migrateState(parsedState);
           this.updateUIAfterLoad("Game loaded successfully from file!");
         } else {
           this.game.ui.printToLog("Error: Invalid save file format.");
@@ -72,9 +99,11 @@ export class StorageManager {
 
   // Helper method to refresh the screen state after a load or import
   updateUIAfterLoad(successMessage) {
+    this.game.ui.setHudVisible(true);
     this.game.ui.renderRouteScreen();
     this.game.ui.updatePartyUI();
     this.game.ui.updateMoneyUI();
+    this.game.ui.updateBadgeUI();
     this.game.ui.updatePokedexTrackerUI();
     this.game.ui.setMenuState('route');
     this.game.ui.printToLog(successMessage);

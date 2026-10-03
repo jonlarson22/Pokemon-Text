@@ -1,90 +1,6198 @@
 {
-  "youngster_joey": {
-    "name": "Youngster Joey",
-    "title": "Youngster",
-    "dialogueBefore": "My Rattata is among the top percentage of Rattata!",
-    "dialogueAfter": "Aww, my Rattata...",
-    "rewardMoney": 120,
-    "party": [
-      { "species": "Rattata", "level": 4 }
+ "rival_pallet_1": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "Hey, {player}! Let's check out our Pokémon! Come on, I'll take you on!",
+  "dialogueAfter": "WHAT? Unbelievable! I picked the wrong Pokémon!",
+  "rewardMoney": 175,
+  "party": [
+   {
+    "species": "RIVAL_STARTER",
+    "level": 5
+   }
+  ]
+ },
+ "bug_catcher_rick": {
+  "name": "Rick",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Hey! My bug Pokémon are tough. Care to see?",
+  "dialogueAfter": "Aww, they just weren't strong enough!",
+  "rewardMoney": 60,
+  "party": [
+   {
+    "species": "Weedle",
+    "level": 6
+   },
+   {
+    "species": "Caterpie",
+    "level": 6
+   }
+  ]
+ },
+ "bug_catcher_doug": {
+  "name": "Doug",
+  "title": "Bug Catcher",
+  "dialogueBefore": "You can't escape if you come into the forest!",
+  "dialogueAfter": "You got me! Good strategy!",
+  "rewardMoney": 70,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 7
+   },
+   {
+    "species": "kakuna",
+    "level": 7
+   },
+   {
+    "species": "weedle",
+    "level": 7
+   }
+  ]
+ },
+ "lass_janice": {
+  "name": "Janice",
+  "title": "Lass",
+  "dialogueBefore": "Excuse me! Don't be so impatient, let's battle!",
+  "dialogueAfter": "Oh well! I'll just have to train harder.",
+  "rewardMoney": 135,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 9
+   },
+   {
+    "species": "pidgey",
+    "level": 9
+   }
+  ]
+ },
+ "camper_liam": {
+  "name": "Liam",
+  "title": "Camper",
+  "dialogueBefore": "You'd better have a plan for Brock's rock-hard Pokémon!",
+  "dialogueAfter": "Whoa! You might actually stand a chance against Brock!",
+  "rewardMoney": 220,
+  "party": [
+   {
+    "species": "diglett",
+    "level": 11
+   },
+   {
+    "species": "sandshrew",
+    "level": 11
+   }
+  ]
+ },
+ "brock_gym": {
+  "name": "Brock",
+  "title": "Gym Leader",
+  "dialogueBefore": "I'm Brock! Pewter's Gym Leader! My rock-hard willpower is absolute!",
+  "dialogueAfter": "It's an amazing feeling... You're stronger than I expected. Take this Boulder Badge!",
+  "rewardMoney": 1386,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 12,
+    "moves": [
+     "tackle"
     ]
-  },
-  "rival_pallet_1": {
-    "name": "Rival",
-    "title": "Pokémon Trainer",
-    "dialogueBefore": "Wait! Let's check out our Pokémon! I'll take you on!",
-    "dialogueAfter": "WHAT? Unbelievable! I picked the wrong Pokémon!",
-    "rewardMoney": 175,
-    "party": [
-      { "species": "RIVAL_STARTER", "level": 5 }
+   },
+   {
+    "species": "onix",
+    "level": 14,
+    "moves": [
+     "tackle"
     ]
-  },
-  "bug_catcher_rick": {
-    "name": "Rick",
-    "title": "Bug Catcher",
-    "dialogueBefore": "Hey! My bug Pokémon are tough. Care to see?",
-    "dialogueAfter": "Aww, they just weren't strong enough!",
-    "rewardMoney": 160,
-    "party": [
-      { "species": "Weedle", "level": 6 },
-      { "species": "Caterpie", "level": 6 }
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "boulder_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm34",
+    "qty": 1
+   }
+  ],
+  "items": [
+   "potion"
+  ],
+  "clearsRouteTrainers": true
+ },
+ "swimmer_mira": {
+  "name": "Mira",
+  "title": "Swimmer",
+  "dialogueBefore": "The water's fine... for my Pokémon, anyway!",
+  "dialogueAfter": "Blub... blub... You swim better than I thought.",
+  "rewardMoney": 80,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 16
+   },
+   {
+    "species": "shellder",
+    "level": 16
+   }
+  ]
+ },
+ "picnicker_diana": {
+  "name": "Diana",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "Misty taught me everything I know about water Pokémon!",
+  "dialogueAfter": "You're as graceful as a Goldeen in battle!",
+  "rewardMoney": 380,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 19
+   }
+  ]
+ },
+ "misty_gym": {
+  "name": "Misty",
+  "title": "Gym Leader",
+  "dialogueBefore": "Hi, you're a new face! Trainers who want to turn me down have to show me in a battle!",
+  "dialogueAfter": "Wow! You're too much! All right! Take the Cascade Badge!",
+  "rewardMoney": 2079,
+  "party": [
+   {
+    "species": "staryu",
+    "level": 18,
+    "moves": [
+     "tackle",
+     "water_gun"
     ]
-  },
-  "bug_catcher_doug": {
-    "name": "Doug",
-    "title": "Bug Catcher",
-    "dialogueBefore": "You can't escape if you come into the forest!",
-    "dialogueAfter": "You got me! Good strategy!",
-    "rewardMoney": 180,
-    "party": [
-      { "species": "Weedle", "level": 7 },
-      { "species": "Kakuna", "level": 7 }
+   },
+   {
+    "species": "starmie",
+    "level": 21,
+    "moves": [
+     "tackle",
+     "water_gun"
     ]
-  },
-  "bug_catcher_don": {
-    "name": "Don",
-    "title": "Bug Catcher",
-    "dialogueBefore": "Hey! Catching bugs is what life is all about!",
-    "dialogueAfter": "My bugs... they need more training!",
-    "rewardMoney": 200,
-    "party": [
-      { "species": "Caterpie", "level": 10 },
-      { "species": "Metapod", "level": 10 },
-      { "species": "Caterpie", "level": 10 }
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "cascade_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm11",
+    "qty": 1
+   }
+  ],
+  "items": [
+   "potion",
+   "super_potion"
+  ],
+  "clearsRouteTrainers": true
+ },
+ "gentleman_tucker": {
+  "name": "Tucker",
+  "title": "Gentleman",
+  "dialogueBefore": "A gentleman never backs down from an electrifying battle!",
+  "dialogueAfter": "Quite shocking! Most stimulating, old chap!",
+  "rewardMoney": 1610,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 23
+   }
+  ]
+ },
+ "rocker_biff": {
+  "name": "Biff",
+  "title": "Rocker",
+  "dialogueBefore": "Time to turn the voltage up to eleven!",
+  "dialogueAfter": "You blew my amp! ...I mean, my team!",
+  "rewardMoney": 500,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 20
+   },
+   {
+    "species": "magnemite",
+    "level": 20
+   },
+   {
+    "species": "voltorb",
+    "level": 20
+   }
+  ]
+ },
+ "sailor_dwayne": {
+  "name": "Dwayne",
+  "title": "Sailor",
+  "dialogueBefore": "These electric-types have weathered every storm at sea!",
+  "dialogueAfter": "Blown off course! You're a strong trainer!",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 21
+   },
+   {
+    "species": "pikachu",
+    "level": 21
+   }
+  ]
+ },
+ "surge_gym": {
+  "name": "Lt. Surge",
+  "title": "Gym Leader",
+  "dialogueBefore": "Hey, kid! What do you think you're doing here? You won't live long in combat! That's for sure!",
+  "dialogueAfter": "Whoa! You're the real deal, kid! Take the Thunder Badge!",
+  "rewardMoney": 2376,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 21,
+    "moves": [
+     "tackle"
     ]
-  },
-  "lass_janice": {
-    "name": "Janice",
-    "title": "Lass",
-    "dialogueBefore": "Excuse me! Don't be so impatient, let's battle!",
-    "dialogueAfter": "Oh well! I'll just have to train harder.",
-    "rewardMoney": 240,
-    "party": [
-      { "species": "Pidgey", "level": 9 },
-      { "species": "Nidoran♀", "level": 9 }
+   },
+   {
+    "species": "pikachu",
+    "level": 18,
+    "moves": [
+     "quick_attack"
     ]
-  },
-  "pewter_gym_camper_liam": {
-    "name": "Camper Liam",
-    "title": "Camper",
-    "dialogueBefore": "Stop right there! You're gonna have to get past me to challenge Brock!",
-    "dialogueAfter": "Darn! You're tougher than you look.",
-    "rewardMoney": 240,
-    "party": [
-      { "species": "Diglett", "level": 10 },
-      { "species": "Sandshrew", "level": 11 }
+   },
+   {
+    "species": "raichu",
+    "level": 24,
+    "moves": [
+     "quick_attack"
     ]
-  },
-    "leader_brock": {
-      "name": "Brock",
-      "title": "Gym Leader",
-      "dialogueBefore": "I'm Brock! Pewter's Gym Leader! My rock-hard willpower is absolute!",
-      "dialogueAfter": "It's an amazing feeling... You're stronger than I expected.",
-      "rewardMoney": 1400,
-      "items": ["potion"],
-      "party": [
-        { "species": "Geodude", "level": 12, "moves": ["tackle", "defense_curl"]},
-        { "species": "Onix", "level": 14, "moves": ["tackle", "screech", "rock_tomb", "bind"]}
-      ]
-    }
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "thunder_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm24",
+    "qty": 1
+   }
+  ],
+  "items": [
+   "super_potion",
+   "super_potion"
+  ],
+  "clearsRouteTrainers": true
+ },
+ "giovanni_gym": {
+  "name": "Giovanni",
+  "title": "Gym Leader",
+  "dialogueBefore": "{player}! So you made it to my Gym. I am the leader here. You dare challenge me? You are a fool!",
+  "dialogueAfter": "Ha! That was a truly intense fight, {player}. You have won! Take the Earth Badge!",
+  "rewardMoney": 4950,
+  "party": [
+   {
+    "species": "rhyhorn",
+    "level": 45,
+    "moves": [
+     "tackle"
+    ]
+   },
+   {
+    "species": "dugtrio",
+    "level": 42,
+    "moves": [
+     "scratch"
+    ]
+   },
+   {
+    "species": "nidoqueen",
+    "level": 44,
+    "moves": [
+     "tackle"
+    ]
+   },
+   {
+    "species": "nidoking",
+    "level": 45,
+    "moves": [
+     "tackle"
+    ]
+   },
+   {
+    "species": "rhydon",
+    "level": 50,
+    "moves": [
+     "tackle"
+    ]
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "earth_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm27",
+    "qty": 1
+   }
+  ],
+  "items": [
+   "full_restore",
+   "full_restore"
+  ],
+  "clearsRouteTrainers": true
+ },
+ "lass_ali": {
+  "name": "Ali",
+  "title": "Lass",
+  "dialogueBefore": "Nugget Bridge is no place for the unprepared!",
+  "dialogueAfter": "Okay, okay! You're prepared!",
+  "rewardMoney": 210,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 14
+   },
+   {
+    "species": "nidoran_f",
+    "level": 14
+   }
+  ]
+ },
+ "team_rocket_nugget_grunt": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "Hey, kid! Want to join Team Rocket? ...No? Then battle me!",
+  "dialogueAfter": "Tch! Fine, take this Nugget and get lost!",
+  "rewardMoney": 390,
+  "party": [
+   {
+    "species": "ekans",
+    "level": 13
+   },
+   {
+    "species": "zubat",
+    "level": 13
+   }
+  ],
+  "rewards": [
+   {
+    "type": "item",
+    "id": "nugget",
+    "qty": 1
+   }
+  ]
+ },
+ "hiker_franklin": {
+  "name": "Franklin",
+  "title": "Hiker",
+  "dialogueBefore": "These trails forged my Pokémon into stone!",
+  "dialogueAfter": "Rock solid effort, kid!",
+  "rewardMoney": 455,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 13
+   },
+   {
+    "species": "geodude",
+    "level": 13
+   },
+   {
+    "species": "geodude",
+    "level": 13
+   },
+   {
+    "species": "machop",
+    "level": 13
+   }
+  ]
+ },
+ "youngster_dillon": {
+  "name": "Dillon",
+  "title": "Youngster",
+  "dialogueBefore": "Bill's cottage is just ahead, but first... battle!",
+  "dialogueAfter": "Aw, I wanted to show Bill my Pokémon!",
+  "rewardMoney": 225,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 15
+   },
+   {
+    "species": "spearow",
+    "level": 15
+   }
+  ]
+ },
+ "lass_haley": {
+  "name": "Haley",
+  "title": "Lass",
+  "dialogueBefore": "I came to see Bill, but I'll battle you instead!",
+  "dialogueAfter": "You're way stronger than the rumors said!",
+  "rewardMoney": 195,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 13
+   },
+   {
+    "species": "pidgey",
+    "level": 13
+   },
+   {
+    "species": "oddish",
+    "level": 13
+   }
+  ]
+ },
+ "hiker_marcos": {
+  "name": "Marcos",
+  "title": "Hiker",
+  "dialogueBefore": "Careful in these caves, kid. Let me test your footing!",
+  "dialogueAfter": "Steady... You're steadier than me!",
+  "rewardMoney": 350,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 10
+   },
+   {
+    "species": "geodude",
+    "level": 10
+   },
+   {
+    "species": "onix",
+    "level": 10
+   }
+  ]
+ },
+ "bug_catcher_kent": {
+  "name": "Kent",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Cave bugs are the toughest bugs!",
+  "dialogueAfter": "Even cave bugs have limits...",
+  "rewardMoney": 110,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 11
+   },
+   {
+    "species": "kakuna",
+    "level": 11
+   }
+  ]
+ },
+ "team_rocket_grunt_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "We're digging for fossils! Beat it, kid!",
+  "dialogueAfter": "Our fossil scheme... ruined!",
+  "rewardMoney": 390,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 13
+   },
+   {
+    "species": "zubat",
+    "level": 13
+   }
+  ]
+ },
+ "super_nerd_miguel": {
+  "name": "Miguel",
+  "title": "Super Nerd",
+  "dialogueBefore": "Halt! These fossils belong to Team Rocket!",
+  "dialogueAfter": "Blast it all! The fossils!",
+  "rewardMoney": 300,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 12
+   },
+   {
+    "species": "voltorb",
+    "level": 12
+   },
+   {
+    "species": "koffing",
+    "level": 12
+   }
+  ]
+ },
+ "rival_cerulean": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "Hey, {player}! Still struggling? Let me show you how a real trainer battles!",
+  "dialogueAfter": "What?! I had a type advantage! ...This isn't over!",
+  "rewardMoney": 1105,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 18
+   },
+   {
+    "species": "abra",
+    "level": 15
+   },
+   {
+    "species": "rattata",
+    "level": 15
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_2",
+    "level": 17
+   }
+  ]
+ },
+ "erika_gym": {
+  "name": "Erika",
+  "title": "Gym Leader",
+  "dialogueBefore": "[DRAFT] Ah, a challenger. I am Erika, the Nature-Loving Princess. Let my Grass Pokémon show you their beauty!",
+  "dialogueAfter": "[DRAFT] Oh! I concede defeat... You are truly a skilled trainer. Take the Rainbow Badge.",
+  "rewardMoney": 2871,
+  "party": [
+   {
+    "species": "victreebel",
+    "level": 29,
+    "moves": [
+     {
+      "moveId": "razor_leaf"
+     },
+     {
+      "moveId": "sleep_powder"
+     },
+     {
+      "moveId": "stun_spore"
+     },
+     {
+      "moveId": "acid"
+     }
+    ]
+   },
+   {
+    "species": "tangela",
+    "level": 24,
+    "moves": [
+     {
+      "moveId": "constrict"
+     },
+     {
+      "moveId": "bind"
+     },
+     {
+      "moveId": "mega_drain"
+     },
+     {
+      "moveId": "stun_spore"
+     }
+    ]
+   },
+   {
+    "species": "vileplume",
+    "level": 29,
+    "moves": [
+     {
+      "moveId": "petal_dance"
+     },
+     {
+      "moveId": "sleep_powder"
+     },
+     {
+      "moveId": "acid"
+     },
+     {
+      "moveId": "mega_drain"
+     }
+    ]
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "rainbow_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm21",
+    "qty": 1
+   }
+  ],
+  "clearsRouteTrainers": true
+ },
+ "koga_gym": {
+  "name": "Koga",
+  "title": "Gym Leader",
+  "dialogueBefore": "[DRAFT] I am Koga, master of the Fuchsia Gym! My ninja techniques will poison your every move! Fwahahaha!",
+  "dialogueAfter": "[DRAFT] Ah! You have proven your worth! Take the Soul Badge -- and TM06, containing TOXIC. You have earned them, ninja!",
+  "rewardMoney": 4257,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 37,
+    "moves": [
+     {
+      "moveId": "tackle"
+     },
+     {
+      "moveId": "smokescreen"
+     },
+     {
+      "moveId": "sludge"
+     },
+     {
+      "moveId": "smog"
+     }
+    ]
+   },
+   {
+    "species": "koffing",
+    "level": 37,
+    "moves": [
+     {
+      "moveId": "tackle"
+     },
+     {
+      "moveId": "sludge"
+     },
+     {
+      "moveId": "smog"
+     },
+     {
+      "moveId": "smokescreen"
+     }
+    ]
+   },
+   {
+    "species": "muk",
+    "level": 39,
+    "moves": [
+     {
+      "moveId": "disable"
+     },
+     {
+      "moveId": "poison_gas"
+     },
+     {
+      "moveId": "minimize"
+     },
+     {
+      "moveId": "sludge"
+     }
+    ]
+   },
+   {
+    "species": "weezing",
+    "level": 43,
+    "moves": [
+     {
+      "moveId": "sludge"
+     },
+     {
+      "moveId": "smog"
+     },
+     {
+      "moveId": "toxic"
+     },
+     {
+      "moveId": "self_destruct"
+     }
+    ]
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "soul_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm06",
+    "qty": 1
+   },
+   {
+    "type": "flag",
+    "id": "obtained_hm03"
+   }
+  ],
+  "clearsRouteTrainers": true
+ },
+ "sabrina_gym": {
+  "name": "Sabrina",
+  "title": "Gym Leader",
+  "dialogueBefore": "[DRAFT] I am Sabrina, Saffron's Gym Leader! My psychic power is unmatched. Prepare to have your mind read... and your team crushed!",
+  "dialogueAfter": "[DRAFT] I... lost? My visions never showed this! Take the Marsh Badge. You have a remarkable mind, trainer.",
+  "rewardMoney": 4257,
+  "party": [
+   {
+    "species": "kadabra",
+    "level": 38,
+    "moves": [
+     {
+      "moveId": "psybeam"
+     },
+     {
+      "moveId": "recover"
+     },
+     {
+      "moveId": "psychic"
+     },
+     {
+      "moveId": "disable"
+     }
+    ]
+   },
+   {
+    "species": "mr_mime",
+    "level": 37,
+    "moves": [
+     {
+      "moveId": "confusion"
+     },
+     {
+      "moveId": "barrier"
+     },
+     {
+      "moveId": "light_screen"
+     },
+     {
+      "moveId": "double_slap"
+     }
+    ]
+   },
+   {
+    "species": "venomoth",
+    "level": 38,
+    "moves": [
+     {
+      "moveId": "psybeam"
+     },
+     {
+      "moveId": "leech_life"
+     },
+     {
+      "moveId": "stun_spore"
+     },
+     {
+      "moveId": "poison_powder"
+     }
+    ]
+   },
+   {
+    "species": "alakazam",
+    "level": 43,
+    "moves": [
+     {
+      "moveId": "psybeam"
+     },
+     {
+      "moveId": "recover"
+     },
+     {
+      "moveId": "psywave"
+     },
+     {
+      "moveId": "reflect"
+     }
+    ]
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "marsh_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm46",
+    "qty": 1
+   }
+  ],
+  "clearsRouteTrainers": true
+ },
+ "super_nerd_erik": {
+  "name": "Erik",
+  "title": "Super Nerd",
+  "dialogueBefore": "My calculations say fire beats everything! Let me demonstrate!",
+  "dialogueAfter": "My calculations failed to account for you!",
+  "rewardMoney": 900,
+  "party": [
+   {
+    "species": "vulpix",
+    "level": 36
+   },
+   {
+    "species": "vulpix",
+    "level": 36
+   },
+   {
+    "species": "ninetales",
+    "level": 36
+   }
+  ]
+ },
+ "burglar_ramon": {
+  "name": "Ramon",
+  "title": "Burglar",
+  "dialogueBefore": "I'll steal this victory right from under you!",
+  "dialogueAfter": "You've robbed me of my win!",
+  "rewardMoney": 3240,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 36
+   },
+   {
+    "species": "vulpix",
+    "level": 36
+   },
+   {
+    "species": "ninetales",
+    "level": 36
+   }
+  ]
+ },
+ "super_nerd_dusty": {
+  "name": "Dusty",
+  "title": "Super Nerd",
+  "dialogueBefore": "Did you know? Fire Pokémon's body temperature exceeds 900 degrees!",
+  "dialogueAfter": "My trivia couldn't save me!",
+  "rewardMoney": 850,
+  "party": [
+   {
+    "species": "ponyta",
+    "level": 34
+   },
+   {
+    "species": "charmander",
+    "level": 34
+   },
+   {
+    "species": "vulpix",
+    "level": 34
+   },
+   {
+    "species": "growlithe",
+    "level": 34
+   }
+  ]
+ },
+ "burglar_arnie": {
+  "name": "Arnie",
+  "title": "Burglar",
+  "dialogueBefore": "This gym is a quiz and a battle! Hope you studied!",
+  "dialogueAfter": "You passed with flying colors!",
+  "rewardMoney": 3690,
+  "party": [
+   {
+    "species": "ponyta",
+    "level": 41
+   }
+  ]
+ },
+ "super_nerd_zack": {
+  "name": "Zack",
+  "title": "Super Nerd",
+  "dialogueBefore": "Blaine's riddles are nothing compared to his Pokémon!",
+  "dialogueAfter": "Riddle me this: how did I lose?!",
+  "rewardMoney": 1025,
+  "party": [
+   {
+    "species": "rapidash",
+    "level": 41
+   }
+  ]
+ },
+ "burglar_dusty": {
+  "name": "Dusty",
+  "title": "Burglar",
+  "dialogueBefore": "No, not that Dusty. I'm the burglar one! Battle me!",
+  "dialogueAfter": "Wrong Dusty to mess with, huh?",
+  "rewardMoney": 3330,
+  "party": [
+   {
+    "species": "vulpix",
+    "level": 37
+   },
+   {
+    "species": "growlithe",
+    "level": 37
+   }
+  ]
+ },
+ "super_nerd_bryan": {
+  "name": "Bryan",
+  "title": "Super Nerd",
+  "dialogueBefore": "I'm Blaine's last line of defense! My data is flawless!",
+  "dialogueAfter": "Flawless... except for this result!",
+  "rewardMoney": 925,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 37
+   },
+   {
+    "species": "vulpix",
+    "level": 37
+   }
+  ]
+ },
+ "blaine_gym": {
+  "name": "Blaine",
+  "title": "Gym Leader",
+  "dialogueBefore": "Hah! I am Blaine! I am the Leader of the Cinnabar Gym! My fiery Pokémon will incinerate all challengers!",
+  "dialogueAfter": "I have burned down to nothing! Not even ashes remain! You have earned the Volcano Badge!",
+  "rewardMoney": 4653,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 42,
+    "moves": [
+     "ember"
+    ]
+   },
+   {
+    "species": "ponyta",
+    "level": 40,
+    "moves": [
+     "ember"
+    ]
+   },
+   {
+    "species": "rapidash",
+    "level": 42,
+    "moves": [
+     "ember"
+    ]
+   },
+   {
+    "species": "arcanine",
+    "level": 47,
+    "moves": [
+     "ember"
+    ]
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "volcano_badge"
+   },
+   {
+    "type": "item",
+    "id": "tm38",
+    "qty": 1
+   }
+  ],
+  "items": [
+   "full_restore",
+   "full_restore"
+  ],
+  "clearsRouteTrainers": true
+ },
+ "bug_catcher_colton": {
+  "name": "Colton",
+  "title": "Bug Catcher",
+  "dialogueBefore": "My Bug Pokémon are the best! Let me show you!",
+  "dialogueAfter": "My bugs... defeated?",
+  "rewardMoney": 100,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 10
+   },
+   {
+    "species": "weedle",
+    "level": 10
+   },
+   {
+    "species": "caterpie",
+    "level": 10
+   }
+  ]
+ },
+ "youngster_ben": {
+  "name": "Ben",
+  "title": "Youngster",
+  "dialogueBefore": "I'm going to be the greatest trainer ever!",
+  "dialogueAfter": "You're pretty strong, I guess!",
+  "rewardMoney": 165,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 11
+   },
+   {
+    "species": "ekans",
+    "level": 11
+   }
+  ]
+ },
+ "bug_catcher_greg": {
+  "name": "Greg",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Bugs are so cool, don't you think?",
+  "dialogueAfter": "Aw, my beautiful bugs...",
+  "rewardMoney": 90,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 9
+   },
+   {
+    "species": "kakuna",
+    "level": 9
+   },
+   {
+    "species": "caterpie",
+    "level": 9
+   },
+   {
+    "species": "metapod",
+    "level": 9
+   }
+  ]
+ },
+ "youngster_calvin": {
+  "name": "Calvin",
+  "title": "Youngster",
+  "dialogueBefore": "My Spearow is super fast! You can't hit it!",
+  "dialogueAfter": "Too fast for me, I guess.",
+  "rewardMoney": 210,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 14
+   }
+  ]
+ },
+ "lass_sally": {
+  "name": "Sally",
+  "title": "Lass",
+  "dialogueBefore": "Want to see my cute Pokémon?",
+  "dialogueAfter": "They're still cute even though we lost!",
+  "rewardMoney": 150,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 10
+   },
+   {
+    "species": "nidoran_m",
+    "level": 10
+   }
+  ]
+ },
+ "bug_catcher_james": {
+  "name": "James",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Check out my well-raised Bug Pokémon!",
+  "dialogueAfter": "My training wasn't enough...",
+  "rewardMoney": 110,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 11
+   },
+   {
+    "species": "metapod",
+    "level": 11
+   }
+  ]
+ },
+ "lass_robin": {
+  "name": "Robin",
+  "title": "Lass",
+  "dialogueBefore": "My Jigglypuff's song will put you right to sleep!",
+  "dialogueAfter": "You stayed awake?!",
+  "rewardMoney": 210,
+  "party": [
+   {
+    "species": "jigglypuff",
+    "level": 14
+   }
+  ]
+ },
+ "bug_catcher_sammy": {
+  "name": "Sammy",
+  "title": "Bug Catcher",
+  "dialogueBefore": "I'm the toughest Bug Catcher in this forest!",
+  "dialogueAfter": "You're tougher...",
+  "rewardMoney": 90,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 9
+   }
+  ]
+ },
+ "lass_iris": {
+  "name": "Iris",
+  "title": "Lass",
+  "dialogueBefore": "Isn't my Clefairy just adorable?",
+  "dialogueAfter": "Adorable and strong would be better...",
+  "rewardMoney": 210,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 14
+   }
+  ]
+ },
+ "super_nerd_jovan": {
+  "name": "Jovan",
+  "title": "Super Nerd",
+  "dialogueBefore": "My Electric Pokémon will shock you!",
+  "dialogueAfter": "My calculations were wrong!",
+  "rewardMoney": 275,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 11
+   },
+   {
+    "species": "voltorb",
+    "level": 11
+   }
+  ]
+ },
+ "bug_catcher_robby": {
+  "name": "Robby",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Bug Pokémon thrive in caves too!",
+  "dialogueAfter": "Even in a cave, I lose...",
+  "rewardMoney": 100,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 10
+   },
+   {
+    "species": "metapod",
+    "level": 10
+   },
+   {
+    "species": "caterpie",
+    "level": 10
+   }
+  ]
+ },
+ "team_rocket_grunt_mt_moon_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "Team Rocket is after the Moon Stone!",
+  "dialogueAfter": "Blast it all!",
+  "rewardMoney": 360,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 12
+   },
+   {
+    "species": "ekans",
+    "level": 12
+   }
+  ]
+ },
+ "team_rocket_grunt_mt_moon_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "No kids allowed down here!",
+  "dialogueAfter": "A kid beat me?!",
+  "rewardMoney": 480,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 16
+   }
+  ]
+ },
+ "team_rocket_grunt_mt_moon_4": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "This cave belongs to Team Rocket!",
+  "dialogueAfter": "Tch! Blast it all!",
+  "rewardMoney": 330,
+  "party": [
+   {
+    "species": "sandshrew",
+    "level": 11
+   },
+   {
+    "species": "rattata",
+    "level": 11
+   },
+   {
+    "species": "zubat",
+    "level": 11
+   }
+  ]
+ },
+ "lass_miriam": {
+  "name": "Miriam",
+  "title": "Lass",
+  "dialogueBefore": "I'm looking for a Moon Stone too!",
+  "dialogueAfter": "Did you find one?",
+  "rewardMoney": 165,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 11
+   },
+   {
+    "species": "bellsprout",
+    "level": 11
+   }
+  ]
+ },
+ "youngster_josh": {
+  "name": "Josh",
+  "title": "Youngster",
+  "dialogueBefore": "I got lost in this cave!",
+  "dialogueAfter": "Can you show me the way out?",
+  "rewardMoney": 150,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 10
+   },
+   {
+    "species": "rattata",
+    "level": 10
+   },
+   {
+    "species": "zubat",
+    "level": 10
+   }
+  ]
+ },
+ "lass_reli": {
+  "name": "Reli",
+  "title": "Lass",
+  "dialogueBefore": "My Pokémon and I are the best pair!",
+  "dialogueAfter": "We need more training!",
+  "rewardMoney": 240,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 16
+   },
+   {
+    "species": "nidoran_f",
+    "level": 16
+   }
+  ]
+ },
+ "camper_ethan": {
+  "name": "Ethan",
+  "title": "Camper",
+  "dialogueBefore": "I caught this Mankey in the forest!",
+  "dialogueAfter": "Mankey, we lost...",
+  "rewardMoney": 360,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 18
+   }
+  ]
+ },
+ "bug_catcher_keigo": {
+  "name": "Keigo",
+  "title": "Bug Catcher",
+  "dialogueBefore": "Have you seen my friend Elijah?",
+  "dialogueAfter": "Elijah's bugs are stronger...",
+  "rewardMoney": 160,
+  "party": [
+   {
+    "species": "weedle",
+    "level": 16
+   },
+   {
+    "species": "caterpie",
+    "level": 16
+   },
+   {
+    "species": "weedle",
+    "level": 16
+   }
+  ]
+ },
+ "picnicker_nancy": {
+  "name": "Nancy",
+  "title": "Picnicker",
+  "dialogueBefore": "Pikachu is so cute, isn't it?",
+  "dialogueAfter": "Cute isn't everything...",
+  "rewardMoney": 320,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 16
+   },
+   {
+    "species": "pikachu",
+    "level": 16
+   }
+  ]
+ },
+ "picnicker_isabelle": {
+  "name": "Isabelle",
+  "title": "Picnicker",
+  "dialogueBefore": "My Pidgeys fly in formation!",
+  "dialogueAfter": "Our formation broke...",
+  "rewardMoney": 320,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 16
+   },
+   {
+    "species": "pidgey",
+    "level": 16
+   },
+   {
+    "species": "pidgey",
+    "level": 16
+   }
+  ]
+ },
+ "camper_jeff": {
+  "name": "Jeff",
+  "title": "Camper",
+  "dialogueBefore": "I train by camping out here!",
+  "dialogueAfter": "Back to training!",
+  "rewardMoney": 320,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 16
+   },
+   {
+    "species": "raticate",
+    "level": 16
+   }
+  ]
+ },
+ "bug_catcher_cale": {
+  "name": "Cale",
+  "title": "Bug Catcher",
+  "dialogueBefore": "This bridge is the perfect place to show off my Bug Pokémon!",
+  "dialogueAfter": "My bugs weren't strong enough...",
+  "rewardMoney": 140,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 14
+   },
+   {
+    "species": "weedle",
+    "level": 14
+   }
+  ]
+ },
+ "youngster_timmy": {
+  "name": "Timmy",
+  "title": "Youngster",
+  "dialogueBefore": "I'm the toughest kid on this bridge!",
+  "dialogueAfter": "You're tougher...",
+  "rewardMoney": 210,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 14
+   },
+   {
+    "species": "ekans",
+    "level": 14
+   },
+   {
+    "species": "zubat",
+    "level": 14
+   }
+  ]
+ },
+ "rival_route22": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Yo, {player}! Heading to the Pokémon League? You need Badges to get through! Let's see if you're even worth my time!",
+  "dialogueAfter": "[DRAFT] Hmph! Lucky! Train harder if you want to face me again!",
+  "rewardMoney": 280,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 9
+   },
+   {
+    "species": "RIVAL_STARTER",
+    "level": 8
+   }
+  ]
+ },
+ "camper_shane": {
+  "name": "Shane",
+  "title": "Camper",
+  "dialogueBefore": "[DRAFT] I'm training in the tall grass, away from the bridge crowds!",
+  "dialogueAfter": "[DRAFT] Strong... maybe I should train on the bridge instead.",
+  "rewardMoney": 280,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 14
+   },
+   {
+    "species": "ekans",
+    "level": 14
+   }
+  ]
+ },
+ "ss_anne_gentleman_thomas": {
+  "name": "Thomas",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] A cruise is the perfect place to show off my prized Growlithes!",
+  "dialogueAfter": "[DRAFT] Magnificent... you have quite the eye for battle.",
+  "rewardMoney": 1260,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 18
+   },
+   {
+    "species": "growlithe",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_gentleman_arthur": {
+  "name": "Arthur",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] My Nidoran pair are raised on the finest imported feed!",
+  "dialogueAfter": "[DRAFT] Hmph. Perhaps I should switch to domestic feed.",
+  "rewardMoney": 1330,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 19
+   },
+   {
+    "species": "nidoran_f",
+    "level": 19
+   }
+  ]
+ },
+ "ss_anne_lass_1f": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] Isn't the sea breeze just wonderful? My Pokémon think so too!",
+  "dialogueAfter": "[DRAFT] The breeze wasn't on my side today...",
+  "rewardMoney": 270,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 18
+   },
+   {
+    "species": "nidoran_f",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_youngster_1f": {
+  "name": "Youngster",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] I'm gonna be the toughest sailor on this ship! Starting with you!",
+  "dialogueAfter": "[DRAFT] ...Maybe I'll stick to swabbing decks.",
+  "rewardMoney": 315,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 21
+   }
+  ]
+ },
+ "ss_anne_sailor_trevor": {
+  "name": "Trevor",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] All hands on deck! That means you too, challenger!",
+  "dialogueAfter": "[DRAFT] Batten down the hatches... I've been outmaneuvered.",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "machop",
+    "level": 17
+   },
+   {
+    "species": "tentacool",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_edmond": {
+  "name": "Edmond",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] I've wrestled storm waves bigger than you! Let's battle!",
+  "dialogueAfter": "[DRAFT] Shiver me timbers... what a thrashing.",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "machop",
+    "level": 18
+   },
+   {
+    "species": "shellder",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_fisherman_barny": {
+  "name": "Barny",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] I fish Pokémon straight off the side of this ship! Care to test my catch?",
+  "dialogueAfter": "[DRAFT] Threw back a winner there... you fight like a riptide.",
+  "rewardMoney": 595,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 17
+   },
+   {
+    "species": "staryu",
+    "level": 17
+   },
+   {
+    "species": "shellder",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_phillip": {
+  "name": "Phillip",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] My Machop hauls cargo all day. It'll haul you off this deck too!",
+  "dialogueAfter": "[DRAFT] Cargo... dropped.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "machop",
+    "level": 20
+   }
+  ]
+ },
+ "ss_anne_sailor_huey": {
+  "name": "Huey",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] These waters are lousy with Tentacool. Want a demonstration?",
+  "dialogueAfter": "[DRAFT] Lousy with strong trainers too, apparently.",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 18
+   },
+   {
+    "species": "staryu",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_sailor_dylan": {
+  "name": "Dylan",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] Horsea, Horsea, Horsea! Three times the seahorse, three times the trouble!",
+  "dialogueAfter": "[DRAFT] Outnumbered and still outmatched...",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 17
+   },
+   {
+    "species": "horsea",
+    "level": 17
+   },
+   {
+    "species": "horsea",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_duncan": {
+  "name": "Duncan",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] I swabbed these decks with champions before breakfast. You're next!",
+  "dialogueAfter": "[DRAFT] Swabbed... right off the deck myself.",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 17
+   },
+   {
+    "species": "shellder",
+    "level": 17
+   },
+   {
+    "species": "tentacool",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_sailor_leonard": {
+  "name": "Leonard",
+  "title": "Sailor",
+  "dialogueBefore": "[DRAFT] My Shellder's shell has never been cracked. Try your luck!",
+  "dialogueAfter": "[DRAFT] Cracked... on the first try, even.",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "shellder",
+    "level": 21
+   }
+  ]
+ },
+ "ss_anne_fisherman_dale": {
+  "name": "Dale",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] Goldeen, Tentacool, Goldeen! The sea provides, kid!",
+  "dialogueAfter": "[DRAFT] The sea provides... winners, and it ain't me.",
+  "rewardMoney": 595,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 17
+   },
+   {
+    "species": "tentacool",
+    "level": 17
+   },
+   {
+    "species": "goldeen",
+    "level": 17
+   }
+  ]
+ },
+ "ss_anne_gentleman_brooks": {
+  "name": "Brooks",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] Behold! My Pikachu, raised on the finest voyage across the seven seas!",
+  "dialogueAfter": "[DRAFT] Zapped... by a landlubber, no less.",
+  "rewardMoney": 1610,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 23
+   }
+  ]
+ },
+ "ss_anne_lass_dawn": {
+  "name": "Dawn",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] My Rattata and Pikachu are the cutest duo on this ship! Fight us!",
+  "dialogueAfter": "[DRAFT] Cute doesn't win battles, huh...",
+  "rewardMoney": 270,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 18
+   },
+   {
+    "species": "pikachu",
+    "level": 18
+   }
+  ]
+ },
+ "ss_anne_gentleman_lamar": {
+  "name": "Lamar",
+  "title": "Gentleman",
+  "dialogueBefore": "[DRAFT] A gentleman never refuses a battle. My Growlithe and Ponyta insist!",
+  "dialogueAfter": "[DRAFT] Outclassed. Most ungentlemanly of me.",
+  "rewardMoney": 1190,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 17
+   },
+   {
+    "species": "ponyta",
+    "level": 17
+   }
+  ]
+ },
+ "rival_ss_anne": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Yo, {player}! I heard about the party on this ship and came to crash it! Let's see how much stronger I've gotten!",
+  "dialogueAfter": "[DRAFT] Hmph! You just lucked out! I'm heading to the captain's cabin... don't follow me!",
+  "rewardMoney": 1300,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 19
+   },
+   {
+    "species": "raticate",
+    "level": 16
+   },
+   {
+    "species": "kadabra",
+    "level": 18
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_2",
+    "level": 20
+   }
+  ]
+ },
+ "route9_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Pokémon are cute, but they pack a punch!",
+  "dialogueAfter": "[DRAFT] Your Pokémon are stronger than they look...",
+  "rewardMoney": 360,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 18
+   },
+   {
+    "species": "bellsprout",
+    "level": 18
+   },
+   {
+    "species": "oddish",
+    "level": 18
+   },
+   {
+    "species": "bellsprout",
+    "level": 18
+   }
+  ]
+ },
+ "route9_hiker_1": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] The mountain air makes my Pokémon tough!",
+  "dialogueAfter": "[DRAFT] Tough... just like the mountain.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "machop",
+    "level": 20
+   },
+   {
+    "species": "onix",
+    "level": 20
+   }
+  ]
+ },
+ "route9_jr_trainer_2": {
+  "name": "Jr. Trainer 2",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Fire types are the best! Feel the heat!",
+  "dialogueAfter": "[DRAFT] Burned out...",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 21
+   },
+   {
+    "species": "charmander",
+    "level": 21
+   }
+  ]
+ },
+ "route9_bug_catcher_1": {
+  "name": "Bug Catcher",
+  "title": "Bug Catcher",
+  "dialogueBefore": "[DRAFT] My Beedrill's Twineedle never misses!",
+  "dialogueAfter": "[DRAFT] Buzz... I lost.",
+  "rewardMoney": 190,
+  "party": [
+   {
+    "species": "beedrill",
+    "level": 19
+   },
+   {
+    "species": "beedrill",
+    "level": 19
+   }
+  ]
+ },
+ "route9_hiker_2": {
+  "name": "Hiker 2",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Watch out for falling rocks! And my Pokémon!",
+  "dialogueAfter": "[DRAFT] Rock slide...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "onix",
+    "level": 21
+   }
+  ]
+ },
+ "route9_bug_catcher_2": {
+  "name": "Bug Catcher 2",
+  "title": "Bug Catcher",
+  "dialogueBefore": "[DRAFT] Bugs are the strongest in numbers!",
+  "dialogueAfter": "[DRAFT] Squashed...",
+  "rewardMoney": 200,
+  "party": [
+   {
+    "species": "caterpie",
+    "level": 20
+   },
+   {
+    "species": "weedle",
+    "level": 20
+   },
+   {
+    "species": "venonat",
+    "level": 20
+   }
+  ]
+ },
+ "route9_jr_trainer_3": {
+  "name": "Jr. Trainer 3",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] I train all kinds of Pokémon!",
+  "dialogueAfter": "[DRAFT] So many types, still lost...",
+  "rewardMoney": 380,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "diglett",
+    "level": 19
+   },
+   {
+    "species": "ekans",
+    "level": 19
+   },
+   {
+    "species": "sandshrew",
+    "level": 19
+   }
+  ]
+ },
+ "route9_hiker_3": {
+  "name": "Hiker 3",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] These trails are my gym!",
+  "dialogueAfter": "[DRAFT] I need to train harder.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 20
+   },
+   {
+    "species": "machop",
+    "level": 20
+   },
+   {
+    "species": "geodude",
+    "level": 20
+   }
+  ]
+ },
+ "route9_jr_trainer_4": {
+  "name": "Jr. Trainer 4",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Meowth brings me luck!",
+  "dialogueAfter": "[DRAFT] My luck ran out...",
+  "rewardMoney": 460,
+  "party": [
+   {
+    "species": "meowth",
+    "level": 23
+   }
+  ]
+ },
+ "route10_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] The Power Plant makes the air tingle!",
+  "dialogueAfter": "[DRAFT] What a shock...",
+  "rewardMoney": 400,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 20
+   },
+   {
+    "species": "clefairy",
+    "level": 20
+   }
+  ]
+ },
+ "route10_jr_trainer_2": {
+  "name": "Jr. Trainer 2",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My birds rule these skies!",
+  "dialogueAfter": "[DRAFT] Clipped wings...",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 21
+   },
+   {
+    "species": "pidgeotto",
+    "level": 21
+   }
+  ]
+ },
+ "route10_hiker_1": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Rock Tunnel ahead! My Pokémon know every stone!",
+  "dialogueAfter": "[DRAFT] Stoned...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "onix",
+    "level": 21
+   }
+  ]
+ },
+ "route10_hiker_2": {
+  "name": "Hiker 2",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Rolling stones gather no moss!",
+  "dialogueAfter": "[DRAFT] I got rolled over.",
+  "rewardMoney": 665,
+  "party": [
+   {
+    "species": "onix",
+    "level": 19
+   },
+   {
+    "species": "graveler",
+    "level": 19
+   }
+  ]
+ },
+ "route10_pokemaniac_1": {
+  "name": "Pokémaniac",
+  "title": "Pokémaniac",
+  "dialogueBefore": "[DRAFT] Rare Pokémon are my obsession!",
+  "dialogueAfter": "[DRAFT] My collection is incomplete...",
+  "rewardMoney": 1000,
+  "party": [
+   {
+    "species": "cubone",
+    "level": 20
+   },
+   {
+    "species": "slowpoke",
+    "level": 20
+   }
+  ]
+ },
+ "route10_pokemaniac_2": {
+  "name": "Pokémaniac 2",
+  "title": "Pokémaniac",
+  "dialogueBefore": "[DRAFT] Something amazing sleeps inside the Power Plant!",
+  "dialogueAfter": "[DRAFT] Not amazing enough, apparently.",
+  "rewardMoney": 1500,
+  "party": [
+   {
+    "species": "rhyhorn",
+    "level": 30
+   },
+   {
+    "species": "lickitung",
+    "level": 30
+   }
+  ]
+ },
+ "route11_gambler_1": {
+  "name": "Gambler",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] I bet my Pokémon can beat yours!",
+  "dialogueAfter": "[DRAFT] Lost the bet...",
+  "rewardMoney": 1260,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 18
+   },
+   {
+    "species": "horsea",
+    "level": 18
+   }
+  ]
+ },
+ "route11_youngster_1": {
+  "name": "Youngster",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] My Ekans is super fast!",
+  "dialogueAfter": "[DRAFT] Not fast enough!",
+  "rewardMoney": 315,
+  "party": [
+   {
+    "species": "ekans",
+    "level": 21
+   }
+  ]
+ },
+ "route11_youngster_2": {
+  "name": "Youngster 2",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] Two Pokémon are better than one!",
+  "dialogueAfter": "[DRAFT] Double trouble for me!",
+  "rewardMoney": 285,
+  "party": [
+   {
+    "species": "sandshrew",
+    "level": 19
+   },
+   {
+    "species": "zubat",
+    "level": 19
+   }
+  ]
+ },
+ "route11_youngster_3": {
+  "name": "Youngster 3",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] Nidoran are the coolest!",
+  "dialogueAfter": "[DRAFT] Not cool enough...",
+  "rewardMoney": 270,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 18
+   },
+   {
+    "species": "nidorino",
+    "level": 18
+   }
+  ]
+ },
+ "route11_gambler_2": {
+  "name": "Gambler 2",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] Double or nothing!",
+  "dialogueAfter": "[DRAFT] Nothing it is...",
+  "rewardMoney": 1260,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 18
+   },
+   {
+    "species": "oddish",
+    "level": 18
+   }
+  ]
+ },
+ "route11_gambler_3": {
+  "name": "Gambler 3",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] Feeling lucky? You shouldn't!",
+  "dialogueAfter": "[DRAFT] My luck turned!",
+  "rewardMoney": 1260,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 18
+   },
+   {
+    "species": "vulpix",
+    "level": 18
+   }
+  ]
+ },
+ "route11_engineer_1": {
+  "name": "Engineer",
+  "title": "Engineer",
+  "dialogueBefore": "[DRAFT] My Magnemite runs on pure voltage!",
+  "dialogueAfter": "[DRAFT] Short circuit...",
+  "rewardMoney": 1050,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 21
+   }
+  ]
+ },
+ "route11_youngster_4": {
+  "name": "Youngster 4",
+  "title": "Youngster",
+  "dialogueBefore": "[DRAFT] My Rattata gang never loses!",
+  "dialogueAfter": "[DRAFT] The gang got scattered!",
+  "rewardMoney": 255,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 17
+   },
+   {
+    "species": "rattata",
+    "level": 17
+   },
+   {
+    "species": "raticate",
+    "level": 17
+   }
+  ]
+ },
+ "route11_gambler_4": {
+  "name": "Gambler 4",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] High voltage, high stakes!",
+  "dialogueAfter": "[DRAFT] I'm all out of stakes.",
+  "rewardMoney": 1260,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 18
+   },
+   {
+    "species": "magnemite",
+    "level": 18
+   }
+  ]
+ },
+ "route11_engineer_2": {
+  "name": "Engineer 2",
+  "title": "Engineer",
+  "dialogueBefore": "[DRAFT] The Power Plant is my second home!",
+  "dialogueAfter": "[DRAFT] Power outage!",
+  "rewardMoney": 900,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 18
+   },
+   {
+    "species": "magnemite",
+    "level": 18
+   },
+   {
+    "species": "magneton",
+    "level": 18
+   }
+  ]
+ },
+ "route12_fisherman_1": {
+  "name": "Fisherman",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] I just caught these! They're still fresh!",
+  "dialogueAfter": "[DRAFT] They slipped away...",
+  "rewardMoney": 770,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 22
+   },
+   {
+    "species": "poliwag",
+    "level": 22
+   },
+   {
+    "species": "goldeen",
+    "level": 22
+   }
+  ]
+ },
+ "route12_fisherman_2": {
+  "name": "Fisherman 2",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] The sea provides!",
+  "dialogueAfter": "[DRAFT] The sea took them back...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 24
+   },
+   {
+    "species": "goldeen",
+    "level": 24
+   }
+  ]
+ },
+ "route12_fisherman_3": {
+  "name": "Fisherman 3",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] One perfect Goldeen is all I need!",
+  "dialogueAfter": "[DRAFT] Not so perfect...",
+  "rewardMoney": 945,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 27
+   }
+  ]
+ },
+ "route12_fisherman_4": {
+  "name": "Fisherman 4",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] Four catches, four wins!",
+  "dialogueAfter": "[DRAFT] Four losses...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 21
+   },
+   {
+    "species": "shellder",
+    "level": 21
+   },
+   {
+    "species": "goldeen",
+    "level": 21
+   },
+   {
+    "species": "horsea",
+    "level": 21
+   }
+  ]
+ },
+ "route12_rocker_1": {
+  "name": "Rocker",
+  "title": "Rocker",
+  "dialogueBefore": "[DRAFT] My music is electric, baby!",
+  "dialogueAfter": "[DRAFT] The crowd goes silent...",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 29
+   },
+   {
+    "species": "electrode",
+    "level": 29
+   }
+  ]
+ },
+ "route12_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] I've been training by the bridge for years!",
+  "dialogueAfter": "[DRAFT] Years wasted!",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "nidoran_m",
+    "level": 29
+   },
+   {
+    "species": "nidorino",
+    "level": 29
+   }
+  ]
+ },
+ "route12_fisherman_5": {
+  "name": "Fisherman 5",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT] Magikarp are the true kings of the sea!",
+  "dialogueAfter": "[DRAFT] Dethroned...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "magikarp",
+    "level": 24
+   },
+   {
+    "species": "magikarp",
+    "level": 24
+   }
+  ]
+ },
+ "rocktunnel1f_pokemaniac_1": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] Cubone... Slowpoke... don't you just love them all?",
+  "dialogueAfter": "[DRAFT] My collection... defeated...",
+  "rewardMoney": 1150,
+  "party": [
+   {
+    "species": "cubone",
+    "level": 23
+   },
+   {
+    "species": "slowpoke",
+    "level": 23
+   }
+  ]
+ },
+ "rocktunnel1f_hiker_1": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Watch out! This tunnel's full of rough customers!",
+  "dialogueAfter": "[DRAFT] Oof... you're rougher than all of them.",
+  "rewardMoney": 665,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 19
+   },
+   {
+    "species": "machop",
+    "level": 19
+   },
+   {
+    "species": "geodude",
+    "level": 19
+   },
+   {
+    "species": "geodude",
+    "level": 19
+   }
+  ]
+ },
+ "rocktunnel1f_hiker_2": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Nobody gets past my rock-solid blockade without a battle!",
+  "dialogueAfter": "[DRAFT] Hmph. Blockade... busted.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "onix",
+    "level": 20
+   },
+   {
+    "species": "onix",
+    "level": 20
+   },
+   {
+    "species": "geodude",
+    "level": 20
+   }
+  ]
+ },
+ "rocktunnel1f_hiker_3": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] You want down? Then go through ME first!",
+  "dialogueAfter": "[DRAFT] Through you go, then...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "graveler",
+    "level": 21
+   }
+  ]
+ },
+ "rocktunnel1f_jr_trainer_f_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] It's dark in here... battle me so I forget I'm scared!",
+  "dialogueAfter": "[DRAFT] That was scary-exciting!",
+  "rewardMoney": 440,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 22
+   },
+   {
+    "species": "clefairy",
+    "level": 22
+   }
+  ]
+ },
+ "rocktunnel1f_jr_trainer_f_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] I got lost in here ages ago. Battle me while I wait for rescue!",
+  "dialogueAfter": "[DRAFT] Still lost... but at least I'm entertained.",
+  "rewardMoney": 380,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 19
+   },
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "bellsprout",
+    "level": 19
+   }
+  ]
+ },
+ "rocktunnel1f_jr_trainer_f_3": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Shh! The echoes in here give away my position... FIGHT ME!",
+  "dialogueAfter": "[DRAFT] Echo... echo... I lost...",
+  "rewardMoney": 400,
+  "party": [
+   {
+    "species": "meowth",
+    "level": 20
+   },
+   {
+    "species": "oddish",
+    "level": 20
+   },
+   {
+    "species": "pidgey",
+    "level": 20
+   }
+  ]
+ },
+ "rocktunnelb1f_pokemaniac_1": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] Slowpoke... so slow... so perfect. Battle me! Or don't. Whatever.",
+  "dialogueAfter": "[DRAFT] Yaaawn... you win...",
+  "rewardMoney": 1250,
+  "party": [
+   {
+    "species": "slowpoke",
+    "level": 25
+   }
+  ]
+ },
+ "rocktunnelb1f_jr_trainer_f_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Grass Pokémon glow a little in the dark! Pretty, huh?",
+  "dialogueAfter": "[DRAFT] They're still pretty, even beaten...",
+  "rewardMoney": 440,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 22
+   },
+   {
+    "species": "bulbasaur",
+    "level": 22
+   }
+  ]
+ },
+ "rocktunnelb1f_pokemaniac_2": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] A Charmander AND a Cubone! Behold my prized pair!",
+  "dialogueAfter": "[DRAFT] My prized pair... prized no more.",
+  "rewardMoney": 1100,
+  "party": [
+   {
+    "species": "charmander",
+    "level": 22
+   },
+   {
+    "species": "cubone",
+    "level": 22
+   }
+  ]
+ },
+ "rocktunnelb1f_hiker_4": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] This tunnel's MY turf! You want through, you battle!",
+  "dialogueAfter": "[DRAFT] My turf... your tunnel now.",
+  "rewardMoney": 875,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 25
+   }
+  ]
+ },
+ "rocktunnelb1f_hiker_5": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Heh! Another traveler to test my mountain muscles on!",
+  "dialogueAfter": "[DRAFT] Muscles... crushed...",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "machop",
+    "level": 20
+   },
+   {
+    "species": "onix",
+    "level": 20
+   }
+  ]
+ },
+ "rocktunnelb1f_jr_trainer_f_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Jigglypuff's singing echoes forever down here! Listen... FIGHT!",
+  "dialogueAfter": "[DRAFT] The echo faded... so did I.",
+  "rewardMoney": 420,
+  "party": [
+   {
+    "species": "jigglypuff",
+    "level": 21
+   },
+   {
+    "species": "pidgey",
+    "level": 21
+   },
+   {
+    "species": "meowth",
+    "level": 21
+   }
+  ]
+ },
+ "rocktunnelb1f_hiker_6": {
+  "name": "Hiker",
+  "title": "Hiker",
+  "dialogueBefore": "[DRAFT] Rock hard! That's me! And my Pokémon!",
+  "dialogueAfter": "[DRAFT] Cracked... I'm cracked...",
+  "rewardMoney": 735,
+  "party": [
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "geodude",
+    "level": 21
+   },
+   {
+    "species": "graveler",
+    "level": 21
+   }
+  ]
+ },
+ "rocktunnelb1f_pokemaniac_3": {
+  "name": "PokéManiac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT] One Slowpoke is bliss. THREE Slowpoke is paradise!",
+  "dialogueAfter": "[DRAFT] Paradise... lost...",
+  "rewardMoney": 1000,
+  "party": [
+   {
+    "species": "slowpoke",
+    "level": 20
+   },
+   {
+    "species": "slowpoke",
+    "level": 20
+   },
+   {
+    "species": "slowpoke",
+    "level": 20
+   }
+  ]
+ },
+ "tower_channeler_1": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Give... me... your... soul...",
+  "dialogueAfter": "[DRAFT] My soul... taken...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 23
+   }
+  ]
+ },
+ "tower_channeler_2": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The dead speak through me! Battle!",
+  "dialogueAfter": "[DRAFT] They've gone silent...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_3": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] I sense a restless spirit clinging to you!",
+  "dialogueAfter": "[DRAFT] It has moved on...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_channeler_4": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Two spirits guard my soul! Face them!",
+  "dialogueAfter": "[DRAFT] Both... exorcised...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 23
+   },
+   {
+    "species": "gastly",
+    "level": 23
+   }
+  ]
+ },
+ "tower_channeler_5": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] This tower is a sacred resting place. Prove your respect!",
+  "dialogueAfter": "[DRAFT] Respect... shown...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_6": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The veil between worlds is thin here...",
+  "dialogueAfter": "[DRAFT] The veil... mends...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_rival": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Well, well, {player}. Come to pay respects too? Or are you just here to gawk at ghosts?",
+  "dialogueAfter": "[DRAFT] Tch. Even the dead couldn't carry you to a win.",
+  "rewardMoney": 1430,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 25
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_2",
+    "level": 25
+   },
+   {
+    "species": "kadabra",
+    "level": 20
+   },
+   {
+    "species": "gyarados",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_7": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Higher we climb, heavier the air grows...",
+  "dialogueAfter": "[DRAFT] Lighter... now...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_8": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] My HAUNTER feeds on fear! Show me yours!",
+  "dialogueAfter": "[DRAFT] It hungers... still...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 23
+   }
+  ]
+ },
+ "tower_channeler_9": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Shh... can you hear them whispering?",
+  "dialogueAfter": "[DRAFT] Only... silence...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_channeler_10": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The spirits demand a tribute... of battle!",
+  "dialogueAfter": "[DRAFT] Tribute... accepted...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_11": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] A trio of lost souls follows me everywhere!",
+  "dialogueAfter": "[DRAFT] They've found... peace...",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 22
+   },
+   {
+    "species": "gastly",
+    "level": 22
+   },
+   {
+    "species": "gastly",
+    "level": 22
+   }
+  ]
+ },
+ "tower_channeler_12": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] Something terrible lurks above... Turn back!",
+  "dialogueAfter": "[DRAFT] You... persist...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_channeler_13": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "dialogueBefore": "[DRAFT] The MAROWAK's ghost screams for its child! Feel its rage!",
+  "dialogueAfter": "[DRAFT] Rage... quieted...",
+  "rewardMoney": 720,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 24
+   }
+  ]
+ },
+ "tower_rocket_1": {
+  "name": "Team Rocket",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Heh! This old man's Pokémon are ours, kid. Scram!",
+  "dialogueAfter": "[DRAFT] Grr... The boss won't like this...",
+  "rewardMoney": 750,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 25
+   },
+   {
+    "species": "zubat",
+    "level": 25
+   },
+   {
+    "species": "golbat",
+    "level": 25
+   }
+  ]
+ },
+ "tower_rocket_2": {
+  "name": "Team Rocket",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] We're stealing Cubone skulls! You got a problem with that?!",
+  "dialogueAfter": "[DRAFT] Our operation... ruined...",
+  "rewardMoney": 780,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 26
+   },
+   {
+    "species": "drowzee",
+    "level": 26
+   }
+  ]
+ },
+ "tower_rocket_3": {
+  "name": "Team Rocket",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Intruder! Nobody gets past TEAM ROCKET!",
+  "dialogueAfter": "[DRAFT] How... how did you...",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 23
+   },
+   {
+    "species": "rattata",
+    "level": 23
+   },
+   {
+    "species": "raticate",
+    "level": 23
+   },
+   {
+    "species": "zubat",
+    "level": 23
+   }
+  ]
+ },
+ "route8_lass_1": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] My CLEFAIRY are the cutest! Battle us!",
+  "dialogueAfter": "[DRAFT] Cute... and defeated...",
+  "rewardMoney": 330,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 22
+   },
+   {
+    "species": "clefairy",
+    "level": 22
+   }
+  ]
+ },
+ "route8_gambler_1": {
+  "name": "Gambler",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] Heh, kid. Care to make this battle interesting?",
+  "dialogueAfter": "[DRAFT] My wallet... lighter...",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 24
+   },
+   {
+    "species": "vulpix",
+    "level": 24
+   }
+  ]
+ },
+ "route8_super_nerd_1": {
+  "name": "Super Nerd",
+  "title": "Super Nerd",
+  "dialogueBefore": "[DRAFT] My Poison Pokémon are a triumph of science!",
+  "dialogueAfter": "[DRAFT] Science... fails...",
+  "rewardMoney": 550,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 22
+   },
+   {
+    "species": "muk",
+    "level": 22
+   },
+   {
+    "species": "grimer",
+    "level": 22
+   }
+  ]
+ },
+ "route8_lass_2": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] NIDORAN are so elegant, don't you think?",
+  "dialogueAfter": "[DRAFT] Elegance... wasn't enough...",
+  "rewardMoney": 345,
+  "party": [
+   {
+    "species": "nidoran_f",
+    "level": 23
+   },
+   {
+    "species": "nidorina",
+    "level": 23
+   }
+  ]
+ },
+ "route8_super_nerd_2": {
+  "name": "Super Nerd",
+  "title": "Super Nerd",
+  "dialogueBefore": "[DRAFT] Behold! My KOFFING's toxic potential!",
+  "dialogueAfter": "[DRAFT] Toxic... to my pride...",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 26
+   }
+  ]
+ },
+ "route8_lass_3": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] Three MEOWTH are three times the charm!",
+  "dialogueAfter": "[DRAFT] Charmed... I'm sure...",
+  "rewardMoney": 360,
+  "party": [
+   {
+    "species": "meowth",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   }
+  ]
+ },
+ "route8_lass_4": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] I couldn't pick just one Pokémon, so I brought them all!",
+  "dialogueAfter": "[DRAFT] Too many... choices...",
+  "rewardMoney": 285,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 19
+   },
+   {
+    "species": "rattata",
+    "level": 19
+   },
+   {
+    "species": "nidoran_m",
+    "level": 19
+   },
+   {
+    "species": "meowth",
+    "level": 19
+   },
+   {
+    "species": "pikachu",
+    "level": 19
+   }
+  ]
+ },
+ "route8_gambler_2": {
+  "name": "Gambler",
+  "title": "Gambler",
+  "dialogueBefore": "[DRAFT] The odds favor the bold, kid!",
+  "dialogueAfter": "[DRAFT] The odds... betrayed me...",
+  "rewardMoney": 1540,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 22
+   },
+   {
+    "species": "poliwag",
+    "level": 22
+   },
+   {
+    "species": "poliwhirl",
+    "level": 22
+   }
+  ]
+ },
+ "route8_super_nerd_3": {
+  "name": "Super Nerd",
+  "title": "Super Nerd",
+  "dialogueBefore": "[DRAFT] Electric and Poison: the future of battling!",
+  "dialogueAfter": "[DRAFT] The future... is delayed...",
+  "rewardMoney": 500,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 20
+   },
+   {
+    "species": "koffing",
+    "level": 20
+   },
+   {
+    "species": "voltorb",
+    "level": 20
+   },
+   {
+    "species": "magnemite",
+    "level": 20
+   }
+  ]
+ },
+ "celadon_lass_1": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] The flowers here bloom so beautifully!",
+  "dialogueAfter": "[DRAFT] Wilted...",
+  "rewardMoney": 345,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 23
+   },
+   {
+    "species": "weepinbell",
+    "level": 23
+   }
+  ]
+ },
+ "celadon_beauty_1": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Aren't my Pokémon simply gorgeous?",
+  "dialogueAfter": "[DRAFT] Gorgeous... and beaten...",
+  "rewardMoney": 1470,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 21
+   },
+   {
+    "species": "bellsprout",
+    "level": 21
+   },
+   {
+    "species": "oddish",
+    "level": 21
+   },
+   {
+    "species": "bellsprout",
+    "level": 21
+   }
+  ]
+ },
+ "celadon_beauty_2": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Beauty is power, darling!",
+  "dialogueAfter": "[DRAFT] Power... faded...",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 24
+   },
+   {
+    "species": "bellsprout",
+    "level": 24
+   }
+  ]
+ },
+ "celadon_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Erika taught me everything about Grass Pokémon!",
+  "dialogueAfter": "[DRAFT] I still have much to learn...",
+  "rewardMoney": 480,
+  "party": [
+   {
+    "species": "bulbasaur",
+    "level": 24
+   },
+   {
+    "species": "ivysaur",
+    "level": 24
+   }
+  ]
+ },
+ "celadon_beauty_3": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] My EXEGGCUTE never loses its charm!",
+  "dialogueAfter": "[DRAFT] Charm... cracked...",
+  "rewardMoney": 1820,
+  "party": [
+   {
+    "species": "exeggcute",
+    "level": 26
+   }
+  ]
+ },
+ "celadon_cooltrainer_1": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] I've mastered Grass types. Let's see if you have!",
+  "dialogueAfter": "[DRAFT] Mastered... almost...",
+  "rewardMoney": 840,
+  "party": [
+   {
+    "species": "weepinbell",
+    "level": 24
+   },
+   {
+    "species": "gloom",
+    "level": 24
+   },
+   {
+    "species": "ivysaur",
+    "level": 24
+   }
+  ]
+ },
+ "celadon_lass_2": {
+  "name": "Lass",
+  "title": "Lass",
+  "dialogueBefore": "[DRAFT] This gym smells like a garden, doesn't it?",
+  "dialogueAfter": "[DRAFT] A... thorny garden...",
+  "rewardMoney": 345,
+  "party": [
+   {
+    "species": "oddish",
+    "level": 23
+   },
+   {
+    "species": "gloom",
+    "level": 23
+   }
+  ]
+ },
+ "gamecorner_rocket_grunt": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Hey! I'm guarding this poster! Go away, or else!",
+  "dialogueAfter": "[DRAFT] Urgh... Team Rocket's hideout might be discovered! I'd better tell the boss!",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 20
+   },
+   {
+    "species": "zubat",
+    "level": 20
+   }
+  ]
+ },
+ "hideout_giovanni": {
+  "name": "Giovanni",
+  "title": "Team Rocket Boss",
+  "dialogueBefore": "[DRAFT] So! I am Giovanni, leader of Team Rocket! You dare trespass in MY hideout? Then I will crush you myself!",
+  "dialogueAfter": "[DRAFT] Unbelievable... Very well. Take this Silph Scope and be gone. But know this: Team Rocket will never fall! (Giovanni slips away into the shadows.)",
+  "rewardMoney": 2871,
+  "party": [
+   {
+    "species": "onix",
+    "level": 25
+   },
+   {
+    "species": "rhyhorn",
+    "level": 24
+   },
+   {
+    "species": "kangaskhan",
+    "level": 29
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "obtained_silph_scope"
+   }
+  ]
+ },
+ "hideout_rocket_b1f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Halt! Nobody gets past me to the lower floors!",
+  "dialogueAfter": "[DRAFT] Argh... you're tougher than you look. Go on, then...",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 21
+   },
+   {
+    "species": "machop",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b1f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] This stairwell is Team Rocket territory, kid!",
+  "dialogueAfter": "[DRAFT] My Raticates... beaten... The boss will hear of this!",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 21
+   },
+   {
+    "species": "raticate",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b1f_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Eww, you saw our secret base! Now I HAVE to battle you!",
+  "dialogueAfter": "[DRAFT] Gross... even my Grimer is embarrassed.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 20
+   },
+   {
+    "species": "koffing",
+    "level": 20
+   },
+   {
+    "species": "koffing",
+    "level": 20
+   }
+  ]
+ },
+ "hideout_rocket_b1f_4": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] A whole team against one kid? Heh, I like those odds!",
+  "dialogueAfter": "[DRAFT] Okay, okay! Maybe not those odds...",
+  "rewardMoney": 510,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 17
+   },
+   {
+    "species": "koffing",
+    "level": 17
+   },
+   {
+    "species": "grimer",
+    "level": 17
+   },
+   {
+    "species": "zubat",
+    "level": 17
+   },
+   {
+    "species": "raticate",
+    "level": 17
+   }
+  ]
+ },
+ "hideout_rocket_b2f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] The office is off limits! Turn around, kid!",
+  "dialogueAfter": "[DRAFT] Gah! My Machops... Go on, the boss will finish you!",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "machop",
+    "level": 21
+   },
+   {
+    "species": "machop",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b2f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] You want the boss? You'll have to go through me first!",
+  "dialogueAfter": "[DRAFT] Cough... I can't believe I lost...",
+  "rewardMoney": 630,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 21
+   },
+   {
+    "species": "zubat",
+    "level": 21
+   }
+  ]
+ },
+ "hideout_rocket_b2f_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] Intruder! Sound the alarm! ...Fine, I'll just battle you myself!",
+  "dialogueAfter": "[DRAFT] The alarm was a bluff. Please don't tell the boss.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 20
+   },
+   {
+    "species": "raticate",
+    "level": 20
+   },
+   {
+    "species": "drowzee",
+    "level": 20
+   }
+  ]
+ },
+ "hideout_rocket_b2f_4": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT] I'm Giovanni's personal guard! My team is the strongest in the hideout!",
+  "dialogueAfter": "[DRAFT] The strongest... except against you, apparently.",
+  "rewardMoney": 690,
+  "party": [
+   {
+    "species": "sandshrew",
+    "level": 23
+   },
+   {
+    "species": "ekans",
+    "level": 23
+   },
+   {
+    "species": "sandslash",
+    "level": 23
+   }
+  ]
+ },
+ "saffron_psychic_1": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 330,
+  "party": [
+   {
+    "species": "slowpoke",
+    "level": 33
+   },
+   {
+    "species": "slowpoke",
+    "level": 33
+   },
+   {
+    "species": "slowbro",
+    "level": 33
+   }
+  ]
+ },
+ "saffron_psychic_2": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 340,
+  "party": [
+   {
+    "species": "mr_mime",
+    "level": 34
+   },
+   {
+    "species": "kadabra",
+    "level": 34
+   }
+  ]
+ },
+ "saffron_channeler_1": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "rewardMoney": 1140,
+  "party": [
+   {
+    "species": "haunter",
+    "level": 38
+   }
+  ]
+ },
+ "saffron_psychic_3": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 380,
+  "party": [
+   {
+    "species": "slowbro",
+    "level": 38
+   }
+  ]
+ },
+ "saffron_channeler_2": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "rewardMoney": 1020,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 34
+   },
+   {
+    "species": "haunter",
+    "level": 34
+   }
+  ]
+ },
+ "saffron_channeler_3": {
+  "name": "Channeler",
+  "title": "Channeler",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 33
+   },
+   {
+    "species": "gastly",
+    "level": 33
+   },
+   {
+    "species": "haunter",
+    "level": 33
+   }
+  ]
+ },
+ "saffron_psychic_4": {
+  "name": "Psychic",
+  "title": "Psychic",
+  "rewardMoney": 310,
+  "party": [
+   {
+    "species": "kadabra",
+    "level": 31
+   },
+   {
+    "species": "slowpoke",
+    "level": 31
+   },
+   {
+    "species": "mr_mime",
+    "level": 31
+   },
+   {
+    "species": "kadabra",
+    "level": 31
+   }
+  ]
+ },
+ "dojo_blackbelt_1": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 800,
+  "party": [
+   {
+    "species": "machop",
+    "level": 32
+   },
+   {
+    "species": "machoke",
+    "level": 32
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Hiyah! My fighting spirit burns! Let's battle!",
+  "dialogueAfter": "[DRAFT] Urgh... your spirit burns brighter..."
+ },
+ "dojo_blackbelt_2": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 775,
+  "party": [
+   {
+    "species": "machop",
+    "level": 31
+   },
+   {
+    "species": "mankey",
+    "level": 31
+   },
+   {
+    "species": "primeape",
+    "level": 31
+   }
+  ],
+  "dialogueBefore": "[DRAFT] I've trained my body to the limit! You can't win!",
+  "dialogueAfter": "[DRAFT] My training... was not enough..."
+ },
+ "dojo_blackbelt_3": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 775,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 31
+   },
+   {
+    "species": "mankey",
+    "level": 31
+   },
+   {
+    "species": "primeape",
+    "level": 31
+   }
+  ],
+  "dialogueBefore": "[DRAFT] A true fighter never backs down! Come on!",
+  "dialogueAfter": "[DRAFT] Hmph! Strong... very strong..."
+ },
+ "dojo_blackbelt_4": {
+  "name": "Black Belt",
+  "title": "Black Belt",
+  "rewardMoney": 900,
+  "party": [
+   {
+    "species": "primeape",
+    "level": 36
+   }
+  ],
+  "dialogueBefore": "[DRAFT] My Primeape and I are one! Feel our fury!",
+  "dialogueAfter": "[DRAFT] Defeated... by a mere child..."
+ },
+ "dojo_koichi": {
+  "name": "Koichi",
+  "title": "Karate Master",
+  "dialogueBefore": "[DRAFT] Yo! Champ in the making! I am Koichi, the Karate Master! My Hitmonchan and Hitmonlee will show you true fighting spirit!",
+  "dialogueAfter": "[DRAFT] Magnificent! You have bested the Karate Master himself! Take these two Pokémon -- Hitmonlee AND Hitmonchan -- as proof of your strength!",
+  "rewardMoney": 925,
+  "party": [
+   {
+    "species": "hitmonchan",
+    "level": 37
+   },
+   {
+    "species": "hitmonlee",
+    "level": 37
+   }
+  ],
+  "rewards": [
+   {
+    "type": "pokemon",
+    "species": "hitmonlee",
+    "level": 30
+   },
+   {
+    "type": "pokemon",
+    "species": "hitmonchan",
+    "level": 30
+   }
+  ],
+  "clearsRouteTrainers": true
+ },
+ "silph_rocket_2f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] This floor belongs to Team Rocket! Scram!",
+  "dialogueAfter": "[DRAFT] Grr... go on up. You'll never make it past the others!"
+ },
+ "silph_rocket_2f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 33
+   },
+   {
+    "species": "koffing",
+    "level": 33
+   },
+   {
+    "species": "koffing",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Koffing! Gas attack, go!",
+  "dialogueAfter": "[DRAFT] Cough... my eyes..."
+ },
+ "silph_scientist_2f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 1750,
+  "party": [
+   {
+    "species": "electabuzz",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] My Electabuzz research will not be interrupted!",
+  "dialogueAfter": "[DRAFT] Fascinating... your battle data is remarkable..."
+ },
+ "silph_scientist_2f_2": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 1750,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Team Rocket pays better than Silph ever did!",
+  "dialogueAfter": "[DRAFT] Traitor? Me? Never!"
+ },
+ "silph_rocket_3f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "zubat",
+    "level": 33
+   },
+   {
+    "species": "golbat",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] The stairs are closed! By order of Team Rocket!",
+  "dialogueAfter": "[DRAFT] Fine! Climb all you want! The boss will crush you!"
+ },
+ "silph_rocket_3f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 33
+   },
+   {
+    "species": "voltorb",
+    "level": 33
+   },
+   {
+    "species": "voltorb",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Intruder alert! Voltorb squad, roll out!",
+  "dialogueAfter": "[DRAFT] They rolled... right over me..."
+ },
+ "silph_scientist_3f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 1750,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 35
+   },
+   {
+    "species": "magneton",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Hmm, a test subject! Let's see how you handle magnets and gas!",
+  "dialogueAfter": "[DRAFT] Unexpected results..."
+ },
+ "silph_rocket_4f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "gastly",
+    "level": 33
+   },
+   {
+    "species": "persian",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Nobody goes up without the boss's permission!",
+  "dialogueAfter": "[DRAFT] Permission... granted... ugh..."
+ },
+ "silph_rocket_4f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 33
+   },
+   {
+    "species": "koffing",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Smell that? That's the smell of your defeat!",
+  "dialogueAfter": "[DRAFT] Phew... I need some fresh air..."
+ },
+ "silph_scientist_4f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 1750,
+  "party": [
+   {
+    "species": "electrode",
+    "level": 35
+   },
+   {
+    "species": "porygon",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] Behold! Silph's latest: a Porygon, born of pure data!",
+  "dialogueAfter": "[DRAFT] Data... inconclusive..."
+ },
+ "silph_rocket_5f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 960,
+  "party": [
+   {
+    "species": "cubone",
+    "level": 32
+   },
+   {
+    "species": "drowzee",
+    "level": 32
+   },
+   {
+    "species": "marowak",
+    "level": 32
+   }
+  ],
+  "dialogueBefore": "[DRAFT] The top floors are for Team Rocket only! Turn back!",
+  "dialogueAfter": "[DRAFT] Cubone... avenge me..."
+ },
+ "silph_rocket_5f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "rewardMoney": 990,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 33
+   },
+   {
+    "species": "golbat",
+    "level": 33
+   }
+  ],
+  "dialogueBefore": "[DRAFT] You need a Card Key AND my permission! You have neither!",
+  "dialogueAfter": "[DRAFT] Take the key... just stop battling me..."
+ },
+ "silph_scientist_5f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "rewardMoney": 1750,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 35
+   },
+   {
+    "species": "magnemite",
+    "level": 35
+   },
+   {
+    "species": "magmar",
+    "level": 35
+   }
+  ],
+  "dialogueBefore": "[DRAFT] My magnetic research is nearly complete! You can't stop science!",
+  "dialogueAfter": "[DRAFT] Science... will remember this..."
+ },
+ "silph_scientist_6f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1800,
+  "party": [
+   {
+    "species": "magneton",
+    "level": 36
+   },
+   {
+    "species": "electrode",
+    "level": 36
+   }
+  ]
+ },
+ "silph_co_rival": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] Well, well, {player}! If it isn't my favorite loser! Team Rocket hired ME as security! There's no way I'm letting you into the president's office!",
+  "dialogueAfter": "[DRAFT] What?! Hired... and fired in the same day?! Fine! The office is yours. But Giovanni's in there, and he's way tougher than me!",
+  "rewardMoney": 2600,
+  "party": [
+   {
+    "species": "pidgeot",
+    "level": 37
+   },
+   {
+    "species": "RIVAL_SILPH_EXTRA_A",
+    "level": 1
+   },
+   {
+    "species": "alakazam",
+    "level": 35
+   },
+   {
+    "species": "RIVAL_SILPH_EXTRA_B",
+    "level": 1
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 40
+   }
+  ]
+ },
+ "silph_co_giovanni": {
+  "name": "Giovanni",
+  "title": "Team Rocket Boss",
+  "dialogueBefore": "[DRAFT] So! We meet again, {player}! I am Giovanni, and this company is MINE now! Its president cowers behind me -- and you will never reach him!",
+  "dialogueAfter": "[DRAFT] Impossible... TWICE?! ...Very well, {player}. Silph Co. is yours. But remember -- Team Rocket never truly falls! (Giovanni vanishes.)",
+  "rewardMoney": 4059,
+  "party": [
+   {
+    "species": "nidorino",
+    "level": 37
+   },
+   {
+    "species": "kangaskhan",
+    "level": 35
+   },
+   {
+    "species": "rhyhorn",
+    "level": 37
+   },
+   {
+    "species": "nidoqueen",
+    "level": 41
+   }
+  ]
+ },
+ "route13_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 28
+   },
+   {
+    "species": "poliwag",
+    "level": 28
+   },
+   {
+    "species": "horsea",
+    "level": 28
+   }
+  ]
+ },
+ "route13_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 29
+   },
+   {
+    "species": "pidgeotto",
+    "level": 29
+   }
+  ]
+ },
+ "route13_jr_trainer_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 480,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   },
+   {
+    "species": "rattata",
+    "level": 24
+   },
+   {
+    "species": "pikachu",
+    "level": 24
+   },
+   {
+    "species": "meowth",
+    "level": 24
+   }
+  ]
+ },
+ "route13_beauty_1": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 1890,
+  "party": [
+   {
+    "species": "rattata",
+    "level": 27
+   },
+   {
+    "species": "pikachu",
+    "level": 27
+   },
+   {
+    "species": "rattata",
+    "level": 27
+   }
+  ]
+ },
+ "route13_beauty_2": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 2030,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 29
+   },
+   {
+    "species": "meowth",
+    "level": 29
+   }
+  ]
+ },
+ "route13_jr_trainer_3": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 600,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 30
+   },
+   {
+    "species": "poliwag",
+    "level": 30
+   }
+  ]
+ },
+ "route13_jr_trainer_4": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 540,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 27
+   },
+   {
+    "species": "meowth",
+    "level": 27
+   },
+   {
+    "species": "pidgey",
+    "level": 27
+   },
+   {
+    "species": "pidgeotto",
+    "level": 27
+   }
+  ]
+ },
+ "route13_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 625,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 25
+   },
+   {
+    "species": "pidgey",
+    "level": 25
+   },
+   {
+    "species": "pidgey",
+    "level": 25
+   },
+   {
+    "species": "spearow",
+    "level": 25
+   },
+   {
+    "species": "spearow",
+    "level": 25
+   }
+  ]
+ },
+ "route13_bird_keeper_3": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 26
+   },
+   {
+    "species": "pidgeotto",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "fearow",
+    "level": 26
+   }
+  ]
+ },
+ "route13_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   }
+  ]
+ },
+ "route14_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "pidgey",
+    "level": 26
+   },
+   {
+    "species": "fearow",
+    "level": 26
+   }
+  ]
+ },
+ "route14_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "pidgey",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   },
+   {
+    "species": "pidgeotto",
+    "level": 28
+   }
+  ]
+ },
+ "route14_bird_keeper_3": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 29
+   },
+   {
+    "species": "fearow",
+    "level": 29
+   }
+  ]
+ },
+ "route14_bird_keeper_4": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   },
+   {
+    "species": "fearow",
+    "level": 28
+   }
+  ]
+ },
+ "route14_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 29
+   },
+   {
+    "species": "muk",
+    "level": 29
+   }
+  ]
+ },
+ "route14_bird_keeper_5": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 825,
+  "party": [
+   {
+    "species": "farfetchd",
+    "level": 33
+   }
+  ]
+ },
+ "route14_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 29
+   },
+   {
+    "species": "grimer",
+    "level": 29
+   }
+  ]
+ },
+ "route14_biker_3": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 28
+   },
+   {
+    "species": "grimer",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   }
+  ]
+ },
+ "route14_biker_4": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 520,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 26
+   },
+   {
+    "species": "koffing",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "koffing",
+    "level": 26
+   }
+  ]
+ },
+ "route14_bird_keeper_6": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 29
+   },
+   {
+    "species": "fearow",
+    "level": 29
+   }
+  ]
+ },
+ "route15_jr_trainer_1": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "clefairy",
+    "level": 33
+   }
+  ]
+ },
+ "route15_beauty_1": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 2030,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 29
+   },
+   {
+    "species": "wigglytuff",
+    "level": 29
+   }
+  ]
+ },
+ "route15_jr_trainer_2": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "pikachu",
+    "level": 29
+   },
+   {
+    "species": "raichu",
+    "level": 29
+   }
+  ]
+ },
+ "route15_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 500,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "weezing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "grimer",
+    "level": 25
+   }
+  ]
+ },
+ "route15_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "grimer",
+    "level": 28
+   },
+   {
+    "species": "weezing",
+    "level": 28
+   }
+  ]
+ },
+ "route15_beauty_2": {
+  "name": "Beauty",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 2030,
+  "party": [
+   {
+    "species": "bulbasaur",
+    "level": 29
+   },
+   {
+    "species": "ivysaur",
+    "level": 29
+   }
+  ]
+ },
+ "route15_jr_trainer_3": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "gloom",
+    "level": 28
+   },
+   {
+    "species": "oddish",
+    "level": 28
+   },
+   {
+    "species": "oddish",
+    "level": 28
+   }
+  ]
+ },
+ "route15_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "dodrio",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   },
+   {
+    "species": "doduo",
+    "level": 28
+   }
+  ]
+ },
+ "route15_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "pidgeotto",
+    "level": 26
+   },
+   {
+    "species": "farfetchd",
+    "level": 26
+   },
+   {
+    "species": "doduo",
+    "level": 26
+   },
+   {
+    "species": "pidgey",
+    "level": 26
+   }
+  ]
+ },
+ "route15_jr_trainer_4": {
+  "name": "Jr. Trainer",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 29
+   },
+   {
+    "species": "oddish",
+    "level": 29
+   },
+   {
+    "species": "tangela",
+    "level": 29
+   }
+  ]
+ },
+ "route16_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 29
+   },
+   {
+    "species": "koffing",
+    "level": 29
+   }
+  ]
+ },
+ "route16_cue_ball_1": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 700,
+  "party": [
+   {
+    "species": "machop",
+    "level": 28
+   },
+   {
+    "species": "mankey",
+    "level": 28
+   },
+   {
+    "species": "machop",
+    "level": 28
+   }
+  ]
+ },
+ "route16_cue_ball_2": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 29
+   },
+   {
+    "species": "machop",
+    "level": 29
+   }
+  ]
+ },
+ "route16_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 33
+   }
+  ]
+ },
+ "route16_cue_ball_3": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 825,
+  "party": [
+   {
+    "species": "machop",
+    "level": 33
+   }
+  ]
+ },
+ "route16_biker_3": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 520,
+  "party": [
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   },
+   {
+    "species": "grimer",
+    "level": 26
+   }
+  ]
+ },
+ "route17_cue_ball_1": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "machop",
+    "level": 29
+   },
+   {
+    "species": "machoke",
+    "level": 29
+   }
+  ]
+ },
+ "route17_cue_ball_2": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 29
+   },
+   {
+    "species": "primeape",
+    "level": 29
+   }
+  ]
+ },
+ "route17_biker_1": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 560,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 28
+   },
+   {
+    "species": "koffing",
+    "level": 28
+   },
+   {
+    "species": "weezing",
+    "level": 28
+   }
+  ]
+ },
+ "route17_biker_2": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 660,
+  "party": [
+   {
+    "species": "muk",
+    "level": 33
+   }
+  ]
+ },
+ "route17_biker_3": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "voltorb",
+    "level": 29
+   },
+   {
+    "species": "voltorb",
+    "level": 29
+   }
+  ]
+ },
+ "route17_cue_ball_3": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 825,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 33
+   }
+  ]
+ },
+ "route17_cue_ball_4": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "primeape",
+    "level": 29
+   },
+   {
+    "species": "machoke",
+    "level": 29
+   }
+  ]
+ },
+ "route17_cue_ball_5": {
+  "name": "Cue Ball",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "mankey",
+    "level": 26
+   },
+   {
+    "species": "mankey",
+    "level": 26
+   },
+   {
+    "species": "machoke",
+    "level": 26
+   },
+   {
+    "species": "machop",
+    "level": 26
+   }
+  ]
+ },
+ "route17_biker_4": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 580,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 29
+   },
+   {
+    "species": "muk",
+    "level": 29
+   }
+  ]
+ },
+ "route17_biker_5": {
+  "name": "Biker",
+  "title": "Biker",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 500,
+  "party": [
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "weezing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "koffing",
+    "level": 25
+   },
+   {
+    "species": "weezing",
+    "level": 25
+   }
+  ]
+ },
+ "route18_bird_keeper_1": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 725,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 29
+   },
+   {
+    "species": "fearow",
+    "level": 29
+   }
+  ]
+ },
+ "route18_bird_keeper_2": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 650,
+  "party": [
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   },
+   {
+    "species": "fearow",
+    "level": 26
+   },
+   {
+    "species": "spearow",
+    "level": 26
+   }
+  ]
+ },
+ "route18_bird_keeper_3": {
+  "name": "Bird Keeper",
+  "title": "Bird Keeper",
+  "dialogueBefore": "[DRAFT] Let's battle!",
+  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "rewardMoney": 850,
+  "party": [
+   {
+    "species": "dodrio",
+    "level": 34
+   }
+  ]
+ },
+ "fuchsia_juggler_1": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1190,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 34
+   },
+   {
+    "species": "kadabra",
+    "level": 34
+   }
+  ]
+ },
+ "fuchsia_juggler_2": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1330,
+  "party": [
+   {
+    "species": "hypno",
+    "level": 38
+   }
+  ]
+ },
+ "fuchsia_juggler_3": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1085,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 31
+   },
+   {
+    "species": "drowzee",
+    "level": 31
+   },
+   {
+    "species": "kadabra",
+    "level": 31
+   },
+   {
+    "species": "drowzee",
+    "level": 31
+   }
+  ]
+ },
+ "fuchsia_tamer_1": {
+  "name": "Tamer",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1320,
+  "party": [
+   {
+    "species": "arbok",
+    "level": 33
+   },
+   {
+    "species": "sandslash",
+    "level": 33
+   },
+   {
+    "species": "arbok",
+    "level": 33
+   }
+  ]
+ },
+ "fuchsia_tamer_2": {
+  "name": "Tamer",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1360,
+  "party": [
+   {
+    "species": "sandslash",
+    "level": 34
+   },
+   {
+    "species": "arbok",
+    "level": 34
+   }
+  ]
+ },
+ "fuchsia_juggler_4": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "rewardMoney": 1190,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 34
+   },
+   {
+    "species": "hypno",
+    "level": 34
+   }
+  ]
+ },
+ "jr_trainer_owen": {
+  "name": "Owen",
+  "title": "Jr. Trainer",
+  "dialogueBefore": "[DRAFT] My Squirtle is tougher than it looks!",
+  "dialogueAfter": "[DRAFT] Wow, you're strong!",
+  "rewardMoney": 400,
+  "party": [
+   {
+    "species": "squirtle",
+    "level": 20
+   }
+  ]
+ },
+ "bug_catcher_wesley": {
+  "name": "Wesley",
+  "title": "Bug Catcher",
+  "dialogueBefore": "[DRAFT] My Butterfree's Compoundeyes can't miss!",
+  "dialogueAfter": "[DRAFT] My bugs need more training...",
+  "rewardMoney": 200,
+  "party": [
+   {
+    "species": "butterfree",
+    "level": 20
+   }
+  ]
+ },
+ "viridian_blackbelt_1": {
+  "name": "Yuji",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1000,
+  "party": [
+   {
+    "species": "machop",
+    "level": 40
+   },
+   {
+    "species": "machoke",
+    "level": 40
+   }
+  ]
+ },
+ "viridian_cooltrainer_1": {
+  "name": "Samuel",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1365,
+  "party": [
+   {
+    "species": "sandslash",
+    "level": 39
+   },
+   {
+    "species": "dugtrio",
+    "level": 39
+   }
+  ]
+ },
+ "viridian_tamer_1": {
+  "name": "Cole",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1720,
+  "party": [
+   {
+    "species": "rhyhorn",
+    "level": 43
+   }
+  ]
+ },
+ "viridian_cooltrainer_2": {
+  "name": "Kelly",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "rhyhorn",
+    "level": 43
+   }
+  ]
+ },
+ "viridian_blackbelt_2": {
+  "name": "Atsushi",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 950,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 38
+   },
+   {
+    "species": "machop",
+    "level": 38
+   },
+   {
+    "species": "machoke",
+    "level": 38
+   }
+  ]
+ },
+ "viridian_tamer_2": {
+  "name": "Jason",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1560,
+  "party": [
+   {
+    "species": "arbok",
+    "level": 39
+   },
+   {
+    "species": "tauros",
+    "level": 39
+   }
+  ]
+ },
+ "viridian_blackbelt_3": {
+  "name": "Takashi",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1075,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 43
+   }
+  ]
+ },
+ "viridian_cooltrainer_3": {
+  "name": "Warren",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "rewardMoney": 1365,
+  "party": [
+   {
+    "species": "nidorino",
+    "level": 39
+   },
+   {
+    "species": "nidoking",
+    "level": 39
+   }
+  ]
+ },
+ "swimmer_kyler": {
+  "name": "Kyler",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 145,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 29
+   },
+   {
+    "species": "horsea",
+    "level": 29
+   },
+   {
+    "species": "staryu",
+    "level": 29
+   }
+  ]
+ },
+ "swimmer_spencer": {
+  "name": "Spencer",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 150,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 30
+   },
+   {
+    "species": "shellder",
+    "level": 30
+   }
+  ]
+ },
+ "swimmer_tucker": {
+  "name": "Tucker",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 150,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 30
+   },
+   {
+    "species": "horsea",
+    "level": 30
+   }
+  ]
+ },
+ "swimmer_reese": {
+  "name": "Reese",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 150,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 30
+   },
+   {
+    "species": "poliwhirl",
+    "level": 30
+   }
+  ]
+ },
+ "swimmer_david": {
+  "name": "David",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 135,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 27
+   },
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "goldeen",
+    "level": 27
+   }
+  ]
+ },
+ "swimmer_douglas": {
+  "name": "Douglas",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 145,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 29
+   },
+   {
+    "species": "shellder",
+    "level": 29
+   },
+   {
+    "species": "seaking",
+    "level": 29
+   }
+  ]
+ },
+ "swimmer_axle": {
+  "name": "Axle",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 135,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "tentacool",
+    "level": 27
+   },
+   {
+    "species": "staryu",
+    "level": 27
+   },
+   {
+    "species": "horsea",
+    "level": 27
+   },
+   {
+    "species": "tentacruel",
+    "level": 27
+   }
+  ]
+ },
+ "beauty_alice": {
+  "name": "Alice",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 2100,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 30
+   },
+   {
+    "species": "seaking",
+    "level": 30
+   }
+  ]
+ },
+ "beauty_anya": {
+  "name": "Anya",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1890,
+  "party": [
+   {
+    "species": "poliwag",
+    "level": 27
+   },
+   {
+    "species": "goldeen",
+    "level": 27
+   },
+   {
+    "species": "seaking",
+    "level": 27
+   },
+   {
+    "species": "goldeen",
+    "level": 27
+   },
+   {
+    "species": "poliwag",
+    "level": 27
+   }
+  ]
+ },
+ "beauty_connie": {
+  "name": "Connie",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 2030,
+  "party": [
+   {
+    "species": "staryu",
+    "level": 29
+   },
+   {
+    "species": "staryu",
+    "level": 29
+   },
+   {
+    "species": "staryu",
+    "level": 29
+   }
+  ]
+ },
+ "swimmer_dean": {
+  "name": "Dean",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 155,
+  "party": [
+   {
+    "species": "shellder",
+    "level": 31
+   },
+   {
+    "species": "cloyster",
+    "level": 31
+   }
+  ]
+ },
+ "swimmer_barry": {
+  "name": "Barry",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 140,
+  "party": [
+   {
+    "species": "horsea",
+    "level": 28
+   },
+   {
+    "species": "horsea",
+    "level": 28
+   },
+   {
+    "species": "seadra",
+    "level": 28
+   },
+   {
+    "species": "horsea",
+    "level": 28
+   }
+  ]
+ },
+ "beauty_victoria": {
+  "name": "Victoria",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 2100,
+  "party": [
+   {
+    "species": "seadra",
+    "level": 30
+   },
+   {
+    "species": "horsea",
+    "level": 30
+   },
+   {
+    "species": "seadra",
+    "level": 30
+   }
+  ]
+ },
+ "beauty_sheila": {
+  "name": "Sheila",
+  "title": "Beauty",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 2450,
+  "party": [
+   {
+    "species": "seaking",
+    "level": 35
+   }
+  ]
+ },
+ "scientist_mansion_1": {
+  "name": "Ted",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1450,
+  "party": [
+   {
+    "species": "electrode",
+    "level": 29
+   },
+   {
+    "species": "weezing",
+    "level": 29
+   }
+  ]
+ },
+ "burglar_mansion_1": {
+  "name": "Lewis",
+  "title": "Burglar",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 3060,
+  "party": [
+   {
+    "species": "charmander",
+    "level": 34
+   },
+   {
+    "species": "charmeleon",
+    "level": 34
+   }
+  ]
+ },
+ "burglar_mansion_2": {
+  "name": "Simon",
+  "title": "Burglar",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 3420,
+  "party": [
+   {
+    "species": "ninetales",
+    "level": 38
+   }
+  ]
+ },
+ "scientist_mansion_2": {
+  "name": "Ivan",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1650,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 33
+   },
+   {
+    "species": "magneton",
+    "level": 33
+   },
+   {
+    "species": "voltorb",
+    "level": 33
+   }
+  ]
+ },
+ "burglar_mansion_3": {
+  "name": "Arnie",
+  "title": "Burglar",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 3060,
+  "party": [
+   {
+    "species": "growlithe",
+    "level": 34
+   },
+   {
+    "species": "ponyta",
+    "level": 34
+   }
+  ]
+ },
+ "scientist_mansion_3": {
+  "name": "Braydon",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1700,
+  "party": [
+   {
+    "species": "magnemite",
+    "level": 34
+   },
+   {
+    "species": "electrode",
+    "level": 34
+   }
+  ]
+ },
+ "fisherman_wilton": {
+  "name": "Wilton",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 945,
+  "party": [
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   },
+   {
+    "species": "magikarp",
+    "level": 27
+   }
+  ]
+ },
+ "fisherman_arnold": {
+  "name": "Arnold",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 980,
+  "party": [
+   {
+    "species": "seaking",
+    "level": 28
+   },
+   {
+    "species": "goldeen",
+    "level": 28
+   },
+   {
+    "species": "seaking",
+    "level": 28
+   },
+   {
+    "species": "seaking",
+    "level": 28
+   }
+  ]
+ },
+ "swimmer_spencer_r21": {
+  "name": "Spencer",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 165,
+  "party": [
+   {
+    "species": "seadra",
+    "level": 33
+   },
+   {
+    "species": "tentacruel",
+    "level": 33
+   }
+  ]
+ },
+ "cue_ball_camron": {
+  "name": "Camron",
+  "title": "Cue Ball",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 775,
+  "party": [
+   {
+    "species": "tentacool",
+    "level": 31
+   },
+   {
+    "species": "tentacool",
+    "level": 31
+   },
+   {
+    "species": "tentacruel",
+    "level": 31
+   }
+  ]
+ },
+ "fisherman_hideto": {
+  "name": "Hideto",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1085,
+  "party": [
+   {
+    "species": "shellder",
+    "level": 31
+   },
+   {
+    "species": "cloyster",
+    "level": 31
+   }
+  ]
+ },
+ "fisherman_elliot": {
+  "name": "Elliot",
+  "title": "Fisherman",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1155,
+  "party": [
+   {
+    "species": "goldeen",
+    "level": 33
+   },
+   {
+    "species": "seaking",
+    "level": 33
+   }
+  ]
+ },
+ "swimmer_nicole": {
+  "name": "Nicole",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 185,
+  "party": [
+   {
+    "species": "starmie",
+    "level": 37
+   }
+  ]
+ },
+ "swimmer_dawn": {
+  "name": "Dawn",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 165,
+  "party": [
+   {
+    "species": "staryu",
+    "level": 33
+   },
+   {
+    "species": "wartortle",
+    "level": 33
+   }
+  ]
+ },
+ "swimmer_tara": {
+  "name": "Tara",
+  "title": "Swimmer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 160,
+  "party": [
+   {
+    "species": "poliwhirl",
+    "level": 32
+   },
+   {
+    "species": "tentacool",
+    "level": 32
+   },
+   {
+    "species": "seadra",
+    "level": 32
+   }
+  ]
+ },
+ "silph_rocket_6f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1050,
+  "party": [
+   {
+    "species": "raticate",
+    "level": 35
+   },
+   {
+    "species": "rattata",
+    "level": 35
+   }
+  ]
+ },
+ "silph_rocket_6f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1080,
+  "party": [
+   {
+    "species": "machop",
+    "level": 36
+   },
+   {
+    "species": "machoke",
+    "level": 36
+   }
+  ]
+ },
+ "silph_rocket_6f_3": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1110,
+  "party": [
+   {
+    "species": "arbok",
+    "level": 37
+   }
+  ]
+ },
+ "silph_rocket_7f_1": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1110,
+  "party": [
+   {
+    "species": "weezing",
+    "level": 37
+   },
+   {
+    "species": "arbok",
+    "level": 37
+   }
+  ]
+ },
+ "silph_rocket_7f_2": {
+  "name": "Grunt",
+  "title": "Team Rocket",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1140,
+  "party": [
+   {
+    "species": "golbat",
+    "level": 38
+   }
+  ]
+ },
+ "silph_scientist_7f_1": {
+  "name": "Scientist",
+  "title": "Scientist",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1900,
+  "party": [
+   {
+    "species": "porygon",
+    "level": 38
+   }
+  ]
+ },
+ "cooltrainer_vr1f_1": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1540,
+  "party": [
+   {
+    "species": "persian",
+    "level": 44
+   },
+   {
+    "species": "ninetales",
+    "level": 44
+   }
+  ]
+ },
+ "cooltrainer_vr1f_2": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1470,
+  "party": [
+   {
+    "species": "ivysaur",
+    "level": 42
+   },
+   {
+    "species": "wartortle",
+    "level": 42
+   },
+   {
+    "species": "charmeleon",
+    "level": 42
+   },
+   {
+    "species": "charizard",
+    "level": 42
+   }
+  ]
+ },
+ "blackbelt_vr2f": {
+  "name": "Black Belt",
+  "title": "Blackbelt",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1075,
+  "party": [
+   {
+    "species": "machoke",
+    "level": 43
+   },
+   {
+    "species": "machop",
+    "level": 43
+   },
+   {
+    "species": "machoke",
+    "level": 43
+   }
+  ]
+ },
+ "juggler_vr2f_1": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1435,
+  "party": [
+   {
+    "species": "drowzee",
+    "level": 41
+   },
+   {
+    "species": "hypno",
+    "level": 41
+   },
+   {
+    "species": "kadabra",
+    "level": 41
+   },
+   {
+    "species": "kadabra",
+    "level": 41
+   }
+  ]
+ },
+ "tamer_vr2f": {
+  "name": "Tamer",
+  "title": "Tamer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1760,
+  "party": [
+   {
+    "species": "persian",
+    "level": 44
+   },
+   {
+    "species": "golduck",
+    "level": 44
+   }
+  ]
+ },
+ "juggler_vr2f_2": {
+  "name": "Juggler",
+  "title": "Juggler",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1680,
+  "party": [
+   {
+    "species": "mr_mime",
+    "level": 48
+   }
+  ]
+ },
+ "pokemaniac_vr2f": {
+  "name": "Pokemaniac",
+  "title": "PokéManiac",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 2000,
+  "party": [
+   {
+    "species": "charmeleon",
+    "level": 40
+   },
+   {
+    "species": "lapras",
+    "level": 40
+   },
+   {
+    "species": "lickitung",
+    "level": 40
+   }
+  ]
+ },
+ "cooltrainer_vr3f_1": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "exeggutor",
+    "level": 43
+   },
+   {
+    "species": "cloyster",
+    "level": 43
+   },
+   {
+    "species": "arcanine",
+    "level": 43
+   }
+  ]
+ },
+ "cooltrainer_vr3f_2": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "parasect",
+    "level": 43
+   },
+   {
+    "species": "chansey",
+    "level": 43
+   },
+   {
+    "species": "dewgong",
+    "level": 43
+   }
+  ]
+ },
+ "cooltrainer_vr3f_3": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "tentacruel",
+    "level": 43
+   },
+   {
+    "species": "kingler",
+    "level": 43
+   },
+   {
+    "species": "blastoise",
+    "level": 43
+   }
+  ]
+ },
+ "cooltrainer_vr3f_4": {
+  "name": "Cooltrainer",
+  "title": "Cooltrainer",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 1505,
+  "party": [
+   {
+    "species": "bellsprout",
+    "level": 43
+   },
+   {
+    "species": "weepinbell",
+    "level": 43
+   },
+   {
+    "species": "victreebel",
+    "level": 43
+   }
+  ]
+ },
+ "elite_four_lorelei": {
+  "name": "Lorelei",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 5544,
+  "party": [
+   {
+    "species": "dewgong",
+    "level": 54
+   },
+   {
+    "species": "cloyster",
+    "level": 53
+   },
+   {
+    "species": "slowbro",
+    "level": 54
+   },
+   {
+    "species": "jynx",
+    "level": 56
+   },
+   {
+    "species": "lapras",
+    "level": 56
+   }
+  ]
+ },
+ "elite_four_bruno": {
+  "name": "Bruno",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 5742,
+  "party": [
+   {
+    "species": "onix",
+    "level": 53
+   },
+   {
+    "species": "hitmonchan",
+    "level": 55
+   },
+   {
+    "species": "hitmonlee",
+    "level": 55
+   },
+   {
+    "species": "onix",
+    "level": 56
+   },
+   {
+    "species": "machamp",
+    "level": 58
+   }
+  ]
+ },
+ "elite_four_agatha": {
+  "name": "Agatha",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 5940,
+  "party": [
+   {
+    "species": "gengar",
+    "level": 56
+   },
+   {
+    "species": "golbat",
+    "level": 56
+   },
+   {
+    "species": "haunter",
+    "level": 55
+   },
+   {
+    "species": "arbok",
+    "level": 58
+   },
+   {
+    "species": "gengar",
+    "level": 60
+   }
+  ]
+ },
+ "elite_four_lance": {
+  "name": "Lance",
+  "title": "Elite Four",
+  "dialogueBefore": "[DRAFT]",
+  "dialogueAfter": "[DRAFT]",
+  "rewardMoney": 6138,
+  "party": [
+   {
+    "species": "gyarados",
+    "level": 58
+   },
+   {
+    "species": "dragonair",
+    "level": 56
+   },
+   {
+    "species": "dragonair",
+    "level": 56
+   },
+   {
+    "species": "aerodactyl",
+    "level": 60
+   },
+   {
+    "species": "dragonite",
+    "level": 62
+   }
+  ]
+ },
+ "champion_rival": {
+  "name": "{rival}",
+  "title": "Champion",
+  "dialogueBefore": "[DRAFT] Well, well, {player}. Look who finally crawled out of Victory Road. Heh... I beat the Elite Four while you were still getting lost in a cave. That's the difference between us!",
+  "dialogueAfter": "[DRAFT] ...No way. NO way! I... I was the Champion! ...Hmph. Fine. You win, {player}. You were always the annoying one, weren't you? Chasing me from town to town...",
+  "rewardMoney": 6435,
+  "party": [
+   {
+    "species": "pidgeot",
+    "level": 61
+   },
+   {
+    "species": "alakazam",
+    "level": 59
+   },
+   {
+    "species": "rhydon",
+    "level": 61
+   },
+   {
+    "species": "RIVAL_CHAMP_EXTRA_A",
+    "level": 61
+   },
+   {
+    "species": "RIVAL_CHAMP_EXTRA_B",
+    "level": 63
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 65
+   }
+  ]
+ },
+ "rival_route22_rematch": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] {player}! So we meet again! I've been waiting here for a real challenge before the Pokémon League. Let's see how much stronger you've gotten!",
+  "dialogueAfter": "[DRAFT] ...I lost again?! Fine! You're ready for Victory Road. Don't you dare lose to the Elite Four before I get my rematch!",
+  "rewardMoney": 3445,
+  "party": [
+   {
+    "species": "pidgeot",
+    "level": 47
+   },
+   {
+    "species": "rhyhorn",
+    "level": 45
+   },
+   {
+    "species": "RIVAL_R22_EXTRA_A",
+    "level": 45
+   },
+   {
+    "species": "RIVAL_R22_EXTRA_B",
+    "level": 47
+   },
+   {
+    "species": "alakazam",
+    "level": 50
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 53
+   }
+  ]
+ }
 }
