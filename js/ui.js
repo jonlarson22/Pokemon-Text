@@ -248,7 +248,7 @@ updatePartyUI() {
     if (!partyDisplay) return;
 
     if (this.game.gameState.party.length === 0) {
-      partyDisplay.textContent = "Party: Empty";
+      partyDisplay.textContent = "Empty";
       return;
     }
 
@@ -259,7 +259,7 @@ updatePartyUI() {
       return `${statusIcon}${mon.species} (Lv.${mon.level}) ${mon.hp}/${mon.maxHp}`;
     }).join('  |  '); // Separates party members with a pipe
 
-    partyDisplay.textContent = `Party: ${partyStatus}`;
+    partyDisplay.textContent = partyStatus;
   }
 
 renderRouteScreen() {
