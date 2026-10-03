@@ -439,7 +439,7 @@
   "dialogue_req_unmet": "",
   "dialogue_post_flag": "[DRAFT] FLASH lights even the darkest dungeons! In battle it lowers the foe's accuracy, too.",
   "once_flag": "obtained_hm05",
-  "req_flag_to_appear": "obtain_hm_01"
+  "req_flag_to_appear": "reached_vermilion"
  },
  "pallet_kid": {
   "name": "Kid",
@@ -814,7 +814,12 @@
  "route16_fly_girl": {
   "name": "Reclusive Girl",
   "dialogue_default": "[DRAFT] You found my secret house! Please don't tell anyone where I am... As thanks, take this HM02! It teaches FLY -- you can soar to any town you've visited!",
-  "requirements": [],
+  "requirements": [
+   {
+    "type": "flag",
+    "id": "woke_snorlax_route16"
+   }
+  ],
   "rewards": [
    {
     "type": "item",
@@ -827,7 +832,8 @@
    }
   ],
   "once_flag": "obtained_hm02",
-  "dialogue_post_flag": "[DRAFT] Shhh! Secret! ...FLY is wonderful, isn't it?"
+  "dialogue_post_flag": "[DRAFT] Shhh! Secret! ...FLY is wonderful, isn't it?",
+  "dialogue_req_unmet": "[DRAFT] That Snorlax is still snoozing across the road... I can't think straight with all that snoring! Come back after it's moved on."
  },
  "route13_picnicker": {
   "name": "Lost Picnicker",
@@ -1116,5 +1122,117 @@
    }
   ],
   "rewards": []
+ },
+ "indigo_retired_official": {
+  "name": "Retired League Official",
+  "dialogue_default": "[DRAFT] I've watched forty years of challengers walk through that gate. The ones who make it aren't the strongest — they're the ones who came back after losing.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "indigo_nervous_challenger": {
+  "name": "Nervous Challenger",
+  "dialogue_default": "[DRAFT] Is it true the Champion never lost a single battle? ...Sorry. I should stop asking questions and just go in there. ...After one more Full Restore.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "celadon_eevee_kid": {
+  "name": "Eevee Dreamer",
+  "dialogue_default": "[DRAFT] One day I'm going to own an Eevee! Have you seen the big mansion? I press my face against the fence every day, but I've never been inside...",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "celadon_office_worker": {
+  "name": "Tired Office Worker",
+  "dialogue_default": "[DRAFT] I work at the Department Store and even I can't afford half the stuff in there. The markup on Potions is criminal, I'm telling you.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "fuchsia_surfer": {
+  "name": "Teen Surfer",
+  "dialogue_default": "[DRAFT] Dude, the waves south of here are legendary! Route 19, all the way to Cinnabar! ...What do you mean you SURF on a Pokémon? That's cheating!",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "cinnabar_beachcomber": {
+  "name": "Retired Beachcomber",
+  "dialogue_default": "[DRAFT] This island was quiet before the Lab folks showed up. Used to be just me, the sand, and the occasional Krabby. Now? Tourists everywhere.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "cerulean_burglary_victim": {
+  "name": "Rattled Homeowner",
+  "dialogue_default": "[DRAFT] Someone broke into my house last night! Ransacked the whole place! The officer said it might be that gang from Mt. Moon...",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "viridian_old_timer": {
+  "name": "Old-Timer",
+  "dialogue_default": "[DRAFT] Back in my day, we didn't have Poké Balls that practically threw themselves! We had to look a Weedle in the eye and mean it, youngster.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "ss_anne_seasick": {
+  "name": "Seasick Passenger",
+  "dialogue_default": "[DRAFT] Urgh... I regret everything. The buffet, the boarding, all of it. I'm not going below deck. I'm not moving. Ever.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "ss_anne_gentleman": {
+  "name": "Gentleman Passenger",
+  "dialogue_default": "[DRAFT] Isn't she magnificent? The S.S. Anne — finest vessel to ever sail from Vermilion! I've crossed on her six times, you know.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "route9_hiker": {
+  "name": "Nervous Hiker",
+  "dialogue_default": "[DRAFT] Okay. Okay. Rock Tunnel. Dark, full of Zubats, probably fine. People do it every day. ...You go first.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "silph_hiding_worker": {
+  "name": "Hiding Office Worker",
+  "dialogue_default": "[DRAFT] Shhh! I'm just an accountant! I don't know anything about any takeover! Please don't tell them I'm under here...",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "mansion_explorer": {
+  "name": "Amateur Explorer",
+  "dialogue_default": "[DRAFT] They say a secret lab burned down here years ago... I'm looking for leftover research notes. Or treasure. Mostly treasure.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
+ },
+ "route12_angler": {
+  "name": "Quiet Angler",
+  "dialogue_default": "[DRAFT] ...Hm? Oh. Sorry, I was watching my line. Been fishing this same spot for years. The bridge, the water, the quiet. That's all I need.",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": ""
  }
 }

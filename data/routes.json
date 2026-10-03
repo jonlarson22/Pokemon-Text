@@ -177,7 +177,8 @@
   "npcs": [
    "viridian_traveler",
    "viridian_shopper",
-   "viridian_kid"
+   "viridian_kid",
+   "viridian_old_timer"
   ],
   "explore_table": [
    {
@@ -883,9 +884,10 @@
    },
    "route9": {
     "required_flags": [
-     "obtain_hm_01"
+     "obtain_hm_01",
+     "cascade_badge"
     ],
-    "blocked_message": "A small tree blocks your path. You need the HM for Cut to pass!"
+    "blocked_message": "A small tree blocks your path. You need the HM for Cut and the Cascade Badge to cut it down!"
    },
    "cerulean_city_gym": {
     "required_flags": [
@@ -920,7 +922,8 @@
    "cerulean_swimmer",
    "cerulean_artist",
    "cerulean_biker",
-   "cerulean_trade_elder"
+   "cerulean_trade_elder",
+   "cerulean_burglary_victim"
   ],
   "explore_table": [
    {
@@ -1252,7 +1255,15 @@
    "route24",
    "cerulean_cave_b1f"
   ],
-  "gate_requirements": {},
+  "gate_requirements": {
+   "cerulean_cave_b1f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  },
   "encounters": {
    "grass": [
     {
@@ -1396,7 +1407,16 @@
     "item": "max_elixir"
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "gate_requirements": {
+   "cerulean_cave_b2f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
  },
  "cerulean_cave_b2f": {
   "name": "Cerulean Cave - B2F",
@@ -1677,9 +1697,10 @@
   "gate_requirements": {
    "vermilion_city_gym": {
     "required_flags": [
-     "obtain_hm_01"
+     "obtain_hm_01",
+     "cascade_badge"
     ],
-    "blocked_message": "A small tree blocks the Gym entrance. It looks like it could be CUT down..."
+    "blocked_message": "A small tree blocks the Gym entrance. It looks like it could be CUT down... (Requires Cut and the Cascade Badge.)"
    }
   },
   "req_flag": null,
@@ -1868,7 +1889,10 @@
     "item": "stardust"
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "npcs": [
+   "ss_anne_gentleman"
+  ]
  },
  "ss_anne_deck": {
   "name": "S.S. Anne Deck",
@@ -1935,7 +1959,10 @@
     "item": "ether"
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "npcs": [
+   "ss_anne_seasick"
+  ]
  },
  "ss_anne_captain": {
   "name": "Captain's Cabin",
@@ -1963,7 +1990,7 @@
  },
  "vermilion_dock": {
   "name": "Vermilion City Dock",
-  "description": "The harbor dock where the S.S. Anne was moored. Only calm water and wheeling gulls remain.",
+  "description": "The harbor dock where the S.S. Anne was moored. Only calm water and wheeling gulls remain. An old, rusted truck sits half-hidden behind some cargo crates.",
   "isTown": false,
   "connections": [
    "vermilion_city",
@@ -2009,6 +2036,21 @@
    {
     "type": "nothing",
     "weight": 100
+   },
+   {
+    "type": "prompt_encounter",
+    "weight": 8,
+    "req_flag_count": {
+     "category": "gym_badges",
+     "qty": 8
+    },
+    "species": "mew",
+    "level": 30,
+    "prompt": "There's an old, rusted truck parked by the dock, half-hidden behind cargo crates. Something glints beneath it... Look underneath?",
+    "yes_label": "Look under the truck",
+    "no_label": "Leave it alone",
+    "decline": "You decide not to disturb whatever's under there.",
+    "intro": "You crouch and peer under the truck... two enormous blue eyes blink back at you! A wild MEW leaps out, crackling with psychic energy!"
    }
   ],
   "gate_requirements": {
@@ -2090,6 +2132,9 @@
     "weight": 20,
     "item": "ether"
    }
+  ],
+  "npcs": [
+   "route9_hiker"
   ]
  },
  "route10": {
@@ -2308,7 +2353,9 @@
    "lavender_town",
    "route13"
   ],
-  "npcs": [],
+  "npcs": [
+   "route12_angler"
+  ],
   "trainers": [
    "route12_fisherman_1",
    "route12_fisherman_2",
@@ -2325,49 +2372,70 @@
      "min_level": 23,
      "max_level": 28,
      "weight": 35,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "pidgeotto",
      "min_level": 28,
      "max_level": 28,
      "weight": 10,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "oddish",
      "min_level": 22,
      "max_level": 27,
      "weight": 15,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "bellsprout",
      "min_level": 22,
      "max_level": 27,
      "weight": 15,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "gloom",
      "min_level": 28,
      "max_level": 30,
      "weight": 5,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "weepinbell",
      "min_level": 28,
      "max_level": 30,
      "weight": 5,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "venonat",
      "min_level": 24,
      "max_level": 26,
      "weight": 15,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     }
    ],
    "water": [
@@ -2428,7 +2496,10 @@
     "type": "item",
     "weight": 10,
     "item": "iron",
-    "req_flag": "obtain_hm_01"
+    "req_flag": [
+     "obtain_hm_01",
+     "cascade_badge"
+    ]
    },
    {
     "type": "static_encounter",
@@ -2992,49 +3063,70 @@
      "min_level": 18,
      "max_level": 20,
      "weight": 30,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "ekans",
      "min_level": 17,
      "max_level": 19,
      "weight": 10,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "sandshrew",
      "min_level": 17,
      "max_level": 19,
      "weight": 10,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "mankey",
      "min_level": 18,
      "max_level": 20,
      "weight": 15,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "meowth",
      "min_level": 18,
      "max_level": 20,
      "weight": 15,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "growlithe",
      "min_level": 15,
      "max_level": 18,
      "weight": 10,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     },
     {
      "species": "vulpix",
      "min_level": 15,
      "max_level": 18,
      "weight": 10,
-     "req_flag": "obtain_hm_01"
+     "req_flag": [
+      "obtain_hm_01",
+      "cascade_badge"
+     ]
     }
    ]
   },
@@ -3137,7 +3229,9 @@
   "trainers": [],
   "npcs": [
    "celadon_tourist",
-   "celadon_gambler"
+   "celadon_gambler",
+   "celadon_eevee_kid",
+   "celadon_office_worker"
   ],
   "explore_table": [
    {
@@ -3148,7 +3242,10 @@
     "type": "item",
     "weight": 15,
     "item": "pp_up",
-    "req_flag": "obtain_hm_01"
+    "req_flag": [
+     "obtain_hm_01",
+     "cascade_badge"
+    ]
    }
   ],
   "shopId": "celadon_dept_store",
@@ -3740,7 +3837,9 @@
     "blocked_message": "A security door bars the stairs -- and a Rocket grunt stands guard! (Find the Card Key and defeat the grunt to ascend.)"
    }
   },
-  "npcs": [],
+  "npcs": [
+   "silph_hiding_worker"
+  ],
   "trainers": [
    "silph_rocket_5f_1",
    "silph_rocket_5f_2",
@@ -4362,7 +4461,8 @@
   "hasShop": true,
   "npcs": [
    "fuchsia_townsperson_1",
-   "fuchsia_townsperson_2"
+   "fuchsia_townsperson_2",
+   "fuchsia_surfer"
   ],
   "trainers": [],
   "encounters": {
@@ -5268,7 +5368,16 @@
    }
   ],
   "noFly": true,
-  "npcs": []
+  "npcs": [],
+  "gate_requirements": {
+   "seafoam_3f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the passage to the lower cavern... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
  },
  "seafoam_3f": {
   "name": "Seafoam Islands - B2F",
@@ -5468,7 +5577,8 @@
   "trainers": [],
   "npcs": [
    "cinnabar_gym_door_locked",
-   "cinnabar_gym_door_unlocked"
+   "cinnabar_gym_door_unlocked",
+   "cinnabar_beachcomber"
   ],
   "explore_table": [
    {
@@ -5612,7 +5722,9 @@
   "trainers": [
    "scientist_mansion_1"
   ],
-  "npcs": [],
+  "npcs": [
+   "mansion_explorer"
+  ],
   "explore_table": [
    {
     "type": "nothing",
@@ -6595,7 +6707,16 @@
     "item": "full_heal"
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "gate_requirements": {
+   "victory_road_2f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
  },
  "victory_road_2f": {
   "name": "Victory Road - 2F",
@@ -6703,7 +6824,16 @@
     "item": "guard_spec"
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "gate_requirements": {
+   "victory_road_3f": {
+    "required_flags": [
+     "obtained_hm04",
+     "rainbow_badge"
+    ],
+    "blocked_message": "A massive boulder blocks the way... It looks like it could be moved with STRENGTH. (Requires Strength and the Rainbow Badge.)"
+   }
+  }
  },
  "victory_road_3f": {
   "name": "Victory Road - 3F",
@@ -6808,7 +6938,10 @@
    "water": []
   },
   "trainers": [],
-  "npcs": [],
+  "npcs": [
+   "indigo_retired_official",
+   "indigo_nervous_challenger"
+  ],
   "explore_table": [
    {
     "type": "nothing",

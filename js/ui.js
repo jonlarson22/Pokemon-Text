@@ -59,12 +59,103 @@ export class UIManager {
   printToLog(message) {
     const display = document.getElementById('display-area');
     if (!display) return;
-    
+
     const p = document.createElement('p');
     p.className = 'log-entry';
-    p.textContent = message;
+    p.textContent = this.substituteNames(message);
     display.appendChild(p);
-    display.scrollTop = display.scrollHeight; 
+    display.scrollTop = display.scrollHeight;
+  }
+
+  // Replace {player} / {rival} tokens with the names chosen at game start
+  // (defaults keep old dialogue working if names were never set).
+  substituteNames(text) {
+    if (typeof text !== 'string') return text;
+    const gs = this.game && this.game.gameState ? this.game.gameState : {};
+    return text
+      .replaceAll('{player}', gs.playerName || 'Red')
+      .replaceAll('{rival}', gs.rivalName || 'Blue');
+  }
+
+  // --- New-game flow: title -> Oak intro -> names -> stopped at Route 1 -> starter pick ---
+  showTitleScreen() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center;font-weight:bold;font-size:1.3em">Pokémon Text</p>
+      <p style="text-align:center">A text adventure through the Kanto region.</p>`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "New Game", action: () => this.showIntro() },
+      { text: "Load Local", action: () => this.game.storage.loadLocal() },
+      { text: "Import Save", action: () => document.getElementById('input-import-file').click() },
+    ]);
+  }
+
+  showIntro() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center;font-weight:bold">Hello there! Welcome to the world of Pokémon!</p>
+      <p>My name is Oak. People call me the Pokémon Professor.</p>
+      <p>This world is inhabited by creatures called Pokémon. For some people, Pokémon are pets. Others use them for battle.</p>
+      <p>As for myself... I study Pokémon as a profession.</p>
+      <p>Your very own Pokémon journey is about to begin! A world of dreams and adventures awaits!</p>`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "Continue", action: () => this.showNameEntry() },
+    ]);
+  }
+
+  showNameEntry() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p><b>Oak:</b> First, tell me a little about yourself. What is your name?</p>
+      <input id="input-player-name" maxlength="10" placeholder="Red" style="width:90%;padding:8px;font-size:1em;text-align:center" />
+      <p style="margin-top:12px"><b>Oak:</b> And this is my grandson. He's been your rival since you were both babies... What was his name again?</p>
+      <input id="input-rival-name" maxlength="10" placeholder="Blue" style="width:90%;padding:8px;font-size:1em;text-align:center" />`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "Begin your journey!", action: () => {
+          const pEl = document.getElementById('input-player-name');
+          const rEl = document.getElementById('input-rival-name');
+          const p = (pEl && pEl.value.trim()) || 'Red';
+          const r = (rEl && rEl.value.trim()) || 'Blue';
+          this.game.gameState.playerName = p.slice(0, 10);
+          this.game.gameState.rivalName = r.slice(0, 10);
+          this.showOakStopsYou();
+      } },
+    ]);
+  }
+
+  showOakStopsYou() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p>You leave your house, full of excitement, and stride toward the tall grass of Route 1...</p>`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "Step onto Route 1", action: () => {
+          this.printToLog("Oak: Hey! Wait! Don't go out there!");
+          this.printToLog("Oak: It's unsafe! Wild Pokémon live in the tall grass! You need your own Pokémon for your protection.");
+          this.printToLog("Oak: Come with me to my lab! I'll give you a Pokémon partner to keep you safe.");
+          this.showStarterPick();
+      } },
+    ]);
+  }
+
+  showStarterPick() {
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center;font-weight:bold">Oak: Choose your Pokémon partner!</p>`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "Bulbasaur", action: () => this.game.factory.pickStarter('bulbasaur') },
+      { text: "Charmander", action: () => this.game.factory.pickStarter('charmander') },
+      { text: "Squirtle", action: () => this.game.factory.pickStarter('squirtle') },
+    ]);
   }
 
 updatePartyUI() {
@@ -173,9 +264,10 @@ renderRouteScreen() {
   
     // UPDATED METHOD: Builds the dynamic travel list based on visited towns
     handleFlyAction() {
-      // Field use of Fly is unlocked by obtaining HM02 (Route 16).
-      if (!this.game.hasFlag('obtained_hm02')) {
-         this.printToLog("You don't have the HM Fly yet!");
+      // Field use of Fly is unlocked by HM02 (Route 16, after the Snorlax)
+      // and requires the Thunder Badge (canon RBY).
+      if (!this.game.hasFlag('obtained_hm02') || !this.game.hasFlag('thunder_badge')) {
+         this.printToLog("You don't have the HM Fly yet, or you lack the badge to use it!");
          return;
       }
 

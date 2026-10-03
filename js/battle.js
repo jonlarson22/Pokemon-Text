@@ -1537,6 +1537,16 @@ handleBattleEnd() {
         this.game.setFlag(this.game.gameState.activeWinFlag, true);
       }
 
+      // Hall of Fame: the first champion victory triggers the post-game
+      // sequence (congratulations -> Pallet Town -> Oak).
+      if (this.game.gameState.activeWinFlag === 'defeated_elite_four' &&
+          !this.game.hasFlag('hall_of_fame_done')) {
+        this.game.setFlag('hall_of_fame_done', true);
+        this.finishBattleCleanup();
+        this.game.hallOfFameSequence();
+        return;
+      }
+
       if (trainer.rewards && trainer.rewards.length > 0) {
         this.processBattleRewards(trainer.rewards);
         return; 

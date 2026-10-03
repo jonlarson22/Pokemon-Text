@@ -13,6 +13,8 @@ class GameEngine {
       currentRoute: "pallet_town",
       hasStarter: false,
       rivalStarter: null,
+      playerName: null,
+      rivalName: null,
       flags: {},
       defeatedTrainers: {},
       party: [],
@@ -94,16 +96,41 @@ class GameEngine {
 
   checkGameStart() {
     if (!this.gameState.hasStarter && this.gameState.party.length === 0) {
-      this.ui.printToLog("Welcome to the world of Pokémon!");
-      this.ui.printToLog("You're in Pallet Town, in the Kanto region, where shades of your journey await!");
-      this.ui.printToLog("Choose a starter Pokémon to be your first companion. Good luck!");
-      this.ui.setMenuState('starter');
+      // Fresh game: title screen -> Oak intro -> names -> stopped at Route 1 -> starter pick.
+      this.ui.showTitleScreen();
     } else {
       this.ui.renderRouteScreen();
       this.ui.updatePartyUI();
       this.ui.updatePokedexTrackerUI();
       this.ui.setMenuState('route');
     }
+  }
+
+  // Hall of Fame: congratulations, a brief pause, then home to Pallet Town
+  // where Oak congratulates the new Champion and helps them finish the Pokédex.
+  hallOfFameSequence() {
+    const ui = this.ui;
+    ui.printToLog("...");
+    ui.printToLog("CONGRATULATIONS, {player}! You have defeated the Pokémon League Champion!");
+    ui.printToLog("Your name will be recorded in the Hall of Fame for all time!");
+    ui.printToLog("...");
+    setTimeout(() => {
+      ui.printToLog("The next morning, you wake up back home in Pallet Town, rested and healed.");
+      // A good night's rest restores the team (Pallet has no Center).
+      this.gameState.party.forEach(p => {
+        p.hp = p.maxHp; p.status = null;
+        if (p.moves) p.moves.forEach(m => { if (m.maxPp !== undefined) m.pp = m.maxPp; });
+      });
+      this.gameState.currentRoute = "pallet_town";
+      this.trackVisitedTown("pallet_town");
+      ui.renderRouteScreen();
+      ui.updatePartyUI();
+      ui.printToLog("Prof. Oak: {player}! There you are! I heard the news — the new Champion of Kanto!");
+      ui.printToLog("Prof. Oak: But a true Pokémon Master isn't made by badges alone. Your Pokédex still has gaps, and I want to help you fill them.");
+      ui.printToLog("Prof. Oak: Take these — 5 Master Balls and 100 Rare Candies. Use them well, and go complete that Pokédex!");
+      this.interactions.giveItem("master_ball", 5);
+      this.interactions.giveItem("rare_candy", 100);
+    }, 3000);
   }
 
   trackVisitedTown(routeId) {
@@ -123,7 +150,7 @@ class GameEngine {
     currentRouteData.connections.forEach(destinationId => {
       const destData = this.db.routes[destinationId];
       if (!destData) return;
-      if (destData.req_flag && !this.gameState.flags[destData.req_flag]) return; 
+      if (destData.req_flag && !this.meetsReqFlag(destData.req_flag)) return; 
 
       const btn = document.createElement('button');
       btn.className = 'btn';
@@ -161,7 +188,7 @@ class GameEngine {
     const buttons = [];
 
     // Encounter entries can require a flag (e.g. Route 12's grass needs Cut).
-    const eligible = (list) => (list || []).filter(e => !e.req_flag || this.hasFlag(e.req_flag));
+    const eligible = (list) => (list || []).filter(e => this.meetsReqFlag(e.req_flag));
 
     const grass = eligible(route.encounters.grass);
     if (grass.length > 0) {
@@ -252,7 +279,8 @@ class GameEngine {
     // secret_switch entries vanish once their flag is set (one-time discovery).
     // If nothing is eligible, exploring finds nothing.
     const table = (route.explore_table || []).filter(e =>
-      (!e.req_flag || this.hasFlag(e.req_flag)) &&
+      this.meetsReqFlag(e.req_flag) &&
+      (!e.req_flag_count || this.countMatchingFlags(e.req_flag_count) >= (e.req_flag_count.qty || 0)) &&
       !(e.type === "secret_switch" && e.flag && this.hasFlag(e.flag))
     );
     const outcome = this.getWeightedRandom(table.length ? table : [{ type: "nothing", weight: 1 }]);
@@ -262,7 +290,7 @@ class GameEngine {
         return "You searched the area but found nothing of interest.";
       
       case "encounter":
-        const zone = (route.encounters.grass || []).filter(e => !e.req_flag || this.hasFlag(e.req_flag));
+        const zone = (route.encounters.grass || []).filter(e => this.meetsReqFlag(e.req_flag));
         return this.triggerEncounter(zone);
       
       case "item":
@@ -322,6 +350,29 @@ class GameEngine {
           decline: outcome.decline,
         } };
       }
+      case "prompt_encounter": {
+        // Explore discovery that asks first, then starts a scripted battle
+        // on Yes (e.g. the truck on Vermilion Dock). Re-encounterable until
+        // caught, or until win_flag is set.
+        if (this.gameState.pokedex.caught[(outcome.species || '').toLowerCase()]) {
+          return "You searched the area but found nothing of interest.";
+        }
+        if (outcome.win_flag && this.hasFlag(outcome.win_flag)) {
+          return "You searched the area but found nothing of interest.";
+        }
+        const battleSpec = { species: outcome.species, level: outcome.level,
+          uncatchable: !!outcome.uncatchable, win_flag: outcome.win_flag || null };
+        return { choice: {
+          prompt: outcome.prompt,
+          yes_label: outcome.yes_label || "Yes",
+          no_label: outcome.no_label || "No",
+          decline: outcome.decline || "You leave it alone.",
+          onYes: () => {
+            this.ui.printToLog(outcome.intro || "You were ambushed!");
+            this.startWildBattle(battleSpec);
+          },
+        } };
+      }
       }
     }
 
@@ -332,6 +383,25 @@ class GameEngine {
 
   hasFlag(flagName) {
     return !!this.gameState.flags[flagName];
+  }
+
+  // req_flag may be a single flag or a list of flags (all required).
+  // Used for canon badge-gated field HM use (e.g. Cut needs Cascade Badge).
+  meetsReqFlag(req) {
+    if (!req) return true;
+    if (Array.isArray(req)) return req.every(f => this.hasFlag(f));
+    return this.hasFlag(req);
+  }
+
+  // Count set flags matching a spec like {category:'gym_badges', qty:8}
+  // (mirrors the NPC flag_count requirement semantics).
+  countMatchingFlags(spec) {
+    const all = this.gameState.flags || {};
+    const set = Object.keys(all).filter(f => !!all[f]);
+    let matching = set;
+    if (spec.category === 'gym_badges') matching = set.filter(f => f.endsWith('_badge'));
+    else if (spec.prefix) matching = set.filter(f => f.startsWith(spec.prefix));
+    return matching.length;
   }
   
   bindListeners() {

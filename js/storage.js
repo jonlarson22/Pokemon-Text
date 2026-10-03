@@ -14,6 +14,9 @@ export class StorageManager {
     if (!state.flags) state.flags = {};
     if (!state.defeatedTrainers) state.defeatedTrainers = {};
     if (!state.visitedTowns) state.visitedTowns = [];
+    // Name entry (start-screen flow): default old saves to canon names.
+    if (!state.playerName) state.playerName = 'Red';
+    if (!state.rivalName) state.rivalName = 'Blue';
     // Friendship system (save v2): default old saves to the gen 3 base value.
     for (const mon of (state.party || [])) {
       if (mon.friendship === undefined) mon.friendship = 70;
