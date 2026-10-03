@@ -138,24 +138,38 @@ export class UIManager {
     ]);
   }
 
+  // Two-step name entry, RBY-style: Oak asks your name, waits while you
+  // type, then asks about his grandson.
   showNameEntry() {
     this.setMenuState('dynamic');
     this.printToLog("Oak: First, tell me a little about yourself. What is your name?");
-    this.printToLog("Oak: And this is my grandson. He's been your rival since you were both babies... What was his name again?");
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
     content.innerHTML = `<p style="text-align:center"><b>Your name:</b></p>
-      <input id="input-player-name" maxlength="10" placeholder="Red" style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />
-      <p style="text-align:center;margin-top:12px"><b>Your rival's name:</b></p>
-      <input id="input-rival-name" maxlength="10" placeholder="Blue" style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />`;
+      <input id="input-player-name" maxlength="10" placeholder="Red" autofocus style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />`;
+    controls.innerHTML = '';
+    this.buildMenuControls(controls, [
+      { text: "That's my name!", action: () => {
+          const pEl = document.getElementById('input-player-name');
+          const p = (pEl && pEl.value.trim()) || 'Red';
+          this.game.gameState.playerName = p.slice(0, 10);
+          this.showRivalNameEntry();
+      } },
+    ]);
+  }
+
+  showRivalNameEntry() {
+    this.setMenuState('dynamic');
+    this.printToLog("Oak: And this is my grandson. He's been your rival since you were both babies... What was his name again?");
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = `<p style="text-align:center"><b>Your rival's name:</b></p>
+      <input id="input-rival-name" maxlength="10" placeholder="Blue" autofocus style="width:100%;box-sizing:border-box;padding:10px 4px;font-size:1em;text-align:center" />`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
       { text: "Begin your journey!", action: () => {
-          const pEl = document.getElementById('input-player-name');
           const rEl = document.getElementById('input-rival-name');
-          const p = (pEl && pEl.value.trim()) || 'Red';
           const r = (rEl && rEl.value.trim()) || 'Blue';
-          this.game.gameState.playerName = p.slice(0, 10);
           this.game.gameState.rivalName = r.slice(0, 10);
           this.printToLog("Oak: {player}! And {rival}! Of course — how could I forget? Now, off you go!");
           this.showOakStopsYou();

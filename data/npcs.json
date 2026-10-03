@@ -725,7 +725,7 @@
  },
  "silph_lapras_employee": {
   "name": "Grateful Employee",
-  "dialogue_default": "[DRAFT] You drove off that rotten rival of yours! Thank you! Please, take this Lapras -- it was going to be a company gift, but you'd give it a better home!",
+  "dialogue_default": "[DRAFT] You drove off that rotten {rival}! Thank you! Please, take this Lapras -- it was going to be a company gift, but you'd give it a better home!",
   "requirements": [],
   "rewards": [
    {
