@@ -9,7 +9,10 @@ export class UIManager {
       const coins = this.game.gameState.coins || 0;
       const coinText = (coins > 0 || this.game.hasFlag('obtained_coin_case'))
         ? ` · Coins: ${coins}` : '';
-      moneyEl.textContent = `Money: ¥${this.game.gameState.money}${coinText}`;
+      // Past ¥100k the exact amount stops mattering: show 103k, 285k, ...
+      const m = this.game.gameState.money || 0;
+      const moneyText = m >= 100000 ? `${Math.floor(m / 1000)}k` : `${m}`;
+      moneyEl.textContent = `Money: ¥${moneyText}${coinText}`;
     }
   }
 

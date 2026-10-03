@@ -53,13 +53,13 @@ body {
 }
 
 .log-entry {
-  font-size: 0.9rem;
-  line-height: 1.3;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 /* Party Quick View */
 #party-bar {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   background-color: #e9ecef;
   padding: 6px 10px;
   border-radius: 4px;
@@ -89,7 +89,7 @@ body {
   border-radius: 4px;
   padding: 10px 4px;
   font-weight: bold;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.15s ease, transform 0.05s ease;
