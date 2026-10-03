@@ -99,6 +99,7 @@ export class StorageManager {
 
   // Helper method to refresh the screen state after a load or import
   updateUIAfterLoad(successMessage) {
+    this.game.ui.setHudVisible(true);
     this.game.ui.renderRouteScreen();
     this.game.ui.updatePartyUI();
     this.game.ui.updateMoneyUI();

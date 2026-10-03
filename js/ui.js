@@ -78,12 +78,23 @@ export class UIManager {
   }
 
   // --- New-game flow: title -> Oak intro -> names -> stopped at Route 1 -> starter pick ---
+  // The title screen hides the game HUD (location, money, party, log box):
+  // none of it means anything until the player picks New / Load / Import.
+  setHudVisible(visible) {
+    const disp = visible ? '' : 'none';
+    for (const id of ['status-bar', 'display-area', 'party-bar']) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = disp;
+    }
+  }
+
   showTitleScreen() {
+    this.setHudVisible(false);
     this.setMenuState('dynamic');
     const content = document.getElementById('dynamic-content');
     const controls = document.getElementById('dynamic-controls');
-    content.innerHTML = `<p style="text-align:center;font-weight:bold;font-size:1.3em">Pokémon Text</p>
-      <p style="text-align:center">A text adventure through the Kanto region.</p>`;
+    content.innerHTML = `<p style="text-align:center;font-weight:bold;font-size:2em;margin:0.6em 0 0">Pokémon Text</p>
+      <p style="text-align:center;font-size:1.1em">A text adventure through the Kanto region.</p>`;
     controls.innerHTML = '';
     this.buildMenuControls(controls, [
       { text: "New Game", action: () => this.showIntro() },
@@ -93,6 +104,7 @@ export class UIManager {
   }
 
   showIntro() {
+    this.setHudVisible(true);
     this.setMenuState('dynamic');
     // Story text goes to the log box; the menu area holds only the button.
     this.printToLog("Oak: Hello there! Welcome to the world of Pokémon!");
