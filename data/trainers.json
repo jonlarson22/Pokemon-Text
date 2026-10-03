@@ -293,8 +293,8 @@
  "giovanni_gym": {
   "name": "Giovanni",
   "title": "Gym Leader",
-  "dialogueBefore": "I am the leader here. You dare challenge me? You are a fool!",
-  "dialogueAfter": "Ha! That was a truly intense fight. You have won! Take the Earth Badge!",
+  "dialogueBefore": "{player}! So you made it to my Gym. I am the leader here. You dare challenge me? You are a fool!",
+  "dialogueAfter": "Ha! That was a truly intense fight, {player}. You have won! Take the Earth Badge!",
   "rewardMoney": 4950,
   "party": [
    {
@@ -3876,8 +3876,8 @@
  "silph_co_giovanni": {
   "name": "Giovanni",
   "title": "Team Rocket Boss",
-  "dialogueBefore": "[DRAFT] So! We meet again, child! I am Giovanni, and this company is MINE now! Its president cowers behind me -- and you will never reach him!",
-  "dialogueAfter": "[DRAFT] Impossible... TWICE?! ...Very well. Silph Co. is yours. But remember -- Team Rocket never truly falls! (Giovanni vanishes.)",
+  "dialogueBefore": "[DRAFT] So! We meet again, {player}! I am Giovanni, and this company is MINE now! Its president cowers behind me -- and you will never reach him!",
+  "dialogueAfter": "[DRAFT] Impossible... TWICE?! ...Very well, {player}. Silph Co. is yours. But remember -- Team Rocket never truly falls! (Giovanni vanishes.)",
   "rewardMoney": 4059,
   "party": [
    {
