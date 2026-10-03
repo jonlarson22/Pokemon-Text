@@ -81,13 +81,13 @@
    }
   ],
   "gym_trainers": [
-   "lass_kay",
-   "beauty_bridget",
-   "picnicker_tina",
-   "lass_tamia",
-   "beauty_lori",
-   "cooltrainer_mary",
-   "beauty_jessica"
+   "celadon_lass_1",
+   "celadon_beauty_1",
+   "celadon_beauty_2",
+   "celadon_jr_trainer_1",
+   "celadon_beauty_3",
+   "celadon_cooltrainer_1",
+   "celadon_lass_2"
   ],
   "gym_leader": "erika_gym",
   "completed": false
@@ -108,11 +108,12 @@
    }
   ],
   "gym_trainers": [
-   "tamer_phil",
-   "tamer_edgar",
-   "juggler_kirk",
-   "juggler_ned",
-   "juggler_kayden"
+   "fuchsia_juggler_1",
+   "fuchsia_juggler_2",
+   "fuchsia_juggler_3",
+   "fuchsia_tamer_1",
+   "fuchsia_tamer_2",
+   "fuchsia_juggler_4"
   ],
   "gym_leader": "koga_gym",
   "completed": false
@@ -133,13 +134,13 @@
    }
   ],
   "gym_trainers": [
-   "psychic_johan",
-   "chaneller_amanda",
-   "psychic_tyron",
-   "chaneller_stacy",
-   "psychic_cameron",
-   "chaneller_tasha",
-   "psychic_preston"
+   "saffron_psychic_1",
+   "saffron_psychic_2",
+   "saffron_channeler_1",
+   "saffron_psychic_3",
+   "saffron_channeler_2",
+   "saffron_channeler_3",
+   "saffron_psychic_4"
   ],
   "gym_leader": "sabrina_gym",
   "completed": false
@@ -205,25 +206,23 @@
   "type_theme": "fighting",
   "rewards": [
    {
-    "type": "pokemon_choice",
-    "choices": [
-     {
-      "species": "Hitmonlee",
-      "level": 30
-     },
-     {
-      "species": "Hitmonchan",
-      "level": 30
-     }
-    ]
+    "type": "pokemon",
+    "species": "hitmonlee",
+    "level": 30
+   },
+   {
+    "type": "pokemon",
+    "species": "hitmonchan",
+    "level": 30
    }
   ],
   "gym_trainers": [
-   "blackbelt_hitoshi",
-   "blackbelt_hideki",
-   "blackbelt_aaron"
+   "dojo_blackbelt_1",
+   "dojo_blackbelt_2",
+   "dojo_blackbelt_3",
+   "dojo_blackbelt_4"
   ],
-  "gym_leader": "master_karate",
+  "gym_leader": "dojo_koichi",
   "completed": false
  }
 }

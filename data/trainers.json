@@ -1,6 +1,6 @@
 {
  "rival_pallet_1": {
-  "name": "Rival",
+  "name": "{rival}",
   "title": "Pokémon Trainer",
   "dialogueBefore": "Wait! Let's check out our Pokémon! I'll take you on!",
   "dialogueAfter": "WHAT? Unbelievable! I picked the wrong Pokémon!",
@@ -531,7 +531,7 @@
   ]
  },
  "rival_cerulean": {
-  "name": "Rival",
+  "name": "{rival}",
   "title": "Pokémon Trainer",
   "dialogueBefore": "Hey! You're still struggling? Let me show you how a real trainer battles!",
   "dialogueAfter": "What?! I had a type advantage! ...This isn't over!",
@@ -552,109 +552,6 @@
    {
     "species": "RIVAL_STARTER_STAGE_2",
     "level": 17
-   }
-  ]
- },
- "lass_kay": {
-  "name": "Kay",
-  "title": "Lass",
-  "dialogueBefore": "Erika's garden is the prettiest battlefield in Kanto!",
-  "dialogueAfter": "Your battle style is beautiful too!",
-  "rewardMoney": 360,
-  "party": [
-   {
-    "species": "oddish",
-    "level": 24
-   },
-   {
-    "species": "bellsprout",
-    "level": 24
-   }
-  ]
- },
- "beauty_bridget": {
-  "name": "Bridget",
-  "title": "Beauty",
-  "dialogueBefore": "A lady never wilts, and neither do my Pokémon!",
-  "dialogueAfter": "Oh, my! You plucked my winning streak!",
-  "rewardMoney": 1820,
-  "party": [
-   {
-    "species": "bellsprout",
-    "level": 26
-   }
-  ]
- },
- "picnicker_tina": {
-  "name": "Tina",
-  "title": "Picnicker",
-  "dialogueBefore": "I had a picnic in Erika's garden once. Now I battle in it!",
-  "dialogueAfter": "That was more fun than sandwiches!",
-  "rewardMoney": 500,
-  "party": [
-   {
-    "species": "oddish",
-    "level": 25
-   },
-   {
-    "species": "gloom",
-    "level": 25
-   }
-  ]
- },
- "lass_tamia": {
-  "name": "Tamia",
-  "title": "Lass",
-  "dialogueBefore": "Grass Pokémon are gentle, but don't mistake gentle for weak!",
-  "dialogueAfter": "Okay! Gentle can still lose!",
-  "rewardMoney": 375,
-  "party": [
-   {
-    "species": "tangela",
-    "level": 25
-   }
-  ]
- },
- "beauty_lori": {
-  "name": "Lori",
-  "title": "Beauty",
-  "dialogueBefore": "Erika taught me that beauty blooms brightest in battle!",
-  "dialogueAfter": "Wilted... like a flower in winter.",
-  "rewardMoney": 1890,
-  "party": [
-   {
-    "species": "gloom",
-    "level": 27
-   }
-  ]
- },
- "cooltrainer_mary": {
-  "name": "Mary",
-  "title": "Cooltrainer",
-  "dialogueBefore": "I've trained in every garden in Kanto. This one is the toughest.",
-  "dialogueAfter": "Even the toughest garden has weeds. Like me, apparently.",
-  "rewardMoney": 910,
-  "party": [
-   {
-    "species": "weepinbell",
-    "level": 26
-   },
-   {
-    "species": "gloom",
-    "level": 26
-   }
-  ]
- },
- "beauty_jessica": {
-  "name": "Jessica",
-  "title": "Beauty",
-  "dialogueBefore": "One last petal stands between you and Erika: me!",
-  "dialogueAfter": "You plucked me too! Erika won't be so easy!",
-  "rewardMoney": 1890,
-  "party": [
-   {
-    "species": "vileplume",
-    "level": 27
    }
   ]
  },
@@ -732,75 +629,6 @@
    }
   ],
   "clearsRouteTrainers": true
- },
- "tamer_phil": {
-  "name": "Phil",
-  "title": "Tamer",
-  "dialogueBefore": "Koga's invisible walls hide more than just the Gym!",
-  "dialogueAfter": "You saw right through my tricks!",
-  "rewardMoney": 1480,
-  "party": [
-   {
-    "species": "arbok",
-    "level": 37
-   }
-  ]
- },
- "tamer_edgar": {
-  "name": "Edgar",
-  "title": "Tamer",
-  "dialogueBefore": "My poisons are as invisible as these walls!",
-  "dialogueAfter": "Antidote... I need an antidote for this defeat!",
-  "rewardMoney": 1520,
-  "party": [
-   {
-    "species": "arbok",
-    "level": 38
-   }
-  ]
- },
- "juggler_kirk": {
-  "name": "Kirk",
-  "title": "Juggler",
-  "dialogueBefore": "Watch closely! My Pokémon disappear... into battle!",
-  "dialogueAfter": "Now you see them, now you don't... I lost!",
-  "rewardMoney": 1295,
-  "party": [
-   {
-    "species": "koffing",
-    "level": 37
-   },
-   {
-    "species": "koffing",
-    "level": 37
-   }
-  ]
- },
- "juggler_ned": {
-  "name": "Ned",
-  "title": "Juggler",
-  "dialogueBefore": "A juggler never drops a Pokémon! Or a battle!",
-  "dialogueAfter": "Dropped it! I dropped the battle!",
-  "rewardMoney": 1330,
-  "party": [
-   {
-    "species": "koffing",
-    "level": 38
-   }
-  ]
- },
- "juggler_kayden": {
-  "name": "Kayden",
-  "title": "Juggler",
-  "dialogueBefore": "Koga's final test is me! And I'm no joke!",
-  "dialogueAfter": "The joke's on me!",
-  "rewardMoney": 1365,
-  "party": [
-   {
-    "species": "weezing",
-    "level": 39
-   }
-  ]
  },
  "koga_gym": {
   "name": "Koga",
@@ -898,97 +726,6 @@
    }
   ],
   "clearsRouteTrainers": true
- },
- "psychic_johan": {
-  "name": "Johan",
-  "title": "Psychic",
-  "dialogueBefore": "I foresaw your arrival. I also foresaw my victory.",
-  "dialogueAfter": "My vision... was cloudy!",
-  "rewardMoney": 360,
-  "party": [
-   {
-    "species": "kadabra",
-    "level": 36
-   }
-  ]
- },
- "chaneller_amanda": {
-  "name": "Amanda",
-  "title": "Channeler",
-  "dialogueBefore": "The spirits whisper that you will lose!",
-  "dialogueAfter": "The spirits lied to me!",
-  "rewardMoney": 1110,
-  "party": [
-   {
-    "species": "haunter",
-    "level": 37
-   }
-  ]
- },
- "psychic_tyron": {
-  "name": "Tyron",
-  "title": "Psychic",
-  "dialogueBefore": "Sabrina's mind is as sharp as her Pokémon's.",
-  "dialogueAfter": "You shattered my concentration!",
-  "rewardMoney": 370,
-  "party": [
-   {
-    "species": "slowbro",
-    "level": 37
-   }
-  ]
- },
- "chaneller_stacy": {
-  "name": "Stacy",
-  "title": "Channeler",
-  "dialogueBefore": "I channel the power of the unseen world!",
-  "dialogueAfter": "The unseen world has abandoned me!",
-  "rewardMoney": 1140,
-  "party": [
-   {
-    "species": "haunter",
-    "level": 38
-   }
-  ]
- },
- "psychic_cameron": {
-  "name": "Cameron",
-  "title": "Psychic",
-  "dialogueBefore": "Your thoughts betray you. You fear my power.",
-  "dialogueAfter": "Impossible! You thought of nothing but victory!",
-  "rewardMoney": 380,
-  "party": [
-   {
-    "species": "kadabra",
-    "level": 38
-   }
-  ]
- },
- "chaneller_tasha": {
-  "name": "Tasha",
-  "title": "Channeler",
-  "dialogueBefore": "One step closer to Sabrina. One step closer to defeat!",
-  "dialogueAfter": "The spirits acknowledge your strength.",
-  "rewardMoney": 1170,
-  "party": [
-   {
-    "species": "gengar",
-    "level": 39
-   }
-  ]
- },
- "psychic_preston": {
-  "name": "Preston",
-  "title": "Psychic",
-  "dialogueBefore": "I am Sabrina's final shield. You shall not pass!",
-  "dialogueAfter": "My mind... is blank. You win.",
-  "rewardMoney": 390,
-  "party": [
-   {
-    "species": "alakazam",
-    "level": 39
-   }
-  ]
  },
  "sabrina_gym": {
   "name": "Sabrina",
@@ -1262,74 +999,6 @@
    "full_restore"
   ],
   "clearsRouteTrainers": true
- },
- "blackbelt_hitoshi": {
-  "name": "Hitoshi",
-  "title": "Blackbelt",
-  "dialogueBefore": "Our karate blows will crush you!",
-  "dialogueAfter": "Your spirit is stronger than my fists!",
-  "rewardMoney": 750,
-  "party": [
-   {
-    "species": "hitmonlee",
-    "level": 30
-   }
-  ]
- },
- "blackbelt_hideki": {
-  "name": "Hideki",
-  "title": "Blackbelt",
-  "dialogueBefore": "Hi-yah! Taste my chop attack!",
-  "dialogueAfter": "Chopped down!",
-  "rewardMoney": 750,
-  "party": [
-   {
-    "species": "hitmonchan",
-    "level": 30
-   }
-  ]
- },
- "blackbelt_aaron": {
-  "name": "Aaron",
-  "title": "Blackbelt",
-  "dialogueBefore": "The dojo's honor rests on my shoulders!",
-  "dialogueAfter": "The dojo's honor... dented!",
-  "rewardMoney": 775,
-  "party": [
-   {
-    "species": "hitmonlee",
-    "level": 31
-   }
-  ]
- },
- "master_karate": {
-  "name": "Koichi",
-  "title": "Karate Master",
-  "dialogueBefore": "Yo! I am the Karate Master! I am the leader of this dojo! You dare challenge me?",
-  "dialogueAfter": "Wah! You are strong! Choose one of the fighting Pokémon as your prize!",
-  "rewardMoney": 825,
-  "party": [
-   {
-    "species": "hitmonlee",
-    "level": 33
-   },
-   {
-    "species": "hitmonchan",
-    "level": 33
-   }
-  ],
-  "rewards": [
-   {
-    "type": "pokemon",
-    "species": "hitmonlee",
-    "level": 30
-   },
-   {
-    "type": "pokemon",
-    "species": "hitmonchan",
-    "level": 30
-   }
-  ]
  },
  "bug_catcher_colton": {
   "name": "Colton",
@@ -1752,7 +1421,7 @@
   ]
  },
  "rival_route22": {
-  "name": "Rival",
+  "name": "{rival}",
   "title": "Pokémon Trainer",
   "dialogueBefore": "[DRAFT] Yo! Heading to the Pokémon League? You need Badges to get through! Let's see if you're even worth my time!",
   "dialogueAfter": "[DRAFT] Hmph! Lucky! Train harder if you want to face me again!",
@@ -2058,7 +1727,7 @@
   ]
  },
  "rival_ss_anne": {
-  "name": "Rival",
+  "name": "{rival}",
   "title": "Pokémon Trainer",
   "dialogueBefore": "[DRAFT] Yo! I heard about the party on this ship and came to crash it! Let's see how much stronger I've gotten!",
   "dialogueAfter": "[DRAFT] Hmph! You just lucked out! I'm heading to the captain's cabin... don't follow me!",
@@ -3020,7 +2689,7 @@
   ]
  },
  "tower_rival": {
-  "name": "Rival",
+  "name": "{rival}",
   "title": "Pokémon Trainer",
   "dialogueBefore": "[DRAFT] Well, well. Come to pay respects too? Or are you just here to gawk at ghosts?",
   "dialogueAfter": "[DRAFT] Tch. Even the dead couldn't carry you to a win.",
@@ -3203,40 +2872,6 @@
    {
     "species": "zubat",
     "level": 23
-   }
-  ]
- },
- "route7_youngster_1": {
-  "name": "Youngster",
-  "title": "Youngster",
-  "dialogueBefore": "[DRAFT] This road leads to SAFFRON... if the guard ever lets anyone in!",
-  "dialogueAfter": "[DRAFT] The guard... still thirsty, huh?",
-  "rewardMoney": 300,
-  "party": [
-   {
-    "species": "spearow",
-    "level": 20
-   },
-   {
-    "species": "rattata",
-    "level": 20
-   }
-  ]
- },
- "route7_lass_1": {
-  "name": "Lass",
-  "title": "Lass",
-  "dialogueBefore": "[DRAFT] I take the underground path to avoid the SAFFRON gatehouse!",
-  "dialogueAfter": "[DRAFT] The tunnel's faster anyway!",
-  "rewardMoney": 315,
-  "party": [
-   {
-    "species": "oddish",
-    "level": 21
-   },
-   {
-    "species": "bellsprout",
-    "level": 21
    }
   ]
  },
@@ -4210,7 +3845,7 @@
   ]
  },
  "silph_co_rival": {
-  "name": "Rival",
+  "name": "{rival}",
   "title": "Pokémon Trainer",
   "dialogueBefore": "[DRAFT] Well, well! If it isn't my favorite loser! Team Rocket hired ME as security! There's no way I'm letting you into the president's office!",
   "dialogueAfter": "[DRAFT] What?! Hired... and fired in the same day?! Fine! The office is yours. But Giovanni's in there, and he's way tougher than me!",
@@ -6065,177 +5700,6 @@
    }
   ]
  },
- "tower_channeler_14": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 720,
-  "party": [
-   {
-    "species": "gastly",
-    "level": 24
-   }
-  ]
- },
- "tower_channeler_15": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 750,
-  "party": [
-   {
-    "species": "gastly",
-    "level": 25
-   },
-   {
-    "species": "gastly",
-    "level": 25
-   }
-  ]
- },
- "tower_channeler_16": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 780,
-  "party": [
-   {
-    "species": "haunter",
-    "level": 26
-   }
-  ]
- },
- "tower_channeler_17": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 810,
-  "party": [
-   {
-    "species": "gastly",
-    "level": 24
-   },
-   {
-    "species": "haunter",
-    "level": 27
-   }
-  ]
- },
- "tower_channeler_18": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 780,
-  "party": [
-   {
-    "species": "gastly",
-    "level": 26
-   },
-   {
-    "species": "gastly",
-    "level": 26
-   }
-  ]
- },
- "tower_channeler_19": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 840,
-  "party": [
-   {
-    "species": "haunter",
-    "level": 28
-   }
-  ]
- },
- "tower_channeler_20": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 840,
-  "party": [
-   {
-    "species": "gastly",
-    "level": 27
-   },
-   {
-    "species": "haunter",
-    "level": 28
-   }
-  ]
- },
- "tower_channeler_21": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 870,
-  "party": [
-   {
-    "species": "haunter",
-    "level": 29
-   }
-  ]
- },
- "tower_channeler_22": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 840,
-  "party": [
-   {
-    "species": "gastly",
-    "level": 28
-   },
-   {
-    "species": "gastly",
-    "level": 28
-   },
-   {
-    "species": "haunter",
-    "level": 28
-   }
-  ]
- },
- "tower_channeler_23": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 900,
-  "party": [
-   {
-    "species": "haunter",
-    "level": 30
-   }
-  ]
- },
- "tower_channeler_24": {
-  "name": "Channeler",
-  "title": "Channeler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
-  "rewardMoney": 900,
-  "party": [
-   {
-    "species": "gastly",
-    "level": 29
-   },
-   {
-    "species": "haunter",
-    "level": 30
-   }
-  ]
- },
  "silph_rocket_6f_1": {
   "name": "Grunt",
   "title": "Team Rocket",
@@ -6666,7 +6130,7 @@
   ]
  },
  "champion_rival": {
-  "name": "Rival",
+  "name": "{rival}",
   "title": "Champion",
   "dialogueBefore": "[DRAFT] Well, well. Look who finally crawled out of Victory Road. Heh... I beat the Elite Four while you were still getting lost in a cave. That's the difference between us - I'm always one step ahead. But I'll give you this: nobody else even made it to my throne room. So come on! If you want my title, you're going to have to rip it out of my hands!",
   "dialogueAfter": "[DRAFT] ...No way. NO way! I... I was the Champion! ...Hmph. Fine. You win. You were always the annoying one, weren't you? Chasing me from town to town, snapping at my heels since Pallet Town... You know what? I'm not even mad. A Champion who never loses gets soft. Go on - take the title. Just don't you dare lose it to the first kid with a Rattata who walks in here. ...And hey. Thanks. Losing to you was the most fun I've had in years.",
@@ -6695,6 +6159,39 @@
    {
     "species": "RIVAL_STARTER_STAGE_3",
     "level": 65
+   }
+  ]
+ },
+ "rival_route22_rematch": {
+  "name": "{rival}",
+  "title": "Pokémon Trainer",
+  "dialogueBefore": "[DRAFT] {player}! So we meet again! I've been waiting here for a real challenge before the Pokémon League. Let's see how much stronger you've gotten!",
+  "dialogueAfter": "[DRAFT] ...I lost again?! Fine! You're ready for Victory Road. Don't you dare lose to the Elite Four before I get my rematch!",
+  "rewardMoney": 3445,
+  "party": [
+   {
+    "species": "pidgeot",
+    "level": 47
+   },
+   {
+    "species": "rhyhorn",
+    "level": 45
+   },
+   {
+    "species": "RIVAL_R22_EXTRA_A",
+    "level": 45
+   },
+   {
+    "species": "RIVAL_R22_EXTRA_B",
+    "level": 47
+   },
+   {
+    "species": "alakazam",
+    "level": 50
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 53
    }
   ]
  }

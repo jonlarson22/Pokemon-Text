@@ -162,6 +162,19 @@ export class PokemonFactory {
         mon.species = pick[0];
         mon.level = pick[1];
       }
+      // Canon RBY Route 22 rematch rival: slots 3-4 depend on the rival's starter
+      // (slots: Pidgeot 47 / Rhyhorn 45 / A(45) / B(47) / Alakazam 50 / starter 53).
+      if (mon.species === "RIVAL_R22_EXTRA_A" || mon.species === "RIVAL_R22_EXTRA_B") {
+        const r22Extras = {
+          'bulbasaur': { A: ['gyarados', 45], B: ['growlithe', 47] },
+          'charmander': { A: ['exeggcute', 45], B: ['gyarados', 47] },
+          'squirtle': { A: ['growlithe', 45], B: ['exeggcute', 47] },
+        };
+        const slot = mon.species === "RIVAL_R22_EXTRA_A" ? 'A' : 'B';
+        const pick = r22Extras[this.engine.gameState.rivalStarter][slot];
+        mon.species = pick[0];
+        mon.level = pick[1];
+      }
       // Canon RBY champion rival: slots 4-5 depend on the rival's starter
       // (slots: Pidgeot 61 / Alakazam 59 / Rhydon 61 / A / B / starter 65).
       if (mon.species === "RIVAL_CHAMP_EXTRA_A" || mon.species === "RIVAL_CHAMP_EXTRA_B") {

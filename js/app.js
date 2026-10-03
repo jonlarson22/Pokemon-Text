@@ -448,7 +448,7 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
         const statusText = isDefeated ? "(Defeated)" : "";
 
         buttons.push({
-          text: `Battle ${trainerTemplate.name} ${statusText}`,
+          text: this.ui.substituteNames(`Battle ${trainerTemplate.name} ${statusText}`),
           action: () => {
             if (isDefeated) {
               this.ui.printToLog(`${trainerTemplate.name} has already been defeated!`);

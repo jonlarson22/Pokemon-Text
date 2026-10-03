@@ -273,7 +273,8 @@
    "water": []
   },
   "trainers": [
-   "rival_route22"
+   "rival_route22",
+   "rival_route22_rematch"
   ],
   "explore_table": [
    {
@@ -287,9 +288,10 @@
   "gate_requirements": {
    "route23": {
     "required_flags": [
-     "soul_badge"
+     "soul_badge",
+     "defeated_rival_route22_rematch"
     ],
-    "blocked_message": "The water north of here is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+    "blocked_message": "The water north of here is too rough to cross without a Pokémon that knows Surf, and your rival stands in your path, demanding one final battle! (Requires the Soul Badge and defeating your rival.)"
    }
   }
  },
@@ -2838,12 +2840,6 @@
    ]
   },
   "trainers": [
-   "tower_channeler_1",
-   "tower_channeler_2",
-   "tower_channeler_3",
-   "tower_channeler_4",
-   "tower_channeler_5",
-   "tower_channeler_6",
    "tower_rival"
   ],
   "npcs": [],
@@ -2910,13 +2906,9 @@
    ]
   },
   "trainers": [
-   "tower_channeler_7",
-   "tower_channeler_8",
-   "tower_channeler_9",
-   "tower_channeler_10",
-   "tower_channeler_11",
-   "tower_channeler_12",
-   "tower_channeler_13"
+   "tower_channeler_1",
+   "tower_channeler_2",
+   "tower_channeler_3"
   ],
   "npcs": [
    "tower_purified_npc"
@@ -3019,10 +3011,7 @@
     }
    ]
   },
-  "trainers": [
-   "route7_youngster_1",
-   "route7_lass_1"
-  ],
+  "trainers": [],
   "npcs": [
    "thirsty_guard"
   ],
@@ -6159,6 +6148,9 @@
    ]
   },
   "trainers": [
+   "tower_channeler_11",
+   "tower_channeler_12",
+   "tower_channeler_13",
    "tower_rocket_1",
    "tower_rocket_2",
    "tower_rocket_3"
@@ -6225,12 +6217,9 @@
    "water": []
   },
   "trainers": [
-   "tower_channeler_14",
-   "tower_channeler_15",
-   "tower_channeler_16",
-   "tower_channeler_17",
-   "tower_channeler_18",
-   "tower_channeler_19"
+   "tower_channeler_4",
+   "tower_channeler_5",
+   "tower_channeler_6"
   ],
   "npcs": [],
   "explore_table": [
@@ -6296,11 +6285,10 @@
    "water": []
   },
   "trainers": [
-   "tower_channeler_20",
-   "tower_channeler_21",
-   "tower_channeler_22",
-   "tower_channeler_23",
-   "tower_channeler_24"
+   "tower_channeler_7",
+   "tower_channeler_8",
+   "tower_channeler_9",
+   "tower_channeler_10"
   ],
   "npcs": [],
   "explore_table": [
