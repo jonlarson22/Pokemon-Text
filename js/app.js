@@ -231,22 +231,34 @@ class GameEngine {
     else this.battleManager.startBattle(result);
   }
 
-  startTrainerEncounter(trainerId) {
-    const trainer = this.db.trainers[trainerId];
-    if (!trainer) {
-      this.ui.printToLog("Error: Trainer data not found!");
-      return;
+  async startTrainerEncounter(trainerId) {
+    // Guard against double-clicks while the pre-battle taunt is revealing.
+    if (this._inEncounter) return;
+    this._inEncounter = true;
+    try {
+      const trainer = this.db.trainers[trainerId];
+      if (!trainer) {
+        this.ui.printToLog("Error: Trainer data not found!");
+        return;
+      }
+
+      this.ui.printToLog(`${trainer.name} wants to battle!`);
+      // Story taunt reveals line by line; the battle starts after.
+      // Headless/test UIs (no printDialogue) stay fully synchronous.
+      const r = this.ui.printDialogue
+        ? this.ui.printDialogue(`"${trainer.dialogueBefore}"`)
+        : this.ui.printToLog(`"${trainer.dialogueBefore}"`);
+      if (r && r.then) await r;
+
+      // Generate the full party of Pokémon instances with custom moves/levels
+      const enemyParty = this.factory.generateTrainerParty(trainer);
+
+      this.gameState.activeTrainerId = trainerId;
+      this.ui.setMenuState('battle');
+      this.battleManager.startTrainerBattle(enemyParty, trainer);
+    } finally {
+      this._inEncounter = false;
     }
-
-    this.ui.printToLog(`${trainer.name} wants to battle!`);
-    this.ui.printToLog(`"${trainer.dialogueBefore}"`);
-
-    // Generate the full party of Pokémon instances with custom moves/levels
-    const enemyParty = this.factory.generateTrainerParty(trainer);
-
-    this.gameState.activeTrainerId = trainerId;
-    this.ui.setMenuState('battle'); 
-    this.battleManager.startTrainerBattle(enemyParty, trainer);
   }
   
   triggerEncounter(encounterList) {

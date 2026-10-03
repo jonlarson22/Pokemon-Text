@@ -1495,8 +1495,12 @@ startTrainerBattle(enemyParty, trainer, winFlag = null) {
     }
   }
 
-handleBattleEnd() {
-    if (this.checkBlackout()) return; 
+async handleBattleEnd() {
+    // Guard against re-entry while the defeat dialogue is revealing.
+    if (this._endingBattle) return;
+    this._endingBattle = true;
+    try {
+    if (this.checkBlackout()) return;
 
     if (this.game.gameState.activeBattle && this.game.gameState.activeBattle.fled) {
       this.game.ui.printToLog("You got away safely!");
@@ -1508,7 +1512,12 @@ handleBattleEnd() {
       const trainer = this.game.gameState.activeTrainer;
 
       if (trainer.dialogueAfter) {
-        this.game.ui.printToLog(`${trainer.name}: "${trainer.dialogueAfter}"`);
+        // Defeat dialogue reveals line by line; payout follows after.
+        // Headless/test UIs (no printDialogue) stay fully synchronous.
+        const r = this.game.ui.printDialogue
+          ? this.game.ui.printDialogue(`${trainer.name}: "${trainer.dialogueAfter}"`)
+          : this.game.ui.printToLog(`${trainer.name}: "${trainer.dialogueAfter}"`);
+        if (r && r.then) await r;
       }
 
       const payout = trainer.rewardMoney ?? trainer.payout ?? 500;
@@ -1556,8 +1565,11 @@ handleBattleEnd() {
       // Scripted wild victory (e.g. calming the ghost Marowak).
       this.game.setFlag(this.game.gameState.activeWildWinFlag, true);
     }
-    
+
     this.finishBattleCleanup();
+    } finally {
+      this._endingBattle = false;
+    }
   }
 
   processBattleRewards(rewards) {

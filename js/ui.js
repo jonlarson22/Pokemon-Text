@@ -118,13 +118,40 @@ export class UIManager {
         if (this._seqTimer === timer) this._seqTimer = null;
         finish();
       }
-    }, intervalMs || 650);
+    }, intervalMs || 900);
     this._seqTimer = timer;
     return () => {
       if (this._seqTimer === timer) { clearInterval(timer); this._seqTimer = null; }
       while (i < lines.length) this.printToLog(lines[i++]);
       finish();
     };
+  }
+
+  // Split story text into sentences for line-by-line reveal.
+  splitSentences(text) {
+    const s = String(text || '').trim();
+    if (!s) return [];
+    // Guard abbreviations so "Mr. Mime" / "Mt. Moon" don't split.
+    const guarded = s.replace(/\b(Mr|Mrs|Ms|Dr|St|Mt)\. /g, '$1\x01 ');
+    // Split on whitespace after sentence-ending punctuation, when the next
+    // sentence starts with a capital or quote. Ellipses stay glued.
+    const parts = guarded.split(/(?<=[.!?])\s+(?=["'“‘(\[{A-ZÀ-Þ])/);
+    return parts.map(p => p.trim().split('\x01').join('.')).filter(Boolean);
+  }
+
+  // Print story dialogue sentence-by-sentence, Pokemon-style.
+  // Single-sentence text prints instantly. Resolves when done.
+  // instantDialogue (tests) prints everything instantly, no timers.
+  printDialogue(text) {
+    return new Promise((resolve) => {
+      const sentences = this.splitSentences(text);
+      if (sentences.length <= 1 || this.instantDialogue) {
+        sentences.forEach(s => this.printToLog(s));
+        resolve();
+        return;
+      }
+      this.printLinesSequentially(sentences, 900, resolve);
+    });
   }
 
   showIntro() {
@@ -140,7 +167,7 @@ export class UIManager {
       "Oak: This world is full of Pokémon — pets to some, battlers to others.",
       "Oak: I study them as a profession.",
       "Oak: Your own journey is about to begin — a world of dreams and adventures awaits!",
-    ], 650, null);
+    ], 900, null);
     this.buildMenuControls(controls, [
       { text: "Continue", action: () => { skip(); this.showNameEntry(); } },
     ]);
@@ -199,7 +226,7 @@ export class UIManager {
             "Oak: It's unsafe! Wild Pokémon live in the tall grass! You need your own Pokémon for your protection.",
             "Oak: Come with me to my lab! I'll give you a Pokémon partner to keep you safe.",
             "Oak: Choose your Pokémon partner!",
-          ], 650, () => this.showStarterPick());
+          ], 900, () => this.showStarterPick());
       } },
     ]);
   }

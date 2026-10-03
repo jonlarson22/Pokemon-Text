@@ -198,21 +198,43 @@ export class InteractionManager {
 
   // --- Main Processing ---
   processNPC(npcId) {
+    // Real UI: paced, serialized dialogue. Headless/test UIs (no
+    // printDialogue): fully synchronous, unchanged behavior.
+    if (this.game.ui.printDialogue) {
+      this._talkQueue = (this._talkQueue || Promise.resolve())
+        .then(() => this._processNPC(npcId, true), () => this._processNPC(npcId, true));
+      return this._talkQueue;
+    }
+    return this._processNPC(npcId, false);
+  }
+
+  // paced=true: story dialogue reveals line by line; rewards/actions run after.
+  // paced=false: say() returns undefined (never a promise), so no await is
+  // ever reached and this runs fully synchronously for headless callers.
+  async _processNPC(npcId, paced) {
     const npc = this.game.db.npcs[npcId];
     if (!npc) return;
+
+    const say = (t) => paced ? this.game.ui.printDialogue(t) : this.game.ui.printToLog(t);
+    // Await only when say() returned a real promise. Awaiting an already-
+    // resolved value would still yield to the microtask queue and defer
+    // rewards past headless callers' assertions.
+    const sayWait = (t) => { const r = say(t); return (r && r.then) ? r : null; };
 
     // One-time NPCs: once the claim flag is set, rewards can't be claimed again.
     const badgeCountEarly = Object.keys(this.game.gameState.flags || {}).filter(f => f.endsWith('_badge') && this.game.gameState.flags[f]).length;
     const subEarly = (t) => (t || "...").replaceAll("{badges}", String(badgeCountEarly));
     if (npc.once_flag && this.hasFlag(npc.once_flag)) {
-      this.game.ui.printToLog(subEarly(npc.dialogue_repeat || npc.dialogue_default || "..."));
+      const r0 = sayWait(subEarly(npc.dialogue_repeat || npc.dialogue_default || "..."));
+      if (r0) await r0;
       return;
     }
 
     const badgeCount = Object.keys(this.game.gameState.flags || {}).filter(f => f.endsWith('_badge') && this.game.gameState.flags[f]).length;
     const sub = (t) => (t || "...").replaceAll("{badges}", String(badgeCount));
     if (this.checkRequirements(npc.requirements)) {
-      this.game.ui.printToLog(sub(npc.dialogue_default || npc.dialogue_success));
+      const r1 = sayWait(sub(npc.dialogue_default || npc.dialogue_success));
+      if (r1) await r1;
       // Special actions (Game Corner counters, slot machines, ...) run instead
       // of the normal reward flow.
       if (npc.action === 'buy_coins') { this.game.facilities.openCoinMenu(); return; }
@@ -224,7 +246,8 @@ export class InteractionManager {
       if (npc.once_flag) this.setFlag(npc.once_flag);
       if (npc.remove_after_claim) this.removeNPCFromRoute(npcId);
     } else {
-      this.game.ui.printToLog(sub(npc.dialogue_req_unmet || npc.dialogue));
+      const r2 = sayWait(sub(npc.dialogue_req_unmet || npc.dialogue));
+      if (r2) await r2;
     }
   }
 }
