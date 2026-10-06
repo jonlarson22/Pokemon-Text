@@ -244,6 +244,8 @@ export class UIManager {
       { text: "Charmander", action: () => this.game.factory.pickStarter('charmander') },
       { text: "Squirtle", action: () => this.game.factory.pickStarter('squirtle') },
     ]);
+    // Keep the starter names on one line each.
+    controls.querySelectorAll('.btn').forEach(b => b.style.whiteSpace = 'nowrap');
   }
 
 updatePartyUI() {
@@ -408,6 +410,7 @@ renderRouteScreen() {
     document.getElementById('system-menu').style.display = 'none';
     document.getElementById('travel-menu').style.display = 'none';
     document.getElementById('battle-actions').style.display = 'none';
+    document.getElementById('battle-moves').style.display = 'none';
     document.getElementById('dynamic-menu').style.display = 'none';
 
     if (menuName === 'route') document.getElementById('route-actions').style.display = 'grid';
@@ -512,7 +515,7 @@ renderRouteScreen() {
         
         pbox.innerHTML = `
           <strong>${mon.species} (Lv. ${mon.level})</strong> - ${mon.types.join('/')}<br>
-          HP: ${mon.hp}/${mon.maxHp} | EXP: ${mon.exp}/${mon.maxExp}<br>
+          HP: ${mon.hp}/${mon.maxHp} | EXP to next: ${mon.maxExp - mon.exp}<br>
           Moves: ${mon.moves.map(m => m.name).join(', ')}
         `;
         
@@ -623,6 +626,70 @@ renderRouteScreen() {
         btn.style.display = "block";
       }
     }
+  }
+
+  // Battle menu: Fight opens the move submenu, Back returns.
+  showBattleMoves() {
+    document.getElementById('battle-actions').style.display = 'none';
+    document.getElementById('battle-moves').style.display = 'grid';
+    this.refreshBattleMoveButtons();
+  }
+
+  showBattleMain() {
+    document.getElementById('battle-moves').style.display = 'none';
+    document.getElementById('battle-actions').style.display = 'grid';
+  }
+
+  // Voluntary mid-battle switch (costs the turn via battle.switchPokemon).
+  openBattleSwitchMenu() {
+    const battle = this.game.gameState.activeBattle;
+    if (!battle) return;
+    const active = battle.playerMon;
+    const candidates = this.game.gameState.party.filter(m => m && m.hp > 0 && m !== active);
+    if (candidates.length === 0) {
+      this.printToLog("No other usable Pokémon!");
+      return;
+    }
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center; font-weight:bold;">Switch to which Pokémon?</p>';
+    controls.innerHTML = '';
+
+    const buttons = candidates.map(mon => ({
+      text: `${mon.species} (Lv. ${mon.level}) — ${mon.hp}/${mon.maxHp} HP`,
+      action: () => {
+        this.setMenuState('battle');
+        battle.switchPokemon(mon);
+        this.refreshBattleMoveButtons();
+        this.updatePartyUI();
+      }
+    }));
+    buttons.push({ text: "Back", action: () => this.setMenuState('battle') });
+    this.buildMenuControls(controls, buttons);
+  }
+
+  // Forced switch after the active Pokémon faints (no enemy attack, no Back).
+  openFaintSwitchMenu() {
+    const battle = this.game.gameState.activeBattle;
+    if (!battle) return;
+    const candidates = this.game.gameState.party.filter(m => m && m.hp > 0);
+    this.setMenuState('dynamic');
+    const content = document.getElementById('dynamic-content');
+    const controls = document.getElementById('dynamic-controls');
+    content.innerHTML = '<p style="text-align:center; font-weight:bold;">Choose your next Pokémon!</p>';
+    controls.innerHTML = '';
+
+    const buttons = candidates.map(mon => ({
+      text: `${mon.species} (Lv. ${mon.level}) — ${mon.hp}/${mon.maxHp} HP`,
+      action: () => {
+        battle.forceSwitchPokemon(mon);
+        this.setMenuState('battle');
+        this.refreshBattleMoveButtons();
+        this.updatePartyUI();
+      }
+    }));
+    this.buildMenuControls(controls, buttons);
   }
 
   // MOVED FROM APP.JS

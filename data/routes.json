@@ -5,7 +5,9 @@
   "isTown": true,
   "connections": [
    "route1",
-   "route21"
+   "route21",
+   "pallet_home",
+   "oaks_lab"
   ],
   "forced_battle": {
    "flag": "defeated_rival_pallet",
@@ -139,6 +141,12 @@
      "volcano_badge"
     ],
     "blocked_message": "The gym doors are locked tight. You need 7 Gym Badges to enter!"
+   },
+   "route2_south": {
+    "required_flags": [
+     "delivered_oaks_package"
+    ],
+    "blocked_message": "The path north is blocked — you should deliver Oak's Package first!"
    }
   },
   "req_flag": null,
@@ -4544,19 +4552,19 @@
     "required_flags": [
      "in_safari_zone"
     ],
-    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+    "blocked_message": "The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
    },
    "safari_zone_north": {
     "required_flags": [
      "in_safari_zone"
     ],
-    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+    "blocked_message": "The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
    },
    "safari_zone_west": {
     "required_flags": [
      "in_safari_zone"
     ],
-    "blocked_message": "[DRAFT] The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
+    "blocked_message": "The gate guard stops you. \"Safari Zone entry is ¥500 -- talk to the attendant!\""
    }
   },
   "noFly": true
@@ -7104,5 +7112,44 @@
    "flag": "defeated_elite_four",
    "trainer_id": "champion_rival"
   }
+ },
+ "pallet_home": {
+  "name": "Your Home",
+  "description": "Home sweet home. Mom is here, as always.",
+  "isTown": false,
+  "connections": [
+   "pallet_town"
+  ],
+  "npcs": [
+   "pallet_mom"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
+ },
+ "oaks_lab": {
+  "name": "Oak's Lab",
+  "description": "Professor Oak's Pokémon research lab. Machines hum softly.",
+  "isTown": false,
+  "connections": [
+   "pallet_town"
+  ],
+  "npcs": [
+   "oak_lab_prof",
+   "oak_lab_prof_delivery",
+   "oak_lab_prof_after",
+   "oak_lab_aide"
+  ],
+  "trainers": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 100
+   }
+  ]
  }
 }

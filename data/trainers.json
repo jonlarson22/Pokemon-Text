@@ -1440,8 +1440,8 @@
  "camper_shane": {
   "name": "Shane",
   "title": "Camper",
-  "dialogueBefore": "[DRAFT] I'm training in the tall grass, away from the bridge crowds!",
-  "dialogueAfter": "[DRAFT] Strong... maybe I should train on the bridge instead.",
+  "dialogueBefore": "I'm training in the tall grass, away from the bridge crowds!",
+  "dialogueAfter": "Strong... maybe I should train on the bridge instead.",
   "rewardMoney": 280,
   "party": [
    {
@@ -1457,8 +1457,8 @@
  "ss_anne_gentleman_thomas": {
   "name": "Thomas",
   "title": "Gentleman",
-  "dialogueBefore": "[DRAFT] A cruise is the perfect place to show off my prized Growlithes!",
-  "dialogueAfter": "[DRAFT] Magnificent... you have quite the eye for battle.",
+  "dialogueBefore": "A cruise is the perfect place to show off my prized Growlithes!",
+  "dialogueAfter": "Magnificent... you have quite the eye for battle.",
   "rewardMoney": 1260,
   "party": [
    {
@@ -1474,8 +1474,8 @@
  "ss_anne_gentleman_arthur": {
   "name": "Arthur",
   "title": "Gentleman",
-  "dialogueBefore": "[DRAFT] My Nidoran pair are raised on the finest imported feed!",
-  "dialogueAfter": "[DRAFT] Hmph. Perhaps I should switch to domestic feed.",
+  "dialogueBefore": "My Nidoran pair are raised on the finest imported feed!",
+  "dialogueAfter": "Hmph. Perhaps I should switch to domestic feed.",
   "rewardMoney": 1330,
   "party": [
    {
@@ -1491,8 +1491,8 @@
  "ss_anne_lass_1f": {
   "name": "Lass",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] Isn't the sea breeze just wonderful? My Pokémon think so too!",
-  "dialogueAfter": "[DRAFT] The breeze wasn't on my side today...",
+  "dialogueBefore": "Isn't the sea breeze just wonderful? My Pokémon think so too!",
+  "dialogueAfter": "The breeze wasn't on my side today...",
   "rewardMoney": 270,
   "party": [
    {
@@ -1508,8 +1508,8 @@
  "ss_anne_youngster_1f": {
   "name": "Youngster",
   "title": "Youngster",
-  "dialogueBefore": "[DRAFT] I'm gonna be the toughest sailor on this ship! Starting with you!",
-  "dialogueAfter": "[DRAFT] ...Maybe I'll stick to swabbing decks.",
+  "dialogueBefore": "I'm gonna be the toughest sailor on this ship! Starting with you!",
+  "dialogueAfter": "...Maybe I'll stick to swabbing decks.",
   "rewardMoney": 315,
   "party": [
    {
@@ -1521,8 +1521,8 @@
  "ss_anne_sailor_trevor": {
   "name": "Trevor",
   "title": "Sailor",
-  "dialogueBefore": "[DRAFT] All hands on deck! That means you too, challenger!",
-  "dialogueAfter": "[DRAFT] Batten down the hatches... I've been outmaneuvered.",
+  "dialogueBefore": "All hands on deck! That means you too, challenger!",
+  "dialogueAfter": "Batten down the hatches... I've been outmaneuvered.",
   "rewardMoney": 510,
   "party": [
    {
@@ -1538,8 +1538,8 @@
  "ss_anne_sailor_edmond": {
   "name": "Edmond",
   "title": "Sailor",
-  "dialogueBefore": "[DRAFT] I've wrestled storm waves bigger than you! Let's battle!",
-  "dialogueAfter": "[DRAFT] Shiver me timbers... what a thrashing.",
+  "dialogueBefore": "I've wrestled storm waves bigger than you! Let's battle!",
+  "dialogueAfter": "Shiver me timbers... what a thrashing.",
   "rewardMoney": 540,
   "party": [
    {
@@ -1555,8 +1555,8 @@
  "ss_anne_fisherman_barny": {
   "name": "Barny",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT] I fish Pokémon straight off the side of this ship! Care to test my catch?",
-  "dialogueAfter": "[DRAFT] Threw back a winner there... you fight like a riptide.",
+  "dialogueBefore": "I fish Pokémon straight off the side of this ship! Care to test my catch?",
+  "dialogueAfter": "Threw back a winner there... you fight like a riptide.",
   "rewardMoney": 595,
   "party": [
    {
@@ -1576,8 +1576,8 @@
  "ss_anne_sailor_phillip": {
   "name": "Phillip",
   "title": "Sailor",
-  "dialogueBefore": "[DRAFT] My Machop hauls cargo all day. It'll haul you off this deck too!",
-  "dialogueAfter": "[DRAFT] Cargo... dropped.",
+  "dialogueBefore": "My Machop hauls cargo all day. It'll haul you off this deck too!",
+  "dialogueAfter": "Cargo... dropped.",
   "rewardMoney": 600,
   "party": [
    {
@@ -1589,8 +1589,8 @@
  "ss_anne_sailor_huey": {
   "name": "Huey",
   "title": "Sailor",
-  "dialogueBefore": "[DRAFT] These waters are lousy with Tentacool. Want a demonstration?",
-  "dialogueAfter": "[DRAFT] Lousy with strong trainers too, apparently.",
+  "dialogueBefore": "These waters are lousy with Tentacool. Want a demonstration?",
+  "dialogueAfter": "Lousy with strong trainers too, apparently.",
   "rewardMoney": 540,
   "party": [
    {
@@ -1606,8 +1606,8 @@
  "ss_anne_sailor_dylan": {
   "name": "Dylan",
   "title": "Sailor",
-  "dialogueBefore": "[DRAFT] Horsea, Horsea, Horsea! Three times the seahorse, three times the trouble!",
-  "dialogueAfter": "[DRAFT] Outnumbered and still outmatched...",
+  "dialogueBefore": "Horsea, Horsea, Horsea! Three times the seahorse, three times the trouble!",
+  "dialogueAfter": "Outnumbered and still outmatched...",
   "rewardMoney": 510,
   "party": [
    {
@@ -1627,8 +1627,8 @@
  "ss_anne_sailor_duncan": {
   "name": "Duncan",
   "title": "Sailor",
-  "dialogueBefore": "[DRAFT] I swabbed these decks with champions before breakfast. You're next!",
-  "dialogueAfter": "[DRAFT] Swabbed... right off the deck myself.",
+  "dialogueBefore": "I swabbed these decks with champions before breakfast. You're next!",
+  "dialogueAfter": "Swabbed... right off the deck myself.",
   "rewardMoney": 510,
   "party": [
    {
@@ -1648,8 +1648,8 @@
  "ss_anne_sailor_leonard": {
   "name": "Leonard",
   "title": "Sailor",
-  "dialogueBefore": "[DRAFT] My Shellder's shell has never been cracked. Try your luck!",
-  "dialogueAfter": "[DRAFT] Cracked... on the first try, even.",
+  "dialogueBefore": "My Shellder's shell has never been cracked. Try your luck!",
+  "dialogueAfter": "Cracked... on the first try, even.",
   "rewardMoney": 630,
   "party": [
    {
@@ -1661,8 +1661,8 @@
  "ss_anne_fisherman_dale": {
   "name": "Dale",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT] Goldeen, Tentacool, Goldeen! The sea provides, kid!",
-  "dialogueAfter": "[DRAFT] The sea provides... winners, and it ain't me.",
+  "dialogueBefore": "Goldeen, Tentacool, Goldeen! The sea provides, kid!",
+  "dialogueAfter": "The sea provides... winners, and it ain't me.",
   "rewardMoney": 595,
   "party": [
    {
@@ -1682,8 +1682,8 @@
  "ss_anne_gentleman_brooks": {
   "name": "Brooks",
   "title": "Gentleman",
-  "dialogueBefore": "[DRAFT] Behold! My Pikachu, raised on the finest voyage across the seven seas!",
-  "dialogueAfter": "[DRAFT] Zapped... by a landlubber, no less.",
+  "dialogueBefore": "Behold! My Pikachu, raised on the finest voyage across the seven seas!",
+  "dialogueAfter": "Zapped... by a landlubber, no less.",
   "rewardMoney": 1610,
   "party": [
    {
@@ -1695,8 +1695,8 @@
  "ss_anne_lass_dawn": {
   "name": "Dawn",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] My Rattata and Pikachu are the cutest duo on this ship! Fight us!",
-  "dialogueAfter": "[DRAFT] Cute doesn't win battles, huh...",
+  "dialogueBefore": "My Rattata and Pikachu are the cutest duo on this ship! Fight us!",
+  "dialogueAfter": "Cute doesn't win battles, huh...",
   "rewardMoney": 270,
   "party": [
    {
@@ -1712,8 +1712,8 @@
  "ss_anne_gentleman_lamar": {
   "name": "Lamar",
   "title": "Gentleman",
-  "dialogueBefore": "[DRAFT] A gentleman never refuses a battle. My Growlithe and Ponyta insist!",
-  "dialogueAfter": "[DRAFT] Outclassed. Most ungentlemanly of me.",
+  "dialogueBefore": "A gentleman never refuses a battle. My Growlithe and Ponyta insist!",
+  "dialogueAfter": "Outclassed. Most ungentlemanly of me.",
   "rewardMoney": 1190,
   "party": [
    {
@@ -1754,8 +1754,8 @@
  "route9_jr_trainer_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] My Pokémon are cute, but they pack a punch!",
-  "dialogueAfter": "[DRAFT] Your Pokémon are stronger than they look...",
+  "dialogueBefore": "My Pokémon are cute, but they pack a punch!",
+  "dialogueAfter": "Your Pokémon are stronger than they look...",
   "rewardMoney": 360,
   "party": [
    {
@@ -1779,8 +1779,8 @@
  "route9_hiker_1": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] The mountain air makes my Pokémon tough!",
-  "dialogueAfter": "[DRAFT] Tough... just like the mountain.",
+  "dialogueBefore": "The mountain air makes my Pokémon tough!",
+  "dialogueAfter": "Tough... just like the mountain.",
   "rewardMoney": 700,
   "party": [
    {
@@ -1796,8 +1796,8 @@
  "route9_jr_trainer_2": {
   "name": "Jr. Trainer 2",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Fire types are the best! Feel the heat!",
-  "dialogueAfter": "[DRAFT] Burned out...",
+  "dialogueBefore": "Fire types are the best! Feel the heat!",
+  "dialogueAfter": "Burned out...",
   "rewardMoney": 420,
   "party": [
    {
@@ -1813,8 +1813,8 @@
  "route9_bug_catcher_1": {
   "name": "Bug Catcher",
   "title": "Bug Catcher",
-  "dialogueBefore": "[DRAFT] My Beedrill's Twineedle never misses!",
-  "dialogueAfter": "[DRAFT] Buzz... I lost.",
+  "dialogueBefore": "My Beedrill's Twineedle never misses!",
+  "dialogueAfter": "Buzz... I lost.",
   "rewardMoney": 190,
   "party": [
    {
@@ -1830,8 +1830,8 @@
  "route9_hiker_2": {
   "name": "Hiker 2",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] Watch out for falling rocks! And my Pokémon!",
-  "dialogueAfter": "[DRAFT] Rock slide...",
+  "dialogueBefore": "Watch out for falling rocks! And my Pokémon!",
+  "dialogueAfter": "Rock slide...",
   "rewardMoney": 735,
   "party": [
    {
@@ -1847,8 +1847,8 @@
  "route9_bug_catcher_2": {
   "name": "Bug Catcher 2",
   "title": "Bug Catcher",
-  "dialogueBefore": "[DRAFT] Bugs are the strongest in numbers!",
-  "dialogueAfter": "[DRAFT] Squashed...",
+  "dialogueBefore": "Bugs are the strongest in numbers!",
+  "dialogueAfter": "Squashed...",
   "rewardMoney": 200,
   "party": [
    {
@@ -1868,8 +1868,8 @@
  "route9_jr_trainer_3": {
   "name": "Jr. Trainer 3",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] I train all kinds of Pokémon!",
-  "dialogueAfter": "[DRAFT] So many types, still lost...",
+  "dialogueBefore": "I train all kinds of Pokémon!",
+  "dialogueAfter": "So many types, still lost...",
   "rewardMoney": 380,
   "party": [
    {
@@ -1893,8 +1893,8 @@
  "route9_hiker_3": {
   "name": "Hiker 3",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] These trails are my gym!",
-  "dialogueAfter": "[DRAFT] I need to train harder.",
+  "dialogueBefore": "These trails are my gym!",
+  "dialogueAfter": "I need to train harder.",
   "rewardMoney": 700,
   "party": [
    {
@@ -1914,8 +1914,8 @@
  "route9_jr_trainer_4": {
   "name": "Jr. Trainer 4",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] My Meowth brings me luck!",
-  "dialogueAfter": "[DRAFT] My luck ran out...",
+  "dialogueBefore": "My Meowth brings me luck!",
+  "dialogueAfter": "My luck ran out...",
   "rewardMoney": 460,
   "party": [
    {
@@ -1927,8 +1927,8 @@
  "route10_jr_trainer_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] The Power Plant makes the air tingle!",
-  "dialogueAfter": "[DRAFT] What a shock...",
+  "dialogueBefore": "The Power Plant makes the air tingle!",
+  "dialogueAfter": "What a shock...",
   "rewardMoney": 400,
   "party": [
    {
@@ -1944,8 +1944,8 @@
  "route10_jr_trainer_2": {
   "name": "Jr. Trainer 2",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] My birds rule these skies!",
-  "dialogueAfter": "[DRAFT] Clipped wings...",
+  "dialogueBefore": "My birds rule these skies!",
+  "dialogueAfter": "Clipped wings...",
   "rewardMoney": 420,
   "party": [
    {
@@ -1961,8 +1961,8 @@
  "route10_hiker_1": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] Rock Tunnel ahead! My Pokémon know every stone!",
-  "dialogueAfter": "[DRAFT] Stoned...",
+  "dialogueBefore": "Rock Tunnel ahead! My Pokémon know every stone!",
+  "dialogueAfter": "Stoned...",
   "rewardMoney": 735,
   "party": [
    {
@@ -1978,8 +1978,8 @@
  "route10_hiker_2": {
   "name": "Hiker 2",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] Rolling stones gather no moss!",
-  "dialogueAfter": "[DRAFT] I got rolled over.",
+  "dialogueBefore": "Rolling stones gather no moss!",
+  "dialogueAfter": "I got rolled over.",
   "rewardMoney": 665,
   "party": [
    {
@@ -1995,8 +1995,8 @@
  "route10_pokemaniac_1": {
   "name": "Pokémaniac",
   "title": "Pokémaniac",
-  "dialogueBefore": "[DRAFT] Rare Pokémon are my obsession!",
-  "dialogueAfter": "[DRAFT] My collection is incomplete...",
+  "dialogueBefore": "Rare Pokémon are my obsession!",
+  "dialogueAfter": "My collection is incomplete...",
   "rewardMoney": 1000,
   "party": [
    {
@@ -2012,8 +2012,8 @@
  "route10_pokemaniac_2": {
   "name": "Pokémaniac 2",
   "title": "Pokémaniac",
-  "dialogueBefore": "[DRAFT] Something amazing sleeps inside the Power Plant!",
-  "dialogueAfter": "[DRAFT] Not amazing enough, apparently.",
+  "dialogueBefore": "Something amazing sleeps inside the Power Plant!",
+  "dialogueAfter": "Not amazing enough, apparently.",
   "rewardMoney": 1500,
   "party": [
    {
@@ -2029,8 +2029,8 @@
  "route11_gambler_1": {
   "name": "Gambler",
   "title": "Gambler",
-  "dialogueBefore": "[DRAFT] I bet my Pokémon can beat yours!",
-  "dialogueAfter": "[DRAFT] Lost the bet...",
+  "dialogueBefore": "I bet my Pokémon can beat yours!",
+  "dialogueAfter": "Lost the bet...",
   "rewardMoney": 1260,
   "party": [
    {
@@ -2046,8 +2046,8 @@
  "route11_youngster_1": {
   "name": "Youngster",
   "title": "Youngster",
-  "dialogueBefore": "[DRAFT] My Ekans is super fast!",
-  "dialogueAfter": "[DRAFT] Not fast enough!",
+  "dialogueBefore": "My Ekans is super fast!",
+  "dialogueAfter": "Not fast enough!",
   "rewardMoney": 315,
   "party": [
    {
@@ -2059,8 +2059,8 @@
  "route11_youngster_2": {
   "name": "Youngster 2",
   "title": "Youngster",
-  "dialogueBefore": "[DRAFT] Two Pokémon are better than one!",
-  "dialogueAfter": "[DRAFT] Double trouble for me!",
+  "dialogueBefore": "Two Pokémon are better than one!",
+  "dialogueAfter": "Double trouble for me!",
   "rewardMoney": 285,
   "party": [
    {
@@ -2076,8 +2076,8 @@
  "route11_youngster_3": {
   "name": "Youngster 3",
   "title": "Youngster",
-  "dialogueBefore": "[DRAFT] Nidoran are the coolest!",
-  "dialogueAfter": "[DRAFT] Not cool enough...",
+  "dialogueBefore": "Nidoran are the coolest!",
+  "dialogueAfter": "Not cool enough...",
   "rewardMoney": 270,
   "party": [
    {
@@ -2093,8 +2093,8 @@
  "route11_gambler_2": {
   "name": "Gambler 2",
   "title": "Gambler",
-  "dialogueBefore": "[DRAFT] Double or nothing!",
-  "dialogueAfter": "[DRAFT] Nothing it is...",
+  "dialogueBefore": "Double or nothing!",
+  "dialogueAfter": "Nothing it is...",
   "rewardMoney": 1260,
   "party": [
    {
@@ -2110,8 +2110,8 @@
  "route11_gambler_3": {
   "name": "Gambler 3",
   "title": "Gambler",
-  "dialogueBefore": "[DRAFT] Feeling lucky? You shouldn't!",
-  "dialogueAfter": "[DRAFT] My luck turned!",
+  "dialogueBefore": "Feeling lucky? You shouldn't!",
+  "dialogueAfter": "My luck turned!",
   "rewardMoney": 1260,
   "party": [
    {
@@ -2127,8 +2127,8 @@
  "route11_engineer_1": {
   "name": "Engineer",
   "title": "Engineer",
-  "dialogueBefore": "[DRAFT] My Magnemite runs on pure voltage!",
-  "dialogueAfter": "[DRAFT] Short circuit...",
+  "dialogueBefore": "My Magnemite runs on pure voltage!",
+  "dialogueAfter": "Short circuit...",
   "rewardMoney": 1050,
   "party": [
    {
@@ -2140,8 +2140,8 @@
  "route11_youngster_4": {
   "name": "Youngster 4",
   "title": "Youngster",
-  "dialogueBefore": "[DRAFT] My Rattata gang never loses!",
-  "dialogueAfter": "[DRAFT] The gang got scattered!",
+  "dialogueBefore": "My Rattata gang never loses!",
+  "dialogueAfter": "The gang got scattered!",
   "rewardMoney": 255,
   "party": [
    {
@@ -2161,8 +2161,8 @@
  "route11_gambler_4": {
   "name": "Gambler 4",
   "title": "Gambler",
-  "dialogueBefore": "[DRAFT] High voltage, high stakes!",
-  "dialogueAfter": "[DRAFT] I'm all out of stakes.",
+  "dialogueBefore": "High voltage, high stakes!",
+  "dialogueAfter": "I'm all out of stakes.",
   "rewardMoney": 1260,
   "party": [
    {
@@ -2178,8 +2178,8 @@
  "route11_engineer_2": {
   "name": "Engineer 2",
   "title": "Engineer",
-  "dialogueBefore": "[DRAFT] The Power Plant is my second home!",
-  "dialogueAfter": "[DRAFT] Power outage!",
+  "dialogueBefore": "The Power Plant is my second home!",
+  "dialogueAfter": "Power outage!",
   "rewardMoney": 900,
   "party": [
    {
@@ -2199,8 +2199,8 @@
  "route12_fisherman_1": {
   "name": "Fisherman",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT] I just caught these! They're still fresh!",
-  "dialogueAfter": "[DRAFT] They slipped away...",
+  "dialogueBefore": "I just caught these! They're still fresh!",
+  "dialogueAfter": "They slipped away...",
   "rewardMoney": 770,
   "party": [
    {
@@ -2220,8 +2220,8 @@
  "route12_fisherman_2": {
   "name": "Fisherman 2",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT] The sea provides!",
-  "dialogueAfter": "[DRAFT] The sea took them back...",
+  "dialogueBefore": "The sea provides!",
+  "dialogueAfter": "The sea took them back...",
   "rewardMoney": 840,
   "party": [
    {
@@ -2237,8 +2237,8 @@
  "route12_fisherman_3": {
   "name": "Fisherman 3",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT] One perfect Goldeen is all I need!",
-  "dialogueAfter": "[DRAFT] Not so perfect...",
+  "dialogueBefore": "One perfect Goldeen is all I need!",
+  "dialogueAfter": "Not so perfect...",
   "rewardMoney": 945,
   "party": [
    {
@@ -2250,8 +2250,8 @@
  "route12_fisherman_4": {
   "name": "Fisherman 4",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT] Four catches, four wins!",
-  "dialogueAfter": "[DRAFT] Four losses...",
+  "dialogueBefore": "Four catches, four wins!",
+  "dialogueAfter": "Four losses...",
   "rewardMoney": 735,
   "party": [
    {
@@ -2275,8 +2275,8 @@
  "route12_rocker_1": {
   "name": "Rocker",
   "title": "Rocker",
-  "dialogueBefore": "[DRAFT] My music is electric, baby!",
-  "dialogueAfter": "[DRAFT] The crowd goes silent...",
+  "dialogueBefore": "My music is electric, baby!",
+  "dialogueAfter": "The crowd goes silent...",
   "rewardMoney": 725,
   "party": [
    {
@@ -2292,8 +2292,8 @@
  "route12_jr_trainer_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] I've been training by the bridge for years!",
-  "dialogueAfter": "[DRAFT] Years wasted!",
+  "dialogueBefore": "I've been training by the bridge for years!",
+  "dialogueAfter": "Years wasted!",
   "rewardMoney": 580,
   "party": [
    {
@@ -2309,8 +2309,8 @@
  "route12_fisherman_5": {
   "name": "Fisherman 5",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT] Magikarp are the true kings of the sea!",
-  "dialogueAfter": "[DRAFT] Dethroned...",
+  "dialogueBefore": "Magikarp are the true kings of the sea!",
+  "dialogueAfter": "Dethroned...",
   "rewardMoney": 840,
   "party": [
    {
@@ -2326,8 +2326,8 @@
  "rocktunnel1f_pokemaniac_1": {
   "name": "PokéManiac",
   "title": "PokéManiac",
-  "dialogueBefore": "[DRAFT] Cubone... Slowpoke... don't you just love them all?",
-  "dialogueAfter": "[DRAFT] My collection... defeated...",
+  "dialogueBefore": "Cubone... Slowpoke... don't you just love them all?",
+  "dialogueAfter": "My collection... defeated...",
   "rewardMoney": 1150,
   "party": [
    {
@@ -2343,8 +2343,8 @@
  "rocktunnel1f_hiker_1": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] Watch out! This tunnel's full of rough customers!",
-  "dialogueAfter": "[DRAFT] Oof... you're rougher than all of them.",
+  "dialogueBefore": "Watch out! This tunnel's full of rough customers!",
+  "dialogueAfter": "Oof... you're rougher than all of them.",
   "rewardMoney": 665,
   "party": [
    {
@@ -2368,8 +2368,8 @@
  "rocktunnel1f_hiker_2": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] Nobody gets past my rock-solid blockade without a battle!",
-  "dialogueAfter": "[DRAFT] Hmph. Blockade... busted.",
+  "dialogueBefore": "Nobody gets past my rock-solid blockade without a battle!",
+  "dialogueAfter": "Hmph. Blockade... busted.",
   "rewardMoney": 700,
   "party": [
    {
@@ -2389,8 +2389,8 @@
  "rocktunnel1f_hiker_3": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] You want down? Then go through ME first!",
-  "dialogueAfter": "[DRAFT] Through you go, then...",
+  "dialogueBefore": "You want down? Then go through ME first!",
+  "dialogueAfter": "Through you go, then...",
   "rewardMoney": 735,
   "party": [
    {
@@ -2406,8 +2406,8 @@
  "rocktunnel1f_jr_trainer_f_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] It's dark in here... battle me so I forget I'm scared!",
-  "dialogueAfter": "[DRAFT] That was scary-exciting!",
+  "dialogueBefore": "It's dark in here... battle me so I forget I'm scared!",
+  "dialogueAfter": "That was scary-exciting!",
   "rewardMoney": 440,
   "party": [
    {
@@ -2423,8 +2423,8 @@
  "rocktunnel1f_jr_trainer_f_2": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] I got lost in here ages ago. Battle me while I wait for rescue!",
-  "dialogueAfter": "[DRAFT] Still lost... but at least I'm entertained.",
+  "dialogueBefore": "I got lost in here ages ago. Battle me while I wait for rescue!",
+  "dialogueAfter": "Still lost... but at least I'm entertained.",
   "rewardMoney": 380,
   "party": [
    {
@@ -2448,8 +2448,8 @@
  "rocktunnel1f_jr_trainer_f_3": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Shh! The echoes in here give away my position... FIGHT ME!",
-  "dialogueAfter": "[DRAFT] Echo... echo... I lost...",
+  "dialogueBefore": "Shh! The echoes in here give away my position... FIGHT ME!",
+  "dialogueAfter": "Echo... echo... I lost...",
   "rewardMoney": 400,
   "party": [
    {
@@ -2469,8 +2469,8 @@
  "rocktunnelb1f_pokemaniac_1": {
   "name": "PokéManiac",
   "title": "PokéManiac",
-  "dialogueBefore": "[DRAFT] Slowpoke... so slow... so perfect. Battle me! Or don't. Whatever.",
-  "dialogueAfter": "[DRAFT] Yaaawn... you win...",
+  "dialogueBefore": "Slowpoke... so slow... so perfect. Battle me! Or don't. Whatever.",
+  "dialogueAfter": "Yaaawn... you win...",
   "rewardMoney": 1250,
   "party": [
    {
@@ -2482,8 +2482,8 @@
  "rocktunnelb1f_jr_trainer_f_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] My Grass Pokémon glow a little in the dark! Pretty, huh?",
-  "dialogueAfter": "[DRAFT] They're still pretty, even beaten...",
+  "dialogueBefore": "My Grass Pokémon glow a little in the dark! Pretty, huh?",
+  "dialogueAfter": "They're still pretty, even beaten...",
   "rewardMoney": 440,
   "party": [
    {
@@ -2499,8 +2499,8 @@
  "rocktunnelb1f_pokemaniac_2": {
   "name": "PokéManiac",
   "title": "PokéManiac",
-  "dialogueBefore": "[DRAFT] A Charmander AND a Cubone! Behold my prized pair!",
-  "dialogueAfter": "[DRAFT] My prized pair... prized no more.",
+  "dialogueBefore": "A Charmander AND a Cubone! Behold my prized pair!",
+  "dialogueAfter": "My prized pair... prized no more.",
   "rewardMoney": 1100,
   "party": [
    {
@@ -2516,8 +2516,8 @@
  "rocktunnelb1f_hiker_4": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] This tunnel's MY turf! You want through, you battle!",
-  "dialogueAfter": "[DRAFT] My turf... your tunnel now.",
+  "dialogueBefore": "This tunnel's MY turf! You want through, you battle!",
+  "dialogueAfter": "My turf... your tunnel now.",
   "rewardMoney": 875,
   "party": [
    {
@@ -2529,8 +2529,8 @@
  "rocktunnelb1f_hiker_5": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] Heh! Another traveler to test my mountain muscles on!",
-  "dialogueAfter": "[DRAFT] Muscles... crushed...",
+  "dialogueBefore": "Heh! Another traveler to test my mountain muscles on!",
+  "dialogueAfter": "Muscles... crushed...",
   "rewardMoney": 700,
   "party": [
    {
@@ -2546,8 +2546,8 @@
  "rocktunnelb1f_jr_trainer_f_2": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Jigglypuff's singing echoes forever down here! Listen... FIGHT!",
-  "dialogueAfter": "[DRAFT] The echo faded... so did I.",
+  "dialogueBefore": "Jigglypuff's singing echoes forever down here! Listen... FIGHT!",
+  "dialogueAfter": "The echo faded... so did I.",
   "rewardMoney": 420,
   "party": [
    {
@@ -2567,8 +2567,8 @@
  "rocktunnelb1f_hiker_6": {
   "name": "Hiker",
   "title": "Hiker",
-  "dialogueBefore": "[DRAFT] Rock hard! That's me! And my Pokémon!",
-  "dialogueAfter": "[DRAFT] Cracked... I'm cracked...",
+  "dialogueBefore": "Rock hard! That's me! And my Pokémon!",
+  "dialogueAfter": "Cracked... I'm cracked...",
   "rewardMoney": 735,
   "party": [
    {
@@ -2588,8 +2588,8 @@
  "rocktunnelb1f_pokemaniac_3": {
   "name": "PokéManiac",
   "title": "PokéManiac",
-  "dialogueBefore": "[DRAFT] One Slowpoke is bliss. THREE Slowpoke is paradise!",
-  "dialogueAfter": "[DRAFT] Paradise... lost...",
+  "dialogueBefore": "One Slowpoke is bliss. THREE Slowpoke is paradise!",
+  "dialogueAfter": "Paradise... lost...",
   "rewardMoney": 1000,
   "party": [
    {
@@ -2609,8 +2609,8 @@
  "tower_channeler_1": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] Give... me... your... soul...",
-  "dialogueAfter": "[DRAFT] My soul... taken...",
+  "dialogueBefore": "Give... me... your... soul...",
+  "dialogueAfter": "My soul... taken...",
   "rewardMoney": 690,
   "party": [
    {
@@ -2622,8 +2622,8 @@
  "tower_channeler_2": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] The dead speak through me! Battle!",
-  "dialogueAfter": "[DRAFT] They've gone silent...",
+  "dialogueBefore": "The dead speak through me! Battle!",
+  "dialogueAfter": "They've gone silent...",
   "rewardMoney": 660,
   "party": [
    {
@@ -2635,8 +2635,8 @@
  "tower_channeler_3": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] I sense a restless spirit clinging to you!",
-  "dialogueAfter": "[DRAFT] It has moved on...",
+  "dialogueBefore": "I sense a restless spirit clinging to you!",
+  "dialogueAfter": "It has moved on...",
   "rewardMoney": 720,
   "party": [
    {
@@ -2648,8 +2648,8 @@
  "tower_channeler_4": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] Two spirits guard my soul! Face them!",
-  "dialogueAfter": "[DRAFT] Both... exorcised...",
+  "dialogueBefore": "Two spirits guard my soul! Face them!",
+  "dialogueAfter": "Both... exorcised...",
   "rewardMoney": 690,
   "party": [
    {
@@ -2665,8 +2665,8 @@
  "tower_channeler_5": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] This tower is a sacred resting place. Prove your respect!",
-  "dialogueAfter": "[DRAFT] Respect... shown...",
+  "dialogueBefore": "This tower is a sacred resting place. Prove your respect!",
+  "dialogueAfter": "Respect... shown...",
   "rewardMoney": 660,
   "party": [
    {
@@ -2678,8 +2678,8 @@
  "tower_channeler_6": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] The veil between worlds is thin here...",
-  "dialogueAfter": "[DRAFT] The veil... mends...",
+  "dialogueBefore": "The veil between worlds is thin here...",
+  "dialogueAfter": "The veil... mends...",
   "rewardMoney": 720,
   "party": [
    {
@@ -2716,8 +2716,8 @@
  "tower_channeler_7": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] Higher we climb, heavier the air grows...",
-  "dialogueAfter": "[DRAFT] Lighter... now...",
+  "dialogueBefore": "Higher we climb, heavier the air grows...",
+  "dialogueAfter": "Lighter... now...",
   "rewardMoney": 660,
   "party": [
    {
@@ -2729,8 +2729,8 @@
  "tower_channeler_8": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] My HAUNTER feeds on fear! Show me yours!",
-  "dialogueAfter": "[DRAFT] It hungers... still...",
+  "dialogueBefore": "My HAUNTER feeds on fear! Show me yours!",
+  "dialogueAfter": "It hungers... still...",
   "rewardMoney": 690,
   "party": [
    {
@@ -2742,8 +2742,8 @@
  "tower_channeler_9": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] Shh... can you hear them whispering?",
-  "dialogueAfter": "[DRAFT] Only... silence...",
+  "dialogueBefore": "Shh... can you hear them whispering?",
+  "dialogueAfter": "Only... silence...",
   "rewardMoney": 720,
   "party": [
    {
@@ -2755,8 +2755,8 @@
  "tower_channeler_10": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] The spirits demand a tribute... of battle!",
-  "dialogueAfter": "[DRAFT] Tribute... accepted...",
+  "dialogueBefore": "The spirits demand a tribute... of battle!",
+  "dialogueAfter": "Tribute... accepted...",
   "rewardMoney": 660,
   "party": [
    {
@@ -2768,8 +2768,8 @@
  "tower_channeler_11": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] A trio of lost souls follows me everywhere!",
-  "dialogueAfter": "[DRAFT] They've found... peace...",
+  "dialogueBefore": "A trio of lost souls follows me everywhere!",
+  "dialogueAfter": "They've found... peace...",
   "rewardMoney": 660,
   "party": [
    {
@@ -2789,8 +2789,8 @@
  "tower_channeler_12": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] Something terrible lurks above... Turn back!",
-  "dialogueAfter": "[DRAFT] You... persist...",
+  "dialogueBefore": "Something terrible lurks above... Turn back!",
+  "dialogueAfter": "You... persist...",
   "rewardMoney": 720,
   "party": [
    {
@@ -2802,8 +2802,8 @@
  "tower_channeler_13": {
   "name": "Channeler",
   "title": "Channeler",
-  "dialogueBefore": "[DRAFT] The MAROWAK's ghost screams for its child! Feel its rage!",
-  "dialogueAfter": "[DRAFT] Rage... quieted...",
+  "dialogueBefore": "The MAROWAK's ghost screams for its child! Feel its rage!",
+  "dialogueAfter": "Rage... quieted...",
   "rewardMoney": 720,
   "party": [
    {
@@ -2815,8 +2815,8 @@
  "tower_rocket_1": {
   "name": "Team Rocket",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] Heh! This old man's Pokémon are ours, kid. Scram!",
-  "dialogueAfter": "[DRAFT] Grr... The boss won't like this...",
+  "dialogueBefore": "Heh! This old man's Pokémon are ours, kid. Scram!",
+  "dialogueAfter": "Grr... The boss won't like this...",
   "rewardMoney": 750,
   "party": [
    {
@@ -2836,8 +2836,8 @@
  "tower_rocket_2": {
   "name": "Team Rocket",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] We're stealing Cubone skulls! You got a problem with that?!",
-  "dialogueAfter": "[DRAFT] Our operation... ruined...",
+  "dialogueBefore": "We're stealing Cubone skulls! You got a problem with that?!",
+  "dialogueAfter": "Our operation... ruined...",
   "rewardMoney": 780,
   "party": [
    {
@@ -2853,8 +2853,8 @@
  "tower_rocket_3": {
   "name": "Team Rocket",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] Intruder! Nobody gets past TEAM ROCKET!",
-  "dialogueAfter": "[DRAFT] How... how did you...",
+  "dialogueBefore": "Intruder! Nobody gets past TEAM ROCKET!",
+  "dialogueAfter": "How... how did you...",
   "rewardMoney": 690,
   "party": [
    {
@@ -2878,8 +2878,8 @@
  "route8_lass_1": {
   "name": "Lass",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] My CLEFAIRY are the cutest! Battle us!",
-  "dialogueAfter": "[DRAFT] Cute... and defeated...",
+  "dialogueBefore": "My CLEFAIRY are the cutest! Battle us!",
+  "dialogueAfter": "Cute... and defeated...",
   "rewardMoney": 330,
   "party": [
    {
@@ -2895,8 +2895,8 @@
  "route8_gambler_1": {
   "name": "Gambler",
   "title": "Gambler",
-  "dialogueBefore": "[DRAFT] Heh, kid. Care to make this battle interesting?",
-  "dialogueAfter": "[DRAFT] My wallet... lighter...",
+  "dialogueBefore": "Heh, kid. Care to make this battle interesting?",
+  "dialogueAfter": "My wallet... lighter...",
   "rewardMoney": 1680,
   "party": [
    {
@@ -2912,8 +2912,8 @@
  "route8_super_nerd_1": {
   "name": "Super Nerd",
   "title": "Super Nerd",
-  "dialogueBefore": "[DRAFT] My Poison Pokémon are a triumph of science!",
-  "dialogueAfter": "[DRAFT] Science... fails...",
+  "dialogueBefore": "My Poison Pokémon are a triumph of science!",
+  "dialogueAfter": "Science... fails...",
   "rewardMoney": 550,
   "party": [
    {
@@ -2933,8 +2933,8 @@
  "route8_lass_2": {
   "name": "Lass",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] NIDORAN are so elegant, don't you think?",
-  "dialogueAfter": "[DRAFT] Elegance... wasn't enough...",
+  "dialogueBefore": "NIDORAN are so elegant, don't you think?",
+  "dialogueAfter": "Elegance... wasn't enough...",
   "rewardMoney": 345,
   "party": [
    {
@@ -2950,8 +2950,8 @@
  "route8_super_nerd_2": {
   "name": "Super Nerd",
   "title": "Super Nerd",
-  "dialogueBefore": "[DRAFT] Behold! My KOFFING's toxic potential!",
-  "dialogueAfter": "[DRAFT] Toxic... to my pride...",
+  "dialogueBefore": "Behold! My KOFFING's toxic potential!",
+  "dialogueAfter": "Toxic... to my pride...",
   "rewardMoney": 650,
   "party": [
    {
@@ -2963,8 +2963,8 @@
  "route8_lass_3": {
   "name": "Lass",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] Three MEOWTH are three times the charm!",
-  "dialogueAfter": "[DRAFT] Charmed... I'm sure...",
+  "dialogueBefore": "Three MEOWTH are three times the charm!",
+  "dialogueAfter": "Charmed... I'm sure...",
   "rewardMoney": 360,
   "party": [
    {
@@ -2984,8 +2984,8 @@
  "route8_lass_4": {
   "name": "Lass",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] I couldn't pick just one Pokémon, so I brought them all!",
-  "dialogueAfter": "[DRAFT] Too many... choices...",
+  "dialogueBefore": "I couldn't pick just one Pokémon, so I brought them all!",
+  "dialogueAfter": "Too many... choices...",
   "rewardMoney": 285,
   "party": [
    {
@@ -3013,8 +3013,8 @@
  "route8_gambler_2": {
   "name": "Gambler",
   "title": "Gambler",
-  "dialogueBefore": "[DRAFT] The odds favor the bold, kid!",
-  "dialogueAfter": "[DRAFT] The odds... betrayed me...",
+  "dialogueBefore": "The odds favor the bold, kid!",
+  "dialogueAfter": "The odds... betrayed me...",
   "rewardMoney": 1540,
   "party": [
    {
@@ -3034,8 +3034,8 @@
  "route8_super_nerd_3": {
   "name": "Super Nerd",
   "title": "Super Nerd",
-  "dialogueBefore": "[DRAFT] Electric and Poison: the future of battling!",
-  "dialogueAfter": "[DRAFT] The future... is delayed...",
+  "dialogueBefore": "Electric and Poison: the future of battling!",
+  "dialogueAfter": "The future... is delayed...",
   "rewardMoney": 500,
   "party": [
    {
@@ -3059,8 +3059,8 @@
  "celadon_lass_1": {
   "name": "Lass",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] The flowers here bloom so beautifully!",
-  "dialogueAfter": "[DRAFT] Wilted...",
+  "dialogueBefore": "The flowers here bloom so beautifully!",
+  "dialogueAfter": "Wilted...",
   "rewardMoney": 345,
   "party": [
    {
@@ -3076,8 +3076,8 @@
  "celadon_beauty_1": {
   "name": "Beauty",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT] Aren't my Pokémon simply gorgeous?",
-  "dialogueAfter": "[DRAFT] Gorgeous... and beaten...",
+  "dialogueBefore": "Aren't my Pokémon simply gorgeous?",
+  "dialogueAfter": "Gorgeous... and beaten...",
   "rewardMoney": 1470,
   "party": [
    {
@@ -3101,8 +3101,8 @@
  "celadon_beauty_2": {
   "name": "Beauty",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT] Beauty is power, darling!",
-  "dialogueAfter": "[DRAFT] Power... faded...",
+  "dialogueBefore": "Beauty is power, darling!",
+  "dialogueAfter": "Power... faded...",
   "rewardMoney": 1680,
   "party": [
    {
@@ -3118,8 +3118,8 @@
  "celadon_jr_trainer_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Erika taught me everything about Grass Pokémon!",
-  "dialogueAfter": "[DRAFT] I still have much to learn...",
+  "dialogueBefore": "Erika taught me everything about Grass Pokémon!",
+  "dialogueAfter": "I still have much to learn...",
   "rewardMoney": 480,
   "party": [
    {
@@ -3135,8 +3135,8 @@
  "celadon_beauty_3": {
   "name": "Beauty",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT] My EXEGGCUTE never loses its charm!",
-  "dialogueAfter": "[DRAFT] Charm... cracked...",
+  "dialogueBefore": "My EXEGGCUTE never loses its charm!",
+  "dialogueAfter": "Charm... cracked...",
   "rewardMoney": 1820,
   "party": [
    {
@@ -3148,8 +3148,8 @@
  "celadon_cooltrainer_1": {
   "name": "Cooltrainer",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT] I've mastered Grass types. Let's see if you have!",
-  "dialogueAfter": "[DRAFT] Mastered... almost...",
+  "dialogueBefore": "I've mastered Grass types. Let's see if you have!",
+  "dialogueAfter": "Mastered... almost...",
   "rewardMoney": 840,
   "party": [
    {
@@ -3169,8 +3169,8 @@
  "celadon_lass_2": {
   "name": "Lass",
   "title": "Lass",
-  "dialogueBefore": "[DRAFT] This gym smells like a garden, doesn't it?",
-  "dialogueAfter": "[DRAFT] A... thorny garden...",
+  "dialogueBefore": "This gym smells like a garden, doesn't it?",
+  "dialogueAfter": "A... thorny garden...",
   "rewardMoney": 345,
   "party": [
    {
@@ -3186,8 +3186,8 @@
  "gamecorner_rocket_grunt": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] Hey! I'm guarding this poster! Go away, or else!",
-  "dialogueAfter": "[DRAFT] Urgh... Team Rocket's hideout might be discovered! I'd better tell the boss!",
+  "dialogueBefore": "Hey! I'm guarding this poster! Go away, or else!",
+  "dialogueAfter": "Urgh... Team Rocket's hideout might be discovered! I'd better tell the boss!",
   "rewardMoney": 600,
   "party": [
    {
@@ -3230,8 +3230,8 @@
  "hideout_rocket_b1f_1": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] Halt! Nobody gets past me to the lower floors!",
-  "dialogueAfter": "[DRAFT] Argh... you're tougher than you look. Go on, then...",
+  "dialogueBefore": "Halt! Nobody gets past me to the lower floors!",
+  "dialogueAfter": "Argh... you're tougher than you look. Go on, then...",
   "rewardMoney": 630,
   "party": [
    {
@@ -3247,8 +3247,8 @@
  "hideout_rocket_b1f_2": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] This stairwell is Team Rocket territory, kid!",
-  "dialogueAfter": "[DRAFT] My Raticates... beaten... The boss will hear of this!",
+  "dialogueBefore": "This stairwell is Team Rocket territory, kid!",
+  "dialogueAfter": "My Raticates... beaten... The boss will hear of this!",
   "rewardMoney": 630,
   "party": [
    {
@@ -3264,8 +3264,8 @@
  "hideout_rocket_b1f_3": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] Eww, you saw our secret base! Now I HAVE to battle you!",
-  "dialogueAfter": "[DRAFT] Gross... even my Grimer is embarrassed.",
+  "dialogueBefore": "Eww, you saw our secret base! Now I HAVE to battle you!",
+  "dialogueAfter": "Gross... even my Grimer is embarrassed.",
   "rewardMoney": 600,
   "party": [
    {
@@ -3285,8 +3285,8 @@
  "hideout_rocket_b1f_4": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] A whole team against one kid? Heh, I like those odds!",
-  "dialogueAfter": "[DRAFT] Okay, okay! Maybe not those odds...",
+  "dialogueBefore": "A whole team against one kid? Heh, I like those odds!",
+  "dialogueAfter": "Okay, okay! Maybe not those odds...",
   "rewardMoney": 510,
   "party": [
    {
@@ -3314,8 +3314,8 @@
  "hideout_rocket_b2f_1": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] The office is off limits! Turn around, kid!",
-  "dialogueAfter": "[DRAFT] Gah! My Machops... Go on, the boss will finish you!",
+  "dialogueBefore": "The office is off limits! Turn around, kid!",
+  "dialogueAfter": "Gah! My Machops... Go on, the boss will finish you!",
   "rewardMoney": 630,
   "party": [
    {
@@ -3331,8 +3331,8 @@
  "hideout_rocket_b2f_2": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] You want the boss? You'll have to go through me first!",
-  "dialogueAfter": "[DRAFT] Cough... I can't believe I lost...",
+  "dialogueBefore": "You want the boss? You'll have to go through me first!",
+  "dialogueAfter": "Cough... I can't believe I lost...",
   "rewardMoney": 630,
   "party": [
    {
@@ -3348,8 +3348,8 @@
  "hideout_rocket_b2f_3": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] Intruder! Sound the alarm! ...Fine, I'll just battle you myself!",
-  "dialogueAfter": "[DRAFT] The alarm was a bluff. Please don't tell the boss.",
+  "dialogueBefore": "Intruder! Sound the alarm! ...Fine, I'll just battle you myself!",
+  "dialogueAfter": "The alarm was a bluff. Please don't tell the boss.",
   "rewardMoney": 600,
   "party": [
    {
@@ -3369,8 +3369,8 @@
  "hideout_rocket_b2f_4": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT] I'm Giovanni's personal guard! My team is the strongest in the hideout!",
-  "dialogueAfter": "[DRAFT] The strongest... except against you, apparently.",
+  "dialogueBefore": "I'm Giovanni's personal guard! My team is the strongest in the hideout!",
+  "dialogueAfter": "The strongest... except against you, apparently.",
   "rewardMoney": 690,
   "party": [
    {
@@ -3514,8 +3514,8 @@
     "level": 32
    }
   ],
-  "dialogueBefore": "[DRAFT] Hiyah! My fighting spirit burns! Let's battle!",
-  "dialogueAfter": "[DRAFT] Urgh... your spirit burns brighter..."
+  "dialogueBefore": "Hiyah! My fighting spirit burns! Let's battle!",
+  "dialogueAfter": "Urgh... your spirit burns brighter..."
  },
  "dojo_blackbelt_2": {
   "name": "Black Belt",
@@ -3535,8 +3535,8 @@
     "level": 31
    }
   ],
-  "dialogueBefore": "[DRAFT] I've trained my body to the limit! You can't win!",
-  "dialogueAfter": "[DRAFT] My training... was not enough..."
+  "dialogueBefore": "I've trained my body to the limit! You can't win!",
+  "dialogueAfter": "My training... was not enough..."
  },
  "dojo_blackbelt_3": {
   "name": "Black Belt",
@@ -3556,8 +3556,8 @@
     "level": 31
    }
   ],
-  "dialogueBefore": "[DRAFT] A true fighter never backs down! Come on!",
-  "dialogueAfter": "[DRAFT] Hmph! Strong... very strong..."
+  "dialogueBefore": "A true fighter never backs down! Come on!",
+  "dialogueAfter": "Hmph! Strong... very strong..."
  },
  "dojo_blackbelt_4": {
   "name": "Black Belt",
@@ -3569,8 +3569,8 @@
     "level": 36
    }
   ],
-  "dialogueBefore": "[DRAFT] My Primeape and I are one! Feel our fury!",
-  "dialogueAfter": "[DRAFT] Defeated... by a mere child..."
+  "dialogueBefore": "My Primeape and I are one! Feel our fury!",
+  "dialogueAfter": "Defeated... by a mere child..."
  },
  "dojo_koichi": {
   "name": "Koichi",
@@ -3612,8 +3612,8 @@
     "level": 33
    }
   ],
-  "dialogueBefore": "[DRAFT] This floor belongs to Team Rocket! Scram!",
-  "dialogueAfter": "[DRAFT] Grr... go on up. You'll never make it past the others!"
+  "dialogueBefore": "This floor belongs to Team Rocket! Scram!",
+  "dialogueAfter": "Grr... go on up. You'll never make it past the others!"
  },
  "silph_rocket_2f_2": {
   "name": "Grunt",
@@ -3633,8 +3633,8 @@
     "level": 33
    }
   ],
-  "dialogueBefore": "[DRAFT] Koffing! Gas attack, go!",
-  "dialogueAfter": "[DRAFT] Cough... my eyes..."
+  "dialogueBefore": "Koffing! Gas attack, go!",
+  "dialogueAfter": "Cough... my eyes..."
  },
  "silph_scientist_2f_1": {
   "name": "Scientist",
@@ -3646,8 +3646,8 @@
     "level": 35
    }
   ],
-  "dialogueBefore": "[DRAFT] My Electabuzz research will not be interrupted!",
-  "dialogueAfter": "[DRAFT] Fascinating... your battle data is remarkable..."
+  "dialogueBefore": "My Electabuzz research will not be interrupted!",
+  "dialogueAfter": "Fascinating... your battle data is remarkable..."
  },
  "silph_scientist_2f_2": {
   "name": "Scientist",
@@ -3659,8 +3659,8 @@
     "level": 35
    }
   ],
-  "dialogueBefore": "[DRAFT] Team Rocket pays better than Silph ever did!",
-  "dialogueAfter": "[DRAFT] Traitor? Me? Never!"
+  "dialogueBefore": "Team Rocket pays better than Silph ever did!",
+  "dialogueAfter": "Traitor? Me? Never!"
  },
  "silph_rocket_3f_1": {
   "name": "Grunt",
@@ -3676,8 +3676,8 @@
     "level": 33
    }
   ],
-  "dialogueBefore": "[DRAFT] The stairs are closed! By order of Team Rocket!",
-  "dialogueAfter": "[DRAFT] Fine! Climb all you want! The boss will crush you!"
+  "dialogueBefore": "The stairs are closed! By order of Team Rocket!",
+  "dialogueAfter": "Fine! Climb all you want! The boss will crush you!"
  },
  "silph_rocket_3f_2": {
   "name": "Grunt",
@@ -3697,8 +3697,8 @@
     "level": 33
    }
   ],
-  "dialogueBefore": "[DRAFT] Intruder alert! Voltorb squad, roll out!",
-  "dialogueAfter": "[DRAFT] They rolled... right over me..."
+  "dialogueBefore": "Intruder alert! Voltorb squad, roll out!",
+  "dialogueAfter": "They rolled... right over me..."
  },
  "silph_scientist_3f_1": {
   "name": "Scientist",
@@ -3714,8 +3714,8 @@
     "level": 35
    }
   ],
-  "dialogueBefore": "[DRAFT] Hmm, a test subject! Let's see how you handle magnets and gas!",
-  "dialogueAfter": "[DRAFT] Unexpected results..."
+  "dialogueBefore": "Hmm, a test subject! Let's see how you handle magnets and gas!",
+  "dialogueAfter": "Unexpected results..."
  },
  "silph_rocket_4f_1": {
   "name": "Grunt",
@@ -3731,8 +3731,8 @@
     "level": 33
    }
   ],
-  "dialogueBefore": "[DRAFT] Nobody goes up without the boss's permission!",
-  "dialogueAfter": "[DRAFT] Permission... granted... ugh..."
+  "dialogueBefore": "Nobody goes up without the boss's permission!",
+  "dialogueAfter": "Permission... granted... ugh..."
  },
  "silph_rocket_4f_2": {
   "name": "Grunt",
@@ -3748,8 +3748,8 @@
     "level": 33
    }
   ],
-  "dialogueBefore": "[DRAFT] Smell that? That's the smell of your defeat!",
-  "dialogueAfter": "[DRAFT] Phew... I need some fresh air..."
+  "dialogueBefore": "Smell that? That's the smell of your defeat!",
+  "dialogueAfter": "Phew... I need some fresh air..."
  },
  "silph_scientist_4f_1": {
   "name": "Scientist",
@@ -3765,8 +3765,8 @@
     "level": 35
    }
   ],
-  "dialogueBefore": "[DRAFT] Behold! Silph's latest: a Porygon, born of pure data!",
-  "dialogueAfter": "[DRAFT] Data... inconclusive..."
+  "dialogueBefore": "Behold! Silph's latest: a Porygon, born of pure data!",
+  "dialogueAfter": "Data... inconclusive..."
  },
  "silph_rocket_5f_1": {
   "name": "Grunt",
@@ -3786,8 +3786,8 @@
     "level": 32
    }
   ],
-  "dialogueBefore": "[DRAFT] The top floors are for Team Rocket only! Turn back!",
-  "dialogueAfter": "[DRAFT] Cubone... avenge me..."
+  "dialogueBefore": "The top floors are for Team Rocket only! Turn back!",
+  "dialogueAfter": "Cubone... avenge me..."
  },
  "silph_rocket_5f_2": {
   "name": "Grunt",
@@ -3803,8 +3803,8 @@
     "level": 33
    }
   ],
-  "dialogueBefore": "[DRAFT] You need a Card Key AND my permission! You have neither!",
-  "dialogueAfter": "[DRAFT] Take the key... just stop battling me..."
+  "dialogueBefore": "You need a Card Key AND my permission! You have neither!",
+  "dialogueAfter": "Take the key... just stop battling me..."
  },
  "silph_scientist_5f_1": {
   "name": "Scientist",
@@ -3824,14 +3824,14 @@
     "level": 35
    }
   ],
-  "dialogueBefore": "[DRAFT] My magnetic research is nearly complete! You can't stop science!",
-  "dialogueAfter": "[DRAFT] Science... will remember this..."
+  "dialogueBefore": "My magnetic research is nearly complete! You can't stop science!",
+  "dialogueAfter": "Science... will remember this..."
  },
  "silph_scientist_6f_1": {
   "name": "Scientist",
   "title": "Scientist",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1800,
   "party": [
    {
@@ -3901,8 +3901,8 @@
  "route13_jr_trainer_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 560,
   "party": [
    {
@@ -3922,8 +3922,8 @@
  "route13_bird_keeper_1": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -3939,8 +3939,8 @@
  "route13_jr_trainer_2": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 480,
   "party": [
    {
@@ -3968,8 +3968,8 @@
  "route13_beauty_1": {
   "name": "Beauty",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 1890,
   "party": [
    {
@@ -3989,8 +3989,8 @@
  "route13_beauty_2": {
   "name": "Beauty",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 2030,
   "party": [
    {
@@ -4006,8 +4006,8 @@
  "route13_jr_trainer_3": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 600,
   "party": [
    {
@@ -4023,8 +4023,8 @@
  "route13_jr_trainer_4": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 540,
   "party": [
    {
@@ -4048,8 +4048,8 @@
  "route13_bird_keeper_2": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 625,
   "party": [
    {
@@ -4077,8 +4077,8 @@
  "route13_bird_keeper_3": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 650,
   "party": [
    {
@@ -4102,8 +4102,8 @@
  "route13_biker_1": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 560,
   "party": [
    {
@@ -4123,8 +4123,8 @@
  "route14_bird_keeper_1": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 650,
   "party": [
    {
@@ -4148,8 +4148,8 @@
  "route14_bird_keeper_2": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 700,
   "party": [
    {
@@ -4169,8 +4169,8 @@
  "route14_bird_keeper_3": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -4186,8 +4186,8 @@
  "route14_bird_keeper_4": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 700,
   "party": [
    {
@@ -4207,8 +4207,8 @@
  "route14_biker_1": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 580,
   "party": [
    {
@@ -4224,8 +4224,8 @@
  "route14_bird_keeper_5": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 825,
   "party": [
    {
@@ -4237,8 +4237,8 @@
  "route14_biker_2": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 580,
   "party": [
    {
@@ -4254,8 +4254,8 @@
  "route14_biker_3": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 560,
   "party": [
    {
@@ -4275,8 +4275,8 @@
  "route14_biker_4": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 520,
   "party": [
    {
@@ -4300,8 +4300,8 @@
  "route14_bird_keeper_6": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -4317,8 +4317,8 @@
  "route15_jr_trainer_1": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 660,
   "party": [
    {
@@ -4330,8 +4330,8 @@
  "route15_beauty_1": {
   "name": "Beauty",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 2030,
   "party": [
    {
@@ -4347,8 +4347,8 @@
  "route15_jr_trainer_2": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 580,
   "party": [
    {
@@ -4364,8 +4364,8 @@
  "route15_biker_1": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 500,
   "party": [
    {
@@ -4393,8 +4393,8 @@
  "route15_biker_2": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 560,
   "party": [
    {
@@ -4414,8 +4414,8 @@
  "route15_beauty_2": {
   "name": "Beauty",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 2030,
   "party": [
    {
@@ -4431,8 +4431,8 @@
  "route15_jr_trainer_3": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 560,
   "party": [
    {
@@ -4452,8 +4452,8 @@
  "route15_bird_keeper_1": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 700,
   "party": [
    {
@@ -4473,8 +4473,8 @@
  "route15_bird_keeper_2": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 650,
   "party": [
    {
@@ -4498,8 +4498,8 @@
  "route15_jr_trainer_4": {
   "name": "Jr. Trainer",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 580,
   "party": [
    {
@@ -4519,8 +4519,8 @@
  "route16_biker_1": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 580,
   "party": [
    {
@@ -4536,8 +4536,8 @@
  "route16_cue_ball_1": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 700,
   "party": [
    {
@@ -4557,8 +4557,8 @@
  "route16_cue_ball_2": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -4574,8 +4574,8 @@
  "route16_biker_2": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 660,
   "party": [
    {
@@ -4587,8 +4587,8 @@
  "route16_cue_ball_3": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 825,
   "party": [
    {
@@ -4600,8 +4600,8 @@
  "route16_biker_3": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 520,
   "party": [
    {
@@ -4625,8 +4625,8 @@
  "route17_cue_ball_1": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -4642,8 +4642,8 @@
  "route17_cue_ball_2": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -4659,8 +4659,8 @@
  "route17_biker_1": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 560,
   "party": [
    {
@@ -4680,8 +4680,8 @@
  "route17_biker_2": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 660,
   "party": [
    {
@@ -4693,8 +4693,8 @@
  "route17_biker_3": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 580,
   "party": [
    {
@@ -4710,8 +4710,8 @@
  "route17_cue_ball_3": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 825,
   "party": [
    {
@@ -4723,8 +4723,8 @@
  "route17_cue_ball_4": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -4740,8 +4740,8 @@
  "route17_cue_ball_5": {
   "name": "Cue Ball",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 650,
   "party": [
    {
@@ -4765,8 +4765,8 @@
  "route17_biker_4": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 580,
   "party": [
    {
@@ -4782,8 +4782,8 @@
  "route17_biker_5": {
   "name": "Biker",
   "title": "Biker",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 500,
   "party": [
    {
@@ -4811,8 +4811,8 @@
  "route18_bird_keeper_1": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 725,
   "party": [
    {
@@ -4828,8 +4828,8 @@
  "route18_bird_keeper_2": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 650,
   "party": [
    {
@@ -4853,8 +4853,8 @@
  "route18_bird_keeper_3": {
   "name": "Bird Keeper",
   "title": "Bird Keeper",
-  "dialogueBefore": "[DRAFT] Let's battle!",
-  "dialogueAfter": "[DRAFT] Not bad... not bad at all.",
+  "dialogueBefore": "Let's battle!",
+  "dialogueAfter": "Not bad... not bad at all.",
   "rewardMoney": 850,
   "party": [
    {
@@ -4866,8 +4866,8 @@
  "fuchsia_juggler_1": {
   "name": "Juggler",
   "title": "Juggler",
-  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
-  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "dialogueBefore": "A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "Impressive... you pass.",
   "rewardMoney": 1190,
   "party": [
    {
@@ -4883,8 +4883,8 @@
  "fuchsia_juggler_2": {
   "name": "Juggler",
   "title": "Juggler",
-  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
-  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "dialogueBefore": "A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "Impressive... you pass.",
   "rewardMoney": 1330,
   "party": [
    {
@@ -4896,8 +4896,8 @@
  "fuchsia_juggler_3": {
   "name": "Juggler",
   "title": "Juggler",
-  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
-  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "dialogueBefore": "A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "Impressive... you pass.",
   "rewardMoney": 1085,
   "party": [
    {
@@ -4921,8 +4921,8 @@
  "fuchsia_tamer_1": {
   "name": "Tamer",
   "title": "Tamer",
-  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
-  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "dialogueBefore": "A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "Impressive... you pass.",
   "rewardMoney": 1320,
   "party": [
    {
@@ -4942,8 +4942,8 @@
  "fuchsia_tamer_2": {
   "name": "Tamer",
   "title": "Tamer",
-  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
-  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "dialogueBefore": "A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "Impressive... you pass.",
   "rewardMoney": 1360,
   "party": [
    {
@@ -4959,8 +4959,8 @@
  "fuchsia_juggler_4": {
   "name": "Juggler",
   "title": "Juggler",
-  "dialogueBefore": "[DRAFT] A challenger! The ninja arts will stop you here!",
-  "dialogueAfter": "[DRAFT] Impressive... you pass.",
+  "dialogueBefore": "A challenger! The ninja arts will stop you here!",
+  "dialogueAfter": "Impressive... you pass.",
   "rewardMoney": 1190,
   "party": [
    {
@@ -4976,8 +4976,8 @@
  "jr_trainer_owen": {
   "name": "Owen",
   "title": "Jr. Trainer",
-  "dialogueBefore": "[DRAFT] My Squirtle is tougher than it looks!",
-  "dialogueAfter": "[DRAFT] Wow, you're strong!",
+  "dialogueBefore": "My Squirtle is tougher than it looks!",
+  "dialogueAfter": "Wow, you're strong!",
   "rewardMoney": 400,
   "party": [
    {
@@ -4989,8 +4989,8 @@
  "bug_catcher_wesley": {
   "name": "Wesley",
   "title": "Bug Catcher",
-  "dialogueBefore": "[DRAFT] My Butterfree's Compoundeyes can't miss!",
-  "dialogueAfter": "[DRAFT] My bugs need more training...",
+  "dialogueBefore": "My Butterfree's Compoundeyes can't miss!",
+  "dialogueAfter": "My bugs need more training...",
   "rewardMoney": 200,
   "party": [
    {
@@ -5002,8 +5002,8 @@
  "viridian_blackbelt_1": {
   "name": "Yuji",
   "title": "Blackbelt",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 1000,
   "party": [
    {
@@ -5019,8 +5019,8 @@
  "viridian_cooltrainer_1": {
   "name": "Samuel",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 1365,
   "party": [
    {
@@ -5036,8 +5036,8 @@
  "viridian_tamer_1": {
   "name": "Cole",
   "title": "Tamer",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 1720,
   "party": [
    {
@@ -5049,8 +5049,8 @@
  "viridian_cooltrainer_2": {
   "name": "Kelly",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 1505,
   "party": [
    {
@@ -5062,8 +5062,8 @@
  "viridian_blackbelt_2": {
   "name": "Atsushi",
   "title": "Blackbelt",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 950,
   "party": [
    {
@@ -5083,8 +5083,8 @@
  "viridian_tamer_2": {
   "name": "Jason",
   "title": "Tamer",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 1560,
   "party": [
    {
@@ -5100,8 +5100,8 @@
  "viridian_blackbelt_3": {
   "name": "Takashi",
   "title": "Blackbelt",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 1075,
   "party": [
    {
@@ -5113,8 +5113,8 @@
  "viridian_cooltrainer_3": {
   "name": "Warren",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT] Giovanni's gym doesn't suffer weaklings!",
-  "dialogueAfter": "[DRAFT] Hmm... you might actually reach Giovanni.",
+  "dialogueBefore": "Giovanni's gym doesn't suffer weaklings!",
+  "dialogueAfter": "Hmm... you might actually reach Giovanni.",
   "rewardMoney": 1365,
   "party": [
    {
@@ -5130,8 +5130,8 @@
  "swimmer_kyler": {
   "name": "Kyler",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 145,
   "party": [
    {
@@ -5151,8 +5151,8 @@
  "swimmer_spencer": {
   "name": "Spencer",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 150,
   "party": [
    {
@@ -5168,8 +5168,8 @@
  "swimmer_tucker": {
   "name": "Tucker",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 150,
   "party": [
    {
@@ -5185,8 +5185,8 @@
  "swimmer_reese": {
   "name": "Reese",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 150,
   "party": [
    {
@@ -5202,8 +5202,8 @@
  "swimmer_david": {
   "name": "David",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 135,
   "party": [
    {
@@ -5227,8 +5227,8 @@
  "swimmer_douglas": {
   "name": "Douglas",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 145,
   "party": [
    {
@@ -5248,8 +5248,8 @@
  "swimmer_axle": {
   "name": "Axle",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 135,
   "party": [
    {
@@ -5277,8 +5277,8 @@
  "beauty_alice": {
   "name": "Alice",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 2100,
   "party": [
    {
@@ -5294,8 +5294,8 @@
  "beauty_anya": {
   "name": "Anya",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1890,
   "party": [
    {
@@ -5323,8 +5323,8 @@
  "beauty_connie": {
   "name": "Connie",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 2030,
   "party": [
    {
@@ -5344,8 +5344,8 @@
  "swimmer_dean": {
   "name": "Dean",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 155,
   "party": [
    {
@@ -5361,8 +5361,8 @@
  "swimmer_barry": {
   "name": "Barry",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 140,
   "party": [
    {
@@ -5386,8 +5386,8 @@
  "beauty_victoria": {
   "name": "Victoria",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 2100,
   "party": [
    {
@@ -5407,8 +5407,8 @@
  "beauty_sheila": {
   "name": "Sheila",
   "title": "Beauty",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 2450,
   "party": [
    {
@@ -5420,8 +5420,8 @@
  "scientist_mansion_1": {
   "name": "Ted",
   "title": "Scientist",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1450,
   "party": [
    {
@@ -5437,8 +5437,8 @@
  "burglar_mansion_1": {
   "name": "Lewis",
   "title": "Burglar",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 3060,
   "party": [
    {
@@ -5454,8 +5454,8 @@
  "burglar_mansion_2": {
   "name": "Simon",
   "title": "Burglar",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 3420,
   "party": [
    {
@@ -5467,8 +5467,8 @@
  "scientist_mansion_2": {
   "name": "Ivan",
   "title": "Scientist",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1650,
   "party": [
    {
@@ -5488,8 +5488,8 @@
  "burglar_mansion_3": {
   "name": "Arnie",
   "title": "Burglar",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 3060,
   "party": [
    {
@@ -5505,8 +5505,8 @@
  "scientist_mansion_3": {
   "name": "Braydon",
   "title": "Scientist",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1700,
   "party": [
    {
@@ -5522,8 +5522,8 @@
  "fisherman_wilton": {
   "name": "Wilton",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 945,
   "party": [
    {
@@ -5555,8 +5555,8 @@
  "fisherman_arnold": {
   "name": "Arnold",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 980,
   "party": [
    {
@@ -5580,8 +5580,8 @@
  "swimmer_spencer_r21": {
   "name": "Spencer",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 165,
   "party": [
    {
@@ -5597,8 +5597,8 @@
  "cue_ball_camron": {
   "name": "Camron",
   "title": "Cue Ball",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 775,
   "party": [
    {
@@ -5618,8 +5618,8 @@
  "fisherman_hideto": {
   "name": "Hideto",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1085,
   "party": [
    {
@@ -5635,8 +5635,8 @@
  "fisherman_elliot": {
   "name": "Elliot",
   "title": "Fisherman",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1155,
   "party": [
    {
@@ -5652,8 +5652,8 @@
  "swimmer_nicole": {
   "name": "Nicole",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 185,
   "party": [
    {
@@ -5665,8 +5665,8 @@
  "swimmer_dawn": {
   "name": "Dawn",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 165,
   "party": [
    {
@@ -5682,8 +5682,8 @@
  "swimmer_tara": {
   "name": "Tara",
   "title": "Swimmer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 160,
   "party": [
    {
@@ -5703,8 +5703,8 @@
  "silph_rocket_6f_1": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1050,
   "party": [
    {
@@ -5720,8 +5720,8 @@
  "silph_rocket_6f_2": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1080,
   "party": [
    {
@@ -5737,8 +5737,8 @@
  "silph_rocket_6f_3": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1110,
   "party": [
    {
@@ -5750,8 +5750,8 @@
  "silph_rocket_7f_1": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1110,
   "party": [
    {
@@ -5767,8 +5767,8 @@
  "silph_rocket_7f_2": {
   "name": "Grunt",
   "title": "Team Rocket",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1140,
   "party": [
    {
@@ -5780,8 +5780,8 @@
  "silph_scientist_7f_1": {
   "name": "Scientist",
   "title": "Scientist",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1900,
   "party": [
    {
@@ -5793,8 +5793,8 @@
  "cooltrainer_vr1f_1": {
   "name": "Cooltrainer",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1540,
   "party": [
    {
@@ -5810,8 +5810,8 @@
  "cooltrainer_vr1f_2": {
   "name": "Cooltrainer",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1470,
   "party": [
    {
@@ -5835,8 +5835,8 @@
  "blackbelt_vr2f": {
   "name": "Black Belt",
   "title": "Blackbelt",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1075,
   "party": [
    {
@@ -5856,8 +5856,8 @@
  "juggler_vr2f_1": {
   "name": "Juggler",
   "title": "Juggler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1435,
   "party": [
    {
@@ -5881,8 +5881,8 @@
  "tamer_vr2f": {
   "name": "Tamer",
   "title": "Tamer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1760,
   "party": [
    {
@@ -5898,8 +5898,8 @@
  "juggler_vr2f_2": {
   "name": "Juggler",
   "title": "Juggler",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1680,
   "party": [
    {
@@ -5911,8 +5911,8 @@
  "pokemaniac_vr2f": {
   "name": "Pokemaniac",
   "title": "PokéManiac",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 2000,
   "party": [
    {
@@ -5932,8 +5932,8 @@
  "cooltrainer_vr3f_1": {
   "name": "Cooltrainer",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1505,
   "party": [
    {
@@ -5953,8 +5953,8 @@
  "cooltrainer_vr3f_2": {
   "name": "Cooltrainer",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1505,
   "party": [
    {
@@ -5974,8 +5974,8 @@
  "cooltrainer_vr3f_3": {
   "name": "Cooltrainer",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1505,
   "party": [
    {
@@ -5995,8 +5995,8 @@
  "cooltrainer_vr3f_4": {
   "name": "Cooltrainer",
   "title": "Cooltrainer",
-  "dialogueBefore": "[DRAFT]",
-  "dialogueAfter": "[DRAFT]",
+  "dialogueBefore": "",
+  "dialogueAfter": "",
   "rewardMoney": 1505,
   "party": [
    {

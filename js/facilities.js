@@ -41,6 +41,20 @@ challengeGymLeader(gymId) {
 
   // --- POKÉ MART LOGIC ---
   openShop(shopId = null, shopName = null) {
+    // Viridian delivery quest: the first time you try the mart, the clerk
+    // asks you to take Oak's Package back to the Professor instead.
+    const key = shopId || this.engine.gameState.currentRoute;
+    if (key === 'viridian_city' && !this.engine.hasFlag('got_oaks_package')) {
+      this.engine.ui.setMenuState('dynamic');
+      this.engine.ui.printToLog("Clerk: Hey! You look like you're from Pallet Town. Could you take this package to Professor Oak for me? It's important!");
+      this.engine.setFlag('got_oaks_package', true);
+      this.engine.ui.printToLog("Got Oak's Package! Better deliver it to Professor Oak in his lab.");
+      const controls = document.getElementById('dynamic-controls');
+      this.engine.ui.buildMenuControls(controls, [
+        { text: "Will do!", action: () => this.engine.ui.setMenuState('route') },
+      ]);
+      return;
+    }
     this.engine.ui.setMenuState('dynamic');
     this.renderBuyMenu(shopId, shopName);
   }

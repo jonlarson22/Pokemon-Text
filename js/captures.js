@@ -115,7 +115,9 @@ export class CaptureSystem {
     this.app.gameState.pokedex.caught[enemy.id] = true;
     this.app.gameState.pokedex.seen[enemy.id] = true;
 
-    // Build party-ready Pokémon object
+    // Build party-ready Pokémon object with correct EXP for its level
+    // (not 0 — a Lv.3 Mankey should need ~37 more, not 300).
+    const growthRate = (speciesData.growthRate || 'medium_fast');
     const caughtPokemon = {
       species: enemy.species,
       id: enemy.id,
@@ -129,8 +131,8 @@ export class CaptureSystem {
       stats: enemy.stats || { attack: enemy.attack, defense: enemy.defense, spAtk: enemy.attack, spDef: enemy.defense, speed: enemy.speed },
       types: enemy.types || speciesData.types || ["Normal"],
       moves: [...enemy.moves],
-      exp: 0,
-      maxExp: enemy.level * 100
+      exp: this.app.growth.getRequiredExp(growthRate, enemy.level),
+      maxExp: this.app.growth.getRequiredExp(growthRate, enemy.level + 1)
     };
 
     // Route to Party or PC Box

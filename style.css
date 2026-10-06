@@ -77,7 +77,7 @@ body {
 }
 
 /* General sub-menus grid setup */
-#route-actions, #system-menu, #battle-actions {
+#route-actions, #system-menu, #battle-actions, #battle-moves {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;

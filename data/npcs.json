@@ -40,8 +40,8 @@
  },
  "mt_moon_dome_fossil": {
   "name": "Dome Fossil",
-  "dialogue_default": "[DRAFT] A smooth, dome-shaped fossil is half-buried in the cave floor. (You took the Dome Fossil!)",
-  "dialogue_repeat": "[DRAFT] There's nothing else here.",
+  "dialogue_default": "A smooth, dome-shaped fossil is half-buried in the cave floor. (You took the Dome Fossil!)",
+  "dialogue_repeat": "There's nothing else here.",
   "rewards": [
    {
     "type": "item",
@@ -63,8 +63,8 @@
  },
  "mt_moon_helix_fossil": {
   "name": "Helix Fossil",
-  "dialogue_default": "[DRAFT] A spiral-shaped fossil is half-buried in the cave floor. (You took the Helix Fossil!)",
-  "dialogue_repeat": "[DRAFT] There's nothing else here.",
+  "dialogue_default": "A spiral-shaped fossil is half-buried in the cave floor. (You took the Helix Fossil!)",
+  "dialogue_repeat": "There's nothing else here.",
   "rewards": [
    {
     "type": "item",
@@ -86,8 +86,8 @@
  },
  "mt_moon_nerd_dome": {
   "name": "Super Nerd",
-  "dialogue_default": "[DRAFT] HEY! That Dome Fossil was MINE! I was... uh... studying it! ...Ugh, fine. You clearly love fossils. Take the Helix Fossil too — but ONLY if you promise to show them BOTH to my friends at the Cinnabar Lab! They can bring fossils back to life!",
-  "dialogue_repeat": "[DRAFT] Cinnabar Lab! Don't forget — go show them my fossils!",
+  "dialogue_default": "HEY! That Dome Fossil was MINE! I was... uh... studying it! ...Ugh, fine. You clearly love fossils. Take the Helix Fossil too — but ONLY if you promise to show them BOTH to my friends at the Cinnabar Lab! They can bring fossils back to life!",
+  "dialogue_repeat": "Cinnabar Lab! Don't forget — go show them my fossils!",
   "req_flag_to_appear": "took_dome_fossil",
   "rewards": [
    {
@@ -109,8 +109,8 @@
  },
  "mt_moon_nerd_helix": {
   "name": "Super Nerd",
-  "dialogue_default": "[DRAFT] HEY! That Helix Fossil was MINE! I was... uh... studying it! ...Ugh, fine. You clearly love fossils. Take the Dome Fossil too — but ONLY if you promise to show them BOTH to my friends at the Cinnabar Lab! They can bring fossils back to life!",
-  "dialogue_repeat": "[DRAFT] Cinnabar Lab! Don't forget — go show them my fossils!",
+  "dialogue_default": "HEY! That Helix Fossil was MINE! I was... uh... studying it! ...Ugh, fine. You clearly love fossils. Take the Dome Fossil too — but ONLY if you promise to show them BOTH to my friends at the Cinnabar Lab! They can bring fossils back to life!",
+  "dialogue_repeat": "Cinnabar Lab! Don't forget — go show them my fossils!",
   "req_flag_to_appear": "took_helix_fossil",
   "rewards": [
    {
@@ -192,7 +192,7 @@
  },
  "celadon_mansion_eevee": {
   "name": "Eevee Manager",
-  "dialogue_default": "[DRAFT] I've been looking for someone to take these rare Pokémon off my hands. I have three EEVEEs — would you like them?",
+  "dialogue_default": "I've been looking for someone to take these rare Pokémon off my hands. I have three EEVEEs — would you like them?",
   "requirements": [],
   "rewards": [
    {
@@ -322,7 +322,7 @@
  },
  "pewter_museum_scientist": {
   "name": "Museum Scientist",
-  "dialogue_default": "[DRAFT] Ah, Old Amber! Ancient resin with Pokémon DNA trapped inside. We don't have the equipment to revive it here — but the Pokémon Lab on Cinnabar Island does. Take it there!",
+  "dialogue_default": "Ah, Old Amber! Ancient resin with Pokémon DNA trapped inside. We don't have the equipment to revive it here — but the Pokémon Lab on Cinnabar Island does. Take it there!",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -400,7 +400,7 @@
  },
  "snorlax_route11": {
   "name": "Snorlax",
-  "dialogue_default": "[DRAFT] Snorlax woke with a tremendous yawn! It lumbers about, ready to battle... (Something stirs nearby.)",
+  "dialogue_default": "Snorlax woke with a tremendous yawn! It lumbers about, ready to battle... (Something stirs nearby.)",
   "requirements": [
    {
     "type": "flag",
@@ -413,8 +413,8 @@
     "id": "woke_snorlax_route12"
    }
   ],
-  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep at the east end of Route 11, blocking the road to Route 12. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
-  "dialogue_post_flag": "[DRAFT] Snorlax is wide awake now, and seems eager to test its strength!",
+  "dialogue_req_unmet": "A huge Snorlax is fast asleep at the east end of Route 11, blocking the road to Route 12. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
+  "dialogue_post_flag": "Snorlax is wide awake now, and seems eager to test its strength!",
   "once_flag": "woke_snorlax_route12"
  },
  "lavender_fuji_nerd": {
@@ -443,103 +443,103 @@
  },
  "pallet_kid": {
   "name": "Kid",
-  "dialogue_default": "[DRAFT] When I grow up I'm going to be a Pokémon Master, just like you!"
+  "dialogue_default": "When I grow up I'm going to be a Pokémon Master, just like you!"
  },
  "pallet_elder": {
   "name": "Elder",
-  "dialogue_default": "[DRAFT] Professor Oak was just a boy when he started studying Pokémon... Now look at him."
+  "dialogue_default": "Professor Oak was just a boy when he started studying Pokémon... Now look at him."
  },
  "viridian_traveler": {
   "name": "Traveler",
-  "dialogue_default": "[DRAFT] Viridian Forest is crawling with Bug Pokémon. Stock up on Potions before you go in!"
+  "dialogue_default": "Viridian Forest is crawling with Bug Pokémon. Stock up on Potions before you go in!"
  },
  "viridian_shopper": {
   "name": "Shopper",
-  "dialogue_default": "[DRAFT] The shop here has the best prices this side of Pewter, or so they tell me."
+  "dialogue_default": "The shop here has the best prices this side of Pewter, or so they tell me."
  },
  "viridian_kid": {
   "name": "Kid",
-  "dialogue_default": "[DRAFT] My daddy works at the Gym! He's super strong! ...He's never home, though."
+  "dialogue_default": "My daddy works at the Gym! He's super strong! ...He's never home, though."
  },
  "pewter_museum_goer": {
   "name": "Tourist",
-  "dialogue_default": "[DRAFT] The Museum's fossil exhibit is amazing! They say real Pokémon bones are inside!"
+  "dialogue_default": "The Museum's fossil exhibit is amazing! They say real Pokémon bones are inside!"
  },
  "pewter_rock_fan": {
   "name": "Hiker",
-  "dialogue_default": "[DRAFT] Pewter sits on solid bedrock — the hardest stone in all Kanto!"
+  "dialogue_default": "Pewter sits on solid bedrock — the hardest stone in all Kanto!"
  },
  "pewter_kid": {
   "name": "Kid",
-  "dialogue_default": "[DRAFT] Brock's Onix is HUGE! I saw it through the Gym window once!"
+  "dialogue_default": "Brock's Onix is HUGE! I saw it through the Gym window once!"
  },
  "cerulean_swimmer": {
   "name": "Swimmer",
-  "dialogue_default": "[DRAFT] The river here is perfect for Water Pokémon! Misty's Starmie loves it."
+  "dialogue_default": "The river here is perfect for Water Pokémon! Misty's Starmie loves it."
  },
  "cerulean_artist": {
   "name": "Artist",
-  "dialogue_default": "[DRAFT] I'm painting the river... but the light never sits still long enough!"
+  "dialogue_default": "I'm painting the river... but the light never sits still long enough!"
  },
  "cerulean_biker": {
   "name": "Biker",
-  "dialogue_default": "[DRAFT] Someday I'll ride my bike all the way to FUCHSIA CITY!"
+  "dialogue_default": "Someday I'll ride my bike all the way to FUCHSIA CITY!"
  },
  "vermilion_fisher": {
   "name": "Fisher",
-  "dialogue_default": "[DRAFT] I caught a MAGIKARP this big! ...Well, okay, maybe this big."
+  "dialogue_default": "I caught a MAGIKARP this big! ...Well, okay, maybe this big."
  },
  "vermilion_tourist": {
   "name": "Tourist",
-  "dialogue_default": "[DRAFT] The S.S. Anne! I've never seen a ship so grand!"
+  "dialogue_default": "The S.S. Anne! I've never seen a ship so grand!"
  },
  "vermilion_dockworker": {
   "name": "Dockworker",
-  "dialogue_default": "[DRAFT] Careful near the cranes, kid. This port never sleeps."
+  "dialogue_default": "Careful near the cranes, kid. This port never sleeps."
  },
  "route1_kid": {
   "name": "Kid",
-  "dialogue_default": "[DRAFT] I just started my journey too! Let's both do our best!"
+  "dialogue_default": "I just started my journey too! Let's both do our best!"
  },
  "viridian_forest_camper": {
   "name": "Camper",
-  "dialogue_default": "[DRAFT] Shh... I heard a PIKACHU rustling in the bushes over there..."
+  "dialogue_default": "Shh... I heard a PIKACHU rustling in the bushes over there..."
  },
  "route4_hiker": {
   "name": "Hiker",
-  "dialogue_default": "[DRAFT] Mt. Moon looms ahead. The tunnel through is dark and long — pace yourself."
+  "dialogue_default": "Mt. Moon looms ahead. The tunnel through is dark and long — pace yourself."
  },
  "route6_commuter": {
   "name": "Commuter",
-  "dialogue_default": "[DRAFT] I walk this road to Saffron every day for work. My feet know every stone."
+  "dialogue_default": "I walk this road to Saffron every day for work. My feet know every stone."
  },
  "route24_picnicker": {
   "name": "Picnicker",
-  "dialogue_default": "[DRAFT] The trainers on Nugget Bridge are the toughest around! Bring your best team."
+  "dialogue_default": "The trainers on Nugget Bridge are the toughest around! Bring your best team."
  },
  "route22_jogger": {
   "name": "Jogger",
-  "dialogue_default": "[DRAFT] I run this route every morning. Great training for my Pokémon too!"
+  "dialogue_default": "I run this route every morning. Great training for my Pokémon too!"
  },
  "tower_mourner_1": {
   "name": "Mourner",
-  "dialogue_default": "[DRAFT] My poor RATICATE... Rest well, my friend."
+  "dialogue_default": "My poor RATICATE... Rest well, my friend."
  },
  "tower_mourner_2": {
   "name": "Mourner",
-  "dialogue_default": "[DRAFT] Shh... This is a place of rest. Show some respect."
+  "dialogue_default": "Shh... This is a place of rest. Show some respect."
  },
  "tower_mourner_3": {
   "name": "Elder",
-  "dialogue_default": "[DRAFT] Pokémon Tower watches over every departed soul in Kanto."
+  "dialogue_default": "Pokémon Tower watches over every departed soul in Kanto."
  },
  "tower_purified_npc": {
   "name": "Channeler",
-  "dialogue_default": "[DRAFT] This spot is purified... The air itself heals the weary. Rest a moment if you need it."
+  "dialogue_default": "This spot is purified... The air itself heals the weary. Rest a moment if you need it."
  },
  "tower_ghost_hint": {
   "name": "Restless Presence",
-  "dialogue_default": "[DRAFT] A chilling presence fills the top of the tower... Your Pokémon are too scared to approach! (Something like a SILPH SCOPE might reveal it.)",
+  "dialogue_default": "A chilling presence fills the top of the tower... Your Pokémon are too scared to approach! (Something like a SILPH SCOPE might reveal it.)",
   "req_flag_to_disappear": "obtained_silph_scope"
  },
  "mr_fuji_tower": {
@@ -580,7 +580,7 @@
  },
  "celadon_clerk_tm18": {
   "name": "Clerk",
-  "dialogue_default": "[DRAFT] Welcome to the Celadon Department Store! Here's a free sample for our valued customers — TM18, Counter!",
+  "dialogue_default": "Welcome to the Celadon Department Store! Here's a free sample for our valued customers — TM18, Counter!",
   "rewards": [
    {
     "type": "item",
@@ -588,35 +588,35 @@
     "qty": 1
    }
   ],
-  "dialogue_post_flag": "[DRAFT] Enjoy your shopping!",
+  "dialogue_post_flag": "Enjoy your shopping!",
   "once_flag": "got_tm18_counter"
  },
  "celadon_clerk_2": {
   "name": "Clerk",
-  "dialogue_default": "[DRAFT] The vending machines are on the roof, dearie. Best Lemonade in Kanto!"
+  "dialogue_default": "The vending machines are on the roof, dearie. Best Lemonade in Kanto!"
  },
  "celadon_tourist": {
   "name": "Tourist",
-  "dialogue_default": "[DRAFT] Celadon is the biggest city in Kanto! The Department Store alone takes all day!"
+  "dialogue_default": "Celadon is the biggest city in Kanto! The Department Store alone takes all day!"
  },
  "celadon_gambler": {
   "name": "Gentleman",
-  "dialogue_default": "[DRAFT] They say the Game Corner's prizes are extraordinary... Not that I'd know anything about that."
+  "dialogue_default": "They say the Game Corner's prizes are extraordinary... Not that I'd know anything about that."
  },
  "celadon_mansion_freak": {
   "name": "Game Freak",
-  "dialogue_default": "[DRAFT] We're designing a new game... Someday, someone will complete the entire Pokédex!"
+  "dialogue_default": "We're designing a new game... Someday, someone will complete the entire Pokédex!"
  },
  "gamecorner_coin_clerk": {
   "name": "Coin Clerk",
-  "dialogue_default": "[DRAFT] Welcome to the Game Corner, kid! Coins are the name of the game here. First visit? Then take this Coin Case, on the house -- it holds up to 9,999 coins. We sell 500 coins for just ¥1,000. Best rate in Kanto, no questions asked!",
+  "dialogue_default": "Welcome to the Game Corner, kid! Coins are the name of the game here. First visit? Then take this Coin Case, on the house -- it holds up to 9,999 coins. We sell 500 coins for just ¥1,000. Best rate in Kanto, no questions asked!",
   "action": "buy_coins",
   "requirements": [],
   "rewards": []
  },
  "gamecorner_prize_clerk": {
   "name": "Prize Clerk",
-  "dialogue_default": "[DRAFT] Step right up! Trade your hard-won coins for fabulous prizes: rare Pokémon you can't find anywhere else, plus choice TMs!",
+  "dialogue_default": "Step right up! Trade your hard-won coins for fabulous prizes: rare Pokémon you can't find anywhere else, plus choice TMs!",
   "action": "open_shop",
   "shop_id": "celadon_game_corner_prizes",
   "shop_name": "Prize Exchange",
@@ -625,51 +625,51 @@
  },
  "gamecorner_slots_1": {
   "name": "Slot Machine",
-  "dialogue_default": "[DRAFT] A flashy slot machine, humming with promise. Bet 1 to 3 coins per spin. Three 7s pays 300! Feeling lucky?",
+  "dialogue_default": "A flashy slot machine, humming with promise. Bet 1 to 3 coins per spin. Three 7s pays 300! Feeling lucky?",
   "action": "play_slots",
   "requirements": [],
   "rewards": []
  },
  "gamecorner_slots_2": {
   "name": "Slot Machine",
-  "dialogue_default": "[DRAFT] A flashy slot machine, humming with promise. Bet 1 to 3 coins per spin. Three 7s pays 300! Feeling lucky?",
+  "dialogue_default": "A flashy slot machine, humming with promise. Bet 1 to 3 coins per spin. Three 7s pays 300! Feeling lucky?",
   "action": "play_slots",
   "requirements": [],
   "rewards": []
  },
  "gamecorner_gambler_1": {
   "name": "Gambler",
-  "dialogue_default": "[DRAFT] Shhh! I'm on a hot streak... well, I was, until that third reel. The slots here are brutal, but the prizes! Have you SEEN that Porygon?",
+  "dialogue_default": "Shhh! I'm on a hot streak... well, I was, until that third reel. The slots here are brutal, but the prizes! Have you SEEN that Porygon?",
   "requirements": [],
   "rewards": []
  },
  "gamecorner_gambler_2": {
   "name": "Gentleman",
-  "dialogue_default": "[DRAFT] I come here for the ambiance, my good fellow. The clatter of coins, the thrill of the reels... and the occasional Dratini, of course.",
+  "dialogue_default": "I come here for the ambiance, my good fellow. The clatter of coins, the thrill of the reels... and the occasional Dratini, of course.",
   "requirements": [],
   "rewards": []
  },
  "gamecorner_gambler_3": {
   "name": "Little Girl",
-  "dialogue_default": "[DRAFT] My brother found coins just lying on the floor! He says you need one of those coin case thingies first, though.",
+  "dialogue_default": "My brother found coins just lying on the floor! He says you need one of those coin case thingies first, though.",
   "requirements": [],
   "rewards": []
  },
  "hideout_b1f_lookout": {
   "name": "Rocket Grunt",
-  "dialogue_default": "[DRAFT] Psst... you want the boss? He's in the office, two floors down. You didn't hear it from me, got it?",
+  "dialogue_default": "Psst... you want the boss? He's in the office, two floors down. You didn't hear it from me, got it?",
   "requirements": [],
   "rewards": []
  },
  "hideout_b2f_mechanic": {
   "name": "Rocket Grunt",
-  "dialogue_default": "[DRAFT] I installed the spinner tiles myself. Step on one and WHOOSH, you're across the room! Disorienting, ain't it? Good thing they took most of 'em out.",
+  "dialogue_default": "I installed the spinner tiles myself. Step on one and WHOOSH, you're across the room! Disorienting, ain't it? Good thing they took most of 'em out.",
   "requirements": [],
   "rewards": []
  },
  "mr_psychic": {
   "name": "Mr. Psychic",
-  "dialogue_default": "[DRAFT] Hmm... I sense great psychic potential in you! Take this TM. It contains Psychic, the ultimate psychic technique!",
+  "dialogue_default": "Hmm... I sense great psychic potential in you! Take this TM. It contains Psychic, the ultimate psychic technique!",
   "requirements": [],
   "rewards": [
    {
@@ -679,53 +679,53 @@
    }
   ],
   "once_flag": "received_tm29",
-  "dialogue_repeat": "[DRAFT] Psychic is the most powerful psychic move there is. Use it well!"
+  "dialogue_repeat": "Psychic is the most powerful psychic move there is. Use it well!"
  },
  "saffron_townsperson_1": {
   "name": "Townsfolk",
-  "dialogue_default": "[DRAFT] Sabrina's gym is a maze of warp tiles! One wrong step and you're back at the entrance. Bring strong physical attackers -- her psychic types hate those.",
+  "dialogue_default": "Sabrina's gym is a maze of warp tiles! One wrong step and you're back at the entrance. Bring strong physical attackers -- her psychic types hate those.",
   "requirements": [],
   "rewards": []
  },
  "saffron_townsperson_2": {
   "name": "Townsfolk",
-  "dialogue_default": "[DRAFT] Did you know Saffron has TWO gyms? The Fighting Dojo isn't official, but the Karate Master gives away rare Pokémon to anyone strong enough to beat him!",
+  "dialogue_default": "Did you know Saffron has TWO gyms? The Fighting Dojo isn't official, but the Karate Master gives away rare Pokémon to anyone strong enough to beat him!",
   "requirements": [],
   "rewards": []
  },
  "saffron_townsperson_3": {
   "name": "Townsfolk",
-  "dialogue_default": "[DRAFT] Silph Co. makes all sorts of amazing devices... like the Silph Scope! Lately there've been some shady characters hanging around their building, though.",
+  "dialogue_default": "Silph Co. makes all sorts of amazing devices... like the Silph Scope! Lately there've been some shady characters hanging around their building, though.",
   "requirements": [],
   "rewards": []
  },
  "silph_employee_1": {
   "name": "Silph Employee",
-  "dialogue_default": "[DRAFT] Welcome to Silph Co.! ...Um, actually, we're not receiving visitors right now. The upper floors are... off limits. Company orders. Sorry!",
+  "dialogue_default": "Welcome to Silph Co.! ...Um, actually, we're not receiving visitors right now. The upper floors are... off limits. Company orders. Sorry!",
   "requirements": [],
   "rewards": []
  },
  "silph_scientist_1": {
   "name": "Scientist",
-  "dialogue_default": "[DRAFT] My research on the Silph Scope is almost complete! Being able to see ghosts... what a breakthrough! If only those Rocket thugs would leave us alone...",
+  "dialogue_default": "My research on the Silph Scope is almost complete! Being able to see ghosts... what a breakthrough! If only those Rocket thugs would leave us alone...",
   "requirements": [],
   "rewards": []
  },
  "silph_employee_2f": {
   "name": "Silph Employee",
-  "dialogue_default": "[DRAFT] Team Rocket took over the whole building! They've locked all the doors... if only someone had the Card Key! I heard it's on one of the middle floors.",
+  "dialogue_default": "Team Rocket took over the whole building! They've locked all the doors... if only someone had the Card Key! I heard it's on one of the middle floors.",
   "requirements": [],
   "rewards": []
  },
  "silph_employee_4f": {
   "name": "Silph Employee",
-  "dialogue_default": "[DRAFT] Shhh! Hide! The Rockets are using our labs to build... something. The president is trapped upstairs! Please, you've got to help him!",
+  "dialogue_default": "Shhh! Hide! The Rockets are using our labs to build... something. The president is trapped upstairs! Please, you've got to help him!",
   "requirements": [],
   "rewards": []
  },
  "silph_lapras_employee": {
   "name": "Grateful Employee",
-  "dialogue_default": "[DRAFT] You drove off that rotten {rival}! Thank you! Please, take this Lapras -- it was going to be a company gift, but you'd give it a better home!",
+  "dialogue_default": "You drove off that rotten {rival}! Thank you! Please, take this Lapras -- it was going to be a company gift, but you'd give it a better home!",
   "requirements": [],
   "rewards": [
    {
@@ -735,11 +735,11 @@
    }
   ],
   "once_flag": "received_lapras",
-  "dialogue_repeat": "[DRAFT] Lapras is a gentle soul. Take good care of it!"
+  "dialogue_repeat": "Lapras is a gentle soul. Take good care of it!"
  },
  "silph_president": {
   "name": "Silph President",
-  "dialogue_default": "[DRAFT] You... you defeated Giovanni?! The whole building is free! Please, take this Master Ball -- our company's greatest achievement. It will catch any Pokémon without fail!",
+  "dialogue_default": "You... you defeated Giovanni?! The whole building is free! Please, take this Master Ball -- our company's greatest achievement. It will catch any Pokémon without fail!",
   "requirements": [
    {
     "type": "flag",
@@ -754,26 +754,26 @@
    }
   ],
   "once_flag": "received_master_ball",
-  "dialogue_req_unmet": "[DRAFT] Giovanni is still in my office! I can't think straight while that man is here... please, defeat him first!",
-  "dialogue_repeat": "[DRAFT] The Master Ball will never fail. Save it for something truly special!"
+  "dialogue_req_unmet": "Giovanni is still in my office! I can't think straight while that man is here... please, defeat him first!",
+  "dialogue_repeat": "The Master Ball will never fail. Save it for something truly special!"
  },
  "saffron_rocket_guard_gym": {
   "name": "Rocket Grunt",
-  "dialogue_default": "[DRAFT] Heh! Nobody gets into the Saffron Gym while Team Rocket runs this town! Scram, kid!",
+  "dialogue_default": "Heh! Nobody gets into the Saffron Gym while Team Rocket runs this town! Scram, kid!",
   "requirements": [],
   "rewards": [],
   "req_flag_to_disappear": "defeated_silph_co_giovanni"
  },
  "saffron_rocket_guard_dojo": {
   "name": "Rocket Grunt",
-  "dialogue_default": "[DRAFT] The Fighting Dojo is closed! Team Rocket says so! Beat it!",
+  "dialogue_default": "The Fighting Dojo is closed! Team Rocket says so! Beat it!",
   "requirements": [],
   "rewards": [],
   "req_flag_to_disappear": "defeated_silph_co_giovanni"
  },
  "fan_club_chairman": {
   "name": "Fan Club Chairman",
-  "dialogue_default": "[DRAFT] Ah, a fellow Pokémon lover! You remind me of myself as a young trainer... Here! Take my spare bicycle! A true fan of Pokémon should see the world at speed! (You can now ride on Cycling Road.)",
+  "dialogue_default": "Ah, a fellow Pokémon lover! You remind me of myself as a young trainer... Here! Take my spare bicycle! A true fan of Pokémon should see the world at speed! (You can now ride on Cycling Road.)",
   "requirements": [],
   "rewards": [
    {
@@ -782,19 +782,19 @@
    }
   ],
   "once_flag": "obtained_bike",
-  "dialogue_post_flag": "[DRAFT] My Rapidash and I used to race the wind! ...Those were the days."
+  "dialogue_post_flag": "My Rapidash and I used to race the wind! ...Those were the days."
  },
  "fan_club_angler": {
   "name": "Fishing Fan",
-  "dialogue_default": "[DRAFT] There's nothing like fishing for Pokémon! Here, take my spare FISHING ROD! The waters around Kanto are full of surprises!",
+  "dialogue_default": "There's nothing like fishing for Pokémon! Here, take my spare FISHING ROD! The waters around Kanto are full of surprises!",
   "requirements": [],
   "rewards": [],
   "once_flag": "obtained_fishing_rod",
-  "dialogue_post_flag": "[DRAFT] That rod of yours will serve you well! Magikarp, Goldeen... the sea provides! Tight lines, kid!"
+  "dialogue_post_flag": "That rod of yours will serve you well! Magikarp, Goldeen... the sea provides! Tight lines, kid!"
  },
  "route16_snorlax": {
   "name": "Snorlax",
-  "dialogue_default": "[DRAFT] You play the Poké Flute! Snorlax stirs... yawns enormously... and lumbers to its feet, ready to battle! (Something stirs nearby.)",
+  "dialogue_default": "You play the Poké Flute! Snorlax stirs... yawns enormously... and lumbers to its feet, ready to battle! (Something stirs nearby.)",
   "requirements": [
    {
     "type": "flag",
@@ -807,13 +807,13 @@
     "id": "woke_snorlax_route16"
    }
   ],
-  "dialogue_req_unmet": "[DRAFT] A huge Snorlax is fast asleep in the middle of Route 16, blocking the road west. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
-  "dialogue_post_flag": "[DRAFT] Snorlax is wide awake now, and seems eager to test its strength!",
+  "dialogue_req_unmet": "A huge Snorlax is fast asleep in the middle of Route 16, blocking the road west. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
+  "dialogue_post_flag": "Snorlax is wide awake now, and seems eager to test its strength!",
   "once_flag": "woke_snorlax_route16"
  },
  "route16_fly_girl": {
   "name": "Reclusive Girl",
-  "dialogue_default": "[DRAFT] You found my secret house! Please don't tell anyone where I am... As thanks, take this HM02! It teaches FLY -- you can soar to any town you've visited!",
+  "dialogue_default": "You found my secret house! Please don't tell anyone where I am... As thanks, take this HM02! It teaches FLY -- you can soar to any town you've visited!",
   "requirements": [
    {
     "type": "flag",
@@ -832,50 +832,50 @@
    }
   ],
   "once_flag": "obtained_hm02",
-  "dialogue_post_flag": "[DRAFT] Shhh! Secret! ...FLY is wonderful, isn't it?",
-  "dialogue_req_unmet": "[DRAFT] That Snorlax is still snoozing across the road... I can't think straight with all that snoring! Come back after it's moved on."
+  "dialogue_post_flag": "Shhh! Secret! ...FLY is wonderful, isn't it?",
+  "dialogue_req_unmet": "That Snorlax is still snoozing across the road... I can't think straight with all that snoring! Come back after it's moved on."
  },
  "route13_picnicker": {
   "name": "Lost Picnicker",
-  "dialogue_default": "[DRAFT] This fence maze is impossible! I've been going in circles for an hour... have you seen my basket? No? ...Then at least battle me!",
+  "dialogue_default": "This fence maze is impossible! I've been going in circles for an hour... have you seen my basket? No? ...Then at least battle me!",
   "requirements": [],
   "rewards": []
  },
  "route14_bird_watcher": {
   "name": "Bird Watcher",
-  "dialogue_default": "[DRAFT] Shhh! I'm tracking a Farfetch'd! It carries a leek... fascinating! The Bird Keepers here train the finest flying types on this side of Kanto.",
+  "dialogue_default": "Shhh! I'm tracking a Farfetch'd! It carries a leek... fascinating! The Bird Keepers here train the finest flying types on this side of Kanto.",
   "requirements": [],
   "rewards": []
  },
  "route15_jogger": {
   "name": "Tired Jogger",
-  "dialogue_default": "[DRAFT] Huff... puff... Fuchsia City is just west of here, but these trainers keep challenging me! My legs are jelly!",
+  "dialogue_default": "Huff... puff... Fuchsia City is just west of here, but these trainers keep challenging me! My legs are jelly!",
   "requirements": [],
   "rewards": []
  },
  "route16_cyclist": {
   "name": "Cyclist",
-  "dialogue_default": "[DRAFT] Flat tire... again! This road eats tires for breakfast. If you've got a bike, the guard up ahead will let you onto Cycling Road. Good luck!",
+  "dialogue_default": "Flat tire... again! This road eats tires for breakfast. If you've got a bike, the guard up ahead will let you onto Cycling Road. Good luck!",
   "requirements": [],
   "rewards": []
  },
  "route17_biker_rest": {
   "name": "Winded Biker",
-  "dialogue_default": "[DRAFT] Whew! Downhill is easy... it's the ride BACK UP that kills you! The Cue Balls and Bikers here never let anyone pass without a battle!",
+  "dialogue_default": "Whew! Downhill is easy... it's the ride BACK UP that kills you! The Cue Balls and Bikers here never let anyone pass without a battle!",
   "requirements": [],
   "rewards": []
  },
  "route18_guard": {
   "name": "Gate Guard",
-  "dialogue_default": "[DRAFT] Fuchsia City lies east, friend! Safari Zone, the gym... and watch out for the Bird Keepers in the fenced field. Nasty bunch!",
+  "dialogue_default": "Fuchsia City lies east, friend! Safari Zone, the gym... and watch out for the Bird Keepers in the fenced field. Nasty bunch!",
   "requirements": [],
   "rewards": []
  },
  "route2_trade_boy": {
   "name": "Trade Boy",
-  "dialogue_default": "[DRAFT] Hey! I've got a Mr. Mime, but what I really want is an Abra! Trade with me?",
-  "dialogue_no_trade": "[DRAFT] No Abra? Bummer! Catch one on Routes 24 or 25 and come back!",
-  "dialogue_repeat": "[DRAFT] Mr. Mime is a star! Thanks again for the Abra!",
+  "dialogue_default": "Hey! I've got a Mr. Mime, but what I really want is an Abra! Trade with me?",
+  "dialogue_no_trade": "No Abra? Bummer! Catch one on Routes 24 or 25 and come back!",
+  "dialogue_repeat": "Mr. Mime is a star! Thanks again for the Abra!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -886,9 +886,9 @@
  },
  "underground_trade_girl": {
   "name": "Trade Girl",
-  "dialogue_default": "[DRAFT] My Nidoran is lonely... but you know what? I just got a RARE starter Pokémon! I'll trade it for your male Nidoran!",
-  "dialogue_no_trade": "[DRAFT] You don't have a male Nidoran in your party... hers is getting lonely!",
-  "dialogue_repeat": "[DRAFT] Take good care of that starter!",
+  "dialogue_default": "My Nidoran is lonely... but you know what? I just got a RARE starter Pokémon! I'll trade it for your male Nidoran!",
+  "dialogue_no_trade": "You don't have a male Nidoran in your party... hers is getting lonely!",
+  "dialogue_repeat": "Take good care of that starter!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -899,9 +899,9 @@
  },
  "route11_trade_man": {
   "name": "Trade Man",
-  "dialogue_default": "[DRAFT] I'm a collector, and I just got my hands on a RARE starter Pokémon! Your Nidoran (male) for it?",
-  "dialogue_no_trade": "[DRAFT] No male Nidoran? Come back when you've caught one!",
-  "dialogue_repeat": "[DRAFT] A starter for your collection! Lucky!",
+  "dialogue_default": "I'm a collector, and I just got my hands on a RARE starter Pokémon! Your Nidoran (male) for it?",
+  "dialogue_no_trade": "No male Nidoran? Come back when you've caught one!",
+  "dialogue_repeat": "A starter for your collection! Lucky!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -912,9 +912,9 @@
  },
  "route18_trade_boy": {
   "name": "Trade Boy",
-  "dialogue_default": "[DRAFT] Psst! I'll trade you my rare Lickitung for your Slowbro! What do you say?",
-  "dialogue_no_trade": "[DRAFT] No Slowbro, no Lickitung! That's the deal!",
-  "dialogue_repeat": "[DRAFT] Lickitung's tongue is something else, huh? Enjoy!",
+  "dialogue_default": "Psst! I'll trade you my rare Lickitung for your Slowbro! What do you say?",
+  "dialogue_no_trade": "No Slowbro, no Lickitung! That's the deal!",
+  "dialogue_repeat": "Lickitung's tongue is something else, huh? Enjoy!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -925,9 +925,9 @@
  },
  "cerulean_trade_elder": {
   "name": "Lonely Elder",
-  "dialogue_default": "[DRAFT] My Jynx and I... we're so lonely. Would you trade your Poliwhirl for her? She needs a lively trainer!",
-  "dialogue_no_trade": "[DRAFT] Oh... you don't have a Poliwhirl with you. How lonely...",
-  "dialogue_repeat": "[DRAFT] Jynx, be good to your new trainer!",
+  "dialogue_default": "My Jynx and I... we're so lonely. Would you trade your Poliwhirl for her? She needs a lively trainer!",
+  "dialogue_no_trade": "Oh... you don't have a Poliwhirl with you. How lonely...",
+  "dialogue_repeat": "Jynx, be good to your new trainer!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -938,9 +938,9 @@
  },
  "vermilion_trade_girl": {
   "name": "Trade Girl",
-  "dialogue_default": "[DRAFT] I love Farfetch'd, but I want a Spearow instead! Trade with me?",
-  "dialogue_no_trade": "[DRAFT] No Spearow? Farfetch'd and I will wait right here!",
-  "dialogue_repeat": "[DRAFT] Farfetch'd, behave for your new trainer!",
+  "dialogue_default": "I love Farfetch'd, but I want a Spearow instead! Trade with me?",
+  "dialogue_no_trade": "No Spearow? Farfetch'd and I will wait right here!",
+  "dialogue_repeat": "Farfetch'd, behave for your new trainer!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -951,21 +951,21 @@
  },
  "fuchsia_townsperson_1": {
   "name": "Townsfolk",
-  "dialogue_default": "[DRAFT] Fuchsia City is famous for the Safari Zone! Rare Pokémon from all over live there... or they will, once it opens!",
+  "dialogue_default": "Fuchsia City is famous for the Safari Zone! Rare Pokémon from all over live there... or they will, once it opens!",
   "requirements": [],
   "rewards": []
  },
  "fuchsia_townsperson_2": {
   "name": "Townsfolk",
-  "dialogue_default": "[DRAFT] Koga's gym is a maze of invisible walls! The ninjas there fight dirty -- bring Antidotes!",
+  "dialogue_default": "Koga's gym is a maze of invisible walls! The ninjas there fight dirty -- bring Antidotes!",
   "requirements": [],
   "rewards": []
  },
  "fuchsia_warden": {
   "name": "Safari Warden",
-  "dialogue_default": "[DRAFT] My GOLD TEETH! You found them! You're a lifesaver! Here -- take this HM04! It teaches STRENGTH, for pushing boulders!",
-  "dialogue_req_unmet": "[DRAFT] Waaah! I've lost my GOLD TEETH somewhere in the Safari Zone! I can't even talk right! If you find them, I'll make it worth your while!",
-  "dialogue_repeat": "[DRAFT] STRENGTH will move the mightiest boulders! Waaah... I mean, thank you!",
+  "dialogue_default": "My GOLD TEETH! You found them! You're a lifesaver! Here -- take this HM04! It teaches STRENGTH, for pushing boulders!",
+  "dialogue_req_unmet": "Waaah! I've lost my GOLD TEETH somewhere in the Safari Zone! I can't even talk right! If you find them, I'll make it worth your while!",
+  "dialogue_repeat": "STRENGTH will move the mightiest boulders! Waaah... I mean, thank you!",
   "requirements": [
    {
     "type": "item",
@@ -992,8 +992,8 @@
  },
  "safari_attendant": {
   "name": "Safari Attendant",
-  "dialogue_default": "[DRAFT] Welcome to the Safari Zone! For just ¥500 you get 30 Safari Balls and the run of all three areas. No battling -- just balls, bait, and rocks!",
-  "dialogue_repeat": "[DRAFT] You're all paid up! You've got Safari Balls left -- get out there and catch something!",
+  "dialogue_default": "Welcome to the Safari Zone! For just ¥500 you get 30 Safari Balls and the run of all three areas. No battling -- just balls, bait, and rocks!",
+  "dialogue_repeat": "You're all paid up! You've got Safari Balls left -- get out there and catch something!",
   "requirements": [],
   "rewards": [],
   "action": "enter_safari",
@@ -1002,8 +1002,8 @@
  },
  "safari_secret_house_man": {
   "name": "Secret House Keeper",
-  "dialogue_default": "[DRAFT] You made it all the way out here! Not many trainers do. Take this -- HM03! It teaches SURF to a Water Pokémon!",
-  "dialogue_repeat": "[DRAFT] SURF will carry you across any water -- once you've earned the SOUL BADGE, which lets you use it outside of battle!",
+  "dialogue_default": "You made it all the way out here! Not many trainers do. Take this -- HM03! It teaches SURF to a Water Pokémon!",
+  "dialogue_repeat": "SURF will carry you across any water -- once you've earned the SOUL BADGE, which lets you use it outside of battle!",
   "requirements": [],
   "rewards": [
    {
@@ -1016,7 +1016,7 @@
  },
  "thirsty_guard": {
   "name": "Thirsty Guard",
-  "dialogue_default": "[DRAFT] I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
+  "dialogue_default": "I'm so thirsty... Oh, you have a drink? Thanks! You can pass now.",
   "requirements": [
    {
     "type": "item_any_of",
@@ -1043,22 +1043,22 @@
     "qty": 1
    }
   ],
-  "dialogue_req_unmet": "[DRAFT] I'm sooo thirsty... If only I had something to drink... (The vending machines on the CELADON Department Store roof sell drinks.)",
+  "dialogue_req_unmet": "I'm sooo thirsty... If only I had something to drink... (The vending machines on the CELADON Department Store roof sell drinks.)",
   "dialogue_post_flag": "Ahh, that hit the spot! SAFFRON CITY is open to you, kid!",
   "once_flag": "guard_let_pass"
  },
  "vermilion_dock_sailor": {
   "name": "Sailor",
-  "dialogue_default": "[DRAFT] All aboard the S.S. Anne! Tickets, please! ...You've got Bill's S.S. Ticket? Then get on board, she's leaving soon!",
-  "dialogue_repeat": "[DRAFT] The S.S. Anne boards from this dock. No ticket, no trip!",
+  "dialogue_default": "All aboard the S.S. Anne! Tickets, please! ...You've got Bill's S.S. Ticket? Then get on board, she's leaving soon!",
+  "dialogue_repeat": "The S.S. Anne boards from this dock. No ticket, no trip!",
   "requirements": [],
   "rewards": []
  },
  "cinnabar_trade_seel": {
   "name": "Trade Scientist",
-  "dialogue_default": "[DRAFT] My Ponyta is so lonely... I'd trade it for a Seel in a heartbeat! Trade with me?",
-  "dialogue_no_trade": "[DRAFT] No Seel? The Seafoam Islands are full of them - go catch one!",
-  "dialogue_repeat": "[DRAFT] My Seel is doing great! Thanks again!",
+  "dialogue_default": "My Ponyta is so lonely... I'd trade it for a Seel in a heartbeat! Trade with me?",
+  "dialogue_no_trade": "No Seel? The Seafoam Islands are full of them - go catch one!",
+  "dialogue_repeat": "My Seel is doing great! Thanks again!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -1069,9 +1069,9 @@
  },
  "cinnabar_trade_electrode": {
   "name": "Trade Scientist",
-  "dialogue_default": "[DRAFT] I need a Raichu for my research! I'll give you my Electrode for one! Trade?",
-  "dialogue_no_trade": "[DRAFT] No Raichu? The Power Plant has plenty of Pikachu - evolve one!",
-  "dialogue_repeat": "[DRAFT] This Raichu is perfect for my experiments!",
+  "dialogue_default": "I need a Raichu for my research! I'll give you my Electrode for one! Trade?",
+  "dialogue_no_trade": "No Raichu? The Power Plant has plenty of Pikachu - evolve one!",
+  "dialogue_repeat": "This Raichu is perfect for my experiments!",
   "requirements": [],
   "rewards": [],
   "trade": {
@@ -1082,8 +1082,8 @@
  },
  "mansion_secret_key": {
   "name": "Secret Key",
-  "dialogue_default": "[DRAFT] A small red key sits on the lab table. (You pocketed the Secret Key!)",
-  "dialogue_repeat": "[DRAFT] Nothing else here.",
+  "dialogue_default": "A small red key sits on the lab table. (You pocketed the Secret Key!)",
+  "dialogue_repeat": "Nothing else here.",
   "rewards": [
    {
     "type": "flag",
@@ -1095,25 +1095,25 @@
  },
  "cinnabar_gym_door_locked": {
   "name": "Gym Door",
-  "dialogue_default": "[DRAFT] The Gym door is locked tight. A sign reads: 'Gym closed - key required.'",
-  "dialogue_repeat": "[DRAFT] Still locked. The key must be somewhere...",
+  "dialogue_default": "The Gym door is locked tight. A sign reads: 'Gym closed - key required.'",
+  "dialogue_repeat": "Still locked. The key must be somewhere...",
   "requirements": [],
   "rewards": [],
   "req_flag_to_disappear": "obtained_secret_key"
  },
  "cinnabar_gym_door_unlocked": {
   "name": "Gym Door",
-  "dialogue_default": "[DRAFT] You tried the key from the mansion and it unlocked the door!",
-  "dialogue_repeat": "[DRAFT] The door swings open freely now.",
+  "dialogue_default": "You tried the key from the mansion and it unlocked the door!",
+  "dialogue_repeat": "The door swings open freely now.",
   "requirements": [],
   "rewards": [],
   "req_flag_to_appear": "obtained_secret_key"
  },
  "route23_badge_guard": {
   "name": "League Guard",
-  "dialogue_default": "[DRAFT] All 8 Kanto badges! Impressive. Victory Road lies ahead - good luck, challenger!",
-  "dialogue_req_unmet": "[DRAFT] Halt! I count {badges} badges. All 8 Kanto badges are required to proceed to Victory Road.",
-  "dialogue_repeat": "[DRAFT] All 8 Kanto badges! Impressive. Victory Road lies ahead - good luck, challenger!",
+  "dialogue_default": "All 8 Kanto badges! Impressive. Victory Road lies ahead - good luck, challenger!",
+  "dialogue_req_unmet": "Halt! I count {badges} badges. All 8 Kanto badges are required to proceed to Victory Road.",
+  "dialogue_repeat": "All 8 Kanto badges! Impressive. Victory Road lies ahead - good luck, challenger!",
   "requirements": [
    {
     "type": "flag_count",
@@ -1125,7 +1125,7 @@
  },
  "indigo_retired_official": {
   "name": "Retired League Official",
-  "dialogue_default": "[DRAFT] I've watched forty years of challengers walk through that gate. The ones who make it aren't the strongest — they're the ones who came back after losing.",
+  "dialogue_default": "I've watched forty years of challengers walk through that gate. The ones who make it aren't the strongest — they're the ones who came back after losing.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1133,7 +1133,7 @@
  },
  "indigo_nervous_challenger": {
   "name": "Nervous Challenger",
-  "dialogue_default": "[DRAFT] Is it true the Champion never lost a single battle? ...Sorry. I should stop asking questions and just go in there. ...After one more Full Restore.",
+  "dialogue_default": "Is it true the Champion never lost a single battle? ...Sorry. I should stop asking questions and just go in there. ...After one more Full Restore.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1141,7 +1141,7 @@
  },
  "celadon_eevee_kid": {
   "name": "Eevee Dreamer",
-  "dialogue_default": "[DRAFT] One day I'm going to own an Eevee! Have you seen the big mansion? I press my face against the fence every day, but I've never been inside...",
+  "dialogue_default": "One day I'm going to own an Eevee! Have you seen the big mansion? I press my face against the fence every day, but I've never been inside...",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1149,7 +1149,7 @@
  },
  "celadon_office_worker": {
   "name": "Tired Office Worker",
-  "dialogue_default": "[DRAFT] I work at the Department Store and even I can't afford half the stuff in there. The markup on Potions is criminal, I'm telling you.",
+  "dialogue_default": "I work at the Department Store and even I can't afford half the stuff in there. The markup on Potions is criminal, I'm telling you.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1157,7 +1157,7 @@
  },
  "fuchsia_surfer": {
   "name": "Teen Surfer",
-  "dialogue_default": "[DRAFT] Dude, the waves south of here are legendary! Route 19, all the way to Cinnabar! ...What do you mean you SURF on a Pokémon? That's cheating!",
+  "dialogue_default": "Dude, the waves south of here are legendary! Route 19, all the way to Cinnabar! ...What do you mean you SURF on a Pokémon? That's cheating!",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1165,7 +1165,7 @@
  },
  "cinnabar_beachcomber": {
   "name": "Retired Beachcomber",
-  "dialogue_default": "[DRAFT] This island was quiet before the Lab folks showed up. Used to be just me, the sand, and the occasional Krabby. Now? Tourists everywhere.",
+  "dialogue_default": "This island was quiet before the Lab folks showed up. Used to be just me, the sand, and the occasional Krabby. Now? Tourists everywhere.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1173,7 +1173,7 @@
  },
  "cerulean_burglary_victim": {
   "name": "Rattled Homeowner",
-  "dialogue_default": "[DRAFT] Someone broke into my house last night! Ransacked the whole place! The officer said it might be that gang from Mt. Moon...",
+  "dialogue_default": "Someone broke into my house last night! Ransacked the whole place! The officer said it might be that gang from Mt. Moon...",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1181,7 +1181,7 @@
  },
  "viridian_old_timer": {
   "name": "Old-Timer",
-  "dialogue_default": "[DRAFT] Back in my day, we didn't have Poké Balls that practically threw themselves! We had to look a Weedle in the eye and mean it, youngster.",
+  "dialogue_default": "Back in my day, we didn't have Poké Balls that practically threw themselves! We had to look a Weedle in the eye and mean it, youngster.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1189,7 +1189,7 @@
  },
  "ss_anne_seasick": {
   "name": "Seasick Passenger",
-  "dialogue_default": "[DRAFT] Urgh... I regret everything. The buffet, the boarding, all of it. I'm not going below deck. I'm not moving. Ever.",
+  "dialogue_default": "Urgh... I regret everything. The buffet, the boarding, all of it. I'm not going below deck. I'm not moving. Ever.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1197,7 +1197,7 @@
  },
  "ss_anne_gentleman": {
   "name": "Gentleman Passenger",
-  "dialogue_default": "[DRAFT] Isn't she magnificent? The S.S. Anne — finest vessel to ever sail from Vermilion! I've crossed on her six times, you know.",
+  "dialogue_default": "Isn't she magnificent? The S.S. Anne — finest vessel to ever sail from Vermilion! I've crossed on her six times, you know.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1205,7 +1205,7 @@
  },
  "route9_hiker": {
   "name": "Nervous Hiker",
-  "dialogue_default": "[DRAFT] Okay. Okay. Rock Tunnel. Dark, full of Zubats, probably fine. People do it every day. ...You go first.",
+  "dialogue_default": "Okay. Okay. Rock Tunnel. Dark, full of Zubats, probably fine. People do it every day. ...You go first.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1213,7 +1213,7 @@
  },
  "silph_hiding_worker": {
   "name": "Hiding Office Worker",
-  "dialogue_default": "[DRAFT] Shhh! I'm just an accountant! I don't know anything about any takeover! Please don't tell them I'm under here...",
+  "dialogue_default": "Shhh! I'm just an accountant! I don't know anything about any takeover! Please don't tell them I'm under here...",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1221,7 +1221,7 @@
  },
  "mansion_explorer": {
   "name": "Amateur Explorer",
-  "dialogue_default": "[DRAFT] They say a secret lab burned down here years ago... I'm looking for leftover research notes. Or treasure. Mostly treasure.",
+  "dialogue_default": "They say a secret lab burned down here years ago... I'm looking for leftover research notes. Or treasure. Mostly treasure.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
@@ -1229,10 +1229,49 @@
  },
  "route12_angler": {
   "name": "Quiet Angler",
-  "dialogue_default": "[DRAFT] ...Hm? Oh. Sorry, I was watching my line. Been fishing this same spot for years. The bridge, the water, the quiet. That's all I need.",
+  "dialogue_default": "...Hm? Oh. Sorry, I was watching my line. Been fishing this same spot for years. The bridge, the water, the quiet. That's all I need.",
   "requirements": [],
   "rewards": [],
   "dialogue_req_unmet": "",
   "dialogue_post_flag": ""
+ },
+ "pallet_mom": {
+  "name": "Mom",
+  "dialogue_default": "Don't go getting into trouble out there, sweetie! Come home if your Pokémon need rest — you can always heal up here.",
+  "dialogue_repeat": "Take care, honey! I'll be here when you need me."
+ },
+ "oak_lab_prof": {
+  "name": "Prof. Oak",
+  "dialogue_default": "Ah, {player}! My research never ends — there's always more to learn about Pokémon. How is your Pokédex coming along?",
+  "dialogue_repeat": "Keep catching them all, {player}!",
+  "req_flag_to_disappear": "got_oaks_package"
+ },
+ "oak_lab_aide": {
+  "name": "Oak's Aide",
+  "dialogue_default": "Professor Oak is a world-renowned researcher! We're lucky to assist him.",
+  "dialogue_repeat": "The lab's machines analyze Pokémon data day and night."
+ },
+ "oak_lab_prof_delivery": {
+  "name": "Prof. Oak",
+  "dialogue_default": "What's this? A package for me? Thank you, {player}! I was waiting for this. Here — take these as thanks.",
+  "requirements": [
+   {
+    "type": "flag",
+    "id": "got_oaks_package"
+   }
+  ],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "delivered_oaks_package"
+   }
+  ],
+  "req_flag_to_appear": "got_oaks_package",
+  "req_flag_to_disappear": "delivered_oaks_package"
+ },
+ "oak_lab_prof_after": {
+  "name": "Prof. Oak",
+  "dialogue_default": "Thanks again for the delivery, {player}! The road to Viridian Forest is open now.",
+  "req_flag_to_appear": "delivered_oaks_package"
  }
 }

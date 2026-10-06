@@ -490,6 +490,18 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
           }
         });
     
+    document.getElementById('btn-fight')?.addEventListener('click', () => {
+      this.ui.showBattleMoves();
+    });
+
+    document.getElementById('btn-battle-pokemon')?.addEventListener('click', () => {
+      this.ui.openBattleSwitchMenu();
+    });
+
+    document.getElementById('btn-moves-back')?.addEventListener('click', () => {
+      this.ui.showBattleMain();
+    });
+
     document.getElementById('btn-run')?.addEventListener('click', () => {
       if (this.gameState.catchAnimating) return; // ball mid-shake: input locked
       if (this.gameState.activeTrainer) {
@@ -497,7 +509,12 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
         return;
       }
       this.ui.printToLog("Got away safely!");
+      // Full cleanup so no stale trainer/battle state leaks into the next fight.
       this.gameState.activeBattle = null;
+      this.gameState.activeTrainer = null;
+      this.gameState.activeTrainerId = null;
+      this.gameState.activeWinFlag = null;
+      this.gameState.activeWildWinFlag = null;
       this.ui.setMenuState('route');
     });
 

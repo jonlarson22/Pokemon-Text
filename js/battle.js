@@ -1264,6 +1264,12 @@ export class BattleManager {
     this.game.gameState.pokedex.seen[speciesKey] = true;
     this.game.ui.updatePokedexTrackerUI();
 
+    // Defensive: a wild battle never has a trainer; clear any stale state
+    // so a previous trainer's name can't leak into this battle's messages.
+    this.game.gameState.activeTrainer = null;
+    this.game.gameState.activeTrainerId = null;
+    this.game.gameState.activeWinFlag = null;
+
     const enemyMon = this.game.factory.generatePokemonInstance(wildPokemonInfo.species, wildPokemonInfo.level);
     if (!enemyMon) {
       this.game.ui.printToLog("Error generating wild Pokémon stats!");
@@ -1283,7 +1289,7 @@ export class BattleManager {
       () => this.checkBlackout(),
       () => { 
         this.game.ui.printToLog("Choose a Pokémon to send out!");
-        this.game.ui.openPokemonMenu();
+        this.game.ui.openFaintSwitchMenu();
       },
       this.game.db.typeChart,
       this.game.gameState.party
@@ -1427,7 +1433,7 @@ startTrainerBattle(enemyParty, trainer, winFlag = null) {
       () => this.checkBlackout(),
       () => { 
         this.game.ui.printToLog("Choose a Pokémon to send out!");
-        this.game.ui.openPokemonMenu();
+        this.game.ui.openFaintSwitchMenu();
       },
       this.game.db.typeChart,
       this.game.gameState.party,
@@ -1544,6 +1550,17 @@ async handleBattleEnd() {
       
       if (this.game.gameState.activeWinFlag) {
         this.game.setFlag(this.game.gameState.activeWinFlag, true);
+      }
+
+      // Pallet Town rival fight: heal up immediately after (kindness of strangers).
+      if (this.game.gameState.activeWinFlag === 'defeated_rival_pallet') {
+        this.game.gameState.party.forEach(p => {
+          p.hp = p.maxHp;
+          p.status = null;
+          if (p.moves) p.moves.forEach(m => { if (m.maxPp !== undefined) m.pp = m.maxPp; });
+        });
+        this.game.ui.updatePartyUI();
+        this.game.ui.printToLog("Your Pokémon were healed!");
       }
 
       // Hall of Fame: the first champion victory triggers the post-game
