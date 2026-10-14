@@ -1264,6 +1264,11 @@
    {
     "type": "flag",
     "id": "delivered_oaks_package"
+   },
+   {
+    "type": "item",
+    "id": "pokeball",
+    "qty": 5
    }
   ],
   "req_flag_to_appear": "got_oaks_package",
