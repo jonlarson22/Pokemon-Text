@@ -490,7 +490,7 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
           }
         });
     
-    document.getElementById('btn-fight')?.addEventListener('click', () => {
+    document.getElementById('btn-battle-fight')?.addEventListener('click', () => {
       this.ui.showBattleMoves();
     });
 
