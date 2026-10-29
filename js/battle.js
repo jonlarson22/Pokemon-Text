@@ -1570,13 +1570,16 @@ async handleBattleEnd() {
         this.game.ui.printToLog("Your Pokémon were healed!");
       }
 
-      // Hall of Fame: the first champion victory triggers the post-game
-      // sequence (congratulations -> Pallet Town -> Oak).
-      if (this.game.gameState.activeWinFlag === 'defeated_elite_four' &&
-          !this.game.hasFlag('hall_of_fame_done')) {
-        this.game.setFlag('hall_of_fame_done', true);
+      // Hall of Fame: EVERY champion victory ends the run with the
+      // homecoming sequence (congratulations -> Pallet Town, healed),
+      // just like the real games. The first victory also sets
+      // hall_of_fame_done and plays Oak's gift scene; title defenses
+      // skip the gifts so they can't be farmed.
+      if (this.game.gameState.activeWinFlag === 'defeated_elite_four') {
+        const firstTime = !this.game.hasFlag('hall_of_fame_done');
+        if (firstTime) this.game.setFlag('hall_of_fame_done', true);
         this.finishBattleCleanup();
-        this.game.hallOfFameSequence();
+        this.game.hallOfFameSequence(!firstTime);
         return;
       }
 

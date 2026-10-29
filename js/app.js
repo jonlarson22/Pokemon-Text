@@ -108,10 +108,13 @@ class GameEngine {
 
   // Hall of Fame: congratulations, a brief pause, then home to Pallet Town
   // where Oak congratulates the new Champion and helps them finish the Pokédex.
-  hallOfFameSequence() {
+  // Rematches (title defenses) play the same homecoming minus Oak's gifts.
+  hallOfFameSequence(isRematch = false) {
     const ui = this.ui;
     ui.printToLog("...");
-    ui.printToLog("CONGRATULATIONS, {player}! You have defeated the Pokémon League Champion!");
+    ui.printToLog(isRematch
+      ? "CONGRATULATIONS, {player}! You have defended your title as Pokémon League Champion!"
+      : "CONGRATULATIONS, {player}! You have defeated the Pokémon League Champion!");
     ui.printToLog("Your name will be recorded in the Hall of Fame for all time!");
     ui.printToLog("...");
     setTimeout(() => {
@@ -125,6 +128,10 @@ class GameEngine {
       this.trackVisitedTown("pallet_town");
       ui.renderRouteScreen();
       ui.updatePartyUI();
+      if (isRematch) {
+        ui.printToLog("Your title defense has been recorded in the Hall of Fame. The League will welcome your next challenge!");
+        return;
+      }
       ui.printToLog("Prof. Oak: {player}! There you are! I heard the news — the new Champion of Kanto!");
       ui.printToLog("Prof. Oak: But a true Pokémon Master isn't made by badges alone. Your Pokédex still has gaps, and I want to help you fill them.");
       ui.printToLog("Prof. Oak: Take these — 5 Master Balls and 100 Rare Candies. Use them well, and go complete that Pokédex!");
