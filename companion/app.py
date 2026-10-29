@@ -317,20 +317,44 @@ def page_balance():
     st.metric("Total trainer money in the game", f"¥{total_money:,}")
 
 
-def _dot_for(route_ids, edges, font_size, show_flags):
+def _flag_label(f):
+    if f.startswith("defeated_"):
+        return "defeat " + f[len("defeated_"):].replace("_", " ").title()
+    if f.endswith("_badge"):
+        return f[:-len("_badge")].replace("_", " ").title() + " Badge"
+    return f.replace("_", " ").title()
+
+
+def _dot_for(route_ids, edges, font_size, show_flags, style_edges=False):
     lines = ["digraph {"]
     lines.append(f'  rankdir=LR; node [fontsize={font_size}, style=filled, fillcolor="#eef"];')
+    lines.append(f'  edge [fontsize={max(7, font_size - 4)}];')
     for rid in route_ids:
         r = ROUTES[rid]
         shape = "box" if r.get("isTown") else "ellipse"
         gated = r.get("req_flag")
+        battle = r.get("forced_battle") or r.get("enter_battle")
         color = "#f8d7da" if gated else "#eef"
         label = r.get("name", rid)
+        if battle:
+            color = "#ffe0b2"
+            tname = TRAINERS.get(battle.get("trainer_id"), {}).get("name", battle.get("trainer_id", ""))
+            label += f"\\n⚔ {tname.replace('{rival}', 'Rival')}"
         if gated and show_flags:
-            label += f"\\n[{gated}]"
+            label += f"\\n[{_flag_label(gated)}]"
         lines.append(f'  "{rid}" [label="{label}", shape={shape}, fillcolor="{color}"];')
     for a, b in edges:
-        lines.append(f'  "{a}" -> "{b}" [dir=none];')
+        attrs = "[dir=none]"
+        if style_edges:
+            gate = (ROUTES[a].get("gate_requirements") or {}).get(b) or \
+                   (ROUTES[b].get("gate_requirements") or {}).get(a) or {}
+            req = gate.get("required_flags") or []
+            if req:
+                lbl = " + ".join(_flag_label(f) for f in req)
+                attrs = f'[dir=none, color="red", style=dashed, label="{lbl}", fontcolor="red"]'
+            elif gate.get("confirm"):
+                attrs = '[dir=none, color="#888", style=dotted, label="asks first", fontcolor="#888"]'
+        lines.append(f'  "{a}" -> "{b}" {attrs};')
     lines.append("}")
     return "\n".join(lines)
 
@@ -369,7 +393,9 @@ def _town_edges():
 
 def page_map():
     st.title("Route map")
-    st.caption("Boxes = towns/cities, ellipses = routes/interiors. Red = gated by a flag.")
+    st.caption("Boxes = towns/cities, ellipses = routes/interiors. **Orange ⚔ = a battle blocks the way** "
+               "(forced/arrival battle, trainer named). **Red dashed link = gated connection**, labelled with "
+               "what it needs. Pink = whole place needs a flag. Grey dotted = asks for confirmation first.")
     view = st.radio("View", ["Focus on a place", "Towns & cities only", "Full Kanto"],
                     horizontal=True)
     font = st.slider("Label size", 8, 26, 14)
@@ -388,14 +414,16 @@ def page_map():
             frontier = (nxt & set(ROUTES.keys())) - keep
             keep |= frontier
         st.caption(f"{len(keep)} places within {hops} steps of {route_name(start)}.")
-        dot = _dot_for(keep, _direct_edges(keep), font, show_flags)
+        dot = _dot_for(keep, _direct_edges(keep), font, show_flags, style_edges=True)
     elif view == "Towns & cities only":
         towns, edges = _town_edges()
-        st.caption("Towns linked when a path through routes/interiors connects them.")
+        st.caption("Towns linked when a path through routes/interiors connects them. "
+                   "Gate details live in the Focus and Full views.")
         dot = _dot_for(towns, edges, font, show_flags)
     else:
         st.caption("All of Kanto at once — bump the label size, or use Focus view for detail.")
-        dot = _dot_for(set(ROUTES.keys()), _direct_edges(set(ROUTES.keys())), font, show_flags)
+        dot = _dot_for(set(ROUTES.keys()), _direct_edges(set(ROUTES.keys())), font, show_flags,
+                       style_edges=True)
     st.graphviz_chart(dot, width="stretch")
 
 
