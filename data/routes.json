@@ -993,7 +993,7 @@
    },
    "cerulean_cave_1f": {
     "required_flags": [
-     "defeated_elite_four"
+     "league_champion"
     ],
     "blocked_message": "A strange, powerful aura radiates from the cave mouth. You should become Champion before entering."
    }
@@ -6987,6 +6987,12 @@
      "defeated_lorelei"
     ],
     "blocked_message": "You must defeat Lorelei before proceeding!"
+   },
+   "indigo_plateau": {
+    "blocked_flags": [
+     "league_run_active"
+    ],
+    "blocked_message": "The doors have sealed behind you. A League challenge, once begun, allows no retreat!"
    }
   },
   "on_enter_clear_flags": {
@@ -7000,7 +7006,12 @@
    ],
    "message": "The Elite Four have regrouped to defend their titles — the League awaits its Champion's rematch!",
    "from": "indigo_plateau"
-  }
+  },
+  "on_enter_set_flag": {
+   "flag": "league_run_active",
+   "from": "indigo_plateau"
+  },
+  "noFly": true
  },
  "elite_four_2": {
   "name": "Elite Four - Bruno",
@@ -7032,8 +7043,15 @@
      "defeated_bruno"
     ],
     "blocked_message": "You must defeat Bruno before proceeding!"
+   },
+   "elite_four_1": {
+    "blocked_flags": [
+     "league_run_active"
+    ],
+    "blocked_message": "The doors have sealed behind you. A League challenge, once begun, allows no retreat!"
    }
-  }
+  },
+  "noFly": true
  },
  "elite_four_3": {
   "name": "Elite Four - Agatha",
@@ -7065,8 +7083,15 @@
      "defeated_agatha"
     ],
     "blocked_message": "You must defeat Agatha before proceeding!"
+   },
+   "elite_four_2": {
+    "blocked_flags": [
+     "league_run_active"
+    ],
+    "blocked_message": "The doors have sealed behind you. A League challenge, once begun, allows no retreat!"
    }
-  }
+  },
+  "noFly": true
  },
  "elite_four_4": {
   "name": "Elite Four - Lance",
@@ -7098,8 +7123,15 @@
      "defeated_lance"
     ],
     "blocked_message": "You must defeat Lance before proceeding!"
+   },
+   "elite_four_3": {
+    "blocked_flags": [
+     "league_run_active"
+    ],
+    "blocked_message": "The doors have sealed behind you. A League challenge, once begun, allows no retreat!"
    }
-  }
+  },
+  "noFly": true
  },
  "hall_of_champions": {
   "name": "Hall of Champions",
@@ -7123,7 +7155,16 @@
   "enter_battle": {
    "flag": "defeated_elite_four",
    "trainer_id": "champion_rival"
-  }
+  },
+  "gate_requirements": {
+   "elite_four_4": {
+    "blocked_flags": [
+     "league_run_active"
+    ],
+    "blocked_message": "The doors have sealed behind you. A League challenge, once begun, allows no retreat!"
+   }
+  },
+  "noFly": true
  },
  "pallet_home": {
   "name": "Your Home",

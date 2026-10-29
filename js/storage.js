@@ -23,6 +23,11 @@ export class StorageManager {
     }
     // Game Corner coins (save v3).
     if (state.coins === undefined) state.coins = 0;
+    // league_champion (permanent) replaced defeated_elite_four (per-run)
+    // as the Cerulean Cave gate: backfill it for existing Champions.
+    if (state.flags.defeated_elite_four && !state.flags.league_champion) {
+      state.flags.league_champion = true;
+    }
     if (state.saveVersion !== SAVE_VERSION) {
       console.warn(`[save] Save version ${state.saveVersion || "unknown"} loaded; current version is ${SAVE_VERSION}. Some things may not work as expected.`);
       this.game.ui.printToLog("Note: this save is from an older version of the game. Some things may not work as expected.");

@@ -6160,6 +6160,12 @@
     "species": "RIVAL_STARTER_STAGE_3",
     "level": 65
    }
+  ],
+  "win_set_flags": [
+   "league_champion"
+  ],
+  "win_clear_flags": [
+   "league_run_active"
   ]
  },
  "rival_route22_rematch": {

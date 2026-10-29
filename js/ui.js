@@ -1155,10 +1155,20 @@ renderRouteScreen() {
 
     this.game.gameState.currentRoute = targetRouteId;
     this.game.trackVisitedTown(targetRouteId); // Leave trackVisitedTown in app.js as a core logic state-tracker
+    // Origin route id, for arrival hooks that only fire from one side
+    // (e.g. entering the Elite Four from the Plateau vs passing through
+    // the chambers on the way out).
+    const fromId = Object.keys(this.game.db.routes).find(k => this.game.db.routes[k] === currentRoute);
     // Routes can set a flag on first arrival (e.g. Vermilion sets
     // reached_vermilion, which unhides Diglett's Cave on Route 2 North).
+    // Object form {flag, from, requires} makes the set conditional.
     if (targetRoute && targetRoute.on_enter_set_flag) {
-      this.game.setFlag(targetRoute.on_enter_set_flag);
+      const os = targetRoute.on_enter_set_flag;
+      if (typeof os === 'string') {
+        this.game.setFlag(os);
+      } else if ((!os.from || os.from === fromId) && (!os.requires || this.game.hasFlag(os.requires))) {
+        this.game.setFlag(os.flag);
+      }
     }
 
     // Routes can also clear flags on arrival when conditions hold —
@@ -1170,7 +1180,6 @@ renderRouteScreen() {
     // would trap them behind a re-armed first battle.
     if (targetRoute && targetRoute.on_enter_clear_flags) {
       const oc = targetRoute.on_enter_clear_flags;
-      const fromId = Object.keys(this.game.db.routes).find(k => this.game.db.routes[k] === currentRoute);
       const fromOk = !oc.from || oc.from === fromId;
       if (fromOk && (!oc.requires || this.game.hasFlag(oc.requires))) {
         (oc.clear || []).forEach(f => this.game.setFlag(f, false));

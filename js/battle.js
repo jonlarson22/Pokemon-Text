@@ -1552,6 +1552,13 @@ async handleBattleEnd() {
         this.game.setFlag(this.game.gameState.activeWinFlag, true);
       }
 
+      // Trainers can set/clear extra flags on victory, applied before any
+      // special-case branches below (e.g. the Champion permanently sets
+      // league_champion — which gates Cerulean Cave — and ends the
+      // active league run by clearing league_run_active).
+      (trainer.win_set_flags || []).forEach(f => this.game.setFlag(f, true));
+      (trainer.win_clear_flags || []).forEach(f => this.game.setFlag(f, false));
+
       // Pallet Town rival fight: heal up immediately after (kindness of strangers).
       if (this.game.gameState.activeWinFlag === 'defeated_rival_pallet') {
         this.game.gameState.party.forEach(p => {
@@ -1685,6 +1692,13 @@ async handleBattleEnd() {
     const isWiped = this.game.gameState.party.every(p => p.hp <= 0);
     if (isWiped) {
       this.game.ui.printToLog("You hurried away to protect your Pokemon from further harm.");
+      // A blackout during a League challenge ends the run: the Elite
+      // Four reset, and the gauntlet must be started over from Lorelei.
+      if (this.game.hasFlag('league_run_active')) {
+        ['defeated_lorelei', 'defeated_bruno', 'defeated_agatha', 'defeated_lance', 'league_run_active']
+          .forEach(f => this.game.setFlag(f, false));
+        this.game.ui.printToLog("Your League challenge has ended. The Elite Four will be waiting when you return.");
+      }
       // Cap the blackout LOSS (not the remaining money) at 5000.
       const loss = Math.min(Math.floor(this.game.gameState.money / 2), 5000);
       this.game.gameState.money -= loss;
