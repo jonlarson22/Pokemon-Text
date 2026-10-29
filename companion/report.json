@@ -1,0 +1,77 @@
+{
+ "errors": [],
+ "warnings": [],
+ "stats": {
+  "staticChecks": 1674,
+  "obtainability": {
+   "verified": "151/151",
+   "missing": [],
+   "sourceless": [
+    "alakazam",
+    "arcanine",
+    "beedrill",
+    "blastoise",
+    "butterfree",
+    "charizard",
+    "charmeleon",
+    "clefable",
+    "cloyster",
+    "dragonair",
+    "dragonite",
+    "exeggutor",
+    "flareon",
+    "gengar",
+    "golduck",
+    "golem",
+    "gyarados",
+    "ivysaur",
+    "jolteon",
+    "kabutops",
+    "machamp",
+    "nidoking",
+    "nidoqueen",
+    "ninetales",
+    "omastar",
+    "persian",
+    "pidgeot",
+    "poliwrath",
+    "primeape",
+    "rapidash",
+    "starmie",
+    "vaporeon",
+    "venusaur",
+    "victreebel",
+    "vileplume",
+    "wartortle",
+    "wigglytuff"
+   ]
+  },
+  "routesVisited": "108/109",
+  "routesUnvisited": [
+   "celadon_dept_store"
+  ],
+  "trainersFought": "305/305",
+  "trainersUnfought": [],
+  "npcsTalked": "121/124",
+  "npcsUntalked": [
+   "celadon_clerk_tm18",
+   "celadon_clerk_2",
+   "tower_ghost_hint"
+  ],
+  "flagsEarned": 514,
+  "badges": [
+   "boulder_badge",
+   "rainbow_badge",
+   "soul_badge",
+   "volcano_badge",
+   "cascade_badge",
+   "thunder_badge",
+   "marsh_badge",
+   "earth_badge"
+  ],
+  "hofDone": true,
+  "mewTruck": true,
+  "choicesSeen": 5,
+  "passes": 7
+ }
+}
