@@ -6988,6 +6988,18 @@
     ],
     "blocked_message": "You must defeat Lorelei before proceeding!"
    }
+  },
+  "on_enter_clear_flags": {
+   "requires": "defeated_elite_four",
+   "clear": [
+    "defeated_lorelei",
+    "defeated_bruno",
+    "defeated_agatha",
+    "defeated_lance",
+    "defeated_elite_four"
+   ],
+   "message": "The Elite Four have regrouped to defend their titles — the League awaits its Champion's rematch!",
+   "from": "indigo_plateau"
   }
  },
  "elite_four_2": {

@@ -1161,6 +1161,23 @@ renderRouteScreen() {
       this.game.setFlag(targetRoute.on_enter_set_flag);
     }
 
+    // Routes can also clear flags on arrival when conditions hold —
+    // e.g. re-entering the Elite Four from Indigo Plateau as reigning
+    // Champion resets the league run so all five battles can be fought
+    // (and paid) again. `requires` is itself in the clear list, so a run
+    // in progress is never reset mid-run, and `from` keeps a Champion
+    // walking OUT through the chambers from triggering a reset that
+    // would trap them behind a re-armed first battle.
+    if (targetRoute && targetRoute.on_enter_clear_flags) {
+      const oc = targetRoute.on_enter_clear_flags;
+      const fromId = Object.keys(this.game.db.routes).find(k => this.game.db.routes[k] === currentRoute);
+      const fromOk = !oc.from || oc.from === fromId;
+      if (fromOk && (!oc.requires || this.game.hasFlag(oc.requires))) {
+        (oc.clear || []).forEach(f => this.game.setFlag(f, false));
+        if (oc.message) this.printToLog(oc.message);
+      }
+    }
+
     this.printToLog(`Arrived at ${targetRoute.name}.`);
     this.renderRouteScreen();
     this.setMenuState('route');
