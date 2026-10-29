@@ -2,7 +2,7 @@
  "errors": [],
  "warnings": [],
  "stats": {
-  "staticChecks": 1674,
+  "staticChecks": 1685,
   "obtainability": {
    "verified": "151/151",
    "missing": [],
@@ -46,19 +46,21 @@
     "wigglytuff"
    ]
   },
-  "routesVisited": "108/109",
+  "routesVisited": "110/111",
   "routesUnvisited": [
    "celadon_dept_store"
   ],
   "trainersFought": "305/305",
   "trainersUnfought": [],
-  "npcsTalked": "121/124",
+  "npcsTalked": "124/129",
   "npcsUntalked": [
    "celadon_clerk_tm18",
    "celadon_clerk_2",
-   "tower_ghost_hint"
+   "tower_ghost_hint",
+   "oak_lab_prof",
+   "oak_lab_prof_delivery"
   ],
-  "flagsEarned": 514,
+  "flagsEarned": 519,
   "badges": [
    "boulder_badge",
    "rainbow_badge",
@@ -71,7 +73,7 @@
   ],
   "hofDone": true,
   "mewTruck": true,
-  "choicesSeen": 5,
+  "choicesSeen": 4,
   "passes": 7
  }
 }
