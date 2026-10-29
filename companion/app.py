@@ -317,29 +317,86 @@ def page_balance():
     st.metric("Total trainer money in the game", f"¥{total_money:,}")
 
 
-def page_map():
-    st.title("Route map")
-    st.caption("Boxes = towns/cities, ellipses = routes/interiors. Red = gated by a flag.")
-    show_labels = st.checkbox("Label gated routes with their flag", value=True)
+def _dot_for(route_ids, edges, font_size, show_flags):
     lines = ["digraph {"]
-    lines.append('  rankdir=LR; node [fontsize=9, style=filled, fillcolor="#eef"];')
-    for rid, r in ROUTES.items():
+    lines.append(f'  rankdir=LR; node [fontsize={font_size}, style=filled, fillcolor="#eef"];')
+    for rid in route_ids:
+        r = ROUTES[rid]
         shape = "box" if r.get("isTown") else "ellipse"
         gated = r.get("req_flag")
         color = "#f8d7da" if gated else "#eef"
         label = r.get("name", rid)
-        if gated and show_labels:
+        if gated and show_flags:
             label += f"\\n[{gated}]"
         lines.append(f'  "{rid}" [label="{label}", shape={shape}, fillcolor="{color}"];')
-    seen = set()
-    for rid, r in ROUTES.items():
-        for c in r.get("connections", []):
-            key = tuple(sorted((rid, c)))
-            if c in ROUTES and key not in seen:
-                seen.add(key)
-                lines.append(f'  "{rid}" -> "{c}" [dir=none];')
+    for a, b in edges:
+        lines.append(f'  "{a}" -> "{b}" [dir=none];')
     lines.append("}")
-    st.graphviz_chart("\n".join(lines), width="stretch")
+    return "\n".join(lines)
+
+
+def _direct_edges(route_ids):
+    edges, seen = [], set()
+    for rid in route_ids:
+        for c in ROUTES[rid].get("connections", []):
+            if c in route_ids:
+                key = tuple(sorted((rid, c)))
+                if key not in seen:
+                    seen.add(key)
+                    edges.append(key)
+    return edges
+
+
+def _town_edges():
+    """Towns linked when a path through non-town places connects them."""
+    towns = {rid for rid, r in ROUTES.items() if r.get("isTown")}
+    edges = set()
+    for t in towns:
+        visited = {t}
+        q = deque([t])
+        while q:
+            cur = q.popleft()
+            for nxt in ROUTES.get(cur, {}).get("connections", []):
+                if nxt not in ROUTES or nxt in visited:
+                    continue
+                visited.add(nxt)
+                if nxt in towns:
+                    edges.add(tuple(sorted((t, nxt))))
+                else:
+                    q.append(nxt)
+    return towns, sorted(edges)
+
+
+def page_map():
+    st.title("Route map")
+    st.caption("Boxes = towns/cities, ellipses = routes/interiors. Red = gated by a flag.")
+    view = st.radio("View", ["Focus on a place", "Towns & cities only", "Full Kanto"],
+                    horizontal=True)
+    font = st.slider("Label size", 8, 26, 14)
+    show_flags = st.checkbox("Label gated routes with their flag", value=True)
+    if view == "Focus on a place":
+        ids = sorted(ROUTES.keys())
+        start = st.selectbox("Place", ids, format_func=route_name,
+                             index=ids.index("pallet_town"))
+        hops = st.slider("Steps out", 1, 4, 2)
+        keep = {start}
+        frontier = {start}
+        for _ in range(hops):
+            nxt = set()
+            for cur in frontier:
+                nxt.update(ROUTES[cur].get("connections", []))
+            frontier = (nxt & set(ROUTES.keys())) - keep
+            keep |= frontier
+        st.caption(f"{len(keep)} places within {hops} steps of {route_name(start)}.")
+        dot = _dot_for(keep, _direct_edges(keep), font, show_flags)
+    elif view == "Towns & cities only":
+        towns, edges = _town_edges()
+        st.caption("Towns linked when a path through routes/interiors connects them.")
+        dot = _dot_for(towns, edges, font, show_flags)
+    else:
+        st.caption("All of Kanto at once — bump the label size, or use Focus view for detail.")
+        dot = _dot_for(set(ROUTES.keys()), _direct_edges(set(ROUTES.keys())), font, show_flags)
+    st.graphviz_chart(dot, width="stretch")
 
 
 def page_obtainability():
