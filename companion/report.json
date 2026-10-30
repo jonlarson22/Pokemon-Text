@@ -2,7 +2,7 @@
  "errors": [],
  "warnings": [],
  "stats": {
-  "staticChecks": 1698,
+  "staticChecks": 1708,
   "obtainability": {
    "verified": "151/151",
    "missing": [],
@@ -46,19 +46,23 @@
   "routesUnvisited": [
    "celadon_dept_store"
   ],
-  "trainersFought": "305/305",
+  "trainersFought": "306/306",
   "trainersUnfought": [],
-  "npcsTalked": "124/131",
+  "npcsTalked": "124/135",
   "npcsUntalked": [
    "celadon_clerk_tm18",
    "celadon_clerk_2",
+   "dojo_prize_hitmonchan_r1",
+   "dojo_prize_hitmonlee_r2",
+   "mt_moon_helix_fossil",
+   "mt_moon_nerd_helix",
    "cinnabar_gym_door_unlocked",
    "tower_ghost_hint",
    "oak_lab_prof",
    "oak_lab_prof_delivery",
    "oak_lab_champion"
   ],
-  "flagsEarned": 523,
+  "flagsEarned": 521,
   "badges": [
    "boulder_badge",
    "rainbow_badge",

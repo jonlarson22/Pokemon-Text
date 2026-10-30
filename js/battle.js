@@ -1539,6 +1539,11 @@ async handleBattleEnd() {
         const routeData = this.game.db.routes[this.game.gameState.currentRoute];
         if (routeData && routeData.trainers) {
           routeData.trainers.forEach(tid => {
+            // Never concede a flag-gated trainer (e.g. a rematch that has
+            // not unlocked yet) — it must stay fightable for later.
+            const tmpl = this.game.db.trainers[tid];
+            if (tmpl && tmpl.req_flag_to_appear && !this.game.hasFlag(tmpl.req_flag_to_appear)) return;
+            if (tmpl && tmpl.req_flag_to_disappear && this.game.hasFlag(tmpl.req_flag_to_disappear)) return;
             this.game.gameState.defeatedTrainers[tid] = true;
             this.game.setFlag(`defeated_${tid}`, true);
           });

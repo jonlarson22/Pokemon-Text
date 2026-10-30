@@ -3581,9 +3581,15 @@
    "dojo_blackbelt_2",
    "dojo_blackbelt_3",
    "dojo_blackbelt_4",
-   "dojo_koichi"
+   "dojo_koichi",
+   "dojo_koichi_rematch"
   ],
-  "npcs": [],
+  "npcs": [
+   "dojo_prize_hitmonlee_r1",
+   "dojo_prize_hitmonchan_r1",
+   "dojo_prize_hitmonlee_r2",
+   "dojo_prize_hitmonchan_r2"
+  ],
   "explore_table": [
    {
     "type": "nothing",

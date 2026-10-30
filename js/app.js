@@ -248,6 +248,15 @@ class GameEngine {
         this.ui.printToLog("Error: Trainer data not found!");
         return;
       }
+      // Flag-gated trainers (e.g. rematches) stay hidden until their flag.
+      if (trainer.req_flag_to_appear && !this.game.hasFlag(trainer.req_flag_to_appear)) {
+        this.ui.printToLog(`${trainer.name} is not here right now.`);
+        return;
+      }
+      if (trainer.req_flag_to_disappear && this.game.hasFlag(trainer.req_flag_to_disappear)) {
+        this.ui.printToLog(`${trainer.name} is not here right now.`);
+        return;
+      }
 
       this.ui.printToLog(`${trainer.name} wants to battle!`);
       // Story taunt reveals line by line; the battle starts after.
@@ -462,6 +471,9 @@ document.getElementById('btn-fight')?.addEventListener('click', () => {
       route.trainers.forEach(trainerId => {
         const trainerTemplate = this.db.trainers[trainerId];
         if (!trainerTemplate) return;
+        // Flag-gated trainers (e.g. rematches) are not listed until unlocked.
+        if (trainerTemplate.req_flag_to_appear && !this.game.hasFlag(trainerTemplate.req_flag_to_appear)) return;
+        if (trainerTemplate.req_flag_to_disappear && this.game.hasFlag(trainerTemplate.req_flag_to_disappear)) return;
 
         const isDefeated = this.gameState.defeatedTrainers[trainerId];
         const statusText = isDefeated ? "(Defeated)" : "";

@@ -3576,7 +3576,7 @@
   "name": "Koichi",
   "title": "Karate Master",
   "dialogueBefore": "[DRAFT] Yo! Champ in the making! I am Koichi, the Karate Master! My Hitmonchan and Hitmonlee will show you true fighting spirit!",
-  "dialogueAfter": "[DRAFT] Magnificent! You have bested the Karate Master himself! Take these two Pokémon -- Hitmonlee AND Hitmonchan -- as proof of your strength!",
+  "dialogueAfter": "[DRAFT] Magnificent! You have bested the Karate Master himself! As proof of your strength, choose ONE of my prized Pokémon -- Hitmonlee or Hitmonchan. And when you hunger for the other... come back and face me again. My team will not be so gentle next time.",
   "rewardMoney": 925,
   "party": [
    {
@@ -3586,18 +3586,6 @@
    {
     "species": "hitmonlee",
     "level": 37
-   }
-  ],
-  "rewards": [
-   {
-    "type": "pokemon",
-    "species": "hitmonlee",
-    "level": 30
-   },
-   {
-    "type": "pokemon",
-    "species": "hitmonchan",
-    "level": 30
    }
   ],
   "clearsRouteTrainers": true
@@ -6198,6 +6186,42 @@
    {
     "species": "RIVAL_STARTER_STAGE_3",
     "level": 53
+   }
+  ]
+ },
+ "dojo_koichi_rematch": {
+  "name": "Koichi",
+  "title": "Karate Master",
+  "req_flag_to_appear": "dojo_first_prize_claimed",
+  "dialogueBefore": "[DRAFT] You return for the other prize! My fighters have trained for this day -- the whole dojo stands behind me now. Show me your strength has grown!",
+  "dialogueAfter": "[DRAFT] Incredible... you have surpassed even the master's full strength! Take the other of my prized Pokémon. You have earned it.",
+  "rewardMoney": 1125,
+  "party": [
+   {
+    "species": "primeape",
+    "level": 40
+   },
+   {
+    "species": "poliwrath",
+    "level": 41
+   },
+   {
+    "species": "machamp",
+    "level": 42
+   },
+   {
+    "species": "hitmonchan",
+    "level": 45,
+    "moves": [
+     "fire_punch",
+     "ice_punch",
+     "thunder_punch",
+     "sky_uppercut"
+    ]
+   },
+   {
+    "species": "hitmonlee",
+    "level": 45
    }
   ]
  }

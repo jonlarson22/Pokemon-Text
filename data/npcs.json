@@ -1294,5 +1294,89 @@
   "dialogue_req_unmet": "",
   "dialogue_post_flag": "",
   "req_flag_to_appear": "earth_badge"
+ },
+ "dojo_prize_hitmonlee_r1": {
+  "name": "Prize Ball: Hitmonlee",
+  "dialogue_default": "[DRAFT] A Poké Ball holding HITMONLEE, one of the Karate Master's prized Pokémon. Take it? (Choose wisely -- you may only take one for now. The other awaits a rematch.)",
+  "dialogue_repeat": "The Hitmonlee is yours. The master awaits your rematch for the other.",
+  "req_flag_to_appear": "defeated_dojo_koichi",
+  "req_flag_to_disappear": "dojo_first_prize_claimed",
+  "once_flag": "claimed_hitmonlee",
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "hitmonlee",
+    "level": 30
+   },
+   {
+    "type": "flag",
+    "id": "claimed_hitmonlee"
+   },
+   {
+    "type": "flag",
+    "id": "dojo_first_prize_claimed"
+   }
+  ]
+ },
+ "dojo_prize_hitmonchan_r1": {
+  "name": "Prize Ball: Hitmonchan",
+  "dialogue_default": "[DRAFT] A Poké Ball holding HITMONCHAN, one of the Karate Master's prized Pokémon. Take it? (Choose wisely -- you may only take one for now. The other awaits a rematch.)",
+  "dialogue_repeat": "The Hitmonchan is yours. The master awaits your rematch for the other.",
+  "req_flag_to_appear": "defeated_dojo_koichi",
+  "req_flag_to_disappear": "dojo_first_prize_claimed",
+  "once_flag": "claimed_hitmonchan",
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "hitmonchan",
+    "level": 30
+   },
+   {
+    "type": "flag",
+    "id": "claimed_hitmonchan"
+   },
+   {
+    "type": "flag",
+    "id": "dojo_first_prize_claimed"
+   }
+  ]
+ },
+ "dojo_prize_hitmonlee_r2": {
+  "name": "Prize Ball: Hitmonlee",
+  "dialogue_default": "[DRAFT] The master's other prize: HITMONLEE. It's yours -- you earned it in the rematch.",
+  "dialogue_repeat": "The Hitmonlee is yours.",
+  "req_flag_to_appear": "defeated_dojo_koichi_rematch",
+  "req_flag_to_disappear": "claimed_hitmonlee",
+  "once_flag": "claimed_hitmonlee",
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "hitmonlee",
+    "level": 30
+   },
+   {
+    "type": "flag",
+    "id": "claimed_hitmonlee"
+   }
+  ]
+ },
+ "dojo_prize_hitmonchan_r2": {
+  "name": "Prize Ball: Hitmonchan",
+  "dialogue_default": "[DRAFT] The master's other prize: HITMONCHAN. It's yours -- you earned it in the rematch.",
+  "dialogue_repeat": "The Hitmonchan is yours.",
+  "req_flag_to_appear": "defeated_dojo_koichi_rematch",
+  "req_flag_to_disappear": "claimed_hitmonchan",
+  "once_flag": "claimed_hitmonchan",
+  "rewards": [
+   {
+    "type": "pokemon",
+    "id": "hitmonchan",
+    "level": 30
+   },
+   {
+    "type": "flag",
+    "id": "claimed_hitmonchan"
+   }
+  ]
  }
 }
