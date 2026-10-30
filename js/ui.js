@@ -569,7 +569,8 @@ renderRouteScreen() {
         return {
           id: key,
           pokedexNumber: data ? data.pokedexNumber : 999,
-          name: data ? data.name : key.toUpperCase()
+          name: data ? data.name : key.toUpperCase(),
+          types: data ? data.types : null
         };
       }).sort((a, b) => a.pokedexNumber - b.pokedexNumber);
 
@@ -577,7 +578,11 @@ renderRouteScreen() {
         const p = document.createElement('p');
         const isCaught = this.game.gameState.pokedex.caught[entry.id];
         const numStr = String(entry.pokedexNumber).padStart(3, '0');
-        p.textContent = `#${numStr} ${isCaught ? '🔴' : '⚫'} ${entry.name}`;
+        // Types print on caught entries only: a sighting tells you the
+        // species exists; catching it is what "registers" its data —
+        // the same gate the battle effectiveness hints use.
+        const typeStr = isCaught && entry.types ? ` — ${entry.types.join('/')}` : '';
+        p.textContent = `#${numStr} ${isCaught ? '🔴' : '⚫'} ${entry.name}${typeStr}`;
         content.appendChild(p);
       });
     }
@@ -591,7 +596,33 @@ renderRouteScreen() {
   refreshBattleMoveButtons() {
     const activeMon = this.game.gameState.party[0];
     const leadMoves = activeMon.moves;
-    
+
+    // Effectiveness hints (Sword/Shield rule): a species' matchup is
+    // "known" once you've encountered it in a PREVIOUS battle — the
+    // battle manager snapshots the dex at fight start, so the first
+    // encounter with any species is always unmarked. Damaging moves
+    // get ▲ super effective / ▼ resisted / ✕ immune, colored to match;
+    // status moves and neutral matchups stay unmarked.
+    const battle = this.game.gameState.activeBattle;
+    const enemy = battle && battle.enemyMon ? battle.enemyMon : null;
+    const knownSet = this.game.gameState.hintKnownSpecies;
+    const enemyKnown = !!(enemy && knownSet && knownSet.includes(String(enemy.species).toLowerCase()));
+    const chart = this.game.db.typeChart || {};
+    const effHint = (move) => {
+      if (!enemyKnown || !move.power) return null;
+      let mult = 1;
+      for (const t of enemy.types || []) {
+        const m = chart[String(move.type).toLowerCase()]?.[String(t).toLowerCase()];
+        mult *= (m === undefined ? 1 : m);
+      }
+      if (mult === 0) return { sym: '✕ ', color: '#999999' };
+      if (mult >= 4) return { sym: '▲▲ ', color: '#1e9e4a' };
+      if (mult > 1) return { sym: '▲ ', color: '#1e9e4a' };
+      if (mult <= 0.25) return { sym: '▼▼ ', color: '#d4820a' };
+      if (mult < 1) return { sym: '▼ ', color: '#d4820a' };
+      return null;
+    };
+
     for (let i = 0; i < 4; i++) {
       const btn = document.getElementById(`btn-move-${i}`);
       const move = leadMoves[i];
@@ -600,8 +631,10 @@ renderRouteScreen() {
         if (move) {
           // Fallback: If maxPp is undefined (like on Ember), use its base pp
           const maxPp = move.maxPp !== undefined ? move.maxPp : move.pp;
-          
-          btn.textContent = maxPp !== undefined ? `${move.name} (${move.pp}/${maxPp})` : move.name;
+          const hint = effHint(move);
+
+          btn.textContent = maxPp !== undefined ? `${hint ? hint.sym : ''}${move.name} (${move.pp}/${maxPp})` : move.name;
+          btn.style.color = hint ? hint.color : '';
 
           if (move.pp !== undefined && move.pp <= 0) {
             btn.disabled = true;
@@ -617,6 +650,7 @@ renderRouteScreen() {
         } else {
           // Handle Empty Move Slots
           btn.textContent = "(Empty Move)";
+          btn.style.color = "";
           btn.disabled = true;
           btn.style.opacity = "0.5";
           btn.onclick = null;

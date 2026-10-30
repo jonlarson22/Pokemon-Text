@@ -1260,6 +1260,10 @@ export class BattleManager {
   }
 
   startBattle(wildPokemonInfo) {
+    // Sword/Shield effectiveness-hint rule: snapshot the dex BEFORE this
+    // battle marks anything seen — hints in the move menu unlock for a
+    // species from its SECOND encounter onward, never the first.
+    this.game.gameState.hintKnownSpecies = Object.keys(this.game.gameState.pokedex.seen);
     const speciesKey = wildPokemonInfo.species.toLowerCase();
     this.game.gameState.pokedex.seen[speciesKey] = true;
     this.game.ui.updatePokedexTrackerUI();
@@ -1418,6 +1422,8 @@ export class BattleManager {
   }
 
 startTrainerBattle(enemyParty, trainer, winFlag = null) {
+    // Same hint snapshot as wild battles (before the party is marked seen).
+    this.game.gameState.hintKnownSpecies = Object.keys(this.game.gameState.pokedex.seen);
     const activeEnemyParty = Array.isArray(enemyParty) ? enemyParty : [enemyParty];
     
     activeEnemyParty.forEach(mon => {
