@@ -24,7 +24,7 @@
     "required_flags": [
      "soul_badge"
     ],
-    "blocked_message": "The open sea south of Pallet is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+    "blocked_message": "The open sea south of Pallet is too rough to cross without a Pokémon that knows Surf. (Requires the Soul Badge)"
    }
   },
   "req_flag": null,
@@ -4464,7 +4464,7 @@
     "required_flags": [
      "soul_badge"
     ],
-    "blocked_message": "The open sea is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+    "blocked_message": "The open sea is too rough to cross without a Pokémon that knows Surf. (Requires the Soul Badge)"
    }
   },
   "hasCenter": true
@@ -5516,7 +5516,7 @@
  },
  "cinnabar_island": {
   "name": "Cinnabar Island",
-  "description": "A volcanic island town. The Cinnabar Lab, the abandoned Pokemon Mansion, and Blaine's locked Gym dot the landscape.",
+  "description": "A volcanic island town. The Cinnabar Lab, the abandoned Pokémon Mansion, and Blaine's locked Gym dot the landscape.",
   "isTown": true,
   "connections": [
    "route20",
@@ -5596,7 +5596,7 @@
     "required_flags": [
      "soul_badge"
     ],
-    "blocked_message": "The open sea is too rough to cross without a Pokemon that knows Surf. (Requires the Soul Badge)"
+    "blocked_message": "The open sea is too rough to cross without a Pokémon that knows Surf. (Requires the Soul Badge)"
    }
   }
  },
@@ -5628,7 +5628,7 @@
  },
  "cinnabar_lab": {
   "name": "Cinnabar Lab",
-  "description": "The Pokemon Lab. Scientists here can resurrect fossils - and two of them are eager to trade.",
+  "description": "The Pokémon Lab. Scientists here can resurrect fossils - and two of them are eager to trade.",
   "isTown": false,
   "connections": [
    "cinnabar_island"
@@ -5654,7 +5654,7 @@
   }
  },
  "pokemon_mansion_1f": {
-  "name": "Pokemon Mansion - 1F",
+  "name": "Pokémon Mansion - 1F",
   "description": "The abandoned mansion's entrance hall. Dusty statues line the walls, and something scurries in the shadows.",
   "connections": [
    "cinnabar_island",
@@ -5743,7 +5743,7 @@
   "noFly": true
  },
  "pokemon_mansion_2f": {
-  "name": "Pokemon Mansion - 2F",
+  "name": "Pokémon Mansion - 2F",
   "description": "The mansion's second floor. A statue's hidden switch clicks somewhere in the dark...",
   "connections": [
    "pokemon_mansion_1f",
@@ -5826,7 +5826,7 @@
   "noFly": true
  },
  "pokemon_mansion_3f": {
-  "name": "Pokemon Mansion - 3F",
+  "name": "Pokémon Mansion - 3F",
   "description": "The top floor. A balcony overlooks the floors below - the only way down is to jump.",
   "connections": [
    "pokemon_mansion_2f",
@@ -5919,7 +5919,7 @@
   "noFly": true
  },
  "pokemon_mansion_b1f": {
-  "name": "Pokemon Mansion - B1F",
+  "name": "Pokémon Mansion - B1F",
   "description": "The mansion's basement lab. Journals describe terrible experiments... and something glints in the final room.",
   "connections": [
    "pokemon_mansion_3f"
@@ -6125,7 +6125,7 @@
   ]
  },
  "pokemon_tower_6f": {
-  "name": "Pokemon Tower 6F",
+  "name": "Pokémon Tower 6F",
   "description": "The top of the tower. A restless ghost wails near the stairs, and TEAM ROCKET grunts loiter by an old man's side.",
   "isTown": false,
   "connections": [
@@ -6184,7 +6184,7 @@
   "noFly": true
  },
  "pokemon_tower_4f": {
-  "name": "Pokemon Tower 4F",
+  "name": "Pokémon Tower 4F",
   "description": "The fourth floor. Channelers' chants echo off the walls, growing more frantic the higher you climb.",
   "connections": [
    "pokemon_tower_3f",
@@ -6253,7 +6253,7 @@
   "noFly": true
  },
  "pokemon_tower_5f": {
-  "name": "Pokemon Tower 5F",
+  "name": "Pokémon Tower 5F",
   "description": "The fifth floor. The veil between worlds feels thinnest here - ghostly wails drift up from below and down from above.",
   "connections": [
    "pokemon_tower_4f",
@@ -6620,7 +6620,7 @@
  },
  "victory_road_1f": {
   "name": "Victory Road - 1F",
-  "description": "The legendary gauntlet. Boulders, ladders, and the strongest wild Pokemon in Kanto guard the path to the Pokemon League.",
+  "description": "The legendary gauntlet. Boulders, ladders, and the strongest wild Pokémon in Kanto guard the path to the Pokémon League.",
   "connections": [
    "route23",
    "victory_road_2f"
@@ -6924,7 +6924,7 @@
  },
  "indigo_plateau": {
   "name": "Indigo Plateau",
-  "description": "The seat of the Pokemon League. A Pokemon Center and a well-stocked mart serve those about to face the Elite Four. The League gates stand to the north.",
+  "description": "The seat of the Pokémon League. A Pokémon Center and a well-stocked mart serve those about to face the Elite Four. The League gates stand to the north.",
   "connections": [
    "victory_road_3f",
    "elite_four_1"

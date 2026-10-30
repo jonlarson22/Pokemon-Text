@@ -1694,7 +1694,7 @@ async handleBattleEnd() {
   checkBlackout() {
     const isWiped = this.game.gameState.party.every(p => p.hp <= 0);
     if (isWiped) {
-      this.game.ui.printToLog("You hurried away to protect your Pokemon from further harm.");
+      this.game.ui.printToLog("You hurried away to protect your Pokémon from further harm.");
       // A blackout during a League challenge ends the run: the Elite
       // Four reset, and the gauntlet must be started over from Lorelei.
       if (this.game.hasFlag('league_run_active')) {
