@@ -192,19 +192,9 @@
  },
  "celadon_mansion_eevee": {
   "name": "Eevee Manager",
-  "dialogue_default": "I've been looking for someone to take these rare Pokémon off my hands. I have three EEVEEs — would you like them?",
+  "dialogue_default": "I've been looking for someone to take this rare Pokémon off my hands. I have an EEVEE — would you like it?",
   "requirements": [],
   "rewards": [
-   {
-    "type": "pokemon",
-    "id": "eevee",
-    "level": 25
-   },
-   {
-    "type": "pokemon",
-    "id": "eevee",
-    "level": 25
-   },
    {
     "type": "pokemon",
     "id": "eevee",
@@ -216,7 +206,7 @@
    }
   ],
   "dialogue_req_unmet": "",
-  "dialogue_post_flag": "Make sure you evolve your EEVEEs with the right stones to suit your team!",
+  "dialogue_post_flag": "Make sure you evolve your EEVEE with the right stone to suit your team!",
   "once_flag": "received_celadon_eevee"
  },
  "route4_magikarp_salesman": {

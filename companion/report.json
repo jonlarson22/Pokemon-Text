@@ -14,7 +14,6 @@
     "butterfree",
     "charizard",
     "charmeleon",
-    "clefable",
     "cloyster",
     "dragonair",
     "dragonite",
@@ -36,13 +35,11 @@
     "poliwrath",
     "primeape",
     "rapidash",
-    "starmie",
     "vaporeon",
     "venusaur",
     "victreebel",
     "vileplume",
-    "wartortle",
-    "wigglytuff"
+    "wartortle"
    ]
   },
   "routesVisited": "110/111",
@@ -60,7 +57,7 @@
    "oak_lab_prof_delivery",
    "oak_lab_champion"
   ],
-  "flagsEarned": 522,
+  "flagsEarned": 528,
   "badges": [
    "boulder_badge",
    "rainbow_badge",
