@@ -284,7 +284,7 @@
    "type": "teach_move",
    "move": "mega_punch"
   },
-  "price": 0,
+  "price": 1500,
   "description": "A powerful punch thrown with maximal force.",
   "move": "mega_punch"
  },
@@ -295,7 +295,7 @@
    "type": "teach_move",
    "move": "razor_wind"
   },
-  "price": 0,
+  "price": 1500,
   "description": "Razor-sharp winds slash at the foe.",
   "move": "razor_wind"
  },
@@ -328,7 +328,7 @@
    "type": "teach_move",
    "move": "mega_kick"
   },
-  "price": 0,
+  "price": 1500,
   "description": "A powerful kick thrown with maximal force.",
   "move": "mega_kick"
  },
@@ -350,7 +350,7 @@
    "type": "teach_move",
    "move": "horn_drill"
   },
-  "price": 0,
+  "price": 2000,
   "description": "A drilling attack that knocks out the foe in one hit if it lands.",
   "move": "horn_drill"
  },
@@ -372,7 +372,7 @@
    "type": "teach_move",
    "move": "take_down"
   },
-  "price": 0,
+  "price": 1500,
   "description": "A reckless charging attack that also hurts the user.",
   "move": "take_down"
  },
@@ -416,7 +416,7 @@
    "type": "teach_move",
    "move": "ice_beam"
   },
-  "price": 0,
+  "price": 3000,
   "description": "The foe is struck with an icy beam. It may freeze the foe solid.",
   "move": "ice_beam"
  },
@@ -460,7 +460,7 @@
    "type": "teach_move",
    "move": "submission"
   },
-  "price": 0,
+  "price": 1500,
   "description": "A reckless wrestling throw that also hurts the user.",
   "move": "submission"
  },
@@ -625,7 +625,7 @@
    "type": "teach_move",
    "move": "double_team"
   },
-  "price": 0,
+  "price": 1000,
   "description": "Moves create illusory copies to raise the user's evasiveness.",
   "move": "double_team"
  },
@@ -636,7 +636,7 @@
    "type": "teach_move",
    "move": "reflect"
   },
-  "price": 0,
+  "price": 1000,
   "description": "A wall of light cuts damage from physical attacks for five turns.",
   "move": "reflect"
  },
@@ -680,7 +680,7 @@
    "type": "teach_move",
    "move": "egg_bomb"
   },
-  "price": 0,
+  "price": 1500,
   "description": "A barrage of eggs is hurled at the foe.",
   "move": "egg_bomb"
  },
@@ -801,7 +801,7 @@
    "type": "teach_move",
    "move": "rock_slide"
   },
-  "price": 0,
+  "price": 2000,
   "description": "Large boulders are hurled at the foe.",
   "move": "rock_slide"
  },
@@ -812,7 +812,7 @@
    "type": "teach_move",
    "move": "tri_attack"
   },
-  "price": 0,
+  "price": 2000,
   "description": "A triple strike that may also burn, freeze, or paralyze the foe.",
   "move": "tri_attack"
  },
@@ -856,7 +856,7 @@
    "type": "teach_move",
    "move": "water_pulse"
   },
-  "price": 0,
+  "price": 2000,
   "description": "An attack with a pulsing blast of water. It may also confuse the foe.",
   "move": "water_pulse"
  },
@@ -955,7 +955,7 @@
    "type": "teach_move",
    "move": "light_screen"
   },
-  "price": 0,
+  "price": 1000,
   "description": "A wall of light cuts damage from Sp. Atk attacks for five turns.",
   "move": "light_screen"
  },
@@ -966,7 +966,7 @@
    "type": "teach_move",
    "move": "protect"
   },
-  "price": 0,
+  "price": 1500,
   "description": "Enables the user to evade all attacks. It may fail if used in succession.",
   "move": "protect"
  },
@@ -988,7 +988,7 @@
    "type": "teach_move",
    "move": "giga_drain"
   },
-  "price": 0,
+  "price": 3000,
   "description": "A harsh attack that absorbs half the damage it inflicted to restore HP.",
   "move": "giga_drain"
  },
@@ -999,7 +999,7 @@
    "type": "teach_move",
    "move": "safeguard"
   },
-  "price": 0,
+  "price": 1000,
   "description": "It protects the user's party from all status problems for five turns.",
   "move": "safeguard"
  },
@@ -1010,7 +1010,7 @@
    "type": "teach_move",
    "move": "frustration"
   },
-  "price": 0,
+  "price": 1000,
   "description": "A full-power attack that grows harsher the less the user likes its trainer.",
   "move": "frustration"
  },
@@ -1032,7 +1032,7 @@
    "type": "teach_move",
    "move": "return"
   },
-  "price": 0,
+  "price": 1000,
   "description": "An attack that builds power the more the user loves its trainer.",
   "move": "return"
  },
@@ -1098,7 +1098,7 @@
    "type": "teach_move",
    "move": "sandstorm"
   },
-  "price": 0,
+  "price": 1000,
   "description": "A 5-turn sandstorm buffets the battlefield, damaging non-rock/ground/steel types.",
   "move": "sandstorm"
  },
@@ -1153,7 +1153,7 @@
    "type": "teach_move",
    "move": "secret_power"
   },
-  "price": 0,
+  "price": 1000,
   "description": "An attack that has varying secondary effects depending on the environment.",
   "move": "secret_power"
  },
@@ -1164,7 +1164,7 @@
    "type": "teach_move",
    "move": "attract"
   },
-  "price": 0,
+  "price": 1500,
   "description": "Lowers the foe's Attack and Sp. Atk by one stage.",
   "move": "attract"
  },

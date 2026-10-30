@@ -120,7 +120,17 @@
   "soda_pop",
   "lemonade",
   "moon_stone",
-  "linking_cord"
+  "linking_cord",
+  "tm53",
+  "tm65",
+  "tm63",
+  "tm62",
+  "tm66",
+  "tm69",
+  "tm67",
+  "tm80",
+  "tm81",
+  "tm75"
  ],
  "celadon_game_corner_prizes": [
   {
@@ -185,6 +195,21 @@
    "key": "tm50",
    "kind": "item",
    "coinPrice": 7700
+  },
+  {
+   "key": "tm73",
+   "kind": "item",
+   "coinPrice": 4000
+  },
+  {
+   "key": "tm70",
+   "kind": "item",
+   "coinPrice": 4500
+  },
+  {
+   "key": "tm68",
+   "kind": "item",
+   "coinPrice": 3300
   }
  ]
 }

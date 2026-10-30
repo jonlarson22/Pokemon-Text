@@ -197,6 +197,11 @@
     "type": "item",
     "weight": 40,
     "item": "potion"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm42"
    }
   ]
  },
@@ -717,6 +722,11 @@
     "type": "item",
     "weight": 4,
     "item": "moon_stone"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm58"
    }
   ],
   "noFly": true
@@ -781,6 +791,11 @@
     "type": "item",
     "weight": 8,
     "item": "moon_stone"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm76"
    }
   ],
   "noFly": true,
@@ -929,6 +944,11 @@
     "type": "item",
     "weight": 30,
     "item": "rare_candy"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm28"
    }
   ]
  },
@@ -1099,6 +1119,11 @@
     "type": "item",
     "weight": 8,
     "item": "tm45"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm59"
    }
   ],
   "npcs": [
@@ -1215,6 +1240,11 @@
     "type": "item",
     "weight": 10,
     "item": "elixir"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm19"
    }
   ]
  },
@@ -1908,6 +1938,16 @@
     "type": "item",
     "weight": 15,
     "item": "stardust"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm71"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm08"
    }
   ],
   "noFly": true,
@@ -2455,6 +2495,11 @@
     "level": 30,
     "req_flag": "woke_snorlax_route12",
     "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm64"
    }
   ],
   "gate_requirements": {
@@ -2573,6 +2618,11 @@
     "type": "item",
     "weight": 5,
     "item": "max_elixir"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm72"
    }
   ]
  },
@@ -3192,6 +3242,11 @@
      "obtain_hm_01",
      "cascade_badge"
     ]
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm41"
    }
   ],
   "shopId": "celadon_dept_store",
@@ -3414,6 +3469,11 @@
    {
     "type": "nothing",
     "weight": 59
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm61"
    }
   ],
   "noFly": true
@@ -3480,6 +3540,11 @@
    {
     "type": "nothing",
     "weight": 57
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm83"
    }
   ],
   "noFly": true
@@ -3538,6 +3603,11 @@
    {
     "type": "nothing",
     "weight": 100
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm31"
    }
   ],
   "gate_requirements": {
@@ -3577,6 +3647,11 @@
    {
     "type": "nothing",
     "weight": 100
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm54"
    }
   ],
   "noFly": true
@@ -3768,6 +3843,11 @@
    {
     "type": "nothing",
     "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm51"
    }
   ],
   "noFly": true
@@ -3953,6 +4033,11 @@
    {
     "type": "nothing",
     "weight": 100
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm77"
    }
   ]
  },
@@ -4503,6 +4588,11 @@
    {
     "type": "nothing",
     "weight": 100
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm60"
    }
   ],
   "safari": true,
@@ -4915,6 +5005,11 @@
    {
     "type": "nothing",
     "weight": 54
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm55"
    }
   ]
  },
@@ -5197,6 +5292,11 @@
    {
     "type": "encounter",
     "weight": 50
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm56"
    }
   ],
   "noFly": true,
@@ -5628,6 +5728,11 @@
    {
     "type": "nothing",
     "weight": 100
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm35"
    }
   ],
   "noFly": true,
@@ -5721,6 +5826,11 @@
     "type": "item",
     "weight": 10,
     "item": "escape_rope"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm74"
    }
   ],
   "noFly": true
@@ -5804,6 +5914,11 @@
     "type": "item",
     "weight": 15,
     "item": "calcium"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm82"
    }
   ],
   "noFly": true
@@ -6162,6 +6277,11 @@
     "uncatchable": true,
     "win_flag": "calmed_marowak",
     "intro": "The SILPH SCOPE reveals the ghost... a furious MAROWAK, mother of CUBONE! It attacks!"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm79"
    }
   ],
   "noFly": true
@@ -6359,6 +6479,11 @@
    {
     "type": "nothing",
     "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm78"
    }
   ],
   "noFly": true
@@ -6410,6 +6535,11 @@
    {
     "type": "nothing",
     "weight": 60
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm57"
    }
   ],
   "noFly": true
@@ -6685,6 +6815,11 @@
     "type": "item",
     "weight": 7,
     "item": "full_heal"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm52"
    }
   ],
   "noFly": true,
@@ -6808,6 +6943,11 @@
     "type": "item",
     "weight": 3,
     "item": "guard_spec"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm84"
    }
   ],
   "noFly": true,
@@ -6907,6 +7047,11 @@
     "type": "item",
     "weight": 7,
     "item": "tm47"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "tm43"
    }
   ],
   "noFly": true
