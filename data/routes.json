@@ -726,17 +726,9 @@
   "description": "A deeper, darker subterranean level where rare fossils and Team Rocket lurk.",
   "connections": [
    "mt_moon_1f",
-   "route4",
    "mt_moon_b2f"
   ],
-  "gate_requirements": {
-   "route4": {
-    "required_flags": [
-     "defeated_super_nerd_miguel"
-    ],
-    "blocked_message": "You must defeat the guardian blocking the exit cave!"
-   }
-  },
+  "gate_requirements": {},
   "req_flag": null,
   "encounters": {
    "grass": [
@@ -769,7 +761,6 @@
   },
   "trainers": [
    "team_rocket_grunt_1",
-   "super_nerd_miguel",
    "team_rocket_grunt_mt_moon_2",
    "team_rocket_grunt_mt_moon_3",
    "team_rocket_grunt_mt_moon_4",
@@ -793,18 +784,13 @@
    }
   ],
   "noFly": true,
-  "npcs": [
-   "mt_moon_dome_fossil",
-   "mt_moon_helix_fossil",
-   "mt_moon_nerd_dome",
-   "mt_moon_nerd_helix"
-  ]
+  "npcs": []
  },
  "route4": {
   "name": "Route 4",
   "description": "A rocky path descending from Mt. Moon toward Cerulean City, featuring a Pokémon Center near the cave exit.",
   "connections": [
-   "mt_moon_b1f",
+   "mt_moon_b2f",
    "cerulean_city"
   ],
   "req_flag": null,
@@ -4978,7 +4964,8 @@
   "name": "Mt. Moon - B2F",
   "description": "The deepest level of Mt. Moon. Few trainers venture this far down, but rare items glitter in the dark.",
   "connections": [
-   "mt_moon_b1f"
+   "mt_moon_b1f",
+   "route4"
   ],
   "req_flag": null,
   "encounters": {
@@ -5010,7 +4997,9 @@
    ],
    "water": []
   },
-  "trainers": [],
+  "trainers": [
+   "super_nerd_miguel"
+  ],
   "explore_table": [
    {
     "type": "nothing",
@@ -5042,7 +5031,20 @@
    }
   ],
   "noFly": true,
-  "npcs": []
+  "npcs": [
+   "mt_moon_dome_fossil",
+   "mt_moon_helix_fossil",
+   "mt_moon_nerd_dome",
+   "mt_moon_nerd_helix"
+  ],
+  "gate_requirements": {
+   "route4": {
+    "required_flags": [
+     "defeated_super_nerd_miguel"
+    ],
+    "blocked_message": "You must defeat the guardian blocking the exit cave!"
+   }
+  }
  },
  "route19": {
   "name": "Route 19",
