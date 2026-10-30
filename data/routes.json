@@ -2111,6 +2111,11 @@
     "type": "item",
     "weight": 20,
     "item": "ether"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "hm06"
    }
   ],
   "npcs": [
@@ -5437,6 +5442,11 @@
     "type": "item",
     "weight": 10,
     "item": "max_elixir"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "hm07"
    }
   ],
   "noFly": true,
