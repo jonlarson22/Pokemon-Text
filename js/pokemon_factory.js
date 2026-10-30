@@ -196,6 +196,19 @@ export class PokemonFactory {
         const slot = mon.species === "RIVAL_CHAMP_EXTRA_A" ? 'A' : 'B';
         const pick = champExtras[this.engine.gameState.rivalStarter][slot];
         mon.species = pick[0];
+        // Round 2 (title held): same canon species, grown levels.
+        mon.level = this.engine.hasFlag('league_champion') ? (slot === 'A' ? 73 : 75) : pick[1];
+      }
+      if (mon.species === "RIVAL_CHAMP_FLEX") {
+        // Round-2-only flex slot: one pick tailored to counter the
+        // player's starter, keyed by the rival's starter as usual.
+        const champFlex = {
+          'bulbasaur': ['jolteon', 72],
+          'charmander': ['gengar', 72],
+          'squirtle': ['rhydon', 73],
+        };
+        const pick = champFlex[this.engine.gameState.rivalStarter];
+        mon.species = pick[0];
         mon.level = pick[1];
       }
     });

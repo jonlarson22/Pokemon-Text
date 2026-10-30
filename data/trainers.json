@@ -6262,7 +6262,34 @@
   ],
   "win_clear_flags": [
    "league_run_active"
-  ]
+  ],
+  "rematch_party": [
+   {
+    "species": "alakazam",
+    "level": 71
+   },
+   {
+    "species": "RIVAL_CHAMP_FLEX",
+    "level": 72
+   },
+   {
+    "species": "snorlax",
+    "level": 73
+   },
+   {
+    "species": "RIVAL_CHAMP_EXTRA_A",
+    "level": 73
+   },
+   {
+    "species": "RIVAL_CHAMP_EXTRA_B",
+    "level": 75
+   },
+   {
+    "species": "RIVAL_STARTER_STAGE_3",
+    "level": 77
+   }
+  ],
+  "rematch_rewardMoney": 7623
  },
  "rival_route22_rematch": {
   "name": "{rival}",
