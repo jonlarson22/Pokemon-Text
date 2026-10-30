@@ -137,6 +137,16 @@ export class PokemonFactory {
 
     const trainer = JSON.parse(JSON.stringify(trainerTemplate));
 
+    // Round-2 rematch teams: once the player holds the title, a trainer
+    // with a rematch_party (the Elite Four + Champion) fields that team
+    // and pays the rematch purse instead. Same trainer id, so the
+    // league's flag clearing / gauntlet / homecoming machinery is
+    // untouched — only the party and payout swap.
+    if (trainer.rematch_party && this.engine.hasFlag('league_champion')) {
+      trainer.party = trainer.rematch_party;
+      if (trainer.rematch_rewardMoney) trainer.rewardMoney = trainer.rematch_rewardMoney;
+    }
+
     trainer.party.forEach(mon => {
       if (mon.species === "RIVAL_STARTER") {
         mon.species = this.engine.gameState.rivalStarter;

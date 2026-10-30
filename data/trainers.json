@@ -6028,7 +6028,34 @@
     "species": "lapras",
     "level": 56
    }
-  ]
+  ],
+  "rematch_party": [
+   {
+    "species": "dewgong",
+    "level": 64
+   },
+   {
+    "species": "cloyster",
+    "level": 63
+   },
+   {
+    "species": "slowbro",
+    "level": 64
+   },
+   {
+    "species": "seadra",
+    "level": 65
+   },
+   {
+    "species": "jynx",
+    "level": 66
+   },
+   {
+    "species": "lapras",
+    "level": 68
+   }
+  ],
+  "rematch_rewardMoney": 6732
  },
  "elite_four_bruno": {
   "name": "Bruno",
@@ -6057,7 +6084,34 @@
     "species": "machamp",
     "level": 58
    }
-  ]
+  ],
+  "rematch_party": [
+   {
+    "species": "onix",
+    "level": 63
+   },
+   {
+    "species": "hitmonchan",
+    "level": 65
+   },
+   {
+    "species": "hitmonlee",
+    "level": 65
+   },
+   {
+    "species": "onix",
+    "level": 66
+   },
+   {
+    "species": "golem",
+    "level": 67
+   },
+   {
+    "species": "machamp",
+    "level": 70
+   }
+  ],
+  "rematch_rewardMoney": 6930
  },
  "elite_four_agatha": {
   "name": "Agatha",
@@ -6086,7 +6140,34 @@
     "species": "gengar",
     "level": 60
    }
-  ]
+  ],
+  "rematch_party": [
+   {
+    "species": "gengar",
+    "level": 66
+   },
+   {
+    "species": "golbat",
+    "level": 66
+   },
+   {
+    "species": "weezing",
+    "level": 66
+   },
+   {
+    "species": "muk",
+    "level": 67
+   },
+   {
+    "species": "arbok",
+    "level": 68
+   },
+   {
+    "species": "gengar",
+    "level": 70
+   }
+  ],
+  "rematch_rewardMoney": 6930
  },
  "elite_four_lance": {
   "name": "Lance",
@@ -6115,7 +6196,34 @@
     "species": "dragonite",
     "level": 62
    }
-  ]
+  ],
+  "rematch_party": [
+   {
+    "species": "gyarados",
+    "level": 68
+   },
+   {
+    "species": "kangaskhan",
+    "level": 69
+   },
+   {
+    "species": "charizard",
+    "level": 70
+   },
+   {
+    "species": "aerodactyl",
+    "level": 72
+   },
+   {
+    "species": "dragonite",
+    "level": 72
+   },
+   {
+    "species": "dragonite",
+    "level": 74
+   }
+  ],
+  "rematch_rewardMoney": 7326
  },
  "champion_rival": {
   "name": "{rival}",

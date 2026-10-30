@@ -266,12 +266,15 @@ class GameEngine {
         : this.ui.printToLog(`"${trainer.dialogueBefore}"`);
       if (r && r.then) await r;
 
-      // Generate the full party of Pokémon instances with custom moves/levels
-      const enemyParty = this.factory.generateTrainerParty(trainer);
+      // Generate the full party of Pokémon instances with custom moves/levels.
+      // Route through getDynamicTrainer so rival placeholders resolve and
+      // round-2 rematch parties (league_champion) apply here too.
+      const effectiveTrainer = this.factory.getDynamicTrainer(trainerId) || trainer;
+      const enemyParty = this.factory.generateTrainerParty(effectiveTrainer);
 
       this.gameState.activeTrainerId = trainerId;
       this.ui.setMenuState('battle');
-      this.battleManager.startTrainerBattle(enemyParty, trainer);
+      this.battleManager.startTrainerBattle(enemyParty, effectiveTrainer);
     } finally {
       this._inEncounter = false;
     }
