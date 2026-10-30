@@ -2,7 +2,7 @@
  "errors": [],
  "warnings": [],
  "stats": {
-  "staticChecks": 1685,
+  "staticChecks": 1695,
   "obtainability": {
    "verified": "151/151",
    "missing": [],
@@ -21,7 +21,6 @@
     "exeggutor",
     "flareon",
     "gengar",
-    "golduck",
     "golem",
     "gyarados",
     "ivysaur",
@@ -52,15 +51,16 @@
   ],
   "trainersFought": "305/305",
   "trainersUnfought": [],
-  "npcsTalked": "124/129",
+  "npcsTalked": "125/131",
   "npcsUntalked": [
    "celadon_clerk_tm18",
    "celadon_clerk_2",
    "tower_ghost_hint",
    "oak_lab_prof",
-   "oak_lab_prof_delivery"
+   "oak_lab_prof_delivery",
+   "oak_lab_champion"
   ],
-  "flagsEarned": 521,
+  "flagsEarned": 522,
   "badges": [
    "boulder_badge",
    "rainbow_badge",
@@ -72,7 +72,7 @@
    "earth_badge"
   ],
   "hofDone": true,
-  "mewTruck": true,
+  "mewTruck": false,
   "choicesSeen": 4,
   "passes": 7
  }

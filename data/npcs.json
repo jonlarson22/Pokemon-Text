@@ -318,7 +318,8 @@
   ],
   "dialogue_req_unmet": "",
   "dialogue_post_flag": "[DRAFT] Enjoy your cruise! The S.S. Anne leaves from Vermilion City.",
-  "once_flag": "obtain_ss_ticket"
+  "once_flag": "obtain_ss_ticket",
+  "req_flag_to_disappear": "earth_badge"
  },
  "pewter_museum_scientist": {
   "name": "Museum Scientist",
@@ -1277,6 +1278,30 @@
  "oak_lab_prof_after": {
   "name": "Prof. Oak",
   "dialogue_default": "Thanks again for the delivery, {player}! The road to Viridian Forest is open now.",
-  "req_flag_to_appear": "delivered_oaks_package"
+  "req_flag_to_appear": "delivered_oaks_package",
+  "req_flag_to_disappear": "earth_badge"
+ },
+ "bill_cape_sighting": {
+  "name": "Bill",
+  "dialogue_default": "[DRAFT] {player}! Perfect timing — eight badges! You'll believe me, then. Something's been appearing out on the cape behind my cottage. One second it's there, the next — poof! Gone! My sensors say it's a Pokémon, but no species in my database matches. The path's all tangled, but for you? I'll clear it. Go take a look — carefully!",
+  "requirements": [],
+  "rewards": [
+   {
+    "type": "flag",
+    "id": "bill_cape_tip"
+   }
+  ],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": "[DRAFT] Whatever's out on the cape, it's still slipping past my sensors. If anyone can find it, it's you!",
+  "req_flag_to_appear": "earth_badge"
+ },
+ "oak_lab_champion": {
+  "name": "Prof. Oak",
+  "dialogue_default": "[DRAFT] Ah, {player}! Eight badges — you've come a long way! Say — Bill up at the cape has been calling me daily. He swears a Pokémon nobody's ever recorded has been appearing near his cottage, then vanishing. Bill exaggerates... but his instruments don't. If it's real, it could be the rarest entry your Pokédex is missing. Pay him a visit, would you?",
+  "requirements": [],
+  "rewards": [],
+  "dialogue_req_unmet": "",
+  "dialogue_post_flag": "",
+  "req_flag_to_appear": "earth_badge"
  }
 }

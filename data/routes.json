@@ -1223,7 +1223,8 @@
   "description": "A cozy seaside home belonging to Kanto's eccentric Pokémon maniac, Bill.",
   "isTown": false,
   "connections": [
-   "route25"
+   "route25",
+   "cerulean_cape"
   ],
   "req_flag": null,
   "encounters": {
@@ -1232,7 +1233,8 @@
   },
   "trainers": [],
   "npcs": [
-   "bill_maniac"
+   "bill_maniac",
+   "bill_cape_sighting"
   ],
   "explore_table": [
    {
@@ -1240,7 +1242,15 @@
     "weight": 100
    }
   ],
-  "noFly": true
+  "noFly": true,
+  "gate_requirements": {
+   "cerulean_cape": {
+    "required_flags": [
+     "bill_cape_tip"
+    ],
+    "blocked_message": "A narrow path winds behind the cottage toward the cape, but the brush is thick and tangled. Bill would know if the way is passable."
+   }
+  }
  },
  "cerulean_cave_1f": {
   "name": "Cerulean Cave - 1F",
@@ -1686,7 +1696,7 @@
    "route6",
    "vermilion_city_gym",
    "pokemon_fan_club",
-   "vermilion_dock",
+   "ss_anne",
    "route11"
   ],
   "gate_requirements": {
@@ -1696,6 +1706,16 @@
      "cascade_badge"
     ],
     "blocked_message": "A small tree blocks the Gym entrance. It looks like it could be CUT down... (Requires Cut and the Cascade Badge.)"
+   },
+   "ss_anne": {
+    "required_flags": [
+     "obtain_ss_ticket"
+    ],
+    "blocked_flags": [
+     "ss_anne_departed"
+    ],
+    "blocked_message": "The sailor blocks the gangway. You need an S.S. Ticket to board the S.S. Anne!",
+    "departed_message": "The S.S. Anne has departed! Only calm water remains where the great ship was moored."
    }
   },
   "req_flag": null,
@@ -1741,7 +1761,8 @@
    "vermilion_fisher",
    "vermilion_tourist",
    "vermilion_dockworker",
-   "vermilion_trade_girl"
+   "vermilion_trade_girl",
+   "vermilion_dock_sailor"
   ],
   "explore_table": [
    {
@@ -1846,7 +1867,7 @@
   "description": "A luxurious cruise liner docked at Vermilion harbor. Passengers and sailors mingle on the sunlit main deck.",
   "isTown": false,
   "connections": [
-   "vermilion_dock",
+   "vermilion_city",
    "ss_anne_deck"
   ],
   "req_flag": null,
@@ -1981,87 +2002,6 @@
    }
   ],
   "noFly": true
- },
- "vermilion_dock": {
-  "name": "Vermilion City Dock",
-  "description": "The harbor dock where the S.S. Anne was moored. Only calm water and wheeling gulls remain. An old, rusted truck sits half-hidden behind some cargo crates.",
-  "isTown": false,
-  "connections": [
-   "vermilion_city",
-   "ss_anne"
-  ],
-  "encounters": {
-   "grass": [],
-   "water": [
-    {
-     "species": "Magikarp",
-     "min_level": 5,
-     "max_level": 5,
-     "weight": 25
-    },
-    {
-     "species": "Poliwag",
-     "min_level": 10,
-     "max_level": 10,
-     "weight": 20
-    },
-    {
-     "species": "Goldeen",
-     "min_level": 10,
-     "max_level": 10,
-     "weight": 20
-    },
-    {
-     "species": "Shellder",
-     "min_level": 15,
-     "max_level": 15,
-     "weight": 15
-    },
-    {
-     "species": "Krabby",
-     "min_level": 15,
-     "max_level": 15,
-     "weight": 15
-    }
-   ]
-  },
-  "trainers": [],
-  "explore_table": [
-   {
-    "type": "nothing",
-    "weight": 100
-   },
-   {
-    "type": "prompt_encounter",
-    "weight": 8,
-    "req_flag_count": {
-     "category": "gym_badges",
-     "qty": 8
-    },
-    "species": "mew",
-    "level": 30,
-    "prompt": "There's an old, rusted truck parked by the dock, half-hidden behind cargo crates. Something glints beneath it... Look underneath?",
-    "yes_label": "Look under the truck",
-    "no_label": "Leave it alone",
-    "decline": "You decide not to disturb whatever's under there.",
-    "intro": "You crouch and peer under the truck... two enormous blue eyes blink back at you! A wild MEW leaps out, crackling with psychic energy!"
-   }
-  ],
-  "gate_requirements": {
-   "ss_anne": {
-    "required_flags": [
-     "obtain_ss_ticket"
-    ],
-    "blocked_flags": [
-     "ss_anne_departed"
-    ],
-    "blocked_message": "The sailor blocks the gangway. You need an S.S. Ticket to board the S.S. Anne!",
-    "departed_message": "The S.S. Anne has departed! Only calm water remains where the great ship was moored."
-   }
-  },
-  "npcs": [
-   "vermilion_dock_sailor"
-  ]
  },
  "route9": {
   "name": "Route 9",
@@ -4561,7 +4501,8 @@
   "isTown": false,
   "safari": true,
   "connections": [
-   "safari_zone_center"
+   "safari_zone_center",
+   "safari_zone_north"
   ],
   "npcs": [],
   "trainers": [],
@@ -4694,7 +4635,9 @@
   "isTown": false,
   "safari": true,
   "connections": [
-   "safari_zone_center"
+   "safari_zone_center",
+   "safari_zone_east",
+   "safari_zone_west"
   ],
   "npcs": [],
   "trainers": [],
@@ -4812,7 +4755,8 @@
   "safari": true,
   "connections": [
    "safari_zone_center",
-   "safari_secret_house"
+   "safari_secret_house",
+   "safari_zone_north"
   ],
   "npcs": [],
   "trainers": [],
@@ -7197,13 +7141,135 @@
    "oak_lab_prof",
    "oak_lab_prof_delivery",
    "oak_lab_prof_after",
-   "oak_lab_aide"
+   "oak_lab_aide",
+   "oak_lab_champion"
   ],
   "trainers": [],
   "explore_table": [
    {
     "type": "nothing",
     "weight": 100
+   }
+  ]
+ },
+ "cerulean_cape": {
+  "name": "Cerulean Cape",
+  "description": "A windswept headland east of Bill's cottage, where the land gives out to open sea. The grass here grows thick and undisturbed, and locals whisper that impossible Pokémon sometimes appear in the mist.",
+  "isTown": false,
+  "connections": [
+   "bills_cottage"
+  ],
+  "req_flag": null,
+  "encounters": {
+   "grass": [
+    {
+     "species": "clefairy",
+     "min_level": 52,
+     "max_level": 57,
+     "weight": 20
+    },
+    {
+     "species": "tangela",
+     "min_level": 50,
+     "max_level": 56,
+     "weight": 18
+    },
+    {
+     "species": "jigglypuff",
+     "min_level": 50,
+     "max_level": 55,
+     "weight": 15
+    },
+    {
+     "species": "mr_mime",
+     "min_level": 50,
+     "max_level": 55,
+     "weight": 15
+    },
+    {
+     "species": "eevee",
+     "min_level": 48,
+     "max_level": 52,
+     "weight": 12
+    },
+    {
+     "species": "ditto",
+     "min_level": 50,
+     "max_level": 55,
+     "weight": 10
+    },
+    {
+     "species": "chansey",
+     "min_level": 53,
+     "max_level": 58,
+     "weight": 10
+    }
+   ],
+   "water": [
+    {
+     "species": "staryu",
+     "min_level": 40,
+     "max_level": 46,
+     "weight": 30
+    },
+    {
+     "species": "seadra",
+     "min_level": 42,
+     "max_level": 48,
+     "weight": 25
+    },
+    {
+     "species": "tentacruel",
+     "min_level": 42,
+     "max_level": 50,
+     "weight": 25
+    },
+    {
+     "species": "golduck",
+     "min_level": 42,
+     "max_level": 48,
+     "weight": 10
+    },
+    {
+     "species": "lapras",
+     "min_level": 45,
+     "max_level": 50,
+     "weight": 10
+    }
+   ]
+  },
+  "trainers": [],
+  "npcs": [],
+  "explore_table": [
+   {
+    "type": "nothing",
+    "weight": 25
+   },
+   {
+    "type": "encounter",
+    "weight": 35
+   },
+   {
+    "type": "static_encounter",
+    "weight": 25,
+    "species": "mew",
+    "level": 50,
+    "intro": "The mist parts for a heartbeat — a small pink Pokémon hovers over the grass, watching you with ancient, curious eyes... MEW!"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "ultra_ball"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "moon_stone"
+   },
+   {
+    "type": "item",
+    "weight": 5,
+    "item": "nugget"
    }
   ]
  }
