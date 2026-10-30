@@ -95,14 +95,18 @@
     "species": "geodude",
     "level": 12,
     "moves": [
-     "tackle"
+     "defense_curl",
+     "tackle",
+     "rock_throw"
     ]
    },
    {
     "species": "onix",
     "level": 14,
     "moves": [
-     "tackle"
+     "tackle",
+     "bind",
+     "rock_tomb"
     ]
    }
   ],
@@ -164,15 +168,19 @@
     "level": 18,
     "moves": [
      "tackle",
-     "water_gun"
+     "water_gun",
+     "rapid_spin",
+     "recover"
     ]
    },
    {
     "species": "starmie",
     "level": 21,
     "moves": [
-     "tackle",
-     "water_gun"
+     "water_pulse",
+     "rapid_spin",
+     "recover",
+     "swift"
     ]
    }
   ],
@@ -255,21 +263,29 @@
     "species": "voltorb",
     "level": 21,
     "moves": [
-     "tackle"
+     "tackle",
+     "spark",
+     "self_destruct"
     ]
    },
    {
     "species": "pikachu",
     "level": 18,
     "moves": [
-     "quick_attack"
+     "quick_attack",
+     "thunder_wave",
+     "shock_wave",
+     "double_team"
     ]
    },
    {
     "species": "raichu",
     "level": 24,
     "moves": [
-     "quick_attack"
+     "shock_wave",
+     "thunder_wave",
+     "quick_attack",
+     "double_team"
     ]
    }
   ],
@@ -301,35 +317,50 @@
     "species": "rhyhorn",
     "level": 45,
     "moves": [
-     "tackle"
+     "stomp",
+     "rock_blast",
+     "take_down",
+     "scary_face"
     ]
    },
    {
     "species": "dugtrio",
     "level": 42,
     "moves": [
-     "scratch"
+     "slash",
+     "magnitude",
+     "earthquake",
+     "dig"
     ]
    },
    {
     "species": "nidoqueen",
     "level": 44,
     "moves": [
-     "tackle"
+     "sludge_bomb",
+     "body_slam",
+     "double_kick",
+     "earthquake"
     ]
    },
    {
     "species": "nidoking",
     "level": 45,
     "moves": [
-     "tackle"
+     "thrash",
+     "megahorn",
+     "double_kick",
+     "poison_sting"
     ]
    },
    {
     "species": "rhydon",
     "level": 50,
     "moves": [
-     "tackle"
+     "earthquake",
+     "rock_blast",
+     "take_down",
+     "scary_face"
     ]
    }
   ],
@@ -695,18 +726,10 @@
     "species": "weezing",
     "level": 43,
     "moves": [
-     {
-      "moveId": "sludge"
-     },
-     {
-      "moveId": "smog"
-     },
-     {
-      "moveId": "toxic"
-     },
-     {
-      "moveId": "self_destruct"
-     }
+     "sludge_bomb",
+     "toxic",
+     "smokescreen",
+     "self_destruct"
     ]
    }
   ],
@@ -958,28 +981,40 @@
     "species": "growlithe",
     "level": 42,
     "moves": [
-     "ember"
+     "bite",
+     "roar",
+     "flamethrower",
+     "take_down"
     ]
    },
    {
     "species": "ponyta",
     "level": 40,
     "moves": [
-     "ember"
+     "ember",
+     "stomp",
+     "fire_spin",
+     "agility"
     ]
    },
    {
     "species": "rapidash",
     "level": 42,
     "moves": [
-     "ember"
+     "stomp",
+     "fire_spin",
+     "flamethrower",
+     "take_down"
     ]
    },
    {
     "species": "arcanine",
     "level": 47,
     "moves": [
-     "ember"
+     "bite",
+     "flamethrower",
+     "fire_blast",
+     "take_down"
     ]
    }
   ],
@@ -3870,7 +3905,13 @@
   "party": [
    {
     "species": "nidorino",
-    "level": 37
+    "level": 37,
+    "moves": [
+     "horn_attack",
+     "double_kick",
+     "poison_sting",
+     "fury_attack"
+    ]
    },
    {
     "species": "kangaskhan",
@@ -3882,7 +3923,13 @@
    },
    {
     "species": "nidoqueen",
-    "level": 41
+    "level": 41,
+    "moves": [
+     "sludge_bomb",
+     "body_slam",
+     "double_kick",
+     "earthquake"
+    ]
    }
   ]
  },
@@ -6014,19 +6061,43 @@
    },
    {
     "species": "cloyster",
-    "level": 53
+    "level": 53,
+    "moves": [
+     "ice_beam",
+     "surf",
+     "spike_cannon",
+     "protect"
+    ]
    },
    {
     "species": "slowbro",
-    "level": 54
+    "level": 54,
+    "moves": [
+     "surf",
+     "psychic",
+     "amnesia",
+     "yawn"
+    ]
    },
    {
     "species": "jynx",
-    "level": 56
+    "level": 56,
+    "moves": [
+     "ice_beam",
+     "psychic",
+     "lovely_kiss",
+     "fake_tears"
+    ]
    },
    {
     "species": "lapras",
-    "level": 56
+    "level": 56,
+    "moves": [
+     "ice_beam",
+     "surf",
+     "body_slam",
+     "confuse_ray"
+    ]
    }
   ],
   "rematch_party": [
@@ -6094,7 +6165,13 @@
    },
    {
     "species": "hitmonchan",
-    "level": 55
+    "level": 55,
+    "moves": [
+     "fire_punch",
+     "ice_punch",
+     "thunder_punch",
+     "sky_uppercut"
+    ]
    },
    {
     "species": "hitmonlee",
@@ -6106,7 +6183,13 @@
    },
    {
     "species": "machamp",
-    "level": 58
+    "level": 58,
+    "moves": [
+     "cross_chop",
+     "rock_slide",
+     "submission",
+     "vital_throw"
+    ]
    }
   ],
   "rematch_party": [
@@ -6158,7 +6241,13 @@
   "party": [
    {
     "species": "gengar",
-    "level": 56
+    "level": 56,
+    "moves": [
+     "hypnosis",
+     "dream_eater",
+     "shadow_ball",
+     "sludge_bomb"
+    ]
    },
    {
     "species": "golbat",
@@ -6166,15 +6255,33 @@
    },
    {
     "species": "haunter",
-    "level": 55
+    "level": 55,
+    "moves": [
+     "hypnosis",
+     "dream_eater",
+     "shadow_ball",
+     "curse"
+    ]
    },
    {
     "species": "arbok",
-    "level": 58
+    "level": 58,
+    "moves": [
+     "sludge_bomb",
+     "earthquake",
+     "glare",
+     "bite"
+    ]
    },
    {
     "species": "gengar",
-    "level": 60
+    "level": 60,
+    "moves": [
+     "hypnosis",
+     "shadow_ball",
+     "thunderbolt",
+     "destiny_bond"
+    ]
    }
   ],
   "rematch_party": [
@@ -6244,7 +6351,13 @@
   "party": [
    {
     "species": "gyarados",
-    "level": 58
+    "level": 58,
+    "moves": [
+     "hydro_pump",
+     "dragon_dance",
+     "earthquake",
+     "hyper_beam"
+    ]
    },
    {
     "species": "dragonair",
@@ -6326,19 +6439,79 @@
    },
    {
     "species": "rhydon",
-    "level": 61
+    "level": 61,
+    "moves": [
+     "earthquake",
+     "rock_slide",
+     "take_down",
+     "scary_face"
+    ]
    },
    {
     "species": "RIVAL_CHAMP_EXTRA_A",
-    "level": 61
+    "level": 61,
+    "movesBySpecies": {
+     "gyarados": [
+      "hydro_pump",
+      "dragon_dance",
+      "earthquake",
+      "hyper_beam"
+     ],
+     "arcanine": [
+      "flamethrower",
+      "extreme_speed",
+      "iron_tail",
+      "double_edge"
+     ],
+     "exeggutor": [
+      "psychic",
+      "giga_drain",
+      "hypnosis",
+      "egg_bomb"
+     ]
+    }
    },
    {
     "species": "RIVAL_CHAMP_EXTRA_B",
-    "level": 63
+    "level": 63,
+    "movesBySpecies": {
+     "gyarados": [
+      "hydro_pump",
+      "dragon_dance",
+      "earthquake",
+      "hyper_beam"
+     ],
+     "arcanine": [
+      "flamethrower",
+      "extreme_speed",
+      "iron_tail",
+      "double_edge"
+     ],
+     "exeggutor": [
+      "psychic",
+      "giga_drain",
+      "hypnosis",
+      "egg_bomb"
+     ]
+    }
    },
    {
     "species": "RIVAL_STARTER_STAGE_3",
-    "level": 65
+    "level": 65,
+    "movesBySpecies": {
+     "charizard": [
+      "flamethrower",
+      "dragon_claw",
+      "wing_attack",
+      "earthquake"
+     ],
+     "venusaur": [
+      "sludge_bomb",
+      "giga_drain",
+      "leech_seed",
+      "synthesis"
+     ]
+    }
    }
   ],
   "win_set_flags": [
@@ -6472,11 +6645,27 @@
    },
    {
     "species": "RIVAL_R22_EXTRA_A",
-    "level": 45
+    "level": 45,
+    "movesBySpecies": {
+     "gyarados": [
+      "hydro_pump",
+      "thrash",
+      "twister",
+      "bite"
+     ]
+    }
    },
    {
     "species": "RIVAL_R22_EXTRA_B",
-    "level": 47
+    "level": 47,
+    "movesBySpecies": {
+     "gyarados": [
+      "hydro_pump",
+      "thrash",
+      "twister",
+      "bite"
+     ]
+    }
    },
    {
     "species": "alakazam",

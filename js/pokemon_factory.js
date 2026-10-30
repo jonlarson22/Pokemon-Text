@@ -232,7 +232,12 @@ export class PokemonFactory {
     return (trainer.party || []).map(monData => {
       const enemyMon = this.generatePokemonInstance(monData.species, monData.level);
       if (monData.moves && monData.moves.length > 0) {
-        const customMoves = monData.moves.map(moveId => {
+        const customMoves = monData.moves.map(entry => {
+          // Two authored formats exist in trainers.json: plain move-id
+          // strings and legacy { moveId } objects (Erika/Sabrina/Koga's
+          // canon sets were written as objects and silently never fired
+          // until this normalization).
+          const moveId = typeof entry === 'string' ? entry : entry && entry.moveId;
           const moveDef = moveDb[moveId];
           if (!moveDef) return null;
           return { ...moveDef, maxPp: moveDef.pp, pp: moveDef.pp };
