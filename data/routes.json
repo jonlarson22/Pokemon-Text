@@ -2294,7 +2294,8 @@
    "route13"
   ],
   "npcs": [
-   "route12_angler"
+   "route12_angler",
+   "snorlax_route11"
   ],
   "trainers": [
    "route12_fisherman_1",
@@ -2449,7 +2450,15 @@
     "req_flag": "woke_snorlax_route12",
     "intro": "The awakened Snorlax lumbers toward you, ready to battle!"
    }
-  ]
+  ],
+  "gate_requirements": {
+   "route11": {
+    "required_flags": [
+     "woke_snorlax_route12"
+    ],
+    "blocked_message": "A huge sleeping Snorlax blocks the road! It won't budge..."
+   }
+  }
  },
  "power_plant": {
   "name": "Power Plant",

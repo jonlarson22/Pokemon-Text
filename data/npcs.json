@@ -406,7 +406,8 @@
   ],
   "dialogue_req_unmet": "A huge Snorlax is fast asleep at the east end of Route 11, blocking the road to Route 12. It won't budge... They say a certain flute's melody can wake sleeping Pokémon.",
   "dialogue_post_flag": "Snorlax is wide awake now, and seems eager to test its strength!",
-  "once_flag": "woke_snorlax_route12"
+  "once_flag": "woke_snorlax_route12",
+  "req_flag_to_disappear": "woke_snorlax_route12"
  },
  "lavender_fuji_nerd": {
   "name": "Super Nerd",

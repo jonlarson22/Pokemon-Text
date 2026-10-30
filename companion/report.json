@@ -2,7 +2,7 @@
  "errors": [],
  "warnings": [],
  "stats": {
-  "staticChecks": 1695,
+  "staticChecks": 1697,
   "obtainability": {
    "verified": "151/151",
    "missing": [],
@@ -57,7 +57,7 @@
    "oak_lab_prof_delivery",
    "oak_lab_champion"
   ],
-  "flagsEarned": 528,
+  "flagsEarned": 526,
   "badges": [
    "boulder_badge",
    "rainbow_badge",
