@@ -2457,6 +2457,12 @@
      "woke_snorlax_route12"
     ],
     "blocked_message": "A huge sleeping Snorlax blocks the road! It won't budge..."
+   },
+   "route13": {
+    "required_flags": [
+     "woke_snorlax_route12"
+    ],
+    "blocked_message": "A huge sleeping Snorlax blocks the road south! It won't budge..."
    }
   }
  },

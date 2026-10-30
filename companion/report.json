@@ -2,7 +2,7 @@
  "errors": [],
  "warnings": [],
  "stats": {
-  "staticChecks": 1697,
+  "staticChecks": 1698,
   "obtainability": {
    "verified": "151/151",
    "missing": [],
@@ -48,29 +48,30 @@
   ],
   "trainersFought": "305/305",
   "trainersUnfought": [],
-  "npcsTalked": "125/131",
+  "npcsTalked": "124/131",
   "npcsUntalked": [
    "celadon_clerk_tm18",
    "celadon_clerk_2",
+   "cinnabar_gym_door_unlocked",
    "tower_ghost_hint",
    "oak_lab_prof",
    "oak_lab_prof_delivery",
    "oak_lab_champion"
   ],
-  "flagsEarned": 526,
+  "flagsEarned": 523,
   "badges": [
    "boulder_badge",
    "rainbow_badge",
-   "soul_badge",
-   "volcano_badge",
    "cascade_badge",
    "thunder_badge",
+   "soul_badge",
    "marsh_badge",
+   "volcano_badge",
    "earth_badge"
   ],
   "hofDone": true,
   "mewTruck": false,
-  "choicesSeen": 4,
-  "passes": 7
+  "choicesSeen": 2,
+  "passes": 6
  }
 }
