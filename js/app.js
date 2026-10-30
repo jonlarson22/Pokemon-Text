@@ -356,6 +356,7 @@ class GameEngine {
           return "You searched the area but found nothing of interest.";
         }
         return { species: outcome.species, level: outcome.level, intro: outcome.intro,
+                 moves: outcome.moves || null,
                  uncatchable: !!outcome.uncatchable, win_flag: outcome.win_flag || null };
       }
       case "coins": {
@@ -392,6 +393,7 @@ class GameEngine {
           return "You searched the area but found nothing of interest.";
         }
         const battleSpec = { species: outcome.species, level: outcome.level,
+          moves: outcome.moves || null,
           uncatchable: !!outcome.uncatchable, win_flag: outcome.win_flag || null };
         return { choice: {
           prompt: outcome.prompt,

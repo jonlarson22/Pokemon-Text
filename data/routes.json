@@ -1507,7 +1507,13 @@
     "weight": 70,
     "species": "mewtwo",
     "level": 70,
-    "intro": "A powerful psychic presence overwhelms you... MEWTWO blocks your path!"
+    "intro": "A powerful psychic presence overwhelms you... MEWTWO blocks your path!",
+    "moves": [
+     "psychic",
+     "recover",
+     "swift",
+     "barrier"
+    ]
    },
    {
     "type": "item",
@@ -2525,7 +2531,13 @@
     "weight": 60,
     "species": "zapdos",
     "level": 50,
-    "intro": "A legendary bird crackling with electricity blocks your path... ZAPDOS!"
+    "intro": "A legendary bird crackling with electricity blocks your path... ZAPDOS!",
+    "moves": [
+     "thunderbolt",
+     "drill_peck",
+     "thunder_wave",
+     "agility"
+    ]
    },
    {
     "type": "item",
@@ -5458,7 +5470,13 @@
     "weight": 25,
     "species": "articuno",
     "level": 50,
-    "intro": "A legendary bird of ice regards you with piercing eyes... ARTICUNO!"
+    "intro": "A legendary bird of ice regards you with piercing eyes... ARTICUNO!",
+    "moves": [
+     "ice_beam",
+     "aerial_ace",
+     "mind_reader",
+     "agility"
+    ]
    },
    {
     "type": "item",
@@ -6763,7 +6781,13 @@
     "weight": 10,
     "species": "moltres",
     "level": 50,
-    "intro": "A legendary bird of fire blocks the path, wings wreathed in flame... MOLTRES!"
+    "intro": "A legendary bird of fire blocks the path, wings wreathed in flame... MOLTRES!",
+    "moves": [
+     "fire_blast",
+     "wing_attack",
+     "agility",
+     "endure"
+    ]
    },
    {
     "type": "item",

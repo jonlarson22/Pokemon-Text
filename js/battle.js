@@ -1275,6 +1275,17 @@ export class BattleManager {
       this.game.ui.printToLog("Error generating wild Pokémon stats!");
       return;
     }
+    // Scripted statics (the legendary birds, Mewtwo) can carry authored
+    // movesets in their encounter data — the level-up generator left
+    // Mewtwo with zero damaging moves. Unknown ids are skipped.
+    if (Array.isArray(wildPokemonInfo.moves) && wildPokemonInfo.moves.length) {
+      const custom = wildPokemonInfo.moves.map(entry => {
+        const moveId = typeof entry === 'string' ? entry : entry && entry.moveId;
+        const def = this.game.db.moves[moveId];
+        return def ? { ...def, maxPp: def.pp, pp: def.pp } : null;
+      }).filter(Boolean);
+      if (custom.length) enemyMon.moves = custom;
+    }
 
     this.game.ui.printToLog(`A wild ${enemyMon.species} (Lv. ${enemyMon.level}) appeared!`);
     
