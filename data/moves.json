@@ -3725,5 +3725,35 @@
    "chance": 100,
    "target": "enemy"
   }
+ },
+ "moonblast": {
+  "name": "Moonblast",
+  "type": "Fairy",
+  "category": "special",
+  "power": 95,
+  "accuracy": 100,
+  "pp": 15,
+  "secondaryEffect": {
+   "type": "stat",
+   "stat": "spAtk",
+   "stages": -1,
+   "target": "enemy",
+   "chance": 30
+  }
+ },
+ "flash_cannon": {
+  "name": "Flash Cannon",
+  "type": "Steel",
+  "category": "special",
+  "power": 80,
+  "accuracy": 100,
+  "pp": 10,
+  "secondaryEffect": {
+   "type": "stat",
+   "stat": "spDef",
+   "stages": -1,
+   "target": "enemy",
+   "chance": 10
+  }
  }
 }

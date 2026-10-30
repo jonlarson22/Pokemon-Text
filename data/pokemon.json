@@ -3447,6 +3447,10 @@
     "move": "light_screen"
    },
    {
+    "level": 43,
+    "move": "moonblast"
+   },
+   {
     "level": 45,
     "move": "meteor_mash"
    }
@@ -3550,6 +3554,10 @@
    {
     "level": 1,
     "move": "sing"
+   },
+   {
+    "level": 43,
+    "move": "moonblast"
    }
   ],
   "tmMoves": [
@@ -3877,6 +3885,10 @@
     "move": "mimic"
    },
    {
+    "level": 42,
+    "move": "moonblast"
+   },
+   {
     "level": 44,
     "move": "hyper_voice"
    }
@@ -3977,6 +3989,10 @@
    {
     "level": 1,
     "move": "sing"
+   },
+   {
+    "level": 42,
+    "move": "moonblast"
    }
   ],
   "tmMoves": [
@@ -8426,6 +8442,10 @@
     "move": "swift"
    },
    {
+    "level": 38,
+    "move": "flash_cannon"
+   },
+   {
     "level": 44,
     "move": "screech"
    },
@@ -8528,6 +8548,10 @@
    {
     "level": 44,
     "move": "tri_attack"
+   },
+   {
+    "level": 44,
+    "move": "flash_cannon"
    },
    {
     "level": 46,
@@ -12857,6 +12881,10 @@
    {
     "level": 47,
     "move": "baton_pass"
+   },
+   {
+    "level": 47,
+    "move": "moonblast"
    },
    {
     "level": 50,
