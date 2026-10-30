@@ -175,18 +175,6 @@ def run_checks():
     return out
 
 
-def bfs_distances():
-    dist = {"pallet_town": 0}
-    q = deque(["pallet_town"])
-    while q:
-        cur = q.popleft()
-        for nxt in ROUTES.get(cur, {}).get("connections", []):
-            if nxt in ROUTES and nxt not in dist:
-                dist[nxt] = dist[cur] + 1
-                q.append(nxt)
-    return dist
-
-
 # ---------------------------------------------------------------- pages
 def page_overview():
     st.title("Pokémon-Text Companion")
@@ -281,12 +269,39 @@ def page_encounters():
             st.write("No wild encounters — check the Obtainability page for gift/evolution sources.")
 
 
-def page_balance():
-    st.title("Balance")
-    dist = bfs_distances()
-    rows = []
+_LEVEL_STATS = None
+
+
+def place_level_stats():
+    """Per-place level stats, split by encounter zone: grass and water each
+    get (min, max, encounter-weighted mean over range midpoints); trainers
+    get (min, max, mean over every placed trainer's party, incl.
+    forced/arrival battles; count; money)."""
+    global _LEVEL_STATS
+    if _LEVEL_STATS is not None:
+        return _LEVEL_STATS
+    stats = {}
     for rid, r in ROUTES.items():
-        tids = r.get("trainers", [])
+        zones = {}
+        for zone_name in ("grass", "water"):
+            entries = ((r.get("encounters") or {}).get(zone_name)) or []
+            zmin = zmax = None
+            znum = zden = 0
+            for e in entries:
+                lo, hi = e.get("min_level"), e.get("max_level")
+                if lo is None or hi is None:
+                    continue
+                w = e.get("weight") or 10
+                zmin = lo if zmin is None else min(zmin, lo)
+                zmax = hi if zmax is None else max(zmax, hi)
+                znum += w * (lo + hi) / 2
+                zden += w
+            zones[zone_name] = (zmin, zmax, round(znum / zden, 1)) if zden else None
+        tids = list(r.get("trainers") or [])
+        for key in ("forced_battle", "enter_battle"):
+            b = r.get(key)
+            if b and b.get("trainer_id"):
+                tids.append(b["trainer_id"])
         levels, money = [], 0
         for tid in tids:
             t = TRAINERS.get(tid)
@@ -294,15 +309,39 @@ def page_balance():
                 continue
             levels += [m["level"] for m in t.get("party", [])]
             money += t.get("rewardMoney", 0)
-        if tids:
-            rows.append({"route": route_name(rid), "steps_from_pallet": dist.get(rid),
-                         "trainers": len(tids), "avg_level": round(sum(levels)/len(levels), 1) if levels else 0,
-                         "max_level": max(levels) if levels else 0, "money_available": money})
-    df = pd.DataFrame(rows).sort_values("steps_from_pallet")
-    st.subheader("Trainer strength by distance from Pallet Town")
-    st.caption("Distance = fewest connections from Pallet Town — a rough progression proxy.")
-    chart = df.dropna(subset=["steps_from_pallet"]).groupby("steps_from_pallet")["avg_level"].mean()
-    st.line_chart(chart)
+        trainers = (min(levels), max(levels),
+                    round(sum(levels) / len(levels), 1), len(tids), money) if levels else None
+        stats[rid] = {"grass": zones["grass"], "water": zones["water"],
+                      "trainers": trainers}
+    _LEVEL_STATS = stats
+    return stats
+
+
+def page_balance():
+    st.title("Balance")
+    stats = place_level_stats()
+    rows = []
+    for rid in ROUTES:
+        s = stats[rid]
+        row = {"Place": route_name(rid)}
+        if s["grass"]:
+            row["Grass min"], row["Grass max"], row["Grass avg"] = s["grass"]
+        if s["water"]:
+            row["Water min"], row["Water max"], row["Water avg"] = s["water"]
+        if s["trainers"]:
+            tmin, tmax, tavg, count, money = s["trainers"]
+            row["Trainers"] = count
+            row["Trainer min"], row["Trainer max"], row["Trainer avg"] = tmin, tmax, tavg
+            row["Money"] = money
+        if s["grass"] or s["water"] or s["trainers"]:
+            rows.append(row)
+    df = pd.DataFrame(rows)
+    df["_sort"] = df[["Trainer avg", "Grass avg", "Water avg"]].max(axis=1)
+    df = df.sort_values("_sort", na_position="last").drop(columns="_sort")
+    st.subheader("Levels by place")
+    st.caption("Averages are weighted by encounter rate (an entry's level is its range midpoint), "
+               "grass and water separately. Trainer avg covers every trainer placed in the place, "
+               "gym leaders and story battles included.")
     st.dataframe(df, width="stretch", hide_index=True)
     st.subheader("Gyms")
     grows = []
@@ -325,10 +364,11 @@ def _flag_label(f):
     return f.replace("_", " ").title()
 
 
-def _dot_for(route_ids, edges, font_size, show_flags, style_edges=False):
+def _dot_for(route_ids, edges, font_size, show_flags, style_edges=False, labels="gates"):
     lines = ["digraph {"]
     lines.append(f'  rankdir=LR; node [fontsize={font_size}, style=filled, fillcolor="#eef"];')
     lines.append(f'  edge [fontsize={max(7, font_size - 4)}];')
+    stats = place_level_stats() if labels == "levels" else {}
     for rid in route_ids:
         r = ROUTES[rid]
         shape = "box" if r.get("isTown") else "ellipse"
@@ -336,12 +376,22 @@ def _dot_for(route_ids, edges, font_size, show_flags, style_edges=False):
         battle = r.get("forced_battle") or r.get("enter_battle")
         color = "#f8d7da" if gated else "#eef"
         label = r.get("name", rid)
-        if battle:
-            color = "#ffe0b2"
-            tname = TRAINERS.get(battle.get("trainer_id"), {}).get("name", battle.get("trainer_id", ""))
-            label += f"\\n⚔ {tname.replace('{rival}', 'Rival')}"
-        if gated and show_flags:
-            label += f"\\n[{_flag_label(gated)}]"
+        if labels == "levels":
+            s = stats.get(rid) or {}
+            for zone_name in ("grass", "water"):
+                if s.get(zone_name):
+                    zmin, zmax, zavg = s[zone_name]
+                    label += f"\\n{zone_name.title()} {zmin}–{zmax} · avg {zavg}"
+            if s.get("trainers"):
+                tmin, tmax, tavg = s["trainers"][:3]
+                label += f"\\nTrainers {tmin}–{tmax} · avg {tavg}"
+        else:
+            if battle:
+                color = "#ffe0b2"
+                tname = TRAINERS.get(battle.get("trainer_id"), {}).get("name", battle.get("trainer_id", ""))
+                label += f"\\n⚔ {tname.replace('{rival}', 'Rival')}"
+            if gated and show_flags:
+                label += f"\\n[{_flag_label(gated)}]"
         lines.append(f'  "{rid}" [label="{label}", shape={shape}, fillcolor="{color}"];')
     for a, b in edges:
         attrs = "[dir=none]"
@@ -395,9 +445,13 @@ def page_map():
     st.title("Route map")
     st.caption("Boxes = towns/cities, ellipses = routes/interiors. **Orange ⚔ = a battle blocks the way** "
                "(forced/arrival battle, trainer named). **Red dashed link = gated connection**, labelled with "
-               "what it needs. Pink = whole place needs a flag. Grey dotted = asks for confirmation first.")
+               "what it needs. Pink = whole place needs a flag. Grey dotted = asks for confirmation first. "
+               "Node labels can switch to **Level ranges**: grass, water, and trainer min–max · average for each place.")
     view = st.radio("View", ["Focus on a place", "Towns & cities only", "Full Kanto"],
                     horizontal=True)
+    labels = st.radio("Node labels", ["Gates & battles", "Level ranges"],
+                      horizontal=True)
+    label_mode = "levels" if labels == "Level ranges" else "gates"
     font = st.slider("Label size", 8, 26, 14)
     show_flags = st.checkbox("Label gated routes with their flag", value=True)
     if view == "Focus on a place":
@@ -414,16 +468,16 @@ def page_map():
             frontier = (nxt & set(ROUTES.keys())) - keep
             keep |= frontier
         st.caption(f"{len(keep)} places within {hops} steps of {route_name(start)}.")
-        dot = _dot_for(keep, _direct_edges(keep), font, show_flags, style_edges=True)
+        dot = _dot_for(keep, _direct_edges(keep), font, show_flags, style_edges=True, labels=label_mode)
     elif view == "Towns & cities only":
         towns, edges = _town_edges()
         st.caption("Towns linked when a path through routes/interiors connects them. "
                    "Gate details live in the Focus and Full views.")
-        dot = _dot_for(towns, edges, font, show_flags)
+        dot = _dot_for(towns, edges, font, show_flags, labels=label_mode)
     else:
         st.caption("All of Kanto at once — bump the label size, or use Focus view for detail.")
         dot = _dot_for(set(ROUTES.keys()), _direct_edges(set(ROUTES.keys())), font, show_flags,
-                       style_edges=True)
+                       style_edges=True, labels=label_mode)
     st.graphviz_chart(dot, width="stretch")
 
 
