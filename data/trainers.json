@@ -6036,7 +6036,13 @@
    },
    {
     "species": "cloyster",
-    "level": 63
+    "level": 63,
+    "moves": [
+     "ice_beam",
+     "surf",
+     "spike_cannon",
+     "explosion"
+    ]
    },
    {
     "species": "slowbro",
@@ -6044,15 +6050,33 @@
    },
    {
     "species": "seadra",
-    "level": 65
+    "level": 65,
+    "moves": [
+     "hydro_pump",
+     "ice_beam",
+     "dragon_dance",
+     "twister"
+    ]
    },
    {
     "species": "jynx",
-    "level": 66
+    "level": 66,
+    "moves": [
+     "ice_beam",
+     "psychic",
+     "lovely_kiss",
+     "fake_tears"
+    ]
    },
    {
     "species": "lapras",
-    "level": 68
+    "level": 68,
+    "moves": [
+     "ice_beam",
+     "surf",
+     "thunderbolt",
+     "body_slam"
+    ]
    }
   ],
   "rematch_rewardMoney": 6732
@@ -6092,7 +6116,13 @@
    },
    {
     "species": "hitmonchan",
-    "level": 65
+    "level": 65,
+    "moves": [
+     "fire_punch",
+     "ice_punch",
+     "thunder_punch",
+     "sky_uppercut"
+    ]
    },
    {
     "species": "hitmonlee",
@@ -6108,7 +6138,13 @@
    },
    {
     "species": "machamp",
-    "level": 70
+    "level": 70,
+    "moves": [
+     "cross_chop",
+     "rock_slide",
+     "earthquake",
+     "submission"
+    ]
    }
   ],
   "rematch_rewardMoney": 6930
@@ -6144,7 +6180,13 @@
   "rematch_party": [
    {
     "species": "gengar",
-    "level": 66
+    "level": 66,
+    "moves": [
+     "hypnosis",
+     "dream_eater",
+     "shadow_ball",
+     "sludge_bomb"
+    ]
    },
    {
     "species": "golbat",
@@ -6152,19 +6194,43 @@
    },
    {
     "species": "weezing",
-    "level": 66
+    "level": 66,
+    "moves": [
+     "sludge_bomb",
+     "toxic",
+     "fire_blast",
+     "explosion"
+    ]
    },
    {
     "species": "muk",
-    "level": 67
+    "level": 67,
+    "moves": [
+     "sludge_bomb",
+     "screech",
+     "acid_armor",
+     "brick_break"
+    ]
    },
    {
     "species": "arbok",
-    "level": 68
+    "level": 68,
+    "moves": [
+     "sludge_bomb",
+     "earthquake",
+     "glare",
+     "bite"
+    ]
    },
    {
     "species": "gengar",
-    "level": 70
+    "level": 70,
+    "moves": [
+     "hypnosis",
+     "shadow_ball",
+     "thunderbolt",
+     "destiny_bond"
+    ]
    }
   ],
   "rematch_rewardMoney": 6930
@@ -6200,15 +6266,33 @@
   "rematch_party": [
    {
     "species": "gyarados",
-    "level": 68
+    "level": 68,
+    "moves": [
+     "hydro_pump",
+     "dragon_dance",
+     "earthquake",
+     "hyper_beam"
+    ]
    },
    {
     "species": "kangaskhan",
-    "level": 69
+    "level": 69,
+    "moves": [
+     "double_edge",
+     "earthquake",
+     "rock_slide",
+     "reversal"
+    ]
    },
    {
     "species": "charizard",
-    "level": 70
+    "level": 70,
+    "moves": [
+     "fire_blast",
+     "dragon_claw",
+     "wing_attack",
+     "earthquake"
+    ]
    },
    {
     "species": "aerodactyl",
@@ -6270,23 +6354,103 @@
    },
    {
     "species": "RIVAL_CHAMP_FLEX",
-    "level": 72
+    "level": 72,
+    "movesBySpecies": {
+     "gengar": [
+      "hypnosis",
+      "dream_eater",
+      "shadow_ball",
+      "thunderbolt"
+     ],
+     "rhydon": [
+      "earthquake",
+      "rock_slide",
+      "megahorn",
+      "double_edge"
+     ],
+     "jolteon": [
+      "thunderbolt",
+      "thunder_wave",
+      "pin_missile",
+      "quick_attack"
+     ]
+    }
    },
    {
     "species": "snorlax",
-    "level": 73
+    "level": 73,
+    "moves": [
+     "body_slam",
+     "rest",
+     "sleep_talk",
+     "earthquake"
+    ]
    },
    {
     "species": "RIVAL_CHAMP_EXTRA_A",
-    "level": 73
+    "level": 73,
+    "movesBySpecies": {
+     "gyarados": [
+      "hydro_pump",
+      "dragon_dance",
+      "earthquake",
+      "hyper_beam"
+     ],
+     "exeggutor": [
+      "psychic",
+      "giga_drain",
+      "hypnosis",
+      "egg_bomb"
+     ],
+     "arcanine": [
+      "fire_blast",
+      "extreme_speed",
+      "iron_tail",
+      "double_edge"
+     ]
+    }
    },
    {
     "species": "RIVAL_CHAMP_EXTRA_B",
-    "level": 75
+    "level": 75,
+    "movesBySpecies": {
+     "gyarados": [
+      "hydro_pump",
+      "dragon_dance",
+      "earthquake",
+      "hyper_beam"
+     ],
+     "exeggutor": [
+      "psychic",
+      "giga_drain",
+      "hypnosis",
+      "egg_bomb"
+     ],
+     "arcanine": [
+      "fire_blast",
+      "extreme_speed",
+      "iron_tail",
+      "double_edge"
+     ]
+    }
    },
    {
     "species": "RIVAL_STARTER_STAGE_3",
-    "level": 77
+    "level": 77,
+    "movesBySpecies": {
+     "venusaur": [
+      "sludge_bomb",
+      "giga_drain",
+      "leech_seed",
+      "synthesis"
+     ],
+     "charizard": [
+      "fire_blast",
+      "dragon_claw",
+      "wing_attack",
+      "earthquake"
+     ]
+    }
    }
   ],
   "rematch_rewardMoney": 7623

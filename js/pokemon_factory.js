@@ -211,6 +211,13 @@ export class PokemonFactory {
         mon.species = pick[0];
         mon.level = pick[1];
       }
+      // Placeholder slots resolve to different species per starter, so a
+      // single party entry can't carry one fixed set: entries may carry
+      // movesBySpecies, applied here once the species is known (used by
+      // the Champion's flex / extras / starter slots).
+      if (mon.movesBySpecies && mon.movesBySpecies[mon.species]) {
+        mon.moves = mon.movesBySpecies[mon.species];
+      }
     });
 
     return trainer;  
