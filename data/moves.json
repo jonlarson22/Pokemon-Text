@@ -972,14 +972,6 @@
   "accuracy": 100,
   "pp": 20
  },
- "faint_attack": {
-  "name": "Feint Attack",
-  "type": "Dark",
-  "category": "physical",
-  "power": 60,
-  "accuracy": null,
-  "pp": 20
- },
  "fake_out": {
   "name": "Fake Out",
   "type": "Normal",

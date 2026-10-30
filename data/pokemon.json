@@ -1344,6 +1344,10 @@
     "move": "agility"
    },
    {
+    "level": 38,
+    "move": "x_scissor"
+   },
+   {
     "level": 45,
     "move": "endeavor"
    }
@@ -1817,6 +1821,10 @@
    {
     "level": 30,
     "move": "pursuit"
+   },
+   {
+    "level": 34,
+    "move": "feint_attack"
    },
    {
     "level": 40,
@@ -3423,6 +3431,10 @@
     "move": "metronome"
    },
    {
+    "level": 29,
+    "move": "sweet_kiss"
+   },
+   {
     "level": 33,
     "move": "cosmic_power"
    },
@@ -3843,6 +3855,10 @@
    {
     "level": 24,
     "move": "double_slap"
+   },
+   {
+    "level": 24,
+    "move": "sweet_kiss"
    },
    {
     "level": 29,
@@ -4668,6 +4684,10 @@
    {
     "level": 43,
     "move": "growth"
+   },
+   {
+    "level": 46,
+    "move": "leaf_blade"
    },
    {
     "level": 51,
@@ -5971,6 +5991,10 @@
     "move": "take_down"
    },
    {
+    "level": 44,
+    "move": "flare_blitz"
+   },
+   {
     "level": 49,
     "move": "extreme_speed"
    }
@@ -7256,6 +7280,10 @@
    {
     "level": 15,
     "move": "poison_powder"
+   },
+   {
+    "level": 40,
+    "move": "leaf_blade"
    }
   ],
   "tmMoves": [
@@ -7795,6 +7823,10 @@
     "move": "rollout"
    },
    {
+    "level": 33,
+    "move": "rock_polish"
+   },
+   {
     "level": 36,
     "move": "earthquake"
    },
@@ -8015,6 +8047,10 @@
    {
     "level": 40,
     "move": "fury_attack"
+   },
+   {
+    "level": 47,
+    "move": "flare_blitz"
    },
    {
     "level": 50,
@@ -8257,6 +8293,10 @@
     "move": "psychic"
    },
    {
+    "level": 44,
+    "move": "aqua_ring"
+   },
+   {
     "level": 55,
     "move": "psych_up"
    }
@@ -8482,6 +8522,10 @@
     "move": "lock_on"
    },
    {
+    "level": 40,
+    "move": "discharge"
+   },
+   {
     "level": 44,
     "move": "tri_attack"
    },
@@ -8586,6 +8630,10 @@
    {
     "level": 39,
     "move": "slash"
+   },
+   {
+    "level": 40,
+    "move": "leaf_blade"
    },
    {
     "level": 46,
@@ -9172,6 +9220,10 @@
    {
     "level": 34,
     "move": "acid_armor"
+   },
+   {
+    "level": 40,
+    "move": "feint_attack"
    },
    {
     "level": 47,
@@ -9816,6 +9868,10 @@
    {
     "level": 34,
     "move": "sandstorm"
+   },
+   {
+    "level": 38,
+    "move": "rock_polish"
    },
    {
     "level": 45,
@@ -11684,6 +11740,10 @@
     "move": "horn_drill"
    },
    {
+    "level": 42,
+    "move": "rock_polish"
+   },
+   {
     "level": 46,
     "move": "take_down"
    },
@@ -12918,6 +12978,10 @@
     "move": "swords_dance"
    },
    {
+    "level": 41,
+    "move": "x_scissor"
+   },
+   {
     "level": 46,
     "move": "fury_cutter"
    }
@@ -13128,6 +13192,10 @@
     "move": "screech"
    },
    {
+    "level": 43,
+    "move": "discharge"
+   },
+   {
     "level": 47,
     "move": "thunderbolt"
    },
@@ -13229,6 +13297,10 @@
    {
     "level": 33,
     "move": "sunny_day"
+   },
+   {
+    "level": 36,
+    "move": "lava_plume"
    },
    {
     "level": 39,
@@ -13336,6 +13408,10 @@
    {
     "level": 31,
     "move": "brick_break"
+   },
+   {
+    "level": 37,
+    "move": "x_scissor"
    },
    {
     "level": 43,
@@ -13713,6 +13789,10 @@
     "move": "rain_dance"
    },
    {
+    "level": 41,
+    "move": "aqua_ring"
+   },
+   {
     "level": 43,
     "move": "safeguard"
    },
@@ -13965,6 +14045,10 @@
     "move": "aurora_beam"
    },
    {
+    "level": 36,
+    "move": "aqua_ring"
+   },
+   {
     "level": 42,
     "move": "acid_armor"
    },
@@ -14190,6 +14274,10 @@
    {
     "level": 52,
     "move": "flamethrower"
+   },
+   {
+    "level": 58,
+    "move": "flare_blitz"
    }
   ],
   "tmMoves": [
